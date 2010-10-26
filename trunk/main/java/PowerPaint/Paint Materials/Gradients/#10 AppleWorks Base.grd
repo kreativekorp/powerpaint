@@ -1,0 +1,91 @@
+Simple Linear
+$Lin 0.0,0.5 1.0,0.5
+
+Reverse Linear
+$Lin 1.0,0.5 0.0,0.5
+
+Reflected Linear
+$Lin 0.0,0.5 1.0,0.5 Ref
+
+Simple Vertical
+$Lin 0.5,0.0 0.5,1.0
+
+Reverse Vertical
+$Lin 0.5,1.0 0.5,0.0
+
+Reflected Vertical
+$Lin 0.5,0.0 0.5,1.0 Ref
+
+Simple Reflected Angular
+$Ang 0.5,0.5 1.0,0.5 Ref
+
+Reverse Reflected Angular
+$Ang 0.5,0.5 0.0,0.5 Ref
+
+Simple Rectangular
+$Rec 0.5,0.5 0.5,0.5 0.0,0.0 1.0,1.0
+
+Reverse Rectangular
+$Rec 0.0,0.0 1.0,1.0 0.5,0.5 0.5,0.5
+
+Diagonal TLBR
+$Lin 0.0,0.0 1.0,1.0
+
+Diagonal BLTR
+$Lin 0.0,1.0 1.0,0.0
+
+Diagonal TRBL
+$Lin 1.0,0.0 0.0,1.0
+
+Diagonal BRTL
+$Lin 1.0,1.0 0.0,0.0
+
+Rectangular BR
+$Rec 0.0,0.0 1.0,1.0 0.8,0.8 0.8,0.8
+
+Rectangular TR
+$Rec 0.0,0.0 1.0,1.0 0.8,0.2 0.8,0.2
+
+Rectangular BL
+$Rec 0.0,0.0 1.0,1.0 0.2,0.8 0.2,0.8
+
+Rectangular TL
+$Rec 0.0,0.0 1.0,1.0 0.2,0.2 0.2,0.2
+
+Black to White
+@0.0 0,0,0
+@1.0 65535,65535,65535
+
+AppleWorks Blue
+@0.0 0,0,52428
+@1.0 52428,52428,65535
+
+AppleWorks Aqua
+@0.0 0,52428,52428
+@1.0 52428,65535,65535
+
+AppleWorks Green
+@0.0 0,52428,0
+@1.0 52428,65535,52428
+
+AppleWorks Yellow
+@0.0 52428,52428,0
+@1.0 65535,65535,52428
+
+AppleWorks Red
+@0.0 52428,0,0
+@1.0 65535,52428,52428
+
+AppleWorks Purple
+@0.0 52428,0,52428
+@1.0 65535,52428,65535
+
+AppleWorks Gray
+@0.0 34952,34952,34952
+@1.0 65535,65535,65535
+
+AppleWorks Double Gray
+@0.0 34952,34952,34952
+@0.333333 56797,56797,56797
+@0.666667 34952,34952,34952
+@1.0 61166,61166,61166

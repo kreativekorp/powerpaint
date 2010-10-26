@@ -1,0 +1,158 @@
+size	0	169,145
+sizeh	0	289,73
+sizesq	0	169,145
+sizev	0	73,289
+name	0	"NTSC (Wilt)"
+.define	white	#FEFFFE
+.define	gray	#B2B3B2
+.define	yellow	#AFB200
+.define	cyan	#00B1AC
+.define	green	#00AD00
+.define	magenta	#AC00AC
+.define	red	#AE0000
+.define	blue	#0000B5
+.define	i	#003249
+.define	q	#2D0071
+.define	pluge	#040504
+.define	black	#000000
+.define	superblack	#000000
+orient	0
+#Horizontal
+grid	0	1,2
+grid	0	7,1
+name	0	"NTSC Gray"
+rgb	[~_]	<gray>
+name	0	"NTSC Yellow"
+rgb	[~_]	<yellow>
+name	0	"NTSC Cyan"
+rgb	[~_]	<cyan>
+name	0	"NTSC Green"
+rgb	[~_]	<green>
+name	0	"NTSC Magenta"
+rgb	[~_]	<magenta>
+name	0	"NTSC Red"
+rgb	[~_]	<red>
+name	0	"NTSC Blue"
+rgb	[~_]	<blue>
+hdiv	0	5,1,1/7
+grid	0	4,1
+name	0	"NTSC I"
+rgb	[~_]	<i>
+name	0	"NTSC White"
+rgb	[~_]	<white>
+name	0	"NTSC Q"
+rgb	[~_]	<q>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+grid	0	3,1
+name	0	"NTSC Superblack"
+rgb	[~_]	<superblack>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+name	0	"NTSC Pluge"
+rgb	[~_]	<pluge>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+#Square
+vdiv	0	5,2,2,3/12
+grid	0	7,1
+name	0	"NTSC Gray"
+rgb	[~_]	<gray>
+name	0	"NTSC Yellow"
+rgb	[~_]	<yellow>
+name	0	"NTSC Cyan"
+rgb	[~_]	<cyan>
+name	0	"NTSC Green"
+rgb	[~_]	<green>
+name	0	"NTSC Magenta"
+rgb	[~_]	<magenta>
+name	0	"NTSC Red"
+rgb	[~_]	<red>
+name	0	"NTSC Blue"
+rgb	[~_]	<blue>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+grid	0	7,2
+name	0	"NTSC Gray"
+rgb	[~_]	<gray>
+name	0	"NTSC Yellow"
+rgb	[~_]	<yellow>
+name	0	"NTSC Cyan"
+rgb	[~_]	<cyan>
+name	0	"NTSC Green"
+rgb	[~_]	<green>
+name	0	"NTSC Magenta"
+rgb	[~_]	<magenta>
+name	0	"NTSC Red"
+rgb	[~_]	<red>
+name	0	"NTSC Blue"
+rgb	[~_]	<blue>
+name	0	"NTSC Blue"
+rgb	[~_]	<blue>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+name	0	"NTSC Magenta"
+rgb	[~_]	<magenta>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+name	0	"NTSC Cyan"
+rgb	[~_]	<cyan>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+name	0	"NTSC Gray"
+rgb	[~_]	<gray>
+hdiv	0	5,1,1/7
+grid	0	4,1
+name	0	"NTSC I"
+rgb	[~_]	<i>
+name	0	"NTSC White"
+rgb	[~_]	<white>
+name	0	"NTSC Q"
+rgb	[~_]	<q>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+grid	0	3,1
+name	0	"NTSC Superblack"
+rgb	[~_]	<superblack>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+name	0	"NTSC Pluge"
+rgb	[~_]	<pluge>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+#Vertical
+grid	0	2,1
+grid	0	1,7
+name	0	"NTSC Gray"
+rgb	[~_]	<gray>
+name	0	"NTSC Yellow"
+rgb	[~_]	<yellow>
+name	0	"NTSC Cyan"
+rgb	[~_]	<cyan>
+name	0	"NTSC Green"
+rgb	[~_]	<green>
+name	0	"NTSC Magenta"
+rgb	[~_]	<magenta>
+name	0	"NTSC Red"
+rgb	[~_]	<red>
+name	0	"NTSC Blue"
+rgb	[~_]	<blue>
+vdiv	0	5,1,1/7
+grid	0	1,4
+name	0	"NTSC I"
+rgb	[~_]	<i>
+name	0	"NTSC White"
+rgb	[~_]	<white>
+name	0	"NTSC Q"
+rgb	[~_]	<q>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+grid	0	1,3
+name	0	"NTSC Superblack"
+rgb	[~_]	<superblack>
+name	0	"NTSC Black"
+rgb	[~_]	<black>
+name	0	"NTSC Pluge"
+rgb	[~_]	<pluge>
+name	0	"NTSC Black"
+rgb	[~_]	<black>

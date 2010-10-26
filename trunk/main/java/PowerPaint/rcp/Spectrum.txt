@@ -1,0 +1,15 @@
+size	0	289,73
+sizeh	0	289,73
+sizesq	0	145,145
+sizev	0	73,289
+name	0	"Spectrum"
+orient	0
+grid	0	1,2
+hsvsw	[~]	X:H:0-255,Y:S:0-255,Z:V:255
+hsvsw	[_]	X:H:0-255,Y:V:255-0,Z:S:255
+grid	0	1,2
+hsvsw	[~]	X:H:0-255,Y:S:0-255,Z:V:255
+hsvsw	[_]	X:H:0-255,Y:V:255-0,Z:S:255
+grid	0	2,1
+hsvsw	[~_	X:S:0-255,Y:H:0-255,Z:V:255
+hsvsw	~_]	X:V:255-0,Y:H:0-255,Z:S:255

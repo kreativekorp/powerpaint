@@ -1,0 +1,25 @@
+<launch4jConfig>
+  <headerType>gui</headerType>
+  <outfile>../PowerPaint.exe</outfile>
+  <jar>../PowerPaint.jar</jar>
+  <errTitle>PowerPaint</errTitle>
+  <chdir>.</chdir>
+  <customProcName>true</customProcName>
+  <icon>PowerPaint.ico</icon>
+  <jre>
+    <minVersion>1.5.0</minVersion>
+    <maxHeapSize>1024</maxHeapSize>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0</txtFileVersion>
+    <fileDescription>PowerPaint</fileDescription>
+    <copyright>(C) 2010 Kreative Software</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0</txtProductVersion>
+    <productName>PowerPaint</productName>
+    <companyName>Kreative Software</companyName>
+    <internalName>PowerPaint</internalName>
+    <originalFilename>PowerPaint.exe</originalFilename>
+  </versionInfo>
+</launch4jConfig>

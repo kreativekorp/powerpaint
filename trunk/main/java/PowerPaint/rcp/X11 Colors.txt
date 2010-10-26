@@ -1,0 +1,3312 @@
+size	0	369,97
+sizeh	0	369,97
+sizesq	0	193,185
+sizev	0	97,369
+name	0	"X11 Colors"
+orient	0
+grid	0	46,12
+name	0	"Snow"
+rgb	[~_]	#FFFAFA
+name	0	"Ghost White"
+rgb	[~_]	#F8F8FF
+name	0	"White Smoke"
+rgb	[~_]	#F5F5F5
+name	0	"Gainsboro"
+rgb	[~_]	#DCDCDC
+name	0	"Floral White"
+rgb	[~_]	#FFFAF0
+name	0	"Old Lace"
+rgb	[~_]	#FDF5E6
+name	0	"Linen"
+rgb	[~_]	#FAF0E6
+name	0	"Antique White"
+rgb	[~_]	#FAEBD7
+name	0	"Papaya Whip"
+rgb	[~_]	#FFEFD5
+name	0	"Blanched Almond"
+rgb	[~_]	#FFEBCD
+name	0	"Bisque"
+rgb	[~_]	#FFE4C4
+name	0	"Peach Puff"
+rgb	[~_]	#FFDAB9
+name	0	"Navajo White"
+rgb	[~_]	#FFDEAD
+name	0	"Moccasin"
+rgb	[~_]	#FFE4B5
+name	0	"Cornsilk"
+rgb	[~_]	#FFF8DC
+name	0	"Ivory"
+rgb	[~_]	#FFFFF0
+name	0	"Lemon Chiffon"
+rgb	[~_]	#FFFACD
+name	0	"Seashell"
+rgb	[~_]	#FFF5EE
+name	0	"Honeydew"
+rgb	[~_]	#F0FFF0
+name	0	"Mint Cream"
+rgb	[~_]	#F5FFFA
+name	0	"Azure"
+rgb	[~_]	#F0FFFF
+name	0	"Alice Blue"
+rgb	[~_]	#F0F8FF
+name	0	"Lavender"
+rgb	[~_]	#E6E6FA
+name	0	"Lavender Blush"
+rgb	[~_]	#FFF0F5
+name	0	"Misty Rose"
+rgb	[~_]	#FFE4E1
+name	0	"White"
+rgb	[~_]	#FFFFFF
+name	0	"Black"
+rgb	[~_]	#000000
+name	0	"Dark Slate Gray"
+rgb	[~_]	#2F4F4F
+name	0	"Dim Gray"
+rgb	[~_]	#696969
+name	0	"Slate Gray"
+rgb	[~_]	#708090
+name	0	"Light Slate Gray"
+rgb	[~_]	#778899
+name	0	"Gray"
+rgb	[~_]	#BEBEBE
+name	0	"Light Gray"
+rgb	[~_]	#D3D3D3
+name	0	"Midnight Blue"
+rgb	[~_]	#191970
+name	0	"Navy"
+rgb	[~_]	#000080
+name	0	"Navy Blue"
+rgb	[~_]	#000080
+name	0	"Cornflower Blue"
+rgb	[~_]	#6495ED
+name	0	"Dark Slate Blue"
+rgb	[~_]	#483D8B
+name	0	"Slate Blue"
+rgb	[~_]	#6A5ACD
+name	0	"Medium Slate Blue"
+rgb	[~_]	#7B68EE
+name	0	"Light Slate Blue"
+rgb	[~_]	#8470FF
+name	0	"Medium Blue"
+rgb	[~_]	#0000CD
+name	0	"Royal Blue"
+rgb	[~_]	#4169E1
+name	0	"Blue"
+rgb	[~_]	#0000FF
+name	0	"Dodger Blue"
+rgb	[~_]	#1E90FF
+name	0	"Deep Sky Blue"
+rgb	[~_]	#00BFFF
+name	0	"Sky Blue"
+rgb	[~_]	#87CEEB
+name	0	"Light Sky Blue"
+rgb	[~_]	#87CEFA
+name	0	"Steel Blue"
+rgb	[~_]	#4682B4
+name	0	"Light Steel Blue"
+rgb	[~_]	#B0C4DE
+name	0	"Light Blue"
+rgb	[~_]	#ADD8E6
+name	0	"Powder Blue"
+rgb	[~_]	#B0E0E6
+name	0	"Pale Turquoise"
+rgb	[~_]	#AFEEEE
+name	0	"Dark Turquoise"
+rgb	[~_]	#00CED1
+name	0	"Medium Turquoise"
+rgb	[~_]	#48D1CC
+name	0	"Turquoise"
+rgb	[~_]	#40E0D0
+name	0	"Cyan"
+rgb	[~_]	#00FFFF
+name	0	"Light Cyan"
+rgb	[~_]	#E0FFFF
+name	0	"Cadet Blue"
+rgb	[~_]	#5F9EA0
+name	0	"Medium Aquamarine"
+rgb	[~_]	#66CDAA
+name	0	"Aquamarine"
+rgb	[~_]	#7FFFD4
+name	0	"Dark Green"
+rgb	[~_]	#006400
+name	0	"Dark Olive Green"
+rgb	[~_]	#556B2F
+name	0	"Dark Sea Green"
+rgb	[~_]	#8FBC8F
+name	0	"Sea Green"
+rgb	[~_]	#2E8B57
+name	0	"Medium Sea Green"
+rgb	[~_]	#3CB371
+name	0	"Light Sea Green"
+rgb	[~_]	#20B2AA
+name	0	"Pale Green"
+rgb	[~_]	#98FB98
+name	0	"Spring Green"
+rgb	[~_]	#00FF7F
+name	0	"Lawn Green"
+rgb	[~_]	#7CFC00
+name	0	"Green"
+rgb	[~_]	#00FF00
+name	0	"Chartreuse"
+rgb	[~_]	#7FFF00
+name	0	"Medium Spring Green"
+rgb	[~_]	#00FA9A
+name	0	"Green Yellow"
+rgb	[~_]	#ADFF2F
+name	0	"Lime Green"
+rgb	[~_]	#32CD32
+name	0	"Yellow Green"
+rgb	[~_]	#9ACD32
+name	0	"Forest Green"
+rgb	[~_]	#228B22
+name	0	"Olive Drab"
+rgb	[~_]	#6B8E23
+name	0	"Dark Khaki"
+rgb	[~_]	#BDB76B
+name	0	"Khaki"
+rgb	[~_]	#F0E68C
+name	0	"Pale Goldenrod"
+rgb	[~_]	#EEE8AA
+name	0	"Light Goldenrod Yellow"
+rgb	[~_]	#FAFAD2
+name	0	"Light Yellow"
+rgb	[~_]	#FFFFE0
+name	0	"Yellow"
+rgb	[~_]	#FFFF00
+name	0	"Gold"
+rgb	[~_]	#FFD700
+name	0	"Light Goldenrod"
+rgb	[~_]	#EEDD82
+name	0	"Goldenrod"
+rgb	[~_]	#DAA520
+name	0	"Dark Goldenrod"
+rgb	[~_]	#B8860B
+name	0	"Rosy Brown"
+rgb	[~_]	#BC8F8F
+name	0	"Indian Red"
+rgb	[~_]	#CD5C5C
+name	0	"Saddle Brown"
+rgb	[~_]	#8B4513
+name	0	"Sienna"
+rgb	[~_]	#A0522D
+name	0	"Peru"
+rgb	[~_]	#CD853F
+name	0	"Burlywood"
+rgb	[~_]	#DEB887
+name	0	"Beige"
+rgb	[~_]	#F5F5DC
+name	0	"Wheat"
+rgb	[~_]	#F5DEB3
+name	0	"Sandy Brown"
+rgb	[~_]	#F4A460
+name	0	"Tan"
+rgb	[~_]	#D2B48C
+name	0	"Chocolate"
+rgb	[~_]	#D2691E
+name	0	"Firebrick"
+rgb	[~_]	#B22222
+name	0	"Brown"
+rgb	[~_]	#A52A2A
+name	0	"Dark Salmon"
+rgb	[~_]	#E9967A
+name	0	"Salmon"
+rgb	[~_]	#FA8072
+name	0	"Light Salmon"
+rgb	[~_]	#FFA07A
+name	0	"Orange"
+rgb	[~_]	#FFA500
+name	0	"Dark Orange"
+rgb	[~_]	#FF8C00
+name	0	"Coral"
+rgb	[~_]	#FF7F50
+name	0	"Light Coral"
+rgb	[~_]	#F08080
+name	0	"Tomato"
+rgb	[~_]	#FF6347
+name	0	"Orange Red"
+rgb	[~_]	#FF4500
+name	0	"Red"
+rgb	[~_]	#FF0000
+name	0	"Hot Pink"
+rgb	[~_]	#FF69B4
+name	0	"Deep Pink"
+rgb	[~_]	#FF1493
+name	0	"Pink"
+rgb	[~_]	#FFC0CB
+name	0	"Light Pink"
+rgb	[~_]	#FFB6C1
+name	0	"Pale Violet Red"
+rgb	[~_]	#DB7093
+name	0	"Maroon"
+rgb	[~_]	#B03060
+name	0	"Medium Violet Red"
+rgb	[~_]	#C71585
+name	0	"Violet Red"
+rgb	[~_]	#D02090
+name	0	"Magenta"
+rgb	[~_]	#FF00FF
+name	0	"Violet"
+rgb	[~_]	#EE82EE
+name	0	"Plum"
+rgb	[~_]	#DDA0DD
+name	0	"Orchid"
+rgb	[~_]	#DA70D6
+name	0	"Medium Orchid"
+rgb	[~_]	#BA55D3
+name	0	"Dark Orchid"
+rgb	[~_]	#9932CC
+name	0	"Dark Violet"
+rgb	[~_]	#9400D3
+name	0	"Blue Violet"
+rgb	[~_]	#8A2BE2
+name	0	"Purple"
+rgb	[~_]	#A020F0
+name	0	"Medium Purple"
+rgb	[~_]	#9370DB
+name	0	"Thistle"
+rgb	[~_]	#D8BFD8
+name	0	"Snow 1"
+rgb	[~_]	#FFFAFA
+name	0	"Snow 2"
+rgb	[~_]	#EEE9E9
+name	0	"Snow 3"
+rgb	[~_]	#CDC9C9
+name	0	"Snow 4"
+rgb	[~_]	#8B8989
+name	0	"Seashell 1"
+rgb	[~_]	#FFF5EE
+name	0	"Seashell 2"
+rgb	[~_]	#EEE5DE
+name	0	"Seashell 3"
+rgb	[~_]	#CDC5BF
+name	0	"Seashell 4"
+rgb	[~_]	#8B8682
+name	0	"Antique White 1"
+rgb	[~_]	#FFEFDB
+name	0	"Antique White 2"
+rgb	[~_]	#EEDFCC
+name	0	"Antique White 3"
+rgb	[~_]	#CDC0B0
+name	0	"Antique White 4"
+rgb	[~_]	#8B8378
+name	0	"Bisque 1"
+rgb	[~_]	#FFE4C4
+name	0	"Bisque 2"
+rgb	[~_]	#EED5B7
+name	0	"Bisque 3"
+rgb	[~_]	#CDB79E
+name	0	"Bisque 4"
+rgb	[~_]	#8B7D6B
+name	0	"Peach Puff 1"
+rgb	[~_]	#FFDAB9
+name	0	"Peach Puff 2"
+rgb	[~_]	#EECBAD
+name	0	"Peach Puff 3"
+rgb	[~_]	#CDAF95
+name	0	"Peach Puff 4"
+rgb	[~_]	#8B7765
+name	0	"Navajo White 1"
+rgb	[~_]	#FFDEAD
+name	0	"Navajo White 2"
+rgb	[~_]	#EECFA1
+name	0	"Navajo White 3"
+rgb	[~_]	#CDB38B
+name	0	"Navajo White 4"
+rgb	[~_]	#8B795E
+name	0	"Lemon Chiffon 1"
+rgb	[~_]	#FFFACD
+name	0	"Lemon Chiffon 2"
+rgb	[~_]	#EEE9BF
+name	0	"Lemon Chiffon 3"
+rgb	[~_]	#CDC9A5
+name	0	"Lemon Chiffon 4"
+rgb	[~_]	#8B8970
+name	0	"Cornsilk 1"
+rgb	[~_]	#FFF8DC
+name	0	"Cornsilk 2"
+rgb	[~_]	#EEE8CD
+name	0	"Cornsilk 3"
+rgb	[~_]	#CDC8B1
+name	0	"Cornsilk 4"
+rgb	[~_]	#8B8878
+name	0	"Ivory 1"
+rgb	[~_]	#FFFFF0
+name	0	"Ivory 2"
+rgb	[~_]	#EEEEE0
+name	0	"Ivory 3"
+rgb	[~_]	#CDCDC1
+name	0	"Ivory 4"
+rgb	[~_]	#8B8B83
+name	0	"Honeydew 1"
+rgb	[~_]	#F0FFF0
+name	0	"Honeydew 2"
+rgb	[~_]	#E0EEE0
+name	0	"Honeydew 3"
+rgb	[~_]	#C1CDC1
+name	0	"Honeydew 4"
+rgb	[~_]	#838B83
+name	0	"Lavender Blush 1"
+rgb	[~_]	#FFF0F5
+name	0	"Lavender Blush 2"
+rgb	[~_]	#EEE0E5
+name	0	"Lavender Blush 3"
+rgb	[~_]	#CDC1C5
+name	0	"Lavender Blush 4"
+rgb	[~_]	#8B8386
+name	0	"Misty Rose 1"
+rgb	[~_]	#FFE4E1
+name	0	"Misty Rose 2"
+rgb	[~_]	#EED5D2
+name	0	"Misty Rose 3"
+rgb	[~_]	#CDB7B5
+name	0	"Misty Rose 4"
+rgb	[~_]	#8B7D7B
+name	0	"Azure 1"
+rgb	[~_]	#F0FFFF
+name	0	"Azure 2"
+rgb	[~_]	#E0EEEE
+name	0	"Azure 3"
+rgb	[~_]	#C1CDCD
+name	0	"Azure 4"
+rgb	[~_]	#838B8B
+name	0	"Slate Blue 1"
+rgb	[~_]	#836FFF
+name	0	"Slate Blue 2"
+rgb	[~_]	#7A67EE
+name	0	"Slate Blue 3"
+rgb	[~_]	#6959CD
+name	0	"Slate Blue 4"
+rgb	[~_]	#473C8B
+name	0	"Royal Blue 1"
+rgb	[~_]	#4876FF
+name	0	"Royal Blue 2"
+rgb	[~_]	#436EEE
+name	0	"Royal Blue 3"
+rgb	[~_]	#3A5FCD
+name	0	"Royal Blue 4"
+rgb	[~_]	#27408B
+name	0	"Blue 1"
+rgb	[~_]	#0000FF
+name	0	"Blue 2"
+rgb	[~_]	#0000EE
+name	0	"Blue 3"
+rgb	[~_]	#0000CD
+name	0	"Blue 4"
+rgb	[~_]	#00008B
+name	0	"Dodger Blue 1"
+rgb	[~_]	#1E90FF
+name	0	"Dodger Blue 2"
+rgb	[~_]	#1C86EE
+name	0	"Dodger Blue 3"
+rgb	[~_]	#1874CD
+name	0	"Dodger Blue 4"
+rgb	[~_]	#104E8B
+name	0	"Steel Blue 1"
+rgb	[~_]	#63B8FF
+name	0	"Steel Blue 2"
+rgb	[~_]	#5CACEE
+name	0	"Steel Blue 3"
+rgb	[~_]	#4F94CD
+name	0	"Steel Blue 4"
+rgb	[~_]	#36648B
+name	0	"Deep Sky Blue 1"
+rgb	[~_]	#00BFFF
+name	0	"Deep Sky Blue 2"
+rgb	[~_]	#00B2EE
+name	0	"Deep Sky Blue 3"
+rgb	[~_]	#009ACD
+name	0	"Deep Sky Blue 4"
+rgb	[~_]	#00688B
+name	0	"Sky Blue 1"
+rgb	[~_]	#87CEFF
+name	0	"Sky Blue 2"
+rgb	[~_]	#7EC0EE
+name	0	"Sky Blue 3"
+rgb	[~_]	#6CA6CD
+name	0	"Sky Blue 4"
+rgb	[~_]	#4A708B
+name	0	"Light Sky Blue 1"
+rgb	[~_]	#B0E2FF
+name	0	"Light Sky Blue 2"
+rgb	[~_]	#A4D3EE
+name	0	"Light Sky Blue 3"
+rgb	[~_]	#8DB6CD
+name	0	"Light Sky Blue 4"
+rgb	[~_]	#607B8B
+name	0	"Slate Gray 1"
+rgb	[~_]	#C6E2FF
+name	0	"Slate Gray 2"
+rgb	[~_]	#B9D3EE
+name	0	"Slate Gray 3"
+rgb	[~_]	#9FB6CD
+name	0	"Slate Gray 4"
+rgb	[~_]	#6C7B8B
+name	0	"Light Steel Blue 1"
+rgb	[~_]	#CAE1FF
+name	0	"Light Steel Blue 2"
+rgb	[~_]	#BCD2EE
+name	0	"Light Steel Blue 3"
+rgb	[~_]	#A2B5CD
+name	0	"Light Steel Blue 4"
+rgb	[~_]	#6E7B8B
+name	0	"Light Blue 1"
+rgb	[~_]	#BFEFFF
+name	0	"Light Blue 2"
+rgb	[~_]	#B2DFEE
+name	0	"Light Blue 3"
+rgb	[~_]	#9AC0CD
+name	0	"Light Blue 4"
+rgb	[~_]	#68838B
+name	0	"Light Cyan 1"
+rgb	[~_]	#E0FFFF
+name	0	"Light Cyan 2"
+rgb	[~_]	#D1EEEE
+name	0	"Light Cyan 3"
+rgb	[~_]	#B4CDCD
+name	0	"Light Cyan 4"
+rgb	[~_]	#7A8B8B
+name	0	"Pale Turquoise 1"
+rgb	[~_]	#BBFFFF
+name	0	"Pale Turquoise 2"
+rgb	[~_]	#AEEEEE
+name	0	"Pale Turquoise 3"
+rgb	[~_]	#96CDCD
+name	0	"Pale Turquoise 4"
+rgb	[~_]	#668B8B
+name	0	"Cadet Blue 1"
+rgb	[~_]	#98F5FF
+name	0	"Cadet Blue 2"
+rgb	[~_]	#8EE5EE
+name	0	"Cadet Blue 3"
+rgb	[~_]	#7AC5CD
+name	0	"Cadet Blue 4"
+rgb	[~_]	#53868B
+name	0	"Turquoise 1"
+rgb	[~_]	#00F5FF
+name	0	"Turquoise 2"
+rgb	[~_]	#00E5EE
+name	0	"Turquoise 3"
+rgb	[~_]	#00C5CD
+name	0	"Turquoise 4"
+rgb	[~_]	#00868B
+name	0	"Cyan 1"
+rgb	[~_]	#00FFFF
+name	0	"Cyan 2"
+rgb	[~_]	#00EEEE
+name	0	"Cyan 3"
+rgb	[~_]	#00CDCD
+name	0	"Cyan 4"
+rgb	[~_]	#008B8B
+name	0	"Dark Slate Gray 1"
+rgb	[~_]	#97FFFF
+name	0	"Dark Slate Gray 2"
+rgb	[~_]	#8DEEEE
+name	0	"Dark Slate Gray 3"
+rgb	[~_]	#79CDCD
+name	0	"Dark Slate Gray 4"
+rgb	[~_]	#528B8B
+name	0	"Aquamarine 1"
+rgb	[~_]	#7FFFD4
+name	0	"Aquamarine 2"
+rgb	[~_]	#76EEC6
+name	0	"Aquamarine 3"
+rgb	[~_]	#66CDAA
+name	0	"Aquamarine 4"
+rgb	[~_]	#458B74
+name	0	"Dark Sea Green 1"
+rgb	[~_]	#C1FFC1
+name	0	"Dark Sea Green 2"
+rgb	[~_]	#B4EEB4
+name	0	"Dark Sea Green 3"
+rgb	[~_]	#9BCD9B
+name	0	"Dark Sea Green 4"
+rgb	[~_]	#698B69
+name	0	"Sea Green 1"
+rgb	[~_]	#54FF9F
+name	0	"Sea Green 2"
+rgb	[~_]	#4EEE94
+name	0	"Sea Green 3"
+rgb	[~_]	#43CD80
+name	0	"Sea Green 4"
+rgb	[~_]	#2E8B57
+name	0	"Pale Green 1"
+rgb	[~_]	#9AFF9A
+name	0	"Pale Green 2"
+rgb	[~_]	#90EE90
+name	0	"Pale Green 3"
+rgb	[~_]	#7CCD7C
+name	0	"Pale Green 4"
+rgb	[~_]	#548B54
+name	0	"Spring Green 1"
+rgb	[~_]	#00FF7F
+name	0	"Spring Green 2"
+rgb	[~_]	#00EE76
+name	0	"Spring Green 3"
+rgb	[~_]	#00CD66
+name	0	"Spring Green 4"
+rgb	[~_]	#008B45
+name	0	"Green 1"
+rgb	[~_]	#00FF00
+name	0	"Green 2"
+rgb	[~_]	#00EE00
+name	0	"Green 3"
+rgb	[~_]	#00CD00
+name	0	"Green 4"
+rgb	[~_]	#008B00
+name	0	"Chartreuse 1"
+rgb	[~_]	#7FFF00
+name	0	"Chartreuse 2"
+rgb	[~_]	#76EE00
+name	0	"Chartreuse 3"
+rgb	[~_]	#66CD00
+name	0	"Chartreuse 4"
+rgb	[~_]	#458B00
+name	0	"Olive Drab 1"
+rgb	[~_]	#C0FF3E
+name	0	"Olive Drab 2"
+rgb	[~_]	#B3EE3A
+name	0	"Olive Drab 3"
+rgb	[~_]	#9ACD32
+name	0	"Olive Drab 4"
+rgb	[~_]	#698B22
+name	0	"Dark Olive Green 1"
+rgb	[~_]	#CAFF70
+name	0	"Dark Olive Green 2"
+rgb	[~_]	#BCEE68
+name	0	"Dark Olive Green 3"
+rgb	[~_]	#A2CD5A
+name	0	"Dark Olive Green 4"
+rgb	[~_]	#6E8B3D
+name	0	"Khaki 1"
+rgb	[~_]	#FFF68F
+name	0	"Khaki 2"
+rgb	[~_]	#EEE685
+name	0	"Khaki 3"
+rgb	[~_]	#CDC673
+name	0	"Khaki 4"
+rgb	[~_]	#8B864E
+name	0	"Light Goldenrod 1"
+rgb	[~_]	#FFEC8B
+name	0	"Light Goldenrod 2"
+rgb	[~_]	#EEDC82
+name	0	"Light Goldenrod 3"
+rgb	[~_]	#CDBE70
+name	0	"Light Goldenrod 4"
+rgb	[~_]	#8B814C
+name	0	"Light Yellow 1"
+rgb	[~_]	#FFFFE0
+name	0	"Light Yellow 2"
+rgb	[~_]	#EEEED1
+name	0	"Light Yellow 3"
+rgb	[~_]	#CDCDB4
+name	0	"Light Yellow 4"
+rgb	[~_]	#8B8B7A
+name	0	"Yellow 1"
+rgb	[~_]	#FFFF00
+name	0	"Yellow 2"
+rgb	[~_]	#EEEE00
+name	0	"Yellow 3"
+rgb	[~_]	#CDCD00
+name	0	"Yellow 4"
+rgb	[~_]	#8B8B00
+name	0	"Gold 1"
+rgb	[~_]	#FFD700
+name	0	"Gold 2"
+rgb	[~_]	#EEC900
+name	0	"Gold 3"
+rgb	[~_]	#CDAD00
+name	0	"Gold 4"
+rgb	[~_]	#8B7500
+name	0	"Goldenrod 1"
+rgb	[~_]	#FFC125
+name	0	"Goldenrod 2"
+rgb	[~_]	#EEB422
+name	0	"Goldenrod 3"
+rgb	[~_]	#CD9B1D
+name	0	"Goldenrod 4"
+rgb	[~_]	#8B6914
+name	0	"Dark Goldenrod 1"
+rgb	[~_]	#FFB90F
+name	0	"Dark Goldenrod 2"
+rgb	[~_]	#EEAD0E
+name	0	"Dark Goldenrod 3"
+rgb	[~_]	#CD950C
+name	0	"Dark Goldenrod 4"
+rgb	[~_]	#8B6508
+name	0	"Rosy Brown 1"
+rgb	[~_]	#FFC1C1
+name	0	"Rosy Brown 2"
+rgb	[~_]	#EEB4B4
+name	0	"Rosy Brown 3"
+rgb	[~_]	#CD9B9B
+name	0	"Rosy Brown 4"
+rgb	[~_]	#8B6969
+name	0	"Indian Red 1"
+rgb	[~_]	#FF6A6A
+name	0	"Indian Red 2"
+rgb	[~_]	#EE6363
+name	0	"Indian Red 3"
+rgb	[~_]	#CD5555
+name	0	"Indian Red 4"
+rgb	[~_]	#8B3A3A
+name	0	"Sienna 1"
+rgb	[~_]	#FF8247
+name	0	"Sienna 2"
+rgb	[~_]	#EE7942
+name	0	"Sienna 3"
+rgb	[~_]	#CD6839
+name	0	"Sienna 4"
+rgb	[~_]	#8B4726
+name	0	"Burlywood 1"
+rgb	[~_]	#FFD39B
+name	0	"Burlywood 2"
+rgb	[~_]	#EEC591
+name	0	"Burlywood 3"
+rgb	[~_]	#CDAA7D
+name	0	"Burlywood 4"
+rgb	[~_]	#8B7355
+name	0	"Wheat 1"
+rgb	[~_]	#FFE7BA
+name	0	"Wheat 2"
+rgb	[~_]	#EED8AE
+name	0	"Wheat 3"
+rgb	[~_]	#CDBA96
+name	0	"Wheat 4"
+rgb	[~_]	#8B7E66
+name	0	"Tan 1"
+rgb	[~_]	#FFA54F
+name	0	"Tan 2"
+rgb	[~_]	#EE9A49
+name	0	"Tan 3"
+rgb	[~_]	#CD853F
+name	0	"Tan 4"
+rgb	[~_]	#8B5A2B
+name	0	"Chocolate 1"
+rgb	[~_]	#FF7F24
+name	0	"Chocolate 2"
+rgb	[~_]	#EE7621
+name	0	"Chocolate 3"
+rgb	[~_]	#CD661D
+name	0	"Chocolate 4"
+rgb	[~_]	#8B4513
+name	0	"Firebrick 1"
+rgb	[~_]	#FF3030
+name	0	"Firebrick 2"
+rgb	[~_]	#EE2C2C
+name	0	"Firebrick 3"
+rgb	[~_]	#CD2626
+name	0	"Firebrick 4"
+rgb	[~_]	#8B1A1A
+name	0	"Brown 1"
+rgb	[~_]	#FF4040
+name	0	"Brown 2"
+rgb	[~_]	#EE3B3B
+name	0	"Brown 3"
+rgb	[~_]	#CD3333
+name	0	"Brown 4"
+rgb	[~_]	#8B2323
+name	0	"Salmon 1"
+rgb	[~_]	#FF8C69
+name	0	"Salmon 2"
+rgb	[~_]	#EE8262
+name	0	"Salmon 3"
+rgb	[~_]	#CD7054
+name	0	"Salmon 4"
+rgb	[~_]	#8B4C39
+name	0	"Light Salmon 1"
+rgb	[~_]	#FFA07A
+name	0	"Light Salmon 2"
+rgb	[~_]	#EE9572
+name	0	"Light Salmon 3"
+rgb	[~_]	#CD8162
+name	0	"Light Salmon 4"
+rgb	[~_]	#8B5742
+name	0	"Orange 1"
+rgb	[~_]	#FFA500
+name	0	"Orange 2"
+rgb	[~_]	#EE9A00
+name	0	"Orange 3"
+rgb	[~_]	#CD8500
+name	0	"Orange 4"
+rgb	[~_]	#8B5A00
+name	0	"Dark Orange 1"
+rgb	[~_]	#FF7F00
+name	0	"Dark Orange 2"
+rgb	[~_]	#EE7600
+name	0	"Dark Orange 3"
+rgb	[~_]	#CD6600
+name	0	"Dark Orange 4"
+rgb	[~_]	#8B4500
+name	0	"Coral 1"
+rgb	[~_]	#FF7256
+name	0	"Coral 2"
+rgb	[~_]	#EE6A50
+name	0	"Coral 3"
+rgb	[~_]	#CD5B45
+name	0	"Coral 4"
+rgb	[~_]	#8B3E2F
+name	0	"Tomato 1"
+rgb	[~_]	#FF6347
+name	0	"Tomato 2"
+rgb	[~_]	#EE5C42
+name	0	"Tomato 3"
+rgb	[~_]	#CD4F39
+name	0	"Tomato 4"
+rgb	[~_]	#8B3626
+name	0	"Orange Red 1"
+rgb	[~_]	#FF4500
+name	0	"Orange Red 2"
+rgb	[~_]	#EE4000
+name	0	"Orange Red 3"
+rgb	[~_]	#CD3700
+name	0	"Orange Red 4"
+rgb	[~_]	#8B2500
+name	0	"Red 1"
+rgb	[~_]	#FF0000
+name	0	"Red 2"
+rgb	[~_]	#EE0000
+name	0	"Red 3"
+rgb	[~_]	#CD0000
+name	0	"Red 4"
+rgb	[~_]	#8B0000
+name	0	"Deep Pink 1"
+rgb	[~_]	#FF1493
+name	0	"Deep Pink 2"
+rgb	[~_]	#EE1289
+name	0	"Deep Pink 3"
+rgb	[~_]	#CD1076
+name	0	"Deep Pink 4"
+rgb	[~_]	#8B0A50
+name	0	"Hot Pink 1"
+rgb	[~_]	#FF6EB4
+name	0	"Hot Pink 2"
+rgb	[~_]	#EE6AA7
+name	0	"Hot Pink 3"
+rgb	[~_]	#CD6090
+name	0	"Hot Pink 4"
+rgb	[~_]	#8B3A62
+name	0	"Pink 1"
+rgb	[~_]	#FFB5C5
+name	0	"Pink 2"
+rgb	[~_]	#EEA9B8
+name	0	"Pink 3"
+rgb	[~_]	#CD919E
+name	0	"Pink 4"
+rgb	[~_]	#8B636C
+name	0	"Light Pink 1"
+rgb	[~_]	#FFAEB9
+name	0	"Light Pink 2"
+rgb	[~_]	#EEA2AD
+name	0	"Light Pink 3"
+rgb	[~_]	#CD8C95
+name	0	"Light Pink 4"
+rgb	[~_]	#8B5F65
+name	0	"Pale Violet Red 1"
+rgb	[~_]	#FF82AB
+name	0	"Pale Violet Red 2"
+rgb	[~_]	#EE799F
+name	0	"Pale Violet Red 3"
+rgb	[~_]	#CD6889
+name	0	"Pale Violet Red 4"
+rgb	[~_]	#8B475D
+name	0	"Maroon 1"
+rgb	[~_]	#FF34B3
+name	0	"Maroon 2"
+rgb	[~_]	#EE30A7
+name	0	"Maroon 3"
+rgb	[~_]	#CD2990
+name	0	"Maroon 4"
+rgb	[~_]	#8B1C62
+name	0	"Violet Red 1"
+rgb	[~_]	#FF3E96
+name	0	"Violet Red 2"
+rgb	[~_]	#EE3A8C
+name	0	"Violet Red 3"
+rgb	[~_]	#CD3278
+name	0	"Violet Red 4"
+rgb	[~_]	#8B2252
+name	0	"Magenta 1"
+rgb	[~_]	#FF00FF
+name	0	"Magenta 2"
+rgb	[~_]	#EE00EE
+name	0	"Magenta 3"
+rgb	[~_]	#CD00CD
+name	0	"Magenta 4"
+rgb	[~_]	#8B008B
+name	0	"Orchid 1"
+rgb	[~_]	#FF83FA
+name	0	"Orchid 2"
+rgb	[~_]	#EE7AE9
+name	0	"Orchid 3"
+rgb	[~_]	#CD69C9
+name	0	"Orchid 4"
+rgb	[~_]	#8B4789
+name	0	"Plum 1"
+rgb	[~_]	#FFBBFF
+name	0	"Plum 2"
+rgb	[~_]	#EEAEEE
+name	0	"Plum 3"
+rgb	[~_]	#CD96CD
+name	0	"Plum 4"
+rgb	[~_]	#8B668B
+name	0	"Medium Orchid 1"
+rgb	[~_]	#E066FF
+name	0	"Medium Orchid 2"
+rgb	[~_]	#D15FEE
+name	0	"Medium Orchid 3"
+rgb	[~_]	#B452CD
+name	0	"Medium Orchid 4"
+rgb	[~_]	#7A378B
+name	0	"Dark Orchid 1"
+rgb	[~_]	#BF3EFF
+name	0	"Dark Orchid 2"
+rgb	[~_]	#B23AEE
+name	0	"Dark Orchid 3"
+rgb	[~_]	#9A32CD
+name	0	"Dark Orchid 4"
+rgb	[~_]	#68228B
+name	0	"Purple 1"
+rgb	[~_]	#9B30FF
+name	0	"Purple 2"
+rgb	[~_]	#912CEE
+name	0	"Purple 3"
+rgb	[~_]	#7D26CD
+name	0	"Purple 4"
+rgb	[~_]	#551A8B
+name	0	"Medium Purple 1"
+rgb	[~_]	#AB82FF
+name	0	"Medium Purple 2"
+rgb	[~_]	#9F79EE
+name	0	"Medium Purple 3"
+rgb	[~_]	#8968CD
+name	0	"Medium Purple 4"
+rgb	[~_]	#5D478B
+name	0	"Thistle 1"
+rgb	[~_]	#FFE1FF
+name	0	"Thistle 2"
+rgb	[~_]	#EED2EE
+name	0	"Thistle 3"
+rgb	[~_]	#CDB5CD
+name	0	"Thistle 4"
+rgb	[~_]	#8B7B8B
+name	0	"Gray 0"
+rgb	[~_]	#000000
+name	0	"Gray 1"
+rgb	[~_]	#030303
+name	0	"Gray 2"
+rgb	[~_]	#050505
+name	0	"Gray 3"
+rgb	[~_]	#080808
+name	0	"Gray 4"
+rgb	[~_]	#0A0A0A
+name	0	"Gray 5"
+rgb	[~_]	#0D0D0D
+name	0	"Gray 6"
+rgb	[~_]	#0F0F0F
+name	0	"Gray 7"
+rgb	[~_]	#121212
+name	0	"Gray 8"
+rgb	[~_]	#141414
+name	0	"Gray 9"
+rgb	[~_]	#171717
+name	0	"Gray 10"
+rgb	[~_]	#1A1A1A
+name	0	"Gray 11"
+rgb	[~_]	#1C1C1C
+name	0	"Gray 12"
+rgb	[~_]	#1F1F1F
+name	0	"Gray 13"
+rgb	[~_]	#212121
+name	0	"Gray 14"
+rgb	[~_]	#242424
+name	0	"Gray 15"
+rgb	[~_]	#262626
+name	0	"Gray 16"
+rgb	[~_]	#292929
+name	0	"Gray 17"
+rgb	[~_]	#2B2B2B
+name	0	"Gray 18"
+rgb	[~_]	#2E2E2E
+name	0	"Gray 19"
+rgb	[~_]	#303030
+name	0	"Gray 20"
+rgb	[~_]	#333333
+name	0	"Gray 21"
+rgb	[~_]	#363636
+name	0	"Gray 22"
+rgb	[~_]	#383838
+name	0	"Gray 23"
+rgb	[~_]	#3B3B3B
+name	0	"Gray 24"
+rgb	[~_]	#3D3D3D
+name	0	"Gray 25"
+rgb	[~_]	#404040
+name	0	"Gray 26"
+rgb	[~_]	#424242
+name	0	"Gray 27"
+rgb	[~_]	#454545
+name	0	"Gray 28"
+rgb	[~_]	#474747
+name	0	"Gray 29"
+rgb	[~_]	#4A4A4A
+name	0	"Gray 30"
+rgb	[~_]	#4D4D4D
+name	0	"Gray 31"
+rgb	[~_]	#4F4F4F
+name	0	"Gray 32"
+rgb	[~_]	#525252
+name	0	"Gray 33"
+rgb	[~_]	#545454
+name	0	"Gray 34"
+rgb	[~_]	#575757
+name	0	"Gray 35"
+rgb	[~_]	#595959
+name	0	"Gray 36"
+rgb	[~_]	#5C5C5C
+name	0	"Gray 37"
+rgb	[~_]	#5E5E5E
+name	0	"Gray 38"
+rgb	[~_]	#616161
+name	0	"Gray 39"
+rgb	[~_]	#636363
+name	0	"Gray 40"
+rgb	[~_]	#666666
+name	0	"Gray 41"
+rgb	[~_]	#696969
+name	0	"Gray 42"
+rgb	[~_]	#6B6B6B
+name	0	"Gray 43"
+rgb	[~_]	#6E6E6E
+name	0	"Gray 44"
+rgb	[~_]	#707070
+name	0	"Gray 45"
+rgb	[~_]	#737373
+name	0	"Gray 46"
+rgb	[~_]	#757575
+name	0	"Gray 47"
+rgb	[~_]	#787878
+name	0	"Gray 48"
+rgb	[~_]	#7A7A7A
+name	0	"Gray 49"
+rgb	[~_]	#7D7D7D
+name	0	"Gray 50"
+rgb	[~_]	#7F7F7F
+name	0	"Gray 51"
+rgb	[~_]	#828282
+name	0	"Gray 52"
+rgb	[~_]	#858585
+name	0	"Gray 53"
+rgb	[~_]	#878787
+name	0	"Gray 54"
+rgb	[~_]	#8A8A8A
+name	0	"Gray 55"
+rgb	[~_]	#8C8C8C
+name	0	"Gray 56"
+rgb	[~_]	#8F8F8F
+name	0	"Gray 57"
+rgb	[~_]	#919191
+name	0	"Gray 58"
+rgb	[~_]	#949494
+name	0	"Gray 59"
+rgb	[~_]	#969696
+name	0	"Gray 60"
+rgb	[~_]	#999999
+name	0	"Gray 61"
+rgb	[~_]	#9C9C9C
+name	0	"Gray 62"
+rgb	[~_]	#9E9E9E
+name	0	"Gray 63"
+rgb	[~_]	#A1A1A1
+name	0	"Gray 64"
+rgb	[~_]	#A3A3A3
+name	0	"Gray 65"
+rgb	[~_]	#A6A6A6
+name	0	"Gray 66"
+rgb	[~_]	#A8A8A8
+name	0	"Gray 67"
+rgb	[~_]	#ABABAB
+name	0	"Gray 68"
+rgb	[~_]	#ADADAD
+name	0	"Gray 69"
+rgb	[~_]	#B0B0B0
+name	0	"Gray 70"
+rgb	[~_]	#B3B3B3
+name	0	"Gray 71"
+rgb	[~_]	#B5B5B5
+name	0	"Gray 72"
+rgb	[~_]	#B8B8B8
+name	0	"Gray 73"
+rgb	[~_]	#BABABA
+name	0	"Gray 74"
+rgb	[~_]	#BDBDBD
+name	0	"Gray 75"
+rgb	[~_]	#BFBFBF
+name	0	"Gray 76"
+rgb	[~_]	#C2C2C2
+name	0	"Gray 77"
+rgb	[~_]	#C4C4C4
+name	0	"Gray 78"
+rgb	[~_]	#C7C7C7
+name	0	"Gray 79"
+rgb	[~_]	#C9C9C9
+name	0	"Gray 80"
+rgb	[~_]	#CCCCCC
+name	0	"Gray 81"
+rgb	[~_]	#CFCFCF
+name	0	"Gray 82"
+rgb	[~_]	#D1D1D1
+name	0	"Gray 83"
+rgb	[~_]	#D4D4D4
+name	0	"Gray 84"
+rgb	[~_]	#D6D6D6
+name	0	"Gray 85"
+rgb	[~_]	#D9D9D9
+name	0	"Gray 86"
+rgb	[~_]	#DBDBDB
+name	0	"Gray 87"
+rgb	[~_]	#DEDEDE
+name	0	"Gray 88"
+rgb	[~_]	#E0E0E0
+name	0	"Gray 89"
+rgb	[~_]	#E3E3E3
+name	0	"Gray 90"
+rgb	[~_]	#E5E5E5
+name	0	"Gray 91"
+rgb	[~_]	#E8E8E8
+name	0	"Gray 92"
+rgb	[~_]	#EBEBEB
+name	0	"Gray 93"
+rgb	[~_]	#EDEDED
+name	0	"Gray 94"
+rgb	[~_]	#F0F0F0
+name	0	"Gray 95"
+rgb	[~_]	#F2F2F2
+name	0	"Gray 96"
+rgb	[~_]	#F5F5F5
+name	0	"Gray 97"
+rgb	[~_]	#F7F7F7
+name	0	"Gray 98"
+rgb	[~_]	#FAFAFA
+name	0	"Gray 99"
+rgb	[~_]	#FCFCFC
+name	0	"Gray 100"
+rgb	[~_]	#FFFFFF
+name	0	"Dark Gray"
+rgb	[~_]	#A9A9A9
+name	0	"Dark Blue"
+rgb	[~_]	#00008B
+name	0	"Dark Cyan"
+rgb	[~_]	#008B8B
+name	0	"Dark Magenta"
+rgb	[~_]	#8B008B
+name	0	"Dark Red"
+rgb	[~_]	#8B0000
+name	0	"Light Green"
+rgb	[~_]	#90EE90
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+grid	0	24,23
+name	0	"Snow"
+rgb	[~_]	#FFFAFA
+name	0	"Ghost White"
+rgb	[~_]	#F8F8FF
+name	0	"White Smoke"
+rgb	[~_]	#F5F5F5
+name	0	"Gainsboro"
+rgb	[~_]	#DCDCDC
+name	0	"Floral White"
+rgb	[~_]	#FFFAF0
+name	0	"Old Lace"
+rgb	[~_]	#FDF5E6
+name	0	"Linen"
+rgb	[~_]	#FAF0E6
+name	0	"Antique White"
+rgb	[~_]	#FAEBD7
+name	0	"Papaya Whip"
+rgb	[~_]	#FFEFD5
+name	0	"Blanched Almond"
+rgb	[~_]	#FFEBCD
+name	0	"Bisque"
+rgb	[~_]	#FFE4C4
+name	0	"Peach Puff"
+rgb	[~_]	#FFDAB9
+name	0	"Navajo White"
+rgb	[~_]	#FFDEAD
+name	0	"Moccasin"
+rgb	[~_]	#FFE4B5
+name	0	"Cornsilk"
+rgb	[~_]	#FFF8DC
+name	0	"Ivory"
+rgb	[~_]	#FFFFF0
+name	0	"Lemon Chiffon"
+rgb	[~_]	#FFFACD
+name	0	"Seashell"
+rgb	[~_]	#FFF5EE
+name	0	"Honeydew"
+rgb	[~_]	#F0FFF0
+name	0	"Mint Cream"
+rgb	[~_]	#F5FFFA
+name	0	"Azure"
+rgb	[~_]	#F0FFFF
+name	0	"Alice Blue"
+rgb	[~_]	#F0F8FF
+name	0	"Lavender"
+rgb	[~_]	#E6E6FA
+name	0	"Lavender Blush"
+rgb	[~_]	#FFF0F5
+name	0	"Misty Rose"
+rgb	[~_]	#FFE4E1
+name	0	"White"
+rgb	[~_]	#FFFFFF
+name	0	"Black"
+rgb	[~_]	#000000
+name	0	"Dark Slate Gray"
+rgb	[~_]	#2F4F4F
+name	0	"Dim Gray"
+rgb	[~_]	#696969
+name	0	"Slate Gray"
+rgb	[~_]	#708090
+name	0	"Light Slate Gray"
+rgb	[~_]	#778899
+name	0	"Gray"
+rgb	[~_]	#BEBEBE
+name	0	"Light Gray"
+rgb	[~_]	#D3D3D3
+name	0	"Midnight Blue"
+rgb	[~_]	#191970
+name	0	"Navy"
+rgb	[~_]	#000080
+name	0	"Navy Blue"
+rgb	[~_]	#000080
+name	0	"Cornflower Blue"
+rgb	[~_]	#6495ED
+name	0	"Dark Slate Blue"
+rgb	[~_]	#483D8B
+name	0	"Slate Blue"
+rgb	[~_]	#6A5ACD
+name	0	"Medium Slate Blue"
+rgb	[~_]	#7B68EE
+name	0	"Light Slate Blue"
+rgb	[~_]	#8470FF
+name	0	"Medium Blue"
+rgb	[~_]	#0000CD
+name	0	"Royal Blue"
+rgb	[~_]	#4169E1
+name	0	"Blue"
+rgb	[~_]	#0000FF
+name	0	"Dodger Blue"
+rgb	[~_]	#1E90FF
+name	0	"Deep Sky Blue"
+rgb	[~_]	#00BFFF
+name	0	"Sky Blue"
+rgb	[~_]	#87CEEB
+name	0	"Light Sky Blue"
+rgb	[~_]	#87CEFA
+name	0	"Steel Blue"
+rgb	[~_]	#4682B4
+name	0	"Light Steel Blue"
+rgb	[~_]	#B0C4DE
+name	0	"Light Blue"
+rgb	[~_]	#ADD8E6
+name	0	"Powder Blue"
+rgb	[~_]	#B0E0E6
+name	0	"Pale Turquoise"
+rgb	[~_]	#AFEEEE
+name	0	"Dark Turquoise"
+rgb	[~_]	#00CED1
+name	0	"Medium Turquoise"
+rgb	[~_]	#48D1CC
+name	0	"Turquoise"
+rgb	[~_]	#40E0D0
+name	0	"Cyan"
+rgb	[~_]	#00FFFF
+name	0	"Light Cyan"
+rgb	[~_]	#E0FFFF
+name	0	"Cadet Blue"
+rgb	[~_]	#5F9EA0
+name	0	"Medium Aquamarine"
+rgb	[~_]	#66CDAA
+name	0	"Aquamarine"
+rgb	[~_]	#7FFFD4
+name	0	"Dark Green"
+rgb	[~_]	#006400
+name	0	"Dark Olive Green"
+rgb	[~_]	#556B2F
+name	0	"Dark Sea Green"
+rgb	[~_]	#8FBC8F
+name	0	"Sea Green"
+rgb	[~_]	#2E8B57
+name	0	"Medium Sea Green"
+rgb	[~_]	#3CB371
+name	0	"Light Sea Green"
+rgb	[~_]	#20B2AA
+name	0	"Pale Green"
+rgb	[~_]	#98FB98
+name	0	"Spring Green"
+rgb	[~_]	#00FF7F
+name	0	"Lawn Green"
+rgb	[~_]	#7CFC00
+name	0	"Green"
+rgb	[~_]	#00FF00
+name	0	"Chartreuse"
+rgb	[~_]	#7FFF00
+name	0	"Medium Spring Green"
+rgb	[~_]	#00FA9A
+name	0	"Green Yellow"
+rgb	[~_]	#ADFF2F
+name	0	"Lime Green"
+rgb	[~_]	#32CD32
+name	0	"Yellow Green"
+rgb	[~_]	#9ACD32
+name	0	"Forest Green"
+rgb	[~_]	#228B22
+name	0	"Olive Drab"
+rgb	[~_]	#6B8E23
+name	0	"Dark Khaki"
+rgb	[~_]	#BDB76B
+name	0	"Khaki"
+rgb	[~_]	#F0E68C
+name	0	"Pale Goldenrod"
+rgb	[~_]	#EEE8AA
+name	0	"Light Goldenrod Yellow"
+rgb	[~_]	#FAFAD2
+name	0	"Light Yellow"
+rgb	[~_]	#FFFFE0
+name	0	"Yellow"
+rgb	[~_]	#FFFF00
+name	0	"Gold"
+rgb	[~_]	#FFD700
+name	0	"Light Goldenrod"
+rgb	[~_]	#EEDD82
+name	0	"Goldenrod"
+rgb	[~_]	#DAA520
+name	0	"Dark Goldenrod"
+rgb	[~_]	#B8860B
+name	0	"Rosy Brown"
+rgb	[~_]	#BC8F8F
+name	0	"Indian Red"
+rgb	[~_]	#CD5C5C
+name	0	"Saddle Brown"
+rgb	[~_]	#8B4513
+name	0	"Sienna"
+rgb	[~_]	#A0522D
+name	0	"Peru"
+rgb	[~_]	#CD853F
+name	0	"Burlywood"
+rgb	[~_]	#DEB887
+name	0	"Beige"
+rgb	[~_]	#F5F5DC
+name	0	"Wheat"
+rgb	[~_]	#F5DEB3
+name	0	"Sandy Brown"
+rgb	[~_]	#F4A460
+name	0	"Tan"
+rgb	[~_]	#D2B48C
+name	0	"Chocolate"
+rgb	[~_]	#D2691E
+name	0	"Firebrick"
+rgb	[~_]	#B22222
+name	0	"Brown"
+rgb	[~_]	#A52A2A
+name	0	"Dark Salmon"
+rgb	[~_]	#E9967A
+name	0	"Salmon"
+rgb	[~_]	#FA8072
+name	0	"Light Salmon"
+rgb	[~_]	#FFA07A
+name	0	"Orange"
+rgb	[~_]	#FFA500
+name	0	"Dark Orange"
+rgb	[~_]	#FF8C00
+name	0	"Coral"
+rgb	[~_]	#FF7F50
+name	0	"Light Coral"
+rgb	[~_]	#F08080
+name	0	"Tomato"
+rgb	[~_]	#FF6347
+name	0	"Orange Red"
+rgb	[~_]	#FF4500
+name	0	"Red"
+rgb	[~_]	#FF0000
+name	0	"Hot Pink"
+rgb	[~_]	#FF69B4
+name	0	"Deep Pink"
+rgb	[~_]	#FF1493
+name	0	"Pink"
+rgb	[~_]	#FFC0CB
+name	0	"Light Pink"
+rgb	[~_]	#FFB6C1
+name	0	"Pale Violet Red"
+rgb	[~_]	#DB7093
+name	0	"Maroon"
+rgb	[~_]	#B03060
+name	0	"Medium Violet Red"
+rgb	[~_]	#C71585
+name	0	"Violet Red"
+rgb	[~_]	#D02090
+name	0	"Magenta"
+rgb	[~_]	#FF00FF
+name	0	"Violet"
+rgb	[~_]	#EE82EE
+name	0	"Plum"
+rgb	[~_]	#DDA0DD
+name	0	"Orchid"
+rgb	[~_]	#DA70D6
+name	0	"Medium Orchid"
+rgb	[~_]	#BA55D3
+name	0	"Dark Orchid"
+rgb	[~_]	#9932CC
+name	0	"Dark Violet"
+rgb	[~_]	#9400D3
+name	0	"Blue Violet"
+rgb	[~_]	#8A2BE2
+name	0	"Purple"
+rgb	[~_]	#A020F0
+name	0	"Medium Purple"
+rgb	[~_]	#9370DB
+name	0	"Thistle"
+rgb	[~_]	#D8BFD8
+name	0	"Snow 1"
+rgb	[~_]	#FFFAFA
+name	0	"Snow 2"
+rgb	[~_]	#EEE9E9
+name	0	"Snow 3"
+rgb	[~_]	#CDC9C9
+name	0	"Snow 4"
+rgb	[~_]	#8B8989
+name	0	"Seashell 1"
+rgb	[~_]	#FFF5EE
+name	0	"Seashell 2"
+rgb	[~_]	#EEE5DE
+name	0	"Seashell 3"
+rgb	[~_]	#CDC5BF
+name	0	"Seashell 4"
+rgb	[~_]	#8B8682
+name	0	"Antique White 1"
+rgb	[~_]	#FFEFDB
+name	0	"Antique White 2"
+rgb	[~_]	#EEDFCC
+name	0	"Antique White 3"
+rgb	[~_]	#CDC0B0
+name	0	"Antique White 4"
+rgb	[~_]	#8B8378
+name	0	"Bisque 1"
+rgb	[~_]	#FFE4C4
+name	0	"Bisque 2"
+rgb	[~_]	#EED5B7
+name	0	"Bisque 3"
+rgb	[~_]	#CDB79E
+name	0	"Bisque 4"
+rgb	[~_]	#8B7D6B
+name	0	"Peach Puff 1"
+rgb	[~_]	#FFDAB9
+name	0	"Peach Puff 2"
+rgb	[~_]	#EECBAD
+name	0	"Peach Puff 3"
+rgb	[~_]	#CDAF95
+name	0	"Peach Puff 4"
+rgb	[~_]	#8B7765
+name	0	"Navajo White 1"
+rgb	[~_]	#FFDEAD
+name	0	"Navajo White 2"
+rgb	[~_]	#EECFA1
+name	0	"Navajo White 3"
+rgb	[~_]	#CDB38B
+name	0	"Navajo White 4"
+rgb	[~_]	#8B795E
+name	0	"Lemon Chiffon 1"
+rgb	[~_]	#FFFACD
+name	0	"Lemon Chiffon 2"
+rgb	[~_]	#EEE9BF
+name	0	"Lemon Chiffon 3"
+rgb	[~_]	#CDC9A5
+name	0	"Lemon Chiffon 4"
+rgb	[~_]	#8B8970
+name	0	"Cornsilk 1"
+rgb	[~_]	#FFF8DC
+name	0	"Cornsilk 2"
+rgb	[~_]	#EEE8CD
+name	0	"Cornsilk 3"
+rgb	[~_]	#CDC8B1
+name	0	"Cornsilk 4"
+rgb	[~_]	#8B8878
+name	0	"Ivory 1"
+rgb	[~_]	#FFFFF0
+name	0	"Ivory 2"
+rgb	[~_]	#EEEEE0
+name	0	"Ivory 3"
+rgb	[~_]	#CDCDC1
+name	0	"Ivory 4"
+rgb	[~_]	#8B8B83
+name	0	"Honeydew 1"
+rgb	[~_]	#F0FFF0
+name	0	"Honeydew 2"
+rgb	[~_]	#E0EEE0
+name	0	"Honeydew 3"
+rgb	[~_]	#C1CDC1
+name	0	"Honeydew 4"
+rgb	[~_]	#838B83
+name	0	"Lavender Blush 1"
+rgb	[~_]	#FFF0F5
+name	0	"Lavender Blush 2"
+rgb	[~_]	#EEE0E5
+name	0	"Lavender Blush 3"
+rgb	[~_]	#CDC1C5
+name	0	"Lavender Blush 4"
+rgb	[~_]	#8B8386
+name	0	"Misty Rose 1"
+rgb	[~_]	#FFE4E1
+name	0	"Misty Rose 2"
+rgb	[~_]	#EED5D2
+name	0	"Misty Rose 3"
+rgb	[~_]	#CDB7B5
+name	0	"Misty Rose 4"
+rgb	[~_]	#8B7D7B
+name	0	"Azure 1"
+rgb	[~_]	#F0FFFF
+name	0	"Azure 2"
+rgb	[~_]	#E0EEEE
+name	0	"Azure 3"
+rgb	[~_]	#C1CDCD
+name	0	"Azure 4"
+rgb	[~_]	#838B8B
+name	0	"Slate Blue 1"
+rgb	[~_]	#836FFF
+name	0	"Slate Blue 2"
+rgb	[~_]	#7A67EE
+name	0	"Slate Blue 3"
+rgb	[~_]	#6959CD
+name	0	"Slate Blue 4"
+rgb	[~_]	#473C8B
+name	0	"Royal Blue 1"
+rgb	[~_]	#4876FF
+name	0	"Royal Blue 2"
+rgb	[~_]	#436EEE
+name	0	"Royal Blue 3"
+rgb	[~_]	#3A5FCD
+name	0	"Royal Blue 4"
+rgb	[~_]	#27408B
+name	0	"Blue 1"
+rgb	[~_]	#0000FF
+name	0	"Blue 2"
+rgb	[~_]	#0000EE
+name	0	"Blue 3"
+rgb	[~_]	#0000CD
+name	0	"Blue 4"
+rgb	[~_]	#00008B
+name	0	"Dodger Blue 1"
+rgb	[~_]	#1E90FF
+name	0	"Dodger Blue 2"
+rgb	[~_]	#1C86EE
+name	0	"Dodger Blue 3"
+rgb	[~_]	#1874CD
+name	0	"Dodger Blue 4"
+rgb	[~_]	#104E8B
+name	0	"Steel Blue 1"
+rgb	[~_]	#63B8FF
+name	0	"Steel Blue 2"
+rgb	[~_]	#5CACEE
+name	0	"Steel Blue 3"
+rgb	[~_]	#4F94CD
+name	0	"Steel Blue 4"
+rgb	[~_]	#36648B
+name	0	"Deep Sky Blue 1"
+rgb	[~_]	#00BFFF
+name	0	"Deep Sky Blue 2"
+rgb	[~_]	#00B2EE
+name	0	"Deep Sky Blue 3"
+rgb	[~_]	#009ACD
+name	0	"Deep Sky Blue 4"
+rgb	[~_]	#00688B
+name	0	"Sky Blue 1"
+rgb	[~_]	#87CEFF
+name	0	"Sky Blue 2"
+rgb	[~_]	#7EC0EE
+name	0	"Sky Blue 3"
+rgb	[~_]	#6CA6CD
+name	0	"Sky Blue 4"
+rgb	[~_]	#4A708B
+name	0	"Light Sky Blue 1"
+rgb	[~_]	#B0E2FF
+name	0	"Light Sky Blue 2"
+rgb	[~_]	#A4D3EE
+name	0	"Light Sky Blue 3"
+rgb	[~_]	#8DB6CD
+name	0	"Light Sky Blue 4"
+rgb	[~_]	#607B8B
+name	0	"Slate Gray 1"
+rgb	[~_]	#C6E2FF
+name	0	"Slate Gray 2"
+rgb	[~_]	#B9D3EE
+name	0	"Slate Gray 3"
+rgb	[~_]	#9FB6CD
+name	0	"Slate Gray 4"
+rgb	[~_]	#6C7B8B
+name	0	"Light Steel Blue 1"
+rgb	[~_]	#CAE1FF
+name	0	"Light Steel Blue 2"
+rgb	[~_]	#BCD2EE
+name	0	"Light Steel Blue 3"
+rgb	[~_]	#A2B5CD
+name	0	"Light Steel Blue 4"
+rgb	[~_]	#6E7B8B
+name	0	"Light Blue 1"
+rgb	[~_]	#BFEFFF
+name	0	"Light Blue 2"
+rgb	[~_]	#B2DFEE
+name	0	"Light Blue 3"
+rgb	[~_]	#9AC0CD
+name	0	"Light Blue 4"
+rgb	[~_]	#68838B
+name	0	"Light Cyan 1"
+rgb	[~_]	#E0FFFF
+name	0	"Light Cyan 2"
+rgb	[~_]	#D1EEEE
+name	0	"Light Cyan 3"
+rgb	[~_]	#B4CDCD
+name	0	"Light Cyan 4"
+rgb	[~_]	#7A8B8B
+name	0	"Pale Turquoise 1"
+rgb	[~_]	#BBFFFF
+name	0	"Pale Turquoise 2"
+rgb	[~_]	#AEEEEE
+name	0	"Pale Turquoise 3"
+rgb	[~_]	#96CDCD
+name	0	"Pale Turquoise 4"
+rgb	[~_]	#668B8B
+name	0	"Cadet Blue 1"
+rgb	[~_]	#98F5FF
+name	0	"Cadet Blue 2"
+rgb	[~_]	#8EE5EE
+name	0	"Cadet Blue 3"
+rgb	[~_]	#7AC5CD
+name	0	"Cadet Blue 4"
+rgb	[~_]	#53868B
+name	0	"Turquoise 1"
+rgb	[~_]	#00F5FF
+name	0	"Turquoise 2"
+rgb	[~_]	#00E5EE
+name	0	"Turquoise 3"
+rgb	[~_]	#00C5CD
+name	0	"Turquoise 4"
+rgb	[~_]	#00868B
+name	0	"Cyan 1"
+rgb	[~_]	#00FFFF
+name	0	"Cyan 2"
+rgb	[~_]	#00EEEE
+name	0	"Cyan 3"
+rgb	[~_]	#00CDCD
+name	0	"Cyan 4"
+rgb	[~_]	#008B8B
+name	0	"Dark Slate Gray 1"
+rgb	[~_]	#97FFFF
+name	0	"Dark Slate Gray 2"
+rgb	[~_]	#8DEEEE
+name	0	"Dark Slate Gray 3"
+rgb	[~_]	#79CDCD
+name	0	"Dark Slate Gray 4"
+rgb	[~_]	#528B8B
+name	0	"Aquamarine 1"
+rgb	[~_]	#7FFFD4
+name	0	"Aquamarine 2"
+rgb	[~_]	#76EEC6
+name	0	"Aquamarine 3"
+rgb	[~_]	#66CDAA
+name	0	"Aquamarine 4"
+rgb	[~_]	#458B74
+name	0	"Dark Sea Green 1"
+rgb	[~_]	#C1FFC1
+name	0	"Dark Sea Green 2"
+rgb	[~_]	#B4EEB4
+name	0	"Dark Sea Green 3"
+rgb	[~_]	#9BCD9B
+name	0	"Dark Sea Green 4"
+rgb	[~_]	#698B69
+name	0	"Sea Green 1"
+rgb	[~_]	#54FF9F
+name	0	"Sea Green 2"
+rgb	[~_]	#4EEE94
+name	0	"Sea Green 3"
+rgb	[~_]	#43CD80
+name	0	"Sea Green 4"
+rgb	[~_]	#2E8B57
+name	0	"Pale Green 1"
+rgb	[~_]	#9AFF9A
+name	0	"Pale Green 2"
+rgb	[~_]	#90EE90
+name	0	"Pale Green 3"
+rgb	[~_]	#7CCD7C
+name	0	"Pale Green 4"
+rgb	[~_]	#548B54
+name	0	"Spring Green 1"
+rgb	[~_]	#00FF7F
+name	0	"Spring Green 2"
+rgb	[~_]	#00EE76
+name	0	"Spring Green 3"
+rgb	[~_]	#00CD66
+name	0	"Spring Green 4"
+rgb	[~_]	#008B45
+name	0	"Green 1"
+rgb	[~_]	#00FF00
+name	0	"Green 2"
+rgb	[~_]	#00EE00
+name	0	"Green 3"
+rgb	[~_]	#00CD00
+name	0	"Green 4"
+rgb	[~_]	#008B00
+name	0	"Chartreuse 1"
+rgb	[~_]	#7FFF00
+name	0	"Chartreuse 2"
+rgb	[~_]	#76EE00
+name	0	"Chartreuse 3"
+rgb	[~_]	#66CD00
+name	0	"Chartreuse 4"
+rgb	[~_]	#458B00
+name	0	"Olive Drab 1"
+rgb	[~_]	#C0FF3E
+name	0	"Olive Drab 2"
+rgb	[~_]	#B3EE3A
+name	0	"Olive Drab 3"
+rgb	[~_]	#9ACD32
+name	0	"Olive Drab 4"
+rgb	[~_]	#698B22
+name	0	"Dark Olive Green 1"
+rgb	[~_]	#CAFF70
+name	0	"Dark Olive Green 2"
+rgb	[~_]	#BCEE68
+name	0	"Dark Olive Green 3"
+rgb	[~_]	#A2CD5A
+name	0	"Dark Olive Green 4"
+rgb	[~_]	#6E8B3D
+name	0	"Khaki 1"
+rgb	[~_]	#FFF68F
+name	0	"Khaki 2"
+rgb	[~_]	#EEE685
+name	0	"Khaki 3"
+rgb	[~_]	#CDC673
+name	0	"Khaki 4"
+rgb	[~_]	#8B864E
+name	0	"Light Goldenrod 1"
+rgb	[~_]	#FFEC8B
+name	0	"Light Goldenrod 2"
+rgb	[~_]	#EEDC82
+name	0	"Light Goldenrod 3"
+rgb	[~_]	#CDBE70
+name	0	"Light Goldenrod 4"
+rgb	[~_]	#8B814C
+name	0	"Light Yellow 1"
+rgb	[~_]	#FFFFE0
+name	0	"Light Yellow 2"
+rgb	[~_]	#EEEED1
+name	0	"Light Yellow 3"
+rgb	[~_]	#CDCDB4
+name	0	"Light Yellow 4"
+rgb	[~_]	#8B8B7A
+name	0	"Yellow 1"
+rgb	[~_]	#FFFF00
+name	0	"Yellow 2"
+rgb	[~_]	#EEEE00
+name	0	"Yellow 3"
+rgb	[~_]	#CDCD00
+name	0	"Yellow 4"
+rgb	[~_]	#8B8B00
+name	0	"Gold 1"
+rgb	[~_]	#FFD700
+name	0	"Gold 2"
+rgb	[~_]	#EEC900
+name	0	"Gold 3"
+rgb	[~_]	#CDAD00
+name	0	"Gold 4"
+rgb	[~_]	#8B7500
+name	0	"Goldenrod 1"
+rgb	[~_]	#FFC125
+name	0	"Goldenrod 2"
+rgb	[~_]	#EEB422
+name	0	"Goldenrod 3"
+rgb	[~_]	#CD9B1D
+name	0	"Goldenrod 4"
+rgb	[~_]	#8B6914
+name	0	"Dark Goldenrod 1"
+rgb	[~_]	#FFB90F
+name	0	"Dark Goldenrod 2"
+rgb	[~_]	#EEAD0E
+name	0	"Dark Goldenrod 3"
+rgb	[~_]	#CD950C
+name	0	"Dark Goldenrod 4"
+rgb	[~_]	#8B6508
+name	0	"Rosy Brown 1"
+rgb	[~_]	#FFC1C1
+name	0	"Rosy Brown 2"
+rgb	[~_]	#EEB4B4
+name	0	"Rosy Brown 3"
+rgb	[~_]	#CD9B9B
+name	0	"Rosy Brown 4"
+rgb	[~_]	#8B6969
+name	0	"Indian Red 1"
+rgb	[~_]	#FF6A6A
+name	0	"Indian Red 2"
+rgb	[~_]	#EE6363
+name	0	"Indian Red 3"
+rgb	[~_]	#CD5555
+name	0	"Indian Red 4"
+rgb	[~_]	#8B3A3A
+name	0	"Sienna 1"
+rgb	[~_]	#FF8247
+name	0	"Sienna 2"
+rgb	[~_]	#EE7942
+name	0	"Sienna 3"
+rgb	[~_]	#CD6839
+name	0	"Sienna 4"
+rgb	[~_]	#8B4726
+name	0	"Burlywood 1"
+rgb	[~_]	#FFD39B
+name	0	"Burlywood 2"
+rgb	[~_]	#EEC591
+name	0	"Burlywood 3"
+rgb	[~_]	#CDAA7D
+name	0	"Burlywood 4"
+rgb	[~_]	#8B7355
+name	0	"Wheat 1"
+rgb	[~_]	#FFE7BA
+name	0	"Wheat 2"
+rgb	[~_]	#EED8AE
+name	0	"Wheat 3"
+rgb	[~_]	#CDBA96
+name	0	"Wheat 4"
+rgb	[~_]	#8B7E66
+name	0	"Tan 1"
+rgb	[~_]	#FFA54F
+name	0	"Tan 2"
+rgb	[~_]	#EE9A49
+name	0	"Tan 3"
+rgb	[~_]	#CD853F
+name	0	"Tan 4"
+rgb	[~_]	#8B5A2B
+name	0	"Chocolate 1"
+rgb	[~_]	#FF7F24
+name	0	"Chocolate 2"
+rgb	[~_]	#EE7621
+name	0	"Chocolate 3"
+rgb	[~_]	#CD661D
+name	0	"Chocolate 4"
+rgb	[~_]	#8B4513
+name	0	"Firebrick 1"
+rgb	[~_]	#FF3030
+name	0	"Firebrick 2"
+rgb	[~_]	#EE2C2C
+name	0	"Firebrick 3"
+rgb	[~_]	#CD2626
+name	0	"Firebrick 4"
+rgb	[~_]	#8B1A1A
+name	0	"Brown 1"
+rgb	[~_]	#FF4040
+name	0	"Brown 2"
+rgb	[~_]	#EE3B3B
+name	0	"Brown 3"
+rgb	[~_]	#CD3333
+name	0	"Brown 4"
+rgb	[~_]	#8B2323
+name	0	"Salmon 1"
+rgb	[~_]	#FF8C69
+name	0	"Salmon 2"
+rgb	[~_]	#EE8262
+name	0	"Salmon 3"
+rgb	[~_]	#CD7054
+name	0	"Salmon 4"
+rgb	[~_]	#8B4C39
+name	0	"Light Salmon 1"
+rgb	[~_]	#FFA07A
+name	0	"Light Salmon 2"
+rgb	[~_]	#EE9572
+name	0	"Light Salmon 3"
+rgb	[~_]	#CD8162
+name	0	"Light Salmon 4"
+rgb	[~_]	#8B5742
+name	0	"Orange 1"
+rgb	[~_]	#FFA500
+name	0	"Orange 2"
+rgb	[~_]	#EE9A00
+name	0	"Orange 3"
+rgb	[~_]	#CD8500
+name	0	"Orange 4"
+rgb	[~_]	#8B5A00
+name	0	"Dark Orange 1"
+rgb	[~_]	#FF7F00
+name	0	"Dark Orange 2"
+rgb	[~_]	#EE7600
+name	0	"Dark Orange 3"
+rgb	[~_]	#CD6600
+name	0	"Dark Orange 4"
+rgb	[~_]	#8B4500
+name	0	"Coral 1"
+rgb	[~_]	#FF7256
+name	0	"Coral 2"
+rgb	[~_]	#EE6A50
+name	0	"Coral 3"
+rgb	[~_]	#CD5B45
+name	0	"Coral 4"
+rgb	[~_]	#8B3E2F
+name	0	"Tomato 1"
+rgb	[~_]	#FF6347
+name	0	"Tomato 2"
+rgb	[~_]	#EE5C42
+name	0	"Tomato 3"
+rgb	[~_]	#CD4F39
+name	0	"Tomato 4"
+rgb	[~_]	#8B3626
+name	0	"Orange Red 1"
+rgb	[~_]	#FF4500
+name	0	"Orange Red 2"
+rgb	[~_]	#EE4000
+name	0	"Orange Red 3"
+rgb	[~_]	#CD3700
+name	0	"Orange Red 4"
+rgb	[~_]	#8B2500
+name	0	"Red 1"
+rgb	[~_]	#FF0000
+name	0	"Red 2"
+rgb	[~_]	#EE0000
+name	0	"Red 3"
+rgb	[~_]	#CD0000
+name	0	"Red 4"
+rgb	[~_]	#8B0000
+name	0	"Deep Pink 1"
+rgb	[~_]	#FF1493
+name	0	"Deep Pink 2"
+rgb	[~_]	#EE1289
+name	0	"Deep Pink 3"
+rgb	[~_]	#CD1076
+name	0	"Deep Pink 4"
+rgb	[~_]	#8B0A50
+name	0	"Hot Pink 1"
+rgb	[~_]	#FF6EB4
+name	0	"Hot Pink 2"
+rgb	[~_]	#EE6AA7
+name	0	"Hot Pink 3"
+rgb	[~_]	#CD6090
+name	0	"Hot Pink 4"
+rgb	[~_]	#8B3A62
+name	0	"Pink 1"
+rgb	[~_]	#FFB5C5
+name	0	"Pink 2"
+rgb	[~_]	#EEA9B8
+name	0	"Pink 3"
+rgb	[~_]	#CD919E
+name	0	"Pink 4"
+rgb	[~_]	#8B636C
+name	0	"Light Pink 1"
+rgb	[~_]	#FFAEB9
+name	0	"Light Pink 2"
+rgb	[~_]	#EEA2AD
+name	0	"Light Pink 3"
+rgb	[~_]	#CD8C95
+name	0	"Light Pink 4"
+rgb	[~_]	#8B5F65
+name	0	"Pale Violet Red 1"
+rgb	[~_]	#FF82AB
+name	0	"Pale Violet Red 2"
+rgb	[~_]	#EE799F
+name	0	"Pale Violet Red 3"
+rgb	[~_]	#CD6889
+name	0	"Pale Violet Red 4"
+rgb	[~_]	#8B475D
+name	0	"Maroon 1"
+rgb	[~_]	#FF34B3
+name	0	"Maroon 2"
+rgb	[~_]	#EE30A7
+name	0	"Maroon 3"
+rgb	[~_]	#CD2990
+name	0	"Maroon 4"
+rgb	[~_]	#8B1C62
+name	0	"Violet Red 1"
+rgb	[~_]	#FF3E96
+name	0	"Violet Red 2"
+rgb	[~_]	#EE3A8C
+name	0	"Violet Red 3"
+rgb	[~_]	#CD3278
+name	0	"Violet Red 4"
+rgb	[~_]	#8B2252
+name	0	"Magenta 1"
+rgb	[~_]	#FF00FF
+name	0	"Magenta 2"
+rgb	[~_]	#EE00EE
+name	0	"Magenta 3"
+rgb	[~_]	#CD00CD
+name	0	"Magenta 4"
+rgb	[~_]	#8B008B
+name	0	"Orchid 1"
+rgb	[~_]	#FF83FA
+name	0	"Orchid 2"
+rgb	[~_]	#EE7AE9
+name	0	"Orchid 3"
+rgb	[~_]	#CD69C9
+name	0	"Orchid 4"
+rgb	[~_]	#8B4789
+name	0	"Plum 1"
+rgb	[~_]	#FFBBFF
+name	0	"Plum 2"
+rgb	[~_]	#EEAEEE
+name	0	"Plum 3"
+rgb	[~_]	#CD96CD
+name	0	"Plum 4"
+rgb	[~_]	#8B668B
+name	0	"Medium Orchid 1"
+rgb	[~_]	#E066FF
+name	0	"Medium Orchid 2"
+rgb	[~_]	#D15FEE
+name	0	"Medium Orchid 3"
+rgb	[~_]	#B452CD
+name	0	"Medium Orchid 4"
+rgb	[~_]	#7A378B
+name	0	"Dark Orchid 1"
+rgb	[~_]	#BF3EFF
+name	0	"Dark Orchid 2"
+rgb	[~_]	#B23AEE
+name	0	"Dark Orchid 3"
+rgb	[~_]	#9A32CD
+name	0	"Dark Orchid 4"
+rgb	[~_]	#68228B
+name	0	"Purple 1"
+rgb	[~_]	#9B30FF
+name	0	"Purple 2"
+rgb	[~_]	#912CEE
+name	0	"Purple 3"
+rgb	[~_]	#7D26CD
+name	0	"Purple 4"
+rgb	[~_]	#551A8B
+name	0	"Medium Purple 1"
+rgb	[~_]	#AB82FF
+name	0	"Medium Purple 2"
+rgb	[~_]	#9F79EE
+name	0	"Medium Purple 3"
+rgb	[~_]	#8968CD
+name	0	"Medium Purple 4"
+rgb	[~_]	#5D478B
+name	0	"Thistle 1"
+rgb	[~_]	#FFE1FF
+name	0	"Thistle 2"
+rgb	[~_]	#EED2EE
+name	0	"Thistle 3"
+rgb	[~_]	#CDB5CD
+name	0	"Thistle 4"
+rgb	[~_]	#8B7B8B
+name	0	"Gray 0"
+rgb	[~_]	#000000
+name	0	"Gray 1"
+rgb	[~_]	#030303
+name	0	"Gray 2"
+rgb	[~_]	#050505
+name	0	"Gray 3"
+rgb	[~_]	#080808
+name	0	"Gray 4"
+rgb	[~_]	#0A0A0A
+name	0	"Gray 5"
+rgb	[~_]	#0D0D0D
+name	0	"Gray 6"
+rgb	[~_]	#0F0F0F
+name	0	"Gray 7"
+rgb	[~_]	#121212
+name	0	"Gray 8"
+rgb	[~_]	#141414
+name	0	"Gray 9"
+rgb	[~_]	#171717
+name	0	"Gray 10"
+rgb	[~_]	#1A1A1A
+name	0	"Gray 11"
+rgb	[~_]	#1C1C1C
+name	0	"Gray 12"
+rgb	[~_]	#1F1F1F
+name	0	"Gray 13"
+rgb	[~_]	#212121
+name	0	"Gray 14"
+rgb	[~_]	#242424
+name	0	"Gray 15"
+rgb	[~_]	#262626
+name	0	"Gray 16"
+rgb	[~_]	#292929
+name	0	"Gray 17"
+rgb	[~_]	#2B2B2B
+name	0	"Gray 18"
+rgb	[~_]	#2E2E2E
+name	0	"Gray 19"
+rgb	[~_]	#303030
+name	0	"Gray 20"
+rgb	[~_]	#333333
+name	0	"Gray 21"
+rgb	[~_]	#363636
+name	0	"Gray 22"
+rgb	[~_]	#383838
+name	0	"Gray 23"
+rgb	[~_]	#3B3B3B
+name	0	"Gray 24"
+rgb	[~_]	#3D3D3D
+name	0	"Gray 25"
+rgb	[~_]	#404040
+name	0	"Gray 26"
+rgb	[~_]	#424242
+name	0	"Gray 27"
+rgb	[~_]	#454545
+name	0	"Gray 28"
+rgb	[~_]	#474747
+name	0	"Gray 29"
+rgb	[~_]	#4A4A4A
+name	0	"Gray 30"
+rgb	[~_]	#4D4D4D
+name	0	"Gray 31"
+rgb	[~_]	#4F4F4F
+name	0	"Gray 32"
+rgb	[~_]	#525252
+name	0	"Gray 33"
+rgb	[~_]	#545454
+name	0	"Gray 34"
+rgb	[~_]	#575757
+name	0	"Gray 35"
+rgb	[~_]	#595959
+name	0	"Gray 36"
+rgb	[~_]	#5C5C5C
+name	0	"Gray 37"
+rgb	[~_]	#5E5E5E
+name	0	"Gray 38"
+rgb	[~_]	#616161
+name	0	"Gray 39"
+rgb	[~_]	#636363
+name	0	"Gray 40"
+rgb	[~_]	#666666
+name	0	"Gray 41"
+rgb	[~_]	#696969
+name	0	"Gray 42"
+rgb	[~_]	#6B6B6B
+name	0	"Gray 43"
+rgb	[~_]	#6E6E6E
+name	0	"Gray 44"
+rgb	[~_]	#707070
+name	0	"Gray 45"
+rgb	[~_]	#737373
+name	0	"Gray 46"
+rgb	[~_]	#757575
+name	0	"Gray 47"
+rgb	[~_]	#787878
+name	0	"Gray 48"
+rgb	[~_]	#7A7A7A
+name	0	"Gray 49"
+rgb	[~_]	#7D7D7D
+name	0	"Gray 50"
+rgb	[~_]	#7F7F7F
+name	0	"Gray 51"
+rgb	[~_]	#828282
+name	0	"Gray 52"
+rgb	[~_]	#858585
+name	0	"Gray 53"
+rgb	[~_]	#878787
+name	0	"Gray 54"
+rgb	[~_]	#8A8A8A
+name	0	"Gray 55"
+rgb	[~_]	#8C8C8C
+name	0	"Gray 56"
+rgb	[~_]	#8F8F8F
+name	0	"Gray 57"
+rgb	[~_]	#919191
+name	0	"Gray 58"
+rgb	[~_]	#949494
+name	0	"Gray 59"
+rgb	[~_]	#969696
+name	0	"Gray 60"
+rgb	[~_]	#999999
+name	0	"Gray 61"
+rgb	[~_]	#9C9C9C
+name	0	"Gray 62"
+rgb	[~_]	#9E9E9E
+name	0	"Gray 63"
+rgb	[~_]	#A1A1A1
+name	0	"Gray 64"
+rgb	[~_]	#A3A3A3
+name	0	"Gray 65"
+rgb	[~_]	#A6A6A6
+name	0	"Gray 66"
+rgb	[~_]	#A8A8A8
+name	0	"Gray 67"
+rgb	[~_]	#ABABAB
+name	0	"Gray 68"
+rgb	[~_]	#ADADAD
+name	0	"Gray 69"
+rgb	[~_]	#B0B0B0
+name	0	"Gray 70"
+rgb	[~_]	#B3B3B3
+name	0	"Gray 71"
+rgb	[~_]	#B5B5B5
+name	0	"Gray 72"
+rgb	[~_]	#B8B8B8
+name	0	"Gray 73"
+rgb	[~_]	#BABABA
+name	0	"Gray 74"
+rgb	[~_]	#BDBDBD
+name	0	"Gray 75"
+rgb	[~_]	#BFBFBF
+name	0	"Gray 76"
+rgb	[~_]	#C2C2C2
+name	0	"Gray 77"
+rgb	[~_]	#C4C4C4
+name	0	"Gray 78"
+rgb	[~_]	#C7C7C7
+name	0	"Gray 79"
+rgb	[~_]	#C9C9C9
+name	0	"Gray 80"
+rgb	[~_]	#CCCCCC
+name	0	"Gray 81"
+rgb	[~_]	#CFCFCF
+name	0	"Gray 82"
+rgb	[~_]	#D1D1D1
+name	0	"Gray 83"
+rgb	[~_]	#D4D4D4
+name	0	"Gray 84"
+rgb	[~_]	#D6D6D6
+name	0	"Gray 85"
+rgb	[~_]	#D9D9D9
+name	0	"Gray 86"
+rgb	[~_]	#DBDBDB
+name	0	"Gray 87"
+rgb	[~_]	#DEDEDE
+name	0	"Gray 88"
+rgb	[~_]	#E0E0E0
+name	0	"Gray 89"
+rgb	[~_]	#E3E3E3
+name	0	"Gray 90"
+rgb	[~_]	#E5E5E5
+name	0	"Gray 91"
+rgb	[~_]	#E8E8E8
+name	0	"Gray 92"
+rgb	[~_]	#EBEBEB
+name	0	"Gray 93"
+rgb	[~_]	#EDEDED
+name	0	"Gray 94"
+rgb	[~_]	#F0F0F0
+name	0	"Gray 95"
+rgb	[~_]	#F2F2F2
+name	0	"Gray 96"
+rgb	[~_]	#F5F5F5
+name	0	"Gray 97"
+rgb	[~_]	#F7F7F7
+name	0	"Gray 98"
+rgb	[~_]	#FAFAFA
+name	0	"Gray 99"
+rgb	[~_]	#FCFCFC
+name	0	"Gray 100"
+rgb	[~_]	#FFFFFF
+name	0	"Dark Gray"
+rgb	[~_]	#A9A9A9
+name	0	"Dark Blue"
+rgb	[~_]	#00008B
+name	0	"Dark Cyan"
+rgb	[~_]	#008B8B
+name	0	"Dark Magenta"
+rgb	[~_]	#8B008B
+name	0	"Dark Red"
+rgb	[~_]	#8B0000
+name	0	"Light Green"
+rgb	[~_]	#90EE90
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+grid	0	12,46
+name	0	"Snow"
+rgb	[~_]	#FFFAFA
+name	0	"Ghost White"
+rgb	[~_]	#F8F8FF
+name	0	"White Smoke"
+rgb	[~_]	#F5F5F5
+name	0	"Gainsboro"
+rgb	[~_]	#DCDCDC
+name	0	"Floral White"
+rgb	[~_]	#FFFAF0
+name	0	"Old Lace"
+rgb	[~_]	#FDF5E6
+name	0	"Linen"
+rgb	[~_]	#FAF0E6
+name	0	"Antique White"
+rgb	[~_]	#FAEBD7
+name	0	"Papaya Whip"
+rgb	[~_]	#FFEFD5
+name	0	"Blanched Almond"
+rgb	[~_]	#FFEBCD
+name	0	"Bisque"
+rgb	[~_]	#FFE4C4
+name	0	"Peach Puff"
+rgb	[~_]	#FFDAB9
+name	0	"Navajo White"
+rgb	[~_]	#FFDEAD
+name	0	"Moccasin"
+rgb	[~_]	#FFE4B5
+name	0	"Cornsilk"
+rgb	[~_]	#FFF8DC
+name	0	"Ivory"
+rgb	[~_]	#FFFFF0
+name	0	"Lemon Chiffon"
+rgb	[~_]	#FFFACD
+name	0	"Seashell"
+rgb	[~_]	#FFF5EE
+name	0	"Honeydew"
+rgb	[~_]	#F0FFF0
+name	0	"Mint Cream"
+rgb	[~_]	#F5FFFA
+name	0	"Azure"
+rgb	[~_]	#F0FFFF
+name	0	"Alice Blue"
+rgb	[~_]	#F0F8FF
+name	0	"Lavender"
+rgb	[~_]	#E6E6FA
+name	0	"Lavender Blush"
+rgb	[~_]	#FFF0F5
+name	0	"Misty Rose"
+rgb	[~_]	#FFE4E1
+name	0	"White"
+rgb	[~_]	#FFFFFF
+name	0	"Black"
+rgb	[~_]	#000000
+name	0	"Dark Slate Gray"
+rgb	[~_]	#2F4F4F
+name	0	"Dim Gray"
+rgb	[~_]	#696969
+name	0	"Slate Gray"
+rgb	[~_]	#708090
+name	0	"Light Slate Gray"
+rgb	[~_]	#778899
+name	0	"Gray"
+rgb	[~_]	#BEBEBE
+name	0	"Light Gray"
+rgb	[~_]	#D3D3D3
+name	0	"Midnight Blue"
+rgb	[~_]	#191970
+name	0	"Navy"
+rgb	[~_]	#000080
+name	0	"Navy Blue"
+rgb	[~_]	#000080
+name	0	"Cornflower Blue"
+rgb	[~_]	#6495ED
+name	0	"Dark Slate Blue"
+rgb	[~_]	#483D8B
+name	0	"Slate Blue"
+rgb	[~_]	#6A5ACD
+name	0	"Medium Slate Blue"
+rgb	[~_]	#7B68EE
+name	0	"Light Slate Blue"
+rgb	[~_]	#8470FF
+name	0	"Medium Blue"
+rgb	[~_]	#0000CD
+name	0	"Royal Blue"
+rgb	[~_]	#4169E1
+name	0	"Blue"
+rgb	[~_]	#0000FF
+name	0	"Dodger Blue"
+rgb	[~_]	#1E90FF
+name	0	"Deep Sky Blue"
+rgb	[~_]	#00BFFF
+name	0	"Sky Blue"
+rgb	[~_]	#87CEEB
+name	0	"Light Sky Blue"
+rgb	[~_]	#87CEFA
+name	0	"Steel Blue"
+rgb	[~_]	#4682B4
+name	0	"Light Steel Blue"
+rgb	[~_]	#B0C4DE
+name	0	"Light Blue"
+rgb	[~_]	#ADD8E6
+name	0	"Powder Blue"
+rgb	[~_]	#B0E0E6
+name	0	"Pale Turquoise"
+rgb	[~_]	#AFEEEE
+name	0	"Dark Turquoise"
+rgb	[~_]	#00CED1
+name	0	"Medium Turquoise"
+rgb	[~_]	#48D1CC
+name	0	"Turquoise"
+rgb	[~_]	#40E0D0
+name	0	"Cyan"
+rgb	[~_]	#00FFFF
+name	0	"Light Cyan"
+rgb	[~_]	#E0FFFF
+name	0	"Cadet Blue"
+rgb	[~_]	#5F9EA0
+name	0	"Medium Aquamarine"
+rgb	[~_]	#66CDAA
+name	0	"Aquamarine"
+rgb	[~_]	#7FFFD4
+name	0	"Dark Green"
+rgb	[~_]	#006400
+name	0	"Dark Olive Green"
+rgb	[~_]	#556B2F
+name	0	"Dark Sea Green"
+rgb	[~_]	#8FBC8F
+name	0	"Sea Green"
+rgb	[~_]	#2E8B57
+name	0	"Medium Sea Green"
+rgb	[~_]	#3CB371
+name	0	"Light Sea Green"
+rgb	[~_]	#20B2AA
+name	0	"Pale Green"
+rgb	[~_]	#98FB98
+name	0	"Spring Green"
+rgb	[~_]	#00FF7F
+name	0	"Lawn Green"
+rgb	[~_]	#7CFC00
+name	0	"Green"
+rgb	[~_]	#00FF00
+name	0	"Chartreuse"
+rgb	[~_]	#7FFF00
+name	0	"Medium Spring Green"
+rgb	[~_]	#00FA9A
+name	0	"Green Yellow"
+rgb	[~_]	#ADFF2F
+name	0	"Lime Green"
+rgb	[~_]	#32CD32
+name	0	"Yellow Green"
+rgb	[~_]	#9ACD32
+name	0	"Forest Green"
+rgb	[~_]	#228B22
+name	0	"Olive Drab"
+rgb	[~_]	#6B8E23
+name	0	"Dark Khaki"
+rgb	[~_]	#BDB76B
+name	0	"Khaki"
+rgb	[~_]	#F0E68C
+name	0	"Pale Goldenrod"
+rgb	[~_]	#EEE8AA
+name	0	"Light Goldenrod Yellow"
+rgb	[~_]	#FAFAD2
+name	0	"Light Yellow"
+rgb	[~_]	#FFFFE0
+name	0	"Yellow"
+rgb	[~_]	#FFFF00
+name	0	"Gold"
+rgb	[~_]	#FFD700
+name	0	"Light Goldenrod"
+rgb	[~_]	#EEDD82
+name	0	"Goldenrod"
+rgb	[~_]	#DAA520
+name	0	"Dark Goldenrod"
+rgb	[~_]	#B8860B
+name	0	"Rosy Brown"
+rgb	[~_]	#BC8F8F
+name	0	"Indian Red"
+rgb	[~_]	#CD5C5C
+name	0	"Saddle Brown"
+rgb	[~_]	#8B4513
+name	0	"Sienna"
+rgb	[~_]	#A0522D
+name	0	"Peru"
+rgb	[~_]	#CD853F
+name	0	"Burlywood"
+rgb	[~_]	#DEB887
+name	0	"Beige"
+rgb	[~_]	#F5F5DC
+name	0	"Wheat"
+rgb	[~_]	#F5DEB3
+name	0	"Sandy Brown"
+rgb	[~_]	#F4A460
+name	0	"Tan"
+rgb	[~_]	#D2B48C
+name	0	"Chocolate"
+rgb	[~_]	#D2691E
+name	0	"Firebrick"
+rgb	[~_]	#B22222
+name	0	"Brown"
+rgb	[~_]	#A52A2A
+name	0	"Dark Salmon"
+rgb	[~_]	#E9967A
+name	0	"Salmon"
+rgb	[~_]	#FA8072
+name	0	"Light Salmon"
+rgb	[~_]	#FFA07A
+name	0	"Orange"
+rgb	[~_]	#FFA500
+name	0	"Dark Orange"
+rgb	[~_]	#FF8C00
+name	0	"Coral"
+rgb	[~_]	#FF7F50
+name	0	"Light Coral"
+rgb	[~_]	#F08080
+name	0	"Tomato"
+rgb	[~_]	#FF6347
+name	0	"Orange Red"
+rgb	[~_]	#FF4500
+name	0	"Red"
+rgb	[~_]	#FF0000
+name	0	"Hot Pink"
+rgb	[~_]	#FF69B4
+name	0	"Deep Pink"
+rgb	[~_]	#FF1493
+name	0	"Pink"
+rgb	[~_]	#FFC0CB
+name	0	"Light Pink"
+rgb	[~_]	#FFB6C1
+name	0	"Pale Violet Red"
+rgb	[~_]	#DB7093
+name	0	"Maroon"
+rgb	[~_]	#B03060
+name	0	"Medium Violet Red"
+rgb	[~_]	#C71585
+name	0	"Violet Red"
+rgb	[~_]	#D02090
+name	0	"Magenta"
+rgb	[~_]	#FF00FF
+name	0	"Violet"
+rgb	[~_]	#EE82EE
+name	0	"Plum"
+rgb	[~_]	#DDA0DD
+name	0	"Orchid"
+rgb	[~_]	#DA70D6
+name	0	"Medium Orchid"
+rgb	[~_]	#BA55D3
+name	0	"Dark Orchid"
+rgb	[~_]	#9932CC
+name	0	"Dark Violet"
+rgb	[~_]	#9400D3
+name	0	"Blue Violet"
+rgb	[~_]	#8A2BE2
+name	0	"Purple"
+rgb	[~_]	#A020F0
+name	0	"Medium Purple"
+rgb	[~_]	#9370DB
+name	0	"Thistle"
+rgb	[~_]	#D8BFD8
+name	0	"Snow 1"
+rgb	[~_]	#FFFAFA
+name	0	"Snow 2"
+rgb	[~_]	#EEE9E9
+name	0	"Snow 3"
+rgb	[~_]	#CDC9C9
+name	0	"Snow 4"
+rgb	[~_]	#8B8989
+name	0	"Seashell 1"
+rgb	[~_]	#FFF5EE
+name	0	"Seashell 2"
+rgb	[~_]	#EEE5DE
+name	0	"Seashell 3"
+rgb	[~_]	#CDC5BF
+name	0	"Seashell 4"
+rgb	[~_]	#8B8682
+name	0	"Antique White 1"
+rgb	[~_]	#FFEFDB
+name	0	"Antique White 2"
+rgb	[~_]	#EEDFCC
+name	0	"Antique White 3"
+rgb	[~_]	#CDC0B0
+name	0	"Antique White 4"
+rgb	[~_]	#8B8378
+name	0	"Bisque 1"
+rgb	[~_]	#FFE4C4
+name	0	"Bisque 2"
+rgb	[~_]	#EED5B7
+name	0	"Bisque 3"
+rgb	[~_]	#CDB79E
+name	0	"Bisque 4"
+rgb	[~_]	#8B7D6B
+name	0	"Peach Puff 1"
+rgb	[~_]	#FFDAB9
+name	0	"Peach Puff 2"
+rgb	[~_]	#EECBAD
+name	0	"Peach Puff 3"
+rgb	[~_]	#CDAF95
+name	0	"Peach Puff 4"
+rgb	[~_]	#8B7765
+name	0	"Navajo White 1"
+rgb	[~_]	#FFDEAD
+name	0	"Navajo White 2"
+rgb	[~_]	#EECFA1
+name	0	"Navajo White 3"
+rgb	[~_]	#CDB38B
+name	0	"Navajo White 4"
+rgb	[~_]	#8B795E
+name	0	"Lemon Chiffon 1"
+rgb	[~_]	#FFFACD
+name	0	"Lemon Chiffon 2"
+rgb	[~_]	#EEE9BF
+name	0	"Lemon Chiffon 3"
+rgb	[~_]	#CDC9A5
+name	0	"Lemon Chiffon 4"
+rgb	[~_]	#8B8970
+name	0	"Cornsilk 1"
+rgb	[~_]	#FFF8DC
+name	0	"Cornsilk 2"
+rgb	[~_]	#EEE8CD
+name	0	"Cornsilk 3"
+rgb	[~_]	#CDC8B1
+name	0	"Cornsilk 4"
+rgb	[~_]	#8B8878
+name	0	"Ivory 1"
+rgb	[~_]	#FFFFF0
+name	0	"Ivory 2"
+rgb	[~_]	#EEEEE0
+name	0	"Ivory 3"
+rgb	[~_]	#CDCDC1
+name	0	"Ivory 4"
+rgb	[~_]	#8B8B83
+name	0	"Honeydew 1"
+rgb	[~_]	#F0FFF0
+name	0	"Honeydew 2"
+rgb	[~_]	#E0EEE0
+name	0	"Honeydew 3"
+rgb	[~_]	#C1CDC1
+name	0	"Honeydew 4"
+rgb	[~_]	#838B83
+name	0	"Lavender Blush 1"
+rgb	[~_]	#FFF0F5
+name	0	"Lavender Blush 2"
+rgb	[~_]	#EEE0E5
+name	0	"Lavender Blush 3"
+rgb	[~_]	#CDC1C5
+name	0	"Lavender Blush 4"
+rgb	[~_]	#8B8386
+name	0	"Misty Rose 1"
+rgb	[~_]	#FFE4E1
+name	0	"Misty Rose 2"
+rgb	[~_]	#EED5D2
+name	0	"Misty Rose 3"
+rgb	[~_]	#CDB7B5
+name	0	"Misty Rose 4"
+rgb	[~_]	#8B7D7B
+name	0	"Azure 1"
+rgb	[~_]	#F0FFFF
+name	0	"Azure 2"
+rgb	[~_]	#E0EEEE
+name	0	"Azure 3"
+rgb	[~_]	#C1CDCD
+name	0	"Azure 4"
+rgb	[~_]	#838B8B
+name	0	"Slate Blue 1"
+rgb	[~_]	#836FFF
+name	0	"Slate Blue 2"
+rgb	[~_]	#7A67EE
+name	0	"Slate Blue 3"
+rgb	[~_]	#6959CD
+name	0	"Slate Blue 4"
+rgb	[~_]	#473C8B
+name	0	"Royal Blue 1"
+rgb	[~_]	#4876FF
+name	0	"Royal Blue 2"
+rgb	[~_]	#436EEE
+name	0	"Royal Blue 3"
+rgb	[~_]	#3A5FCD
+name	0	"Royal Blue 4"
+rgb	[~_]	#27408B
+name	0	"Blue 1"
+rgb	[~_]	#0000FF
+name	0	"Blue 2"
+rgb	[~_]	#0000EE
+name	0	"Blue 3"
+rgb	[~_]	#0000CD
+name	0	"Blue 4"
+rgb	[~_]	#00008B
+name	0	"Dodger Blue 1"
+rgb	[~_]	#1E90FF
+name	0	"Dodger Blue 2"
+rgb	[~_]	#1C86EE
+name	0	"Dodger Blue 3"
+rgb	[~_]	#1874CD
+name	0	"Dodger Blue 4"
+rgb	[~_]	#104E8B
+name	0	"Steel Blue 1"
+rgb	[~_]	#63B8FF
+name	0	"Steel Blue 2"
+rgb	[~_]	#5CACEE
+name	0	"Steel Blue 3"
+rgb	[~_]	#4F94CD
+name	0	"Steel Blue 4"
+rgb	[~_]	#36648B
+name	0	"Deep Sky Blue 1"
+rgb	[~_]	#00BFFF
+name	0	"Deep Sky Blue 2"
+rgb	[~_]	#00B2EE
+name	0	"Deep Sky Blue 3"
+rgb	[~_]	#009ACD
+name	0	"Deep Sky Blue 4"
+rgb	[~_]	#00688B
+name	0	"Sky Blue 1"
+rgb	[~_]	#87CEFF
+name	0	"Sky Blue 2"
+rgb	[~_]	#7EC0EE
+name	0	"Sky Blue 3"
+rgb	[~_]	#6CA6CD
+name	0	"Sky Blue 4"
+rgb	[~_]	#4A708B
+name	0	"Light Sky Blue 1"
+rgb	[~_]	#B0E2FF
+name	0	"Light Sky Blue 2"
+rgb	[~_]	#A4D3EE
+name	0	"Light Sky Blue 3"
+rgb	[~_]	#8DB6CD
+name	0	"Light Sky Blue 4"
+rgb	[~_]	#607B8B
+name	0	"Slate Gray 1"
+rgb	[~_]	#C6E2FF
+name	0	"Slate Gray 2"
+rgb	[~_]	#B9D3EE
+name	0	"Slate Gray 3"
+rgb	[~_]	#9FB6CD
+name	0	"Slate Gray 4"
+rgb	[~_]	#6C7B8B
+name	0	"Light Steel Blue 1"
+rgb	[~_]	#CAE1FF
+name	0	"Light Steel Blue 2"
+rgb	[~_]	#BCD2EE
+name	0	"Light Steel Blue 3"
+rgb	[~_]	#A2B5CD
+name	0	"Light Steel Blue 4"
+rgb	[~_]	#6E7B8B
+name	0	"Light Blue 1"
+rgb	[~_]	#BFEFFF
+name	0	"Light Blue 2"
+rgb	[~_]	#B2DFEE
+name	0	"Light Blue 3"
+rgb	[~_]	#9AC0CD
+name	0	"Light Blue 4"
+rgb	[~_]	#68838B
+name	0	"Light Cyan 1"
+rgb	[~_]	#E0FFFF
+name	0	"Light Cyan 2"
+rgb	[~_]	#D1EEEE
+name	0	"Light Cyan 3"
+rgb	[~_]	#B4CDCD
+name	0	"Light Cyan 4"
+rgb	[~_]	#7A8B8B
+name	0	"Pale Turquoise 1"
+rgb	[~_]	#BBFFFF
+name	0	"Pale Turquoise 2"
+rgb	[~_]	#AEEEEE
+name	0	"Pale Turquoise 3"
+rgb	[~_]	#96CDCD
+name	0	"Pale Turquoise 4"
+rgb	[~_]	#668B8B
+name	0	"Cadet Blue 1"
+rgb	[~_]	#98F5FF
+name	0	"Cadet Blue 2"
+rgb	[~_]	#8EE5EE
+name	0	"Cadet Blue 3"
+rgb	[~_]	#7AC5CD
+name	0	"Cadet Blue 4"
+rgb	[~_]	#53868B
+name	0	"Turquoise 1"
+rgb	[~_]	#00F5FF
+name	0	"Turquoise 2"
+rgb	[~_]	#00E5EE
+name	0	"Turquoise 3"
+rgb	[~_]	#00C5CD
+name	0	"Turquoise 4"
+rgb	[~_]	#00868B
+name	0	"Cyan 1"
+rgb	[~_]	#00FFFF
+name	0	"Cyan 2"
+rgb	[~_]	#00EEEE
+name	0	"Cyan 3"
+rgb	[~_]	#00CDCD
+name	0	"Cyan 4"
+rgb	[~_]	#008B8B
+name	0	"Dark Slate Gray 1"
+rgb	[~_]	#97FFFF
+name	0	"Dark Slate Gray 2"
+rgb	[~_]	#8DEEEE
+name	0	"Dark Slate Gray 3"
+rgb	[~_]	#79CDCD
+name	0	"Dark Slate Gray 4"
+rgb	[~_]	#528B8B
+name	0	"Aquamarine 1"
+rgb	[~_]	#7FFFD4
+name	0	"Aquamarine 2"
+rgb	[~_]	#76EEC6
+name	0	"Aquamarine 3"
+rgb	[~_]	#66CDAA
+name	0	"Aquamarine 4"
+rgb	[~_]	#458B74
+name	0	"Dark Sea Green 1"
+rgb	[~_]	#C1FFC1
+name	0	"Dark Sea Green 2"
+rgb	[~_]	#B4EEB4
+name	0	"Dark Sea Green 3"
+rgb	[~_]	#9BCD9B
+name	0	"Dark Sea Green 4"
+rgb	[~_]	#698B69
+name	0	"Sea Green 1"
+rgb	[~_]	#54FF9F
+name	0	"Sea Green 2"
+rgb	[~_]	#4EEE94
+name	0	"Sea Green 3"
+rgb	[~_]	#43CD80
+name	0	"Sea Green 4"
+rgb	[~_]	#2E8B57
+name	0	"Pale Green 1"
+rgb	[~_]	#9AFF9A
+name	0	"Pale Green 2"
+rgb	[~_]	#90EE90
+name	0	"Pale Green 3"
+rgb	[~_]	#7CCD7C
+name	0	"Pale Green 4"
+rgb	[~_]	#548B54
+name	0	"Spring Green 1"
+rgb	[~_]	#00FF7F
+name	0	"Spring Green 2"
+rgb	[~_]	#00EE76
+name	0	"Spring Green 3"
+rgb	[~_]	#00CD66
+name	0	"Spring Green 4"
+rgb	[~_]	#008B45
+name	0	"Green 1"
+rgb	[~_]	#00FF00
+name	0	"Green 2"
+rgb	[~_]	#00EE00
+name	0	"Green 3"
+rgb	[~_]	#00CD00
+name	0	"Green 4"
+rgb	[~_]	#008B00
+name	0	"Chartreuse 1"
+rgb	[~_]	#7FFF00
+name	0	"Chartreuse 2"
+rgb	[~_]	#76EE00
+name	0	"Chartreuse 3"
+rgb	[~_]	#66CD00
+name	0	"Chartreuse 4"
+rgb	[~_]	#458B00
+name	0	"Olive Drab 1"
+rgb	[~_]	#C0FF3E
+name	0	"Olive Drab 2"
+rgb	[~_]	#B3EE3A
+name	0	"Olive Drab 3"
+rgb	[~_]	#9ACD32
+name	0	"Olive Drab 4"
+rgb	[~_]	#698B22
+name	0	"Dark Olive Green 1"
+rgb	[~_]	#CAFF70
+name	0	"Dark Olive Green 2"
+rgb	[~_]	#BCEE68
+name	0	"Dark Olive Green 3"
+rgb	[~_]	#A2CD5A
+name	0	"Dark Olive Green 4"
+rgb	[~_]	#6E8B3D
+name	0	"Khaki 1"
+rgb	[~_]	#FFF68F
+name	0	"Khaki 2"
+rgb	[~_]	#EEE685
+name	0	"Khaki 3"
+rgb	[~_]	#CDC673
+name	0	"Khaki 4"
+rgb	[~_]	#8B864E
+name	0	"Light Goldenrod 1"
+rgb	[~_]	#FFEC8B
+name	0	"Light Goldenrod 2"
+rgb	[~_]	#EEDC82
+name	0	"Light Goldenrod 3"
+rgb	[~_]	#CDBE70
+name	0	"Light Goldenrod 4"
+rgb	[~_]	#8B814C
+name	0	"Light Yellow 1"
+rgb	[~_]	#FFFFE0
+name	0	"Light Yellow 2"
+rgb	[~_]	#EEEED1
+name	0	"Light Yellow 3"
+rgb	[~_]	#CDCDB4
+name	0	"Light Yellow 4"
+rgb	[~_]	#8B8B7A
+name	0	"Yellow 1"
+rgb	[~_]	#FFFF00
+name	0	"Yellow 2"
+rgb	[~_]	#EEEE00
+name	0	"Yellow 3"
+rgb	[~_]	#CDCD00
+name	0	"Yellow 4"
+rgb	[~_]	#8B8B00
+name	0	"Gold 1"
+rgb	[~_]	#FFD700
+name	0	"Gold 2"
+rgb	[~_]	#EEC900
+name	0	"Gold 3"
+rgb	[~_]	#CDAD00
+name	0	"Gold 4"
+rgb	[~_]	#8B7500
+name	0	"Goldenrod 1"
+rgb	[~_]	#FFC125
+name	0	"Goldenrod 2"
+rgb	[~_]	#EEB422
+name	0	"Goldenrod 3"
+rgb	[~_]	#CD9B1D
+name	0	"Goldenrod 4"
+rgb	[~_]	#8B6914
+name	0	"Dark Goldenrod 1"
+rgb	[~_]	#FFB90F
+name	0	"Dark Goldenrod 2"
+rgb	[~_]	#EEAD0E
+name	0	"Dark Goldenrod 3"
+rgb	[~_]	#CD950C
+name	0	"Dark Goldenrod 4"
+rgb	[~_]	#8B6508
+name	0	"Rosy Brown 1"
+rgb	[~_]	#FFC1C1
+name	0	"Rosy Brown 2"
+rgb	[~_]	#EEB4B4
+name	0	"Rosy Brown 3"
+rgb	[~_]	#CD9B9B
+name	0	"Rosy Brown 4"
+rgb	[~_]	#8B6969
+name	0	"Indian Red 1"
+rgb	[~_]	#FF6A6A
+name	0	"Indian Red 2"
+rgb	[~_]	#EE6363
+name	0	"Indian Red 3"
+rgb	[~_]	#CD5555
+name	0	"Indian Red 4"
+rgb	[~_]	#8B3A3A
+name	0	"Sienna 1"
+rgb	[~_]	#FF8247
+name	0	"Sienna 2"
+rgb	[~_]	#EE7942
+name	0	"Sienna 3"
+rgb	[~_]	#CD6839
+name	0	"Sienna 4"
+rgb	[~_]	#8B4726
+name	0	"Burlywood 1"
+rgb	[~_]	#FFD39B
+name	0	"Burlywood 2"
+rgb	[~_]	#EEC591
+name	0	"Burlywood 3"
+rgb	[~_]	#CDAA7D
+name	0	"Burlywood 4"
+rgb	[~_]	#8B7355
+name	0	"Wheat 1"
+rgb	[~_]	#FFE7BA
+name	0	"Wheat 2"
+rgb	[~_]	#EED8AE
+name	0	"Wheat 3"
+rgb	[~_]	#CDBA96
+name	0	"Wheat 4"
+rgb	[~_]	#8B7E66
+name	0	"Tan 1"
+rgb	[~_]	#FFA54F
+name	0	"Tan 2"
+rgb	[~_]	#EE9A49
+name	0	"Tan 3"
+rgb	[~_]	#CD853F
+name	0	"Tan 4"
+rgb	[~_]	#8B5A2B
+name	0	"Chocolate 1"
+rgb	[~_]	#FF7F24
+name	0	"Chocolate 2"
+rgb	[~_]	#EE7621
+name	0	"Chocolate 3"
+rgb	[~_]	#CD661D
+name	0	"Chocolate 4"
+rgb	[~_]	#8B4513
+name	0	"Firebrick 1"
+rgb	[~_]	#FF3030
+name	0	"Firebrick 2"
+rgb	[~_]	#EE2C2C
+name	0	"Firebrick 3"
+rgb	[~_]	#CD2626
+name	0	"Firebrick 4"
+rgb	[~_]	#8B1A1A
+name	0	"Brown 1"
+rgb	[~_]	#FF4040
+name	0	"Brown 2"
+rgb	[~_]	#EE3B3B
+name	0	"Brown 3"
+rgb	[~_]	#CD3333
+name	0	"Brown 4"
+rgb	[~_]	#8B2323
+name	0	"Salmon 1"
+rgb	[~_]	#FF8C69
+name	0	"Salmon 2"
+rgb	[~_]	#EE8262
+name	0	"Salmon 3"
+rgb	[~_]	#CD7054
+name	0	"Salmon 4"
+rgb	[~_]	#8B4C39
+name	0	"Light Salmon 1"
+rgb	[~_]	#FFA07A
+name	0	"Light Salmon 2"
+rgb	[~_]	#EE9572
+name	0	"Light Salmon 3"
+rgb	[~_]	#CD8162
+name	0	"Light Salmon 4"
+rgb	[~_]	#8B5742
+name	0	"Orange 1"
+rgb	[~_]	#FFA500
+name	0	"Orange 2"
+rgb	[~_]	#EE9A00
+name	0	"Orange 3"
+rgb	[~_]	#CD8500
+name	0	"Orange 4"
+rgb	[~_]	#8B5A00
+name	0	"Dark Orange 1"
+rgb	[~_]	#FF7F00
+name	0	"Dark Orange 2"
+rgb	[~_]	#EE7600
+name	0	"Dark Orange 3"
+rgb	[~_]	#CD6600
+name	0	"Dark Orange 4"
+rgb	[~_]	#8B4500
+name	0	"Coral 1"
+rgb	[~_]	#FF7256
+name	0	"Coral 2"
+rgb	[~_]	#EE6A50
+name	0	"Coral 3"
+rgb	[~_]	#CD5B45
+name	0	"Coral 4"
+rgb	[~_]	#8B3E2F
+name	0	"Tomato 1"
+rgb	[~_]	#FF6347
+name	0	"Tomato 2"
+rgb	[~_]	#EE5C42
+name	0	"Tomato 3"
+rgb	[~_]	#CD4F39
+name	0	"Tomato 4"
+rgb	[~_]	#8B3626
+name	0	"Orange Red 1"
+rgb	[~_]	#FF4500
+name	0	"Orange Red 2"
+rgb	[~_]	#EE4000
+name	0	"Orange Red 3"
+rgb	[~_]	#CD3700
+name	0	"Orange Red 4"
+rgb	[~_]	#8B2500
+name	0	"Red 1"
+rgb	[~_]	#FF0000
+name	0	"Red 2"
+rgb	[~_]	#EE0000
+name	0	"Red 3"
+rgb	[~_]	#CD0000
+name	0	"Red 4"
+rgb	[~_]	#8B0000
+name	0	"Deep Pink 1"
+rgb	[~_]	#FF1493
+name	0	"Deep Pink 2"
+rgb	[~_]	#EE1289
+name	0	"Deep Pink 3"
+rgb	[~_]	#CD1076
+name	0	"Deep Pink 4"
+rgb	[~_]	#8B0A50
+name	0	"Hot Pink 1"
+rgb	[~_]	#FF6EB4
+name	0	"Hot Pink 2"
+rgb	[~_]	#EE6AA7
+name	0	"Hot Pink 3"
+rgb	[~_]	#CD6090
+name	0	"Hot Pink 4"
+rgb	[~_]	#8B3A62
+name	0	"Pink 1"
+rgb	[~_]	#FFB5C5
+name	0	"Pink 2"
+rgb	[~_]	#EEA9B8
+name	0	"Pink 3"
+rgb	[~_]	#CD919E
+name	0	"Pink 4"
+rgb	[~_]	#8B636C
+name	0	"Light Pink 1"
+rgb	[~_]	#FFAEB9
+name	0	"Light Pink 2"
+rgb	[~_]	#EEA2AD
+name	0	"Light Pink 3"
+rgb	[~_]	#CD8C95
+name	0	"Light Pink 4"
+rgb	[~_]	#8B5F65
+name	0	"Pale Violet Red 1"
+rgb	[~_]	#FF82AB
+name	0	"Pale Violet Red 2"
+rgb	[~_]	#EE799F
+name	0	"Pale Violet Red 3"
+rgb	[~_]	#CD6889
+name	0	"Pale Violet Red 4"
+rgb	[~_]	#8B475D
+name	0	"Maroon 1"
+rgb	[~_]	#FF34B3
+name	0	"Maroon 2"
+rgb	[~_]	#EE30A7
+name	0	"Maroon 3"
+rgb	[~_]	#CD2990
+name	0	"Maroon 4"
+rgb	[~_]	#8B1C62
+name	0	"Violet Red 1"
+rgb	[~_]	#FF3E96
+name	0	"Violet Red 2"
+rgb	[~_]	#EE3A8C
+name	0	"Violet Red 3"
+rgb	[~_]	#CD3278
+name	0	"Violet Red 4"
+rgb	[~_]	#8B2252
+name	0	"Magenta 1"
+rgb	[~_]	#FF00FF
+name	0	"Magenta 2"
+rgb	[~_]	#EE00EE
+name	0	"Magenta 3"
+rgb	[~_]	#CD00CD
+name	0	"Magenta 4"
+rgb	[~_]	#8B008B
+name	0	"Orchid 1"
+rgb	[~_]	#FF83FA
+name	0	"Orchid 2"
+rgb	[~_]	#EE7AE9
+name	0	"Orchid 3"
+rgb	[~_]	#CD69C9
+name	0	"Orchid 4"
+rgb	[~_]	#8B4789
+name	0	"Plum 1"
+rgb	[~_]	#FFBBFF
+name	0	"Plum 2"
+rgb	[~_]	#EEAEEE
+name	0	"Plum 3"
+rgb	[~_]	#CD96CD
+name	0	"Plum 4"
+rgb	[~_]	#8B668B
+name	0	"Medium Orchid 1"
+rgb	[~_]	#E066FF
+name	0	"Medium Orchid 2"
+rgb	[~_]	#D15FEE
+name	0	"Medium Orchid 3"
+rgb	[~_]	#B452CD
+name	0	"Medium Orchid 4"
+rgb	[~_]	#7A378B
+name	0	"Dark Orchid 1"
+rgb	[~_]	#BF3EFF
+name	0	"Dark Orchid 2"
+rgb	[~_]	#B23AEE
+name	0	"Dark Orchid 3"
+rgb	[~_]	#9A32CD
+name	0	"Dark Orchid 4"
+rgb	[~_]	#68228B
+name	0	"Purple 1"
+rgb	[~_]	#9B30FF
+name	0	"Purple 2"
+rgb	[~_]	#912CEE
+name	0	"Purple 3"
+rgb	[~_]	#7D26CD
+name	0	"Purple 4"
+rgb	[~_]	#551A8B
+name	0	"Medium Purple 1"
+rgb	[~_]	#AB82FF
+name	0	"Medium Purple 2"
+rgb	[~_]	#9F79EE
+name	0	"Medium Purple 3"
+rgb	[~_]	#8968CD
+name	0	"Medium Purple 4"
+rgb	[~_]	#5D478B
+name	0	"Thistle 1"
+rgb	[~_]	#FFE1FF
+name	0	"Thistle 2"
+rgb	[~_]	#EED2EE
+name	0	"Thistle 3"
+rgb	[~_]	#CDB5CD
+name	0	"Thistle 4"
+rgb	[~_]	#8B7B8B
+name	0	"Gray 0"
+rgb	[~_]	#000000
+name	0	"Gray 1"
+rgb	[~_]	#030303
+name	0	"Gray 2"
+rgb	[~_]	#050505
+name	0	"Gray 3"
+rgb	[~_]	#080808
+name	0	"Gray 4"
+rgb	[~_]	#0A0A0A
+name	0	"Gray 5"
+rgb	[~_]	#0D0D0D
+name	0	"Gray 6"
+rgb	[~_]	#0F0F0F
+name	0	"Gray 7"
+rgb	[~_]	#121212
+name	0	"Gray 8"
+rgb	[~_]	#141414
+name	0	"Gray 9"
+rgb	[~_]	#171717
+name	0	"Gray 10"
+rgb	[~_]	#1A1A1A
+name	0	"Gray 11"
+rgb	[~_]	#1C1C1C
+name	0	"Gray 12"
+rgb	[~_]	#1F1F1F
+name	0	"Gray 13"
+rgb	[~_]	#212121
+name	0	"Gray 14"
+rgb	[~_]	#242424
+name	0	"Gray 15"
+rgb	[~_]	#262626
+name	0	"Gray 16"
+rgb	[~_]	#292929
+name	0	"Gray 17"
+rgb	[~_]	#2B2B2B
+name	0	"Gray 18"
+rgb	[~_]	#2E2E2E
+name	0	"Gray 19"
+rgb	[~_]	#303030
+name	0	"Gray 20"
+rgb	[~_]	#333333
+name	0	"Gray 21"
+rgb	[~_]	#363636
+name	0	"Gray 22"
+rgb	[~_]	#383838
+name	0	"Gray 23"
+rgb	[~_]	#3B3B3B
+name	0	"Gray 24"
+rgb	[~_]	#3D3D3D
+name	0	"Gray 25"
+rgb	[~_]	#404040
+name	0	"Gray 26"
+rgb	[~_]	#424242
+name	0	"Gray 27"
+rgb	[~_]	#454545
+name	0	"Gray 28"
+rgb	[~_]	#474747
+name	0	"Gray 29"
+rgb	[~_]	#4A4A4A
+name	0	"Gray 30"
+rgb	[~_]	#4D4D4D
+name	0	"Gray 31"
+rgb	[~_]	#4F4F4F
+name	0	"Gray 32"
+rgb	[~_]	#525252
+name	0	"Gray 33"
+rgb	[~_]	#545454
+name	0	"Gray 34"
+rgb	[~_]	#575757
+name	0	"Gray 35"
+rgb	[~_]	#595959
+name	0	"Gray 36"
+rgb	[~_]	#5C5C5C
+name	0	"Gray 37"
+rgb	[~_]	#5E5E5E
+name	0	"Gray 38"
+rgb	[~_]	#616161
+name	0	"Gray 39"
+rgb	[~_]	#636363
+name	0	"Gray 40"
+rgb	[~_]	#666666
+name	0	"Gray 41"
+rgb	[~_]	#696969
+name	0	"Gray 42"
+rgb	[~_]	#6B6B6B
+name	0	"Gray 43"
+rgb	[~_]	#6E6E6E
+name	0	"Gray 44"
+rgb	[~_]	#707070
+name	0	"Gray 45"
+rgb	[~_]	#737373
+name	0	"Gray 46"
+rgb	[~_]	#757575
+name	0	"Gray 47"
+rgb	[~_]	#787878
+name	0	"Gray 48"
+rgb	[~_]	#7A7A7A
+name	0	"Gray 49"
+rgb	[~_]	#7D7D7D
+name	0	"Gray 50"
+rgb	[~_]	#7F7F7F
+name	0	"Gray 51"
+rgb	[~_]	#828282
+name	0	"Gray 52"
+rgb	[~_]	#858585
+name	0	"Gray 53"
+rgb	[~_]	#878787
+name	0	"Gray 54"
+rgb	[~_]	#8A8A8A
+name	0	"Gray 55"
+rgb	[~_]	#8C8C8C
+name	0	"Gray 56"
+rgb	[~_]	#8F8F8F
+name	0	"Gray 57"
+rgb	[~_]	#919191
+name	0	"Gray 58"
+rgb	[~_]	#949494
+name	0	"Gray 59"
+rgb	[~_]	#969696
+name	0	"Gray 60"
+rgb	[~_]	#999999
+name	0	"Gray 61"
+rgb	[~_]	#9C9C9C
+name	0	"Gray 62"
+rgb	[~_]	#9E9E9E
+name	0	"Gray 63"
+rgb	[~_]	#A1A1A1
+name	0	"Gray 64"
+rgb	[~_]	#A3A3A3
+name	0	"Gray 65"
+rgb	[~_]	#A6A6A6
+name	0	"Gray 66"
+rgb	[~_]	#A8A8A8
+name	0	"Gray 67"
+rgb	[~_]	#ABABAB
+name	0	"Gray 68"
+rgb	[~_]	#ADADAD
+name	0	"Gray 69"
+rgb	[~_]	#B0B0B0
+name	0	"Gray 70"
+rgb	[~_]	#B3B3B3
+name	0	"Gray 71"
+rgb	[~_]	#B5B5B5
+name	0	"Gray 72"
+rgb	[~_]	#B8B8B8
+name	0	"Gray 73"
+rgb	[~_]	#BABABA
+name	0	"Gray 74"
+rgb	[~_]	#BDBDBD
+name	0	"Gray 75"
+rgb	[~_]	#BFBFBF
+name	0	"Gray 76"
+rgb	[~_]	#C2C2C2
+name	0	"Gray 77"
+rgb	[~_]	#C4C4C4
+name	0	"Gray 78"
+rgb	[~_]	#C7C7C7
+name	0	"Gray 79"
+rgb	[~_]	#C9C9C9
+name	0	"Gray 80"
+rgb	[~_]	#CCCCCC
+name	0	"Gray 81"
+rgb	[~_]	#CFCFCF
+name	0	"Gray 82"
+rgb	[~_]	#D1D1D1
+name	0	"Gray 83"
+rgb	[~_]	#D4D4D4
+name	0	"Gray 84"
+rgb	[~_]	#D6D6D6
+name	0	"Gray 85"
+rgb	[~_]	#D9D9D9
+name	0	"Gray 86"
+rgb	[~_]	#DBDBDB
+name	0	"Gray 87"
+rgb	[~_]	#DEDEDE
+name	0	"Gray 88"
+rgb	[~_]	#E0E0E0
+name	0	"Gray 89"
+rgb	[~_]	#E3E3E3
+name	0	"Gray 90"
+rgb	[~_]	#E5E5E5
+name	0	"Gray 91"
+rgb	[~_]	#E8E8E8
+name	0	"Gray 92"
+rgb	[~_]	#EBEBEB
+name	0	"Gray 93"
+rgb	[~_]	#EDEDED
+name	0	"Gray 94"
+rgb	[~_]	#F0F0F0
+name	0	"Gray 95"
+rgb	[~_]	#F2F2F2
+name	0	"Gray 96"
+rgb	[~_]	#F5F5F5
+name	0	"Gray 97"
+rgb	[~_]	#F7F7F7
+name	0	"Gray 98"
+rgb	[~_]	#FAFAFA
+name	0	"Gray 99"
+rgb	[~_]	#FCFCFC
+name	0	"Gray 100"
+rgb	[~_]	#FFFFFF
+name	0	"Dark Gray"
+rgb	[~_]	#A9A9A9
+name	0	"Dark Blue"
+rgb	[~_]	#00008B
+name	0	"Dark Cyan"
+rgb	[~_]	#008B8B
+name	0	"Dark Magenta"
+rgb	[~_]	#8B008B
+name	0	"Dark Red"
+rgb	[~_]	#8B0000
+name	0	"Light Green"
+rgb	[~_]	#90EE90
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
