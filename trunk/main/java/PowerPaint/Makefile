@@ -59,6 +59,9 @@ osxclean:
 	rm -f bin/*/*/*/*/*/*/*/.DS_Store
 	rm -f bin/*/*/*/*/*/*/*/*/.DS_Store
 
+decorate:
+	java -cp .:./bin com.kreative.paint.res.DecoratePMZ -V "Paint Materials"
+
 materials.pmz:
 	java -cp .:./bin com.kreative.paint.res.PackPMZ -V materials.pmz
 	cp -f materials.pmz src/com/kreative/paint/res/materials.pmz
@@ -92,4 +95,4 @@ PowerPaint-src.tgz: osxclean
 run:
 	java -Xmx1024M com.kreative.paint.ui.Main
 
-.PHONY: all eclipseall clean eclipseclean osxclean
+.PHONY: all eclipseall clean eclipseclean osxclean decorate
