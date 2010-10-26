@@ -1,0 +1,27 @@
+size	0	385,65
+sizeh	0	385,65
+sizesq	0	193,129
+sizev	0	65,385
+name	0	"Cube Sides"
+orient	0
+grid	0	6,1
+rgbsw	[~_]	X:R:0-255,Y:G:0-255,Z:B:0
+rgbsw	[~_]	X:R:0-255,Y:B:0-255,Z:G:0
+rgbsw	[~_]	X:G:0-255,Y:B:0-255,Z:R:0
+rgbsw	[~_]	X:R:0-255,Y:G:0-255,Z:B:255
+rgbsw	[~_]	X:R:0-255,Y:B:0-255,Z:G:255
+rgbsw	[~_]	X:G:0-255,Y:B:0-255,Z:R:255
+grid	0	3,2
+rgbsw	[~_]	X:R:0-255,Y:G:0-255,Z:B:0
+rgbsw	[~_]	X:R:0-255,Y:B:0-255,Z:G:0
+rgbsw	[~_]	X:G:0-255,Y:B:0-255,Z:R:0
+rgbsw	[~_]	X:R:0-255,Y:G:0-255,Z:B:255
+rgbsw	[~_]	X:R:0-255,Y:B:0-255,Z:G:255
+rgbsw	[~_]	X:G:0-255,Y:B:0-255,Z:R:255
+grid	0	1,6
+rgbsw	[~_]	X:R:0-255,Y:G:0-255,Z:B:0
+rgbsw	[~_]	X:R:0-255,Y:B:0-255,Z:G:0
+rgbsw	[~_]	X:G:0-255,Y:B:0-255,Z:R:0
+rgbsw	[~_]	X:R:0-255,Y:G:0-255,Z:B:255
+rgbsw	[~_]	X:R:0-255,Y:B:0-255,Z:G:255
+rgbsw	[~_]	X:G:0-255,Y:B:0-255,Z:R:255

@@ -1,0 +1,453 @@
+size	0	274,92
+sizeh	0	274,92
+sizesq	0	169,113
+sizev	0	92,274
+name	0	"Mac OS Classic Crayons"
+orient	0
+diag	0	21,7
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Chalk"
+rgb	[~_]	#FFFFFF
+name	0	"Marble"
+rgb	[~_]	#EEEEEE
+name	0	"Soapstone"
+rgb	[~_]	#CCCCCC
+name	0	"Concrete"
+rgb	[~_]	#AAAAAA
+name	0	"Granite"
+rgb	[~_]	#888888
+name	0	"Flint"
+rgb	[~_]	#777777
+name	0	"Shale"
+rgb	[~_]	#555555
+name	0	"Gabbro"
+rgb	[~_]	#333333
+name	0	"Basalt"
+rgb	[~_]	#222222
+name	0	"Obsidian"
+rgb	[~_]	#000000
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Violet Dusk"
+rgb	[~_]	#7465DC
+name	0	"Sky Blue"
+rgb	[~_]	#5B87F2
+name	0	"Ocean Green"
+rgb	[~_]	#62D6AC
+name	0	"Spring Frost"
+rgb	[~_]	#5FBD71
+name	0	"Mildew"
+rgb	[~_]	#7E835B
+name	0	"Mustard"
+rgb	[~_]	#E6E658
+name	0	"Canteloupe"
+rgb	[~_]	#FFBF56
+name	0	"Tulip"
+rgb	[~_]	#F87B57
+name	0	"Carnation"
+rgb	[~_]	#DA456B
+name	0	"Orchid"
+rgb	[~_]	#BB56C3
+name	0	"Pale Violet"
+rgb	[~_]	#8154D1
+name	0	"Evening Blue"
+rgb	[~_]	#6876E7
+name	0	"Fog"
+rgb	[~_]	#5DBACA
+name	0	"Chlorine"
+rgb	[~_]	#60CA8E
+name	0	"Moss"
+rgb	[~_]	#71985E
+name	0	"Olive"
+rgb	[~_]	#B2B459
+name	0	"Banana"
+rgb	[~_]	#FFE957
+name	0	"Grapefruit"
+rgb	[~_]	#FF9456
+name	0	"Salmon"
+rgb	[~_]	#F06157
+name	0	"Grape"
+rgb	[~_]	#DC54AD
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Violet"
+rgb	[~_]	#5918BB
+name	0	"Blue"
+rgb	[~_]	#1822CD
+name	0	"Seaweed"
+rgb	[~_]	#18605A
+name	0	"Clover"
+rgb	[~_]	#2F8B20
+name	0	"Cactus"
+rgb	[~_]	#8CBC1C
+name	0	"Lemon"
+rgb	[~_]	#FFEA18
+name	0	"Tangerine"
+rgb	[~_]	#FFAF18
+name	0	"Melon"
+rgb	[~_]	#FF7518
+name	0	"Red Orange"
+rgb	[~_]	#F63F1B
+name	0	"Red"
+rgb	[~_]	#ED181E
+name	0	"Royal Violet"
+rgb	[~_]	#6C18B0
+name	0	"Blue Violet"
+rgb	[~_]	#4618C6
+name	0	"Sea Blue"
+rgb	[~_]	#184B81
+name	0	"Pine"
+rgb	[~_]	#187534
+name	0	"Fern"
+rgb	[~_]	#5DA31E
+name	0	"Watercress"
+rgb	[~_]	#BAD41A
+name	0	"Marigold"
+rgb	[~_]	#FFCC18
+name	0	"Orange"
+rgb	[~_]	#FF9218
+name	0	"Fire"
+rgb	[~_]	#FA4E19
+name	0	"Apple"
+rgb	[~_]	#EF1F1D
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Sepia"
+rgb	[~_]	#291A10
+name	0	"Raw Sienna"
+rgb	[~_]	#5B053D932379
+name	0	"Dirt"
+rgb	[~_]	#8CE2610B36E1
+name	0	"Tan"
+rgb	[~_]	#BE844A
+name	0	"Warm Marble"
+rgb	[~_]	#CD66C7C7C228
+name	0	"Warm Granite"
+rgb	[~_]	#8CCD80007333
+name	0	"Warm Shale"
+rgb	[~_]	#3DD738383299
+name	0	"Cool Marble"
+rgb	[~_]	#C228C228CD66
+name	0	"Cool Granite"
+rgb	[~_]	#733373338CCD
+name	0	"Cool Shale"
+rgb	[~_]	#329932993DD7
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+diag	0	21,7
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Chalk"
+rgb	[~_]	#FFFFFF
+name	0	"Marble"
+rgb	[~_]	#EEEEEE
+name	0	"Soapstone"
+rgb	[~_]	#CCCCCC
+name	0	"Concrete"
+rgb	[~_]	#AAAAAA
+name	0	"Granite"
+rgb	[~_]	#888888
+name	0	"Flint"
+rgb	[~_]	#777777
+name	0	"Shale"
+rgb	[~_]	#555555
+name	0	"Gabbro"
+rgb	[~_]	#333333
+name	0	"Basalt"
+rgb	[~_]	#222222
+name	0	"Obsidian"
+rgb	[~_]	#000000
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Violet Dusk"
+rgb	[~_]	#7465DC
+name	0	"Sky Blue"
+rgb	[~_]	#5B87F2
+name	0	"Ocean Green"
+rgb	[~_]	#62D6AC
+name	0	"Spring Frost"
+rgb	[~_]	#5FBD71
+name	0	"Mildew"
+rgb	[~_]	#7E835B
+name	0	"Mustard"
+rgb	[~_]	#E6E658
+name	0	"Canteloupe"
+rgb	[~_]	#FFBF56
+name	0	"Tulip"
+rgb	[~_]	#F87B57
+name	0	"Carnation"
+rgb	[~_]	#DA456B
+name	0	"Orchid"
+rgb	[~_]	#BB56C3
+name	0	"Pale Violet"
+rgb	[~_]	#8154D1
+name	0	"Evening Blue"
+rgb	[~_]	#6876E7
+name	0	"Fog"
+rgb	[~_]	#5DBACA
+name	0	"Chlorine"
+rgb	[~_]	#60CA8E
+name	0	"Moss"
+rgb	[~_]	#71985E
+name	0	"Olive"
+rgb	[~_]	#B2B459
+name	0	"Banana"
+rgb	[~_]	#FFE957
+name	0	"Grapefruit"
+rgb	[~_]	#FF9456
+name	0	"Salmon"
+rgb	[~_]	#F06157
+name	0	"Grape"
+rgb	[~_]	#DC54AD
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Violet"
+rgb	[~_]	#5918BB
+name	0	"Blue"
+rgb	[~_]	#1822CD
+name	0	"Seaweed"
+rgb	[~_]	#18605A
+name	0	"Clover"
+rgb	[~_]	#2F8B20
+name	0	"Cactus"
+rgb	[~_]	#8CBC1C
+name	0	"Lemon"
+rgb	[~_]	#FFEA18
+name	0	"Tangerine"
+rgb	[~_]	#FFAF18
+name	0	"Melon"
+rgb	[~_]	#FF7518
+name	0	"Red Orange"
+rgb	[~_]	#F63F1B
+name	0	"Red"
+rgb	[~_]	#ED181E
+name	0	"Royal Violet"
+rgb	[~_]	#6C18B0
+name	0	"Blue Violet"
+rgb	[~_]	#4618C6
+name	0	"Sea Blue"
+rgb	[~_]	#184B81
+name	0	"Pine"
+rgb	[~_]	#187534
+name	0	"Fern"
+rgb	[~_]	#5DA31E
+name	0	"Watercress"
+rgb	[~_]	#BAD41A
+name	0	"Marigold"
+rgb	[~_]	#FFCC18
+name	0	"Orange"
+rgb	[~_]	#FF9218
+name	0	"Fire"
+rgb	[~_]	#FA4E19
+name	0	"Apple"
+rgb	[~_]	#EF1F1D
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Sepia"
+rgb	[~_]	#291A10
+name	0	"Raw Sienna"
+rgb	[~_]	#5B053D932379
+name	0	"Dirt"
+rgb	[~_]	#8CE2610B36E1
+name	0	"Tan"
+rgb	[~_]	#BE844A
+name	0	"Warm Marble"
+rgb	[~_]	#CD66C7C7C228
+name	0	"Warm Granite"
+rgb	[~_]	#8CCD80007333
+name	0	"Warm Shale"
+rgb	[~_]	#3DD738383299
+name	0	"Cool Marble"
+rgb	[~_]	#C228C228CD66
+name	0	"Cool Granite"
+rgb	[~_]	#733373338CCD
+name	0	"Cool Shale"
+rgb	[~_]	#329932993DD7
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+diag	0	7,21
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Chalk"
+rgb	[~_]	#FFFFFF
+name	0	"Pale Violet"
+rgb	[~_]	#8154D1
+name	0	"Royal Violet"
+rgb	[~_]	#6C18B0
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Violet Dusk"
+rgb	[~_]	#7465DC
+name	0	"Violet"
+rgb	[~_]	#5918BB
+name	0	"Sepia"
+rgb	[~_]	#291A10
+name	0	"Marble"
+rgb	[~_]	#EEEEEE
+name	0	"Evening Blue"
+rgb	[~_]	#6876E7
+name	0	"Blue Violet"
+rgb	[~_]	#4618C6
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Sky Blue"
+rgb	[~_]	#5B87F2
+name	0	"Blue"
+rgb	[~_]	#1822CD
+name	0	"Raw Sienna"
+rgb	[~_]	#5B053D932379
+name	0	"Soapstone"
+rgb	[~_]	#CCCCCC
+name	0	"Fog"
+rgb	[~_]	#5DBACA
+name	0	"Sea Blue"
+rgb	[~_]	#184B81
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Ocean Green"
+rgb	[~_]	#62D6AC
+name	0	"Seaweed"
+rgb	[~_]	#18605A
+name	0	"Dirt"
+rgb	[~_]	#8CE2610B36E1
+name	0	"Concrete"
+rgb	[~_]	#AAAAAA
+name	0	"Chlorine"
+rgb	[~_]	#60CA8E
+name	0	"Pine"
+rgb	[~_]	#187534
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Spring Frost"
+rgb	[~_]	#5FBD71
+name	0	"Clover"
+rgb	[~_]	#2F8B20
+name	0	"Tan"
+rgb	[~_]	#BE844A
+name	0	"Granite"
+rgb	[~_]	#888888
+name	0	"Moss"
+rgb	[~_]	#71985E
+name	0	"Fern"
+rgb	[~_]	#5DA31E
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Mildew"
+rgb	[~_]	#7E835B
+name	0	"Cactus"
+rgb	[~_]	#8CBC1C
+name	0	"Warm Marble"
+rgb	[~_]	#CD66C7C7C228
+name	0	"Flint"
+rgb	[~_]	#777777
+name	0	"Olive"
+rgb	[~_]	#B2B459
+name	0	"Watercress"
+rgb	[~_]	#BAD41A
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Mustard"
+rgb	[~_]	#E6E658
+name	0	"Lemon"
+rgb	[~_]	#FFEA18
+name	0	"Warm Granite"
+rgb	[~_]	#8CCD80007333
+name	0	"Shale"
+rgb	[~_]	#555555
+name	0	"Banana"
+rgb	[~_]	#FFE957
+name	0	"Marigold"
+rgb	[~_]	#FFCC18
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Canteloupe"
+rgb	[~_]	#FFBF56
+name	0	"Tangerine"
+rgb	[~_]	#FFAF18
+name	0	"Warm Shale"
+rgb	[~_]	#3DD738383299
+name	0	"Gabbro"
+rgb	[~_]	#333333
+name	0	"Grapefruit"
+rgb	[~_]	#FF9456
+name	0	"Orange"
+rgb	[~_]	#FF9218
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Tulip"
+rgb	[~_]	#F87B57
+name	0	"Melon"
+rgb	[~_]	#FF7518
+name	0	"Cool Marble"
+rgb	[~_]	#C228C228CD66
+name	0	"Basalt"
+rgb	[~_]	#222222
+name	0	"Salmon"
+rgb	[~_]	#F06157
+name	0	"Fire"
+rgb	[~_]	#FA4E19
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Carnation"
+rgb	[~_]	#DA456B
+name	0	"Red Orange"
+rgb	[~_]	#F63F1B
+name	0	"Cool Granite"
+rgb	[~_]	#733373338CCD
+name	0	"Obsidian"
+rgb	[~_]	#000000
+name	0	"Grape"
+rgb	[~_]	#DC54AD
+name	0	"Apple"
+rgb	[~_]	#EF1F1D
+empty	0	000000000000
+empty	0	000000000000
+name	0	"Orchid"
+rgb	[~_]	#BB56C3
+name	0	"Red"
+rgb	[~_]	#ED181E
+name	0	"Cool Shale"
+rgb	[~_]	#329932993DD7
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000
+empty	0	000000000000

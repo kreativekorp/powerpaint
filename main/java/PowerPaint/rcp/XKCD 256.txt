@@ -1,0 +1,1548 @@
+size	0	289,73
+sizeh	0	289,73
+sizesq	0	145,145
+sizev	0	73,289
+name	0	"XKCD 256"
+orient	0
+
+grid	0	32,8
+name	0	"purple"
+rgb	[~_]	#7e1e9c
+name	0	"green"
+rgb	[~_]	#15b01a
+name	0	"blue"
+rgb	[~_]	#0343df
+name	0	"pink"
+rgb	[~_]	#ff81c0
+name	0	"brown"
+rgb	[~_]	#653700
+name	0	"red"
+rgb	[~_]	#e50000
+name	0	"light blue"
+rgb	[~_]	#95d0fc
+name	0	"teal"
+rgb	[~_]	#029386
+name	0	"orange"
+rgb	[~_]	#f97306
+name	0	"light green"
+rgb	[~_]	#96f97b
+name	0	"magenta"
+rgb	[~_]	#c20078
+name	0	"yellow"
+rgb	[~_]	#ffff14
+name	0	"sky blue"
+rgb	[~_]	#75bbfd
+name	0	"grey"
+rgb	[~_]	#929591
+name	0	"lime green"
+rgb	[~_]	#89fe05
+name	0	"light purple"
+rgb	[~_]	#bf77f6
+name	0	"violet"
+rgb	[~_]	#9a0eea
+name	0	"dark green"
+rgb	[~_]	#033500
+name	0	"turquoise"
+rgb	[~_]	#06c2ac
+name	0	"lavender"
+rgb	[~_]	#c79fef
+name	0	"dark blue"
+rgb	[~_]	#00035b
+name	0	"tan"
+rgb	[~_]	#d1b26f
+name	0	"cyan"
+rgb	[~_]	#00ffff
+name	0	"aqua"
+rgb	[~_]	#13eac9
+name	0	"forest green"
+rgb	[~_]	#06470c
+name	0	"mauve"
+rgb	[~_]	#ae7181
+name	0	"dark purple"
+rgb	[~_]	#35063e
+name	0	"bright green"
+rgb	[~_]	#01ff07
+name	0	"maroon"
+rgb	[~_]	#650021
+name	0	"olive"
+rgb	[~_]	#6e750e
+name	0	"salmon"
+rgb	[~_]	#ff796c
+name	0	"beige"
+rgb	[~_]	#e6daa6
+name	0	"royal blue"
+rgb	[~_]	#0504aa
+name	0	"navy blue"
+rgb	[~_]	#001146
+name	0	"lilac"
+rgb	[~_]	#cea2fd
+name	0	"black"
+rgb	[~_]	#000000
+name	0	"hot pink"
+rgb	[~_]	#ff028d
+name	0	"light brown"
+rgb	[~_]	#ad8150
+name	0	"pale green"
+rgb	[~_]	#c7fdb5
+name	0	"peach"
+rgb	[~_]	#ffb07c
+name	0	"olive green"
+rgb	[~_]	#677a04
+name	0	"dark pink"
+rgb	[~_]	#cb416b
+name	0	"periwinkle"
+rgb	[~_]	#8e82fe
+name	0	"sea green"
+rgb	[~_]	#53fca1
+name	0	"lime"
+rgb	[~_]	#aaff32
+name	0	"indigo"
+rgb	[~_]	#380282
+name	0	"mustard"
+rgb	[~_]	#ceb301
+name	0	"light pink"
+rgb	[~_]	#ffd1df
+name	0	"rose"
+rgb	[~_]	#cf6275
+name	0	"bright blue"
+rgb	[~_]	#0165fc
+name	0	"neon green"
+rgb	[~_]	#0cff0c
+name	0	"burnt orange"
+rgb	[~_]	#c04e01
+name	0	"aquamarine"
+rgb	[~_]	#04d8b2
+name	0	"navy"
+rgb	[~_]	#01153e
+name	0	"grass green"
+rgb	[~_]	#3f9b0b
+name	0	"pale blue"
+rgb	[~_]	#d0fefe
+name	0	"dark red"
+rgb	[~_]	#840000
+name	0	"bright purple"
+rgb	[~_]	#be03fd
+name	0	"yellow green"
+rgb	[~_]	#c0fb2d
+name	0	"baby blue"
+rgb	[~_]	#a2cffe
+name	0	"gold"
+rgb	[~_]	#dbb40c
+name	0	"mint green"
+rgb	[~_]	#8fff9f
+name	0	"plum"
+rgb	[~_]	#580f41
+name	0	"royal purple"
+rgb	[~_]	#4b006e
+name	0	"brick red"
+rgb	[~_]	#8f1402
+name	0	"dark teal"
+rgb	[~_]	#014d4e
+name	0	"burgundy"
+rgb	[~_]	#610023
+name	0	"khaki"
+rgb	[~_]	#aaa662
+name	0	"blue green"
+rgb	[~_]	#137e6d
+name	0	"seafoam green"
+rgb	[~_]	#7af9ab
+name	0	"kelly green"
+rgb	[~_]	#02ab2e
+name	0	"puke green"
+rgb	[~_]	#9aae07
+name	0	"pea green"
+rgb	[~_]	#8eab12
+name	0	"taupe"
+rgb	[~_]	#b9a281
+name	0	"dark brown"
+rgb	[~_]	#341c02
+name	0	"deep purple"
+rgb	[~_]	#36013f
+name	0	"chartreuse"
+rgb	[~_]	#c1f80a
+name	0	"bright pink"
+rgb	[~_]	#fe01b1
+name	0	"light orange"
+rgb	[~_]	#fdaa48
+name	0	"mint"
+rgb	[~_]	#9ffeb0
+name	0	"pastel green"
+rgb	[~_]	#b0ff9d
+name	0	"sand"
+rgb	[~_]	#e2ca76
+name	0	"dark orange"
+rgb	[~_]	#c65102
+name	0	"spring green"
+rgb	[~_]	#a9f971
+name	0	"puce"
+rgb	[~_]	#a57e52
+name	0	"seafoam"
+rgb	[~_]	#80f9ad
+name	0	"grey blue"
+rgb	[~_]	#6b8ba4
+name	0	"army green"
+rgb	[~_]	#4b5d16
+name	0	"dark grey"
+rgb	[~_]	#363737
+name	0	"dark yellow"
+rgb	[~_]	#d5b60a
+name	0	"goldenrod"
+rgb	[~_]	#fac205
+name	0	"slate"
+rgb	[~_]	#516572
+name	0	"light teal"
+rgb	[~_]	#90e4c1
+name	0	"rust"
+rgb	[~_]	#a83c09
+name	0	"deep blue"
+rgb	[~_]	#040273
+name	0	"pale pink"
+rgb	[~_]	#ffcfdc
+name	0	"cerulean"
+rgb	[~_]	#0485d1
+name	0	"light red"
+rgb	[~_]	#ff474c
+name	0	"mustard yellow"
+rgb	[~_]	#d2bd0a
+name	0	"ochre"
+rgb	[~_]	#bf9005
+name	0	"pale yellow"
+rgb	[~_]	#ffff84
+name	0	"crimson"
+rgb	[~_]	#8c000f
+name	0	"fuchsia"
+rgb	[~_]	#ed0dd9
+name	0	"hunter green"
+rgb	[~_]	#0b4008
+name	0	"blue grey"
+rgb	[~_]	#607c8e
+name	0	"slate blue"
+rgb	[~_]	#5b7c99
+name	0	"pale purple"
+rgb	[~_]	#b790d4
+name	0	"sea blue"
+rgb	[~_]	#047495
+name	0	"pinkish purple"
+rgb	[~_]	#d648d7
+name	0	"puke"
+rgb	[~_]	#a5a502
+name	0	"light grey"
+rgb	[~_]	#d8dcd6
+name	0	"leaf green"
+rgb	[~_]	#5ca904
+name	0	"light yellow"
+rgb	[~_]	#fffe7a
+name	0	"eggplant"
+rgb	[~_]	#380835
+name	0	"steel blue"
+rgb	[~_]	#5a7d9a
+name	0	"moss green"
+rgb	[~_]	#658b38
+name	0	"robin's egg blue"
+rgb	[~_]	#98eff9
+name	0	"white"
+rgb	[~_]	#ffffff
+name	0	"grey green"
+rgb	[~_]	#789b73
+name	0	"sage"
+rgb	[~_]	#87ae73
+name	0	"brick"
+rgb	[~_]	#a03623
+name	0	"burnt sienna"
+rgb	[~_]	#b04e0f
+name	0	"reddish brown"
+rgb	[~_]	#7f2b0a
+name	0	"cream"
+rgb	[~_]	#ffffc2
+name	0	"coral"
+rgb	[~_]	#fc5a50
+name	0	"ocean blue"
+rgb	[~_]	#03719c
+name	0	"greenish"
+rgb	[~_]	#40a368
+name	0	"dark magenta"
+rgb	[~_]	#960056
+name	0	"red orange"
+rgb	[~_]	#fd3c06
+name	0	"bluish purple"
+rgb	[~_]	#703be7
+name	0	"midnight blue"
+rgb	[~_]	#020035
+name	0	"light violet"
+rgb	[~_]	#d6b4fc
+name	0	"dusty rose"
+rgb	[~_]	#c0737a
+name	0	"medium blue"
+rgb	[~_]	#2c6fbb
+name	0	"greenish yellow"
+rgb	[~_]	#cdfd02
+name	0	"yellowish green"
+rgb	[~_]	#b0dd16
+name	0	"purplish blue"
+rgb	[~_]	#601ef9
+name	0	"greyish blue"
+rgb	[~_]	#5e819d
+name	0	"grape"
+rgb	[~_]	#6c3461
+name	0	"light olive"
+rgb	[~_]	#acbf69
+name	0	"cornflower blue"
+rgb	[~_]	#5170d7
+name	0	"pinkish red"
+rgb	[~_]	#f10c45
+name	0	"bright red"
+rgb	[~_]	#ff000d
+name	0	"azure"
+rgb	[~_]	#069af3
+name	0	"blue purple"
+rgb	[~_]	#5729ce
+name	0	"dark turquoise"
+rgb	[~_]	#045c5a
+name	0	"electric blue"
+rgb	[~_]	#0652ff
+name	0	"off white"
+rgb	[~_]	#ffffe4
+name	0	"powder blue"
+rgb	[~_]	#b1d1fc
+name	0	"wine"
+rgb	[~_]	#80013f
+name	0	"dull green"
+rgb	[~_]	#74a662
+name	0	"apple green"
+rgb	[~_]	#76cd26
+name	0	"light turquoise"
+rgb	[~_]	#7ef4cc
+name	0	"neon purple"
+rgb	[~_]	#bc13fe
+name	0	"cobalt"
+rgb	[~_]	#1e488f
+name	0	"pinkish"
+rgb	[~_]	#d46a7e
+name	0	"olive drab"
+rgb	[~_]	#6f7632
+name	0	"dark cyan"
+rgb	[~_]	#0a888a
+name	0	"purple blue"
+rgb	[~_]	#632de9
+name	0	"dark violet"
+rgb	[~_]	#34013f
+name	0	"dark lavender"
+rgb	[~_]	#856798
+name	0	"forrest green"
+rgb	[~_]	#154406
+name	0	"vomit"
+rgb	[~_]	#a2a415
+name	0	"pale orange"
+rgb	[~_]	#ffa756
+name	0	"greenish blue"
+rgb	[~_]	#0b8b87
+name	0	"dark tan"
+rgb	[~_]	#af884a
+name	0	"green blue"
+rgb	[~_]	#06b48b
+name	0	"bluish green"
+rgb	[~_]	#10a674
+name	0	"pastel blue"
+rgb	[~_]	#a2bffe
+name	0	"moss"
+rgb	[~_]	#769958
+name	0	"grass"
+rgb	[~_]	#5cac2d
+name	0	"deep pink"
+rgb	[~_]	#cb0162
+name	0	"blood red"
+rgb	[~_]	#980002
+name	0	"sage green"
+rgb	[~_]	#88b378
+name	0	"aqua blue"
+rgb	[~_]	#02d8e9
+name	0	"terracotta"
+rgb	[~_]	#ca6641
+name	0	"pastel purple"
+rgb	[~_]	#caa0ff
+name	0	"sienna"
+rgb	[~_]	#a9561e
+name	0	"dark olive"
+rgb	[~_]	#373e02
+name	0	"green yellow"
+rgb	[~_]	#c9ff27
+name	0	"scarlet"
+rgb	[~_]	#be0119
+name	0	"greyish green"
+rgb	[~_]	#82a67d
+name	0	"chocolate"
+rgb	[~_]	#3d1c02
+name	0	"blue violet"
+rgb	[~_]	#5d06e9
+name	0	"cornflower"
+rgb	[~_]	#6a79f7
+name	0	"baby pink"
+rgb	[~_]	#ffb7ce
+name	0	"charcoal"
+rgb	[~_]	#343837
+name	0	"pine green"
+rgb	[~_]	#0a481e
+name	0	"pumpkin"
+rgb	[~_]	#e17701
+name	0	"greenish brown"
+rgb	[~_]	#696112
+name	0	"red brown"
+rgb	[~_]	#8b2e16
+name	0	"brownish green"
+rgb	[~_]	#6a6e09
+name	0	"tangerine"
+rgb	[~_]	#ff9408
+name	0	"salmon pink"
+rgb	[~_]	#fe7b7c
+name	0	"aqua green"
+rgb	[~_]	#12e193
+name	0	"raspberry"
+rgb	[~_]	#b00149
+name	0	"greyish purple"
+rgb	[~_]	#887191
+name	0	"rose pink"
+rgb	[~_]	#f7879a
+name	0	"neon pink"
+rgb	[~_]	#fe019a
+name	0	"cobalt blue"
+rgb	[~_]	#030aa7
+name	0	"orange brown"
+rgb	[~_]	#be6400
+name	0	"deep red"
+rgb	[~_]	#9a0200
+name	0	"orange red"
+rgb	[~_]	#fd411e
+name	0	"dirty yellow"
+rgb	[~_]	#cdc50a
+name	0	"orchid"
+rgb	[~_]	#c875c4
+name	0	"reddish pink"
+rgb	[~_]	#fe2c54
+name	0	"reddish purple"
+rgb	[~_]	#910951
+name	0	"yellow orange"
+rgb	[~_]	#fcb001
+name	0	"light cyan"
+rgb	[~_]	#acfffc
+name	0	"sky"
+rgb	[~_]	#82cafc
+name	0	"light magenta"
+rgb	[~_]	#fa5ff7
+name	0	"pale red"
+rgb	[~_]	#d9544d
+name	0	"emerald"
+rgb	[~_]	#01a049
+name	0	"dark beige"
+rgb	[~_]	#ac9362
+name	0	"ugly green"
+rgb	[~_]	#7a9703
+name	0	"jade"
+rgb	[~_]	#1fa774
+name	0	"greenish grey"
+rgb	[~_]	#96ae8d
+name	0	"dark salmon"
+rgb	[~_]	#c85a53
+name	0	"purplish pink"
+rgb	[~_]	#ce5dae
+name	0	"dark aqua"
+rgb	[~_]	#05696b
+name	0	"brownish orange"
+rgb	[~_]	#cb7723
+name	0	"light olive green"
+rgb	[~_]	#a4be5c
+name	0	"light aqua"
+rgb	[~_]	#8cffdb
+name	0	"clay"
+rgb	[~_]	#b66a50
+name	0	"medium green"
+rgb	[~_]	#39ad48
+name	0	"burnt umber"
+rgb	[~_]	#a0450e
+name	0	"dull blue"
+rgb	[~_]	#49759c
+name	0	"pale brown"
+rgb	[~_]	#b1916e
+name	0	"emerald green"
+rgb	[~_]	#028f1e
+name	0	"brownish"
+rgb	[~_]	#9c6d57
+name	0	"mud"
+rgb	[~_]	#735c12
+name	0	"dark rose"
+rgb	[~_]	#b5485d
+name	0	"brownish red"
+rgb	[~_]	#9e3623
+name	0	"pink purple"
+rgb	[~_]	#db4bda
+name	0	"pinky purple"
+rgb	[~_]	#c94cbe
+name	0	"camo green"
+rgb	[~_]	#526525
+name	0	"faded green"
+rgb	[~_]	#7bb274
+name	0	"dusty pink"
+rgb	[~_]	#d58a94
+name	0	"purple pink"
+rgb	[~_]	#e03fd8
+name	0	"vomit green"
+rgb	[~_]	#89a203
+name	0	"deep green"
+rgb	[~_]	#02590f
+name	0	"reddish orange"
+rgb	[~_]	#f8481c
+name	0	"mahogany"
+rgb	[~_]	#4a0100
+name	0	"aubergine"
+rgb	[~_]	#3d0734
+name	0	"dull pink"
+rgb	[~_]	#d5869d
+name	0	"evergreen"
+rgb	[~_]	#05472a
+name	0	"dark sky blue"
+rgb	[~_]	#448ee4
+name	0	"very light green"
+rgb	[~_]	#d1ffbd
+name	0	"pastel pink"
+rgb	[~_]	#ffbacd
+name	0	"grey purple"
+rgb	[~_]	#826d8c
+name	0	"very light blue"
+rgb	[~_]	#d5ffff
+name	0	"dark mauve"
+rgb	[~_]	#874c62
+name	0	"cadet blue"
+rgb	[~_]	#4e7496
+name	0	"ice blue"
+rgb	[~_]	#d7fffe
+name	0	"light tan"
+rgb	[~_]	#fbeeac
+name	0	"dirty green"
+rgb	[~_]	#667e2c
+
+grid	0	16,16
+name	0	"purple"
+rgb	[~_]	#7e1e9c
+name	0	"green"
+rgb	[~_]	#15b01a
+name	0	"blue"
+rgb	[~_]	#0343df
+name	0	"pink"
+rgb	[~_]	#ff81c0
+name	0	"brown"
+rgb	[~_]	#653700
+name	0	"red"
+rgb	[~_]	#e50000
+name	0	"light blue"
+rgb	[~_]	#95d0fc
+name	0	"teal"
+rgb	[~_]	#029386
+name	0	"orange"
+rgb	[~_]	#f97306
+name	0	"light green"
+rgb	[~_]	#96f97b
+name	0	"magenta"
+rgb	[~_]	#c20078
+name	0	"yellow"
+rgb	[~_]	#ffff14
+name	0	"sky blue"
+rgb	[~_]	#75bbfd
+name	0	"grey"
+rgb	[~_]	#929591
+name	0	"lime green"
+rgb	[~_]	#89fe05
+name	0	"light purple"
+rgb	[~_]	#bf77f6
+name	0	"violet"
+rgb	[~_]	#9a0eea
+name	0	"dark green"
+rgb	[~_]	#033500
+name	0	"turquoise"
+rgb	[~_]	#06c2ac
+name	0	"lavender"
+rgb	[~_]	#c79fef
+name	0	"dark blue"
+rgb	[~_]	#00035b
+name	0	"tan"
+rgb	[~_]	#d1b26f
+name	0	"cyan"
+rgb	[~_]	#00ffff
+name	0	"aqua"
+rgb	[~_]	#13eac9
+name	0	"forest green"
+rgb	[~_]	#06470c
+name	0	"mauve"
+rgb	[~_]	#ae7181
+name	0	"dark purple"
+rgb	[~_]	#35063e
+name	0	"bright green"
+rgb	[~_]	#01ff07
+name	0	"maroon"
+rgb	[~_]	#650021
+name	0	"olive"
+rgb	[~_]	#6e750e
+name	0	"salmon"
+rgb	[~_]	#ff796c
+name	0	"beige"
+rgb	[~_]	#e6daa6
+name	0	"royal blue"
+rgb	[~_]	#0504aa
+name	0	"navy blue"
+rgb	[~_]	#001146
+name	0	"lilac"
+rgb	[~_]	#cea2fd
+name	0	"black"
+rgb	[~_]	#000000
+name	0	"hot pink"
+rgb	[~_]	#ff028d
+name	0	"light brown"
+rgb	[~_]	#ad8150
+name	0	"pale green"
+rgb	[~_]	#c7fdb5
+name	0	"peach"
+rgb	[~_]	#ffb07c
+name	0	"olive green"
+rgb	[~_]	#677a04
+name	0	"dark pink"
+rgb	[~_]	#cb416b
+name	0	"periwinkle"
+rgb	[~_]	#8e82fe
+name	0	"sea green"
+rgb	[~_]	#53fca1
+name	0	"lime"
+rgb	[~_]	#aaff32
+name	0	"indigo"
+rgb	[~_]	#380282
+name	0	"mustard"
+rgb	[~_]	#ceb301
+name	0	"light pink"
+rgb	[~_]	#ffd1df
+name	0	"rose"
+rgb	[~_]	#cf6275
+name	0	"bright blue"
+rgb	[~_]	#0165fc
+name	0	"neon green"
+rgb	[~_]	#0cff0c
+name	0	"burnt orange"
+rgb	[~_]	#c04e01
+name	0	"aquamarine"
+rgb	[~_]	#04d8b2
+name	0	"navy"
+rgb	[~_]	#01153e
+name	0	"grass green"
+rgb	[~_]	#3f9b0b
+name	0	"pale blue"
+rgb	[~_]	#d0fefe
+name	0	"dark red"
+rgb	[~_]	#840000
+name	0	"bright purple"
+rgb	[~_]	#be03fd
+name	0	"yellow green"
+rgb	[~_]	#c0fb2d
+name	0	"baby blue"
+rgb	[~_]	#a2cffe
+name	0	"gold"
+rgb	[~_]	#dbb40c
+name	0	"mint green"
+rgb	[~_]	#8fff9f
+name	0	"plum"
+rgb	[~_]	#580f41
+name	0	"royal purple"
+rgb	[~_]	#4b006e
+name	0	"brick red"
+rgb	[~_]	#8f1402
+name	0	"dark teal"
+rgb	[~_]	#014d4e
+name	0	"burgundy"
+rgb	[~_]	#610023
+name	0	"khaki"
+rgb	[~_]	#aaa662
+name	0	"blue green"
+rgb	[~_]	#137e6d
+name	0	"seafoam green"
+rgb	[~_]	#7af9ab
+name	0	"kelly green"
+rgb	[~_]	#02ab2e
+name	0	"puke green"
+rgb	[~_]	#9aae07
+name	0	"pea green"
+rgb	[~_]	#8eab12
+name	0	"taupe"
+rgb	[~_]	#b9a281
+name	0	"dark brown"
+rgb	[~_]	#341c02
+name	0	"deep purple"
+rgb	[~_]	#36013f
+name	0	"chartreuse"
+rgb	[~_]	#c1f80a
+name	0	"bright pink"
+rgb	[~_]	#fe01b1
+name	0	"light orange"
+rgb	[~_]	#fdaa48
+name	0	"mint"
+rgb	[~_]	#9ffeb0
+name	0	"pastel green"
+rgb	[~_]	#b0ff9d
+name	0	"sand"
+rgb	[~_]	#e2ca76
+name	0	"dark orange"
+rgb	[~_]	#c65102
+name	0	"spring green"
+rgb	[~_]	#a9f971
+name	0	"puce"
+rgb	[~_]	#a57e52
+name	0	"seafoam"
+rgb	[~_]	#80f9ad
+name	0	"grey blue"
+rgb	[~_]	#6b8ba4
+name	0	"army green"
+rgb	[~_]	#4b5d16
+name	0	"dark grey"
+rgb	[~_]	#363737
+name	0	"dark yellow"
+rgb	[~_]	#d5b60a
+name	0	"goldenrod"
+rgb	[~_]	#fac205
+name	0	"slate"
+rgb	[~_]	#516572
+name	0	"light teal"
+rgb	[~_]	#90e4c1
+name	0	"rust"
+rgb	[~_]	#a83c09
+name	0	"deep blue"
+rgb	[~_]	#040273
+name	0	"pale pink"
+rgb	[~_]	#ffcfdc
+name	0	"cerulean"
+rgb	[~_]	#0485d1
+name	0	"light red"
+rgb	[~_]	#ff474c
+name	0	"mustard yellow"
+rgb	[~_]	#d2bd0a
+name	0	"ochre"
+rgb	[~_]	#bf9005
+name	0	"pale yellow"
+rgb	[~_]	#ffff84
+name	0	"crimson"
+rgb	[~_]	#8c000f
+name	0	"fuchsia"
+rgb	[~_]	#ed0dd9
+name	0	"hunter green"
+rgb	[~_]	#0b4008
+name	0	"blue grey"
+rgb	[~_]	#607c8e
+name	0	"slate blue"
+rgb	[~_]	#5b7c99
+name	0	"pale purple"
+rgb	[~_]	#b790d4
+name	0	"sea blue"
+rgb	[~_]	#047495
+name	0	"pinkish purple"
+rgb	[~_]	#d648d7
+name	0	"puke"
+rgb	[~_]	#a5a502
+name	0	"light grey"
+rgb	[~_]	#d8dcd6
+name	0	"leaf green"
+rgb	[~_]	#5ca904
+name	0	"light yellow"
+rgb	[~_]	#fffe7a
+name	0	"eggplant"
+rgb	[~_]	#380835
+name	0	"steel blue"
+rgb	[~_]	#5a7d9a
+name	0	"moss green"
+rgb	[~_]	#658b38
+name	0	"robin's egg blue"
+rgb	[~_]	#98eff9
+name	0	"white"
+rgb	[~_]	#ffffff
+name	0	"grey green"
+rgb	[~_]	#789b73
+name	0	"sage"
+rgb	[~_]	#87ae73
+name	0	"brick"
+rgb	[~_]	#a03623
+name	0	"burnt sienna"
+rgb	[~_]	#b04e0f
+name	0	"reddish brown"
+rgb	[~_]	#7f2b0a
+name	0	"cream"
+rgb	[~_]	#ffffc2
+name	0	"coral"
+rgb	[~_]	#fc5a50
+name	0	"ocean blue"
+rgb	[~_]	#03719c
+name	0	"greenish"
+rgb	[~_]	#40a368
+name	0	"dark magenta"
+rgb	[~_]	#960056
+name	0	"red orange"
+rgb	[~_]	#fd3c06
+name	0	"bluish purple"
+rgb	[~_]	#703be7
+name	0	"midnight blue"
+rgb	[~_]	#020035
+name	0	"light violet"
+rgb	[~_]	#d6b4fc
+name	0	"dusty rose"
+rgb	[~_]	#c0737a
+name	0	"medium blue"
+rgb	[~_]	#2c6fbb
+name	0	"greenish yellow"
+rgb	[~_]	#cdfd02
+name	0	"yellowish green"
+rgb	[~_]	#b0dd16
+name	0	"purplish blue"
+rgb	[~_]	#601ef9
+name	0	"greyish blue"
+rgb	[~_]	#5e819d
+name	0	"grape"
+rgb	[~_]	#6c3461
+name	0	"light olive"
+rgb	[~_]	#acbf69
+name	0	"cornflower blue"
+rgb	[~_]	#5170d7
+name	0	"pinkish red"
+rgb	[~_]	#f10c45
+name	0	"bright red"
+rgb	[~_]	#ff000d
+name	0	"azure"
+rgb	[~_]	#069af3
+name	0	"blue purple"
+rgb	[~_]	#5729ce
+name	0	"dark turquoise"
+rgb	[~_]	#045c5a
+name	0	"electric blue"
+rgb	[~_]	#0652ff
+name	0	"off white"
+rgb	[~_]	#ffffe4
+name	0	"powder blue"
+rgb	[~_]	#b1d1fc
+name	0	"wine"
+rgb	[~_]	#80013f
+name	0	"dull green"
+rgb	[~_]	#74a662
+name	0	"apple green"
+rgb	[~_]	#76cd26
+name	0	"light turquoise"
+rgb	[~_]	#7ef4cc
+name	0	"neon purple"
+rgb	[~_]	#bc13fe
+name	0	"cobalt"
+rgb	[~_]	#1e488f
+name	0	"pinkish"
+rgb	[~_]	#d46a7e
+name	0	"olive drab"
+rgb	[~_]	#6f7632
+name	0	"dark cyan"
+rgb	[~_]	#0a888a
+name	0	"purple blue"
+rgb	[~_]	#632de9
+name	0	"dark violet"
+rgb	[~_]	#34013f
+name	0	"dark lavender"
+rgb	[~_]	#856798
+name	0	"forrest green"
+rgb	[~_]	#154406
+name	0	"vomit"
+rgb	[~_]	#a2a415
+name	0	"pale orange"
+rgb	[~_]	#ffa756
+name	0	"greenish blue"
+rgb	[~_]	#0b8b87
+name	0	"dark tan"
+rgb	[~_]	#af884a
+name	0	"green blue"
+rgb	[~_]	#06b48b
+name	0	"bluish green"
+rgb	[~_]	#10a674
+name	0	"pastel blue"
+rgb	[~_]	#a2bffe
+name	0	"moss"
+rgb	[~_]	#769958
+name	0	"grass"
+rgb	[~_]	#5cac2d
+name	0	"deep pink"
+rgb	[~_]	#cb0162
+name	0	"blood red"
+rgb	[~_]	#980002
+name	0	"sage green"
+rgb	[~_]	#88b378
+name	0	"aqua blue"
+rgb	[~_]	#02d8e9
+name	0	"terracotta"
+rgb	[~_]	#ca6641
+name	0	"pastel purple"
+rgb	[~_]	#caa0ff
+name	0	"sienna"
+rgb	[~_]	#a9561e
+name	0	"dark olive"
+rgb	[~_]	#373e02
+name	0	"green yellow"
+rgb	[~_]	#c9ff27
+name	0	"scarlet"
+rgb	[~_]	#be0119
+name	0	"greyish green"
+rgb	[~_]	#82a67d
+name	0	"chocolate"
+rgb	[~_]	#3d1c02
+name	0	"blue violet"
+rgb	[~_]	#5d06e9
+name	0	"cornflower"
+rgb	[~_]	#6a79f7
+name	0	"baby pink"
+rgb	[~_]	#ffb7ce
+name	0	"charcoal"
+rgb	[~_]	#343837
+name	0	"pine green"
+rgb	[~_]	#0a481e
+name	0	"pumpkin"
+rgb	[~_]	#e17701
+name	0	"greenish brown"
+rgb	[~_]	#696112
+name	0	"red brown"
+rgb	[~_]	#8b2e16
+name	0	"brownish green"
+rgb	[~_]	#6a6e09
+name	0	"tangerine"
+rgb	[~_]	#ff9408
+name	0	"salmon pink"
+rgb	[~_]	#fe7b7c
+name	0	"aqua green"
+rgb	[~_]	#12e193
+name	0	"raspberry"
+rgb	[~_]	#b00149
+name	0	"greyish purple"
+rgb	[~_]	#887191
+name	0	"rose pink"
+rgb	[~_]	#f7879a
+name	0	"neon pink"
+rgb	[~_]	#fe019a
+name	0	"cobalt blue"
+rgb	[~_]	#030aa7
+name	0	"orange brown"
+rgb	[~_]	#be6400
+name	0	"deep red"
+rgb	[~_]	#9a0200
+name	0	"orange red"
+rgb	[~_]	#fd411e
+name	0	"dirty yellow"
+rgb	[~_]	#cdc50a
+name	0	"orchid"
+rgb	[~_]	#c875c4
+name	0	"reddish pink"
+rgb	[~_]	#fe2c54
+name	0	"reddish purple"
+rgb	[~_]	#910951
+name	0	"yellow orange"
+rgb	[~_]	#fcb001
+name	0	"light cyan"
+rgb	[~_]	#acfffc
+name	0	"sky"
+rgb	[~_]	#82cafc
+name	0	"light magenta"
+rgb	[~_]	#fa5ff7
+name	0	"pale red"
+rgb	[~_]	#d9544d
+name	0	"emerald"
+rgb	[~_]	#01a049
+name	0	"dark beige"
+rgb	[~_]	#ac9362
+name	0	"ugly green"
+rgb	[~_]	#7a9703
+name	0	"jade"
+rgb	[~_]	#1fa774
+name	0	"greenish grey"
+rgb	[~_]	#96ae8d
+name	0	"dark salmon"
+rgb	[~_]	#c85a53
+name	0	"purplish pink"
+rgb	[~_]	#ce5dae
+name	0	"dark aqua"
+rgb	[~_]	#05696b
+name	0	"brownish orange"
+rgb	[~_]	#cb7723
+name	0	"light olive green"
+rgb	[~_]	#a4be5c
+name	0	"light aqua"
+rgb	[~_]	#8cffdb
+name	0	"clay"
+rgb	[~_]	#b66a50
+name	0	"medium green"
+rgb	[~_]	#39ad48
+name	0	"burnt umber"
+rgb	[~_]	#a0450e
+name	0	"dull blue"
+rgb	[~_]	#49759c
+name	0	"pale brown"
+rgb	[~_]	#b1916e
+name	0	"emerald green"
+rgb	[~_]	#028f1e
+name	0	"brownish"
+rgb	[~_]	#9c6d57
+name	0	"mud"
+rgb	[~_]	#735c12
+name	0	"dark rose"
+rgb	[~_]	#b5485d
+name	0	"brownish red"
+rgb	[~_]	#9e3623
+name	0	"pink purple"
+rgb	[~_]	#db4bda
+name	0	"pinky purple"
+rgb	[~_]	#c94cbe
+name	0	"camo green"
+rgb	[~_]	#526525
+name	0	"faded green"
+rgb	[~_]	#7bb274
+name	0	"dusty pink"
+rgb	[~_]	#d58a94
+name	0	"purple pink"
+rgb	[~_]	#e03fd8
+name	0	"vomit green"
+rgb	[~_]	#89a203
+name	0	"deep green"
+rgb	[~_]	#02590f
+name	0	"reddish orange"
+rgb	[~_]	#f8481c
+name	0	"mahogany"
+rgb	[~_]	#4a0100
+name	0	"aubergine"
+rgb	[~_]	#3d0734
+name	0	"dull pink"
+rgb	[~_]	#d5869d
+name	0	"evergreen"
+rgb	[~_]	#05472a
+name	0	"dark sky blue"
+rgb	[~_]	#448ee4
+name	0	"very light green"
+rgb	[~_]	#d1ffbd
+name	0	"pastel pink"
+rgb	[~_]	#ffbacd
+name	0	"grey purple"
+rgb	[~_]	#826d8c
+name	0	"very light blue"
+rgb	[~_]	#d5ffff
+name	0	"dark mauve"
+rgb	[~_]	#874c62
+name	0	"cadet blue"
+rgb	[~_]	#4e7496
+name	0	"ice blue"
+rgb	[~_]	#d7fffe
+name	0	"light tan"
+rgb	[~_]	#fbeeac
+name	0	"dirty green"
+rgb	[~_]	#667e2c
+
+grid	0	8,32
+name	0	"purple"
+rgb	[~_]	#7e1e9c
+name	0	"green"
+rgb	[~_]	#15b01a
+name	0	"blue"
+rgb	[~_]	#0343df
+name	0	"pink"
+rgb	[~_]	#ff81c0
+name	0	"brown"
+rgb	[~_]	#653700
+name	0	"red"
+rgb	[~_]	#e50000
+name	0	"light blue"
+rgb	[~_]	#95d0fc
+name	0	"teal"
+rgb	[~_]	#029386
+name	0	"orange"
+rgb	[~_]	#f97306
+name	0	"light green"
+rgb	[~_]	#96f97b
+name	0	"magenta"
+rgb	[~_]	#c20078
+name	0	"yellow"
+rgb	[~_]	#ffff14
+name	0	"sky blue"
+rgb	[~_]	#75bbfd
+name	0	"grey"
+rgb	[~_]	#929591
+name	0	"lime green"
+rgb	[~_]	#89fe05
+name	0	"light purple"
+rgb	[~_]	#bf77f6
+name	0	"violet"
+rgb	[~_]	#9a0eea
+name	0	"dark green"
+rgb	[~_]	#033500
+name	0	"turquoise"
+rgb	[~_]	#06c2ac
+name	0	"lavender"
+rgb	[~_]	#c79fef
+name	0	"dark blue"
+rgb	[~_]	#00035b
+name	0	"tan"
+rgb	[~_]	#d1b26f
+name	0	"cyan"
+rgb	[~_]	#00ffff
+name	0	"aqua"
+rgb	[~_]	#13eac9
+name	0	"forest green"
+rgb	[~_]	#06470c
+name	0	"mauve"
+rgb	[~_]	#ae7181
+name	0	"dark purple"
+rgb	[~_]	#35063e
+name	0	"bright green"
+rgb	[~_]	#01ff07
+name	0	"maroon"
+rgb	[~_]	#650021
+name	0	"olive"
+rgb	[~_]	#6e750e
+name	0	"salmon"
+rgb	[~_]	#ff796c
+name	0	"beige"
+rgb	[~_]	#e6daa6
+name	0	"royal blue"
+rgb	[~_]	#0504aa
+name	0	"navy blue"
+rgb	[~_]	#001146
+name	0	"lilac"
+rgb	[~_]	#cea2fd
+name	0	"black"
+rgb	[~_]	#000000
+name	0	"hot pink"
+rgb	[~_]	#ff028d
+name	0	"light brown"
+rgb	[~_]	#ad8150
+name	0	"pale green"
+rgb	[~_]	#c7fdb5
+name	0	"peach"
+rgb	[~_]	#ffb07c
+name	0	"olive green"
+rgb	[~_]	#677a04
+name	0	"dark pink"
+rgb	[~_]	#cb416b
+name	0	"periwinkle"
+rgb	[~_]	#8e82fe
+name	0	"sea green"
+rgb	[~_]	#53fca1
+name	0	"lime"
+rgb	[~_]	#aaff32
+name	0	"indigo"
+rgb	[~_]	#380282
+name	0	"mustard"
+rgb	[~_]	#ceb301
+name	0	"light pink"
+rgb	[~_]	#ffd1df
+name	0	"rose"
+rgb	[~_]	#cf6275
+name	0	"bright blue"
+rgb	[~_]	#0165fc
+name	0	"neon green"
+rgb	[~_]	#0cff0c
+name	0	"burnt orange"
+rgb	[~_]	#c04e01
+name	0	"aquamarine"
+rgb	[~_]	#04d8b2
+name	0	"navy"
+rgb	[~_]	#01153e
+name	0	"grass green"
+rgb	[~_]	#3f9b0b
+name	0	"pale blue"
+rgb	[~_]	#d0fefe
+name	0	"dark red"
+rgb	[~_]	#840000
+name	0	"bright purple"
+rgb	[~_]	#be03fd
+name	0	"yellow green"
+rgb	[~_]	#c0fb2d
+name	0	"baby blue"
+rgb	[~_]	#a2cffe
+name	0	"gold"
+rgb	[~_]	#dbb40c
+name	0	"mint green"
+rgb	[~_]	#8fff9f
+name	0	"plum"
+rgb	[~_]	#580f41
+name	0	"royal purple"
+rgb	[~_]	#4b006e
+name	0	"brick red"
+rgb	[~_]	#8f1402
+name	0	"dark teal"
+rgb	[~_]	#014d4e
+name	0	"burgundy"
+rgb	[~_]	#610023
+name	0	"khaki"
+rgb	[~_]	#aaa662
+name	0	"blue green"
+rgb	[~_]	#137e6d
+name	0	"seafoam green"
+rgb	[~_]	#7af9ab
+name	0	"kelly green"
+rgb	[~_]	#02ab2e
+name	0	"puke green"
+rgb	[~_]	#9aae07
+name	0	"pea green"
+rgb	[~_]	#8eab12
+name	0	"taupe"
+rgb	[~_]	#b9a281
+name	0	"dark brown"
+rgb	[~_]	#341c02
+name	0	"deep purple"
+rgb	[~_]	#36013f
+name	0	"chartreuse"
+rgb	[~_]	#c1f80a
+name	0	"bright pink"
+rgb	[~_]	#fe01b1
+name	0	"light orange"
+rgb	[~_]	#fdaa48
+name	0	"mint"
+rgb	[~_]	#9ffeb0
+name	0	"pastel green"
+rgb	[~_]	#b0ff9d
+name	0	"sand"
+rgb	[~_]	#e2ca76
+name	0	"dark orange"
+rgb	[~_]	#c65102
+name	0	"spring green"
+rgb	[~_]	#a9f971
+name	0	"puce"
+rgb	[~_]	#a57e52
+name	0	"seafoam"
+rgb	[~_]	#80f9ad
+name	0	"grey blue"
+rgb	[~_]	#6b8ba4
+name	0	"army green"
+rgb	[~_]	#4b5d16
+name	0	"dark grey"
+rgb	[~_]	#363737
+name	0	"dark yellow"
+rgb	[~_]	#d5b60a
+name	0	"goldenrod"
+rgb	[~_]	#fac205
+name	0	"slate"
+rgb	[~_]	#516572
+name	0	"light teal"
+rgb	[~_]	#90e4c1
+name	0	"rust"
+rgb	[~_]	#a83c09
+name	0	"deep blue"
+rgb	[~_]	#040273
+name	0	"pale pink"
+rgb	[~_]	#ffcfdc
+name	0	"cerulean"
+rgb	[~_]	#0485d1
+name	0	"light red"
+rgb	[~_]	#ff474c
+name	0	"mustard yellow"
+rgb	[~_]	#d2bd0a
+name	0	"ochre"
+rgb	[~_]	#bf9005
+name	0	"pale yellow"
+rgb	[~_]	#ffff84
+name	0	"crimson"
+rgb	[~_]	#8c000f
+name	0	"fuchsia"
+rgb	[~_]	#ed0dd9
+name	0	"hunter green"
+rgb	[~_]	#0b4008
+name	0	"blue grey"
+rgb	[~_]	#607c8e
+name	0	"slate blue"
+rgb	[~_]	#5b7c99
+name	0	"pale purple"
+rgb	[~_]	#b790d4
+name	0	"sea blue"
+rgb	[~_]	#047495
+name	0	"pinkish purple"
+rgb	[~_]	#d648d7
+name	0	"puke"
+rgb	[~_]	#a5a502
+name	0	"light grey"
+rgb	[~_]	#d8dcd6
+name	0	"leaf green"
+rgb	[~_]	#5ca904
+name	0	"light yellow"
+rgb	[~_]	#fffe7a
+name	0	"eggplant"
+rgb	[~_]	#380835
+name	0	"steel blue"
+rgb	[~_]	#5a7d9a
+name	0	"moss green"
+rgb	[~_]	#658b38
+name	0	"robin's egg blue"
+rgb	[~_]	#98eff9
+name	0	"white"
+rgb	[~_]	#ffffff
+name	0	"grey green"
+rgb	[~_]	#789b73
+name	0	"sage"
+rgb	[~_]	#87ae73
+name	0	"brick"
+rgb	[~_]	#a03623
+name	0	"burnt sienna"
+rgb	[~_]	#b04e0f
+name	0	"reddish brown"
+rgb	[~_]	#7f2b0a
+name	0	"cream"
+rgb	[~_]	#ffffc2
+name	0	"coral"
+rgb	[~_]	#fc5a50
+name	0	"ocean blue"
+rgb	[~_]	#03719c
+name	0	"greenish"
+rgb	[~_]	#40a368
+name	0	"dark magenta"
+rgb	[~_]	#960056
+name	0	"red orange"
+rgb	[~_]	#fd3c06
+name	0	"bluish purple"
+rgb	[~_]	#703be7
+name	0	"midnight blue"
+rgb	[~_]	#020035
+name	0	"light violet"
+rgb	[~_]	#d6b4fc
+name	0	"dusty rose"
+rgb	[~_]	#c0737a
+name	0	"medium blue"
+rgb	[~_]	#2c6fbb
+name	0	"greenish yellow"
+rgb	[~_]	#cdfd02
+name	0	"yellowish green"
+rgb	[~_]	#b0dd16
+name	0	"purplish blue"
+rgb	[~_]	#601ef9
+name	0	"greyish blue"
+rgb	[~_]	#5e819d
+name	0	"grape"
+rgb	[~_]	#6c3461
+name	0	"light olive"
+rgb	[~_]	#acbf69
+name	0	"cornflower blue"
+rgb	[~_]	#5170d7
+name	0	"pinkish red"
+rgb	[~_]	#f10c45
+name	0	"bright red"
+rgb	[~_]	#ff000d
+name	0	"azure"
+rgb	[~_]	#069af3
+name	0	"blue purple"
+rgb	[~_]	#5729ce
+name	0	"dark turquoise"
+rgb	[~_]	#045c5a
+name	0	"electric blue"
+rgb	[~_]	#0652ff
+name	0	"off white"
+rgb	[~_]	#ffffe4
+name	0	"powder blue"
+rgb	[~_]	#b1d1fc
+name	0	"wine"
+rgb	[~_]	#80013f
+name	0	"dull green"
+rgb	[~_]	#74a662
+name	0	"apple green"
+rgb	[~_]	#76cd26
+name	0	"light turquoise"
+rgb	[~_]	#7ef4cc
+name	0	"neon purple"
+rgb	[~_]	#bc13fe
+name	0	"cobalt"
+rgb	[~_]	#1e488f
+name	0	"pinkish"
+rgb	[~_]	#d46a7e
+name	0	"olive drab"
+rgb	[~_]	#6f7632
+name	0	"dark cyan"
+rgb	[~_]	#0a888a
+name	0	"purple blue"
+rgb	[~_]	#632de9
+name	0	"dark violet"
+rgb	[~_]	#34013f
+name	0	"dark lavender"
+rgb	[~_]	#856798
+name	0	"forrest green"
+rgb	[~_]	#154406
+name	0	"vomit"
+rgb	[~_]	#a2a415
+name	0	"pale orange"
+rgb	[~_]	#ffa756
+name	0	"greenish blue"
+rgb	[~_]	#0b8b87
+name	0	"dark tan"
+rgb	[~_]	#af884a
+name	0	"green blue"
+rgb	[~_]	#06b48b
+name	0	"bluish green"
+rgb	[~_]	#10a674
+name	0	"pastel blue"
+rgb	[~_]	#a2bffe
+name	0	"moss"
+rgb	[~_]	#769958
+name	0	"grass"
+rgb	[~_]	#5cac2d
+name	0	"deep pink"
+rgb	[~_]	#cb0162
+name	0	"blood red"
+rgb	[~_]	#980002
+name	0	"sage green"
+rgb	[~_]	#88b378
+name	0	"aqua blue"
+rgb	[~_]	#02d8e9
+name	0	"terracotta"
+rgb	[~_]	#ca6641
+name	0	"pastel purple"
+rgb	[~_]	#caa0ff
+name	0	"sienna"
+rgb	[~_]	#a9561e
+name	0	"dark olive"
+rgb	[~_]	#373e02
+name	0	"green yellow"
+rgb	[~_]	#c9ff27
+name	0	"scarlet"
+rgb	[~_]	#be0119
+name	0	"greyish green"
+rgb	[~_]	#82a67d
+name	0	"chocolate"
+rgb	[~_]	#3d1c02
+name	0	"blue violet"
+rgb	[~_]	#5d06e9
+name	0	"cornflower"
+rgb	[~_]	#6a79f7
+name	0	"baby pink"
+rgb	[~_]	#ffb7ce
+name	0	"charcoal"
+rgb	[~_]	#343837
+name	0	"pine green"
+rgb	[~_]	#0a481e
+name	0	"pumpkin"
+rgb	[~_]	#e17701
+name	0	"greenish brown"
+rgb	[~_]	#696112
+name	0	"red brown"
+rgb	[~_]	#8b2e16
+name	0	"brownish green"
+rgb	[~_]	#6a6e09
+name	0	"tangerine"
+rgb	[~_]	#ff9408
+name	0	"salmon pink"
+rgb	[~_]	#fe7b7c
+name	0	"aqua green"
+rgb	[~_]	#12e193
+name	0	"raspberry"
+rgb	[~_]	#b00149
+name	0	"greyish purple"
+rgb	[~_]	#887191
+name	0	"rose pink"
+rgb	[~_]	#f7879a
+name	0	"neon pink"
+rgb	[~_]	#fe019a
+name	0	"cobalt blue"
+rgb	[~_]	#030aa7
+name	0	"orange brown"
+rgb	[~_]	#be6400
+name	0	"deep red"
+rgb	[~_]	#9a0200
+name	0	"orange red"
+rgb	[~_]	#fd411e
+name	0	"dirty yellow"
+rgb	[~_]	#cdc50a
+name	0	"orchid"
+rgb	[~_]	#c875c4
+name	0	"reddish pink"
+rgb	[~_]	#fe2c54
+name	0	"reddish purple"
+rgb	[~_]	#910951
+name	0	"yellow orange"
+rgb	[~_]	#fcb001
+name	0	"light cyan"
+rgb	[~_]	#acfffc
+name	0	"sky"
+rgb	[~_]	#82cafc
+name	0	"light magenta"
+rgb	[~_]	#fa5ff7
+name	0	"pale red"
+rgb	[~_]	#d9544d
+name	0	"emerald"
+rgb	[~_]	#01a049
+name	0	"dark beige"
+rgb	[~_]	#ac9362
+name	0	"ugly green"
+rgb	[~_]	#7a9703
+name	0	"jade"
+rgb	[~_]	#1fa774
+name	0	"greenish grey"
+rgb	[~_]	#96ae8d
+name	0	"dark salmon"
+rgb	[~_]	#c85a53
+name	0	"purplish pink"
+rgb	[~_]	#ce5dae
+name	0	"dark aqua"
+rgb	[~_]	#05696b
+name	0	"brownish orange"
+rgb	[~_]	#cb7723
+name	0	"light olive green"
+rgb	[~_]	#a4be5c
+name	0	"light aqua"
+rgb	[~_]	#8cffdb
+name	0	"clay"
+rgb	[~_]	#b66a50
+name	0	"medium green"
+rgb	[~_]	#39ad48
+name	0	"burnt umber"
+rgb	[~_]	#a0450e
+name	0	"dull blue"
+rgb	[~_]	#49759c
+name	0	"pale brown"
+rgb	[~_]	#b1916e
+name	0	"emerald green"
+rgb	[~_]	#028f1e
+name	0	"brownish"
+rgb	[~_]	#9c6d57
+name	0	"mud"
+rgb	[~_]	#735c12
+name	0	"dark rose"
+rgb	[~_]	#b5485d
+name	0	"brownish red"
+rgb	[~_]	#9e3623
+name	0	"pink purple"
+rgb	[~_]	#db4bda
+name	0	"pinky purple"
+rgb	[~_]	#c94cbe
+name	0	"camo green"
+rgb	[~_]	#526525
+name	0	"faded green"
+rgb	[~_]	#7bb274
+name	0	"dusty pink"
+rgb	[~_]	#d58a94
+name	0	"purple pink"
+rgb	[~_]	#e03fd8
+name	0	"vomit green"
+rgb	[~_]	#89a203
+name	0	"deep green"
+rgb	[~_]	#02590f
+name	0	"reddish orange"
+rgb	[~_]	#f8481c
+name	0	"mahogany"
+rgb	[~_]	#4a0100
+name	0	"aubergine"
+rgb	[~_]	#3d0734
+name	0	"dull pink"
+rgb	[~_]	#d5869d
+name	0	"evergreen"
+rgb	[~_]	#05472a
+name	0	"dark sky blue"
+rgb	[~_]	#448ee4
+name	0	"very light green"
+rgb	[~_]	#d1ffbd
+name	0	"pastel pink"
+rgb	[~_]	#ffbacd
+name	0	"grey purple"
+rgb	[~_]	#826d8c
+name	0	"very light blue"
+rgb	[~_]	#d5ffff
+name	0	"dark mauve"
+rgb	[~_]	#874c62
+name	0	"cadet blue"
+rgb	[~_]	#4e7496
+name	0	"ice blue"
+rgb	[~_]	#d7fffe
+name	0	"light tan"
+rgb	[~_]	#fbeeac
+name	0	"dirty green"
+rgb	[~_]	#667e2c

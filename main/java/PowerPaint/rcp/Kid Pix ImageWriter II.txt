@@ -1,0 +1,34 @@
+size	0	289,73
+sizeh	0	289,73
+sizesq	0	145,145
+sizev	0	73,289
+name	0	"Kid Pix ImageWriter II"
+orient	0
+grid	0	4,2
+rgb	[~_]	#FFFFFF
+rgb	[~_]	#FFFF00
+rgb	[~_]	#FFFF05448B47
+rgb	[~_]	#FFFF61160C1A
+rgb	[~_]	#00017DA4FFFF
+rgb	[~_]	#0002AFFF0001
+rgb	[~_]	#6A23059ABFFF
+rgb	[~_]	#000000
+grid	0	3,3
+rgb	[~_]	#FFFFFF
+rgb	[~_]	#FFFF00
+rgb	[~_]	#FFFF05448B47
+rgb	[~_]	#FFFF61160C1A
+rgb	[~_]	#555555
+rgb	[~_]	#00017DA4FFFF
+rgb	[~_]	#0002AFFF0001
+rgb	[~_]	#6A23059ABFFF
+rgb	[~_]	#000000
+grid	0	2,4
+rgb	[~_]	#FFFFFF
+rgb	[~_]	#00017DA4FFFF
+rgb	[~_]	#FFFF00
+rgb	[~_]	#0002AFFF0001
+rgb	[~_]	#FFFF05448B47
+rgb	[~_]	#6A23059ABFFF
+rgb	[~_]	#FFFF61160C1A
+rgb	[~_]	#000000

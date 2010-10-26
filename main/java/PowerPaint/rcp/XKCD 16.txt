@@ -1,0 +1,108 @@
+size	0	289,73
+sizeh	0	289,73
+sizesq	0	145,145
+sizev	0	73,289
+name	0	"XKCD 16"
+orient	0
+
+grid	0	8,2
+name	0	"purple"
+rgb	[~_]	#7e1e9c
+name	0	"green"
+rgb	[~_]	#15b01a
+name	0	"blue"
+rgb	[~_]	#0343df
+name	0	"pink"
+rgb	[~_]	#ff81c0
+name	0	"brown"
+rgb	[~_]	#653700
+name	0	"red"
+rgb	[~_]	#e50000
+name	0	"light blue"
+rgb	[~_]	#95d0fc
+name	0	"teal"
+rgb	[~_]	#029386
+name	0	"orange"
+rgb	[~_]	#f97306
+name	0	"light green"
+rgb	[~_]	#96f97b
+name	0	"magenta"
+rgb	[~_]	#c20078
+name	0	"yellow"
+rgb	[~_]	#ffff14
+name	0	"sky blue"
+rgb	[~_]	#75bbfd
+name	0	"black"
+rgb	[~_]	#000000
+name	0	"grey"
+rgb	[~_]	#929591
+name	0	"white"
+rgb	[~_]	#ffffff
+
+grid	0	4,4
+name	0	"purple"
+rgb	[~_]	#7e1e9c
+name	0	"green"
+rgb	[~_]	#15b01a
+name	0	"blue"
+rgb	[~_]	#0343df
+name	0	"pink"
+rgb	[~_]	#ff81c0
+name	0	"brown"
+rgb	[~_]	#653700
+name	0	"red"
+rgb	[~_]	#e50000
+name	0	"light blue"
+rgb	[~_]	#95d0fc
+name	0	"teal"
+rgb	[~_]	#029386
+name	0	"orange"
+rgb	[~_]	#f97306
+name	0	"light green"
+rgb	[~_]	#96f97b
+name	0	"magenta"
+rgb	[~_]	#c20078
+name	0	"yellow"
+rgb	[~_]	#ffff14
+name	0	"sky blue"
+rgb	[~_]	#75bbfd
+name	0	"black"
+rgb	[~_]	#000000
+name	0	"grey"
+rgb	[~_]	#929591
+name	0	"white"
+rgb	[~_]	#ffffff
+
+grid	0	2,8
+name	0	"purple"
+rgb	[~_]	#7e1e9c
+name	0	"green"
+rgb	[~_]	#15b01a
+name	0	"blue"
+rgb	[~_]	#0343df
+name	0	"pink"
+rgb	[~_]	#ff81c0
+name	0	"brown"
+rgb	[~_]	#653700
+name	0	"red"
+rgb	[~_]	#e50000
+name	0	"light blue"
+rgb	[~_]	#95d0fc
+name	0	"teal"
+rgb	[~_]	#029386
+name	0	"orange"
+rgb	[~_]	#f97306
+name	0	"light green"
+rgb	[~_]	#96f97b
+name	0	"magenta"
+rgb	[~_]	#c20078
+name	0	"yellow"
+rgb	[~_]	#ffff14
+name	0	"sky blue"
+rgb	[~_]	#75bbfd
+name	0	"black"
+rgb	[~_]	#000000
+name	0	"grey"
+rgb	[~_]	#929591
+name	0	"white"
+rgb	[~_]	#ffffff
