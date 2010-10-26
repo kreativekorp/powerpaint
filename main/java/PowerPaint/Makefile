@@ -8,14 +8,18 @@ eclipseall: eclipseclean osxclean materials.pmz PowerPaint.jar PowerPaint.app Po
 clean:
 	rm -rf bin
 	rm -rf doc
-	rm -rf *.pmz
+	rm -rf materials.pmz
+	rm -rf src/com/kreative/paint/res/materials.pmz
+	rm -rf bin/com/kreative/paint/res/materials.pmz
 	rm -rf PowerPaint*.jar
 	rm -rf PowerPaint*.app
 	rm -rf PowerPaint*.exe
 	rm -rf PowerPaint*.tgz
 
 eclipseclean:
-	rm -rf *.pmz
+	rm -rf materials.pmz
+	rm -rf src/com/kreative/paint/res/materials.pmz
+	rm -rf bin/com/kreative/paint/res/materials.pmz
 	rm -rf PowerPaint*.jar
 	rm -rf PowerPaint*.app
 	rm -rf PowerPaint*.exe
@@ -26,7 +30,6 @@ bin:
 	javac -sourcepath src $(SRCFILES) -d bin
 	cp src/com/kreative/paint/palette/*.png bin/com/kreative/paint/palette/
 	cp src/com/kreative/paint/rcp/*.png bin/com/kreative/paint/rcp/
-	cp src/com/kreative/paint/res/*.pmz bin/com/kreative/paint/res/
 	cp src/com/kreative/paint/tool/*.png bin/com/kreative/paint/tool/
 	cp src/com/kreative/paint/ui/about/*.png bin/com/kreative/paint/ui/about/
 	cp src/com/kreative/paint/ui/progress/*.png bin/com/kreative/paint/ui/progress/
