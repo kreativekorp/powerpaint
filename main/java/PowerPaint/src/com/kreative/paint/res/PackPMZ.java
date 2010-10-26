@@ -75,17 +75,13 @@ public class PackPMZ {
 	
 	private static void zip(ZipOutputStream zos, File file, String prefix) throws IOException {
 		String name = file.getName();
-		if ((name.equals("Icon\r") || name.equals("Icon\uF00D")) && !file.isDirectory()) {
-			if (verbose) System.out.println(prefix + ".icon.rsrc");
-			ZipEntry z = new ZipEntry(prefix + ".icon.rsrc");
-			zos.putNextEntry(z);
-			zipdata(zos, new File(new File(file, "..namedfork"), "rsrc"));
-		} else if ((name.equalsIgnoreCase("Desktop.ini") || name.equalsIgnoreCase("Desktop.ico")) && !file.isDirectory()) {
-			if (verbose) System.out.println(prefix + "." + name.toLowerCase());
-			ZipEntry z = new ZipEntry(prefix + "." + name.toLowerCase());
-			zos.putNextEntry(z);
-			zipdata(zos, file);
-		} else if ((name.equalsIgnoreCase(".directory") || name.equalsIgnoreCase(".icon.png")) && !file.isDirectory()) {
+		if ((
+				name.equalsIgnoreCase(".icon.rsrc")
+				|| name.equalsIgnoreCase(".desktop.ini")
+				|| name.equalsIgnoreCase(".desktop.ico")
+				|| name.equalsIgnoreCase(".directory")
+				|| name.equalsIgnoreCase(".icon.png")
+		) && !file.isDirectory()) {
 			if (verbose) System.out.println(prefix + name.toLowerCase());
 			ZipEntry z = new ZipEntry(prefix + name.toLowerCase());
 			zos.putNextEntry(z);

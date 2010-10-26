@@ -27,23 +27,16 @@
 
 package com.kreative.paint.res;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
-public class UnpackPMZ {
+public class DecoratePMZ {
 	private static boolean verbose = false;
 	
 	public static void main(String[] args) throws IOException {
-		String path = "materials.pmz";
+		boolean doneOne = false;
 		for (String arg : args) {
 			if (arg.startsWith("-")) {
 				if (arg.equals("-V")) {
@@ -52,52 +45,44 @@ public class UnpackPMZ {
 					System.err.println("Unknown option: " + arg);
 				}
 			} else {
-				path = arg;
+				decorate(new File(arg));
+				doneOne = true;
 			}
 		}
-		unpack(new File(path));
+		if (!doneOne) decorate();
 	}
 	
-	public static void unpack(URL url) throws IOException {
-		URLConnection uc = url.openConnection();
-		InputStream in = uc.getInputStream();
-		unpack(in);
-		in.close();
-	}
-	
-	public static void unpack(File input) throws IOException {
-		FileInputStream fis = new FileInputStream(input);
-		unpack(fis);
-		fis.close();
-	}
-	
-	public static void unpack(InputStream input) throws IOException {
-		BufferedInputStream bis = new BufferedInputStream(input);
-		ZipInputStream zis = new ZipInputStream(bis);
+	public static void decorate() throws IOException {
 		File root = FileResourceManager.instance.getResourcesRoot();
 		if (!root.exists()) root.mkdirs();
-		while (unzip(zis, root));
-		zis.close();
-		bis.close();
+		decorate(root);
 	}
 	
-	private static boolean unzip(ZipInputStream zis, File base) throws IOException {
-		ZipEntry z = zis.getNextEntry();
-		if (z == null) return false;
-		if (!z.isDirectory()) {
-			if (verbose) System.out.println(z.getName());
-			File file = base;
-			String[] names = z.getName().split("/");
-			for (String name : names) {
-				if (!file.exists()) file.mkdir();
-				file = new File(file, name);
+	private static void decorate(File file) throws IOException {
+		String name = file.getName();
+		if (file.isDirectory()) {
+			if (!(
+					name.startsWith(".")
+					|| name.contains("\r")
+					|| name.contains("\n")
+					|| name.contains("\uF00D")
+					|| name.contains("\uF00A")
+					|| name.equalsIgnoreCase("Thumbs.db")
+					|| name.equalsIgnoreCase("Desktop.ini")
+					|| name.equalsIgnoreCase("Desktop.ico")
+			)) {
+				for (File cf : file.listFiles()) {
+					decorate(cf);
+				}
 			}
-			if (file.getName().equalsIgnoreCase(".icon.rsrc")) {
+		} else {
+			if (name.equalsIgnoreCase(".icon.rsrc")) {
 				if (osName().toLowerCase().contains("mac os")) {
+					if (verbose) System.out.println(file.getName());
 					File theFolder = file.getParentFile();
 					File theIconFile = new File(theFolder, "Icon\r");
 					theIconFile.createNewFile();
-					unzipdata(zis, new File(new File(theIconFile, "..namedfork"), "rsrc"));
+					copydata(file, new File(new File(theIconFile, "..namedfork"), "rsrc"));
 					try {
 						Runtime.getRuntime().exec(new String[]{
 								"/usr/bin/SetFile",
@@ -113,21 +98,32 @@ public class UnpackPMZ {
 						}).waitFor();
 					} catch (InterruptedException ignored) {}
 				}
-			} else if (file.getName().equalsIgnoreCase(".desktop.ini") || file.getName().equalsIgnoreCase(".desktop.ico")) {
+			} else if (name.equalsIgnoreCase(".desktop.ini") || name.equalsIgnoreCase(".desktop.ico")) {
 				if (osName().toLowerCase().contains("windows")) {
+					if (verbose) System.out.println(file.getName());
 					File theFile = new File(file.getParentFile(), file.getName().substring(1));
-					unzipdata(zis, theFile);
+					copydata(file, theFile);
 					try {
 						Runtime.getRuntime().exec("attrib +h +s " + theFile.getAbsolutePath()).waitFor();
 					} catch (InterruptedException ignored) {}
 				}
-			} else if (file.getName().equalsIgnoreCase(".directory") || file.getName().equalsIgnoreCase(".icon.png")) {
+			} else if (name.equalsIgnoreCase(".directory") || name.equalsIgnoreCase(".icon.png")) {
 				if (!(osName().toLowerCase().contains("mac os") || osName().toLowerCase().contains("windows"))) {
-					unzipdata(zis, file);
+					if (verbose) System.out.println(file.getName());
+					// file is already named what it should be named
 				}
-			} else {
-				unzipdata(zis, file);
+			} else if (!(
+					name.startsWith(".")
+					|| name.contains("\r")
+					|| name.contains("\n")
+					|| name.contains("\uF00D")
+					|| name.contains("\uF00A")
+					|| name.equalsIgnoreCase("Thumbs.db")
+					|| name.equalsIgnoreCase("Desktop.ini")
+					|| name.equalsIgnoreCase("Desktop.ico")
+			)) {
 				if (osName().toLowerCase().contains("mac os")) {
+					if (verbose) System.out.println(file.getName());
 					try {
 						String n = file.getName().toLowerCase();
 						int macType =
@@ -151,21 +147,16 @@ public class UnpackPMZ {
 				}
 			}
 		}
-		return true;
 	}
 	
-	private static void unzipdata(ZipInputStream zis, File file) throws IOException {
-		FileOutputStream fos = new FileOutputStream(file);
-		BufferedOutputStream bos = new BufferedOutputStream(fos);
-		byte[] buf = new byte[65536];
+	private static void copydata(File src, File dst) throws IOException {
+		FileInputStream in = new FileInputStream(src);
+		FileOutputStream out = new FileOutputStream(dst);
+		byte[] buf = new byte[1048576];
 		int len = 0;
-		while ((len = zis.read(buf, 0, buf.length)) >= 0) {
-			bos.write(buf, 0, len);
+		while ((len = in.read(buf)) >= 0) {
+			out.write(buf, 0, len);
 		}
-		bos.flush();
-		fos.flush();
-		bos.close();
-		fos.close();
 	}
 	
 	private static String osName = null;
