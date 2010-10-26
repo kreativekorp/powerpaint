@@ -675,6 +675,20 @@
 			<key>CFBundleTypeRole</key>
 			<string>None</string>
 		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>pmz</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>PowerPaint Paint Materials</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PowerPaintPMZ</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
 	</array>
 </dict>
 </plist>
