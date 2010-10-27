@@ -131,6 +131,7 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 		private int i;
 		public ShapeLabel(int n, int i, boolean mini) {
 			super(new ImageIcon(getShapeImage(n, i, mini)));
+			setToolTipText(getShapeName(n, i));
 			this.n = n;
 			this.i = i;
 			updateSelection();
@@ -166,5 +167,8 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 		g.draw(ss);
 		g.dispose();
 		return bi;
+	}
+	private String getShapeName(int coll, int idx) {
+		return tc.getPowerShapeSets().getLatter(coll).getFormer(idx);
 	}
 }
