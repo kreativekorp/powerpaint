@@ -29,6 +29,8 @@ package com.kreative.paint.filter;
 
 import java.util.List;
 import java.util.Vector;
+import java.util.Collections;
+import java.util.Comparator;
 import com.kreative.paint.res.MaterialsManager;
 
 public class FilterManager {
@@ -57,6 +59,13 @@ public class FilterManager {
 		filters.add(new OffsetFilter());
 		filters.add(new RippleFilter());
 		filters.addAll(mm.getPluginFilters());
+		Collections.sort(filters, new Comparator<Filter>() {
+			public int compare(Filter o1, Filter o2) {
+				int i = o1.getCategory().compareToIgnoreCase(o2.getCategory());
+				if (i == 0) i = o1.getName().compareToIgnoreCase(o2.getName());
+				return i;
+			}
+		});
 	}
 	
 	public List<Filter> getFilters() {

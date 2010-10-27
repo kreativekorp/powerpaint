@@ -76,7 +76,7 @@ public class ModePanel extends ToolContextPanel {
 	}
 	
 	private static void squareOffButton(JComponent c) {
-		int h = OSUtils.isWindows() ? Math.max(c.getPreferredSize().width, c.getPreferredSize().height) : c.getPreferredSize().height;
+		int h = OSUtils.isWindows() ? (c.getPreferredSize().height+1) : c.getPreferredSize().height;
 		c.setMinimumSize(new Dimension(h,h));
 		c.setPreferredSize(new Dimension(h,h));
 		c.setMaximumSize(new Dimension(h,h));
