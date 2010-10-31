@@ -1,9 +1,9 @@
 SRCFILES = src/test/*.java src/com/kreative/*/*.java src/com/kreative/*/*/*.java src/com/kreative/*/*/*/*.java
 PACKAGES = com.kreative.paint com.kreative.paint.awt com.kreative.paint.datatransfer com.kreative.paint.draw com.kreative.paint.filter com.kreative.paint.form com.kreative.paint.form.ui com.kreative.paint.format com.kreative.paint.geom com.kreative.paint.gradient com.kreative.paint.io com.kreative.paint.messages com.kreative.paint.palette com.kreative.paint.pict com.kreative.paint.powerbrush com.kreative.paint.rcp com.kreative.paint.res com.kreative.paint.swing com.kreative.paint.tool com.kreative.paint.tool.ui com.kreative.paint.ui com.kreative.paint.ui.about com.kreative.paint.ui.dialog com.kreative.paint.ui.mac com.kreative.paint.ui.menu com.kreative.paint.ui.progress com.kreative.paint.undo com.kreative.paint.util
 
-all: clean bin doc osxclean materials.pmz PowerPaint.jar PowerPaint.app PowerPaint.exe PowerPaint-src.tgz
+all: clean bin doc materials.pmz decorate osxclean PowerPaint.jar PowerPaint.app PowerPaint.exe PowerPaint-src.tgz
 
-eclipseall: eclipseclean osxclean materials.pmz PowerPaint.jar PowerPaint.app PowerPaint.exe PowerPaint-src.tgz
+eclipseall: eclipseclean materials.pmz decorate osxclean PowerPaint.jar PowerPaint.app PowerPaint.exe PowerPaint-src.tgz
 
 clean:
 	rm -rf bin
