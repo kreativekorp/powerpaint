@@ -1,8 +1,0 @@
-A NOTE TO MAC OS X USERS:
-
-After your first build, you will want to run
-
-	make decorate
-
-to give the files and folders in the Paint Materials folder
-the proper icons and file types.
