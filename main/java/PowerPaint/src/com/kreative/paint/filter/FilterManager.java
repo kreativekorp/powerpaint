@@ -50,6 +50,7 @@ public class FilterManager {
 		filters.add(new FauxDesaturateFilter());
 		filters.add(new FauxLightenFilter());
 		filters.add(new FauxTranslucentFilter());
+		filters.add(new GameOfLifeFilter());
 		filters.add(new GrayscaleFilter());
 		filters.add(new HueSaturationFilter());
 		filters.add(new InvertFilter());
@@ -58,6 +59,7 @@ public class FilterManager {
 		filters.add(new MosaicFilter());
 		filters.add(new OffsetFilter());
 		filters.add(new RippleFilter());
+		filters.add(new WireWorldFilter());
 		filters.addAll(mm.getPluginFilters());
 		Collections.sort(filters, new Comparator<Filter>() {
 			public int compare(Filter o1, Filter o2) {
