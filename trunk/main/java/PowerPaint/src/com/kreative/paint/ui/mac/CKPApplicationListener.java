@@ -33,6 +33,7 @@ import com.apple.eawt.ApplicationEvent;
 import com.apple.eawt.ApplicationListener;
 import com.kreative.paint.ui.CKPApplication;
 
+@SuppressWarnings("deprecation")
 public class CKPApplicationListener implements ApplicationListener {
 	private CKPApplication app;
 	
