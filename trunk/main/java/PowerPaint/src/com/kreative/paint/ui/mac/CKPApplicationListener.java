@@ -88,7 +88,7 @@ public class CKPApplicationListener implements ApplicationListener {
 				app.doQuit();
 			}
 		}.start();
-		e.setHandled(true);
+		e.setHandled(false);
 	}
 
 	public void handleReOpenApplication(ApplicationEvent e) {
