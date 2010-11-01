@@ -48,6 +48,7 @@ public class FilterMessages extends ListResourceBundle {
 			{ "FauxTranslucentFilter", "Overlay/Faux Translucency" },
 			{ "GameOfLifeFilter", "Cellular Automaton/Game of Life" },
 			{ "GrayscaleFilter", "Color/Grayscale" },
+			{ "HighLifeFilter", "Cellular Automaton/HighLife" },
 			{ "HueSaturationFilter", "Adjustments/Hue & Saturation" },
 			{ "InvertFilter", "Color/Invert" },
 			{ "InvertGraysFilter", "Color/Invert Grays" },
@@ -55,6 +56,7 @@ public class FilterMessages extends ListResourceBundle {
 			{ "MosaicFilter", "Pixelate/Mosaic" },
 			{ "OffsetFilter", "Miscellaneous/Offset" },
 			{ "RippleFilter", "Distort/Ripple" },
+			{ "SeedsFilter", "Cellular Automaton/Seeds" },
 			{ "WireWorldFilter", "Cellular Automaton/Wireworld" },
 			// These are labels and titles for all filter option dialogs in general.
 			{ "options.OK", "OK" },
