@@ -93,7 +93,7 @@ public class MosaicFilter extends AbstractFilter {
 	}
 
 	private Image filter(Image img, int amt, boolean grid, Color gcol) {
-		BufferedImage bmg = ImageUtils.toBufferedImage(img);
+		BufferedImage bmg = ImageUtils.toBufferedImage(img, false);
 		int w = bmg.getWidth();
 	    int h = bmg.getHeight();
 	    int sw = w/amt;

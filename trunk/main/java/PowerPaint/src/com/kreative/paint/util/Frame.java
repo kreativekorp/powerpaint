@@ -41,17 +41,17 @@ public class Frame {
 	private FrameInfo finfo;
 	
 	public Frame(Image i, FrameInfo info) {
-		this.frame = ImageUtils.toBufferedImage(i);
+		this.frame = ImageUtils.toBufferedImage(i, false);
 		this.finfo = info;
 	}
 	
 	public Frame(Image i) {
-		this.frame = ImageUtils.toBufferedImage(i);
+		this.frame = ImageUtils.toBufferedImage(i, false);
 		this.finfo = new FrameInfo(this.frame);
 	}
 	
 	public Frame(byte[] imgdata) {
-		this.frame = ImageUtils.toBufferedImage(Toolkit.getDefaultToolkit().createImage(imgdata));
+		this.frame = ImageUtils.toBufferedImage(Toolkit.getDefaultToolkit().createImage(imgdata), false);
 		this.finfo = null;
 		try {
 			DataInputStream in = new DataInputStream(new ByteArrayInputStream(imgdata));

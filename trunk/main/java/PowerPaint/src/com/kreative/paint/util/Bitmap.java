@@ -57,7 +57,7 @@ public class Bitmap {
 	}
 	
 	public Bitmap(Image i) {
-		BufferedImage bi = ImageUtils.toBufferedImage(i);
+		BufferedImage bi = ImageUtils.toBufferedImage(i, false);
 		this.width = bi.getWidth();
 		this.height = bi.getHeight();
 		this.pixels = new int[this.width * this.height];

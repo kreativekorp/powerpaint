@@ -29,11 +29,14 @@ package com.kreative.paint.filter;
 
 import java.awt.Image;
 import com.kreative.paint.form.Form;
+import com.kreative.paint.form.FormUI;
 
 public interface Filter {
 	public String getCategory();
 	public String getName();
 	public boolean usesOptionForm();
 	public Form getOptionForm(Image src);
+	public FormUI getFormUI();
+	public void setFormUI(FormUI ui);
 	public Image filter(Image src);
 }

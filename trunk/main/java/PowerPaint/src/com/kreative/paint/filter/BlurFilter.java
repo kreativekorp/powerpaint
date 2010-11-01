@@ -33,7 +33,7 @@ import com.kreative.paint.util.ImageUtils;
 
 public class BlurFilter extends AbstractFilter {
 	public Image filter(Image img) {
-		BufferedImage nim = ImageUtils.toBufferedImage(img);
+		BufferedImage nim = ImageUtils.toBufferedImage(img, true);
 		int w = nim.getWidth();
 		int h = nim.getHeight();
 		for (int y=0; y<h; y++) {

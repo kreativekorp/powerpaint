@@ -41,7 +41,7 @@ public class LastFilterMenuItem extends CKPMenuItem {
 		setText(
 				(doc == null || !doc.enableLastFilter())
 				? MenuUtilities.messages.getString("Filter.Last")
-				: MenuUtilities.messages.getString("Filter.Last").replace("$", doc.lastFilterName())
+				: MenuUtilities.messages.getString("Filter.LastAction").replace("$", doc.lastFilterName())
 		);
 		if (doc != null) {
 			doc.getCanvasController().addCanvasControllerListener(new CanvasControllerListener() {
@@ -50,7 +50,7 @@ public class LastFilterMenuItem extends CKPMenuItem {
 					setText(
 							(LastFilterMenuItem.this.doc == null || !LastFilterMenuItem.this.doc.enableLastFilter())
 							? MenuUtilities.messages.getString("Filter.Last")
-							: MenuUtilities.messages.getString("Filter.Last").replace("$", LastFilterMenuItem.this.doc.lastFilterName())
+							: MenuUtilities.messages.getString("Filter.LastAction").replace("$", LastFilterMenuItem.this.doc.lastFilterName())
 					);
 				}
 			});

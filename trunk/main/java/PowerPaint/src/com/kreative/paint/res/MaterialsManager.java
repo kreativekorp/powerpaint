@@ -866,7 +866,7 @@ public class MaterialsManager {
 				String textureName = (ss.length >= 2) ? ss[1] : ss[0];
 				Image i = Toolkit.getDefaultToolkit().createImage(r.data());
 				boolean prepd = (i == null) ? false : ImageUtils.prepImage(i);
-				BufferedImage bi = (i == null) ? null : ImageUtils.toBufferedImage(i);
+				BufferedImage bi = (i == null) ? null : ImageUtils.toBufferedImage(i, false);
 				if (i == null || !prepd || bi == null) {
 					System.err.println("Warning: Ignoring invalid image: "+r.name());
 				} else {
@@ -939,7 +939,7 @@ public class MaterialsManager {
 		for (Resource r : rm.getResources(cat)) {
 			Image i = tk.createImage(r.data());
 			boolean prepd = (i == null) ? false : ImageUtils.prepImage(tk, i);
-			BufferedImage bi = (i == null) ? null : ImageUtils.toBufferedImage(i);
+			BufferedImage bi = (i == null) ? null : ImageUtils.toBufferedImage(i, false);
 			if (i == null || !prepd || bi == null) {
 				System.err.println("Warning: Ignoring invalid image: "+r.name());
 			} else {
@@ -962,7 +962,7 @@ public class MaterialsManager {
 		for (Resource r : rm.getResources(cat)) {
 			Image i = tk.createImage(r.data());
 			boolean prepd = (i == null) ? false : ImageUtils.prepImage(tk, i);
-			BufferedImage bi = (i == null) ? null : ImageUtils.toBufferedImage(i);
+			BufferedImage bi = (i == null) ? null : ImageUtils.toBufferedImage(i, false);
 			if (i == null || !prepd || bi == null) {
 				System.err.println("Warning: Ignoring invalid image: "+r.name());
 			} else {

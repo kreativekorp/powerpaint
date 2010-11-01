@@ -49,6 +49,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
+
 import com.kreative.paint.Canvas;
 import com.kreative.paint.CanvasController;
 import com.kreative.paint.CanvasView;
@@ -336,8 +338,12 @@ public class CKPDocument {
 				canvas.setHistory(history);
 				canvasView.setCanvas(canvas);
 				canvasController.setCanvas(canvas);
-				canvasScrollPane.repaint();
-				canvasController.notifyCanvasControllerListeners();
+				SwingUtilities.invokeLater(new Runnable() {
+					public void run() {
+						canvasScrollPane.repaint();
+						canvasController.notifyCanvasControllerListeners();
+					}
+				});
 
 				history.addHistoryListener(new HistoryListener() {
 					public void transactionBegan(HistoryEvent e) {}
@@ -408,8 +414,12 @@ public class CKPDocument {
 	public void doUndo() {
 		if (history.canUndo()) {
 			history.undo();
-			canvasScrollPane.repaint();
-			canvasController.notifyCanvasControllerListeners();
+			SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					canvasScrollPane.repaint();
+					canvasController.notifyCanvasControllerListeners();
+				}
+			});
 		}
 	}
 	
@@ -424,8 +434,12 @@ public class CKPDocument {
 	public void doRedo() {
 		if (history.canRedo()) {
 			history.redo();
-			canvasScrollPane.repaint();
-			canvasController.notifyCanvasControllerListeners();
+			SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					canvasScrollPane.repaint();
+					canvasController.notifyCanvasControllerListeners();
+				}
+			});
 		}
 	}
 	
@@ -436,8 +450,12 @@ public class CKPDocument {
 	public void doToolCommand(ToolCommand cmd) {
 		if (canvasController.enableCommand(cmd)) {
 			canvasController.doCommand(cmd);
-			canvasScrollPane.repaint();
-			canvasController.notifyCanvasControllerListeners();
+			SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					canvasScrollPane.repaint();
+					canvasController.notifyCanvasControllerListeners();
+				}
+			});
 		}
 	}
 	
@@ -465,7 +483,7 @@ public class CKPDocument {
 				lastFilter = f;
 				Image dst = f.filter(src);
 				if (dst != null && dst != src) {
-					l.setPoppedImage(ImageUtils.toBufferedImage(dst), l.getPoppedImageTransform());
+					l.setPoppedImage(ImageUtils.toBufferedImage(dst, true), l.getPoppedImageTransform());
 				}
 			}
 		} else if (canvas.getPaintSelection() != null) {
@@ -476,7 +494,7 @@ public class CKPDocument {
 				lastFilter = f;
 				Image dst = f.filter(src);
 				if (dst != null && dst != src) {
-					l.setPoppedImage(ImageUtils.toBufferedImage(dst), l.getPoppedImageTransform());
+					l.setPoppedImage(ImageUtils.toBufferedImage(dst, true), l.getPoppedImageTransform());
 				}
 			}
 			canvas.pushPaintSelection();
@@ -492,15 +510,19 @@ public class CKPDocument {
 				lastFilter = f;
 				Image dst = f.filter(src);
 				if (dst != null && dst != src) {
-					BufferedImage db = ImageUtils.toBufferedImage(dst);
+					BufferedImage db = ImageUtils.toBufferedImage(dst, false);
 					db.getRGB(0, 0, w, h, pixels, 0, w);
 					l.setRGB(-l.getX(), -l.getY(), w, h, pixels, 0, w);
 				}
 			}
 		}
 		history.commit();
-		canvasScrollPane.repaint();
-		canvasController.notifyCanvasControllerListeners();
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				canvasScrollPane.repaint();
+				canvasController.notifyCanvasControllerListeners();
+			}
+		});
 	}
 	
 	public String lastFilterName() {
@@ -519,7 +541,7 @@ public class CKPDocument {
 			Image src = l.getPoppedImage();
 			Image dst = lastFilter.filter(src);
 			if (dst != null && dst != src) {
-				l.setPoppedImage(ImageUtils.toBufferedImage(dst), l.getPoppedImageTransform());
+				l.setPoppedImage(ImageUtils.toBufferedImage(dst, true), l.getPoppedImageTransform());
 			}
 		} else if (canvas.getPaintSelection() != null) {
 			canvas.popPaintSelection(false, false);
@@ -527,7 +549,7 @@ public class CKPDocument {
 			Image src = l.getPoppedImage();
 			Image dst = lastFilter.filter(src);
 			if (dst != null && dst != src) {
-				l.setPoppedImage(ImageUtils.toBufferedImage(dst), l.getPoppedImageTransform());
+				l.setPoppedImage(ImageUtils.toBufferedImage(dst, true), l.getPoppedImageTransform());
 			}
 			canvas.pushPaintSelection();
 		} else {
@@ -540,13 +562,17 @@ public class CKPDocument {
 			src.setRGB(0, 0, w, h, pixels, 0, w);
 			Image dst = lastFilter.filter(src);
 			if (dst != null && dst != src) {
-				BufferedImage db = ImageUtils.toBufferedImage(dst);
+				BufferedImage db = ImageUtils.toBufferedImage(dst, false);
 				db.getRGB(0, 0, w, h, pixels, 0, w);
 				l.setRGB(-l.getX(), -l.getY(), w, h, pixels, 0, w);
 			}
 		}
 		history.commit();
-		canvasScrollPane.repaint();
-		canvasController.notifyCanvasControllerListeners();
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				canvasScrollPane.repaint();
+				canvasController.notifyCanvasControllerListeners();
+			}
+		});
 	}
 }

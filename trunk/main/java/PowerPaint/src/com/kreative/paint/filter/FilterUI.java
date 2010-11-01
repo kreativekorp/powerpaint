@@ -53,7 +53,9 @@ public class FilterUI extends JDialog {
 		JButton cancel = new JButton(FilterUtilities.messages.getString("options.Cancel"));
 		buttons.add(ok);
 		buttons.add(cancel);
-		main.add(new FormUI(f.getOptionForm(src), false), BorderLayout.CENTER);
+		FormUI fui = new FormUI(f.getOptionForm(src), false);
+		f.setFormUI(fui);
+		main.add(fui, BorderLayout.CENTER);
 		main.add(buttons, BorderLayout.SOUTH);
 		main.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
 		setContentPane(main);

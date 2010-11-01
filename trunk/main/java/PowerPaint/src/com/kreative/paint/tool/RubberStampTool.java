@@ -124,7 +124,7 @@ public class RubberStampTool extends AbstractPaintDrawTool implements ToolOption
 			float x = e.getX();
 			float y = e.getY();
 			Graphics2D g = e.isInDrawMode() ? e.getDrawGraphics() : e.getPaintGraphics();
-			BufferedImage stamp = ImageUtils.toBufferedImage(e.tc().getRubberStamp());
+			BufferedImage stamp = ImageUtils.toBufferedImage(e.tc().getRubberStamp(), false);
 			x -= stamp.getWidth()/2;
 			y -= stamp.getHeight()/2;
 			g.drawImage(stamp, null, (int)x, (int)y);
@@ -149,7 +149,7 @@ public class RubberStampTool extends AbstractPaintDrawTool implements ToolOption
 				float x = e.getX();
 				float y = e.getY();
 				Graphics2D g = e.isInDrawMode() ? e.getDrawGraphics() : e.getPaintGraphics();
-				BufferedImage stamp = ImageUtils.toBufferedImage(e.tc().getRubberStamp());
+				BufferedImage stamp = ImageUtils.toBufferedImage(e.tc().getRubberStamp(), false);
 				x -= stamp.getWidth()/2;
 				y -= stamp.getHeight()/2;
 				g.drawImage(stamp, null, (int)x, (int)y);
