@@ -66,10 +66,10 @@ public abstract class CellularAutomatonFilter extends AbstractFilter {
 		f.add(new IntegerOption() {
 			public String getName() { return FilterUtilities.messages.getString("cellauto.IterationCount"); }
 			public int getMaximum() { return Integer.MAX_VALUE; }
-			public int getMinimum() { return 1; }
+			public int getMinimum() { return 0; }
 			public int getStep() { return 1; }
 			public int getValue() { return iterationCount; }
-			public void setValue(int v) { iterationCount = v; }
+			public void setValue(int v) { iterationCount = v; if (ui != null) ui.update(); }
 			public boolean useSlider() { return false; }
 		});
 		return f;
@@ -82,7 +82,7 @@ public abstract class CellularAutomatonFilter extends AbstractFilter {
 		int nys = getNeighborhoodYStart();
 		int nye = getNeighborhoodYEnd();
 		int[][] n = new int[nye-nys+1][nxe-nxs+1];
-		BufferedImage bi = ImageUtils.toBufferedImage(src);
+		BufferedImage bi = ImageUtils.toBufferedImage(src, true);
 		int w = bi.getWidth();
 		int h = bi.getHeight();
 		int[] oldpixels = new int[w*h];

@@ -208,7 +208,7 @@ public class ToolContext implements ToolContextConstants {
 		this.rubberStamps = this.rubberStampSets.getLatter(0);
 		this.rubberStampIndex = 0;
 		this.rubberStamp = this.rubberStamps.get(0);
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp);
+		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
 		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		// PowerShapes
 		this.powerShapeSets = mm.getShapes();
@@ -1065,7 +1065,7 @@ public class ToolContext implements ToolContextConstants {
 			this.rubberStamps = rubberStampSets.getLatter(rubberStampSetIndex);
 			this.rubberStampIndex = 0;
 			this.rubberStamp = this.rubberStamps.get(0);
-			BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp);
+			BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
 			this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 			notifyToolContextListeners(CHANGED_STAMP_SET | CHANGED_STAMP);
 		}
@@ -1078,7 +1078,7 @@ public class ToolContext implements ToolContextConstants {
 		this.rubberStamps = rubberStampSets.getLatter(rubberStampSetIndex);
 		this.rubberStampIndex = 0;
 		this.rubberStamp = this.rubberStamps.get(0);
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp);
+		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
 		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		notifyToolContextListeners(CHANGED_STAMP_SET | CHANGED_STAMP);
 	}
@@ -1098,7 +1098,7 @@ public class ToolContext implements ToolContextConstants {
 		this.rubberStamps = rubberStamps;
 		this.rubberStampIndex = 0;
 		this.rubberStamp = this.rubberStamps.get(0);
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp);
+		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
 		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		notifyToolContextListeners(CHANGED_STAMP_SET | CHANGED_STAMP);
 	}
@@ -1108,7 +1108,7 @@ public class ToolContext implements ToolContextConstants {
 		while (rubberStampIndex >= rubberStamps.size()) rubberStampIndex -= rubberStamps.size();
 		this.rubberStampIndex = rubberStampIndex;
 		this.rubberStamp = this.rubberStamps.get(rubberStampIndex);
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp);
+		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
 		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		notifyToolContextListeners(CHANGED_STAMP);
 	}
@@ -1126,7 +1126,7 @@ public class ToolContext implements ToolContextConstants {
 			this.rubberStampIndex = rubberStamps.indexOf(rubberStamp);
 		}
 		this.rubberStamp = rubberStamp;
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp);
+		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
 		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		notifyToolContextListeners(CHANGED_STAMP);
 	}

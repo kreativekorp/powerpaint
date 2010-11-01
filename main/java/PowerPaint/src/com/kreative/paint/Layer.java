@@ -466,7 +466,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 	public void pasteImage(Image img, AffineTransform tx) {
 		if (ImageUtils.prepImage(img)) {
 			if (poppedImage != null) pushImage();
-			BufferedImage pimg = ImageUtils.toBufferedImage(img);
+			BufferedImage pimg = ImageUtils.toBufferedImage(img, true);
 			AffineTransform ptx = AffineTransform.getTranslateInstance(0, 0);
 			ptx.concatenate(tx);
 			setPoppedImage(pimg, ptx);

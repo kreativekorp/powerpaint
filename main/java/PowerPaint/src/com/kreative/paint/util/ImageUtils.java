@@ -52,9 +52,9 @@ public class ImageUtils {
 		}
 	}
 	
-	public static BufferedImage toBufferedImage(Image img) {
+	public static BufferedImage toBufferedImage(Image img, boolean clone) {
 		if (img == null) return null;
-		if (img instanceof BufferedImage) return (BufferedImage)img;
+		if (img instanceof BufferedImage && !clone) return (BufferedImage)img;
 		if (!prepImage(img)) return null;
 		int w = img.getWidth(null);
 		int h = img.getHeight(null);

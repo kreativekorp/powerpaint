@@ -9,7 +9,7 @@ public class DiffuseFilter extends AbstractFilter {
 	private static final Random random = new Random();
 	
 	public Image filter(Image src) {
-		BufferedImage bi = ImageUtils.toBufferedImage(src);
+		BufferedImage bi = ImageUtils.toBufferedImage(src, true);
 		int w = bi.getWidth();
 		int h = bi.getHeight();
 		int[] pixels = new int[w*h];

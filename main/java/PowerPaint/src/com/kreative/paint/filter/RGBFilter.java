@@ -35,7 +35,7 @@ public abstract class RGBFilter extends AbstractFilter {
 	protected abstract int filterRGB(int x, int y, int color);
 	
 	public final Image filter(Image src) {
-		BufferedImage bi = ImageUtils.toBufferedImage(src);
+		BufferedImage bi = ImageUtils.toBufferedImage(src, true);
 		int w = bi.getWidth();
 		int h = bi.getHeight();
 		int[] pixels = new int[w*h];

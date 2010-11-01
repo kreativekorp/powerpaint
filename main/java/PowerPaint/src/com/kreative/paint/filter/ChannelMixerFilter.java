@@ -61,7 +61,7 @@ public class ChannelMixerFilter extends RGBFilter {
 			public int getMinimum() { return -255; }
 			public int getStep() { return 1; }
 			public int getValue() { return da; }
-			public void setValue(int v) { da = v; }
+			public void setValue(int v) { da = v; if (ui != null) ui.update(); }
 			public boolean useSlider() { return true; }
 		});
 		f.add(new IntegerOption() {
@@ -70,7 +70,7 @@ public class ChannelMixerFilter extends RGBFilter {
 			public int getMinimum() { return -255; }
 			public int getStep() { return 1; }
 			public int getValue() { return dr; }
-			public void setValue(int v) { dr = v; }
+			public void setValue(int v) { dr = v; if (ui != null) ui.update(); }
 			public boolean useSlider() { return true; }
 		});
 		f.add(new IntegerOption() {
@@ -79,7 +79,7 @@ public class ChannelMixerFilter extends RGBFilter {
 			public int getMinimum() { return -255; }
 			public int getStep() { return 1; }
 			public int getValue() { return dg; }
-			public void setValue(int v) { dg = v; }
+			public void setValue(int v) { dg = v; if (ui != null) ui.update(); }
 			public boolean useSlider() { return true; }
 		});
 		f.add(new IntegerOption() {
@@ -88,28 +88,28 @@ public class ChannelMixerFilter extends RGBFilter {
 			public int getMinimum() { return -255; }
 			public int getStep() { return 1; }
 			public int getValue() { return db; }
-			public void setValue(int v) { db = v; }
+			public void setValue(int v) { db = v; if (ui != null) ui.update(); }
 			public boolean useSlider() { return true; }
 		});
 		f.add(new BooleanOption() {
 			public String getName() { return ""; }
 			public String getLabel(boolean v) { return FilterUtilities.messages.getString("channel.Highlights"); }
 			public boolean getValue() { return hl; }
-			public void setValue(boolean v) { hl = v; }
+			public void setValue(boolean v) { hl = v; if (ui != null) ui.update(); }
 			public boolean useTrueFalseLabels() { return false; }
 		});
 		f.add(new BooleanOption() {
 			public String getName() { return FilterUtilities.messages.getString("channel.Affect"); }
 			public String getLabel(boolean v) { return FilterUtilities.messages.getString("channel.Midtones"); }
 			public boolean getValue() { return mt; }
-			public void setValue(boolean v) { mt = v; }
+			public void setValue(boolean v) { mt = v; if (ui != null) ui.update(); }
 			public boolean useTrueFalseLabels() { return false; }
 		});
 		f.add(new BooleanOption() {
 			public String getName() { return ""; }
 			public String getLabel(boolean v) { return FilterUtilities.messages.getString("channel.Shadows"); }
 			public boolean getValue() { return sh; }
-			public void setValue(boolean v) { sh = v; }
+			public void setValue(boolean v) { sh = v; if (ui != null) ui.update(); }
 			public boolean useTrueFalseLabels() { return false; }
 		});
 		return f;

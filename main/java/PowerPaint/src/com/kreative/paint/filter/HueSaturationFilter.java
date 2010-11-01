@@ -61,7 +61,7 @@ public class HueSaturationFilter extends RGBFilter {
 			public int getMinimum() { return -360; }
 			public int getStep() { return 1; }
 			public int getValue() { return (int)(dh*360); }
-			public void setValue(int v) { dh = v/360.0f; }
+			public void setValue(int v) { dh = v/360.0f; if (ui != null) ui.update(); }
 			public boolean useSlider() { return true; }
 		});
 		f.add(new IntegerOption() {
@@ -70,7 +70,7 @@ public class HueSaturationFilter extends RGBFilter {
 			public int getMinimum() { return -100; }
 			public int getStep() { return 1; }
 			public int getValue() { return (int)(ds*100); }
-			public void setValue(int v) { ds = v/100.0f; }
+			public void setValue(int v) { ds = v/100.0f; if (ui != null) ui.update(); }
 			public boolean useSlider() { return true; }
 		});
 		f.add(new IntegerOption() {
@@ -79,7 +79,7 @@ public class HueSaturationFilter extends RGBFilter {
 			public int getMinimum() { return -100; }
 			public int getStep() { return 1; }
 			public int getValue() { return (int)(dv*100); }
-			public void setValue(int v) { dv = v/100.0f; }
+			public void setValue(int v) { dv = v/100.0f; if (ui != null) ui.update(); }
 			public boolean useSlider() { return true; }
 		});
 		return f;

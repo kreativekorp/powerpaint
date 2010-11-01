@@ -80,7 +80,7 @@ public class DitherAlgorithm {
 	}
 	
 	public BufferedImage dither(Image img, int[] colors) {
-		BufferedImage nim = ImageUtils.toBufferedImage(img);
+		BufferedImage nim = ImageUtils.toBufferedImage(img, true);
 		int w = nim.getWidth();
 		int h = nim.getHeight();
 		for (int y=0; y<h; y++) {

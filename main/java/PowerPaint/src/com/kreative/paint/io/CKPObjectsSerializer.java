@@ -173,7 +173,7 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeInt(i.height);
 			if (v.getImage() != null) {
 				stream.writeInt(IDO_TYPE_IMAGE);
-				BufferedImage bimg = ImageUtils.toBufferedImage(v.getImage());
+				BufferedImage bimg = ImageUtils.toBufferedImage(v.getImage(), false);
 				SerializationManager.writeObject(bimg, stream);
 			}
 			else if (v.getBufferedImage() != null && v.getBufferedImageOp() != null) {

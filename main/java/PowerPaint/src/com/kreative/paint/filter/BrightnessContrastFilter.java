@@ -101,7 +101,7 @@ public class BrightnessContrastFilter extends RGBFilter {
 	}
 	
 	protected void prep(Image img) {
-		BufferedImage bi = ImageUtils.toBufferedImage(img);
+		BufferedImage bi = ImageUtils.toBufferedImage(img, false);
 		int w = bi.getWidth();
 		int h = bi.getHeight();
 		int[] pixels = new int[w*h];
@@ -175,11 +175,13 @@ public class BrightnessContrastFilter extends RGBFilter {
 	protected void setBrightness(int db) {
 		this.db = db;
 		makeAdjustmentMap();
+		if (ui != null) ui.update();
 	}
 	
 	protected void setContrast(int dc) {
 		this.dc = dc;
 		makeAdjustmentMap();
+		if (ui != null) ui.update();
 	}
 	
 	private void makeAdjustmentMap() {

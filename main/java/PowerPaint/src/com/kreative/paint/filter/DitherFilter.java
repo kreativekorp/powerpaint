@@ -94,15 +94,17 @@ public class DitherFilter extends AbstractFilter {
 						if (u.lock()) {
 							colorsName = cc.getSelectedItem().toString();
 							colors = palettes.getLatter(cc.getSelectedIndex());
+							if (ui != null) ui.update();
 							u.unlock();
 						}
 					}
 				});
 				return cc;
 			}
-			public void update(JComboBox ui) {
+			public void update(JComboBox cb) {
 				if (u.lock()) {
-					ui.setSelectedItem(colorsName);
+					cb.setSelectedItem(colorsName);
+					if (ui != null) ui.update();
 					u.unlock();
 				}
 			}
@@ -120,15 +122,17 @@ public class DitherFilter extends AbstractFilter {
 						if (u.lock()) {
 							dithererName = ac.getSelectedItem().toString();
 							ditherer = ditherers.getLatter(ac.getSelectedIndex());
+							if (ui != null) ui.update();
 							u.unlock();
 						}
 					}
 				});
 				return ac;
 			}
-			public void update(JComboBox ui) {
+			public void update(JComboBox cb) {
 				if (u.lock()) {
-					ui.setSelectedItem(dithererName);
+					cb.setSelectedItem(dithererName);
+					if (ui != null) ui.update();
 					u.unlock();
 				}
 			}

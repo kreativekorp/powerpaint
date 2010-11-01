@@ -29,8 +29,11 @@ package com.kreative.paint.filter;
 
 import java.awt.Image;
 import com.kreative.paint.form.Form;
+import com.kreative.paint.form.FormUI;
 
 public abstract class AbstractFilter implements Filter {
+	protected FormUI ui;
+	
 	public String getCategory() {
 		try {
 			return FilterUtilities.messages.getString(this.getClass().getSimpleName()).split("/",2)[0];
@@ -53,5 +56,7 @@ public abstract class AbstractFilter implements Filter {
 	
 	public boolean usesOptionForm() { return false; }
 	public Form getOptionForm(Image src) { return null; }
+	public FormUI getFormUI() { return ui; }
+	public void setFormUI(FormUI ui) { this.ui = ui; }
 	public Image filter(Image src) { return src; }
 }
