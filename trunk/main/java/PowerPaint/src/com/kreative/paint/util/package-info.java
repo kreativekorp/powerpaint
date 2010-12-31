@@ -3,7 +3,7 @@
  * used by PowerPaint that aren't important enough for the top-level
  * package but don't really fit into any other package.
  * <p>
- * Copyright &copy; 2010 Rebecca G. Bettencourt / Kreative Software
+ * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in

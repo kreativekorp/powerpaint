@@ -2,7 +2,7 @@
  * This is the top-level package of PowerPaint 1.0, a library
  * and an application for painting and drawing.
  * <p>
- * Copyright &copy; 2009-2010 Rebecca G. Bettencourt / Kreative Software
+ * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
