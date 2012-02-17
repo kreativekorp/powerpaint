@@ -37,9 +37,9 @@ public class UIMessages extends ListResourceBundle {
 			{ "program.longversion", "Version 1.0" },
 			{ "program.shortversion", "1.0" },
 			// This is the copyright notice.
-			{ "program.copyright1", "\u00A9 2009-2010 Rebecca G. Bettencourt / Kreative Software<br>and individual PowerPaint contributors." },
+			{ "program.copyright1", "\u00A9 2009-2012 Rebecca G. Bettencourt / Kreative Software<br>and individual PowerPaint contributors." },
 			{ "program.copyright2", "PowerPaint and the PowerPaint logos are trademarks<br>of Kreative Software. All rights reserved." },
-			{ "program.copyright3", "Melissa Superpaint \u00A9 1999-2010 Rebecca G. Bettencourt /<br>Kreative Entertainment. All rights reserved." },
+			{ "program.copyright3", "Melissa Superpaint \u00A9 1999-2012 Rebecca G. Bettencourt /<br>Kreative Entertainment. All rights reserved." },
 			// This is the default color palette, the default texture palette, and the default pattern palette.
 			{ "program.pdef.colors", "SuperPaint" },
 			{ "program.pdef.textures", "SuperPaint" },
