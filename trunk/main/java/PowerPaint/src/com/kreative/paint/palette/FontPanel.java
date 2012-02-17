@@ -275,6 +275,8 @@ public class FontPanel extends PaintContextPanel {
 	private class FontPopup extends JPopupMenu implements PaintContextListener {
 		private static final long serialVersionUID = 1L;
 		public FontPopup() {
+			add(new ShowFontsMenuItem(this));
+			addSeparator();
 			String sel = FontPanel.this.pc.getFont().getFamily();
 			for (Map.Entry<String,TreeMap<String,Font>> c : fontLists.entrySet()) {
 				if (c.getKey().equals(allFontsName)) {
@@ -343,6 +345,8 @@ public class FontPanel extends PaintContextPanel {
 	private class SizePopup extends JPopupMenu implements PaintContextListener {
 		private static final long serialVersionUID = 1L;
 		public SizePopup() {
+			add(new ShowFontsMenuItem(this));
+			addSeparator();
 			int selst = FontPanel.this.pc.getFont().getStyle();
 			int selsz = FontPanel.this.pc.getFont().getSize();
 			for (int i = 0; i < styles.length; i++) {
@@ -406,6 +410,30 @@ public class FontPanel extends PaintContextPanel {
 			for (MenuElement smi : mi.getSubElements()) {
 				setChecked(smi, selst, selsz);
 			}
+		}
+	}
+	
+	private class ShowFontsMenuItem extends JMenuItem {
+		private static final long serialVersionUID = 1L;
+		public ShowFontsMenuItem(final JPopupMenu parent) {
+			super(PaletteUtilities.messages.getString("fonts.show"));
+			addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Container c = FontPanel.this.getParent();
+					while (true) {
+						if (c == null) {
+							return;
+						} else if (c instanceof Window) {
+							Point p = MouseInfo.getPointerInfo().getLocation();
+							c.setLocation(p.x-64, p.y-8);
+							c.setVisible(true);
+							return;
+						} else {
+							c = c.getParent();
+						}
+					}
+				}
+			});
 		}
 	}
 }

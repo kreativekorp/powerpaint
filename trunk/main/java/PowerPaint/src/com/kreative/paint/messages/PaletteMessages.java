@@ -61,6 +61,7 @@ public class PaletteMessages extends ListResourceBundle {
 			{ "composite.Xor", "Xor" },
 			{ "composite.Clear", "Clear" },
 			{ "composite.Opacity", "Opacity:" },
+			{ "fonts.show", "Show Fonts" },
 			{ "fonts.all", "All Fonts" },
 			{ "fonts.plain", "Plain" },
 			{ "fonts.bold", "Bold" },
