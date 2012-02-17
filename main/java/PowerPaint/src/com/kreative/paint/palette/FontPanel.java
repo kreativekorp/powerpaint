@@ -267,25 +267,60 @@ public class FontPanel extends PaintContextPanel {
 		return spop;
 	}
 	
+	private static final String[] ALPHABET_LETTERS = new String[] {
+		"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+		"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+		"#"
+	};
 	private class FontPopup extends JPopupMenu implements PaintContextListener {
 		private static final long serialVersionUID = 1L;
 		public FontPopup() {
 			String sel = FontPanel.this.pc.getFont().getFamily();
 			for (Map.Entry<String,TreeMap<String,Font>> c : fontLists.entrySet()) {
-				JMenu m = new JMenu(c.getKey());
-				for (Map.Entry<String,Font> e : c.getValue().entrySet()) {
-					JMenuItem mi = new JCheckBoxMenuItem(e.getKey());
-					mi.setSelected(e.getKey().equals(sel));
-					final Font fn = e.getValue();
-					mi.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
-							Font pf = FontPanel.this.pc.getFont();
-							FontPanel.this.pc.setFont(fn.deriveFont(pf.getStyle(), pf.getSize2D()));
+				if (c.getKey().equals(allFontsName)) {
+					// All Fonts is handled specially because Java is terrible at handling long menus.
+					JMenu m = new JMenu(c.getKey());
+					JMenu[] sm = new JMenu[ALPHABET_LETTERS.length];
+					for (int i = 0; i < ALPHABET_LETTERS.length; i++) {
+						sm[i] = new JMenu(ALPHABET_LETTERS[i]);
+						m.add(sm[i]);
+					}
+					for (Map.Entry<String,Font> e : c.getValue().entrySet()) {
+						JMenuItem mi = new JCheckBoxMenuItem(e.getKey());
+						mi.setSelected(e.getKey().equals(sel));
+						final Font fn = e.getValue();
+						mi.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								Font pf = FontPanel.this.pc.getFont();
+								FontPanel.this.pc.setFont(fn.deriveFont(pf.getStyle(), pf.getSize2D()));
+							}
+						});
+						boolean found = false;
+						for (int i = 0; i < ALPHABET_LETTERS.length; i++) {
+							if (e.getKey().toLowerCase().startsWith(ALPHABET_LETTERS[i].toLowerCase())) {
+								sm[i].add(mi);
+								found = true; break;
+							}
 						}
-					});
-					m.add(mi);
+						if (!found) sm[ALPHABET_LETTERS.length-1].add(mi);
+					}
+					add(m);
+				} else {
+					JMenu m = new JMenu(c.getKey());
+					for (Map.Entry<String,Font> e : c.getValue().entrySet()) {
+						JMenuItem mi = new JCheckBoxMenuItem(e.getKey());
+						mi.setSelected(e.getKey().equals(sel));
+						final Font fn = e.getValue();
+						mi.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								Font pf = FontPanel.this.pc.getFont();
+								FontPanel.this.pc.setFont(fn.deriveFont(pf.getStyle(), pf.getSize2D()));
+							}
+						});
+						m.add(mi);
+					}
+					add(m);
 				}
-				add(m);
 			}
 			FontPanel.this.pc.addPaintContextListener(FontPopup.this);
 		}
