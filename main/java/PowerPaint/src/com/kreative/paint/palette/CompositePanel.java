@@ -166,9 +166,35 @@ public class CompositePanel extends PaintContextPanel {
 		return apop;
 	}
 	
+	private class ShowCompositeMenuItem extends JMenuItem {
+		private static final long serialVersionUID = 1L;
+		public ShowCompositeMenuItem(final JPopupMenu parent) {
+			super(PaletteUtilities.messages.getString("composite.show"));
+			addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Container c = CompositePanel.this.getParent();
+					while (true) {
+						if (c == null) {
+							return;
+						} else if (c instanceof Window) {
+							Point p = MouseInfo.getPointerInfo().getLocation();
+							c.setLocation(p.x-64, p.y-8);
+							c.setVisible(true);
+							return;
+						} else {
+							c = c.getParent();
+						}
+					}
+				}
+			});
+		}
+	}
+	
 	private class CompositePopup extends JPopupMenu implements PaintContextListener {
 		private static final long serialVersionUID = 1L;
 		public CompositePopup() {
+			add(new ShowCompositeMenuItem(this));
+			addSeparator();
 			Composite cx = CompositePanel.this.pc.getEditedComposite();
 			AlphaComposite acx = (cx instanceof AlphaComposite) ? (AlphaComposite)cx : null;
 			for (int i = 0; i < rules.length; i++) {
