@@ -48,6 +48,7 @@ public class PaletteMessages extends ListResourceBundle {
 			{ "ToolOptionsPalette", "Tool Options" },
 			{ "ToolPalette", "Tools" },
 			// These are labels for specific palettes.
+			{ "composite.show", "Show Composite" },
 			{ "composite.Src", "Source" },
 			{ "composite.SrcOver", "Source Over" },
 			{ "composite.SrcIn", "Source In" },
@@ -72,6 +73,7 @@ public class PaletteMessages extends ListResourceBundle {
 			{ "gradients.presets", "Gradient Presets:" },
 			{ "gradients.shapes", "Gradient Shapes:" },
 			{ "gradients.colors", "Gradient Colors:" },
+			{ "stroke.show", "Show Stroke" },
 			{ "stroke.tooltip.width", "Line Width $" },
 			{ "stroke.tooltip.multiplicity", "Multiplicity $" },
 			{ "stroke.width", "Width:" },

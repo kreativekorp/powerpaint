@@ -46,7 +46,7 @@ import com.kreative.paint.res.MaterialsManager;
 public class StrokePresetPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
 	private static final int ROW_HEIGHT = 16;
-	private static final int ROW_WIDTH = 60;
+	private static final int ROW_WIDTH = 100;
 	private static final int ARROW_OFFSET = 16;
 	
 	private TreeSet<Float> widths;
@@ -501,9 +501,35 @@ public class StrokePresetPanel extends PaintContextPanel {
 		}
 	}
 	
+	private class ShowStrokeMenuItem extends JMenuItem {
+		private static final long serialVersionUID = 1L;
+		public ShowStrokeMenuItem(final JPopupMenu parent) {
+			super(PaletteUtilities.messages.getString("stroke.show"));
+			addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Container c = StrokePresetPanel.this.getParent();
+					while (true) {
+						if (c == null) {
+							return;
+						} else if (c instanceof Window) {
+							Point p = MouseInfo.getPointerInfo().getLocation();
+							c.setLocation(p.x-64, p.y-8);
+							c.setVisible(true);
+							return;
+						} else {
+							c = c.getParent();
+						}
+					}
+				}
+			});
+		}
+	}
+	
 	private class StrokePopup extends JPopupMenu {
 		private static final long serialVersionUID = 1L;
 		public StrokePopup() {
+			add(new ShowStrokeMenuItem(this));
+			addSeparator();
 			for (Float width : widths) {
 				add(new WidthMenuItem(width));
 			}
@@ -517,6 +543,8 @@ public class StrokePresetPanel extends PaintContextPanel {
 	private class ArrowPopup extends JPopupMenu {
 		private static final long serialVersionUID = 1L;
 		public ArrowPopup(boolean right) {
+			add(new ShowStrokeMenuItem(this));
+			addSeparator();
 			for (Arrowhead arrow : arrows) {
 				add(new ArrowMenuItem(arrow, right));
 			}
