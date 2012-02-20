@@ -38,6 +38,7 @@ import java.awt.geom.PathIterator;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import com.kreative.paint.PaintSettings;
+import com.kreative.paint.util.ShapeUtils;
 
 public class ThreeDBoxDrawObject extends AbstractDrawObject {
 	private double x, y, w, h, dx, dy;
@@ -223,7 +224,9 @@ public class ThreeDBoxDrawObject extends AbstractDrawObject {
 		Stroke st = getStroke();
 		if (st != null) {
 			for (int i = 0; i < s.length; i++) {
-				s[i] = st.createStrokedShape(s[i]);
+				if (!ShapeUtils.shapeIsEmpty(s[i])) {
+					s[i] = st.createStrokedShape(s[i]);
+				}
 			}
 		}
 		return s;

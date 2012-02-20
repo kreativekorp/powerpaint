@@ -86,7 +86,7 @@ public class ShapeDrawObject extends AbstractDrawObject {
 		AffineTransform tx = getTransform();
 		Shape sh = (tx == null) ? originalShape : tx.createTransformedShape(originalShape);
 		Stroke s = getStroke();
-		return (s == null) ? sh : s.createStrokedShape(sh);
+		return (s == null || ShapeUtils.shapeIsEmpty(sh)) ? sh : s.createStrokedShape(sh);
 	}
 	
 	protected void paint(Graphics2D g, Shape ts, Shape tss) {
