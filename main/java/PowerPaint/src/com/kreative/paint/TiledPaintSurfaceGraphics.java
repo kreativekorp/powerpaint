@@ -54,6 +54,7 @@ import java.awt.image.renderable.RenderableImage;
 import java.text.AttributedCharacterIterator;
 import java.util.Collection;
 import java.util.Map;
+import com.kreative.paint.util.ShapeUtils;
 
 public class TiledPaintSurfaceGraphics extends Graphics2D {
 	private TiledPaintSurface p;
@@ -83,7 +84,7 @@ public class TiledPaintSurfaceGraphics extends Graphics2D {
 	
 	private Collection<Tile> getTilesForShape(Shape s) {
 		Stroke st = modelGraphics.getStroke();
-		Shape ss = (st == null) ? s : st.createStrokedShape(s);
+		Shape ss = (st == null || ShapeUtils.shapeIsEmpty(s)) ? s : st.createStrokedShape(s);
 		AffineTransform tr = modelGraphics.getTransform();
 		Shape ts = (tr == null) ? ss : tr.createTransformedShape(ss);
 		Rectangle bounds = ts.getBounds();
