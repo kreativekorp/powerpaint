@@ -46,9 +46,15 @@ public class ShapeUtils {
 	private ShapeUtils() {}
 	
 	public static boolean shapeIsEmpty(Shape s) {
-		if (s == null) return true;
-		else if (s instanceof RectangularShape) return ((RectangularShape)s).isEmpty();
-		else return s.getBounds2D().isEmpty();
+		if (s == null) {
+			return true;
+		} else if (s instanceof RectangularShape) {
+			return ((RectangularShape)s).isEmpty();
+		} else if (s.getBounds2D().isEmpty()) {
+			return true;
+		} else {
+			return s.getPathIterator(null).isDone();
+		}
 	}
 	
 	public static Shape cloneShape(Shape s) {
