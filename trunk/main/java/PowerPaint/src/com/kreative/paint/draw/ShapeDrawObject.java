@@ -31,7 +31,6 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.Shape;
-import java.awt.Stroke;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Arc2D;
 import java.awt.geom.CubicCurve2D;
@@ -85,8 +84,7 @@ public class ShapeDrawObject extends AbstractDrawObject {
 	protected Shape getTransformedStrokedShape() {
 		AffineTransform tx = getTransform();
 		Shape sh = (tx == null) ? originalShape : tx.createTransformedShape(originalShape);
-		Stroke s = getStroke();
-		return (s == null || ShapeUtils.shapeIsEmpty(sh)) ? sh : s.createStrokedShape(sh);
+		return ShapeUtils.createStrokedShape(getStroke(), sh);
 	}
 	
 	protected void paint(Graphics2D g, Shape ts, Shape tss) {

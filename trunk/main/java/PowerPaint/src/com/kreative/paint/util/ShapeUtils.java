@@ -30,6 +30,7 @@ package com.kreative.paint.util;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.Stroke;
 import java.awt.geom.Area;
 import java.awt.geom.CubicCurve2D;
 import java.awt.geom.GeneralPath;
@@ -50,10 +51,22 @@ public class ShapeUtils {
 			return true;
 		} else if (s instanceof RectangularShape) {
 			return ((RectangularShape)s).isEmpty();
-		} else if (s.getBounds2D().isEmpty()) {
-			return true;
 		} else {
-			return s.getPathIterator(null).isDone();
+			return s.getBounds2D().isEmpty();
+		}
+	}
+	
+	public static Shape createStrokedShape(Stroke st, Shape sh) {
+		if (st == null || sh == null) {
+			return sh;
+		} else {
+			try {
+				return st.createStrokedShape(sh);
+			} catch (Exception e) {
+				System.err.println("Warning: Failed to stroke shape [" + sh.toString() + "]" +
+						" (" + e.getClass().getSimpleName() + ": " + e.getMessage() + ")");
+				return sh;
+			}
 		}
 	}
 	

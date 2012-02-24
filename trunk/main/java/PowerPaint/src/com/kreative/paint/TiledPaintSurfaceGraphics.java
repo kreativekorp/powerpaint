@@ -83,8 +83,7 @@ public class TiledPaintSurfaceGraphics extends Graphics2D {
 	}
 	
 	private Collection<Tile> getTilesForShape(Shape s) {
-		Stroke st = modelGraphics.getStroke();
-		Shape ss = (st == null || ShapeUtils.shapeIsEmpty(s)) ? s : st.createStrokedShape(s);
+		Shape ss = ShapeUtils.createStrokedShape(modelGraphics.getStroke(), s);
 		AffineTransform tr = modelGraphics.getTransform();
 		Shape ts = (tr == null) ? ss : tr.createTransformedShape(ss);
 		Rectangle bounds = ts.getBounds();

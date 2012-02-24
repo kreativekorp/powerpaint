@@ -224,9 +224,7 @@ public class ThreeDBoxDrawObject extends AbstractDrawObject {
 		Stroke st = getStroke();
 		if (st != null) {
 			for (int i = 0; i < s.length; i++) {
-				if (!ShapeUtils.shapeIsEmpty(s[i])) {
-					s[i] = st.createStrokedShape(s[i]);
-				}
+				s[i] = ShapeUtils.createStrokedShape(st, s[i]);
 			}
 		}
 		return s;
