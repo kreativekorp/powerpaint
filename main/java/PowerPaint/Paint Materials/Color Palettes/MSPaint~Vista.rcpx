@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="MS Paint Vista"
+         hwidth="295" hheight= "73"
+         swidth="145" sheight="145"
+         vwidth= "73" vheight="295">
+	<colors ordered="unordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "54" g= "54" b= "54"/>
+		<rgb r="101" g="101" b="101"/>
+		<rgb r="148" g=  "0" b= "33"/>
+		<rgb r="254" g=  "0" b= "13"/>
+		<rgb r="255" g= "96" b=  "0"/>
+		<rgb r="255" g="182" b=  "0"/>
+		<rgb r="255" g="246" b=  "0"/>
+		<rgb r="132" g="235" b=  "0"/>
+		<rgb r=  "0" g="171" b= "54"/>
+		<rgb r=  "0" g="169" b="239"/>
+		<rgb r= "60" g= "75" b="245"/>
+		<rgb r= "38" g= "29" b="138"/>
+		<rgb r="100" g= "13" b="137"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="212" g="212" b="212"/>
+		<rgb r="165" g="165" b="165"/>
+		<rgb r="147" g= "67" b= "42"/>
+		<rgb r="255" g="136" b="160"/>
+		<rgb r="233" g="151" b= "98"/>
+		<rgb r="245" g="224" b="133"/>
+		<rgb r="255" g="251" b="171"/>
+		<rgb r="190" g="254" b="171"/>
+		<rgb r="131" g="179" b= "73"/>
+		<rgb r="119" g="211" b="231"/>
+		<rgb r= "85" g="134" b="202"/>
+		<rgb r= "62" g= "89" b="125"/>
+		<rgb r="170" g="143" b="205"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="14"/></row>
+					<row><range start="14" end="28"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "3"/></row>
+					<row><range start="14" end="17"/></row>
+					<row><range start= "3" end= "8"/></row>
+					<row><range start="17" end="22"/></row>
+					<row><range start= "8" end="14"/></row>
+					<row><range start="22" end="28"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="14"/></column>
+					<column><range start="14" end="28"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="MS Paint Extended" orientation="square">
+	<colors ordered="unordered">
+		<rgb16 r="65535" g="32768" b="32768"/>
+		<rgb16 r="65535" g="65535" b="32768"/>
+		<rgb16 r="32768" g="65535" b="32768"/>
+		<rgb16 r=    "0" g="65535" b="32768"/>
+		<rgb16 r="32768" g="65535" b="65535"/>
+		<rgb16 r=    "0" g="32768" b="65535"/>
+		<rgb16 r="65535" g="32768" b="49152"/>
+		<rgb16 r="65535" g="32768" b="65535"/>
+		<rgb16 r="65535" g=    "0" b=    "0"/>
+		<rgb16 r="65535" g="65535" b=    "0"/>
+		<rgb16 r="32768" g="65535" b=    "0"/>
+		<rgb16 r=    "0" g="65535" b="16384"/>
+		<rgb16 r=    "0" g="65535" b="65535"/>
+		<rgb16 r=    "0" g="32768" b="49152"/>
+		<rgb16 r="32768" g="32768" b="49152"/>
+		<rgb16 r="65535" g=    "0" b="65535"/>
+		<rgb16 r="32768" g="16384" b="16384"/>
+		<rgb16 r="65535" g="32768" b="16384"/>
+		<rgb16 r=    "0" g="65535" b=    "0"/>
+		<rgb16 r=    "0" g="32768" b="32768"/>
+		<rgb16 r=    "0" g="16384" b="32768"/>
+		<rgb16 r="32768" g="32768" b="65535"/>
+		<rgb16 r="32768" g=    "0" b="16384"/>
+		<rgb16 r="65535" g=    "0" b="32768"/>
+		<rgb16 r="32768" g=    "0" b=    "0"/>
+		<rgb16 r="65535" g="32768" b=    "0"/>
+		<rgb16 r=    "0" g="32768" b=    "0"/>
+		<rgb16 r=    "0" g="32768" b="16384"/>
+		<rgb16 r=    "0" g=    "0" b="65535"/>
+		<rgb16 r=    "0" g=    "0" b="40960"/>
+		<rgb16 r="32768" g=    "0" b="32768"/>
+		<rgb16 r="32768" g=    "0" b="65535"/>
+		<rgb16 r="16384" g=    "0" b=    "0"/>
+		<rgb16 r="32768" g="16384" b=    "0"/>
+		<rgb16 r=    "0" g="16384" b=    "0"/>
+		<rgb16 r=    "0" g="16384" b="16384"/>
+		<rgb16 r=    "0" g=    "0" b="32768"/>
+		<rgb16 r=    "0" g=    "0" b="16384"/>
+		<rgb16 r="16384" g=    "0" b="16384"/>
+		<rgb16 r="16384" g=    "0" b="32768"/>
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r="32768" g="32768" b=    "0"/>
+		<rgb16 r="32768" g="32768" b="16384"/>
+		<rgb16 r="32768" g="32768" b="32768"/>
+		<rgb16 r="16384" g="32768" b="32768"/>
+		<rgb16 r="49152" g="49152" b="49152"/>
+		<rgb16 r="16384" g=    "0" b="16384"/>
+		<rgb16 r="65535" g="65535" b="65535"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row>
+						<range start= "0" end= "8"/>
+						<range start="24" end="32"/>
+					</row>
+					<row>
+						<range start= "8" end="16"/>
+						<range start="32" end="40"/>
+					</row>
+					<row>
+						<range start="16" end="24"/>
+						<range start="40" end="48"/>
+					</row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "8"/></row>
+					<row><range start= "8" end="16"/></row>
+					<row><range start="16" end="24"/></row>
+					<row><range start="24" end="32"/></row>
+					<row><range start="32" end="40"/></row>
+					<row><range start="40" end="48"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="16" end="20"/></row>
+					<row><range start="24" end="28"/></row>
+					<row><range start="32" end="36"/></row>
+					<row><range start="40" end="44"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start="12" end="16"/></row>
+					<row><range start="20" end="24"/></row>
+					<row><range start="28" end="32"/></row>
+					<row><range start="36" end="40"/></row>
+					<row><range start="44" end="48"/></row>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

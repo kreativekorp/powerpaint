@@ -1,0 +1,162 @@
+<!--
+	Date: 2015/03/19 10:51:35 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - COLORS - - - - - - - - - - - - -->
+
+<!ENTITY % color "(rgb|rgb16|rgba|rgba16|hsv|hsva)">
+
+<!ELEMENT rgb EMPTY>
+<!ATTLIST rgb
+	r CDATA #REQUIRED
+	g CDATA #REQUIRED
+	b CDATA #REQUIRED
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT rgb16 EMPTY>
+<!ATTLIST rgb16
+	r CDATA #REQUIRED
+	g CDATA #REQUIRED
+	b CDATA #REQUIRED
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT rgba EMPTY>
+<!ATTLIST rgba
+	r CDATA #REQUIRED
+	g CDATA #REQUIRED
+	b CDATA #REQUIRED
+	a CDATA #REQUIRED
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT rgba16 EMPTY>
+<!ATTLIST rgba16
+	r CDATA #REQUIRED
+	g CDATA #REQUIRED
+	b CDATA #REQUIRED
+	a CDATA #REQUIRED
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT hsv EMPTY>
+<!ATTLIST hsv
+	h CDATA #REQUIRED
+	s CDATA #REQUIRED
+	v CDATA #REQUIRED
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT hsva EMPTY>
+<!ATTLIST hsva
+	h CDATA #REQUIRED
+	s CDATA #REQUIRED
+	v CDATA #REQUIRED
+	a CDATA #REQUIRED
+	name CDATA #IMPLIED
+>
+
+<!-- - - - - - - - - - - - - SWATCHES - - - - - - - - - - - - -->
+
+<!ENTITY % swatch "(empty|index|range|rgb-sweep|hsv-sweep)">
+
+<!ELEMENT empty EMPTY>
+<!ATTLIST empty
+	repeat CDATA "1"
+>
+
+<!ELEMENT index EMPTY>
+<!ATTLIST index
+	i CDATA #REQUIRED
+	repeat CDATA "1"
+	border CDATA "a"
+	border-only CDATA "d"
+	border-first CDATA "d"
+	border-middle CDATA "d"
+	border-last CDATA "d"
+>
+
+<!ELEMENT range EMPTY>
+<!ATTLIST range
+	start CDATA #REQUIRED
+	end CDATA #REQUIRED
+	border CDATA "a"
+	border-only CDATA "d"
+	border-first CDATA "d"
+	border-middle CDATA "d"
+	border-last CDATA "d"
+>
+
+<!ELEMENT rgb-sweep EMPTY>
+<!ATTLIST rgb-sweep
+	xchan (r|g|b|none) "none"
+	xmin CDATA "0"
+	xmax CDATA "255"
+	ychan (r|g|b|none) "none"
+	ymin CDATA "0"
+	ymax CDATA "255"
+	r CDATA "0"
+	g CDATA "0"
+	b CDATA "0"
+	border CDATA "a"
+>
+
+<!ELEMENT hsv-sweep EMPTY>
+<!ATTLIST hsv-sweep
+	xchan (h|s|v|none) "none"
+	xmin CDATA "0"
+	xmax CDATA "auto"
+	ychan (h|s|v|none) "none"
+	ymin CDATA "0"
+	ymax CDATA "auto"
+	h CDATA "0"
+	s CDATA "0"
+	v CDATA "0"
+	border CDATA "a"
+>
+
+<!-- - - - - - - - - - - - - LAYOUTS - - - - - - - - - - - - -->
+
+<!ENTITY % layout "(oriented|row|column|diagonal)">
+
+<!ELEMENT oriented (horizontal,square,vertical)>
+<!ELEMENT horizontal (%layout;|%swatch;)>
+<!ELEMENT square (%layout;|%swatch;)>
+<!ELEMENT vertical (%layout;|%swatch;)>
+
+<!ELEMENT row (%layout;|%swatch;|weighted)*>
+<!ELEMENT column (%layout;|%swatch;|weighted)*>
+<!ELEMENT weighted (%layout;|%swatch;)*>
+<!ATTLIST weighted
+	weight CDATA #REQUIRED
+>
+
+<!ELEMENT diagonal (%swatch;)*>
+<!ATTLIST diagonal
+	cols CDATA #REQUIRED
+	rows CDATA #REQUIRED
+	aspect (auto|square) "auto"
+>
+
+<!-- - - - - - - - - - - - - PALETTE - - - - - - - - - - - - -->
+
+<!ELEMENT palette (colors,layout)>
+<!ATTLIST palette
+	name CDATA #IMPLIED
+	orientation (horizontal|square|vertical) "horizontal"
+	hwidth CDATA "289"
+	hheight CDATA "73"
+	swidth CDATA "145"
+	sheight CDATA "145"
+	vwidth CDATA "73"
+	vheight CDATA "289"
+>
+
+<!ELEMENT colors (%color;)*>
+<!ATTLIST colors
+	ordered (ordered|unordered) "unordered"
+>
+
+<!ELEMENT layout %layout;>

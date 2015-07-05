@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Sabine 4-Bit"
+         hwidth="325" hheight= "73"
+         swidth="129" sheight="161"
+         vwidth= "73" vheight="325">
+	<colors ordered="ordered">
+		<rgb16 r=    "0" g=    "0" b=    "0" name="K"/>
+		<rgb16 r=    "0" g=    "0" b="32768" name="B"/>
+		<rgb16 r=    "0" g="32768" b=    "0" name="G"/>
+		<rgb16 r=    "0" g="32768" b="32768" name="C"/>
+		<rgb16 r="32768" g=    "0" b=    "0" name="R"/>
+		<rgb16 r="32768" g=    "0" b="32768" name="P"/>
+		<rgb16 r="32768" g="32768" b=    "0" name="Y"/>
+		<rgb16 r="43690" g="43690" b="43690" name="w"/>
+		<rgb16 r="21845" g="21845" b="21845" name="k"/>
+		<rgb16 r=    "0" g=    "0" b="65535" name="b"/>
+		<rgb16 r=    "0" g="65535" b=    "0" name="g"/>
+		<rgb16 r=    "0" g="65535" b="65535" name="c"/>
+		<rgb16 r="65535" g=    "0" b=    "0" name="r"/>
+		<rgb16 r="65535" g=    "0" b="65535" name="p"/>
+		<rgb16 r="65535" g="65535" b=    "0" name="y"/>
+		<rgb16 r="65535" g="65535" b="65535" name="W"/>
+		<rgba r="0" g="0" b="0" a="0" name="T/t"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row>
+						<range start="0" end= "8"/>
+						<index i="16" border="vt"/>
+					</row>
+					<row>
+						<range start="8" end="16"/>
+						<index i="16" border="vb"/>
+					</row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+					<index i="16"/>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column>
+						<range start="0" end= "8"/>
+						<index i="16" border="hl"/>
+					</column>
+					<column>
+						<range start="8" end="16"/>
+						<index i="16" border="hr"/>
+					</column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

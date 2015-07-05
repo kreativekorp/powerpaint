@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Cube Sides"
+         hwidth="385" hheight= "65"
+         swidth="193" sheight="129"
+         vwidth= "65" vheight="385">
+	<colors/>
+	<layout>
+		<oriented>
+			<horizontal>
+				<row>
+					<rgb-sweep xchan="r" xmin="0" xmax="255"
+					           ychan="g" ymin="0" ymax="255"
+					           b="0"/>
+					<rgb-sweep xchan="r" xmin="0" xmax="255"
+					           ychan="b" ymin="0" ymax="255"
+					           g="0"/>
+					<rgb-sweep xchan="g" xmin="0" xmax="255"
+					           ychan="b" ymin="0" ymax="255"
+					           r="0"/>
+					<rgb-sweep xchan="r" xmin="0" xmax="255"
+					           ychan="g" ymin="0" ymax="255"
+					           b="255"/>
+					<rgb-sweep xchan="r" xmin="0" xmax="255"
+					           ychan="b" ymin="0" ymax="255"
+					           g="255"/>
+					<rgb-sweep xchan="g" xmin="0" xmax="255"
+					           ychan="b" ymin="0" ymax="255"
+					           r="255"/>
+				</row>
+			</horizontal>
+			<square>
+				<column>
+					<row>
+						<rgb-sweep xchan="r" xmin="0" xmax="255"
+								   ychan="g" ymin="0" ymax="255"
+								   b="0"/>
+						<rgb-sweep xchan="r" xmin="0" xmax="255"
+								   ychan="b" ymin="0" ymax="255"
+								   g="0"/>
+						<rgb-sweep xchan="g" xmin="0" xmax="255"
+								   ychan="b" ymin="0" ymax="255"
+								   r="0"/>
+					</row>
+					<row>
+						<rgb-sweep xchan="r" xmin="0" xmax="255"
+								   ychan="g" ymin="0" ymax="255"
+								   b="255"/>
+						<rgb-sweep xchan="r" xmin="0" xmax="255"
+								   ychan="b" ymin="0" ymax="255"
+								   g="255"/>
+						<rgb-sweep xchan="g" xmin="0" xmax="255"
+								   ychan="b" ymin="0" ymax="255"
+								   r="255"/>
+					</row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<rgb-sweep xchan="r" xmin="0" xmax="255"
+					           ychan="g" ymin="0" ymax="255"
+					           b="0"/>
+					<rgb-sweep xchan="r" xmin="0" xmax="255"
+					           ychan="b" ymin="0" ymax="255"
+					           g="0"/>
+					<rgb-sweep xchan="g" xmin="0" xmax="255"
+					           ychan="b" ymin="0" ymax="255"
+					           r="0"/>
+					<rgb-sweep xchan="r" xmin="0" xmax="255"
+					           ychan="g" ymin="0" ymax="255"
+					           b="255"/>
+					<rgb-sweep xchan="r" xmin="0" xmax="255"
+					           ychan="b" ymin="0" ymax="255"
+					           g="255"/>
+					<rgb-sweep xchan="g" xmin="0" xmax="255"
+					           ychan="b" ymin="0" ymax="255"
+					           r="255"/>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

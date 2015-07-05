@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="NTSC (Currier RGB With Setup)"
+         orientation="square"
+         swidth="169" sheight="145">
+	<colors ordered="unordered">
+		<rgb r="255" g="255" b="255" name="NTSC Superwhite"/>
+		<rgb r="191" g="191" b="191" name="NTSC White"     />
+		<rgb r="191" g="191" b= "19" name="NTSC Yellow"    />
+		<rgb r= "19" g="191" b="191" name="NTSC Cyan"      />
+		<rgb r= "19" g="191" b= "19" name="NTSC Green"     />
+		<rgb r="191" g= "19" b="191" name="NTSC Magenta"   />
+		<rgb r="191" g= "19" b= "19" name="NTSC Red"       />
+		<rgb r= "19" g= "19" b="191" name="NTSC Blue"      />
+		<rgb r=  "0" g= "35" b= "59" name="NTSC I"         />
+		<rgb r= "48" g=  "4" b= "87" name="NTSC Q"         />
+		<rgb r= "29" g= "19" b=  "0" name="NTSC Pluge"     />
+		<rgb r= "19" g= "19" b= "19" name="NTSC Black"     />
+		<rgb r=  "9" g=  "0" b=  "9" name="NTSC Superblack"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="1" end="8"/></row>
+					<row>
+						<weighted weight="5">
+							<row>
+								<index i="8"/>
+								<index i="0"/>
+								<index i="9"/>
+								<index i="11"/>
+							</row>
+						</weighted>
+						<row>
+							<index i="12"/>
+							<index i="11"/>
+							<index i="10"/>
+						</row>
+						<index i="11"/>
+					</row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<weighted weight="5">
+						<row><range start="1" end="8"/></row>
+					</weighted>
+					<weighted weight="2">
+						<index i="11"/>
+					</weighted>
+					<row><range start="1" end="8"/></row>
+					<row>
+						<index i="7"/>
+						<index i="11"/>
+						<index i="5"/>
+						<index i="11"/>
+						<index i="3"/>
+						<index i="11"/>
+						<index i="1"/>
+					</row>
+					<weighted weight="3">
+						<row>
+							<weighted weight="5">
+								<row>
+									<index i="8"/>
+									<index i="0"/>
+									<index i="9"/>
+									<index i="11"/>
+								</row>
+							</weighted>
+							<row>
+								<index i="12"/>
+								<index i="11"/>
+								<index i="10"/>
+							</row>
+							<index i="11"/>
+						</row>
+					</weighted>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="1" end="8"/></column>
+					<column>
+						<weighted weight="5">
+							<column>
+								<index i="8"/>
+								<index i="0"/>
+								<index i="9"/>
+								<index i="11"/>
+							</column>
+						</weighted>
+						<column>
+							<index i="12"/>
+							<index i="11"/>
+							<index i="10"/>
+						</column>
+						<index i="11"/>
+					</column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

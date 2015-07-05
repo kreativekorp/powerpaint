@@ -33,8 +33,9 @@ import javax.swing.*;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.rcp.ColorChangeEvent;
 import com.kreative.paint.rcp.ColorChangeListener;
-import com.kreative.paint.rcp.RCPComponent;
-import com.kreative.paint.rcp.RCPSwatch;
+import com.kreative.paint.rcp.RCPXComponent;
+import com.kreative.paint.rcp.RCPXOrientation;
+import com.kreative.paint.rcp.RCPXPalette;
 import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.JPopupPanel;
 import com.kreative.paint.util.PairList;
@@ -46,8 +47,8 @@ public class ColorPalettePanel extends PaintContextPanel {
 	private static final Dimension BUTTON_SIZE = new Dimension(16,16);
 	
 	private UpdateLock u = new UpdateLock();
-	private RCPComponent palcomp;
-	private PairList<String,RCPSwatch> palmap;
+	private RCPXComponent palcomp;
+	private PairList<String,RCPXPalette> palmap;
 	private JPanel top, buttons;
 	private JButton hb, sb, vb;
 	private JComboBox list;
@@ -65,9 +66,9 @@ public class ColorPalettePanel extends PaintContextPanel {
 		buttons.add(hb = new JButton(new ImageIcon(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("RCPSizeHoriz.png")))));
 		buttons.add(sb = new JButton(new ImageIcon(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("RCPSizeSquare.png")))));
 		buttons.add(vb = new JButton(new ImageIcon(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("RCPSizeVert.png")))));
-		hb.addActionListener(new SizeActionListener(RCPComponent.ORIENTATION_HORIZONTAL));
-		sb.addActionListener(new SizeActionListener(RCPComponent.ORIENTATION_SQUARE));
-		vb.addActionListener(new SizeActionListener(RCPComponent.ORIENTATION_VERTICAL));
+		hb.addActionListener(new SizeActionListener(RCPXOrientation.HORIZONTAL));
+		sb.addActionListener(new SizeActionListener(RCPXOrientation.SQUARE));
+		vb.addActionListener(new SizeActionListener(RCPXOrientation.VERTICAL));
 		hb.putClientProperty("JButton.buttonType", "toolbar"); squareOffButton(hb);
 		sb.putClientProperty("JButton.buttonType", "toolbar"); squareOffButton(sb);
 		vb.putClientProperty("JButton.buttonType", "toolbar"); squareOffButton(vb);
@@ -76,7 +77,7 @@ public class ColorPalettePanel extends PaintContextPanel {
 		top.add(list, BorderLayout.CENTER);
 		top.add(buttons, BorderLayout.LINE_END);
 		
-		palcomp = new RCPComponent();
+		palcomp = new RCPXComponent();
 		palcomp.addColorChangeListener(new ColorChangeListener() {
 			public void colorChanged(ColorChangeEvent e) {
 				if (u.lock()) {
@@ -97,8 +98,8 @@ public class ColorPalettePanel extends PaintContextPanel {
 		ItemListener il = new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					palcomp.setSwatch(palmap.getLatter(list.getSelectedIndex()));
-					palcomp.setOrientation(RCPComponent.ORIENTATION_AUTO);
+					palcomp.setPalette(palmap.getLatter(list.getSelectedIndex()));
+					palcomp.setOrientation(null);
 					palcomp.pack();
 				}
 			}
@@ -108,8 +109,8 @@ public class ColorPalettePanel extends PaintContextPanel {
 			initialSelection = palmap.getFormer(0);
 		}
 		list.setSelectedItem(initialSelection);
-		palcomp.setSwatch(palmap.getLatter(list.getSelectedIndex()));
-		palcomp.setOrientation(RCPComponent.ORIENTATION_AUTO);
+		palcomp.setPalette(palmap.getLatter(list.getSelectedIndex()));
+		palcomp.setOrientation(null);
 		palcomp.pack();
 		update();
 	}
@@ -126,7 +127,7 @@ public class ColorPalettePanel extends PaintContextPanel {
 	
 	private JPopupPanel jpop = new JPopupPanel();
 	public JPopupPanel getPopup() {
-		RCPComponent rcp = palcomp.asPopup();
+		RCPXComponent rcp = palcomp.asPopup();
 		jpop.setContentPane(rcp);
 		jpop.hideOnRelease(rcp);
 		jpop.setResizable(false);
@@ -135,8 +136,8 @@ public class ColorPalettePanel extends PaintContextPanel {
 	}
 	
 	private class SizeActionListener implements ActionListener {
-		private int orientation;
-		public SizeActionListener(int orientation) {
+		private RCPXOrientation orientation;
+		public SizeActionListener(RCPXOrientation orientation) {
 			this.orientation = orientation;
 		}
 		public void actionPerformed(ActionEvent e) {

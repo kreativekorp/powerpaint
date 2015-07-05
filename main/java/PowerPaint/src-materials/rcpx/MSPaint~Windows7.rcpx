@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="MS Paint Windows 7"
+         hwidth="291" hheight= "73"
+         swidth="145" sheight="145"
+         vwidth= "73" vheight="291">
+	<colors ordered="unordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r="108" g="108" b="108"/>
+		<rgb r="128" g=  "0" b= "12"/>
+		<rgb r="254" g=  "0" b= "13"/>
+		<rgb r="255" g= "97" b=  "0"/>
+		<rgb r="255" g="246" b=  "0"/>
+		<rgb r=  "0" g="171" b= "54"/>
+		<rgb r=  "0" g="144" b="230"/>
+		<rgb r= "51" g= "37" b="197"/>
+		<rgb r="158" g= "35" b="149"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="182" g="182" b="182"/>
+		<rgb r="180" g= "99" b= "65"/>
+		<rgb r="255" g="148" b="189"/>
+		<rgb r="255" g="191" b=  "0"/>
+		<rgb r="236" g="224" b="157"/>
+		<rgb r="151" g="235" b=  "0"/>
+		<rgb r="119" g="211" b="231"/>
+		<rgb r= "87" g="126" b="179"/>
+		<rgb r="191" g="173" b="227"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="10"/></row>
+					<row><range start="10" end="20"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "5"/></row>
+					<row><range start="10" end="15"/></row>
+					<row><range start= "5" end="10"/></row>
+					<row><range start="15" end="20"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="10"/></column>
+					<column><range start="10" end="20"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="XKCD 16">
+	<colors ordered="ordered">
+		<rgb r="126" g= "30" b="156" name="purple"     />
+		<rgb r= "21" g="176" b= "26" name="green"      />
+		<rgb r=  "3" g= "67" b="223" name="blue"       />
+		<rgb r="255" g="129" b="192" name="pink"       />
+		<rgb r="101" g= "55" b=  "0" name="brown"      />
+		<rgb r="229" g=  "0" b=  "0" name="red"        />
+		<rgb r="149" g="208" b="252" name="light blue" />
+		<rgb r=  "2" g="147" b="134" name="teal"       />
+		<rgb r="249" g="115" b=  "6" name="orange"     />
+		<rgb r="150" g="249" b="123" name="light green"/>
+		<rgb r="194" g=  "0" b="120" name="magenta"    />
+		<rgb r="255" g="255" b= "20" name="yellow"     />
+		<rgb r="117" g="187" b="253" name="sky blue"   />
+		<rgb r=  "0" g=  "0" b=  "0" name="black"      />
+		<rgb r="146" g="149" b="145" name="grey"       />
+		<rgb r="255" g="255" b="255" name="white"      />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

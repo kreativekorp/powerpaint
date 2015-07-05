@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Apple II (Bettencourt)">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r="167" g= "11" b= "64"/>
+		<rgb r= "64" g= "28" b="247"/>
+		<rgb r="230" g= "40" b="255"/>
+		<rgb r=  "0" g="116" b= "64"/>
+		<rgb r="128" g="128" b="128"/>
+		<rgb r= "25" g="144" b="255"/>
+		<rgb r="191" g="156" b="255"/>
+		<rgb r= "64" g= "99" b=  "0"/>
+		<rgb r="230" g="111" b=  "0"/>
+		<rgb r="128" g="128" b="128"/>
+		<rgb r="255" g="139" b="191"/>
+		<rgb r= "25" g="215" b=  "0"/>
+		<rgb r="191" g="227" b=  "8"/>
+		<rgb r= "88" g="244" b="191"/>
+		<rgb r="255" g="255" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="PodPaint" hwidth="253" vheight="253">
+	<colors ordered="unordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "80" g= "80" b= "80"/>
+		<rgb r="128" g=  "0" b=  "0"/>
+		<rgb r="128" g="128" b=  "0"/>
+		<rgb r=  "0" g="128" b=  "0"/>
+		<rgb r=  "0" g="128" b="128"/>
+		<rgb r=  "0" g=  "0" b="128"/>
+		<rgb r="128" g=  "0" b="128"/>
+		<rgb r="128" g="128" b= "64"/>
+		<rgb r=  "0" g= "64" b= "64"/>
+		<rgb r=  "0" g="128" b="255"/>
+		<rgb r=  "0" g= "64" b="128"/>
+		<rgb r= "64" g=  "0" b="255"/>
+		<rgb r="128" g= "64" b=  "0"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="160" g="160" b="160"/>
+		<rgb r="255" g=  "0" b=  "0"/>
+		<rgb r="255" g="255" b=  "0"/>
+		<rgb r=  "0" g="255" b=  "0"/>
+		<rgb r=  "0" g="255" b="255"/>
+		<rgb r=  "0" g=  "0" b="255"/>
+		<rgb r="255" g=  "0" b="255"/>
+		<rgb r="255" g="255" b="128"/>
+		<rgb r=  "0" g="255" b="128"/>
+		<rgb r="128" g="255" b="255"/>
+		<rgb r="128" g="128" b="255"/>
+		<rgb r="255" g=  "0" b="128"/>
+		<rgb r="255" g="128" b= "64"/>
+		<rgb r="255" g=  "0" b= "26"/>
+		<rgb r="242" g="101" b= "33"/>
+		<rgb r="171" g="102" b= "56"/>
+		<rgb r=  "0" g="191" b=  "0"/>
+		<rgb r="153" g="153" b="255"/>
+		<rgb r="108" g=  "0" b="215"/>
+		<rgb r="255" g="102" b="204"/>
+		<rgb r="228" g="198" b="255"/>
+		<rgb r="199" g="150" b="105"/>
+		<rgb r="255" g="128" b="128"/>
+		<rgb r="247" g="148" b= "28"/>
+		<rgb r="255" g="222" b=  "0"/>
+		<rgb r=  "0" g="255" b="156"/>
+		<rgb r="204" g="204" b="255"/>
+		<rgb r="195" g="126" b="255"/>
+		<rgb r="255" g="176" b="242"/>
+		<rgb r="255" g="213" b="248"/>
+		<rgb r="255" g="214" b="170"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="14"/></row>
+					<row><range start="14" end="28"/></row>
+					<row><range start="28" end="37"/></row>
+					<row><range start="37" end="46"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "8"/></row>
+					<row><range start="14" end="22"/></row>
+					<row><range start= "8" end="14"/></row>
+					<row><range start="22" end="28"/></row>
+					<row><range start="28" end="37"/></row>
+					<row><range start="37" end="46"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="14"/></column>
+					<column><range start="14" end="28"/></column>
+					<column><range start="28" end="37"/></column>
+					<column><range start="37" end="46"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

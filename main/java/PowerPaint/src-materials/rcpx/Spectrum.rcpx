@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Spectrum">
+	<colors/>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<hsv-sweep xchan="h" xmin="0" xmax="360"
+					           ychan="s" ymin="0" ymax="100"
+					           v="100" border="vt"/>
+					<hsv-sweep xchan="h" xmin="0" xmax="360"
+					           ychan="v" ymin="100" ymax="0"
+					           s="100" border="vb"/>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<hsv-sweep xchan="h" xmin="0" xmax="360"
+					           ychan="s" ymin="0" ymax="100"
+					           v="100" border="vt"/>
+					<hsv-sweep xchan="h" xmin="0" xmax="360"
+					           ychan="v" ymin="100" ymax="0"
+					           s="100" border="vb"/>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<hsv-sweep xchan="s" xmin="0" xmax="100"
+					           ychan="h" ymin="0" ymax="360"
+					           v="100" border="hl"/>
+					<hsv-sweep xchan="v" xmin="100" xmax="0"
+					           ychan="h" ymin="0" ymax="360"
+					           s="100" border="hr"/>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="MS Paint"
+         hwidth="295" hheight= "73"
+         swidth="145" sheight="145"
+         vwidth= "73" vheight="295">
+	<colors ordered="unordered">
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r="32768" g="32768" b="32768"/>
+		<rgb16 r="32768" g=    "0" b=    "0"/>
+		<rgb16 r="32768" g="32768" b=    "0"/>
+		<rgb16 r=    "0" g="32768" b=    "0"/>
+		<rgb16 r=    "0" g="32768" b="32768"/>
+		<rgb16 r=    "0" g=    "0" b="32768"/>
+		<rgb16 r="32768" g=    "0" b="32768"/>
+		<rgb16 r="32768" g="32768" b="16384"/>
+		<rgb16 r=    "0" g="16384" b="16384"/>
+		<rgb16 r=    "0" g="32768" b="65535"/>
+		<rgb16 r=    "0" g="16384" b="32768"/>
+		<rgb16 r="32768" g=    "0" b="65535"/>
+		<rgb16 r="32768" g="16384" b=    "0"/>
+		<rgb16 r="65535" g="65535" b="65535"/>
+		<rgb16 r="49152" g="49152" b="49152"/>
+		<rgb16 r="65535" g=    "0" b=    "0"/>
+		<rgb16 r="65535" g="65535" b=    "0"/>
+		<rgb16 r=    "0" g="65535" b=    "0"/>
+		<rgb16 r=    "0" g="65535" b="65535"/>
+		<rgb16 r=    "0" g=    "0" b="65535"/>
+		<rgb16 r="65535" g=    "0" b="65535"/>
+		<rgb16 r="65535" g="65535" b="32768"/>
+		<rgb16 r=    "0" g="65535" b="32768"/>
+		<rgb16 r="32768" g="65535" b="65535"/>
+		<rgb16 r="32768" g="32768" b="65535"/>
+		<rgb16 r="65535" g=    "0" b="32768"/>
+		<rgb16 r="65535" g="32768" b="16384"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="14"/></row>
+					<row><range start="14" end="28"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "2"/></row>
+					<row><range start="14" end="16"/></row>
+					<row><range start= "2" end= "8"/></row>
+					<row><range start="16" end="22"/></row>
+					<row><range start= "8" end="14"/></row>
+					<row><range start="22" end="28"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="14"/></column>
+					<column><range start="14" end="28"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

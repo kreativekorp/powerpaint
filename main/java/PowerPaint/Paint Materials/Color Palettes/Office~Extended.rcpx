@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Office Extended"
+         orientation="square"
+         hwidth="261" hheight= "81"
+         swidth="131" sheight="145"
+         vwidth= "79" vheight="289">
+	<colors ordered="unordered">
+		<rgb r=  "0" g= "51" b="102"/>
+		<rgb r= "51" g="102" b="153"/>
+		<rgb r= "51" g="102" b="204"/>
+		<rgb r=  "0" g= "51" b="153"/>
+		<rgb r=  "0" g=  "0" b="153"/>
+		<rgb r=  "0" g=  "0" b="204"/>
+		<rgb r=  "0" g=  "0" b="102"/>
+		<rgb r=  "0" g="102" b="102"/>
+		<rgb r=  "0" g="102" b="153"/>
+		<rgb r=  "0" g="153" b="204"/>
+		<rgb r=  "0" g="102" b="204"/>
+		<rgb r=  "0" g= "51" b="204"/>
+		<rgb r=  "0" g=  "0" b="255"/>
+		<rgb r= "51" g= "51" b="255"/>
+		<rgb r= "51" g= "51" b="153"/>
+		<rgb r=  "0" g="128" b="128"/>
+		<rgb r=  "0" g="153" b="153"/>
+		<rgb r= "51" g="204" b="204"/>
+		<rgb r=  "0" g="204" b="255"/>
+		<rgb r=  "0" g="153" b="255"/>
+		<rgb r=  "0" g="102" b="255"/>
+		<rgb r= "51" g="102" b="255"/>
+		<rgb r= "51" g= "51" b="204"/>
+		<rgb r="102" g="102" b="153"/>
+		<rgb r= "51" g="153" b="102"/>
+		<rgb r=  "0" g="204" b="153"/>
+		<rgb r=  "0" g="255" b="204"/>
+		<rgb r=  "0" g="255" b="255"/>
+		<rgb r= "51" g="204" b="255"/>
+		<rgb r= "51" g="153" b="255"/>
+		<rgb r="102" g="153" b="255"/>
+		<rgb r="102" g="102" b="255"/>
+		<rgb r="102" g=  "0" b="255"/>
+		<rgb r="102" g=  "0" b="204"/>
+		<rgb r= "51" g="153" b= "51"/>
+		<rgb r=  "0" g="204" b="102"/>
+		<rgb r=  "0" g="255" b="153"/>
+		<rgb r="102" g="255" b="204"/>
+		<rgb r="102" g="255" b="255"/>
+		<rgb r="102" g="204" b="255"/>
+		<rgb r="153" g="204" b="255"/>
+		<rgb r="153" g="153" b="255"/>
+		<rgb r="153" g="102" b="255"/>
+		<rgb r="153" g= "51" b="255"/>
+		<rgb r="153" g=  "0" b="255"/>
+		<rgb r=  "0" g="102" b=  "0"/>
+		<rgb r=  "0" g="204" b=  "0"/>
+		<rgb r=  "0" g="255" b=  "0"/>
+		<rgb r="102" g="255" b="153"/>
+		<rgb r="153" g="255" b="204"/>
+		<rgb r="204" g="255" b="255"/>
+		<rgb r="204" g="236" b="255"/>
+		<rgb r="204" g="204" b="255"/>
+		<rgb r="204" g="153" b="255"/>
+		<rgb r="204" g="102" b="255"/>
+		<rgb r="204" g=  "0" b="255"/>
+		<rgb r="153" g=  "0" b="204"/>
+		<rgb r=  "0" g= "51" b=  "0"/>
+		<rgb r=  "0" g="128" b=  "0"/>
+		<rgb r= "51" g="204" b= "51"/>
+		<rgb r="102" g="255" b="102"/>
+		<rgb r="153" g="255" b="153"/>
+		<rgb r="204" g="255" b="204"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="204" b="255"/>
+		<rgb r="255" g="153" b="255"/>
+		<rgb r="255" g="102" b="255"/>
+		<rgb r="255" g=  "0" b="255"/>
+		<rgb r="204" g=  "0" b="204"/>
+		<rgb r="102" g=  "0" b="102"/>
+		<rgb r= "51" g="102" b=  "0"/>
+		<rgb r=  "0" g="153" b=  "0"/>
+		<rgb r="102" g="255" b= "51"/>
+		<rgb r="153" g="255" b="102"/>
+		<rgb r="204" g="255" b="153"/>
+		<rgb r="255" g="255" b="204"/>
+		<rgb r="255" g="204" b="204"/>
+		<rgb r="255" g="153" b="204"/>
+		<rgb r="255" g="102" b="204"/>
+		<rgb r="255" g= "51" b="204"/>
+		<rgb r="204" g=  "0" b="153"/>
+		<rgb r="128" g=  "0" b="128"/>
+		<rgb r= "51" g= "51" b=  "0"/>
+		<rgb r="102" g="153" b=  "0"/>
+		<rgb r="153" g="255" b= "51"/>
+		<rgb r="204" g="255" b="102"/>
+		<rgb r="255" g="255" b="153"/>
+		<rgb r="255" g="204" b="153"/>
+		<rgb r="255" g="153" b="153"/>
+		<rgb r="255" g="102" b="153"/>
+		<rgb r="255" g= "51" b="153"/>
+		<rgb r="204" g= "51" b="153"/>
+		<rgb r="153" g=  "0" b="153"/>
+		<rgb r="102" g="102" b= "51"/>
+		<rgb r="153" g="204" b=  "0"/>
+		<rgb r="204" g="255" b= "51"/>
+		<rgb r="255" g="255" b="102"/>
+		<rgb r="255" g="204" b="102"/>
+		<rgb r="255" g="153" b="102"/>
+		<rgb r="255" g="124" b="128"/>
+		<rgb r="255" g=  "0" b="102"/>
+		<rgb r="214" g=  "0" b="147"/>
+		<rgb r="153" g= "51" b="102"/>
+		<rgb r="128" g="128" b=  "0"/>
+		<rgb r="204" g="204" b=  "0"/>
+		<rgb r="255" g="255" b=  "0"/>
+		<rgb r="255" g="204" b=  "0"/>
+		<rgb r="255" g="153" b= "51"/>
+		<rgb r="255" g="102" b=  "0"/>
+		<rgb r="255" g= "80" b= "80"/>
+		<rgb r="204" g=  "0" b="102"/>
+		<rgb r="102" g=  "0" b= "51"/>
+		<rgb r="153" g="102" b= "51"/>
+		<rgb r="204" g="153" b=  "0"/>
+		<rgb r="255" g="153" b=  "0"/>
+		<rgb r="204" g="102" b=  "0"/>
+		<rgb r="255" g= "51" b=  "0"/>
+		<rgb r="255" g=  "0" b=  "0"/>
+		<rgb r="204" g=  "0" b=  "0"/>
+		<rgb r="153" g=  "0" b= "51"/>
+		<rgb r="102" g= "51" b=  "0"/>
+		<rgb r="153" g="102" b=  "0"/>
+		<rgb r="204" g= "51" b=  "0"/>
+		<rgb r="153" g= "51" b=  "0"/>
+		<rgb r="153" g=  "0" b=  "0"/>
+		<rgb r="128" g=  "0" b=  "0"/>
+		<rgb r="165" g=  "0" b= "33"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="248" g="248" b="248"/>
+		<rgb r="221" g="221" b="221"/>
+		<rgb r="178" g="178" b="178"/>
+		<rgb r="128" g="128" b="128"/>
+		<rgb r= "95" g= "95" b= "95"/>
+		<rgb r= "51" g= "51" b= "51"/>
+		<rgb r= "28" g= "28" b= "28"/>
+		<rgb r=  "8" g=  "8" b=  "8"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="234" g="234" b="234"/>
+		<rgb r="192" g="192" b="192"/>
+		<rgb r="150" g="150" b="150"/>
+		<rgb r="119" g="119" b="119"/>
+		<rgb r= "77" g= "77" b= "77"/>
+		<rgb r= "41" g= "41" b= "41"/>
+		<rgb r= "17" g= "17" b= "17"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+	</colors>
+	<layout>
+		<column>
+			<row>
+				<empty repeat="6"/>
+				<index i="0" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="1" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="2" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="3" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="4" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="5" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="6" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="6"/>
+			</row>
+			<row>
+				<empty repeat="5"/>
+				<index i= "7" repeat="2" border-first="lh" border-last="hr"/>
+				<index i= "8" repeat="2" border-first="lh" border-last="hr"/>
+				<index i= "9" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="10" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="11" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="12" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="13" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="14" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="5"/>
+			</row>
+			<row>
+				<empty repeat="4"/>
+				<index i="15" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="16" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="17" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="18" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="19" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="20" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="21" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="22" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="23" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="4"/>
+			</row>
+			<row>
+				<empty repeat="3"/>
+				<index i="24" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="25" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="26" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="27" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="28" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="29" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="30" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="31" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="32" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="33" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="3"/>
+			</row>
+			<row>
+				<empty repeat="2"/>
+				<index i="34" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="35" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="36" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="37" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="38" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="39" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="40" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="41" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="42" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="43" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="44" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="2"/>
+			</row>
+			<row>
+				<empty repeat="1"/>
+				<index i="45" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="46" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="47" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="48" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="49" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="50" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="51" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="52" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="53" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="54" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="55" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="56" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="1"/>
+			</row>
+			<row>
+				<index i="57" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="58" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="59" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="60" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="61" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="62" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="63" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="64" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="65" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="66" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="67" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="68" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="69" repeat="2" border-first="lh" border-last="hr"/>
+			</row>
+			<row>
+				<empty repeat="1"/>
+				<index i="70" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="71" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="72" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="73" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="74" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="75" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="76" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="77" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="78" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="79" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="80" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="81" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="1"/>
+			</row>
+			<row>
+				<empty repeat="2"/>
+				<index i="82" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="83" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="84" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="85" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="86" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="87" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="88" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="89" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="90" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="91" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="92" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="2"/>
+			</row>
+			<row>
+				<empty repeat="3"/>
+				<index i= "93" repeat="2" border-first="lh" border-last="hr"/>
+				<index i= "94" repeat="2" border-first="lh" border-last="hr"/>
+				<index i= "95" repeat="2" border-first="lh" border-last="hr"/>
+				<index i= "96" repeat="2" border-first="lh" border-last="hr"/>
+				<index i= "97" repeat="2" border-first="lh" border-last="hr"/>
+				<index i= "98" repeat="2" border-first="lh" border-last="hr"/>
+				<index i= "99" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="100" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="101" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="102" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="3"/>
+			</row>
+			<row>
+				<empty repeat="4"/>
+				<index i="103" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="104" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="105" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="106" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="107" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="108" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="109" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="110" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="111" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="4"/>
+			</row>
+			<row>
+				<empty repeat="5"/>
+				<index i="112" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="113" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="114" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="115" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="116" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="117" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="118" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="119" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="5"/>
+			</row>
+			<row>
+				<empty repeat="6"/>
+				<index i="120" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="121" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="122" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="123" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="124" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="125" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="126" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="6"/>
+			</row>
+			<empty/>
+			<row>
+				<index i="127" repeat="4" border-first="lt" border-middle="t" border-last="tr"/>
+				<empty repeat="1"/>
+				<index i="128" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="129" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="130" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="131" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="132" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="133" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="134" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="135" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="1"/>
+				<index i="136" repeat="4" border-first="lt" border-middle="t" border-last="tr"/>
+			</row>
+			<row>
+				<index i="137" repeat="4" border-first="lb" border-middle="b" border-last="br"/>
+				<empty repeat="2"/>
+				<index i="138" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="139" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="140" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="141" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="142" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="143" repeat="2" border-first="lh" border-last="hr"/>
+				<index i="144" repeat="2" border-first="lh" border-last="hr"/>
+				<empty repeat="2"/>
+				<index i="145" repeat="4" border-first="lb" border-middle="b" border-last="br"/>
+			</row>
+		</column>
+	</layout>
+</palette>

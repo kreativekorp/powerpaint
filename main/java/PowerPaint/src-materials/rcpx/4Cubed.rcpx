@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="4 Cubed"
+         hwidth="289" hheight= "73"
+         swidth="145" sheight="145"
+         vwidth= "73" vheight="289">
+	<colors ordered="unordered">
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r="21845" g=    "0" b=    "0"/>
+		<rgb16 r="43690" g=    "0" b=    "0"/>
+		<rgb16 r="65535" g=    "0" b=    "0"/>
+		<rgb16 r=    "0" g="21845" b=    "0"/>
+		<rgb16 r="21845" g="21845" b=    "0"/>
+		<rgb16 r="43690" g="21845" b=    "0"/>
+		<rgb16 r="65535" g="21845" b=    "0"/>
+		<rgb16 r=    "0" g="43690" b=    "0"/>
+		<rgb16 r="21845" g="43690" b=    "0"/>
+		<rgb16 r="43690" g="43690" b=    "0"/>
+		<rgb16 r="65535" g="43690" b=    "0"/>
+		<rgb16 r=    "0" g="65535" b=    "0"/>
+		<rgb16 r="21845" g="65535" b=    "0"/>
+		<rgb16 r="43690" g="65535" b=    "0"/>
+		<rgb16 r="65535" g="65535" b=    "0"/>
+		<rgb16 r=    "0" g=    "0" b="21845"/>
+		<rgb16 r="21845" g=    "0" b="21845"/>
+		<rgb16 r="43690" g=    "0" b="21845"/>
+		<rgb16 r="65535" g=    "0" b="21845"/>
+		<rgb16 r=    "0" g="21845" b="21845"/>
+		<rgb16 r="21845" g="21845" b="21845"/>
+		<rgb16 r="43690" g="21845" b="21845"/>
+		<rgb16 r="65535" g="21845" b="21845"/>
+		<rgb16 r=    "0" g="43690" b="21845"/>
+		<rgb16 r="21845" g="43690" b="21845"/>
+		<rgb16 r="43690" g="43690" b="21845"/>
+		<rgb16 r="65535" g="43690" b="21845"/>
+		<rgb16 r=    "0" g="65535" b="21845"/>
+		<rgb16 r="21845" g="65535" b="21845"/>
+		<rgb16 r="43690" g="65535" b="21845"/>
+		<rgb16 r="65535" g="65535" b="21845"/>
+		<rgb16 r=    "0" g=    "0" b="43690"/>
+		<rgb16 r="21845" g=    "0" b="43690"/>
+		<rgb16 r="43690" g=    "0" b="43690"/>
+		<rgb16 r="65535" g=    "0" b="43690"/>
+		<rgb16 r=    "0" g="21845" b="43690"/>
+		<rgb16 r="21845" g="21845" b="43690"/>
+		<rgb16 r="43690" g="21845" b="43690"/>
+		<rgb16 r="65535" g="21845" b="43690"/>
+		<rgb16 r=    "0" g="43690" b="43690"/>
+		<rgb16 r="21845" g="43690" b="43690"/>
+		<rgb16 r="43690" g="43690" b="43690"/>
+		<rgb16 r="65535" g="43690" b="43690"/>
+		<rgb16 r=    "0" g="65535" b="43690"/>
+		<rgb16 r="21845" g="65535" b="43690"/>
+		<rgb16 r="43690" g="65535" b="43690"/>
+		<rgb16 r="65535" g="65535" b="43690"/>
+		<rgb16 r=    "0" g=    "0" b="65535"/>
+		<rgb16 r="21845" g=    "0" b="65535"/>
+		<rgb16 r="43690" g=    "0" b="65535"/>
+		<rgb16 r="65535" g=    "0" b="65535"/>
+		<rgb16 r=    "0" g="21845" b="65535"/>
+		<rgb16 r="21845" g="21845" b="65535"/>
+		<rgb16 r="43690" g="21845" b="65535"/>
+		<rgb16 r="65535" g="21845" b="65535"/>
+		<rgb16 r=    "0" g="43690" b="65535"/>
+		<rgb16 r="21845" g="43690" b="65535"/>
+		<rgb16 r="43690" g="43690" b="65535"/>
+		<rgb16 r="65535" g="43690" b="65535"/>
+		<rgb16 r=    "0" g="65535" b="65535"/>
+		<rgb16 r="21845" g="65535" b="65535"/>
+		<rgb16 r="43690" g="65535" b="65535"/>
+		<rgb16 r="65535" g="65535" b="65535"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<row>
+					<column>
+						<row><range start= "0" end= "4"/></row>
+						<row><range start= "4" end= "8"/></row>
+						<row><range start= "8" end="12"/></row>
+						<row><range start="12" end="16"/></row>
+					</column>
+					<column>
+						<row><range start="16" end="20"/></row>
+						<row><range start="20" end="24"/></row>
+						<row><range start="24" end="28"/></row>
+						<row><range start="28" end="32"/></row>
+					</column>
+					<column>
+						<row><range start="32" end="36"/></row>
+						<row><range start="36" end="40"/></row>
+						<row><range start="40" end="44"/></row>
+						<row><range start="44" end="48"/></row>
+					</column>
+					<column>
+						<row><range start="48" end="52"/></row>
+						<row><range start="52" end="56"/></row>
+						<row><range start="56" end="60"/></row>
+						<row><range start="60" end="64"/></row>
+					</column>
+				</row>
+			</horizontal>
+			<square>
+				<column>
+					<row>
+						<column>
+							<row><range start= "0" end= "4"/></row>
+							<row><range start= "4" end= "8"/></row>
+							<row><range start= "8" end="12"/></row>
+							<row><range start="12" end="16"/></row>
+						</column>
+						<column>
+							<row><range start="16" end="20"/></row>
+							<row><range start="20" end="24"/></row>
+							<row><range start="24" end="28"/></row>
+							<row><range start="28" end="32"/></row>
+						</column>
+					</row>
+					<row>
+						<column>
+							<row><range start="32" end="36"/></row>
+							<row><range start="36" end="40"/></row>
+							<row><range start="40" end="44"/></row>
+							<row><range start="44" end="48"/></row>
+						</column>
+						<column>
+							<row><range start="48" end="52"/></row>
+							<row><range start="52" end="56"/></row>
+							<row><range start="56" end="60"/></row>
+							<row><range start="60" end="64"/></row>
+						</column>
+					</row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<column>
+						<row><range start= "0" end= "4"/></row>
+						<row><range start= "4" end= "8"/></row>
+						<row><range start= "8" end="12"/></row>
+						<row><range start="12" end="16"/></row>
+					</column>
+					<column>
+						<row><range start="16" end="20"/></row>
+						<row><range start="20" end="24"/></row>
+						<row><range start="24" end="28"/></row>
+						<row><range start="28" end="32"/></row>
+					</column>
+					<column>
+						<row><range start="32" end="36"/></row>
+						<row><range start="36" end="40"/></row>
+						<row><range start="40" end="44"/></row>
+						<row><range start="44" end="48"/></row>
+					</column>
+					<column>
+						<row><range start="48" end="52"/></row>
+						<row><range start="52" end="56"/></row>
+						<row><range start="56" end="60"/></row>
+						<row><range start="60" end="64"/></row>
+					</column>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

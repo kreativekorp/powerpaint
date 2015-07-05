@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Rayalaka">
+	<colors ordered="unordered">
+		<rgb16 r="65535" g="32768" b="32768" name="Coral"           />
+		<rgb16 r="65535" g="40960" b="32768"                        />
+		<rgb16 r="65535" g="49152" b="32768" name="Corange"         />
+		<rgb16 r="65535" g="57344" b="32768"                        />
+		<rgb16 r="65535" g="65535" b="32768" name="Lemon"           />
+		<rgb16 r="49152" g="65535" b="32768"                        />
+		<rgb16 r="32768" g="65535" b="32768" name="Lime"            />
+		<rgb16 r="32768" g="65535" b="49152"                        />
+		<rgb16 r="32768" g="65535" b="65535" name="Sky"             />
+		<rgb16 r="32768" g="49152" b="65535"                        />
+		<rgb16 r="32768" g="32768" b="65535" name="Frost"           />
+		<rgb16 r="40960" g="32768" b="65535"                        />
+		<rgb16 r="49152" g="32768" b="65535" name="Lavender"        />
+		<rgb16 r="57344" g="32768" b="65535"                        />
+		<rgb16 r="65535" g="32768" b="65535" name="Pink"            />
+		<rgb16 r="65535" g="32768" b="49152"                        />
+		<rgb16 r="65535" g=    "0" b=    "0" name="Red"             />
+		<rgb16 r="65535" g="16384" b=    "0" name="Scarlet"         />
+		<rgb16 r="65535" g="32768" b=    "0" name="Orange"          />
+		<rgb16 r="65535" g="49152" b=    "0" name="Gold"            />
+		<rgb16 r="65535" g="65535" b=    "0" name="Yellow"          />
+		<rgb16 r="32768" g="65535" b=    "0" name="Chartreuse"      />
+		<rgb16 r=    "0" g="65535" b=    "0" name="Green"           />
+		<rgb16 r=    "0" g="65535" b="32768" name="Aquamarine"      />
+		<rgb16 r=    "0" g="65535" b="65535" name="Cyan"            />
+		<rgb16 r=    "0" g="32768" b="65535" name="Azure"           />
+		<rgb16 r=    "0" g=    "0" b="65535" name="Blue"            />
+		<rgb16 r="16384" g=    "0" b="65535" name="Indigo"          />
+		<rgb16 r="32768" g=    "0" b="65535" name="Violet"          />
+		<rgb16 r="49152" g=    "0" b="65535" name="Purple"          />
+		<rgb16 r="65535" g=    "0" b="65535" name="Magenta"         />
+		<rgb16 r="65535" g=    "0" b="32768" name="Rose"            />
+		<rgb16 r="32768" g=    "0" b=    "0" name="Maroon"          />
+		<rgb16 r="32768" g= "8192" b=    "0"                        />
+		<rgb16 r="32768" g="16384" b=    "0" name="Umber"           />
+		<rgb16 r="32768" g="24576" b=    "0"                        />
+		<rgb16 r="32768" g="32768" b=    "0" name="Olive"           />
+		<rgb16 r="16384" g="32768" b=    "0"                        />
+		<rgb16 r=    "0" g="32768" b=    "0" name="Pine"            />
+		<rgb16 r=    "0" g="32768" b="16384"                        />
+		<rgb16 r=    "0" g="32768" b="32768" name="Teal"            />
+		<rgb16 r=    "0" g="16384" b="32768"                        />
+		<rgb16 r=    "0" g=    "0" b="32768" name="Navy"            />
+		<rgb16 r= "8192" g=    "0" b="32768"                        />
+		<rgb16 r="16384" g=    "0" b="32768" name="Eggplant"        />
+		<rgb16 r="24576" g=    "0" b="32768"                        />
+		<rgb16 r="32768" g=    "0" b="32768" name="Plum"            />
+		<rgb16 r="32768" g=    "0" b="16384"                        />
+		<rgb16 r="65535" g="65535" b="65535" name="White"           />
+		<rgb16 r="61166" g="61166" b="61166" name="Off-White"       />
+		<rgb16 r="49152" g="49152" b="49152" name="Silver"          />
+		<rgb16 r="32768" g="32768" b="32768" name="Gray"            />
+		<rgb16 r="16384" g="16384" b="16384" name="Iron"            />
+		<rgb16 r=    "0" g=    "0" b=    "0" name="Black"           />
+		<rgb16 r="39321" g="26214" b="13107" name="Brown"           />
+		<rgb16 r="65535" g="52428" b="39321" name="Fair"            />
+		<rgb16 r="65535" g="61166" b="52428" name="Creme"           />
+		<rgb16 r="65535" g="62451" b="56540" name="Warm White (LCD)"/>
+		<rgb16 r="65535" g="56797" b="39321" name="Warm White (LED)"/>
+		<rgba  r="0" g="0" b="0" a="0"       name="Transparent"     />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="16"/></row>
+					<row><range start="16" end="32"/></row>
+					<row><range start="32" end="48"/></row>
+					<row><range start="48" end="60"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "8"/></row>
+					<row><range start="16" end="24"/></row>
+					<row><range start="32" end="40"/></row>
+					<row><range start= "8" end="16"/></row>
+					<row><range start="24" end="32"/></row>
+					<row><range start="40" end="48"/></row>
+					<row><range start="48" end="54"/></row>
+					<row><range start="54" end="60"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="16"/></column>
+					<column><range start="16" end="32"/></column>
+					<column><range start="32" end="48"/></column>
+					<column><range start="48" end="60"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

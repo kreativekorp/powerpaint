@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Office 2008 Urban"
+         orientation="square"
+         hwidth="241" hheight= "85"
+         swidth="181" sheight="127"
+         vwidth= "85" vheight="241">
+	<colors ordered="unordered">
+		<rgb r="255" g="255" b="255"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r="222" g="222" b="222"/>
+		<rgb r= "66" g= "68" b= "86"/>
+		<rgb r= "83" g= "84" b="138"/>
+		<rgb r= "67" g="128" b="134"/>
+		<rgb r="160" g= "77" b="163"/>
+		<rgb r="196" g="101" b= "45"/>
+		<rgb r="139" g= "93" b= "61"/>
+		<rgb r= "92" g="146" b="181"/>
+		<rgb r="242" g="242" b="242"/>
+		<rgb r="127" g="127" b="127"/>
+		<rgb r="200" g="200" b="200"/>
+		<rgb r="214" g="215" b="224"/>
+		<rgb r="219" g="219" b="233"/>
+		<rgb r="214" g="233" b="234"/>
+		<rgb r="237" g="218" b="238"/>
+		<rgb r="245" g="224" b="211"/>
+		<rgb r="236" g="222" b="212"/>
+		<rgb r="222" g="233" b="240"/>
+		<rgb r="217" g="217" b="217"/>
+		<rgb r= "89" g= "89" b= "89"/>
+		<rgb r="166" g="166" b="166"/>
+		<rgb r="174" g="176" b="193"/>
+		<rgb r="183" g="183" b="212"/>
+		<rgb r="173" g="210" b="214"/>
+		<rgb r="219" g="182" b="220"/>
+		<rgb r="235" g="192" b="167"/>
+		<rgb r="217" g="189" b="169"/>
+		<rgb r="190" g="211" b="225"/>
+		<rgb r="191" g="191" b="191"/>
+		<rgb r= "64" g= "64" b= "64"/>
+		<rgb r="111" g="111" b="111"/>
+		<rgb r="133" g="136" b="162"/>
+		<rgb r="147" g="148" b="190"/>
+		<rgb r="131" g="188" b="193"/>
+		<rgb r="201" g="145" b="203"/>
+		<rgb r="225" g="161" b="124"/>
+		<rgb r="198" g="155" b="126"/>
+		<rgb r="157" g="190" b="211"/>
+		<rgb r="166" g="166" b="166"/>
+		<rgb r= "38" g= "38" b= "38"/>
+		<rgb r= "55" g= "55" b= "55"/>
+		<rgb r= "49" g= "51" b= "64"/>
+		<rgb r= "62" g= "63" b="104"/>
+		<rgb r= "50" g= "96" b="100"/>
+		<rgb r="120" g= "58" b="122"/>
+		<rgb r="147" g= "76" b= "34"/>
+		<rgb r="104" g= "70" b= "46"/>
+		<rgb r= "64" g="111" b="141"/>
+		<rgb r="127" g="127" b="127"/>
+		<rgb r= "13" g= "13" b= "13"/>
+		<rgb r= "22" g= "22" b= "22"/>
+		<rgb r= "33" g= "34" b= "43"/>
+		<rgb r= "41" g= "42" b= "69"/>
+		<rgb r= "34" g= "64" b= "67"/>
+		<rgb r= "80" g= "38" b= "82"/>
+		<rgb r= "98" g= "51" b= "22"/>
+		<rgb r= "69" g= "46" b= "31"/>
+		<rgb r= "43" g= "74" b= "94"/>
+		<rgb r="128" g=  "0" b=  "0"/>
+		<rgb r="255" g=  "0" b=  "0"/>
+		<rgb r="255" g="102" b=  "0"/>
+		<rgb r="255" g="255" b=  "0"/>
+		<rgb r="204" g="255" b="204"/>
+		<rgb r=  "0" g="128" b=  "0"/>
+		<rgb r= "51" g="102" b="255"/>
+		<rgb r=  "0" g=  "0" b="255"/>
+		<rgb r=  "0" g=  "0" b="144"/>
+		<rgb r="102" g=  "0" b="102"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="10"/></row>
+					<row><range start="10" end="20" border="vt"/></row>
+					<row><range start="20" end="30" border="v" /></row>
+					<row><range start="30" end="40" border="v" /></row>
+					<row><range start="40" end="50" border="v" /></row>
+					<row><range start="50" end="60" border="vb"/></row>
+					<row><range start="60" end="70"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end="10"/></row>
+					<row><range start="10" end="20" border="vt"/></row>
+					<row><range start="20" end="30" border="v" /></row>
+					<row><range start="30" end="40" border="v" /></row>
+					<row><range start="40" end="50" border="v" /></row>
+					<row><range start="50" end="60" border="vb"/></row>
+					<row><range start="60" end="70"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="10"/></column>
+					<column><range start="10" end="20" border="hl"/></column>
+					<column><range start="20" end="30" border="h" /></column>
+					<column><range start="30" end="40" border="h" /></column>
+					<column><range start="40" end="50" border="h" /></column>
+					<column><range start="50" end="60" border="hr"/></column>
+					<column><range start="60" end="70"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

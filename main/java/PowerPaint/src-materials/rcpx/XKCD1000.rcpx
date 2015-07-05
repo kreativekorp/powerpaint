@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="XKCD 1000"
+         hwidth="449" hheight="106"
+         swidth="225" sheight="211"
+         vwidth="113" vheight="421">
+	<colors ordered="ordered">
+		<rgb r="126" g= "30" b="156" name="purple"                    />
+		<rgb r= "21" g="176" b= "26" name="green"                     />
+		<rgb r=  "3" g= "67" b="223" name="blue"                      />
+		<rgb r="255" g="129" b="192" name="pink"                      />
+		<rgb r="101" g= "55" b=  "0" name="brown"                     />
+		<rgb r="229" g=  "0" b=  "0" name="red"                       />
+		<rgb r="149" g="208" b="252" name="light blue"                />
+		<rgb r=  "2" g="147" b="134" name="teal"                      />
+		<rgb r="249" g="115" b=  "6" name="orange"                    />
+		<rgb r="150" g="249" b="123" name="light green"               />
+		<rgb r="194" g=  "0" b="120" name="magenta"                   />
+		<rgb r="255" g="255" b= "20" name="yellow"                    />
+		<rgb r="117" g="187" b="253" name="sky blue"                  />
+		<rgb r="146" g="149" b="145" name="grey"                      />
+		<rgb r="137" g="254" b=  "5" name="lime green"                />
+		<rgb r="191" g="119" b="246" name="light purple"              />
+		<rgb r="154" g= "14" b="234" name="violet"                    />
+		<rgb r=  "3" g= "53" b=  "0" name="dark green"                />
+		<rgb r=  "6" g="194" b="172" name="turquoise"                 />
+		<rgb r="199" g="159" b="239" name="lavender"                  />
+		<rgb r=  "0" g=  "3" b= "91" name="dark blue"                 />
+		<rgb r="209" g="178" b="111" name="tan"                       />
+		<rgb r=  "0" g="255" b="255" name="cyan"                      />
+		<rgb r= "19" g="234" b="201" name="aqua"                      />
+		<rgb r=  "6" g= "71" b= "12" name="forest green"              />
+		<rgb r="174" g="113" b="129" name="mauve"                     />
+		<rgb r= "53" g=  "6" b= "62" name="dark purple"               />
+		<rgb r=  "1" g="255" b=  "7" name="bright green"              />
+		<rgb r="101" g=  "0" b= "33" name="maroon"                    />
+		<rgb r="110" g="117" b= "14" name="olive"                     />
+		<rgb r="255" g="121" b="108" name="salmon"                    />
+		<rgb r="230" g="218" b="166" name="beige"                     />
+		<rgb r=  "5" g=  "4" b="170" name="royal blue"                />
+		<rgb r=  "0" g= "17" b= "70" name="navy blue"                 />
+		<rgb r="206" g="162" b="253" name="lilac"                     />
+		<rgb r=  "0" g=  "0" b=  "0" name="black"                     />
+		<rgb r="255" g=  "2" b="141" name="hot pink"                  />
+		<rgb r="173" g="129" b= "80" name="light brown"               />
+		<rgb r="199" g="253" b="181" name="pale green"                />
+		<rgb r="255" g="176" b="124" name="peach"                     />
+		<rgb r="103" g="122" b=  "4" name="olive green"               />
+		<rgb r="203" g= "65" b="107" name="dark pink"                 />
+		<rgb r="142" g="130" b="254" name="periwinkle"                />
+		<rgb r= "83" g="252" b="161" name="sea green"                 />
+		<rgb r="170" g="255" b= "50" name="lime"                      />
+		<rgb r= "56" g=  "2" b="130" name="indigo"                    />
+		<rgb r="206" g="179" b=  "1" name="mustard"                   />
+		<rgb r="255" g="209" b="223" name="light pink"                />
+		<rgb r="207" g= "98" b="117" name="rose"                      />
+		<rgb r=  "1" g="101" b="252" name="bright blue"               />
+		<rgb r= "12" g="255" b= "12" name="neon green"                />
+		<rgb r="192" g= "78" b=  "1" name="burnt orange"              />
+		<rgb r=  "4" g="216" b="178" name="aquamarine"                />
+		<rgb r=  "1" g= "21" b= "62" name="navy"                      />
+		<rgb r= "63" g="155" b= "11" name="grass green"               />
+		<rgb r="208" g="254" b="254" name="pale blue"                 />
+		<rgb r="132" g=  "0" b=  "0" name="dark red"                  />
+		<rgb r="190" g=  "3" b="253" name="bright purple"             />
+		<rgb r="192" g="251" b= "45" name="yellow green"              />
+		<rgb r="162" g="207" b="254" name="baby blue"                 />
+		<rgb r="219" g="180" b= "12" name="gold"                      />
+		<rgb r="143" g="255" b="159" name="mint green"                />
+		<rgb r= "88" g= "15" b= "65" name="plum"                      />
+		<rgb r= "75" g=  "0" b="110" name="royal purple"              />
+		<rgb r="143" g= "20" b=  "2" name="brick red"                 />
+		<rgb r=  "1" g= "77" b= "78" name="dark teal"                 />
+		<rgb r= "97" g=  "0" b= "35" name="burgundy"                  />
+		<rgb r="170" g="166" b= "98" name="khaki"                     />
+		<rgb r= "19" g="126" b="109" name="blue green"                />
+		<rgb r="122" g="249" b="171" name="seafoam green"             />
+		<rgb r=  "2" g="171" b= "46" name="kelly green"               />
+		<rgb r="154" g="174" b=  "7" name="puke green"                />
+		<rgb r="142" g="171" b= "18" name="pea green"                 />
+		<rgb r="185" g="162" b="129" name="taupe"                     />
+		<rgb r= "52" g= "28" b=  "2" name="dark brown"                />
+		<rgb r= "54" g=  "1" b= "63" name="deep purple"               />
+		<rgb r="193" g="248" b= "10" name="chartreuse"                />
+		<rgb r="254" g=  "1" b="177" name="bright pink"               />
+		<rgb r="253" g="170" b= "72" name="light orange"              />
+		<rgb r="159" g="254" b="176" name="mint"                      />
+		<rgb r="176" g="255" b="157" name="pastel green"              />
+		<rgb r="226" g="202" b="118" name="sand"                      />
+		<rgb r="198" g= "81" b=  "2" name="dark orange"               />
+		<rgb r="169" g="249" b="113" name="spring green"              />
+		<rgb r="165" g="126" b= "82" name="puce"                      />
+		<rgb r="128" g="249" b="173" name="seafoam"                   />
+		<rgb r="107" g="139" b="164" name="grey blue"                 />
+		<rgb r= "75" g= "93" b= "22" name="army green"                />
+		<rgb r= "54" g= "55" b= "55" name="dark grey"                 />
+		<rgb r="213" g="182" b= "10" name="dark yellow"               />
+		<rgb r="250" g="194" b=  "5" name="goldenrod"                 />
+		<rgb r= "81" g="101" b="114" name="slate"                     />
+		<rgb r="144" g="228" b="193" name="light teal"                />
+		<rgb r="168" g= "60" b=  "9" name="rust"                      />
+		<rgb r=  "4" g=  "2" b="115" name="deep blue"                 />
+		<rgb r="255" g="207" b="220" name="pale pink"                 />
+		<rgb r=  "4" g="133" b="209" name="cerulean"                  />
+		<rgb r="255" g= "71" b= "76" name="light red"                 />
+		<rgb r="210" g="189" b= "10" name="mustard yellow"            />
+		<rgb r="191" g="144" b=  "5" name="ochre"                     />
+		<rgb r="255" g="255" b="132" name="pale yellow"               />
+		<rgb r="140" g=  "0" b= "15" name="crimson"                   />
+		<rgb r="237" g= "13" b="217" name="fuchsia"                   />
+		<rgb r= "11" g= "64" b=  "8" name="hunter green"              />
+		<rgb r= "96" g="124" b="142" name="blue grey"                 />
+		<rgb r= "91" g="124" b="153" name="slate blue"                />
+		<rgb r="183" g="144" b="212" name="pale purple"               />
+		<rgb r=  "4" g="116" b="149" name="sea blue"                  />
+		<rgb r="214" g= "72" b="215" name="pinkish purple"            />
+		<rgb r="165" g="165" b=  "2" name="puke"                      />
+		<rgb r="216" g="220" b="214" name="light grey"                />
+		<rgb r= "92" g="169" b=  "4" name="leaf green"                />
+		<rgb r="255" g="254" b="122" name="light yellow"              />
+		<rgb r= "56" g=  "8" b= "53" name="eggplant"                  />
+		<rgb r= "90" g="125" b="154" name="steel blue"                />
+		<rgb r="101" g="139" b= "56" name="moss green"                />
+		<rgb r="152" g="239" b="249" name="robin's egg blue"          />
+		<rgb r="255" g="255" b="255" name="white"                     />
+		<rgb r="120" g="155" b="115" name="grey green"                />
+		<rgb r="135" g="174" b="115" name="sage"                      />
+		<rgb r="160" g= "54" b= "35" name="brick"                     />
+		<rgb r="176" g= "78" b= "15" name="burnt sienna"              />
+		<rgb r="127" g= "43" b= "10" name="reddish brown"             />
+		<rgb r="255" g="255" b="194" name="cream"                     />
+		<rgb r="252" g= "90" b= "80" name="coral"                     />
+		<rgb r=  "3" g="113" b="156" name="ocean blue"                />
+		<rgb r= "64" g="163" b="104" name="greenish"                  />
+		<rgb r="150" g=  "0" b= "86" name="dark magenta"              />
+		<rgb r="253" g= "60" b=  "6" name="red orange"                />
+		<rgb r="112" g= "59" b="231" name="bluish purple"             />
+		<rgb r=  "2" g=  "0" b= "53" name="midnight blue"             />
+		<rgb r="214" g="180" b="252" name="light violet"              />
+		<rgb r="192" g="115" b="122" name="dusty rose"                />
+		<rgb r= "44" g="111" b="187" name="medium blue"               />
+		<rgb r="205" g="253" b=  "2" name="greenish yellow"           />
+		<rgb r="176" g="221" b= "22" name="yellowish green"           />
+		<rgb r= "96" g= "30" b="249" name="purplish blue"             />
+		<rgb r= "94" g="129" b="157" name="greyish blue"              />
+		<rgb r="108" g= "52" b= "97" name="grape"                     />
+		<rgb r="172" g="191" b="105" name="light olive"               />
+		<rgb r= "81" g="112" b="215" name="cornflower blue"           />
+		<rgb r="241" g= "12" b= "69" name="pinkish red"               />
+		<rgb r="255" g=  "0" b= "13" name="bright red"                />
+		<rgb r=  "6" g="154" b="243" name="azure"                     />
+		<rgb r= "87" g= "41" b="206" name="blue purple"               />
+		<rgb r=  "4" g= "92" b= "90" name="dark turquoise"            />
+		<rgb r=  "6" g= "82" b="255" name="electric blue"             />
+		<rgb r="255" g="255" b="228" name="off white"                 />
+		<rgb r="177" g="209" b="252" name="powder blue"               />
+		<rgb r="128" g=  "1" b= "63" name="wine"                      />
+		<rgb r="116" g="166" b= "98" name="dull green"                />
+		<rgb r="118" g="205" b= "38" name="apple green"               />
+		<rgb r="126" g="244" b="204" name="light turquoise"           />
+		<rgb r="188" g= "19" b="254" name="neon purple"               />
+		<rgb r= "30" g= "72" b="143" name="cobalt"                    />
+		<rgb r="212" g="106" b="126" name="pinkish"                   />
+		<rgb r="111" g="118" b= "50" name="olive drab"                />
+		<rgb r= "10" g="136" b="138" name="dark cyan"                 />
+		<rgb r= "99" g= "45" b="233" name="purple blue"               />
+		<rgb r= "52" g=  "1" b= "63" name="dark violet"               />
+		<rgb r="133" g="103" b="152" name="dark lavender"             />
+		<rgb r= "21" g= "68" b=  "6" name="forrest green"             />
+		<rgb r="162" g="164" b= "21" name="vomit"                     />
+		<rgb r="255" g="167" b= "86" name="pale orange"               />
+		<rgb r= "11" g="139" b="135" name="greenish blue"             />
+		<rgb r="175" g="136" b= "74" name="dark tan"                  />
+		<rgb r=  "6" g="180" b="139" name="green blue"                />
+		<rgb r= "16" g="166" b="116" name="bluish green"              />
+		<rgb r="162" g="191" b="254" name="pastel blue"               />
+		<rgb r="118" g="153" b= "88" name="moss"                      />
+		<rgb r= "92" g="172" b= "45" name="grass"                     />
+		<rgb r="203" g=  "1" b= "98" name="deep pink"                 />
+		<rgb r="152" g=  "0" b=  "2" name="blood red"                 />
+		<rgb r="136" g="179" b="120" name="sage green"                />
+		<rgb r=  "2" g="216" b="233" name="aqua blue"                 />
+		<rgb r="202" g="102" b= "65" name="terracotta"                />
+		<rgb r="202" g="160" b="255" name="pastel purple"             />
+		<rgb r="169" g= "86" b= "30" name="sienna"                    />
+		<rgb r= "55" g= "62" b=  "2" name="dark olive"                />
+		<rgb r="201" g="255" b= "39" name="green yellow"              />
+		<rgb r="190" g=  "1" b= "25" name="scarlet"                   />
+		<rgb r="130" g="166" b="125" name="greyish green"             />
+		<rgb r= "61" g= "28" b=  "2" name="chocolate"                 />
+		<rgb r= "93" g=  "6" b="233" name="blue violet"               />
+		<rgb r="106" g="121" b="247" name="cornflower"                />
+		<rgb r="255" g="183" b="206" name="baby pink"                 />
+		<rgb r= "52" g= "56" b= "55" name="charcoal"                  />
+		<rgb r= "10" g= "72" b= "30" name="pine green"                />
+		<rgb r="225" g="119" b=  "1" name="pumpkin"                   />
+		<rgb r="105" g= "97" b= "18" name="greenish brown"            />
+		<rgb r="139" g= "46" b= "22" name="red brown"                 />
+		<rgb r="106" g="110" b=  "9" name="brownish green"            />
+		<rgb r="255" g="148" b=  "8" name="tangerine"                 />
+		<rgb r="254" g="123" b="124" name="salmon pink"               />
+		<rgb r= "18" g="225" b="147" name="aqua green"                />
+		<rgb r="176" g=  "1" b= "73" name="raspberry"                 />
+		<rgb r="136" g="113" b="145" name="greyish purple"            />
+		<rgb r="247" g="135" b="154" name="rose pink"                 />
+		<rgb r="254" g=  "1" b="154" name="neon pink"                 />
+		<rgb r=  "3" g= "10" b="167" name="cobalt blue"               />
+		<rgb r="190" g="100" b=  "0" name="orange brown"              />
+		<rgb r="154" g=  "2" b=  "0" name="deep red"                  />
+		<rgb r="253" g= "65" b= "30" name="orange red"                />
+		<rgb r="205" g="197" b= "10" name="dirty yellow"              />
+		<rgb r="200" g="117" b="196" name="orchid"                    />
+		<rgb r="254" g= "44" b= "84" name="reddish pink"              />
+		<rgb r="145" g=  "9" b= "81" name="reddish purple"            />
+		<rgb r="252" g="176" b=  "1" name="yellow orange"             />
+		<rgb r="172" g="255" b="252" name="light cyan"                />
+		<rgb r="130" g="202" b="252" name="sky"                       />
+		<rgb r="250" g= "95" b="247" name="light magenta"             />
+		<rgb r="217" g= "84" b= "77" name="pale red"                  />
+		<rgb r=  "1" g="160" b= "73" name="emerald"                   />
+		<rgb r="172" g="147" b= "98" name="dark beige"                />
+		<rgb r="122" g="151" b=  "3" name="ugly green"                />
+		<rgb r= "31" g="167" b="116" name="jade"                      />
+		<rgb r="150" g="174" b="141" name="greenish grey"             />
+		<rgb r="200" g= "90" b= "83" name="dark salmon"               />
+		<rgb r="206" g= "93" b="174" name="purplish pink"             />
+		<rgb r=  "5" g="105" b="107" name="dark aqua"                 />
+		<rgb r="203" g="119" b= "35" name="brownish orange"           />
+		<rgb r="164" g="190" b= "92" name="light olive green"         />
+		<rgb r="140" g="255" b="219" name="light aqua"                />
+		<rgb r="182" g="106" b= "80" name="clay"                      />
+		<rgb r= "57" g="173" b= "72" name="medium green"              />
+		<rgb r="160" g= "69" b= "14" name="burnt umber"               />
+		<rgb r= "73" g="117" b="156" name="dull blue"                 />
+		<rgb r="177" g="145" b="110" name="pale brown"                />
+		<rgb r=  "2" g="143" b= "30" name="emerald green"             />
+		<rgb r="156" g="109" b= "87" name="brownish"                  />
+		<rgb r="115" g= "92" b= "18" name="mud"                       />
+		<rgb r="181" g= "72" b= "93" name="dark rose"                 />
+		<rgb r="158" g= "54" b= "35" name="brownish red"              />
+		<rgb r="219" g= "75" b="218" name="pink purple"               />
+		<rgb r="201" g= "76" b="190" name="pinky purple"              />
+		<rgb r= "82" g="101" b= "37" name="camo green"                />
+		<rgb r="123" g="178" b="116" name="faded green"               />
+		<rgb r="213" g="138" b="148" name="dusty pink"                />
+		<rgb r="224" g= "63" b="216" name="purple pink"               />
+		<rgb r="137" g="162" b=  "3" name="vomit green"               />
+		<rgb r=  "2" g= "89" b= "15" name="deep green"                />
+		<rgb r="248" g= "72" b= "28" name="reddish orange"            />
+		<rgb r= "74" g=  "1" b=  "0" name="mahogany"                  />
+		<rgb r= "61" g=  "7" b= "52" name="aubergine"                 />
+		<rgb r="213" g="134" b="157" name="dull pink"                 />
+		<rgb r=  "5" g= "71" b= "42" name="evergreen"                 />
+		<rgb r= "68" g="142" b="228" name="dark sky blue"             />
+		<rgb r="209" g="255" b="189" name="very light green"          />
+		<rgb r="255" g="186" b="205" name="pastel pink"               />
+		<rgb r="130" g="109" b="140" name="grey purple"               />
+		<rgb r="213" g="255" b="255" name="very light blue"           />
+		<rgb r="135" g= "76" b= "98" name="dark mauve"                />
+		<rgb r= "78" g="116" b="150" name="cadet blue"                />
+		<rgb r="215" g="255" b="254" name="ice blue"                  />
+		<rgb r="251" g="238" b="172" name="light tan"                 />
+		<rgb r="102" g="126" b= "44" name="dirty green"               />
+		<rgb r=  "4" g="217" b="255" name="neon blue"                 />
+		<rgb r="123" g=  "3" b= "35" name="wine red"                  />
+		<rgb r= "65" g= "25" b=  "0" name="chocolate brown"           />
+		<rgb r="132" g= "89" b="126" name="dull purple"               />
+		<rgb r="183" g="148" b=  "0" name="yellow brown"              />
+		<rgb r= "59" g= "99" b="140" name="denim"                     />
+		<rgb r="255" g="255" b="212" name="eggshell"                  />
+		<rgb r=  "4" g="130" b= "67" name="jungle green"              />
+		<rgb r="222" g="126" b= "93" name="dark peach"                />
+		<rgb r="127" g= "94" b=  "0" name="poop"                      />
+		<rgb r="178" g="100" b=  "0" name="umber"                     />
+		<rgb r="223" g="197" b="254" name="light lavender"            />
+		<rgb r="255" g="253" b=  "1" name="bright yellow"             />
+		<rgb r="254" g="198" b= "21" name="golden yellow"             />
+		<rgb r= "90" g="134" b="173" name="dusty blue"                />
+		<rgb r= "33" g="252" b= "13" name="electric green"            />
+		<rgb r="117" g="253" b= "99" name="lighter green"             />
+		<rgb r= "89" g="101" b="109" name="slate grey"                />
+		<rgb r= "37" g="163" b="111" name="teal green"                />
+		<rgb r=  "1" g= "56" b="106" name="marine blue"               />
+		<rgb r="144" g="177" b= "52" name="avocado"                   />
+		<rgb r="201" g="100" b= "59" name="terra cotta"               />
+		<rgb r="130" g= "95" b="135" name="dusty purple"              />
+		<rgb r="162" g= "72" b= "87" name="light maroon"              />
+		<rgb r="196" g= "66" b= "64" name="reddish"                   />
+		<rgb r="156" g="109" b="165" name="dark lilac"                />
+		<rgb r="102" g= "95" b="209" name="dark periwinkle"           />
+		<rgb r="116" g="139" b="151" name="bluish grey"               />
+		<rgb r="194" g="190" b= "14" name="puke yellow"               />
+		<rgb r="148" g= "86" b="140" name="purplish"                  />
+		<rgb r= "32" g=  "0" b="177" name="ultramarine"               />
+		<rgb r="160" g=  "4" b="152" name="barney purple"             />
+		<rgb r= "11" g= "85" b=  "9" name="forest"                    />
+		<rgb r="146" g="153" b=  "1" name="pea soup"                  />
+		<rgb r="201" g="176" b=  "3" name="brownish yellow"           />
+		<rgb r=  "1" g="249" b="198" name="bright teal"               />
+		<rgb r=  "1" g="122" b="121" name="bluegreen"                 />
+		<rgb r= "84" g= "78" b=  "3" name="green brown"               />
+		<rgb r= "85" g= "57" b="204" name="blurple"                   />
+		<rgb r="198" g="252" b="255" name="light sky blue"            />
+		<rgb r="143" g="153" b="251" name="periwinkle blue"           />
+		<rgb r="206" g="174" b="250" name="pale violet"               />
+		<rgb r=  "1" g= "15" b="204" name="true blue"                 />
+		<rgb r="119" g="146" b="111" name="green grey"                />
+		<rgb r="127" g="112" b= "83" name="grey brown"                />
+		<rgb r= "60" g= "77" b=  "3" name="dark olive green"          />
+		<rgb r="255" g="177" b="109" name="apricot"                   />
+		<rgb r="145" g="110" b="153" name="faded purple"              />
+		<rgb r="222" g= "12" b= "98" name="cerise"                    />
+		<rgb r="114" g="134" b= "57" name="khaki green"               />
+		<rgb r="159" g= "35" b=  "5" name="burnt red"                 />
+		<rgb r= "79" g="145" b= "83" name="light forest green"        />
+		<rgb r= "81" g= "10" b="201" name="violet blue"               />
+		<rgb r="238" g="207" b="254" name="pale lavender"             />
+		<rgb r="143" g="254" b=  "9" name="acid green"                />
+		<rgb r="134" g="111" b="133" name="purple grey"               />
+		<rgb r="253" g="255" b= "82" name="lemon"                     />
+		<rgb r="255" g= "91" b=  "0" name="bright orange"             />
+		<rgb r="111" g="194" b="118" name="soft green"                />
+		<rgb r="242" g="158" b="142" name="blush"                     />
+		<rgb r="155" g="122" b=  "1" name="yellowish brown"           />
+		<rgb r=  "8" g="255" b=  "8" name="fluorescent green"         />
+		<rgb r="170" g= "35" b="255" name="electric purple"           />
+		<rgb r="115" g="133" b="149" name="steel"                     />
+		<rgb r="216" g="134" b= "59" name="dull orange"               />
+		<rgb r="101" g="116" b= "50" name="muddy green"               />
+		<rgb r="252" g="192" b=  "6" name="marigold"                  />
+		<rgb r=  "1" g="123" b="146" name="ocean"                     />
+		<rgb r="194" g="146" b="161" name="light mauve"               />
+		<rgb r="123" g=  "0" b= "44" name="bordeaux"                  />
+		<rgb r="126" g="251" b="179" name="light blue green"          />
+		<rgb r="250" g="238" b="102" name="yellowish"                 />
+		<rgb r="157" g="193" b=  "0" name="snot green"                />
+		<rgb r="185" g="255" b="102" name="light lime green"          />
+		<rgb r="116" g="149" b= "81" name="drab green"                />
+		<rgb r="101" g="140" b="187" name="faded blue"                />
+		<rgb r=  "0" g= "45" b=  "4" name="dark forest green"         />
+		<rgb r="203" g=  "0" b="245" name="hot purple"                />
+		<rgb r= "60" g=  "0" b=  "8" name="dark maroon"               />
+		<rgb r="112" g="108" b= "17" name="brown green"               />
+		<rgb r="116" g="133" b=  "0" name="swamp green"               />
+		<rgb r="109" g= "90" b="207" name="light indigo"              />
+		<rgb r= "95" g= "52" b="231" name="purpley blue"              />
+		<rgb r= "61" g="122" b="253" name="lightish blue"             />
+		<rgb r=  "1" g="136" b="159" name="teal blue"                 />
+		<rgb r= "59" g= "91" b="146" name="denim blue"                />
+		<rgb r="126" g="189" b=  "1" name="dark lime green"           />
+		<rgb r="238" g="220" b= "91" name="dull yellow"               />
+		<rgb r="192" g="250" b="139" name="pistachio"                 />
+		<rgb r="253" g="255" b= "56" name="lemon yellow"              />
+		<rgb r="158" g=  "1" b="104" name="red violet"                />
+		<rgb r="204" g="122" b="139" name="dusky pink"                />
+		<rgb r="138" g="110" b= "69" name="dirt"                      />
+		<rgb r=  "6" g= "46" b=  "3" name="very dark green"           />
+		<rgb r="158" g= "67" b="162" name="medium purple"             />
+		<rgb r="127" g= "95" b=  "0" name="shit"                      />
+		<rgb r="168" g="137" b=  "5" name="dark mustard"              />
+		<rgb r="148" g="166" b= "23" name="pea soup green"            />
+		<rgb r="254" g="131" b="204" name="bubblegum pink"            />
+		<rgb r="254" g= "70" b="165" name="barbie pink"               />
+		<rgb r="102" g="124" b= "62" name="military green"            />
+		<rgb r="130" g="203" b="178" name="pale teal"                 />
+		<rgb r="168" g="121" b=  "0" name="bronze"                    />
+		<rgb r="252" g= "38" b= "71" name="pinky red"                 />
+		<rgb r="187" g= "63" b= "63" name="dull red"                  />
+		<rgb r=  "1" g= "65" b="130" name="darkish blue"              />
+		<rgb r= "41" g="118" b="187" name="bluish"                    />
+		<rgb r="181" g="148" b= "16" name="dark gold"                 />
+		<rgb r="191" g="241" b= "40" name="yellowy green"             />
+		<rgb r= "43" g= "93" b= "52" name="pine"                      />
+		<rgb r=  "0" g= "82" b= "73" name="dark blue green"           />
+		<rgb r="202" g="123" b="128" name="dirty pink"                />
+		<rgb r="101" g="141" b="109" name="slate green"               />
+		<rgb r=  "0" g= "69" b="119" name="prussian blue"             />
+		<rgb r="173" g= "10" b="253" name="bright violet"             />
+		<rgb r="165" g= "90" b="244" name="lighter purple"            />
+		<rgb r="111" g="130" b="138" name="steel grey"                />
+		<rgb r="161" g= "57" b=  "5" name="russet"                    />
+		<rgb r="244" g= "50" b= "12" name="vermillion"                />
+		<rgb r="122" g="106" b= "79" name="greyish brown"             />
+		<rgb r="130" g=  "7" b= "71" name="red purple"                />
+		<rgb r="250" g= "42" b= "85" name="red pink"                  />
+		<rgb r= "15" g="254" b="249" name="bright turquoise"          />
+		<rgb r="178" g="122" b=  "1" name="golden brown"              />
+		<rgb r=  "5" g="110" b="238" name="cerulean blue"             />
+		<rgb r="100" g="136" b="234" name="soft blue"                 />
+		<rgb r="140" g="253" b="126" name="easter green"              />
+		<rgb r="254" g="179" b=  "8" name="amber"                     />
+		<rgb r= "39" g="106" b="179" name="mid blue"                  />
+		<rgb r="123" g= "88" b=  "4" name="shit brown"                />
+		<rgb r="155" g="229" b="170" name="hospital green"            />
+		<rgb r= "97" g= "64" b="239" name="purpleish blue"            />
+		<rgb r="102" g= "26" b="238" name="purply blue"               />
+		<rgb r="197" g="201" b="199" name="silver"                    />
+		<rgb r="148" g="178" b= "28" name="sickly green"              />
+		<rgb r="255" g="120" b= "85" name="melon"                     />
+		<rgb r="186" g="104" b="115" name="dusky rose"                />
+		<rgb r="185" g="105" b=  "2" name="brown orange"              />
+		<rgb r= "40" g="124" b= "55" name="darkish green"             />
+		<rgb r="158" g=  "0" b= "58" name="cranberry"                 />
+		<rgb r="152" g= "86" b="141" name="purpleish"                 />
+		<rgb r="254" g="255" b="202" name="ecru"                      />
+		<rgb r="157" g="118" b= "81" name="mocha"                     />
+		<rgb r="255" g=  "8" b="232" name="bright magenta"            />
+		<rgb r="166" g="129" b= "76" name="coffee"                    />
+		<rgb r="152" g= "94" b= "43" name="sepia"                     />
+		<rgb r="211" g= "73" b= "78" name="faded red"                 />
+		<rgb r="255" g="254" b= "64" name="canary yellow"             />
+		<rgb r= "98" g= "65" b="199" name="bluey purple"              />
+		<rgb r="255" g="254" b="113" name="pastel yellow"             />
+		<rgb r="165" g="251" b="213" name="pale turquoise"            />
+		<rgb r="200" g="141" b="148" name="greyish pink"              />
+		<rgb r=  "4" g= "46" b= "96" name="marine"                    />
+		<rgb r="122" g="104" b="127" name="purplish grey"             />
+		<rgb r="198" g="159" b= "89" name="camel"                     />
+		<rgb r="134" g="119" b= "95" name="brownish grey"             />
+		<rgb r="213" g="171" b=  "9" name="burnt yellow"              />
+		<rgb r="247" g=  "2" b= "42" name="cherry red"                />
+		<rgb r="177" g= "96" b=  "2" name="orangey brown"             />
+		<rgb r="253" g="176" b="192" name="soft pink"                 />
+		<rgb r= "17" g="135" b= "93" name="dark sea green"            />
+		<rgb r= "46" g="232" b="187" name="aqua marine"               />
+		<rgb r="138" g="241" b="254" name="robin egg blue"            />
+		<rgb r="152" g="246" b="176" name="light sea green"           />
+		<rgb r= "96" g= "70" b= "15" name="mud brown"                 />
+		<rgb r="201" g="174" b="116" name="sandstone"                 />
+		<rgb r=  "5" g= "72" b= "13" name="british racing green"      />
+		<rgb r="222" g="157" b="172" name="faded pink"                />
+		<rgb r="244" g="208" b= "84" name="maize"                     />
+		<rgb r="198" g="156" b=  "4" name="ocre"                      />
+		<rgb r="255" g="173" b=  "1" name="orange yellow"             />
+		<rgb r="155" g="143" b= "85" name="dark khaki"                />
+		<rgb r="174" g="253" b="108" name="light lime"                />
+		<rgb r= "38" g="247" b="253" name="bright light blue"         />
+		<rgb r= "43" g="175" b="106" name="jade green"                />
+		<rgb r="172" g= "29" b="184" name="barney"                    />
+		<rgb r="189" g="108" b= "72" name="adobe"                     />
+		<rgb r= "11" g="247" b="125" name="minty green"               />
+		<rgb r= "46" g= "90" b="136" name="light navy blue"           />
+		<rgb r="118" g="169" b="115" name="dusty green"               />
+		<rgb r=  "0" g=  "1" b= "51" name="very dark blue"            />
+		<rgb r= "61" g="153" b="115" name="ocean green"               />
+		<rgb r="168" g="181" b=  "4" name="mustard green"             />
+		<rgb r="122" g= "89" b=  "1" name="poop brown"                />
+		<rgb r="100" g= "84" b=  "3" name="olive brown"               />
+		<rgb r="245" g=  "5" b= "79" name="pink red"                  />
+		<rgb r= "21" g= "80" b="132" name="light navy"                />
+		<rgb r="246" g="206" b="252" name="very light purple"         />
+		<rgb r="255" g="255" b="203" name="ivory"                     />
+		<rgb r="199" g= "96" b="255" name="bright lavender"           />
+		<rgb r= "11" g="249" b="234" name="bright aqua"               />
+		<rgb r="109" g="237" b="253" name="robin's egg"               />
+		<rgb r= "95" g="160" b= "82" name="muted green"               />
+		<rgb r="127" g= "81" b= "18" name="medium brown"              />
+		<rgb r="182" g= "99" b= "37" name="copper"                    />
+		<rgb r="132" g="183" b=  "1" name="dark lime"                 />
+		<rgb r="251" g= "41" b= "67" name="strawberry"                />
+		<rgb r="131" g="101" b= "57" name="dirt brown"                />
+		<rgb r="193" g="253" b="149" name="celery"                    />
+		<rgb r=  "2" g="204" b="254" name="bright sky blue"           />
+		<rgb r="136" g= "95" b=  "1" name="poo brown"                 />
+		<rgb r="177" g="114" b= "97" name="pinkish brown"             />
+		<rgb r="190" g="253" b="183" name="celadon"                   />
+		<rgb r="101" g="254" b=  "8" name="bright lime green"         />
+		<rgb r="154" g= "48" b=  "1" name="auburn"                    />
+		<rgb r="254" g=  "2" b="162" name="shocking pink"             />
+		<rgb r="146" g= "10" b= "78" name="mulberry"                  />
+		<rgb r="138" g="184" b="254" name="carolina blue"             />
+		<rgb r= "97" g="225" b= "96" name="lightish green"            />
+		<rgb r="237" g="200" b="255" name="light lilac"               />
+		<rgb r="185" g="204" b="129" name="pale olive"                />
+		<rgb r="251" g="125" b=  "7" name="pumpkin orange"            />
+		<rgb r="203" g="157" b=  "6" name="yellow ochre"              />
+		<rgb r="254" g=  "0" b=  "2" name="fire engine red"           />
+		<rgb r= "13" g="117" b="248" name="deep sky blue"             />
+		<rgb r="253" g= "70" b= "89" name="watermelon"                />
+		<rgb r=  "4" g= "74" b=  "5" name="bottle green"              />
+		<rgb r= "42" g=  "1" b= "52" name="very dark purple"          />
+		<rgb r="251" g="221" b="126" name="wheat"                     />
+		<rgb r="108" g="122" b= "14" name="murky green"               />
+		<rgb r="118" g= "66" b= "78" name="brownish purple"           />
+		<rgb r= "92" g="178" b=  "0" name="kermit green"              />
+		<rgb r=  "8" g=  "4" b="249" name="primary blue"              />
+		<rgb r="250" g= "66" b= "36" name="orangey red"               />
+		<rgb r="228" g="203" b="255" name="pale lilac"                />
+		<rgb r="170" g= "39" b=  "4" name="rust red"                  />
+		<rgb r="200" g="118" b=  "6" name="dirty orange"              />
+		<rgb r="200" g="172" b="169" name="pinkish grey"              />
+		<rgb r="157" g= "87" b="131" name="light plum"                />
+		<rgb r= "66" g="179" b="149" name="greeny blue"               />
+		<rgb r=  "0" g=  "4" b= "53" name="dark navy"                 />
+		<rgb r="239" g= "29" b="231" name="pink/purple"               />
+		<rgb r=  "1" g="149" b= "41" name="irish green"               />
+		<rgb r="147" g="124" b=  "0" name="baby poop"                 />
+		<rgb r="153" g="204" b=  "4" name="slime green"               />
+		<rgb r="176" g=  "5" b= "75" name="purplish red"              />
+		<rgb r="171" g= "18" b= "57" name="rouge"                     />
+		<rgb r="255" g="197" b="203" name="light rose"                />
+		<rgb r="130" g="131" b= "68" name="drab"                      />
+		<rgb r=  "0" g=  "2" b= "46" name="dark navy blue"            />
+		<rgb r="204" g="253" b="127" name="light yellow green"        />
+		<rgb r="192" g="113" b="254" name="easter purple"             />
+		<rgb r="172" g="187" b= "13" name="snot"                      />
+		<rgb r="254" g="169" b="147" name="light salmon"              />
+		<rgb r="200" g= "60" b="185" name="purpley pink"              />
+		<rgb r="143" g="115" b=  "3" name="poo"                       />
+		<rgb r="153" g= "15" b= "75" name="berry"                     />
+		<rgb r="125" g="127" b="124" name="medium grey"               />
+		<rgb r="146" g= "43" b=  "5" name="brown red"                 />
+		<rgb r="119" g=  "0" b=  "1" name="blood"                     />
+		<rgb r="166" g="111" b="181" name="soft purple"               />
+		<rgb r="195" g="144" b="155" name="grey pink"                 />
+		<rgb r= "43" g="177" b="121" name="bluey green"               />
+		<rgb r=  "3" g=  "1" b= "45" name="midnight"                  />
+		<rgb r= "31" g=  "9" b= "84" name="dark indigo"               />
+		<rgb r="151" g="138" b="132" name="warm grey"                 />
+		<rgb r="196" g="166" b= "97" name="sandy brown"               />
+		<rgb r="207" g=  "2" b= "52" name="cherry"                    />
+		<rgb r= "90" g=  "6" b="239" name="blue/purple"               />
+		<rgb r= "83" g= "98" b="103" name="gunmetal"                  />
+		<rgb r= "73" g=  "6" b= "72" name="deep violet"               />
+		<rgb r= "42" g="126" b= "25" name="tree green"                />
+		<rgb r="178" g= "95" b=  "3" name="orangish brown"            />
+		<rgb r=  "2" g="193" b= "77" name="shamrock green"            />
+		<rgb r="244" g= "54" b=  "5" name="orangish red"              />
+		<rgb r="198" g="248" b=  "8" name="greeny yellow"             />
+		<rgb r="208" g="193" b=  "1" name="ugly yellow"               />
+		<rgb r= "67" g="107" b="173" name="french blue"               />
+		<rgb r="137" g= "91" b="123" name="dusky purple"              />
+		<rgb r="255" g="253" b="116" name="butter yellow"             />
+		<rgb r="255" g="254" b="182" name="light beige"               />
+		<rgb r="245" g="191" b=  "3" name="golden"                    />
+		<rgb r= "71" g= "95" b="148" name="dusky blue"                />
+		<rgb r="123" g="200" b="246" name="lightblue"                 />
+		<rgb r="240" g="117" b="230" name="purply pink"               />
+		<rgb r="107" g="163" b= "83" name="off green"                 />
+		<rgb r="191" g="155" b= "12" name="ocher"                     />
+		<rgb r="127" g= "78" b= "30" name="milk chocolate"            />
+		<rgb r="255" g="216" b="177" name="light peach"               />
+		<rgb r="160" g=  "2" b= "92" name="deep magenta"              />
+		<rgb r="175" g="111" b=  "9" name="caramel"                   />
+		<rgb r= "50" g="191" b="132" name="greenish teal"             />
+		<rgb r="190" g="253" b="115" name="pale lime"                 />
+		<rgb r="153" g=  "1" b= "71" name="purple red"                />
+		<rgb r= "70" g= "65" b="150" name="blueberry"                 />
+		<rgb r="119" g="171" b= "86" name="asparagus"                 />
+		<rgb r="253" g="253" b="254" name="pale grey"                 />
+		<rgb r="157" g="188" b="212" name="light grey blue"           />
+		<rgb r="177" g="255" b="101" name="pale lime green"           />
+		<rgb r= "65" g="156" b=  "3" name="grassy green"              />
+		<rgb r= "99" g="139" b= "39" name="mossy green"               />
+		<rgb r="162" g="101" b= "62" name="earth"                     />
+		<rgb r="220" g= "77" b=  "1" name="deep orange"               />
+		<rgb r="184" g="255" b="235" name="pale aqua"                 />
+		<rgb r="190" g=  "1" b= "60" name="rose red"                  />
+		<rgb r="173" g="165" b="135" name="stone"                     />
+		<rgb r="205" g= "89" b=  "9" name="rusty orange"              />
+		<rgb r="164" g="191" b= "32" name="pea"                       />
+		<rgb r="157" g="185" b= "44" name="sick green"                />
+		<rgb r="116" g= "40" b=  "2" name="chestnut"                  />
+		<rgb r= "15" g="155" b="142" name="blue/green"                />
+		<rgb r="155" g= "95" b="192" name="amethyst"                  />
+		<rgb r= "32" g="192" b="115" name="dark mint green"           />
+		<rgb r="253" g="193" b="197" name="pale rose"                 />
+		<rgb r= "59" g="113" b="159" name="muted blue"                />
+		<rgb r="207" g="175" b="123" name="fawn"                      />
+		<rgb r="254" g="246" b="158" name="buff"                      />
+		<rgb r=  "4" g="244" b="137" name="turquoise green"           />
+		<rgb r="136" g="104" b=  "6" name="muddy brown"               />
+		<rgb r= "60" g="153" b="146" name="sea"                       />
+		<rgb r="239" g= "64" b= "38" name="tomato"                    />
+		<rgb r="255" g="127" b="167" name="carnation pink"            />
+		<rgb r="255" g="255" b="126" name="banana"                    />
+		<rgb r="207" g="255" b=  "4" name="neon yellow"               />
+		<rgb r="168" g="164" b="149" name="greyish"                   />
+		<rgb r= "80" g="167" b= "71" name="mid green"                 />
+		<rgb r="128" g= "91" b="135" name="muted purple"              />
+		<rgb r="255" g=  "4" b="144" name="electric pink"             />
+		<rgb r="241" g="218" b="122" name="sandy"                     />
+		<rgb r="205" g="117" b="132" name="ugly pink"                 />
+		<rgb r=  "6" g="177" b="196" name="turquoise blue"            />
+		<rgb r="168" g= "65" b= "91" name="light burgundy"            />
+		<rgb r="188" g="203" b="122" name="greenish tan"              />
+		<rgb r= "72" g="192" b="114" name="dark mint"                 />
+		<rgb r="179" g="111" b="246" name="light urple"               />
+		<rgb r= "40" g=  "1" b= "55" name="midnight purple"           />
+		<rgb r="255" g="114" b= "76" name="pinkish orange"            />
+		<rgb r="203" g="248" b= "95" name="pear"                      />
+		<rgb r= "63" g=  "1" b= "44" name="dark plum"                 />
+		<rgb r= "36" g="188" b="168" name="tealish"                   />
+		<rgb r="143" g="140" b="231" name="perrywinkle"               />
+		<rgb r="255" g="171" b= "15" name="yellowish orange"          />
+		<rgb r="255" g="150" b= "79" name="pastel orange"             />
+		<rgb r= "98" g= "88" b="196" name="iris"                      />
+		<rgb r= "24" g=  "5" b="219" name="ultramarine blue"          />
+		<rgb r= "53" g= "83" b= "10" name="navy green"                />
+		<rgb r= "24" g="209" b="123" name="seaweed"                   />
+		<rgb r="156" g="239" b= "67" name="kiwi"                      />
+		<rgb r= "10" g="255" b=  "2" name="fluro green"               />
+		<rgb r= "45" g="254" b= "84" name="bright light green"        />
+		<rgb r= "47" g="239" b= "16" name="vivid green"               />
+		<rgb r= "88" g="188" b=  "8" name="frog green"                />
+		<rgb r="135" g="110" b= "75" name="dull brown"                />
+		<rgb r= "78" g= "84" b="129" name="dusk"                      />
+		<rgb r="172" g="126" b=  "4" name="mustard brown"             />
+		<rgb r= "81" g="183" b= "59" name="leafy green"               />
+		<rgb r= "73" g="132" b="184" name="cool blue"                 />
+		<rgb r=  "7" g= "13" b= "13" name="almost black"              />
+		<rgb r="200" g="253" b= "61" name="yellow/green"              />
+		<rgb r="217" g= "79" b="245" name="heliotrope"                />
+		<rgb r= "94" g="220" b= "31" name="green apple"               />
+		<rgb r="143" g="152" b=  "5" name="baby poop green"           />
+		<rgb r="110" g="203" b= "60" name="apple"                     />
+		<rgb r="223" g= "78" b="200" name="purpleish pink"            />
+		<rgb r=  "4" g=  "3" b= "72" name="night blue"                />
+		<rgb r="115" g=  "0" b= "57" name="merlot"                    />
+		<rgb r="118" g="255" b="123" name="lightgreen"                />
+		<rgb r="236" g= "45" b=  "1" name="tomato red"                />
+		<rgb r="174" g="255" b="110" name="key lime"                  />
+		<rgb r="183" g="255" b="250" name="pale cyan"                 />
+		<rgb r="199" g="193" b= "12" name="vomit yellow"              />
+		<rgb r="107" g= "66" b= "71" name="purplish brown"            />
+		<rgb r="255" g="108" b="181" name="bubblegum"                 />
+		<rgb r=  "1" g="180" b= "76" name="shamrock"                  />
+		<rgb r="255" g="166" b= "43" name="mango"                     />
+		<rgb r="208" g="254" b= "29" name="lime yellow"               />
+		<rgb r= "37" g="255" b= "41" name="hot green"                 />
+		<rgb r= "93" g= "20" b= "81" name="grape purple"              />
+		<rgb r="240" g="148" b= "77" name="faded orange"              />
+		<rgb r="135" g="169" b= "34" name="avocado green"             />
+		<rgb r=  "1" g="103" b="149" name="peacock blue"              />
+		<rgb r= "58" g="229" b="127" name="weird green"               />
+		<rgb r="201" g= "94" b="251" name="bright lilac"              />
+		<rgb r= "84" g="141" b= "68" name="fern green"                />
+		<rgb r= "63" g="130" b="157" name="dirty blue"                />
+		<rgb r="196" g= "85" b=  "8" name="rust orange"               />
+		<rgb r="164" g="132" b="172" name="heather"                   />
+		<rgb r=  "0" g= "85" b= "90" name="deep teal"                 />
+		<rgb r= "31" g="181" b="122" name="dark seafoam"              />
+		<rgb r="171" g="144" b=  "4" name="baby poo"                  />
+		<rgb r="187" g="249" b= "15" name="yellowgreen"               />
+		<rgb r="188" g="236" b="172" name="light sage"                />
+		<rgb r="123" g="253" b="199" name="light aquamarine"          />
+		<rgb r= "30" g="248" b="118" name="spearmint"                 />
+		<rgb r="135" g="253" b=  "5" name="bright lime"               />
+		<rgb r= "10" g="221" b=  "8" name="vibrant green"             />
+		<rgb r="207" g="253" b="188" name="very pale green"           />
+		<rgb r="254" g="255" b="127" name="faded yellow"              />
+		<rgb r="181" g="195" b=  "6" name="bile"                      />
+		<rgb r= "30" g="145" b="103" name="viridian"                  />
+		<rgb r="255" g="244" b="242" name="very light pink"           />
+		<rgb r="148" g="119" b=  "6" name="puke brown"                />
+		<rgb r="243" g= "97" b="150" name="medium pink"               />
+		<rgb r="164" g= "66" b="160" name="ugly purple"               />
+		<rgb r="255" g="253" b= "55" name="sunshine yellow"           />
+		<rgb r= "53" g="173" b="107" name="seaweed green"             />
+		<rgb r="193" g="198" b="252" name="light periwinkle"          />
+		<rgb r="173" g="248" b=  "2" name="lemon green"               />
+		<rgb r="105" g= "96" b=  "6" name="greeny brown"              />
+		<rgb r= "41" g= "70" b= "91" name="dark grey blue"            />
+		<rgb r="156" g="187" b=  "4" name="bright olive"              />
+		<rgb r="117" g="184" b= "79" name="turtle green"              />
+		<rgb r="189" g="246" b="254" name="pale sky blue"             />
+		<rgb r="247" g="213" b= "96" name="light mustard"             />
+		<rgb r="159" g="131" b=  "3" name="diarrhea"                  />
+		<rgb r=  "1" g="115" b="113" name="dark aquamarine"           />
+		<rgb r="194" g="126" b="121" name="brownish pink"             />
+		<rgb r="136" g="151" b= "23" name="baby shit green"           />
+		<rgb r="135" g= "86" b="228" name="purpley"                   />
+		<rgb r="119" g="161" b="181" name="greyblue"                  />
+		<rgb r="245" g=  "4" b="201" name="hot magenta"               />
+		<rgb r="117" g="141" b="163" name="blue/grey"                 />
+		<rgb r="255" g="249" b="208" name="pale"                      />
+		<rgb r= "51" g="184" b="100" name="cool green"                />
+		<rgb r="253" g="238" b="115" name="sandy yellow"              />
+		<rgb r="196" g="255" b="247" name="eggshell blue"             />
+		<rgb r="148" g="172" b=  "2" name="barf green"                />
+		<rgb r="140" g="255" b="158" name="baby green"                />
+		<rgb r="173" g=  "3" b="222" name="vibrant purple"            />
+		<rgb r="141" g="132" b="104" name="brown grey"                />
+		<rgb r= "14" g="135" b="204" name="water blue"                />
+		<rgb r="192" g=  "2" b= "47" name="lipstick red"              />
+		<rgb r="250" g="254" b= "75" name="banana yellow"             />
+		<rgb r="168" g="125" b="194" name="wisteria"                  />
+		<rgb r="103" g= "58" b= "63" name="purple brown"              />
+		<rgb r="178" g="151" b=  "5" name="brown yellow"              />
+		<rgb r="215" g= "37" b="222" name="purple/pink"               />
+		<rgb r="191" g="254" b= "40" name="lemon lime"                />
+		<rgb r="100" g="125" b="142" name="grey/blue"                 />
+		<rgb r="185" g= "72" b= "78" name="dusty red"                 />
+		<rgb r="199" g= "71" b="103" name="deep rose"                 />
+		<rgb r= "62" g="175" b="118" name="dark seafoam green"        />
+		<rgb r="191" g="172" b=  "5" name="muddy yellow"              />
+		<rgb r="253" g="121" b="143" name="carnation"                 />
+		<rgb r="174" g="139" b= "12" name="yellowy brown"             />
+		<rgb r="165" g=  "0" b= "85" name="violet red"                />
+		<rgb r= "10" g= "67" b="122" name="twilight blue"             />
+		<rgb r=  "2" g=  "3" b="226" name="pure blue"                 />
+		<rgb r="254" g= "47" b= "74" name="lightish red"              />
+		<rgb r="193" g= "74" b=  "9" name="brick orange"              />
+		<rgb r="117" g=  "8" b= "81" name="velvet"                    />
+		<rgb r="255" g="197" b= "18" name="sunflower"                 />
+		<rgb r="166" g="251" b="178" name="light mint green"          />
+		<rgb r="154" g="247" b="100" name="light grass green"         />
+		<rgb r="139" g="136" b="248" name="lavender blue"             />
+		<rgb r="175" g= "47" b= "13" name="rusty red"                 />
+		<rgb r="165" g= "82" b="230" name="lightish purple"           />
+		<rgb r= "75" g=  "1" b=  "1" name="dried blood"               />
+		<rgb r="183" g="201" b="226" name="light blue grey"           />
+		<rgb r="113" g="170" b= "52" name="leaf"                      />
+		<rgb r="252" g="130" b= "74" name="orangish"                  />
+		<rgb r="177" g="210" b="123" name="pale olive green"          />
+		<rgb r="241" g="243" b= "63" name="off yellow"                />
+		<rgb r="240" g="131" b= "58" name="dusty orange"              />
+		<rgb r="255" g="255" b="129" name="butter"                    />
+		<rgb r= "12" g= "23" b="147" name="royal"                     />
+		<rgb r=  "0" g= "95" b="106" name="petrol"                    />
+		<rgb r= "42" g="254" b="183" name="greenish cyan"             />
+		<rgb r="195" g="251" b="244" name="duck egg blue"             />
+		<rgb r="255" g="105" b="175" name="bubble gum pink"           />
+		<rgb r="133" g="163" b="178" name="bluegrey"                  />
+		<rgb r="150" g= "78" b=  "2" name="warm brown"                />
+		<rgb r= "78" g= "81" b="139" name="twilight"                  />
+		<rgb r="254" g="178" b=  "9" name="saffron"                   />
+		<rgb r= "93" g= "33" b="208" name="purple/blue"               />
+		<rgb r="168" g="143" b= "89" name="dark sand"                 />
+		<rgb r=  "3" g= "57" b="248" name="vibrant blue"              />
+		<rgb r="190" g="174" b="138" name="putty"                     />
+		<rgb r= "77" g="164" b=  "9" name="lawn green"                />
+		<rgb r= "75" g= "97" b= "19" name="camouflage green"          />
+		<rgb r="254" g="130" b="140" name="blush pink"                />
+		<rgb r="110" g= "16" b=  "5" name="reddy brown"               />
+		<rgb r="169" g=  "3" b=  "8" name="darkish red"               />
+		<rgb r= "33" g="195" b="111" name="algae green"               />
+		<rgb r="207" g= "82" b= "78" name="dark coral"                />
+		<rgb r= "65" g="253" b="254" name="bright cyan"               />
+		<rgb r="221" g="214" b= "24" name="piss yellow"               />
+		<rgb r="219" g= "88" b= "86" name="pastel red"                />
+		<rgb r=  "0" g="251" b="176" name="greenish turquoise"        />
+		<rgb r= "27" g= "36" b= "49" name="dark"                      />
+		<rgb r="202" g=  "1" b= "71" name="ruby"                      />
+		<rgb r="111" g="124" b=  "0" name="poop green"                />
+		<rgb r="254" g= "66" b= "15" name="orangered"                 />
+		<rgb r="254" g="223" b=  "8" name="dandelion"                 />
+		<rgb r="104" g=  "0" b= "24" name="claret"                    />
+		<rgb r="254" g="208" b="252" name="pale mauve"                />
+		<rgb r="213" g= "23" b= "78" name="lipstick"                  />
+		<rgb r="254" g="134" b="164" name="rosa"                      />
+		<rgb r=  "3" g=  "7" b="100" name="darkblue"                  />
+		<rgb r="171" g="126" b= "76" name="tan brown"                 />
+		<rgb r="117" g="128" b=  "0" name="shit green"                />
+		<rgb r="140" g=  "0" b= "52" name="red wine"                  />
+		<rgb r="252" g="134" b="170" name="pinky"                     />
+		<rgb r= "96" g="102" b=  "2" name="mud green"                 />
+		<rgb r= "99" g="247" b="180" name="light greenish blue"       />
+		<rgb r= "95" g="158" b="143" name="dull teal"                 />
+		<rgb r="141" g= "94" b="183" name="deep lavender"             />
+		<rgb r= "21" g= "46" b="255" name="vivid blue"                />
+		<rgb r="167" g= "94" b=  "9" name="raw umber"                 />
+		<rgb r="182" g="255" b="187" name="light mint"                />
+		<rgb r="202" g="255" b="251" name="light light blue"          />
+		<rgb r= "27" g="252" b=  "6" name="highlighter green"         />
+		<rgb r="126" g="160" b="122" name="greeny grey"               />
+		<rgb r="137" g="160" b="176" name="bluey grey"                />
+		<rgb r= "84" g="172" b="104" name="algae"                     />
+		<rgb r= "92" g="139" b= "21" name="sap green"                 />
+		<rgb r="255" g="177" b="154" name="pale salmon"               />
+		<rgb r= "79" g="115" b="142" name="metallic blue"             />
+		<rgb r="214" g="255" b="250" name="ice"                       />
+		<rgb r="160" g="191" b= "22" name="gross green"               />
+		<rgb r= "62" g="130" b="252" name="dodger blue"               />
+		<rgb r="251" g= "85" b="129" name="warm pink"                 />
+		<rgb r= "86" g="252" b="162" name="light green blue"          />
+		<rgb r="105" g="157" b= "76" name="flat green"                />
+		<rgb r= "31" g= "59" b= "77" name="dark blue grey"            />
+		<rgb r="178" g="113" b= "61" name="clay brown"                />
+		<rgb r="252" g="225" b="102" name="sand yellow"               />
+		<rgb r="253" g= "89" b= "86" name="grapefruit"                />
+		<rgb r="254" g= "75" b=  "3" name="blood orange"              />
+		<rgb r="214" g="255" b="254" name="very pale blue"            />
+		<rgb r="199" g="121" b="134" name="old pink"                  />
+		<rgb r="255" g=  "7" b= "58" name="neon red"                  />
+		<rgb r="249" g="188" b=  "8" name="golden rod"                />
+		<rgb r= "78" g=  "5" b= "80" name="plum purple"               />
+		<rgb r="255" g="229" b="173" name="pale peach"                />
+		<rgb r="114" g="143" b=  "2" name="dark yellow green"         />
+		<rgb r="157" g=  "2" b= "22" name="carmine"                   />
+		<rgb r=  "1" g= "84" b="130" name="deep sea blue"             />
+		<rgb r="217" g=  "1" b="102" name="dark hot pink"             />
+		<rgb r= "75" g= "87" b="219" name="warm blue"                 />
+		<rgb r="230" g="242" b="162" name="light khaki"               />
+		<rgb r="143" g="174" b= "34" name="icky green"                />
+		<rgb r= "35" g="196" b="139" name="greenblue"                 />
+		<rgb r="115" g= "74" b="101" name="dirty purple"              />
+		<rgb r=  "2" g= "27" b="249" name="rich blue"                 />
+		<rgb r="186" g="158" b="136" name="mushroom"                  />
+		<rgb r= "60" g="115" b="168" name="flat blue"                 />
+		<rgb r= "33" g= "71" b= "97" name="dark slate blue"           />
+		<rgb r= "89" g="133" b= "86" name="dark sage"                 />
+		<rgb r="255" g= "97" b= "99" name="coral pink"                />
+		<rgb r=  "8" g="148" b=  "4" name="true green"                />
+		<rgb r="117" g= "25" b="115" name="darkish purple"            />
+		<rgb r="127" g="104" b= "78" name="dark taupe"                />
+		<rgb r="149" g="163" b="166" name="cool grey"                 />
+		<rgb r="253" g="255" b= "99" name="canary"                    />
+		<rgb r="150" g="180" b=  "3" name="booger green"              />
+		<rgb r="209" g="118" b="143" name="muted pink"                />
+		<rgb r="142" g="118" b= "24" name="hazel"                     />
+		<rgb r=  "2" g=  "6" b="111" name="dark royal blue"           />
+		<rgb r="153" g=  "0" b="250" name="vivid purple"              />
+		<rgb r=  "1" g= "70" b=  "0" name="racing green"              />
+		<rgb r="172" g="116" b= "52" name="leather"                   />
+		<rgb r=  "1" g="192" b="141" name="green/blue"                />
+		<rgb r="255" g="218" b=  "3" name="sunflower yellow"          />
+		<rgb r="114" g=  "0" b= "88" name="rich purple"               />
+		<rgb r="215" g="103" b="173" name="pale magenta"              />
+		<rgb r="194" g="255" b="137" name="light yellowish green"     />
+		<rgb r= "58" g= "24" b="177" name="indigo blue"               />
+		<rgb r="157" g=  "7" b= "89" name="dark fuchsia"              />
+		<rgb r="255" g="227" b="110" name="yellow tan"                />
+		<rgb r= "32" g="249" b="134" name="wintergreen"               />
+		<rgb r="251" g= "95" b="252" name="violet pink"               />
+		<rgb r= "19" g="187" b="175" name="topaz"                     />
+		<rgb r="120" g="209" b="182" name="seafoam blue"              />
+		<rgb r="253" g="220" b= "92" name="light gold"                />
+		<rgb r="134" g="161" b="125" name="grey/green"                />
+		<rgb r="144" g="253" b="169" name="foam green"                />
+		<rgb r="255" g="255" b="182" name="creme"                     />
+		<rgb r= "36" g="122" b="253" name="clear blue"                />
+		<rgb r= "49" g="102" b="138" name="ugly blue"                 />
+		<rgb r="203" g="104" b= "67" name="terracota"                 />
+		<rgb r= "29" g=  "2" b=  "0" name="very dark brown"           />
+		<rgb r="252" g="246" b="121" name="straw"                     />
+		<rgb r="254" g="252" b="175" name="parchment"                 />
+		<rgb r="253" g="185" b= "21" name="orangey yellow"            />
+		<rgb r="113" g="159" b="145" name="greyish teal"              />
+		<rgb r= "33" g= "56" b="171" name="sapphire"                  />
+		<rgb r= "16" g="122" b="176" name="nice blue"                 />
+		<rgb r="202" g="107" b=  "2" name="browny orange"             />
+		<rgb r="188" g="245" b="166" name="washed out green"          />
+		<rgb r="123" g="242" b="218" name="tiffany blue"              />
+		<rgb r="160" g="254" b="191" name="light seafoam"             />
+		<rgb r= "78" g="253" b= "84" name="light neon green"          />
+		<rgb r= "83" g="254" b= "92" name="light bright green"        />
+		<rgb r="118" g="253" b="168" name="light bluish green"        />
+		<rgb r="246" g="104" b="142" name="rosy pink"                 />
+		<rgb r="255" g="154" b="138" name="peachy pink"               />
+		<rgb r="177" g="252" b="153" name="pale light green"          />
+		<rgb r="200" g="127" b="137" name="old rose"                  />
+		<rgb r= "99" g="169" b= "80" name="fern"                      />
+		<rgb r= "38" g= "83" b="141" name="dusk blue"                 />
+		<rgb r="127" g="143" b= "78" name="camo"                      />
+		<rgb r="183" g= "82" b=  "3" name="burnt siena"               />
+		<rgb r= "12" g="220" b="115" name="tealish green"             />
+		<rgb r="105" g="131" b= "57" name="swamp"                     />
+		<rgb r="203" g="165" b= "96" name="sand brown"                />
+		<rgb r="139" g= "49" b=  "3" name="rust brown"                />
+		<rgb r="253" g="141" b= "73" name="orangeish"                 />
+		<rgb r= "58" g= "46" b="254" name="light royal blue"          />
+		<rgb r="135" g= "95" b= "66" name="cocoa"                     />
+		<rgb r="202" g="155" b="247" name="baby purple"               />
+		<rgb r="154" g= "98" b=  "0" name="raw sienna"                />
+		<rgb r= "44" g="250" b= "31" name="radioactive green"         />
+		<rgb r="196" g="254" b="130" name="light pea green"           />
+		<rgb r="172" g= "79" b=  "6" name="cinnamon"                  />
+		<rgb r="242" g="171" b= "21" name="squash"                    />
+		<rgb r= "60" g= "65" b= "66" name="charcoal grey"             />
+		<rgb r="157" g="255" b=  "0" name="bright yellow green"       />
+		<rgb r="182" g="196" b=  "6" name="baby puke green"           />
+		<rgb r= "64" g="253" b= "20" name="poison green"              />
+		<rgb r="239" g="192" b="254" name="light lavendar"            />
+		<rgb r="133" g= "14" b=  "4" name="indian red"                />
+		<rgb r="255" g="243" b="154" name="dark cream"                />
+		<rgb r="199" g="172" b="125" name="toupe"                     />
+		<rgb r="253" g="177" b= "71" name="butterscotch"              />
+		<rgb r="104" g= "50" b="227" name="burple"                    />
+		<rgb r="169" g="190" b="112" name="tan green"                 />
+		<rgb r="255" g="223" b= "34" name="sun yellow"                />
+		<rgb r="253" g="222" b="108" name="pale gold"                 />
+		<rgb r="200" g="255" b="176" name="light light green"         />
+		<rgb r="143" g="182" b="123" name="lichen"                    />
+		<rgb r="181" g="206" b=  "8" name="green/yellow"              />
+		<rgb r=  "5" g= "73" b=  "7" name="darkgreen"                 />
+		<rgb r= "29" g= "93" b="236" name="azul"                      />
+		<rgb r="255" g="249" b= "23" name="sunny yellow"              />
+		<rgb r="208" g="228" b= "41" name="sickly yellow"             />
+		<rgb r=  "0" g="147" b= "55" name="kelley green"              />
+		<rgb r="126" g= "64" b="113" name="bruise"                    />
+		<rgb r="111" g="108" b= "10" name="browny green"              />
+		<rgb r="107" g="124" b="133" name="battleship grey"           />
+		<rgb r= "86" g="132" b="174" name="off blue"                  />
+		<rgb r="255" g="250" b="134" name="manilla"                   />
+		<rgb r="201" g="209" b="121" name="greenish beige"            />
+		<rgb r= "65" g=  "2" b=  "0" name="deep brown"                />
+		<rgb r="218" g= "70" b="125" name="darkish pink"              />
+		<rgb r="255" g="253" b="120" name="custard"                   />
+		<rgb r="125" g="113" b=  "3" name="ugly brown"                />
+		<rgb r= "80" g="123" b="156" name="stormy blue"               />
+		<rgb r="196" g="142" b="253" name="liliac"                    />
+		<rgb r="173" g="144" b= "13" name="baby shit brown"           />
+		<rgb r="153" g="117" b="112" name="reddish grey"              />
+		<rgb r="255" g="178" b="208" name="powder pink"               />
+		<rgb r= "67" g=  "5" b= "65" name="eggplant purple"           />
+		<rgb r="255" g="252" b="196" name="egg shell"                 />
+		<rgb r="211" g="182" b="131" name="very light brown"          />
+		<rgb r="189" g="248" b="163" name="tea green"                 />
+		<rgb r="255" g="111" b= "82" name="orange pink"               />
+		<rgb r="183" g="225" b="161" name="light grey green"          />
+		<rgb r="142" g="229" b= "63" name="kiwi green"                />
+		<rgb r= "99" g="179" b="101" name="boring green"              />
+		<rgb r="178" g="251" b="165" name="light pastel green"        />
+		<rgb r="255" g= "99" b="233" name="candy pink"                />
+		<rgb r="152" g= "63" b="178" name="purply"                    />
+		<rgb r="148" g="126" b="148" name="purpley grey"              />
+		<rgb r="172" g="134" b="168" name="dusty lavender"            />
+		<rgb r="204" g="173" b= "96" name="desert"                    />
+		<rgb r="150" g="110" b="189" name="deep lilac"                />
+		<rgb r="231" g="142" b="165" name="pig pink"                  />
+		<rgb r="194" g="183" b=  "9" name="olive yellow"              />
+		<rgb r="167" g="255" b="181" name="light seafoam green"       />
+		<rgb r="166" g="200" b="117" name="light moss green"          />
+		<rgb r="221" g="133" b="215" name="lavender pink"             />
+		<rgb r=  "8" g="120" b="127" name="deep aqua"                 />
+		<rgb r="175" g="168" b="139" name="bland"                     />
+		<rgb r="255" g=  "7" b="137" name="strong pink"               />
+		<rgb r= "12" g="181" b="119" name="green teal"                />
+		<rgb r=  "1" g="115" b="116" name="deep turquoise"            />
+		<rgb r= "31" g= "99" b= "87" name="dark green blue"           />
+		<rgb r=  "5" g="255" b="166" name="bright sea green"          />
+		<rgb r="155" g="181" b= "60" name="booger"                    />
+		<rgb r= "83" g= "60" b="198" name="blue with a hint of purple"/>
+		<rgb r= "34" g= "66" b="199" name="blue blue"                 />
+		<rgb r= "55" g="120" b="191" name="windows blue"              />
+		<rgb r= "97" g="222" b= "42" name="toxic green"               />
+		<rgb r= "12" g=  "6" b="247" name="strong blue"               />
+		<rgb r= "10" g= "95" b= "56" name="spruce"                    />
+		<rgb r="217" g="155" b="130" name="pinkish tan"               />
+		<rgb r="239" g="180" b= "53" name="macaroni and cheese"       />
+		<rgb r= "94" g="155" b="138" name="grey teal"                 />
+		<rgb r= "76" g="144" b="133" name="dusty teal"                />
+		<rgb r= "56" g="128" b=  "4" name="dark grass green"          />
+		<rgb r="165" g="163" b="145" name="cement"                    />
+		<rgb r="252" g="252" b="129" name="yellowish tan"             />
+		<rgb r="149" g= "46" b="143" name="warm purple"               />
+		<rgb r="101" g="171" b="124" name="tea"                       />
+		<rgb r="212" g="255" b="255" name="really light blue"         />
+		<rgb r="112" g="178" b= "63" name="nasty green"               />
+		<rgb r="137" g= "69" b="133" name="light eggplant"            />
+		<rgb r="105" g="216" b= "79" name="fresh green"               />
+		<rgb r="168" g="255" b=  "4" name="electric lime"             />
+		<rgb r="178" g="153" b="110" name="dust"                      />
+		<rgb r= "86" g="174" b= "87" name="dark pastel green"         />
+		<rgb r="172" g="194" b="217" name="cloudy blue"               />
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r= "6553" g= "6553" b= "6553"/>
+		<rgb16 r="13107" g="13107" b="13107"/>
+		<rgb16 r="19660" g="19660" b="19660"/>
+		<rgb16 r="26214" g="26214" b="26214"/>
+		<rgb16 r="32768" g="32768" b="32768"/>
+		<rgb16 r="39321" g="39321" b="39321"/>
+		<rgb16 r="45875" g="45875" b="45875"/>
+		<rgb16 r="52428" g="52428" b="52428"/>
+		<rgb16 r="58982" g="58982" b="58982"/>
+		<rgb16 r="65535" g="65535" b="65535"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start=  "0" end= "64"/></row>
+					<row><range start= "64" end="128"/></row>
+					<row><range start="128" end="192"/></row>
+					<row><range start="192" end="256"/></row>
+					<row><range start="256" end="320"/></row>
+					<row><range start="320" end="384"/></row>
+					<row><range start="384" end="448"/></row>
+					<row><range start="448" end="512"/></row>
+					<row><range start="512" end="576"/></row>
+					<row><range start="576" end="640"/></row>
+					<row><range start="640" end="704"/></row>
+					<row><range start="704" end="768"/></row>
+					<row><range start="768" end="832"/></row>
+					<row><range start="832" end="896"/></row>
+					<row><range start="896" end="960"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start=  "0" end= "32"/></row>
+					<row><range start= "32" end= "64"/></row>
+					<row><range start= "64" end= "96"/></row>
+					<row><range start= "96" end="128"/></row>
+					<row><range start="128" end="160"/></row>
+					<row><range start="160" end="192"/></row>
+					<row><range start="192" end="224"/></row>
+					<row><range start="224" end="256"/></row>
+					<row><range start="256" end="288"/></row>
+					<row><range start="288" end="320"/></row>
+					<row><range start="320" end="352"/></row>
+					<row><range start="352" end="384"/></row>
+					<row><range start="384" end="416"/></row>
+					<row><range start="416" end="448"/></row>
+					<row><range start="448" end="480"/></row>
+					<row><range start="480" end="512"/></row>
+					<row><range start="512" end="544"/></row>
+					<row><range start="544" end="576"/></row>
+					<row><range start="576" end="608"/></row>
+					<row><range start="608" end="640"/></row>
+					<row><range start="640" end="672"/></row>
+					<row><range start="672" end="704"/></row>
+					<row><range start="704" end="736"/></row>
+					<row><range start="736" end="768"/></row>
+					<row><range start="768" end="800"/></row>
+					<row><range start="800" end="832"/></row>
+					<row><range start="832" end="864"/></row>
+					<row><range start="864" end="896"/></row>
+					<row><range start="896" end="928"/></row>
+					<row><range start="928" end="960"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<row><range start=  "0" end= "16"/></row>
+					<row><range start= "16" end= "32"/></row>
+					<row><range start= "32" end= "48"/></row>
+					<row><range start= "48" end= "64"/></row>
+					<row><range start= "64" end= "80"/></row>
+					<row><range start= "80" end= "96"/></row>
+					<row><range start= "96" end="112"/></row>
+					<row><range start="112" end="128"/></row>
+					<row><range start="128" end="144"/></row>
+					<row><range start="144" end="160"/></row>
+					<row><range start="160" end="176"/></row>
+					<row><range start="176" end="192"/></row>
+					<row><range start="192" end="208"/></row>
+					<row><range start="208" end="224"/></row>
+					<row><range start="224" end="240"/></row>
+					<row><range start="240" end="256"/></row>
+					<row><range start="256" end="272"/></row>
+					<row><range start="272" end="288"/></row>
+					<row><range start="288" end="304"/></row>
+					<row><range start="304" end="320"/></row>
+					<row><range start="320" end="336"/></row>
+					<row><range start="336" end="352"/></row>
+					<row><range start="352" end="368"/></row>
+					<row><range start="368" end="384"/></row>
+					<row><range start="384" end="400"/></row>
+					<row><range start="400" end="416"/></row>
+					<row><range start="416" end="432"/></row>
+					<row><range start="432" end="448"/></row>
+					<row><range start="448" end="464"/></row>
+					<row><range start="464" end="480"/></row>
+					<row><range start="480" end="496"/></row>
+					<row><range start="496" end="512"/></row>
+					<row><range start="512" end="528"/></row>
+					<row><range start="528" end="544"/></row>
+					<row><range start="544" end="560"/></row>
+					<row><range start="560" end="576"/></row>
+					<row><range start="576" end="592"/></row>
+					<row><range start="592" end="608"/></row>
+					<row><range start="608" end="624"/></row>
+					<row><range start="624" end="640"/></row>
+					<row><range start="640" end="656"/></row>
+					<row><range start="656" end="672"/></row>
+					<row><range start="672" end="688"/></row>
+					<row><range start="688" end="704"/></row>
+					<row><range start="704" end="720"/></row>
+					<row><range start="720" end="736"/></row>
+					<row><range start="736" end="752"/></row>
+					<row><range start="752" end="768"/></row>
+					<row><range start="768" end="784"/></row>
+					<row><range start="784" end="800"/></row>
+					<row><range start="800" end="816"/></row>
+					<row><range start="816" end="832"/></row>
+					<row><range start="832" end="848"/></row>
+					<row><range start="848" end="864"/></row>
+					<row><range start="864" end="880"/></row>
+					<row><range start="880" end="896"/></row>
+					<row><range start="896" end="912"/></row>
+					<row><range start="912" end="928"/></row>
+					<row><range start="928" end="944"/></row>
+					<row><range start="944" end="960"/></row>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

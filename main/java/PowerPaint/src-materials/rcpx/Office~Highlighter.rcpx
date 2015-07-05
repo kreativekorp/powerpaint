@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Office Highlighter" orientation="square">
+	<colors ordered="unordered">
+		<rgb r="255" g="255" b=  "0"/>
+		<rgb r=  "0" g="255" b=  "0"/>
+		<rgb r=  "0" g="255" b="255"/>
+		<rgb r="255" g=  "0" b="255"/>
+		<rgb r=  "0" g=  "0" b="255"/>
+		<rgb r="255" g=  "0" b=  "0"/>
+		<rgb r=  "0" g=  "0" b="128"/>
+		<rgb r=  "0" g="128" b="128"/>
+		<rgb r=  "0" g="128" b=  "0"/>
+		<rgb r="128" g=  "0" b="128"/>
+		<rgb r="128" g=  "0" b=  "0"/>
+		<rgb r="128" g="128" b=  "0"/>
+		<rgb r="128" g="128" b="128"/>
+		<rgb r="192" g="192" b="192"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end= "5"/></row>
+					<row><range start= "5" end="10"/></row>
+					<row><range start="10" end="15"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "5"/></row>
+					<row><range start= "5" end="10"/></row>
+					<row><range start="10" end="15"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end= "5"/></column>
+					<column><range start= "5" end="10"/></column>
+					<column><range start="10" end="15"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

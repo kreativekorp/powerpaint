@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Black Body MC Continuous">
+	<colors/>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<hsv-sweep xchan="v" xmin="0" xmax="100" h="0" s="100"/>
+					<hsv-sweep xchan="h" xmin="0" xmax="31.0588" s="100" v="100"/>
+					<hsv-sweep xchan="s" xmin="100" xmax="0" h="31.0588" v="100"/>
+					<hsv-sweep xchan="s" xmin="0" xmax="38.4314" h="221.647" v="100"/>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<hsv-sweep xchan="v" xmin="0" xmax="100" h="0" s="100"/>
+					<hsv-sweep xchan="h" xmin="0" xmax="31.0588" s="100" v="100"/>
+					<hsv-sweep xchan="s" xmin="100" xmax="0" h="31.0588" v="100"/>
+					<hsv-sweep xchan="s" xmin="0" xmax="38.4314" h="221.647" v="100"/>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<hsv-sweep ychan="v" ymin="0" ymax="100" h="0" s="100"/>
+					<hsv-sweep ychan="h" ymin="0" ymax="31.0588" s="100" v="100"/>
+					<hsv-sweep ychan="s" ymin="100" ymax="0" h="31.0588" v="100"/>
+					<hsv-sweep ychan="s" ymin="0" ymax="38.4314" h="221.647" v="100"/>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

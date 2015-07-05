@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Apple Icon Colors">
+	<colors ordered="ordered">
+		<rgb16 r="65535" g="65535" b="52428"/>
+		<rgb16 r="65535" g="52428" b="39321"/>
+		<rgb16 r="52428" g="39321" b="26214"/>
+		<rgb16 r="65535" g="26214" b="13107"/>
+		<rgb16 r="13107" g="65535" b="39321"/>
+		<rgb16 r=    "0" g="48059" b=    "0"/>
+		<rgb16 r="13107" g="39321" b="26214"/>
+		<rgb16 r="13107" g="26214" b="26214"/>
+		<rgb16 r="39321" g="65535" b="65535"/>
+		<rgb16 r=    "0" g="39321" b="65535"/>
+		<rgb16 r=    "0" g=    "0" b="56797"/>
+		<rgb16 r="13107" g=    "0" b="39321"/>
+		<rgb16 r="52428" g="52428" b="65535"/>
+		<rgb16 r="39321" g="39321" b="65535"/>
+		<rgb16 r="26214" g="26214" b="52428"/>
+		<rgb16 r="13107" g="13107" b="26214"/>
+		<rgb16 r="65535" g="26214" b="52428"/>
+		<rgb16 r="39321" g=    "0" b="26214"/>
+		<rgb16 r="39321" g="26214" b="39321"/>
+		<rgb16 r="65535" g="65535" b="65535"/>
+		<rgb16 r="61166" g="61166" b="61166"/>
+		<rgb16 r="56797" g="56797" b="56797"/>
+		<rgb16 r="52428" g="52428" b="52428"/>
+		<rgb16 r="48059" g="48059" b="48059"/>
+		<rgb16 r="43690" g="43690" b="43690"/>
+		<rgb16 r="34952" g="34952" b="34952"/>
+		<rgb16 r="30583" g="30583" b="30583"/>
+		<rgb16 r="21845" g="21845" b="21845"/>
+		<rgb16 r="17476" g="17476" b="17476"/>
+		<rgb16 r= "8738" g= "8738" b= "8738"/>
+		<rgb16 r= "4369" g= "4369" b= "4369"/>
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r="65535" g="65535" b=    "0"/>
+		<rgb16 r="56797" g=    "0" b=    "0"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row>
+						<range start="0" end="8"/>
+						<index i="19"/>
+						<range start="32" end="34"/>
+					</row>
+					<row><range start="8" end="19"/></row>
+					<row><range start="19" end="32"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row>
+						<range start="0" end="4"/>
+						<index i="19"/>
+						<index i="31"/>
+					</row>
+					<row>
+						<range start="4" end="8"/>
+						<index i="16"/>
+						<index i="32"/>
+					</row>
+					<row>
+						<range start="8" end="12"/>
+						<index i="17"/>
+						<index i="33"/>
+					</row>
+					<row>
+						<range start="12" end="16"/>
+						<index i="18"/>
+						<index i="19"/>
+					</row>
+					<row><range start="20" end="26"/></row>
+					<row><range start="26" end="32"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<row><range start="0" end="4"/></row>
+					<row><range start="4" end="8"/></row>
+					<row><range start="8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+					<row><range start="16" end="19"/></row>
+					<row>
+						<index i="19"/>
+						<range start="32" end="34"/>
+					</row>
+					<row><range start="20" end="23"/></row>
+					<row><range start="23" end="26"/></row>
+					<row><range start="26" end="29"/></row>
+					<row><range start="29" end="32"/></row>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

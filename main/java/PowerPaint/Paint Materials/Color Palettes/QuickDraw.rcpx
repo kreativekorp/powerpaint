@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="QuickDraw">
+	<colors ordered="ordered">
+		<rgb16 r="65535" g="65535" b="65535"/>
+		<rgb16 r="64512" g="62333" b= "1327"/>
+		<rgb16 r="62167" g= "2134" b="34028"/>
+		<rgb16 r="56683" g= "2242" b= "1698"/>
+		<rgb16 r=  "577" g="43860" b="60159"/>
+		<rgb16 r=    "0" g="32768" b= "4528"/>
+		<rgb16 r=    "0" g=    "0" b="54272"/>
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end="4"/></row>
+					<row><range start="4" end="8"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start="0" end="2"/></row>
+					<row><range start="2" end="4"/></row>
+					<row><range start="4" end="6"/></row>
+					<row><range start="6" end="8"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end="4"/></column>
+					<column><range start="4" end="8"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

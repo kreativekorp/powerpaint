@@ -30,8 +30,6 @@ package com.kreative.paint.palette;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import javax.swing.*;
 import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
@@ -46,7 +44,7 @@ public class ColorListPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private UpdateLock u = new UpdateLock();
-	private PairList<String,LinkedHashMap<Color,String>> colorMap;
+	private PairList<String,PairList<Color,String>> colorMap;
 	private DefaultListModel colorsModel;
 	private JList colorsList;
 	private JComboBox list;
@@ -101,10 +99,10 @@ public class ColorListPanel extends PaintContextPanel {
 		ItemListener il = new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					LinkedHashMap<Color,String> v = colorMap.getLatter(list.getSelectedIndex());
+					PairList<Color,String> v = colorMap.getLatter(list.getSelectedIndex());
 					colorsModel.clear();
-					for (Map.Entry<Color,String> p : v.entrySet()) {
-						colorsModel.addElement(new Pair<Color,String>(p.getKey(), p.getValue()));
+					for (Pair<Color,String> p : v) {
+						colorsModel.addElement(p);
 					}
 					update();
 				}

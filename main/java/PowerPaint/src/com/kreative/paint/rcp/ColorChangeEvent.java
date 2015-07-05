@@ -33,15 +33,15 @@ import java.io.Serializable;
 public class ColorChangeEvent implements Serializable {
 	private static final long serialVersionUID = 1;
 	
-	private RCPComponent src;
+	private RCPXComponent src;
 	private Color c;
 	
-	public ColorChangeEvent(RCPComponent src, Color c) {
+	public ColorChangeEvent(RCPXComponent src, Color c) {
 		this.src = src;
 		this.c = c;
 	}
 	
-	public RCPComponent getSource() {
+	public RCPXComponent getSource() {
 		return src;
 	}
 	
