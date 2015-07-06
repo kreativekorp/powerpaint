@@ -260,6 +260,7 @@ public class RCPXComponent extends JComponent {
 			setToolTipText(palette.layout.name(palette.colors, 0, r, e.getPoint()));
 			Color c = palette.layout.awtColor(palette.colors, 0, r, e.getPoint());
 			if (c != null) {
+				this.lastCol = c;
 				currCol = c;
 				repaint();
 				notifyColorChangeListeners(c);
