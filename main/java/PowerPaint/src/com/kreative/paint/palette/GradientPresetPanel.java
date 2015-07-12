@@ -38,33 +38,34 @@ public class GradientPresetPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private boolean eventexec = false;
-	private CellSelectorModel<Gradient> palmodel;
-	private CellSelector<Gradient> palcomp;
+	private CellSelectorModel<GradientPreset> palmodel;
+	private CellSelector<GradientPreset> palcomp;
 	private JScrollPane palsp;
-	private Gradient gradient;
+	private GradientPaint2 paint;
 	
 	public GradientPresetPanel(PaintContext pc, MaterialsManager mm) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
-		palmodel = new DefaultCellSelectorModel<Gradient>(mm.getGradientPresets(), GradientManager.DEFAULT_GRADIENT);
-		palcomp = new CellSelector<Gradient>(palmodel, new CellSelectorRenderer<Gradient>() {
+		palmodel = new DefaultCellSelectorModel<GradientPreset>(mm.getGradientPresets(), GradientPreset.BLACK_TO_WHITE);
+		palcomp = new CellSelector<GradientPreset>(palmodel, new CellSelectorRenderer<GradientPreset>() {
 			public int getCellHeight() { return 25; }
 			public int getCellWidth() { return 25; }
 			public int getColumns() { return 4; }
 			public int getRows() { return 0; }
 			public boolean isFixedHeight() { return true; }
 			public boolean isFixedWidth() { return true; }
-			public void paint(Graphics g, Gradient object, int x, int y, int w, int h) {
-				((Graphics2D)g).setPaint(new GradientPaint2(object));
+			public void paint(Graphics g, GradientPreset object, int x, int y, int w, int h) {
+				((Graphics2D)g).setPaint(new GradientPaint2(object, null));
 				g.fillRect(x, y, w, h);
 			}
 		});
 		palsp = new JScrollPane(palcomp, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		gradient = GradientManager.DEFAULT_GRADIENT;
+		paint = GradientPaint2.BLACK_TO_WHITE;
 		
-		palmodel.addCellSelectionListener(new CellSelectionListener<Gradient>() {
-			public void cellSelected(CellSelectionEvent<Gradient> e) {
+		palmodel.addCellSelectionListener(new CellSelectionListener<GradientPreset>() {
+			public void cellSelected(CellSelectionEvent<GradientPreset> e) {
 				if (!eventexec) {
-					GradientPresetPanel.this.pc.setEditedEditedground(new GradientPaint2(gradient = e.getObject()));
+					paint = paint.derivePaint(e.getObject());
+					GradientPresetPanel.this.pc.setEditedEditedground(paint);
 				}
 			}
 		});
@@ -74,16 +75,16 @@ public class GradientPresetPanel extends PaintContextPanel {
 		update();
 	}
 	
-	public CellSelector<Gradient> asPopup() {
-		return new CellSelector<Gradient>(palmodel, new CellSelectorRenderer<Gradient>() {
+	public CellSelector<GradientPreset> asPopup() {
+		return new CellSelector<GradientPreset>(palmodel, new CellSelectorRenderer<GradientPreset>() {
 			public int getCellHeight() { return 25; }
 			public int getCellWidth() { return 25; }
 			public int getColumns() { return 0; }
 			public int getRows() { return 0; }
 			public boolean isFixedHeight() { return true; }
 			public boolean isFixedWidth() { return true; }
-			public void paint(Graphics g, Gradient object, int x, int y, int w, int h) {
-				((Graphics2D)g).setPaint(new GradientPaint2(object));
+			public void paint(Graphics g, GradientPreset object, int x, int y, int w, int h) {
+				((Graphics2D)g).setPaint(new GradientPaint2(object, null));
 				g.fillRect(x, y, w, h);
 			}
 		}, true);
@@ -92,16 +93,16 @@ public class GradientPresetPanel extends PaintContextPanel {
 	public void update() {
 		Paint p = pc.getEditedEditedground();
 		if (p instanceof GradientPaint2) {
-			gradient = ((GradientPaint2)p).getGradient();
+			paint = (GradientPaint2)p;
 			if (!eventexec) {
 				eventexec = true;
-				palmodel.setSelectedObject(gradient);
+				palmodel.setSelectedObject(new GradientPreset(paint.shape, paint.colorMap, null));
 				eventexec = false;
 			}
 		}
 	}
 	
-	public Gradient getGradient() {
-		return gradient;
+	public GradientPaint2 getGradient() {
+		return paint;
 	}
 }

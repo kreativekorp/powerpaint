@@ -55,7 +55,7 @@ public class SNFPaintPanel extends PaintContextPanel {
 		gp = gradientPalette;
 		cps = new SNFPaintSelector<Color>(pc, Color.class, colorPalette.getColor(), colorPalette.getColor());
 		tps = new SNFPaintSelector<TexturePaint>(pc, TexturePaint.class, texturePalette.getTexture(), texturePalette.getTexture());
-		gps = new SNFPaintSelector<GradientPaint2>(pc, GradientPaint2.class, new GradientPaint2(gradientPalette.getGradient()), new GradientPaint2(gradientPalette.getGradient()));
+		gps = new SNFPaintSelector<GradientPaint2>(pc, GradientPaint2.class, gradientPalette.getGradient(), gradientPalette.getGradient());
 		cps.setMinimumSize(psSize);
 		cps.setPreferredSize(psSize);
 		tps.setMinimumSize(psSize);

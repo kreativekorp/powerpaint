@@ -1,61 +1,48 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.gradient;
 
 import java.awt.Color;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
-public class GradientColorMap extends TreeMap<Double,Color> implements Cloneable {
-	private static final long serialVersionUID = 1L;
+public class GradientColorMap implements SortedSet<GradientColorStop> {
+	public static final GradientColorMap BLACK_TO_WHITE = new GradientColorMap(
+		"Black to White",
+		new GradientColorStop(0.0, GradientColor.BLACK),
+		new GradientColorStop(1.0, GradientColor.WHITE)
+	);
+	public static final GradientColorMap WHITE_TO_BLACK = new GradientColorMap(
+		"White to Black",
+		new GradientColorStop(0.0, GradientColor.WHITE),
+		new GradientColorStop(1.0, GradientColor.BLACK)
+	);
+	public static final GradientColorMap RGB_SPECTRUM = new GradientColorMap(
+		"RGB Spectrum",
+		new GradientColorStop(0.0/6.0, GradientColor.RED),
+		new GradientColorStop(1.0/6.0, GradientColor.YELLOW),
+		new GradientColorStop(2.0/6.0, GradientColor.GREEN),
+		new GradientColorStop(3.0/6.0, GradientColor.CYAN),
+		new GradientColorStop(4.0/6.0, GradientColor.BLUE),
+		new GradientColorStop(5.0/6.0, GradientColor.MAGENTA),
+		new GradientColorStop(6.0/6.0, GradientColor.RED)
+	);
 	
-	public GradientColorMap() {
-		super();
+	private final SortedSet<GradientColorStop> stops;
+	public final String name;
+	
+	public GradientColorMap(String name) {
+		this.stops = new TreeSet<GradientColorStop>();
+		this.name = name;
 	}
 	
-	public GradientColorMap(Color... colors) {
-		super();
-		for (int i = 0; i < colors.length; i++) {
-			put((double)i/(double)(colors.length-1), colors[i]);
-		}
-	}
-	
-	public GradientColorMap(int... colors) {
-		super();
-		for (int i = 0; i < colors.length; i++) {
-			put((double)i/(double)(colors.length-1), new Color(colors[i], true));
-		}
-	}
-	
-	public GradientColorMap clone() {
-		GradientColorMap clone = new GradientColorMap();
-		clone.putAll(this);
-		return clone;
+	private GradientColorMap(String name, GradientColorStop... stops) {
+		SortedSet<GradientColorStop> stopsIntl = new TreeSet<GradientColorStop>();
+		for (GradientColorStop stop : stops) stopsIntl.add(stop);
+		this.stops = Collections.unmodifiableSortedSet(stopsIntl);
+		this.name = name;
 	}
 	
 	public int getRGB(double pos) {
@@ -64,9 +51,9 @@ public class GradientColorMap extends TreeMap<Double,Color> implements Cloneable
 			Color  prevCol = null;
 			double nextPos = Double.POSITIVE_INFINITY;
 			Color  nextCol = null;
-			for (Map.Entry<Double,Color> e : entrySet()) {
-				double thisPos = e.getKey();
-				Color  thisCol = e.getValue();
+			for (GradientColorStop stop : stops) {
+				double thisPos = stop.position;
+				Color  thisCol = stop.color.awtColor();
 				if (thisPos <= pos && thisPos > prevPos) {
 					prevPos = thisPos;
 					prevCol = thisCol;
@@ -147,9 +134,9 @@ public class GradientColorMap extends TreeMap<Double,Color> implements Cloneable
 		Color  prevCol = null;
 		double nextPos = Double.POSITIVE_INFINITY;
 		Color  nextCol = null;
-		for (Map.Entry<Double,Color> e : entrySet()) {
-			double thisPos = e.getKey();
-			Color  thisCol = e.getValue();
+		for (GradientColorStop stop : stops) {
+			double thisPos = stop.position;
+			Color  thisCol = stop.color.awtColor();
 			if (thisPos <= pos && thisPos > prevPos) {
 				prevPos = thisPos;
 				prevCol = thisCol;
@@ -216,5 +203,104 @@ public class GradientColorMap extends TreeMap<Double,Color> implements Cloneable
 			ret[i] = getColor(pos[i], repeat, reflect, reverse);
 		}
 		return ret;
+	}
+	
+	@Override
+	public boolean equals(Object that) {
+		if (that instanceof GradientColorMap) {
+			return this.equals((GradientColorMap)that, false);
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean equals(GradientColorMap that, boolean withName) {
+		if (!this.stops.equals(that.stops)) return false;
+		if (!withName) return true;
+		if (this.name != null) return this.name.equals(that.name);
+		if (that.name != null) return that.name.equals(this.name);
+		return true;
+	}
+	
+	@Override
+	public int hashCode() {
+		return stops.hashCode();
+	}
+	
+	@Override
+	public boolean add(GradientColorStop e) {
+		return stops.add(e);
+	}
+	@Override
+	public boolean addAll(Collection<? extends GradientColorStop> c) {
+		return stops.addAll(c);
+	}
+	@Override
+	public void clear() {
+		stops.clear();
+	}
+	@Override
+	public boolean contains(Object e) {
+		return stops.contains(e);
+	}
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		return stops.containsAll(c);
+	}
+	@Override
+	public boolean isEmpty() {
+		return stops.isEmpty();
+	}
+	@Override
+	public Iterator<GradientColorStop> iterator() {
+		return stops.iterator();
+	}
+	@Override
+	public boolean remove(Object e) {
+		return stops.remove(e);
+	}
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		return stops.removeAll(c);
+	}
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		return stops.retainAll(c);
+	}
+	@Override
+	public int size() {
+		return stops.size();
+	}
+	@Override
+	public Object[] toArray() {
+		return stops.toArray();
+	}
+	@Override
+	public <T> T[] toArray(T[] a) {
+		return stops.toArray(a);
+	}
+	@Override
+	public Comparator<? super GradientColorStop> comparator() {
+		return stops.comparator();
+	}
+	@Override
+	public GradientColorStop first() {
+		return stops.first();
+	}
+	@Override
+	public SortedSet<GradientColorStop> headSet(GradientColorStop to) {
+		return stops.headSet(to);
+	}
+	@Override
+	public GradientColorStop last() {
+		return stops.last();
+	}
+	@Override
+	public SortedSet<GradientColorStop> subSet(GradientColorStop from, GradientColorStop to) {
+		return stops.subSet(from, to);
+	}
+	@Override
+	public SortedSet<GradientColorStop> tailSet(GradientColorStop from) {
+		return stops.tailSet(from);
 	}
 }

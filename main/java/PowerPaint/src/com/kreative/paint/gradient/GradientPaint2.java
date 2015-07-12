@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.gradient;
 
 import java.awt.Paint;
@@ -37,95 +10,99 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.Raster;
 
-public class GradientPaint2 implements Paint, Cloneable {
-	private GradientShape gs;
-	private GradientColorMap gcm;
-	private Rectangle2D gb;
+public class GradientPaint2 implements Paint {
+	public static final GradientPaint2 BLACK_TO_WHITE = new GradientPaint2(
+		GradientShape.SIMPLE_LINEAR, GradientColorMap.BLACK_TO_WHITE, null
+	);
+	public static final GradientPaint2 WHITE_TO_BLACK = new GradientPaint2(
+		GradientShape.SIMPLE_LINEAR, GradientColorMap.WHITE_TO_BLACK, null
+	);
+	public static final GradientPaint2 RGB_SPECTRUM = new GradientPaint2(
+		GradientShape.SIMPLE_LINEAR, GradientColorMap.RGB_SPECTRUM, null
+	);
+	public static final GradientPaint2 RGB_WHEEL = new GradientPaint2(
+		GradientShape.REVERSE_ANGULAR, GradientColorMap.RGB_SPECTRUM, null
+	);
 	
-	public GradientPaint2(Gradient g) {
-		this.gs = (g.shape == null) ? null : g.shape.clone();
-		this.gcm = (g.colorMap == null) ? null : g.colorMap.clone();
-		this.gb = (g.boundingRect == null) ? null : (Rectangle2D)g.boundingRect.clone();
+	public final GradientShape shape;
+	public final GradientColorMap colorMap;
+	public final Rectangle2D boundingRect;
+	
+	public GradientPaint2(GradientPreset preset, Rectangle2D boundingRect) {
+		this.shape = preset.shape;
+		this.colorMap = preset.colorMap;
+		this.boundingRect = boundingRect;
 	}
 	
-	public GradientPaint2(GradientShape gs, GradientColorMap gcm) {
-		this.gs = (gs == null) ? null : gs.clone();
-		this.gcm = (gcm == null) ? null : gcm.clone();
-		this.gb = null;
+	public GradientPaint2(GradientShape shape, GradientColorMap colorMap, Rectangle2D boundingRect) {
+		this.shape = shape;
+		this.colorMap = colorMap;
+		this.boundingRect = boundingRect;
 	}
 	
-	public GradientPaint2(GradientShape gs, GradientColorMap gcm, Rectangle2D gb) {
-		this.gs = (gs == null) ? null : gs.clone();
-		this.gcm = (gcm == null) ? null : gcm.clone();
-		this.gb = (gb == null) ? null : (Rectangle2D)gb.clone();
+	public GradientPaint2 derivePaint(GradientPreset preset) {
+		return new GradientPaint2(preset, boundingRect);
 	}
 	
-	public GradientPaint2(GradientPaint2 gp) {
-		this.gs = (gp.gs == null) ? null : gp.gs.clone();
-		this.gcm = (gp.gcm == null) ? null : gp.gcm.clone();
-		this.gb = (gp.gb == null) ? null : (Rectangle2D)gp.gb.clone();
+	public GradientPaint2 derivePaint(GradientShape shape) {
+		return new GradientPaint2(shape, colorMap, boundingRect);
 	}
 	
-	public GradientPaint2 clone() {
-		return new GradientPaint2(this);
+	public GradientPaint2 derivePaint(GradientColorMap colorMap) {
+		return new GradientPaint2(shape, colorMap, boundingRect);
 	}
 	
-	public Gradient getGradient() {
-		return new Gradient(
-				((this.gs == null) ? null : this.gs.clone()),
-				((this.gcm == null) ? null : this.gcm.clone()),
-				((this.gb == null) ? null : (Rectangle2D)this.gb.clone())
-		);
+	public GradientPaint2 derivePaint(Rectangle2D boundingRect) {
+		return new GradientPaint2(shape, colorMap, boundingRect);
 	}
 	
-	public GradientShape getGradientShape() {
-		return (this.gs == null) ? null : this.gs.clone();
+	@Override
+	public boolean equals(Object that) {
+		if (that instanceof GradientPaint2) {
+			if (!shapeEquals(this.shape, ((GradientPaint2)that).shape)) return false;
+			if (!colorMapEquals(this.colorMap, ((GradientPaint2)that).colorMap)) return false;
+			if (!rectangleEquals(this.boundingRect, ((GradientPaint2)that).boundingRect)) return false;
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
-	public GradientColorMap getGradientColorMap() {
-		return (this.gcm == null) ? null : this.gcm.clone();
-	}
-	
-	public Rectangle2D getGradientBounds() {
-		return (this.gb == null) ? null : (Rectangle2D)this.gb.clone();
-	}
-	
+	@Override
 	public PaintContext createContext(ColorModel cm, Rectangle deviceBounds, Rectangle2D userBounds, AffineTransform xform, RenderingHints hints) {
-		return new GradientPaintContext(this.gs, this.gcm, this.gb, cm, deviceBounds, userBounds, xform, hints);
+		return new GradientPaintContext(shape, colorMap, boundingRect, cm, deviceBounds, userBounds, xform, hints);
 	}
-
+	
+	@Override
 	public int getTransparency() {
 		return TRANSLUCENT;
 	}
 	
 	private static class GradientPaintContext implements PaintContext {
-		private GradientShape gs;
-		private GradientColorMap gcm;
-		private Rectangle2D gb;
-		//private ColorModel cm;
-		private Rectangle deviceBounds;
-		//private Rectangle2D userBounds;
-		private AffineTransform xform;
-		//private RenderingHints hints;
+		private final GradientShape shape;
+		private final GradientColorMap colorMap;
+		private final Rectangle2D boundingRect;
+		private final Rectangle deviceBounds;
+		private final AffineTransform xform;
 		
-		public GradientPaintContext(GradientShape gs, GradientColorMap gcm, Rectangle2D gb, ColorModel cm, Rectangle deviceBounds, Rectangle2D userBounds, AffineTransform xform, RenderingHints hints) {
-			this.gs = gs;
-			this.gcm = gcm;
-			this.gb = gb;
-			//this.cm = cm;
+		public GradientPaintContext(
+			GradientShape shape, GradientColorMap colorMap, Rectangle2D boundingRect,
+			ColorModel cm, Rectangle deviceBounds, Rectangle2D userBounds,
+			AffineTransform xform, RenderingHints hints
+		) {
+			this.shape = shape;
+			this.colorMap = colorMap;
+			this.boundingRect = boundingRect;
 			this.deviceBounds = deviceBounds;
-			//this.userBounds = userBounds;
 			this.xform = xform;
-			//this.hints = hints;
 		}
 		
 		public Raster getRaster(int x, int y, int w, int h) {
-			Rectangle dgb;
-			if (gb != null) {
-				dgb = xform.createTransformedShape(gb).getBounds();
-			} else {
-				dgb = deviceBounds;
-			}
+			Rectangle dgb = (
+				(boundingRect != null) ?
+				xform.createTransformedShape(boundingRect).getBounds() :
+				deviceBounds
+			);
 			double[] gx = new double[w*h];
 			double[] gy = new double[w*h];
 			for (int ay = 0, ry = y; ay < w*h; ay += w, ry++) {
@@ -134,8 +111,8 @@ public class GradientPaint2 implements Paint, Cloneable {
 					gy[ay+ax] = (double)(ry - dgb.y) / (double)dgb.height;
 				}
 			}
-			double[] gp = this.gs.getGradientPositions(gx, gy, w*h);
-			int[] rgb = this.gcm.getRGB(gp, this.gs.repeat, this.gs.reflect, this.gs.reverse);
+			double[] gp = shape.getGradientPositions(gx, gy, w*h);
+			int[] rgb = colorMap.getRGB(gp, shape.repeat, shape.reflect, shape.reverse);
 			BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 			img.setRGB(0, 0, w, h, rgb, 0, w);
 			return img.getData();
@@ -151,22 +128,21 @@ public class GradientPaint2 implements Paint, Cloneable {
 		}
 	}
 	
-	public boolean equals(Object o) {
-		if (o instanceof Gradient) {
-			Gradient other = (Gradient)o;
-			return (
-					((this.gs == null) ? (other.shape == null) : (other.shape == null) ? (this.gs == null) : this.gs.equals(other.shape)) &&
-					((this.gcm == null) ? (other.colorMap == null) : (other.colorMap == null) ? (this.gcm == null) : this.gcm.equals(other.colorMap)) &&
-					((this.gb == null) ? (other.boundingRect == null) : (other.boundingRect == null) ? (this.gb == null) : this.gb.equals(other.boundingRect))
-			);
-		} else if (o instanceof GradientPaint2) {
-			GradientPaint2 other = (GradientPaint2)o;
-			return (
-					((this.gs == null) ? (other.gs == null) : (other.gs == null) ? (this.gs == null) : this.gs.equals(other.gs)) &&
-					((this.gcm == null) ? (other.gcm == null) : (other.gcm == null) ? (this.gcm == null) : this.gcm.equals(other.gcm)) &&
-					((this.gb == null) ? (other.gb == null) : (other.gb == null) ? (this.gb == null) : this.gb.equals(other.gb))
-			);
-		}
-		return false;
+	private static boolean shapeEquals(GradientShape a, GradientShape b) {
+		if (a == null) return (b == null);
+		if (b == null) return (a == null);
+		return a.equals(b, false);
+	}
+	
+	private static boolean colorMapEquals(GradientColorMap a, GradientColorMap b) {
+		if (a == null) return (b == null);
+		if (b == null) return (a == null);
+		return a.equals(b, false);
+	}
+	
+	private static boolean rectangleEquals(Rectangle2D a, Rectangle2D b) {
+		if (a == null) return (b == null);
+		if (b == null) return (a == null);
+		return a.equals(b);
 	}
 }

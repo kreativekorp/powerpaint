@@ -28,7 +28,7 @@
 package com.kreative.paint.palette;
 
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.gradient.Gradient;
+import com.kreative.paint.gradient.GradientPaint2;
 import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.JPopupPanel;
 
@@ -49,7 +49,7 @@ public class GradientPalette extends PaintContextPalette {
 		return pp.getPopup(usePresets);
 	}
 	
-	public Gradient getGradient() {
+	public GradientPaint2 getGradient() {
 		return pp.getGradient();
 	}
 }

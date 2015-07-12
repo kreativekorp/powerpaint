@@ -44,12 +44,12 @@ public class GradientShapePanel extends PaintContextPanel {
 	private CellSelector<GradientShape> palcomp;
 	private GradientShapeSelector gs;
 	private JScrollPane gsp;
-	private Gradient gradient;
+	private GradientPaint2 paint;
 	
 	public GradientShapePanel(PaintContext pc, MaterialsManager mm) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
 
-		palmodel = new DefaultCellSelectorModel<GradientShape>(mm.getGradientShapes(), GradientManager.DEFAULT_SHAPE);
+		palmodel = new DefaultCellSelectorModel<GradientShape>(mm.getGradientShapes(), GradientShape.SIMPLE_LINEAR);
 		palcomp = new CellSelector<GradientShape>(palmodel, new CellSelectorRenderer<GradientShape>() {
 			public int getCellHeight() { return 25; }
 			public int getCellWidth() { return 25; }
@@ -58,32 +58,32 @@ public class GradientShapePanel extends PaintContextPanel {
 			public boolean isFixedHeight() { return true; }
 			public boolean isFixedWidth() { return true; }
 			public void paint(Graphics g, GradientShape object, int x, int y, int w, int h) {
-				((Graphics2D)g).setPaint(new GradientPaint2(object, GradientManager.DEFAULT_COLORS));
+				((Graphics2D)g).setPaint(new GradientPaint2(object, GradientColorMap.BLACK_TO_WHITE, null));
 				g.fillRect(x, y, w, h);
 			}
 		});
-		gradient = GradientManager.DEFAULT_GRADIENT;
+		paint = GradientPaint2.BLACK_TO_WHITE;
 		
 		gs = new GradientShapeSelector(
-				GradientManager.DEFAULT_GRADIENT,
-				mm.getGradientShapes().values().toArray(new GradientShape[0]),
-				mm.getGradientShapes().keySet().toArray(new String[0])
+			GradientPaint2.BLACK_TO_WHITE,
+			mm.getGradientShapes().values().toArray(new GradientShape[0]),
+			mm.getGradientShapes().keySet().toArray(new String[0])
 		);
 		gsp = new JScrollPane(gs, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		palmodel.addCellSelectionListener(new CellSelectionListener<GradientShape>() {
 			public void cellSelected(CellSelectionEvent<GradientShape> e) {
 				if (!eventexec) {
-					gradient = new Gradient(e.getObject(), gradient.colorMap);
-					GradientShapePanel.this.pc.setEditedEditedground(new GradientPaint2(gradient));
+					paint = paint.derivePaint(e.getObject());
+					GradientShapePanel.this.pc.setEditedEditedground(paint);
 				}
 			}
 		});
 		gs.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				if (!eventexec) {
-					gradient = new Gradient(gs.getGradientShape(gs.getSelectedIndex()), gradient.colorMap);
-					GradientShapePanel.this.pc.setEditedEditedground(new GradientPaint2(gradient));
+					paint = paint.derivePaint(gs.getGradientShape(gs.getSelectedIndex()));
+					GradientShapePanel.this.pc.setEditedEditedground(paint);
 				}
 			}
 		});
@@ -100,27 +100,27 @@ public class GradientShapePanel extends PaintContextPanel {
 	public void update() {
 		Paint p = pc.getEditedEditedground();
 		if (p instanceof GradientPaint2) {
-			gradient = ((GradientPaint2)p).getGradient();
+			paint = (GradientPaint2)p;
 			if (!eventexec) {
 				eventexec = true;
-				gs.setGradient(gradient);
-				palmodel.setSelectedObject(gradient.shape);
+				gs.setGradient(paint);
+				palmodel.setSelectedObject(paint.shape);
 				eventexec = false;
 			}
 		}
 	}
 	
-	public Gradient getGradient() {
-		return gradient;
+	public GradientPaint2 getGradient() {
+		return paint;
 	}
 	
 	private static class GradientShapeSelector extends JList {
 		private static final long serialVersionUID = 1L;
-		private GradientShape[] gradients;
+		private GradientShape[] shapes;
 		private String[] names;
-		public GradientShapeSelector(Gradient gradient, GradientShape[] gradients, String[] names) {
+		public GradientShapeSelector(GradientPaint2 paint, GradientShape[] shapes, String[] names) {
 			super(names);
-			this.gradients = gradients;
+			this.shapes = shapes;
 			this.names = names;
 			setVisibleRowCount(8);
 			setBorder(BorderFactory.createEmptyBorder(2, 0, 1, 0));
@@ -133,7 +133,7 @@ public class GradientShapePanel extends PaintContextPanel {
 					Graphics2D g = bi.createGraphics();
 					g.setPaint(Color.gray);
 					g.fillRect(0, 0, 27, 27);
-					g.setPaint(new GradientPaint2(GradientShapeSelector.this.gradients[index], GradientManager.DEFAULT_COLORS));
+					g.setPaint(new GradientPaint2(GradientShapeSelector.this.shapes[index], GradientColorMap.BLACK_TO_WHITE, null));
 					g.fillRect(1, 1, 25, 25);
 					g.dispose();
 					l.setIcon(new ImageIcon(bi));
@@ -143,8 +143,8 @@ public class GradientShapePanel extends PaintContextPanel {
 				}
 			});
 			this.clearSelection();
-			for (int i = 0; i < gradients.length; i++) {
-				if (gradients[i].equals(gradient.shape)) {
+			for (int i = 0; i < shapes.length; i++) {
+				if (shapes[i].equals(paint.shape)) {
 					this.setSelectedIndex(i);
 					this.ensureIndexIsVisible(i);
 					break;
@@ -163,10 +163,10 @@ public class GradientShapePanel extends PaintContextPanel {
 		public boolean getScrollableTracksViewportHeight() {
 			return false;
 		}
-		public void setGradient(Gradient p) {
+		public void setGradient(GradientPaint2 p) {
 			this.clearSelection();
-			for (int i = 0; i < gradients.length; i++) {
-				if (gradients[i].equals(p.shape)) {
+			for (int i = 0; i < shapes.length; i++) {
+				if (shapes[i].equals(p.shape)) {
 					this.setSelectedIndex(i);
 					this.ensureIndexIsVisible(i);
 					break;
@@ -174,7 +174,7 @@ public class GradientShapePanel extends PaintContextPanel {
 			}
 		}
 		public GradientShape getGradientShape(int idx) {
-			return gradients[idx];
+			return shapes[idx];
 		}
 	}
 }

@@ -39,9 +39,11 @@ import com.kreative.paint.ToolContext;
 import com.kreative.paint.ToolContextConstants;
 import com.kreative.paint.ToolContextListener;
 import com.kreative.paint.geom.ParameterizedShape;
+import com.kreative.paint.gradient.GradientColor;
 import com.kreative.paint.gradient.GradientColorMap;
+import com.kreative.paint.gradient.GradientColorStop;
 import com.kreative.paint.gradient.GradientPaint2;
-import com.kreative.paint.gradient.LinearGradientShape;
+import com.kreative.paint.gradient.GradientShape;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.SwingUtils;
 import com.kreative.paint.util.UpdateLock;
@@ -153,8 +155,15 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 		}
 	}
 	
-	private static final Paint fill = new GradientPaint2(new LinearGradientShape(0.5,0,0.5,1), new GradientColorMap(0xFF99CCFF,0xFF6699CC));
-	private static final Paint draw = new Color(0xFF003366);
+	private static final Paint fill, draw;
+	static {
+		GradientShape shape = new GradientShape.Linear(0.5, 0, 0.5, 1, false, false, false, null);
+		GradientColorMap colorMap = new GradientColorMap(null);
+		colorMap.add(new GradientColorStop(0.0, new GradientColor.RGB(0x99, 0xCC, 0xFF)));
+		colorMap.add(new GradientColorStop(1.0, new GradientColor.RGB(0x66, 0x99, 0xCC)));
+		fill = new GradientPaint2(shape, colorMap, null);
+		draw = new Color(0x00, 0x33, 0x66);
+	}
 	private Image getShapeImage(int coll, int idx, boolean mini) {
 		int size = mini ? 19 : 25;
 		Shape ss = AffineTransform.getScaleInstance(size-1, size-1).createTransformedShape(new ParameterizedShape(tc.getPowerShapeSets().getLatter(coll).getLatter(idx)));

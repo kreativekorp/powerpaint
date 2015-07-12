@@ -68,9 +68,9 @@ import com.kreative.paint.filter.Filter;
 import com.kreative.paint.format.Format;
 import com.kreative.paint.geom.ParameterPoint;
 import com.kreative.paint.geom.ParameterizedPath;
-import com.kreative.paint.gradient.Gradient;
 import com.kreative.paint.gradient.GradientColorMap;
 import com.kreative.paint.gradient.GradientManager;
+import com.kreative.paint.gradient.GradientPreset;
 import com.kreative.paint.gradient.GradientShape;
 import com.kreative.paint.rcp.RCPXBorder;
 import com.kreative.paint.rcp.RCPXColor;
@@ -553,14 +553,14 @@ public class MaterialsManager {
 	}
 	
 	private GradientManager gradientManager = null;
-	public LinkedHashMap<String,Gradient> getGradientPresets() {
+	public LinkedHashMap<String,GradientPreset> getGradientPresets() {
 		if (gradientManager == null) {
 			gradientManager = new GradientManager();
 			for (Resource r : rm.getResources(ResourceCategory.GRADIENTS)) {
 				gradientManager.loadGradients(new ByteArrayInputStream(r.data()));
 			}
 		}
-		return gradientManager.gradientPresets();
+		return gradientManager.gradientPresets;
 	}
 	public LinkedHashMap<String,GradientShape> getGradientShapes() {
 		if (gradientManager == null) {
@@ -569,7 +569,7 @@ public class MaterialsManager {
 				gradientManager.loadGradients(new ByteArrayInputStream(r.data()));
 			}
 		}
-		return gradientManager.gradientShapes();
+		return gradientManager.gradientShapes;
 	}
 	public LinkedHashMap<String,GradientColorMap> getGradientColors() {
 		if (gradientManager == null) {
@@ -578,7 +578,7 @@ public class MaterialsManager {
 				gradientManager.loadGradients(new ByteArrayInputStream(r.data()));
 			}
 		}
-		return gradientManager.gradientColors();
+		return gradientManager.gradientColors;
 	}
 	
 	private TreeSet<Float> lineWidths;

@@ -34,10 +34,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.gradient.AngularGradientShape;
-import com.kreative.paint.gradient.GradientColorMap;
 import com.kreative.paint.gradient.GradientPaint2;
-import com.kreative.paint.gradient.GradientShape;
 
 public class ColorWheelPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
@@ -74,18 +71,6 @@ public class ColorWheelPanel extends PaintContextPanel {
 	
 	private static class ColorWheel extends JComponent {
 		private static final long serialVersionUID = 1L;
-		private static final GradientShape gs = new AngularGradientShape(0.5, 0.5, 1.0, 0.5, false, false, true);
-		private static final GradientColorMap gcm = new GradientColorMap();
-		static {
-			gcm.put(0.0/6.0, Color.red);
-			gcm.put(1.0/6.0, Color.yellow);
-			gcm.put(2.0/6.0, Color.green);
-			gcm.put(3.0/6.0, Color.cyan);
-			gcm.put(4.0/6.0, Color.blue);
-			gcm.put(5.0/6.0, Color.magenta);
-			gcm.put(6.0/6.0, Color.red);
-		}
-		private static final GradientPaint2 gp2 = new GradientPaint2(gs, gcm);
 		private static final Stroke bs1 = new BasicStroke(1);
 		private static final Stroke bs2 = new BasicStroke(2);
 		private Color color;
@@ -100,19 +85,6 @@ public class ColorWheelPanel extends PaintContextPanel {
 			addMouseListener(l);
 			addMouseMotionListener(l);
 		}
-		/*
-		public ColorWheel(Color color, ColorWheelPanel pp) {
-			float[] hsv = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
-			this.color = color;
-			this.ch = hsv[0];
-			this.cs = hsv[1];
-			this.cv = hsv[2];
-			this.ca = color.getAlpha()/255.0f;
-			ColorWheelListener l = new ColorWheelListener(this, pp);
-			addMouseListener(l);
-			addMouseMotionListener(l);
-		}
-		*/
 		public Color getColor() {
 			return color;
 		}
@@ -145,7 +117,7 @@ public class ColorWheelPanel extends PaintContextPanel {
 			Area a = new Area(new Ellipse2D.Float(1.0f, 1.0f, w-3.0f, h-3.0f));
 			a.subtract(new Area(new Ellipse2D.Float(17.0f, 17.0f, w-35.0f, h-35.0f)));
 			// wheel fill
-			g.setStroke(bs1); g.setPaint(gp2);
+			g.setStroke(bs1); g.setPaint(GradientPaint2.RGB_WHEEL);
 			g.fill(a);
 			// wheel boundary
 			g.setStroke(bs1); g.setPaint(Color.gray);

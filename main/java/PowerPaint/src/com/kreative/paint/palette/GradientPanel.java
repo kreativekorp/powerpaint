@@ -71,7 +71,7 @@ public class GradientPanel extends PaintContextPanel {
 	private JPopupPanel jpop = new JPopupPanel();
 	public JPopupPanel getPopup(boolean usePresets) {
 		if (usePresets) {
-			CellSelector<Gradient> sel = gpp.asPopup();
+			CellSelector<GradientPreset> sel = gpp.asPopup();
 			jpop.setContentPane(sel);
 			jpop.hideOnRelease(sel);
 		} else {
@@ -90,7 +90,7 @@ public class GradientPanel extends PaintContextPanel {
 		return jpop;
 	}
 	
-	public Gradient getGradient() {
+	public GradientPaint2 getGradient() {
 		return gpp.getGradient();
 	}
 	

@@ -41,11 +41,11 @@ public class GradientColorPanel extends PaintContextPanel {
 	private CellSelectorModel<GradientColorMap> palmodel;
 	private CellSelector<GradientColorMap> palcomp;
 	private JScrollPane palsp;
-	private Gradient gradient;
+	private GradientPaint2 paint;
 	
 	public GradientColorPanel(PaintContext pc, MaterialsManager mm) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
-		palmodel = new DefaultCellSelectorModel<GradientColorMap>(mm.getGradientColors(), GradientManager.DEFAULT_COLORS);
+		palmodel = new DefaultCellSelectorModel<GradientColorMap>(mm.getGradientColors(), GradientColorMap.BLACK_TO_WHITE);
 		palcomp = new CellSelector<GradientColorMap>(palmodel, new CellSelectorRenderer<GradientColorMap>() {
 			public int getCellHeight() { return 15; }
 			public int getCellWidth() { return 96; }
@@ -54,18 +54,18 @@ public class GradientColorPanel extends PaintContextPanel {
 			public boolean isFixedHeight() { return true; }
 			public boolean isFixedWidth() { return false; }
 			public void paint(Graphics g, GradientColorMap object, int x, int y, int w, int h) {
-				((Graphics2D)g).setPaint(new GradientPaint2(GradientManager.DEFAULT_SHAPE, object));
+				((Graphics2D)g).setPaint(new GradientPaint2(GradientShape.SIMPLE_LINEAR, object, null));
 				g.fillRect(x, y, w, h);
 			}
 		});
 		palsp = new JScrollPane(palcomp, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		gradient = GradientManager.DEFAULT_GRADIENT;
+		paint = GradientPaint2.BLACK_TO_WHITE;
 		
 		palmodel.addCellSelectionListener(new CellSelectionListener<GradientColorMap>() {
 			public void cellSelected(CellSelectionEvent<GradientColorMap> e) {
 				if (!eventexec) {
-					gradient = new Gradient(gradient.shape, e.getObject());
-					GradientColorPanel.this.pc.setEditedEditedground(new GradientPaint2(gradient));
+					paint = paint.derivePaint(e.getObject());
+					GradientColorPanel.this.pc.setEditedEditedground(paint);
 				}
 			}
 		});
@@ -82,16 +82,16 @@ public class GradientColorPanel extends PaintContextPanel {
 	public void update() {
 		Paint p = pc.getEditedEditedground();
 		if (p instanceof GradientPaint2) {
-			gradient = ((GradientPaint2)p).getGradient();
+			paint = (GradientPaint2)p;
 			if (!eventexec) {
 				eventexec = true;
-				palmodel.setSelectedObject(gradient.colorMap);
+				palmodel.setSelectedObject(paint.colorMap);
 				eventexec = false;
 			}
 		}
 	}
 	
-	public Gradient getGradient() {
-		return gradient;
+	public GradientPaint2 getGradient() {
+		return paint;
 	}
 }
