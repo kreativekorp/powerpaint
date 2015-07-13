@@ -128,6 +128,7 @@ public class MaterialsManager {
 					int[] c = new int[n];
 					int p = 0;
 					for (int color : colors) c[p++] = color;
+					colorArrays.add(name, c);
 				}
 			} catch (IOException ioe) {
 				System.err.println("Warning: Failed to compile color palette " + r.name() + ".");
