@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gradients PUBLIC "-//Kreative//DTD PowerGradient 1.0//EN" "grdx.dtd">
+<gradients name="AppleWorks Red &amp; Purple">
+	<gradient name="AppleWorks Red 1">
+		<shape>
+			<linear x0="0.0" y0="0.5" x1="1.0" y1="0.5"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 2">
+		<shape>
+			<linear x0="1.0" y0="0.5" x1="0.0" y1="0.5"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 3">
+		<shape>
+			<linear x0="0.5" y0="1.0" x1="0.5" y1="0.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 4">
+		<shape>
+			<linear x0="0.5" y0="0.0" x1="0.5" y1="1.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 5">
+		<shape>
+			<linear x0="0.0" y0="0.0" x1="1.0" y1="1.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 6">
+		<shape>
+			<linear x0="0.0" y0="1.0" x1="1.0" y1="0.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 7">
+		<shape>
+			<linear x0="1.0" y0="0.0" x1="0.0" y1="1.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 8">
+		<shape>
+			<linear x0="1.0" y0="1.0" x1="0.0" y1="0.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 9">
+		<shape>
+			<linear x0="0.0" y0="0.5" x1="1.0" y1="0.5" reflect="yes"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 10">
+		<shape>
+			<linear x0="0.5" y0="0.0" x1="0.5" y1="1.0" reflect="yes"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 11">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.8" l1="0.8" b1="0.8" r1="0.8"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 12">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.2" l1="0.8" b1="0.2" r1="0.8"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 13">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.8" l1="0.2" b1="0.8" r1="0.2"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 14">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.2" l1="0.2" b1="0.2" r1="0.2"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 15">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.5" l1="0.5" b1="0.5" r1="0.5"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Red 16">
+		<shape>
+			<angular cx="0.5" cy="0.5" px="0.0" py="0.5" reflect="yes"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 1">
+		<shape>
+			<linear x0="0.0" y0="0.5" x1="1.0" y1="0.5"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 2">
+		<shape>
+			<linear x0="1.0" y0="0.5" x1="0.0" y1="0.5"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 3">
+		<shape>
+			<linear x0="0.5" y0="1.0" x1="0.5" y1="0.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 4">
+		<shape>
+			<linear x0="0.5" y0="0.0" x1="0.5" y1="1.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 5">
+		<shape>
+			<linear x0="0.0" y0="0.0" x1="1.0" y1="1.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 6">
+		<shape>
+			<linear x0="0.0" y0="1.0" x1="1.0" y1="0.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 7">
+		<shape>
+			<linear x0="1.0" y0="0.0" x1="0.0" y1="1.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 8">
+		<shape>
+			<linear x0="1.0" y0="1.0" x1="0.0" y1="0.0"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 9">
+		<shape>
+			<linear x0="0.0" y0="0.5" x1="1.0" y1="0.5" reflect="yes"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 10">
+		<shape>
+			<linear x0="0.5" y0="0.0" x1="0.5" y1="1.0" reflect="yes"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 11">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.8" l1="0.8" b1="0.8" r1="0.8"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 12">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.2" l1="0.8" b1="0.2" r1="0.8"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 13">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.8" l1="0.2" b1="0.8" r1="0.2"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 14">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.2" l1="0.2" b1="0.2" r1="0.2"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 15">
+		<shape>
+			<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+			             t1="0.5" l1="0.5" b1="0.5" r1="0.5"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+	<gradient name="AppleWorks Purple 16">
+		<shape>
+			<angular cx="0.5" cy="0.5" px="0.0" py="0.5" reflect="yes"/>
+		</shape>
+		<map>
+			<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+			<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+		</map>
+	</gradient>
+</gradients>

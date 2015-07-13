@@ -69,7 +69,8 @@ import com.kreative.paint.format.Format;
 import com.kreative.paint.geom.ParameterPoint;
 import com.kreative.paint.geom.ParameterizedPath;
 import com.kreative.paint.gradient.GradientColorMap;
-import com.kreative.paint.gradient.GradientManager;
+import com.kreative.paint.gradient.GradientList;
+import com.kreative.paint.gradient.GradientParser;
 import com.kreative.paint.gradient.GradientPreset;
 import com.kreative.paint.gradient.GradientShape;
 import com.kreative.paint.rcp.RCPXBorder;
@@ -552,33 +553,58 @@ public class MaterialsManager {
 		return frames;
 	}
 	
-	private GradientManager gradientManager = null;
-	public LinkedHashMap<String,GradientPreset> getGradientPresets() {
-		if (gradientManager == null) {
-			gradientManager = new GradientManager();
-			for (Resource r : rm.getResources(ResourceCategory.GRADIENTS)) {
-				gradientManager.loadGradients(new ByteArrayInputStream(r.data()));
+	private LinkedHashMap<String,GradientPreset> gradientPresets = null;
+	private LinkedHashMap<String,GradientShape> gradientShapes = null;
+	private LinkedHashMap<String,GradientColorMap> gradientColorMaps = null;
+	private void loadGradients() {
+		gradientPresets = new LinkedHashMap<String,GradientPreset>();
+		gradientShapes = new LinkedHashMap<String,GradientShape>();
+		gradientColorMaps = new LinkedHashMap<String,GradientColorMap>();
+		for (Resource r : rm.getResources(ResourceCategory.GRADIENTS)) {
+			try {
+				ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
+				GradientList list = GradientParser.parse(r.name(), bin);
+				bin.close();
+				for (GradientPreset preset : list.presets) gradientPresets.put(preset.name, preset);
+				for (GradientShape shape : list.shapes) gradientShapes.put(shape.name, shape);
+				for (GradientColorMap map : list.colorMaps) gradientColorMaps.put(map.name, map);
+			} catch (IOException ioe) {
+				System.err.println("Warning: Failed to compile gradient set " + r.name() + ".");
+				ioe.printStackTrace();
 			}
 		}
-		return gradientManager.gradientPresets;
+		if (gradientPresets.isEmpty()) {
+			System.err.println("Notice: No gradient presets found. Generating generic gradient presets.");
+			gradientPresets.put(GradientPreset.BLACK_TO_WHITE.name, GradientPreset.BLACK_TO_WHITE);
+			gradientPresets.put(GradientPreset.WHITE_TO_BLACK.name, GradientPreset.WHITE_TO_BLACK);
+			gradientPresets.put(GradientPreset.RGB_SPECTRUM.name, GradientPreset.RGB_SPECTRUM);
+			gradientPresets.put(GradientPreset.RGB_WHEEL.name, GradientPreset.RGB_WHEEL);
+		}
+		if (gradientShapes.isEmpty()) {
+			System.err.println("Notice: No gradient shapes found. Generating generic gradient shapes.");
+			gradientShapes.put(GradientShape.SIMPLE_LINEAR.name, GradientShape.SIMPLE_LINEAR);
+			gradientShapes.put(GradientShape.REVERSE_LINEAR.name, GradientShape.REVERSE_LINEAR);
+			gradientShapes.put(GradientShape.SIMPLE_ANGULAR.name, GradientShape.SIMPLE_ANGULAR);
+			gradientShapes.put(GradientShape.REVERSE_ANGULAR.name, GradientShape.REVERSE_ANGULAR);
+		}
+		if (gradientColorMaps.isEmpty()) {
+			System.err.println("Notice: No gradient color maps found. Generating generic gradient color maps.");
+			gradientColorMaps.put(GradientColorMap.BLACK_TO_WHITE.name, GradientColorMap.BLACK_TO_WHITE);
+			gradientColorMaps.put(GradientColorMap.WHITE_TO_BLACK.name, GradientColorMap.WHITE_TO_BLACK);
+			gradientColorMaps.put(GradientColorMap.RGB_SPECTRUM.name, GradientColorMap.RGB_SPECTRUM);
+		}
+	}
+	public LinkedHashMap<String,GradientPreset> getGradientPresets() {
+		if (gradientPresets == null) loadGradients();
+		return gradientPresets;
 	}
 	public LinkedHashMap<String,GradientShape> getGradientShapes() {
-		if (gradientManager == null) {
-			gradientManager = new GradientManager();
-			for (Resource r : rm.getResources(ResourceCategory.GRADIENTS)) {
-				gradientManager.loadGradients(new ByteArrayInputStream(r.data()));
-			}
-		}
-		return gradientManager.gradientShapes;
+		if (gradientShapes == null) loadGradients();
+		return gradientShapes;
 	}
 	public LinkedHashMap<String,GradientColorMap> getGradientColors() {
-		if (gradientManager == null) {
-			gradientManager = new GradientManager();
-			for (Resource r : rm.getResources(ResourceCategory.GRADIENTS)) {
-				gradientManager.loadGradients(new ByteArrayInputStream(r.data()));
-			}
-		}
-		return gradientManager.gradientColors;
+		if (gradientColorMaps == null) loadGradients();
+		return gradientColorMaps;
 	}
 	
 	private TreeSet<Float> lineWidths;

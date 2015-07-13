@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gradients PUBLIC "-//Kreative//DTD PowerGradient 1.0//EN" "grdx.dtd">
+<gradients name="AppleWorks Base">
+	<shape name="Simple Linear">
+		<linear x0="0.0" y0="0.5" x1="1.0" y1="0.5"/>
+	</shape>
+	<shape name="Reverse Linear">
+		<linear x0="1.0" y0="0.5" x1="0.0" y1="0.5"/>
+	</shape>
+	<shape name="Reflected Linear">
+		<linear x0="0.0" y0="0.5" x1="1.0" y1="0.5" reflect="yes"/>
+	</shape>
+	<shape name="Simple Vertical">
+		<linear x0="0.5" y0="0.0" x1="0.5" y1="1.0"/>
+	</shape>
+	<shape name="Reverse Vertical">
+		<linear x0="0.5" y0="1.0" x1="0.5" y1="0.0"/>
+	</shape>
+	<shape name="Reflected Vertical">
+		<linear x0="0.5" y0="0.0" x1="0.5" y1="1.0" reflect="yes"/>
+	</shape>
+	<shape name="Simple Reflected Angular">
+		<angular cx="0.5" cy="0.5" px="1.0" py="0.5" reflect="yes"/>
+	</shape>
+	<shape name="Reverse Reflected Angular">
+		<angular cx="0.5" cy="0.5" px="0.0" py="0.5" reflect="yes"/>
+	</shape>
+	<shape name="Simple Rectangular">
+		<rectangular t0="0.5" l0="0.5" b0="0.5" r0="0.5"
+		             t1="0.0" l1="0.0" b1="1.0" r1="1.0"/>
+	</shape>
+	<shape name="Reverse Rectangular">
+		<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+		             t1="0.5" l1="0.5" b1="0.5" r1="0.5"/>
+	</shape>
+	<shape name="Diagonal TLBR">
+		<linear x0="0.0" y0="0.0" x1="1.0" y1="1.0"/>
+	</shape>
+	<shape name="Diagonal BLTR">
+		<linear x0="0.0" y0="1.0" x1="1.0" y1="0.0"/>
+	</shape>
+	<shape name="Diagonal TRBL">
+		<linear x0="1.0" y0="0.0" x1="0.0" y1="1.0"/>
+	</shape>
+	<shape name="Diagonal BRTL">
+		<linear x0="1.0" y0="1.0" x1="0.0" y1="0.0"/>
+	</shape>
+	<shape name="Rectangular BR">
+		<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+		             t1="0.8" l1="0.8" b1="0.8" r1="0.8"/>
+	</shape>
+	<shape name="Rectangular TR">
+		<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+		             t1="0.2" l1="0.8" b1="0.2" r1="0.8"/>
+	</shape>
+	<shape name="Rectangular BL">
+		<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+		             t1="0.8" l1="0.2" b1="0.8" r1="0.2"/>
+	</shape>
+	<shape name="Rectangular TL">
+		<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+		             t1="0.2" l1="0.2" b1="0.2" r1="0.2"/>
+	</shape>
+	<map name="Black to White">
+		<stop at="0.0"><rgb r=  "0" g=  "0" b=  "0"/></stop>
+		<stop at="1.0"><rgb r="255" g="255" b="255"/></stop>
+	</map>
+	<map name="AppleWorks Blue">
+		<stop at="0.0"><rgb r=  "0" g=  "0" b="204"/></stop>
+		<stop at="1.0"><rgb r="204" g="204" b="255"/></stop>
+	</map>
+	<map name="AppleWorks Aqua">
+		<stop at="0.0"><rgb r=  "0" g="204" b="204"/></stop>
+		<stop at="1.0"><rgb r="204" g="255" b="255"/></stop>
+	</map>
+	<map name="AppleWorks Green">
+		<stop at="0.0"><rgb r=  "0" g="204" b=  "0"/></stop>
+		<stop at="1.0"><rgb r="204" g="255" b="204"/></stop>
+	</map>
+	<map name="AppleWorks Yellow">
+		<stop at="0.0"><rgb r="204" g="204" b=  "0"/></stop>
+		<stop at="1.0"><rgb r="255" g="255" b="204"/></stop>
+	</map>
+	<map name="AppleWorks Red">
+		<stop at="0.0"><rgb r="204" g=  "0" b=  "0"/></stop>
+		<stop at="1.0"><rgb r="255" g="204" b="204"/></stop>
+	</map>
+	<map name="AppleWorks Purple">
+		<stop at="0.0"><rgb r="204" g=  "0" b="204"/></stop>
+		<stop at="1.0"><rgb r="255" g="204" b="255"/></stop>
+	</map>
+	<map name="AppleWorks Gray">
+		<stop at="0.0"><rgb r="136" g="136" b="136"/></stop>
+		<stop at="1.0"><rgb r="255" g="255" b="255"/></stop>
+	</map>
+	<map name="AppleWorks Double Gray">
+		<stop at="0.0"     ><rgb r="136" g="136" b="136"/></stop>
+		<stop at="0.333333"><rgb r="221" g="221" b="221"/></stop>
+		<stop at="0.666667"><rgb r="136" g="136" b="136"/></stop>
+		<stop at="1.0"     ><rgb r="238" g="238" b="238"/></stop>
+	</map>
+</gradients>
