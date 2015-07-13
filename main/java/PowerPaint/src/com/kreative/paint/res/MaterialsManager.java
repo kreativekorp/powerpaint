@@ -101,131 +101,127 @@ public class MaterialsManager {
 	}
 	
 	private PairList<String,RCPXPalette> colorPalettes = null;
-	public PairList<String,RCPXPalette> getColorPalettes() {
-		if (colorPalettes == null) {
-			colorPalettes = new PairList<String,RCPXPalette>();
-			for (Resource r : rm.getResources(ResourceCategory.COLORS)) {
-				RCPXPalette rcpx = loadColorPalette(r);
-				if (rcpx == null) continue;
-				String n = (rcpx.name == null) ? r.name() : rcpx.name;
-				colorPalettes.add(n, rcpx);
-			}
-			if (colorPalettes.isEmpty()) {
-				System.err.println("Notice: No color palettes found. Generating generic color palette.");
-				List<RCPXColor> colors = new Vector<RCPXColor>();
-				colors.add(new RCPXColor.RGB(255,   0,   0, "Red"       ));
-				colors.add(new RCPXColor.RGB(255, 128,   0, "Orange"    ));
-				colors.add(new RCPXColor.RGB(255, 255,   0, "Yellow"    ));
-				colors.add(new RCPXColor.RGB(128, 255,   0, "Chartreuse"));
-				colors.add(new RCPXColor.RGB(  0, 255,   0, "Green"     ));
-				colors.add(new RCPXColor.RGB(  0, 255, 128, "Aquamarine"));
-				colors.add(new RCPXColor.RGB(  0, 255, 255, "Cyan"      ));
-				colors.add(new RCPXColor.RGB(  0, 128, 255, "Azure"     ));
-				colors.add(new RCPXColor.RGB(  0,   0, 255, "Blue"      ));
-				colors.add(new RCPXColor.RGB(128,   0, 255, "Violet"    ));
-				colors.add(new RCPXColor.RGB(255,   0, 255, "Magenta"   ));
-				colors.add(new RCPXColor.RGB(255,   0, 128, "Rose"      ));
-				colors.add(new RCPXColor.RGB(128,  64,   0, "Brown"     ));
-				colors.add(new RCPXColor.RGB(  0,   0,   0, "Black"     ));
-				colors.add(new RCPXColor.RGB(128, 128, 128, "Gray"      ));
-				colors.add(new RCPXColor.RGB(255, 255, 255, "White"     ));
-				RCPXLayout.Row r1 = new RCPXLayout.Row();
-				r1.add(new RCPXSwatch.Range(0, 8, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
-				RCPXLayout.Row r2 = new RCPXLayout.Row();
-				r2.add(new RCPXSwatch.Range(8, 16, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
-				RCPXLayout.Column hlayout = new RCPXLayout.Column();
-				hlayout.add(r1); hlayout.add(r2);
-				RCPXLayout.Row r3 = new RCPXLayout.Row();
-				r3.add(new RCPXSwatch.Range(0, 4, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
-				RCPXLayout.Row r4 = new RCPXLayout.Row();
-				r4.add(new RCPXSwatch.Range(4, 8, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
-				RCPXLayout.Row r5 = new RCPXLayout.Row();
-				r5.add(new RCPXSwatch.Range(8, 12, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
-				RCPXLayout.Row r6 = new RCPXLayout.Row();
-				r6.add(new RCPXSwatch.Range(12, 16, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
-				RCPXLayout.Column slayout = new RCPXLayout.Column();
-				slayout.add(r3); slayout.add(r4); slayout.add(r5); slayout.add(r6);
-				RCPXLayout.Column c1 = new RCPXLayout.Column();
-				c1.add(new RCPXSwatch.Range(0, 8, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
-				RCPXLayout.Column c2 = new RCPXLayout.Column();
-				c2.add(new RCPXSwatch.Range(8, 16, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
-				RCPXLayout.Row vlayout = new RCPXLayout.Row();
-				vlayout.add(c1); vlayout.add(c2);
-				RCPXLayout.Oriented layout = new RCPXLayout.Oriented(hlayout, slayout, vlayout);
-				RCPXPalette rcpx = new RCPXPalette(
-					"Simple", RCPXOrientation.HORIZONTAL,
-					289, 73, 145, 145, 73, 289,
-					colors, false, layout
-				);
-				colorPalettes.add("Simple", rcpx);
+	private PairList<String,PairList<Color,String>> colorLists = null;
+	private PairList<String,int[]> colorArrays = null;
+	private void loadColorPalettes() {
+		colorPalettes = new PairList<String,RCPXPalette>();
+		colorLists = new PairList<String,PairList<Color,String>>();
+		colorArrays = new PairList<String,int[]>();
+		for (Resource r : rm.getResources(ResourceCategory.COLORS)) {
+			try {
+				ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
+				RCPXPalette rcpx = RCPXParser.parse(r.name(), bin);
+				bin.close();
+				Set<Integer> colors = new HashSet<Integer>();
+				PairList<Color,String> list = new PairList<Color,String>();
+				for (RCPXColor color : rcpx.colors) {
+					Color c = color.awtColor();
+					colors.add(c.getRGB());
+					String n = color.name();
+					if (n != null) list.add(c, n);
+				}
+				String name = (rcpx.name != null) ? rcpx.name : r.name();
+				colorPalettes.add(name, rcpx);
+				if (!list.isEmpty()) colorLists.add(name, list);
+				if (!colors.isEmpty()) {
+					int n = colors.size();
+					int[] c = new int[n];
+					int p = 0;
+					for (int color : colors) c[p++] = color;
+				}
+			} catch (IOException ioe) {
+				System.err.println("Warning: Failed to compile color palette " + r.name() + ".");
+				ioe.printStackTrace();
 			}
 		}
+		if (colorPalettes.isEmpty()) {
+			System.err.println("Notice: No color palettes found. Generating generic color palette.");
+			List<RCPXColor> colors = new Vector<RCPXColor>();
+			colors.add(new RCPXColor.RGB(255,   0,   0, "Red"       ));
+			colors.add(new RCPXColor.RGB(255, 128,   0, "Orange"    ));
+			colors.add(new RCPXColor.RGB(255, 255,   0, "Yellow"    ));
+			colors.add(new RCPXColor.RGB(128, 255,   0, "Chartreuse"));
+			colors.add(new RCPXColor.RGB(  0, 255,   0, "Green"     ));
+			colors.add(new RCPXColor.RGB(  0, 255, 128, "Aquamarine"));
+			colors.add(new RCPXColor.RGB(  0, 255, 255, "Cyan"      ));
+			colors.add(new RCPXColor.RGB(  0, 128, 255, "Azure"     ));
+			colors.add(new RCPXColor.RGB(  0,   0, 255, "Blue"      ));
+			colors.add(new RCPXColor.RGB(128,   0, 255, "Violet"    ));
+			colors.add(new RCPXColor.RGB(255,   0, 255, "Magenta"   ));
+			colors.add(new RCPXColor.RGB(255,   0, 128, "Rose"      ));
+			colors.add(new RCPXColor.RGB(128,  64,   0, "Brown"     ));
+			colors.add(new RCPXColor.RGB(  0,   0,   0, "Black"     ));
+			colors.add(new RCPXColor.RGB(128, 128, 128, "Gray"      ));
+			colors.add(new RCPXColor.RGB(255, 255, 255, "White"     ));
+			RCPXLayout.Row r1 = new RCPXLayout.Row();
+			r1.add(new RCPXSwatch.Range(0, 8, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
+			RCPXLayout.Row r2 = new RCPXLayout.Row();
+			r2.add(new RCPXSwatch.Range(8, 16, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
+			RCPXLayout.Column hlayout = new RCPXLayout.Column();
+			hlayout.add(r1); hlayout.add(r2);
+			RCPXLayout.Row r3 = new RCPXLayout.Row();
+			r3.add(new RCPXSwatch.Range(0, 4, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
+			RCPXLayout.Row r4 = new RCPXLayout.Row();
+			r4.add(new RCPXSwatch.Range(4, 8, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
+			RCPXLayout.Row r5 = new RCPXLayout.Row();
+			r5.add(new RCPXSwatch.Range(8, 12, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
+			RCPXLayout.Row r6 = new RCPXLayout.Row();
+			r6.add(new RCPXSwatch.Range(12, 16, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
+			RCPXLayout.Column slayout = new RCPXLayout.Column();
+			slayout.add(r3); slayout.add(r4); slayout.add(r5); slayout.add(r6);
+			RCPXLayout.Column c1 = new RCPXLayout.Column();
+			c1.add(new RCPXSwatch.Range(0, 8, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
+			RCPXLayout.Column c2 = new RCPXLayout.Column();
+			c2.add(new RCPXSwatch.Range(8, 16, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL, RCPXBorder.ALL));
+			RCPXLayout.Row vlayout = new RCPXLayout.Row();
+			vlayout.add(c1); vlayout.add(c2);
+			RCPXLayout.Oriented layout = new RCPXLayout.Oriented(hlayout, slayout, vlayout);
+			RCPXPalette rcpx = new RCPXPalette(
+				"Simple", RCPXOrientation.HORIZONTAL,
+				289, 73, 145, 145, 73, 289,
+				colors, false, layout
+			);
+			colorPalettes.add("Simple", rcpx);
+		}
+		if (colorLists.isEmpty()) {
+			System.err.println("Notice: No color lists found. Generating generic color list.");
+			PairList<Color,String> list = new PairList<Color,String>();
+			list.add(Color.pink     , "Pink"      );
+			list.add(Color.red      , "Red"       );
+			list.add(Color.orange   , "Orange"    );
+			list.add(Color.yellow   , "Yellow"    );
+			list.add(Color.green    , "Green"     );
+			list.add(Color.cyan     , "Cyan"      );
+			list.add(Color.blue     , "Blue"      );
+			list.add(Color.magenta  , "Magenta"   );
+			list.add(Color.white    , "White"     );
+			list.add(Color.lightGray, "Light Gray");
+			list.add(Color.gray     , "Gray"      );
+			list.add(Color.darkGray , "Dark Gray" );
+			list.add(Color.black    , "Black"     );
+			colorLists.add("Simple", list);
+		}
+		if (colorArrays.isEmpty()) {
+			System.err.println("Notice: No color arrays found. Generating generic color arrays.");
+			colorArrays.add("Black & White", new int[]{
+				0xFF000000, 0xFFFFFFFF
+			});
+			colorArrays.add("Process", new int[]{
+				0xFF000000, 0xFFFF0000, 0xFFFFFF00, 0xFF00FF00,
+				0xFF00FFFF, 0xFF0000FF, 0xFFFF00FF, 0xFFFFFFFF
+			});
+		}
+	}
+	public PairList<String,RCPXPalette> getColorPalettes() {
+		if (colorPalettes == null) loadColorPalettes();
 		return colorPalettes;
 	}
-	
-	private PairList<String,PairList<Color,String>> colorLists = null;
 	public PairList<String,PairList<Color,String>> getColorLists() {
-		if (colorLists == null) {
-			colorLists = new PairList<String,PairList<Color,String>>();
-			for (Resource r : rm.getResources(ResourceCategory.COLORS)) {
-				RCPXPalette rcpx = loadColorPalette(r);
-				if (rcpx == null) continue;
-				String n = (rcpx.name == null) ? r.name() : rcpx.name;
-				PairList<Color,String> v = new PairList<Color,String>();
-				for (RCPXColor color : rcpx.colors) {
-					if (color.name() != null) {
-						v.add(color.awtColor(), color.name());
-					}
-				}
-				if (!v.isEmpty()) colorLists.add(n, v);
-			}
-			if (colorLists.isEmpty()) {
-				System.err.println("Notice: No color lists found. Generating generic color list.");
-				PairList<Color,String> v = new PairList<Color,String>();
-				v.add(Color.pink, "Pink");
-				v.add(Color.red, "Red");
-				v.add(Color.orange, "Orange");
-				v.add(Color.yellow, "Yellow");
-				v.add(Color.green, "Green");
-				v.add(Color.cyan, "Cyan");
-				v.add(Color.blue, "Blue");
-				v.add(Color.magenta, "Magenta");
-				v.add(Color.white, "White");
-				v.add(Color.lightGray, "Light Gray");
-				v.add(Color.gray, "Gray");
-				v.add(Color.darkGray, "Dark Gray");
-				v.add(Color.black, "Black");
-				colorLists.add("Simple", v);
-			}
-		}
+		if (colorLists == null) loadColorPalettes();
 		return colorLists;
 	}
-	
-	private PairList<String,int[]> colorArrays = null;
 	public PairList<String,int[]> getColorArrays() {
-		if (colorArrays == null) {
-			colorArrays = new PairList<String,int[]>();
-			for (Resource r : rm.getResources(ResourceCategory.COLORS)) {
-				RCPXPalette rcpx = loadColorPalette(r);
-				if (rcpx == null) continue;
-				String n = (rcpx.name == null) ? r.name() : rcpx.name;
-				Set<Integer> colors = new HashSet<Integer>();
-				for (RCPXColor color : rcpx.colors) {
-					colors.add(color.awtColor().getRGB());
-				}
-				if (!colors.isEmpty()) {
-					Integer[] c2 = colors.toArray(new Integer[colors.size()]);
-					int[] c3 = new int[c2.length];
-					for (int i = 0; i < c2.length; i++) c3[i] = c2[i];
-					colorArrays.add(n, c3);
-				}
-			}
-			if (colorArrays.isEmpty()) {
-				System.err.println("Notice: No color arrays found. Generating generic color arrays.");
-				colorArrays.add("Black & White", new int[]{ 0xFF000000, 0xFFFFFFFF });
-				colorArrays.add("Process", new int[]{ 0xFF000000, 0xFFFF0000, 0xFFFFFF00, 0xFF00FF00, 0xFF00FFFF, 0xFF0000FF, 0xFFFF00FF, 0xFFFFFFFF });
-			}
-		}
+		if (colorArrays == null) loadColorPalettes();
 		return colorArrays;
 	}
 	
@@ -952,18 +948,6 @@ public class MaterialsManager {
 			}
 		}
 		return pluginTools;
-	}
-	
-	private RCPXPalette loadColorPalette(Resource r) {
-		try {
-			ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
-			RCPXPalette rcpx = RCPXParser.parse(r.name(), bin);
-			return rcpx;
-		} catch (IOException ioe) {
-			System.err.println("Warning: Failed to compile color palette " + r.name() + ".");
-			ioe.printStackTrace();
-			return null;
-		}
 	}
 	
 	private PairList<String,Vector<Bitmap>> getBitmaps(ResourceCategory cat) {
