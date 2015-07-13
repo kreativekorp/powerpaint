@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gradients PUBLIC "-//Kreative//DTD PowerGradient 1.0//EN" "grdx.dtd">
+<gradients name="Simple">
+	<shape name="Simple Linear">
+		<linear x0="0.0" y0="0.5" x1="1.0" y1="0.5"/>
+	</shape>
+	<shape name="Reverse Linear">
+		<linear x0="1.0" y0="0.5" x1="0.0" y1="0.5"/>
+	</shape>
+	<shape name="Reflected Linear">
+		<linear x0="0.0" y0="0.5" x1="1.0" y1="0.5" reflect="yes"/>
+	</shape>
+	<shape name="Simple Vertical">
+		<linear x0="0.5" y0="0.0" x1="0.5" y1="1.0"/>
+	</shape>
+	<shape name="Reverse Vertical">
+		<linear x0="0.5" y0="1.0" x1="0.5" y1="0.0"/>
+	</shape>
+	<shape name="Reflected Vertical">
+		<linear x0="0.5" y0="0.0" x1="0.5" y1="1.0" reflect="yes"/>
+	</shape>
+	<shape name="Simple Angular">
+		<angular cx="0.5" cy="0.5" px="1.0" py="0.5"/>
+	</shape>
+	<shape name="Reverse Angular">
+		<angular cx="0.5" cy="0.5" px="0.0" py="0.5"/>
+	</shape>
+	<shape name="Simple Reflected Angular">
+		<angular cx="0.5" cy="0.5" px="1.0" py="0.5" reflect="yes"/>
+	</shape>
+	<shape name="Reverse Reflected Angular">
+		<angular cx="0.5" cy="0.5" px="0.0" py="0.5" reflect="yes"/>
+	</shape>
+	<shape name="Simple Radial">
+		<radial cx="0.5" cy="0.5" x0="0.5" y0="0.5" x1="1.0" y1="0.5"/>
+	</shape>
+	<shape name="Reverse Radial">
+		<radial cx="0.5" cy="0.5" x0="1.0" y0="0.5" x1="0.5" y1="0.5"/>
+	</shape>
+	<shape name="Simple Rectangular">
+		<rectangular t0="0.5" l0="0.5" b0="0.5" r0="0.5"
+		             t1="0.0" l1="0.0" b1="1.0" r1="1.0"/>
+	</shape>
+	<shape name="Reverse Rectangular">
+		<rectangular t0="0.0" l0="0.0" b0="1.0" r0="1.0"
+		             t1="0.5" l1="0.5" b1="0.5" r1="0.5"/>
+	</shape>
+	<shape name="Simple Diamond">
+		<diamond cx="0.5" cy="0.5" x0="0.5" y0="0.5" x1="1.0" y1="1.0"/>
+	</shape>
+	<shape name="Reverse Diamond">
+		<diamond cx="0.5" cy="0.5" x0="1.0" y0="1.0" x1="0.5" y1="0.5"/>
+	</shape>
+	<map name="Black to White">
+		<stop at="0.0"><rgb r=  "0" g=  "0" b=  "0"/></stop>
+		<stop at="1.0"><rgb r="255" g="255" b="255"/></stop>
+	</map>
+	<map name="White to Black">
+		<stop at="0.0"><rgb r="255" g="255" b="255"/></stop>
+		<stop at="1.0"><rgb r=  "0" g=  "0" b=  "0"/></stop>
+	</map>
+	<map name="Black to White to Black">
+		<stop at="0.0"><rgb r=  "0" g=  "0" b=  "0"/></stop>
+		<stop at="0.5"><rgb r="255" g="255" b="255"/></stop>
+		<stop at="1.0"><rgb r=  "0" g=  "0" b=  "0"/></stop>
+	</map>
+	<map name="White to Black to White">
+		<!--
+			The stop at 0.504 instead of 0.5 is an idiosyncrasy
+			of the default SuperPaint gradient set.
+		-->
+		<stop at="0.0"  ><rgb r="255" g="255" b="255"/></stop>
+		<stop at="0.504"><rgb r=  "0" g=  "0" b=  "0"/></stop>
+		<stop at="1.0"  ><rgb r="255" g="255" b="255"/></stop>
+	</map>
+</gradients>

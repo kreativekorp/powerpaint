@@ -1,0 +1,146 @@
+<!--
+	Date: 2015/07/10 00:12:20 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - COLORS - - - - - - - - - - - - -->
+
+<!ENTITY % color "(rgb|rgb16|rgba|rgba16|hsv|hsva)">
+
+<!ELEMENT rgb EMPTY>
+<!ATTLIST rgb
+	r CDATA #REQUIRED
+	g CDATA #REQUIRED
+	b CDATA #REQUIRED
+>
+
+<!ELEMENT rgb16 EMPTY>
+<!ATTLIST rgb16
+	r CDATA #REQUIRED
+	g CDATA #REQUIRED
+	b CDATA #REQUIRED
+>
+
+<!ELEMENT rgba EMPTY>
+<!ATTLIST rgba
+	r CDATA #REQUIRED
+	g CDATA #REQUIRED
+	b CDATA #REQUIRED
+	a CDATA #REQUIRED
+>
+
+<!ELEMENT rgba16 EMPTY>
+<!ATTLIST rgba16
+	r CDATA #REQUIRED
+	g CDATA #REQUIRED
+	b CDATA #REQUIRED
+	a CDATA #REQUIRED
+>
+
+<!ELEMENT hsv EMPTY>
+<!ATTLIST hsv
+	h CDATA #REQUIRED
+	s CDATA #REQUIRED
+	v CDATA #REQUIRED
+>
+
+<!ELEMENT hsva EMPTY>
+<!ATTLIST hsva
+	h CDATA #REQUIRED
+	s CDATA #REQUIRED
+	v CDATA #REQUIRED
+	a CDATA #REQUIRED
+>
+
+<!-- - - - - - - - - - - - - SHAPES - - - - - - - - - - - - -->
+
+<!ENTITY % shape "(linear|angular|radial|rectangular|diamond)">
+
+<!ELEMENT linear EMPTY>
+<!ATTLIST linear
+	x0 CDATA #REQUIRED
+	y0 CDATA #REQUIRED
+	x1 CDATA #REQUIRED
+	y1 CDATA #REQUIRED
+	repeat (yes|no) "no"
+	reflect (yes|no) "no"
+	reverse (yes|no) "no"
+>
+
+<!ELEMENT angular EMPTY>
+<!ATTLIST angular
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	px CDATA #REQUIRED
+	py CDATA #REQUIRED
+	repeat (yes|no) "no"
+	reflect (yes|no) "no"
+	reverse (yes|no) "no"
+>
+
+<!ELEMENT radial EMPTY>
+<!ATTLIST radial
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	x0 CDATA #REQUIRED
+	y0 CDATA #REQUIRED
+	x1 CDATA #REQUIRED
+	y1 CDATA #REQUIRED
+	repeat (yes|no) "no"
+	reflect (yes|no) "no"
+	reverse (yes|no) "no"
+>
+
+<!ELEMENT rectangular EMPTY>
+<!ATTLIST rectangular
+	t0 CDATA #REQUIRED
+	l0 CDATA #REQUIRED
+	b0 CDATA #REQUIRED
+	r0 CDATA #REQUIRED
+	t1 CDATA #REQUIRED
+	l1 CDATA #REQUIRED
+	b1 CDATA #REQUIRED
+	r1 CDATA #REQUIRED
+	repeat (yes|no) "no"
+	reflect (yes|no) "no"
+	reverse (yes|no) "no"
+>
+
+<!ELEMENT diamond EMPTY>
+<!ATTLIST diamond
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	x0 CDATA #REQUIRED
+	y0 CDATA #REQUIRED
+	x1 CDATA #REQUIRED
+	y1 CDATA #REQUIRED
+	repeat (yes|no) "no"
+	reflect (yes|no) "no"
+	reverse (yes|no) "no"
+>
+
+<!-- - - - - - - - - - - - - GRADIENTS - - - - - - - - - - - - -->
+
+<!ELEMENT gradients (gradient|shape|map)*>
+<!ATTLIST gradients
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT gradient (shape,map)>
+<!ATTLIST gradient
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT shape %shape;>
+<!ATTLIST shape
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT map (stop)*>
+<!ATTLIST map
+	name CDATA #IMPLIED
+>
+<!ELEMENT stop %color;>
+<!ATTLIST stop
+	at CDATA #REQUIRED
+>
