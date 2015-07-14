@@ -73,6 +73,7 @@ import com.kreative.paint.gradient.GradientList;
 import com.kreative.paint.gradient.GradientParser;
 import com.kreative.paint.gradient.GradientPreset;
 import com.kreative.paint.gradient.GradientShape;
+import com.kreative.paint.pattern.Pattern;
 import com.kreative.paint.rcp.RCPXBorder;
 import com.kreative.paint.rcp.RCPXColor;
 import com.kreative.paint.rcp.RCPXLayout;
@@ -260,33 +261,33 @@ public class MaterialsManager {
 		return fontLists;
 	}
 	
-	private PairList<String,Vector<Long>> patterns = null;
-	public PairList<String,Vector<Long>> getPatterns() {
+	private PairList<String,Vector<Pattern>> patterns = null;
+	public PairList<String,Vector<Pattern>> getPatterns() {
 		if (patterns == null) {
-			patterns = new PairList<String,Vector<Long>>();
+			patterns = new PairList<String,Vector<Pattern>>();
 			for (Resource r : rm.getResources(ResourceCategory.PATTERNS)) {
-				Vector<Long> pats = new Vector<Long>();
+				Vector<Pattern> pats = new Vector<Pattern>();
 				try {
 					DataInputStream dis = new DataInputStream(new ByteArrayInputStream(r.data()));
 					int n = dis.readUnsignedShort();
-					for (int i = 0; i < n; i++) pats.add(dis.readLong());
+					for (int i = 0; i < n; i++) pats.add(new Pattern(dis.readLong(), null));
 					dis.close();
 				} catch (IOException ioe) {
 					if (pats.isEmpty()) {
-						pats.add(0L);
-						pats.add(-1L);
+						pats.add(Pattern.BACKGROUND);
+						pats.add(Pattern.FOREGROUND);
 					}
 				}
 				patterns.add(r.name(), pats);
 			}
 			if (patterns.isEmpty()) {
 				System.err.println("Notice: No patterns found. Generating generic patterns.");
-				Vector<Long> pats = new Vector<Long>();
-				pats.add(0L);
-				pats.add(0xAA005500AA005500L);
-				pats.add(0xAA55AA55AA55AA55L);
-				pats.add(0xAAFF55FFAAFF55FFL);
-				pats.add(-1L);
+				Vector<Pattern> pats = new Vector<Pattern>();
+				pats.add(Pattern.BACKGROUND);
+				pats.add(Pattern.BG_25_FG_75);
+				pats.add(Pattern.BG_50_FG_50);
+				pats.add(Pattern.BG_75_FG_25);
+				pats.add(Pattern.FOREGROUND);
 				patterns.add("Simple", pats);
 			}
 		}

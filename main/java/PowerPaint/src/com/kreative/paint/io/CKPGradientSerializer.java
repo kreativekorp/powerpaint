@@ -75,7 +75,7 @@ public class CKPGradientSerializer extends Serializer {
 			stream.writeFloat(v.a);
 		} else if (o instanceof GradientColorMap) {
 			GradientColorMap v = (GradientColorMap)o;
-			stream.writeUTF(v.name);
+			stream.writeUTF((v.name != null) ? v.name : "");
 			stream.writeInt(v.size());
 			for (GradientColorStop stop : v) {
 				SerializationManager.writeObject(stop, stream);
@@ -86,7 +86,7 @@ public class CKPGradientSerializer extends Serializer {
 			SerializationManager.writeObject(v.color, stream);
 		} else if (o instanceof GradientList) {
 			GradientList v = (GradientList)o;
-			stream.writeUTF(v.name);
+			stream.writeUTF((v.name != null) ? v.name : "");
 			stream.writeInt(v.presets.size());
 			stream.writeInt(v.shapes.size());
 			stream.writeInt(v.colorMaps.size());
@@ -106,7 +106,7 @@ public class CKPGradientSerializer extends Serializer {
 			SerializationManager.writeObject(v.boundingRect, stream);
 		} else if (o instanceof GradientPreset) {
 			GradientPreset v = (GradientPreset)o;
-			stream.writeUTF(v.name);
+			stream.writeUTF((v.name != null) ? v.name : "");
 			SerializationManager.writeObject(v.shape, stream);
 			SerializationManager.writeObject(v.colorMap, stream);
 		} else if (o instanceof GradientShape.Linear) {
@@ -118,7 +118,7 @@ public class CKPGradientSerializer extends Serializer {
 			stream.writeBoolean(v.repeat);
 			stream.writeBoolean(v.reflect);
 			stream.writeBoolean(v.reverse);
-			stream.writeUTF(v.name);
+			stream.writeUTF((v.name != null) ? v.name : "");
 		} else if (o instanceof GradientShape.Angular) {
 			GradientShape.Angular v = (GradientShape.Angular)o;
 			stream.writeDouble(v.cx);
@@ -128,7 +128,7 @@ public class CKPGradientSerializer extends Serializer {
 			stream.writeBoolean(v.repeat);
 			stream.writeBoolean(v.reflect);
 			stream.writeBoolean(v.reverse);
-			stream.writeUTF(v.name);
+			stream.writeUTF((v.name != null) ? v.name : "");
 		} else if (o instanceof GradientShape.Radial) {
 			GradientShape.Radial v = (GradientShape.Radial)o;
 			stream.writeDouble(v.cx);
@@ -140,7 +140,7 @@ public class CKPGradientSerializer extends Serializer {
 			stream.writeBoolean(v.repeat);
 			stream.writeBoolean(v.reflect);
 			stream.writeBoolean(v.reverse);
-			stream.writeUTF(v.name);
+			stream.writeUTF((v.name != null) ? v.name : "");
 		} else if (o instanceof GradientShape.Rectangular) {
 			GradientShape.Rectangular v = (GradientShape.Rectangular)o;
 			stream.writeDouble(v.l0);
@@ -154,7 +154,7 @@ public class CKPGradientSerializer extends Serializer {
 			stream.writeBoolean(v.repeat);
 			stream.writeBoolean(v.reflect);
 			stream.writeBoolean(v.reverse);
-			stream.writeUTF(v.name);
+			stream.writeUTF((v.name != null) ? v.name : "");
 		}
 	}
 	
@@ -215,7 +215,8 @@ public class CKPGradientSerializer extends Serializer {
 				}
 				return gcm;
 			case 2:
-				gcm = new GradientColorMap(stream.readUTF());
+				String name = stream.readUTF();
+				gcm = new GradientColorMap((name.length() > 0) ? name : null);
 				n = stream.readInt();
 				for (int i = 0; i < n; i++) {
 					gcm.add((GradientColorStop)SerializationManager.readObject(stream));
@@ -231,7 +232,8 @@ public class CKPGradientSerializer extends Serializer {
 			return new GradientColorStop(position, color);
 		} else if (type == TYPE_GRADIENT_LIST) {
 			if (version != 1) throw new IOException("Invalid version number.");
-			GradientList list = new GradientList(stream.readUTF());
+			String name = stream.readUTF();
+			GradientList list = new GradientList((name.length() > 0) ? name : null);
 			int numPresets = stream.readInt();
 			int numShapes = stream.readInt();
 			int numColorMaps = stream.readInt();
@@ -256,7 +258,7 @@ public class CKPGradientSerializer extends Serializer {
 			String name = stream.readUTF();
 			GradientShape gs = (GradientShape)SerializationManager.readObject(stream);
 			GradientColorMap gc = (GradientColorMap)SerializationManager.readObject(stream);
-			return new GradientPreset(gs, gc, name);
+			return new GradientPreset(gs, gc, (name.length() > 0) ? name : null);
 		} else if (type == TYPE_GRADIENT_SHAPE_LINEAR) {
 			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			double zx = stream.readDouble();
@@ -266,8 +268,11 @@ public class CKPGradientSerializer extends Serializer {
 			boolean rep = stream.readBoolean();
 			boolean ref = stream.readBoolean();
 			boolean rev = stream.readBoolean();
-			String name = (version >= 2) ? stream.readUTF() : null;
-			return new GradientShape.Linear(zx, zy, ox, oy, rep, ref, rev, name);
+			String name = (version >= 2) ? stream.readUTF() : "";
+			return new GradientShape.Linear(
+				zx, zy, ox, oy, rep, ref, rev,
+				(name.length() > 0) ? name : null
+			);
 		} else if (type == TYPE_GRADIENT_SHAPE_ANGULAR) {
 			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			double cx = stream.readDouble();
@@ -277,8 +282,11 @@ public class CKPGradientSerializer extends Serializer {
 			boolean rep = stream.readBoolean();
 			boolean ref = stream.readBoolean();
 			boolean rev = stream.readBoolean();
-			String name = (version >= 2) ? stream.readUTF() : null;
-			return new GradientShape.Angular(cx, cy, px, py, rep, ref, rev, name);
+			String name = (version >= 2) ? stream.readUTF() : "";
+			return new GradientShape.Angular(
+				cx, cy, px, py, rep, ref, rev,
+				(name.length() > 0) ? name : null
+			);
 		} else if (type == TYPE_GRADIENT_SHAPE_RADIAL) {
 			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			double cx = stream.readDouble();
@@ -290,8 +298,11 @@ public class CKPGradientSerializer extends Serializer {
 			boolean rep = stream.readBoolean();
 			boolean ref = stream.readBoolean();
 			boolean rev = stream.readBoolean();
-			String name = (version >= 2) ? stream.readUTF() : null;
-			return new GradientShape.Radial(cx, cy, zx, zy, ox, oy, rep, ref, rev, name);
+			String name = (version >= 2) ? stream.readUTF() : "";
+			return new GradientShape.Radial(
+				cx, cy, zx, zy, ox, oy, rep, ref, rev,
+				(name.length() > 0) ? name : null
+			);
 		} else if (type == TYPE_GRADIENT_SHAPE_RECTANGULAR) {
 			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			double zx1 = stream.readDouble();
@@ -305,8 +316,13 @@ public class CKPGradientSerializer extends Serializer {
 			boolean rep = stream.readBoolean();
 			boolean ref = stream.readBoolean();
 			boolean rev = stream.readBoolean();
-			String name = (version >= 2) ? stream.readUTF() : null;
-			return new GradientShape.Rectangular(zx1, zy1, zx2, zy2, ox1, oy1, ox2, oy2, rep, ref, rev, name);
+			String name = (version >= 2) ? stream.readUTF() : "";
+			return new GradientShape.Rectangular(
+				zx1, zy1, zx2, zy2,
+				ox1, oy1, ox2, oy2,
+				rep, ref, rev,
+				(name.length() > 0) ? name : null
+			);
 		} else {
 			return null;
 		}

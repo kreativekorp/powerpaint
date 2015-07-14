@@ -28,6 +28,7 @@
 package com.kreative.paint.palette;
 
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.pattern.Pattern;
 import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.JPopupPanel;
 
@@ -48,7 +49,7 @@ public class PatternPalette extends PaintContextPalette {
 		return pp.getPopup();
 	}
 	
-	public long getPattern() {
+	public Pattern getPattern() {
 		return pp.getPattern();
 	}
 }

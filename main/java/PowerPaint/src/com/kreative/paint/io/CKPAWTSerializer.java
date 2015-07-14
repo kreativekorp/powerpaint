@@ -30,17 +30,21 @@ package com.kreative.paint.io;
 import java.awt.*;
 import java.io.*;
 import com.kreative.paint.awt.*;
+import com.kreative.paint.pattern.Pattern;
+import com.kreative.paint.pattern.PatternPaint;
 
 public class CKPAWTSerializer extends Serializer {
 	private static final int TYPE_BASIC_DERIVABLE_STROKE = fcc("DStk");
 	private static final int TYPE_CIRCLE_ARROWHEAD = fcc("CAhd");
+	private static final int TYPE_PATTERN = fcc("Patt");
 	private static final int TYPE_PATTERN_PAINT = fcc("PPnt");
 	private static final int TYPE_POLYGON_ARROWHEAD = fcc("PAhd");
 	
 	protected void loadRecognizedTypesAndClasses() {
 		addTypeAndClass(TYPE_BASIC_DERIVABLE_STROKE, 1, BasicDerivableStroke.class);
 		addTypeAndClass(TYPE_CIRCLE_ARROWHEAD, 1, CircleArrowhead.class);
-		addTypeAndClass(TYPE_PATTERN_PAINT, 1, PatternPaint.class);
+		addTypeAndClass(TYPE_PATTERN, 1, Pattern.class);
+		addTypeAndClass(TYPE_PATTERN_PAINT, 2, PatternPaint.class);
 		addTypeAndClass(TYPE_POLYGON_ARROWHEAD, 1, PolygonArrowhead.class);
 	}
 	
@@ -63,8 +67,7 @@ public class CKPAWTSerializer extends Serializer {
 			}
 			SerializationManager.writeObject(v.getArrowOnStart(), stream);
 			SerializationManager.writeObject(v.getArrowOnEnd(), stream);
-		}
-		else if (o instanceof CircleArrowhead) {
+		} else if (o instanceof CircleArrowhead) {
 			CircleArrowhead v = (CircleArrowhead)o;
 			stream.writeBoolean(v.isFilled());
 			stream.writeBoolean(v.isScaled());
@@ -72,14 +75,35 @@ public class CKPAWTSerializer extends Serializer {
 			stream.writeFloat(v.getCenterY());
 			stream.writeFloat(v.getWidth());
 			stream.writeFloat(v.getHeight());
-		}
-		else if (o instanceof PatternPaint) {
+		} else if (o instanceof Pattern) {
+			Pattern v = (Pattern)o;
+			stream.writeInt(v.width);
+			stream.writeInt(v.height);
+			stream.writeInt(v.denominator);
+			stream.writeInt(v.values.length);
+			stream.writeBoolean(v.name != null);
+			if (v.denominator < 256) {
+				for (int value : v.values) {
+					stream.writeByte(value);
+				}
+			} else if (v.denominator < 65536) {
+				for (int value : v.values) {
+					stream.writeShort(value);
+				}
+			} else {
+				for (int value : v.values) {
+					stream.writeInt(value);
+				}
+			}
+			if (v.name != null) {
+				stream.writeUTF(v.name);
+			}
+		} else if (o instanceof PatternPaint) {
 			PatternPaint v = (PatternPaint)o;
-			stream.writeLong(v.getPattern());
-			SerializationManager.writeObject(v.getForeground(), stream);
-			SerializationManager.writeObject(v.getBackground(), stream);
-		}
-		else if (o instanceof PolygonArrowhead) {
+			SerializationManager.writeObject(v.pattern, stream);
+			SerializationManager.writeObject(v.foreground, stream);
+			SerializationManager.writeObject(v.background, stream);
+		} else if (o instanceof PolygonArrowhead) {
 			PolygonArrowhead v = (PolygonArrowhead)o;
 			stream.writeBoolean(v.isFilled());
 			stream.writeBoolean(v.isScaled());
@@ -91,8 +115,8 @@ public class CKPAWTSerializer extends Serializer {
 	}
 	
 	public Object deserializeObject(int type, int version, DataInputStream stream) throws IOException {
-		if (!(version == 1)) throw new IOException("Invalid version number.");
-		else if (type == TYPE_BASIC_DERIVABLE_STROKE) {
+		if (type == TYPE_BASIC_DERIVABLE_STROKE) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			float lw = stream.readFloat();
 			int ec = stream.readInt();
 			int lj = stream.readInt();
@@ -112,8 +136,8 @@ public class CKPAWTSerializer extends Serializer {
 			Arrowhead as = (Arrowhead)SerializationManager.readObject(stream);
 			Arrowhead ae = (Arrowhead)SerializationManager.readObject(stream);
 			return new BasicDerivableStroke(lw, ec, lj, ml, dash, dp, mx, as, ae);
-		}
-		else if (type == TYPE_CIRCLE_ARROWHEAD) {
+		} else if (type == TYPE_CIRCLE_ARROWHEAD) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			boolean f = stream.readBoolean();
 			boolean s = stream.readBoolean();
 			float cx = stream.readFloat();
@@ -121,14 +145,46 @@ public class CKPAWTSerializer extends Serializer {
 			float w = stream.readFloat();
 			float h = stream.readFloat();
 			return new CircleArrowhead(cx, cy, w, h, f, s);
-		}
-		else if (type == TYPE_PATTERN_PAINT) {
-			long p = stream.readLong();
+		} else if (type == TYPE_PATTERN) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			int w = stream.readInt();
+			int h = stream.readInt();
+			int d = stream.readInt();
+			int l = stream.readInt();
+			boolean n = stream.readBoolean();
+			int[] v = new int[l];
+			if (d < 256) {
+				for (int i = 0; i < l; i++) {
+					v[i] = stream.readUnsignedByte();
+				}
+			} else if (d < 65536) {
+				for (int i = 0; i < l; i++) {
+					v[i] = stream.readUnsignedShort();
+				}
+			} else {
+				for (int i = 0; i < l; i++) {
+					v[i] = stream.readInt();
+				}
+			}
+			String name = n ? stream.readUTF() : null;
+			Pattern pattern = new Pattern(w, h, d, name);
+			for (int i = 0; i < l; i++) {
+				pattern.values[i] = v[i];
+			}
+			return pattern;
+		} else if (type == TYPE_PATTERN_PAINT) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
+			Pattern patt;
+			if (version < 2) {
+				patt = new Pattern(stream.readLong(), null);
+			} else {
+				patt = (Pattern)SerializationManager.readObject(stream);
+			}
 			Paint fg = (Paint)SerializationManager.readObject(stream);
 			Paint bg = (Paint)SerializationManager.readObject(stream);
-			return new PatternPaint(fg,bg,p);
-		}
-		else if (type == TYPE_POLYGON_ARROWHEAD) {
+			return new PatternPaint(fg, bg, patt);
+		} else if (type == TYPE_POLYGON_ARROWHEAD) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			boolean f = stream.readBoolean();
 			boolean s = stream.readBoolean();
 			int np = stream.readInt();
@@ -137,7 +193,8 @@ public class CKPAWTSerializer extends Serializer {
 				p[i] = stream.readFloat();
 			}
 			return new PolygonArrowhead(p, f, s);
+		} else {
+			return null;
 		}
-		else return null;
 	}
 }

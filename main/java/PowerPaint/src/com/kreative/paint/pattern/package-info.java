@@ -1,5 +1,8 @@
-/*
- * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
+/**
+ * This package provides classes for implementing patterns
+ * as defined by the original QuickDraw routines from Mac OS Classic.
+ * <p>
+ * Copyright &copy; 2015 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -24,39 +27,4 @@
  * @since PowerPaint 1.0
  * @author Rebecca G. Bettencourt, Kreative Software
  */
-
-package com.kreative.paint.palette;
-
-import java.awt.*;
-import com.kreative.paint.PaintContext;
-import com.kreative.paint.pattern.Pattern;
-import com.kreative.paint.pattern.PatternPaint;
-
-public class SNFPatternSelector extends PaintContextPanel {
-	private static final long serialVersionUID = 1L;
-	
-	public SNFPatternSelector(PaintContext pc) {
-		super(pc, CHANGED_PAINT|CHANGED_EDITING);
-		setToolTipText(PaletteUtilities.messages.getString("snf.pattern"));
-	}
-	
-	public void update() {
-		repaint();
-	}
-	
-	protected void paintComponent(Graphics g) {
-		Insets i = getInsets();
-		int x = i.left;
-		int y = i.top;
-		int w = getWidth() - i.left - i.right;
-		int h = getHeight() - i.top - i.bottom;
-		Pattern pat = pc.getEditedPattern();
-		g.setColor(Color.black);
-		g.fillRect(x+1, y+1, w-1, h-1);
-		g.fillRect(x, y, w-1, h-1);
-		g.setColor(Color.white);
-		g.fillRect(x+1, y+1, w-3, h-3);
-		((Graphics2D)g).setPaint(new PatternPaint(Color.black, Color.white, pat));
-		g.fillRect(x+2, y+2, w-5, h-5);
-	}
-}
+package com.kreative.paint.pattern;

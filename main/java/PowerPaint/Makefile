@@ -30,6 +30,7 @@ bin:
 	javac -target 1.5 -sourcepath src $(SRCFILES) -d bin
 	cp src/com/kreative/paint/gradient/*.dtd bin/com/kreative/paint/gradient/
 	cp src/com/kreative/paint/palette/*.png bin/com/kreative/paint/palette/
+	cp src/com/kreative/paint/pattern/*.dtd bin/com/kreative/paint/pattern/
 	cp src/com/kreative/paint/rcp/*.dtd bin/com/kreative/paint/rcp/
 	cp src/com/kreative/paint/rcp/*.png bin/com/kreative/paint/rcp/
 	cp src/com/kreative/paint/tool/*.png bin/com/kreative/paint/tool/

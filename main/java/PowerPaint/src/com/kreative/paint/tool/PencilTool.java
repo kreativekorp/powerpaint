@@ -36,8 +36,8 @@ import java.awt.Paint;
 import java.awt.geom.GeneralPath;
 import com.kreative.paint.PaintSettings;
 import com.kreative.paint.PaintSurface;
-import com.kreative.paint.awt.PatternPaint;
 import com.kreative.paint.draw.PencilStrokeDrawObject;
+import com.kreative.paint.pattern.PatternPaint;
 import com.kreative.paint.util.CursorUtils;
 
 public class PencilTool extends AbstractPaintDrawTool {
@@ -118,7 +118,7 @@ public class PencilTool extends AbstractPaintDrawTool {
 			int y = (int)Math.floor(e.getY());
 			Paint pnt = ps.getFillPaint();
 			if (pnt instanceof PatternPaint) {
-				pnt = ((PatternPaint)pnt).getForeground();
+				pnt = ((PatternPaint)pnt).foreground;
 			}
 			if (pnt instanceof Color) {
 				eraseMode = (p.getRGB(x,y) == ((Color)pnt).getRGB());

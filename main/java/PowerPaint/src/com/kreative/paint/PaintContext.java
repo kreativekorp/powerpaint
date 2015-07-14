@@ -38,7 +38,8 @@ import java.awt.RenderingHints;
 import java.awt.Stroke;
 import java.util.Collection;
 import java.util.HashSet;
-import com.kreative.paint.awt.PatternPaint;
+import com.kreative.paint.pattern.Pattern;
+import com.kreative.paint.pattern.PatternPaint;
 
 public class PaintContext implements PaintContextConstants {
 	private static final Color COLOR_CLEAR = new Color(0, true);
@@ -170,7 +171,7 @@ public class PaintContext implements PaintContextConstants {
 		if (drawPaint == null) {
 			return null;
 		} else if (drawPaint instanceof PatternPaint) {
-			return ((PatternPaint)drawPaint).getForeground();
+			return ((PatternPaint)drawPaint).foreground;
 		} else {
 			return drawPaint;
 		}
@@ -180,17 +181,17 @@ public class PaintContext implements PaintContextConstants {
 		if (drawPaint == null) {
 			return null;
 		} else if (drawPaint instanceof PatternPaint) {
-			return ((PatternPaint)drawPaint).getBackground();
+			return ((PatternPaint)drawPaint).background;
 		} else {
 			return Color.white;
 		}
 	}
 	
-	public long getDrawPattern() {
+	public Pattern getDrawPattern() {
 		if (drawPaint instanceof PatternPaint) {
-			return ((PatternPaint)drawPaint).getPattern();
+			return ((PatternPaint)drawPaint).pattern;
 		} else {
-			return -1;
+			return Pattern.FOREGROUND;
 		}
 	}
 
@@ -206,7 +207,7 @@ public class PaintContext implements PaintContextConstants {
 		if (fillPaint == null) {
 			return null;
 		} else if (fillPaint instanceof PatternPaint) {
-			return ((PatternPaint)fillPaint).getForeground();
+			return ((PatternPaint)fillPaint).foreground;
 		} else {
 			return fillPaint;
 		}
@@ -216,17 +217,17 @@ public class PaintContext implements PaintContextConstants {
 		if (fillPaint == null) {
 			return null;
 		} else if (fillPaint instanceof PatternPaint) {
-			return ((PatternPaint)fillPaint).getBackground();
+			return ((PatternPaint)fillPaint).background;
 		} else {
 			return Color.white;
 		}
 	}
 	
-	public long getFillPattern() {
+	public Pattern getFillPattern() {
 		if (fillPaint instanceof PatternPaint) {
-			return ((PatternPaint)fillPaint).getPattern();
+			return ((PatternPaint)fillPaint).pattern;
 		} else {
-			return -1;
+			return Pattern.FOREGROUND;
 		}
 	}
 	
@@ -250,7 +251,7 @@ public class PaintContext implements PaintContextConstants {
 		return editingStroke ? (editingBkgnd ? getDrawBackground() : getDrawForeground()) : (editingBkgnd ? getFillBackground() : getFillForeground());
 	}
 	
-	public long getEditedPattern() {
+	public Pattern getEditedPattern() {
 		return editingStroke ? getDrawPattern() : getFillPattern();
 	}
 
@@ -286,7 +287,7 @@ public class PaintContext implements PaintContextConstants {
 		}
 	}
 	
-	public void setDrawPattern(long pattern) {
+	public void setDrawPattern(Pattern pattern) {
 		Paint fore = getDrawForeground();
 		Paint back = getDrawBackground();
 		if (fore == null && back == null) {
@@ -330,7 +331,7 @@ public class PaintContext implements PaintContextConstants {
 		}
 	}
 	
-	public void setFillPattern(long pattern) {
+	public void setFillPattern(Pattern pattern) {
 		Paint fore = getFillForeground();
 		Paint back = getFillBackground();
 		if (fore == null && back == null) {
@@ -372,7 +373,7 @@ public class PaintContext implements PaintContextConstants {
 		}
 	}
 	
-	public void setEditedPattern(long pattern) {
+	public void setEditedPattern(Pattern pattern) {
 		if (editingStroke) setDrawPattern(pattern);
 		else setFillPattern(pattern);
 	}

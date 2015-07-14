@@ -32,7 +32,8 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.awt.PatternPaint;
+import com.kreative.paint.pattern.Pattern;
+import com.kreative.paint.pattern.PatternPaint;
 import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.*;
 import com.kreative.paint.util.Pair;
@@ -43,20 +44,20 @@ public class PatternPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
 
 	private boolean eventexec = false;
-	private CellSelector<Long> palcomp;
-	private PairList<String,CellSelectorModel<Long>> palmap;
+	private CellSelector<Pattern> palcomp;
+	private PairList<String,CellSelectorModel<Pattern>> palmap;
 	private JComboBox list;
 	
 	public PatternPanel(PaintContext pc, MaterialsManager mm, String initialSelection) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
-		palmap = new PairList<String,CellSelectorModel<Long>>();
-		for (Pair<String,Vector<Long>> e : mm.getPatterns()) {
-			palmap.add(e.getFormer(), new DefaultCellSelectorModel<Long>(e.getLatter()));
+		palmap = new PairList<String,CellSelectorModel<Pattern>>();
+		for (Pair<String,Vector<Pattern>> e : mm.getPatterns()) {
+			palmap.add(e.getFormer(), new DefaultCellSelectorModel<Pattern>(e.getLatter()));
 		}
-		for (CellSelectorModel<Long> m : palmap.latterList()) {
-			m.setSelectedObject(-1L);
-			m.addCellSelectionListener(new CellSelectionListener<Long>() {
-				public void cellSelected(CellSelectionEvent<Long> e) {
+		for (CellSelectorModel<Pattern> m : palmap.latterList()) {
+			m.setSelectedObject(Pattern.FOREGROUND);
+			m.addCellSelectionListener(new CellSelectionListener<Pattern>() {
+				public void cellSelected(CellSelectionEvent<Pattern> e) {
 					if (!PatternPanel.this.eventexec) PatternPanel.this.pc.setEditedPattern(e.getObject());
 				}
 			});
@@ -69,14 +70,14 @@ public class PatternPanel extends PaintContextPanel {
 		list.setMinimumSize(new Dimension(1, list.getMinimumSize().height));
 		list.setPreferredSize(new Dimension(1, list.getPreferredSize().height));
 		
-		palcomp = new CellSelector<Long>(null, new CellSelectorRenderer<Long>() {
+		palcomp = new CellSelector<Pattern>(null, new CellSelectorRenderer<Pattern>() {
 			public int getCellHeight() { return 15; }
 			public int getCellWidth() { return 15; }
 			public int getColumns() { return 0; }
 			public int getRows() { return 0; }
 			public boolean isFixedHeight() { return true; }
 			public boolean isFixedWidth() { return true; }
-			public void paint(Graphics g, Long object, int x, int y, int w, int h) {
+			public void paint(Graphics g, Pattern object, int x, int y, int w, int h) {
 				((Graphics2D)g).setPaint(new PatternPaint(Color.black, Color.white, object));
 				g.fillRect(x, y, w, h);
 			}
@@ -109,8 +110,8 @@ public class PatternPanel extends PaintContextPanel {
 	public void update() {
 		if (!eventexec) {
 			eventexec = true;
-			long p = pc.getEditedPattern();
-			for (CellSelectorModel<Long> m : palmap.latterList()) {
+			Pattern p = pc.getEditedPattern();
+			for (CellSelectorModel<Pattern> m : palmap.latterList()) {
 				m.setSelectedObject(p);
 			}
 			Container c = PatternPanel.this;
@@ -125,7 +126,7 @@ public class PatternPanel extends PaintContextPanel {
 	
 	private JPopupPanel jpop = new JPopupPanel();
 	public JPopupPanel getPopup() {
-		CellSelector<Long> sel = palcomp.asPopup();
+		CellSelector<Pattern> sel = palcomp.asPopup();
 		jpop.setContentPane(sel);
 		jpop.hideOnRelease(sel);
 		jpop.setResizable(false);
@@ -133,7 +134,7 @@ public class PatternPanel extends PaintContextPanel {
 		return jpop;
 	}
 	
-	public long getPattern() {
+	public Pattern getPattern() {
 		return pc.getEditedPattern();
 	}
 }
