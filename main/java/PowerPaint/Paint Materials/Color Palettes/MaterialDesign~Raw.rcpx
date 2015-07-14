@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Material Design (Raw)">
+	<colors ordered="ordered">
+		<rgb r="244" g= "67" b= "54" name="Red 500 - Primary"        />
+		<rgb r="255" g="235" b="238" name="Red 50"                   />
+		<rgb r="255" g="205" b="210" name="Red 100"                  />
+		<rgb r="239" g="154" b="154" name="Red 200"                  />
+		<rgb r="229" g="115" b="115" name="Red 300"                  />
+		<rgb r="239" g= "83" b= "80" name="Red 400"                  />
+		<rgb r="229" g= "57" b= "53" name="Red 600"                  />
+		<rgb r="211" g= "47" b= "47" name="Red 700"                  />
+		<rgb r="198" g= "40" b= "40" name="Red 800"                  />
+		<rgb r="183" g= "28" b= "28" name="Red 900"                  />
+		<rgb r="255" g="138" b="128" name="Red A100"                 />
+		<rgb r="255" g= "82" b= "82" name="Red A200"                 />
+		<rgb r="255" g= "23" b= "68" name="Red A400"                 />
+		<rgb r="213" g=  "0" b=  "0" name="Red A700"                 />
+		<rgb r="233" g= "30" b= "99" name="Pink 500 - Primary"       />
+		<rgb r="252" g="228" b="236" name="Pink 50"                  />
+		<rgb r="248" g="187" b="208" name="Pink 100"                 />
+		<rgb r="244" g="143" b="177" name="Pink 200"                 />
+		<rgb r="240" g= "98" b="146" name="Pink 300"                 />
+		<rgb r="236" g= "64" b="122" name="Pink 400"                 />
+		<rgb r="216" g= "27" b= "96" name="Pink 600"                 />
+		<rgb r="194" g= "24" b= "91" name="Pink 700"                 />
+		<rgb r="173" g= "20" b= "87" name="Pink 800"                 />
+		<rgb r="136" g= "14" b= "79" name="Pink 900"                 />
+		<rgb r="255" g="128" b="171" name="Pink A100"                />
+		<rgb r="255" g= "64" b="129" name="Pink A200"                />
+		<rgb r="245" g=  "0" b= "87" name="Pink A400"                />
+		<rgb r="197" g= "17" b= "98" name="Pink A700"                />
+		<rgb r="156" g= "39" b="176" name="Purple 500 - Primary"     />
+		<rgb r="243" g="229" b="245" name="Purple 50"                />
+		<rgb r="225" g="190" b="231" name="Purple 100"               />
+		<rgb r="206" g="147" b="216" name="Purple 200"               />
+		<rgb r="186" g="104" b="200" name="Purple 300"               />
+		<rgb r="171" g= "71" b="188" name="Purple 400"               />
+		<rgb r="142" g= "36" b="170" name="Purple 600"               />
+		<rgb r="123" g= "31" b="162" name="Purple 700"               />
+		<rgb r="106" g= "27" b="154" name="Purple 800"               />
+		<rgb r= "74" g= "20" b="140" name="Purple 900"               />
+		<rgb r="234" g="128" b="252" name="Purple A100"              />
+		<rgb r="224" g= "64" b="251" name="Purple A200"              />
+		<rgb r="213" g=  "0" b="249" name="Purple A400"              />
+		<rgb r="170" g=  "0" b="255" name="Purple A700"              />
+		<rgb r="103" g= "58" b="183" name="Deep Purple 500 - Primary"/>
+		<rgb r="237" g="231" b="246" name="Deep Purple 50"           />
+		<rgb r="209" g="196" b="233" name="Deep Purple 100"          />
+		<rgb r="179" g="157" b="219" name="Deep Purple 200"          />
+		<rgb r="149" g="117" b="205" name="Deep Purple 300"          />
+		<rgb r="126" g= "87" b="194" name="Deep Purple 400"          />
+		<rgb r= "94" g= "53" b="177" name="Deep Purple 600"          />
+		<rgb r= "81" g= "45" b="168" name="Deep Purple 700"          />
+		<rgb r= "69" g= "39" b="160" name="Deep Purple 800"          />
+		<rgb r= "49" g= "27" b="146" name="Deep Purple 900"          />
+		<rgb r="179" g="136" b="255" name="Deep Purple A100"         />
+		<rgb r="124" g= "77" b="255" name="Deep Purple A200"         />
+		<rgb r="101" g= "31" b="255" name="Deep Purple A400"         />
+		<rgb r= "98" g=  "0" b="234" name="Deep Purple A700"         />
+		<rgb r= "63" g= "81" b="181" name="Indigo 500 - Primary"     />
+		<rgb r="232" g="234" b="246" name="Indigo 50"                />
+		<rgb r="197" g="202" b="233" name="Indigo 100"               />
+		<rgb r="159" g="168" b="218" name="Indigo 200"               />
+		<rgb r="121" g="134" b="203" name="Indigo 300"               />
+		<rgb r= "92" g="107" b="192" name="Indigo 400"               />
+		<rgb r= "57" g= "73" b="171" name="Indigo 600"               />
+		<rgb r= "48" g= "63" b="159" name="Indigo 700"               />
+		<rgb r= "40" g= "53" b="147" name="Indigo 800"               />
+		<rgb r= "26" g= "35" b="126" name="Indigo 900"               />
+		<rgb r="140" g="158" b="255" name="Indigo A100"              />
+		<rgb r= "83" g="109" b="254" name="Indigo A200"              />
+		<rgb r= "61" g= "90" b="254" name="Indigo A400"              />
+		<rgb r= "48" g= "79" b="254" name="Indigo A700"              />
+		<rgb r= "33" g="150" b="243" name="Blue 500 - Primary"       />
+		<rgb r="227" g="242" b="253" name="Blue 50"                  />
+		<rgb r="187" g="222" b="251" name="Blue 100"                 />
+		<rgb r="144" g="202" b="249" name="Blue 200"                 />
+		<rgb r="100" g="181" b="246" name="Blue 300"                 />
+		<rgb r= "66" g="165" b="245" name="Blue 400"                 />
+		<rgb r= "30" g="136" b="229" name="Blue 600"                 />
+		<rgb r= "25" g="118" b="210" name="Blue 700"                 />
+		<rgb r= "21" g="101" b="192" name="Blue 800"                 />
+		<rgb r= "13" g= "71" b="161" name="Blue 900"                 />
+		<rgb r="130" g="177" b="255" name="Blue A100"                />
+		<rgb r= "68" g="138" b="255" name="Blue A200"                />
+		<rgb r= "41" g="121" b="255" name="Blue A400"                />
+		<rgb r= "41" g= "98" b="255" name="Blue A700"                />
+		<rgb r=  "3" g="169" b="244" name="Light Blue 500 - Primary" />
+		<rgb r="225" g="245" b="254" name="Light Blue 50"            />
+		<rgb r="179" g="229" b="252" name="Light Blue 100"           />
+		<rgb r="129" g="212" b="250" name="Light Blue 200"           />
+		<rgb r= "79" g="195" b="247" name="Light Blue 300"           />
+		<rgb r= "41" g="182" b="246" name="Light Blue 400"           />
+		<rgb r=  "3" g="155" b="229" name="Light Blue 600"           />
+		<rgb r=  "2" g="136" b="209" name="Light Blue 700"           />
+		<rgb r=  "2" g="119" b="189" name="Light Blue 800"           />
+		<rgb r=  "1" g= "87" b="155" name="Light Blue 900"           />
+		<rgb r="128" g="216" b="255" name="Light Blue A100"          />
+		<rgb r= "64" g="196" b="255" name="Light Blue A200"          />
+		<rgb r=  "0" g="176" b="255" name="Light Blue A400"          />
+		<rgb r=  "0" g="145" b="234" name="Light Blue A700"          />
+		<rgb r=  "0" g="188" b="212" name="Cyan 500 - Primary"       />
+		<rgb r="224" g="247" b="250" name="Cyan 50"                  />
+		<rgb r="178" g="235" b="242" name="Cyan 100"                 />
+		<rgb r="128" g="222" b="234" name="Cyan 200"                 />
+		<rgb r= "77" g="208" b="225" name="Cyan 300"                 />
+		<rgb r= "38" g="198" b="218" name="Cyan 400"                 />
+		<rgb r=  "0" g="172" b="193" name="Cyan 600"                 />
+		<rgb r=  "0" g="151" b="167" name="Cyan 700"                 />
+		<rgb r=  "0" g="131" b="143" name="Cyan 800"                 />
+		<rgb r=  "0" g= "96" b="100" name="Cyan 900"                 />
+		<rgb r="132" g="255" b="255" name="Cyan A100"                />
+		<rgb r= "24" g="255" b="255" name="Cyan A200"                />
+		<rgb r=  "0" g="229" b="255" name="Cyan A400"                />
+		<rgb r=  "0" g="184" b="212" name="Cyan A700"                />
+		<rgb r=  "0" g="150" b="136" name="Teal 500 - Primary"       />
+		<rgb r="224" g="242" b="241" name="Teal 50"                  />
+		<rgb r="178" g="223" b="219" name="Teal 100"                 />
+		<rgb r="128" g="203" b="196" name="Teal 200"                 />
+		<rgb r= "77" g="182" b="172" name="Teal 300"                 />
+		<rgb r= "38" g="166" b="154" name="Teal 400"                 />
+		<rgb r=  "0" g="137" b="123" name="Teal 600"                 />
+		<rgb r=  "0" g="121" b="107" name="Teal 700"                 />
+		<rgb r=  "0" g="105" b= "92" name="Teal 800"                 />
+		<rgb r=  "0" g= "77" b= "64" name="Teal 900"                 />
+		<rgb r="167" g="255" b="235" name="Teal A100"                />
+		<rgb r="100" g="255" b="218" name="Teal A200"                />
+		<rgb r= "29" g="233" b="182" name="Teal A400"                />
+		<rgb r=  "0" g="191" b="165" name="Teal A700"                />
+		<rgb r= "76" g="175" b= "80" name="Green 500 - Primary"      />
+		<rgb r="232" g="245" b="233" name="Green 50"                 />
+		<rgb r="200" g="230" b="201" name="Green 100"                />
+		<rgb r="165" g="214" b="167" name="Green 200"                />
+		<rgb r="129" g="199" b="132" name="Green 300"                />
+		<rgb r="102" g="187" b="106" name="Green 400"                />
+		<rgb r= "67" g="160" b= "71" name="Green 600"                />
+		<rgb r= "56" g="142" b= "60" name="Green 700"                />
+		<rgb r= "46" g="125" b= "50" name="Green 800"                />
+		<rgb r= "27" g= "94" b= "32" name="Green 900"                />
+		<rgb r="185" g="246" b="202" name="Green A100"               />
+		<rgb r="105" g="240" b="174" name="Green A200"               />
+		<rgb r=  "0" g="230" b="118" name="Green A400"               />
+		<rgb r=  "0" g="200" b= "83" name="Green A700"               />
+		<rgb r="139" g="195" b= "74" name="Light Green 500 - Primary"/>
+		<rgb r="241" g="248" b="233" name="Light Green 50"           />
+		<rgb r="220" g="237" b="200" name="Light Green 100"          />
+		<rgb r="197" g="225" b="165" name="Light Green 200"          />
+		<rgb r="174" g="213" b="129" name="Light Green 300"          />
+		<rgb r="156" g="204" b="101" name="Light Green 400"          />
+		<rgb r="124" g="179" b= "66" name="Light Green 600"          />
+		<rgb r="104" g="159" b= "56" name="Light Green 700"          />
+		<rgb r= "85" g="139" b= "47" name="Light Green 800"          />
+		<rgb r= "51" g="105" b= "30" name="Light Green 900"          />
+		<rgb r="204" g="255" b="144" name="Light Green A100"         />
+		<rgb r="178" g="255" b= "89" name="Light Green A200"         />
+		<rgb r="118" g="255" b=  "3" name="Light Green A400"         />
+		<rgb r="100" g="221" b= "23" name="Light Green A700"         />
+		<rgb r="205" g="220" b= "57" name="Lime 500 - Primary"       />
+		<rgb r="249" g="251" b="231" name="Lime 50"                  />
+		<rgb r="240" g="244" b="195" name="Lime 100"                 />
+		<rgb r="230" g="238" b="156" name="Lime 200"                 />
+		<rgb r="220" g="231" b="117" name="Lime 300"                 />
+		<rgb r="212" g="225" b= "87" name="Lime 400"                 />
+		<rgb r="192" g="202" b= "51" name="Lime 600"                 />
+		<rgb r="175" g="180" b= "43" name="Lime 700"                 />
+		<rgb r="158" g="157" b= "36" name="Lime 800"                 />
+		<rgb r="130" g="119" b= "23" name="Lime 900"                 />
+		<rgb r="244" g="255" b="129" name="Lime A100"                />
+		<rgb r="238" g="255" b= "65" name="Lime A200"                />
+		<rgb r="198" g="255" b=  "0" name="Lime A400"                />
+		<rgb r="174" g="234" b=  "0" name="Lime A700"                />
+		<rgb r="255" g="235" b= "59" name="Yellow 500 - Primary"     />
+		<rgb r="255" g="253" b="231" name="Yellow 50"                />
+		<rgb r="255" g="249" b="196" name="Yellow 100"               />
+		<rgb r="255" g="245" b="157" name="Yellow 200"               />
+		<rgb r="255" g="241" b="118" name="Yellow 300"               />
+		<rgb r="255" g="238" b= "88" name="Yellow 400"               />
+		<rgb r="253" g="216" b= "53" name="Yellow 600"               />
+		<rgb r="251" g="192" b= "45" name="Yellow 700"               />
+		<rgb r="249" g="168" b= "37" name="Yellow 800"               />
+		<rgb r="245" g="127" b= "23" name="Yellow 900"               />
+		<rgb r="255" g="255" b="141" name="Yellow A100"              />
+		<rgb r="255" g="255" b=  "0" name="Yellow A200"              />
+		<rgb r="255" g="234" b=  "0" name="Yellow A400"              />
+		<rgb r="255" g="214" b=  "0" name="Yellow A700"              />
+		<rgb r="255" g="193" b=  "7" name="Amber 500 - Primary"      />
+		<rgb r="255" g="248" b="225" name="Amber 50"                 />
+		<rgb r="255" g="236" b="179" name="Amber 100"                />
+		<rgb r="255" g="224" b="130" name="Amber 200"                />
+		<rgb r="255" g="213" b= "79" name="Amber 300"                />
+		<rgb r="255" g="202" b= "40" name="Amber 400"                />
+		<rgb r="255" g="179" b=  "0" name="Amber 600"                />
+		<rgb r="255" g="160" b=  "0" name="Amber 700"                />
+		<rgb r="255" g="143" b=  "0" name="Amber 800"                />
+		<rgb r="255" g="111" b=  "0" name="Amber 900"                />
+		<rgb r="255" g="229" b="127" name="Amber A100"               />
+		<rgb r="255" g="215" b= "64" name="Amber A200"               />
+		<rgb r="255" g="196" b=  "0" name="Amber A400"               />
+		<rgb r="255" g="171" b=  "0" name="Amber A700"               />
+		<rgb r="255" g="152" b=  "0" name="Orange 500 - Primary"     />
+		<rgb r="255" g="243" b="224" name="Orange 50"                />
+		<rgb r="255" g="224" b="178" name="Orange 100"               />
+		<rgb r="255" g="204" b="128" name="Orange 200"               />
+		<rgb r="255" g="183" b= "77" name="Orange 300"               />
+		<rgb r="255" g="167" b= "38" name="Orange 400"               />
+		<rgb r="251" g="140" b=  "0" name="Orange 600"               />
+		<rgb r="245" g="124" b=  "0" name="Orange 700"               />
+		<rgb r="239" g="108" b=  "0" name="Orange 800"               />
+		<rgb r="230" g= "81" b=  "0" name="Orange 900"               />
+		<rgb r="255" g="209" b="128" name="Orange A100"              />
+		<rgb r="255" g="171" b= "64" name="Orange A200"              />
+		<rgb r="255" g="145" b=  "0" name="Orange A400"              />
+		<rgb r="255" g="109" b=  "0" name="Orange A700"              />
+		<rgb r="255" g= "87" b= "34" name="Deep Orange 500 - Primary"/>
+		<rgb r="251" g="233" b="231" name="Deep Orange 50"           />
+		<rgb r="255" g="204" b="188" name="Deep Orange 100"          />
+		<rgb r="255" g="171" b="145" name="Deep Orange 200"          />
+		<rgb r="255" g="138" b="101" name="Deep Orange 300"          />
+		<rgb r="255" g="112" b= "67" name="Deep Orange 400"          />
+		<rgb r="244" g= "81" b= "30" name="Deep Orange 600"          />
+		<rgb r="230" g= "74" b= "25" name="Deep Orange 700"          />
+		<rgb r="216" g= "67" b= "21" name="Deep Orange 800"          />
+		<rgb r="191" g= "54" b= "12" name="Deep Orange 900"          />
+		<rgb r="255" g="158" b="128" name="Deep Orange A100"         />
+		<rgb r="255" g="110" b= "64" name="Deep Orange A200"         />
+		<rgb r="255" g= "61" b=  "0" name="Deep Orange A400"         />
+		<rgb r="221" g= "44" b=  "0" name="Deep Orange A700"         />
+		<rgb r="158" g="158" b="158" name="Grey 500 - Primary"       />
+		<rgb r="250" g="250" b="250" name="Grey 50"                  />
+		<rgb r="245" g="245" b="245" name="Grey 100"                 />
+		<rgb r="238" g="238" b="238" name="Grey 200"                 />
+		<rgb r="224" g="224" b="224" name="Grey 300"                 />
+		<rgb r="189" g="189" b="189" name="Grey 400"                 />
+		<rgb r="117" g="117" b="117" name="Grey 600"                 />
+		<rgb r= "97" g= "97" b= "97" name="Grey 700"                 />
+		<rgb r= "66" g= "66" b= "66" name="Grey 800"                 />
+		<rgb r= "33" g= "33" b= "33" name="Grey 900"                 />
+		<rgb r= "96" g="125" b="139" name="Blue Grey 500 - Primary"  />
+		<rgb r="236" g="239" b="241" name="Blue Grey 50"             />
+		<rgb r="207" g="216" b="220" name="Blue Grey 100"            />
+		<rgb r="176" g="190" b="197" name="Blue Grey 200"            />
+		<rgb r="144" g="164" b="174" name="Blue Grey 300"            />
+		<rgb r="120" g="144" b="156" name="Blue Grey 400"            />
+		<rgb r= "84" g="110" b="122" name="Blue Grey 600"            />
+		<rgb r= "69" g= "90" b="100" name="Blue Grey 700"            />
+		<rgb r= "55" g= "71" b= "79" name="Blue Grey 800"            />
+		<rgb r= "38" g= "50" b= "56" name="Blue Grey 900"            />
+		<rgb r="121" g= "85" b= "72" name="Brown 500 - Primary"      />
+		<rgb r="239" g="235" b="233" name="Brown 50"                 />
+		<rgb r="215" g="204" b="200" name="Brown 100"                />
+		<rgb r="188" g="170" b="164" name="Brown 200"                />
+		<rgb r="161" g="136" b="127" name="Brown 300"                />
+		<rgb r="141" g="110" b= "99" name="Brown 400"                />
+		<rgb r="109" g= "76" b= "65" name="Brown 600"                />
+		<rgb r= "93" g= "64" b= "55" name="Brown 700"                />
+		<rgb r= "78" g= "52" b= "46" name="Brown 800"                />
+		<rgb r= "62" g= "39" b= "35" name="Brown 900"                />
+		<rgb r=  "0" g=  "0" b=  "0" name="Black"                    />
+		<rgb r="255" g="255" b="255" name="White"                    />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start=  "0" end= "32"/></row>
+					<row><range start= "32" end= "64"/></row>
+					<row><range start= "64" end= "96"/></row>
+					<row><range start= "96" end="128"/></row>
+					<row><range start="128" end="160"/></row>
+					<row><range start="160" end="192"/></row>
+					<row><range start="192" end="224"/></row>
+					<row><range start="224" end="256"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start=  "0" end= "16"/></row>
+					<row><range start= "16" end= "32"/></row>
+					<row><range start= "32" end= "48"/></row>
+					<row><range start= "48" end= "64"/></row>
+					<row><range start= "64" end= "80"/></row>
+					<row><range start= "80" end= "96"/></row>
+					<row><range start= "96" end="112"/></row>
+					<row><range start="112" end="128"/></row>
+					<row><range start="128" end="144"/></row>
+					<row><range start="144" end="160"/></row>
+					<row><range start="160" end="176"/></row>
+					<row><range start="176" end="192"/></row>
+					<row><range start="192" end="208"/></row>
+					<row><range start="208" end="224"/></row>
+					<row><range start="224" end="240"/></row>
+					<row><range start="240" end="256"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<row><range start=  "0" end=  "8"/></row>
+					<row><range start=  "8" end= "16"/></row>
+					<row><range start= "16" end= "24"/></row>
+					<row><range start= "24" end= "32"/></row>
+					<row><range start= "32" end= "40"/></row>
+					<row><range start= "40" end= "48"/></row>
+					<row><range start= "48" end= "56"/></row>
+					<row><range start= "56" end= "64"/></row>
+					<row><range start= "64" end= "72"/></row>
+					<row><range start= "72" end= "80"/></row>
+					<row><range start= "80" end= "88"/></row>
+					<row><range start= "88" end= "96"/></row>
+					<row><range start= "96" end="104"/></row>
+					<row><range start="104" end="112"/></row>
+					<row><range start="112" end="120"/></row>
+					<row><range start="120" end="128"/></row>
+					<row><range start="128" end="136"/></row>
+					<row><range start="136" end="144"/></row>
+					<row><range start="144" end="152"/></row>
+					<row><range start="152" end="160"/></row>
+					<row><range start="160" end="168"/></row>
+					<row><range start="168" end="176"/></row>
+					<row><range start="176" end="184"/></row>
+					<row><range start="184" end="192"/></row>
+					<row><range start="192" end="200"/></row>
+					<row><range start="200" end="208"/></row>
+					<row><range start="208" end="216"/></row>
+					<row><range start="216" end="224"/></row>
+					<row><range start="224" end="232"/></row>
+					<row><range start="232" end="240"/></row>
+					<row><range start="240" end="248"/></row>
+					<row><range start="248" end="256"/></row>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
