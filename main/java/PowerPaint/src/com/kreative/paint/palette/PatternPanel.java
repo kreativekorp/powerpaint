@@ -29,10 +29,10 @@ package com.kreative.paint.palette;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.pattern.Pattern;
+import com.kreative.paint.pattern.PatternList;
 import com.kreative.paint.pattern.PatternPaint;
 import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.*;
@@ -51,7 +51,7 @@ public class PatternPanel extends PaintContextPanel {
 	public PatternPanel(PaintContext pc, MaterialsManager mm, String initialSelection) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
 		palmap = new PairList<String,CellSelectorModel<Pattern>>();
-		for (Pair<String,Vector<Pattern>> e : mm.getPatterns()) {
+		for (Pair<String,PatternList> e : mm.getPatterns()) {
 			palmap.add(e.getFormer(), new DefaultCellSelectorModel<Pattern>(e.getLatter()));
 		}
 		for (CellSelectorModel<Pattern> m : palmap.latterList()) {

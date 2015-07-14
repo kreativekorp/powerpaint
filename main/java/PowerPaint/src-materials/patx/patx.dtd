@@ -1,0 +1,19 @@
+<!--
+	Date: 2015/07/13 20:54:50 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - PATTERNS - - - - - - - - - - - - -->
+
+<!ELEMENT patterns (pattern)*>
+<!ATTLIST patterns
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT pattern (#PCDATA)>
+<!ATTLIST pattern
+	w CDATA "8"
+	h CDATA "8"
+	d CDATA "1"
+	name CDATA #IMPLIED
+>

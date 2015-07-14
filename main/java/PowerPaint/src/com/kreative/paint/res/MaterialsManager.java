@@ -44,7 +44,6 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.text.CharacterIterator;
@@ -74,6 +73,8 @@ import com.kreative.paint.gradient.GradientParser;
 import com.kreative.paint.gradient.GradientPreset;
 import com.kreative.paint.gradient.GradientShape;
 import com.kreative.paint.pattern.Pattern;
+import com.kreative.paint.pattern.PatternList;
+import com.kreative.paint.pattern.PatternParser;
 import com.kreative.paint.rcp.RCPXBorder;
 import com.kreative.paint.rcp.RCPXColor;
 import com.kreative.paint.rcp.RCPXLayout;
@@ -261,36 +262,34 @@ public class MaterialsManager {
 		return fontLists;
 	}
 	
-	private PairList<String,Vector<Pattern>> patterns = null;
-	public PairList<String,Vector<Pattern>> getPatterns() {
-		if (patterns == null) {
-			patterns = new PairList<String,Vector<Pattern>>();
-			for (Resource r : rm.getResources(ResourceCategory.PATTERNS)) {
-				Vector<Pattern> pats = new Vector<Pattern>();
-				try {
-					DataInputStream dis = new DataInputStream(new ByteArrayInputStream(r.data()));
-					int n = dis.readUnsignedShort();
-					for (int i = 0; i < n; i++) pats.add(new Pattern(dis.readLong(), null));
-					dis.close();
-				} catch (IOException ioe) {
-					if (pats.isEmpty()) {
-						pats.add(Pattern.BACKGROUND);
-						pats.add(Pattern.FOREGROUND);
-					}
-				}
-				patterns.add(r.name(), pats);
-			}
-			if (patterns.isEmpty()) {
-				System.err.println("Notice: No patterns found. Generating generic patterns.");
-				Vector<Pattern> pats = new Vector<Pattern>();
-				pats.add(Pattern.BACKGROUND);
-				pats.add(Pattern.BG_25_FG_75);
-				pats.add(Pattern.BG_50_FG_50);
-				pats.add(Pattern.BG_75_FG_25);
-				pats.add(Pattern.FOREGROUND);
-				patterns.add("Simple", pats);
+	private PairList<String,PatternList> patterns = null;
+	private void loadPatterns() {
+		patterns = new PairList<String,PatternList>();
+		for (Resource r : rm.getResources(ResourceCategory.PATTERNS)) {
+			try {
+				ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
+				PatternList list = PatternParser.parse(r.name(), bin);
+				bin.close();
+				String name = (list.name != null) ? list.name : r.name();
+				patterns.add(name, list);
+			} catch (IOException ioe) {
+				System.err.println("Warning: Failed to compile pattern set " + r.name() + ".");
+				ioe.printStackTrace();
 			}
 		}
+		if (patterns.isEmpty()) {
+			System.err.println("Notice: No patterns found. Generating generic patterns.");
+			PatternList list = new PatternList("Simple");
+			list.add(Pattern.FOREGROUND);
+			list.add(Pattern.BG_25_FG_75);
+			list.add(Pattern.BG_50_FG_50);
+			list.add(Pattern.BG_75_FG_25);
+			list.add(Pattern.BACKGROUND);
+			patterns.add("Simple", list);
+		}
+	}
+	public PairList<String,PatternList> getPatterns() {
+		if (patterns == null) loadPatterns();
 		return patterns;
 	}
 	
