@@ -143,7 +143,7 @@ public class PaintBitmapTest {
 		for (int ay = 0, gy = y; ay < rgb.length; ay += width, gy++) {
 			int w = -1;
 			int e = -1;
-			for (int ax = 0, gx = x; ax < width; ax++, gx++) {
+			for (int ax = 0; ax < width; ax++) {
 				int c = rgb[ay+ax];
 				if (((c & 0xFF000000) < 0) && ((c & 0xFF0000) < 0x800000) && ((c & 0xFF00) < 0x8000) && ((c & 0xFF) < 0x80)) {
 					if (w < 0) w = ax;

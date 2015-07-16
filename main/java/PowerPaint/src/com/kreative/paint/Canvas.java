@@ -53,8 +53,6 @@ import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.ShapeUtils;
 
 public class Canvas implements List<Layer>, Printable, Paintable, Recordable {
-	private static final long serialVersionUID = 1L;
-	
 	public static final int NORTH = SwingConstants.NORTH;
 	public static final int SOUTH = SwingConstants.SOUTH;
 	public static final int WEST = SwingConstants.WEST;

@@ -123,8 +123,8 @@ public abstract class MarqueeTool extends AbstractPaintSelectionTool {
 					boolean empty = true;
 					int[] rgb = new int[r.width * r.height];
 					l.getRGB(r.x-l.getX(), r.y-l.getY(), r.width, r.height, rgb, 0, r.width);
-					for (int y = r.y, ay = 0; ay < rgb.length; y++, ay += r.width) {
-						for (int x = r.x, ax = 0; ax < r.width; x++, ax++) {
+					for (int ay = 0; ay < rgb.length; ay += r.width) {
+						for (int ax = 0; ax < r.width; ax++) {
 							if ((rgb[ay+ax] & 0xFF000000) != 0) {
 								empty = false;
 								rgb[ay+ax] = 0xFF000000;
@@ -471,8 +471,9 @@ public abstract class MarqueeTool extends AbstractPaintSelectionTool {
 			e.getCanvas().pushPaintSelection();
 			e.commitTransaction();
 			return true;
+		default:
+			return false;
 		}
-		return false;
 	}
 
 	public final boolean paintIntermediate(ToolEvent e, Graphics2D g) {

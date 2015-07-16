@@ -547,6 +547,7 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 					case NORTHEAST: x2 = cp.getX(); y1 = cp.getY(); break;
 					case SOUTHWEST: x1 = cp.getX(); y2 = cp.getY(); break;
 					case SOUTHEAST: x2 = cp.getX(); y2 = cp.getY(); break;
+					default: break;
 					}
 				}
 				if (!(Double.isNaN(x1) || Double.isNaN(y1) || Double.isNaN(x2) || Double.isNaN(y2))) {

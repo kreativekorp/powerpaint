@@ -35,7 +35,6 @@ import java.util.Map;
 import java.util.Vector;
 
 public class PathGraph {
-	private static final long serialVersionUID = 1L;
 	private static final int size = 10;
 	private HashMap<ImmutablePoint, HashSet<ImmutablePoint>> graph;
 	

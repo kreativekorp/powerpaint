@@ -40,8 +40,6 @@ import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.util.OSUtils;
 
 public class FormatManager {
-	private static final long serialVersionUID = 1L;
-	
 	private Collection<Format> formats;
 	
 	public FormatManager(MaterialsManager mm) {

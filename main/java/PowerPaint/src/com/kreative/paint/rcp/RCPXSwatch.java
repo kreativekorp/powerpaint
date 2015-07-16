@@ -193,11 +193,13 @@ public abstract class RCPXSwatch extends RCPXLayoutOrSwatch {
 				case RED  : cr = xv; break;
 				case GREEN: cg = xv; break;
 				case BLUE : cb = xv; break;
+				default: break;
 			}
 			switch (ychan) {
 				case RED  : cr = yv; break;
 				case GREEN: cg = yv; break;
 				case BLUE : cb = yv; break;
+				default: break;
 			}
 			return new Color(cr, cg, cb);
 		}
@@ -241,6 +243,8 @@ public abstract class RCPXSwatch extends RCPXLayoutOrSwatch {
 						bok = (cb >= xamin && cb <= xamax);
 						xv = (float)(cb - xmin) / (float)(xmax - xmin);
 						break;
+					default:
+						break;
 				}
 				switch (ychan) {
 					case RED:
@@ -254,6 +258,8 @@ public abstract class RCPXSwatch extends RCPXLayoutOrSwatch {
 					case BLUE:
 						bok = (cb >= yamin && cb <= yamax);
 						yv = (float)(cb - ymin) / (float)(ymax - ymin);
+						break;
+					default:
 						break;
 				}
 				if (rok && gok && bok) {
@@ -305,11 +311,13 @@ public abstract class RCPXSwatch extends RCPXLayoutOrSwatch {
 				case HUE       : ch = (xmax/360.0f)*xv + (xmin/360.0f)*(1.0f-xv); break;
 				case SATURATION: cs = (xmax/100.0f)*xv + (xmin/100.0f)*(1.0f-xv); break;
 				case VALUE     : cv = (xmax/100.0f)*xv + (xmin/100.0f)*(1.0f-xv); break;
+				default: break;
 			}
 			switch (ychan) {
 				case HUE       : ch = (ymax/360.0f)*yv + (ymin/360.0f)*(1.0f-yv); break;
 				case SATURATION: cs = (ymax/100.0f)*yv + (ymin/100.0f)*(1.0f-yv); break;
 				case VALUE     : cv = (ymax/100.0f)*yv + (ymin/100.0f)*(1.0f-yv); break;
+				default: break;
 			}
 			return Color.getHSBColor(ch, cs, cv);
 		}
@@ -359,6 +367,8 @@ public abstract class RCPXSwatch extends RCPXLayoutOrSwatch {
 						vok = (chsv[2] >= xamin && chsv[2] <= xamax);
 						xv = (float)(chsv[2] - xmin) / (float)(xmax - xmin);
 						break;
+					default:
+						break;
 				}
 				switch (ychan) {
 					case HUE:
@@ -372,6 +382,8 @@ public abstract class RCPXSwatch extends RCPXLayoutOrSwatch {
 					case VALUE:
 						vok = (chsv[2] >= yamin && chsv[2] <= yamax);
 						yv = (float)(chsv[2] - ymin) / (float)(ymax - ymin);
+						break;
+					default:
 						break;
 				}
 				if (hok && sok && vok) {

@@ -488,6 +488,7 @@ public class SICFormat implements Format {
 					RandomAccessFile raf = new RandomAccessFile(args[i],"r");
 					byte[] stuff = new byte[(int)raf.length()];
 					raf.read(stuff);
+					raf.close();
 					int s = (int)Math.ceil(Math.sqrt(stuff.length));
 					JFrame f = new JFrame(args[i]);
 					JPanel p = new JPanel(new GridLayout(s,s,0,0));

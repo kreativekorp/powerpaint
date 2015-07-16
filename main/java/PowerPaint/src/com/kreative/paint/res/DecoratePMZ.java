@@ -157,6 +157,9 @@ public class DecoratePMZ {
 		while ((len = in.read(buf)) >= 0) {
 			out.write(buf, 0, len);
 		}
+		out.flush();
+		out.close();
+		in.close();
 	}
 	
 	private static String osName = null;

@@ -101,8 +101,8 @@ public class TransparencyTool extends AbstractPaintTool {
 		int targetcolor = layer.getRGB(x, y);
 		int[] rgb = new int[bounds.width*bounds.height];
 		layer.getRGB(bounds.x, bounds.y, bounds.width, bounds.height, rgb, 0, bounds.width);
-		for (int ai = 0, ly = bounds.y; ai < rgb.length; ai += bounds.width, ly++) {
-			for (int aj = 0, lx = bounds.x; aj < bounds.width; aj++, lx++) {
+		for (int ai = 0; ai < rgb.length; ai += bounds.width) {
+			for (int aj = 0; aj < bounds.width; aj++) {
 				if (rgb[ai+aj] == targetcolor) {
 					rgb[ai+aj] = targetcolor & 0xFFFFFF;
 				}

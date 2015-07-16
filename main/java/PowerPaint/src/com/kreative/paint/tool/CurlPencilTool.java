@@ -134,14 +134,9 @@ public class CurlPencilTool extends AbstractPaintDrawTool implements ToolOptions
 		double da = angle + TP * Math.hypot(dx-sx, dy-sy) / spacing;
 		int m = (int)Math.ceil(Math.abs(da-sa)*radius);
 		for (int s = 0; s < m; s++) {
-			double sx2 = sx + ((dx-sx)*s)/m;
-			double sy2 = sy + ((dy-sy)*s)/m;
 			double dx2 = sx + ((dx-sx)*(s+1))/m;
 			double dy2 = sy + ((dy-sy)*(s+1))/m;
-			double sa2 = sa + ((da-sa)*s)/m;
 			double da2 = sa + ((da-sa)*(s+1))/m;
-			sx2 += radius * Math.cos(sa2);
-			sy2 += radius * Math.sin(sa2);
 			dx2 += radius * Math.cos(da2);
 			dy2 += radius * Math.sin(da2);
 			currentPath.lineTo((float)dx2, (float)dy2);

@@ -96,6 +96,7 @@ implements ToolOptions.DrawFromCenter, ToolOptions.DrawFilled, ToolOptions.Custo
 			case SIMPLE_COMPLEMENT: for (int i = 0; i < width; i++) if (i != center) rgb[i] = fill; break;
 			case BLACK: for (int i = 0; i < width; i++) rgb[i] = fill; break;
 			case RANDOM: for (int i = 0; i < width; i++) if (random.nextBoolean()) rgb[i] = fill; break;
+			default: rgb[center] = fill; break;
 			}
 		}
 	}

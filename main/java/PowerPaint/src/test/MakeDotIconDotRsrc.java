@@ -31,6 +31,9 @@ public class MakeDotIconDotRsrc {
 				while ((len = in.read(buf)) >= 0) {
 					out.write(buf, 0, len);
 				}
+				out.flush();
+				out.close();
+				in.close();
 				System.out.println(" done");
 			} catch (IOException ioe) {
 				System.out.println(" FAILED");

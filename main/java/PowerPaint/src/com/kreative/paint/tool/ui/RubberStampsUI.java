@@ -121,7 +121,6 @@ public class RubberStampsUI extends JPanel implements ToolContextListener {
 	}
 	
 	private class StampCellRenderer implements ListCellRenderer {
-		private static final long serialVersionUID = 1L;
 		private static final int BORDER = 4;
 		public Component getListCellRendererComponent(
 				JList list,
@@ -141,7 +140,6 @@ public class RubberStampsUI extends JPanel implements ToolContextListener {
 	}
 	
 	private class StampSetCellRenderer implements ListCellRenderer {
-		private static final long serialVersionUID = 1L;
 		private static final int BORDER = 4;
 		private boolean mini;
 		public StampSetCellRenderer(boolean mini) {

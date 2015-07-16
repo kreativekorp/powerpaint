@@ -94,6 +94,7 @@ public class PICTFormat implements Format {
 	public Form getReadOptionForm() { return null; }
 	
 	public Canvas read(DataInputStream in, Monitor m) throws IOException {
+		@SuppressWarnings("resource")
 		PICTInputStream pin = new PICTInputStream(in);
 		pin.skipBytes(512);
 		pin.readShort();

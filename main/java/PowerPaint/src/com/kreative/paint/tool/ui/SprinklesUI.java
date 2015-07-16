@@ -112,7 +112,6 @@ public class SprinklesUI extends JPanel implements ToolContextListener {
 	}
 	
 	private class SprinkleSetCellRenderer implements ListCellRenderer {
-		private static final long serialVersionUID = 1L;
 		private static final int BORDER = 4;
 		public Component getListCellRendererComponent(
 				JList list,
