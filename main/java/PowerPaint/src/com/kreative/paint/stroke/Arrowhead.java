@@ -37,6 +37,23 @@ public class Arrowhead implements List<ArrowheadShape> {
 	}
 	
 	@Override
+	public boolean equals(Object that) {
+		if (that instanceof Arrowhead) {
+			return (this.shapes.equals(((Arrowhead)that).shapes))
+			    && (this.scale == ((Arrowhead)that).scale);
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		int hashCode = shapes.hashCode();
+		if (scale) hashCode ^= -1;
+		return hashCode;
+	}
+	
+	@Override
 	public boolean add(ArrowheadShape e) {
 		return shapes.add(e);
 	}
