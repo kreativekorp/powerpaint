@@ -1,5 +1,8 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
+/**
+ * This package provides classes for implementing strokes with
+ * features beyond what is provided by the default BasicStroke.
+ * <p>
+ * Copyright &copy; 2015 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -24,11 +27,4 @@
  * @since PowerPaint 1.0
  * @author Rebecca G. Bettencourt, Kreative Software
  */
-
-package com.kreative.paint.awt;
-
-import java.awt.Shape;
-
-public interface Arrowhead {
-	public Shape createArrowhead(float prevX, float prevY, float endX, float endY, float lineWidth);
-}
+package com.kreative.paint.stroke;

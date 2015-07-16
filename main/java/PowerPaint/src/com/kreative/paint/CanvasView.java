@@ -46,7 +46,7 @@ import javax.swing.JComponent;
 import javax.swing.JViewport;
 import javax.swing.Scrollable;
 import javax.swing.SwingConstants;
-import com.kreative.paint.awt.CheckerboardPaint;
+import com.kreative.paint.rcp.CheckerboardPaint;
 
 public class CanvasView extends JComponent implements Scrollable {
 	private static final long serialVersionUID = 1L;

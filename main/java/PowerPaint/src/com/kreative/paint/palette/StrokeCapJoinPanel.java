@@ -32,8 +32,9 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.awt.BasicDerivableStroke;
-import com.kreative.paint.awt.DerivableStroke;
+import com.kreative.paint.stroke.EndCap;
+import com.kreative.paint.stroke.LineJoin;
+import com.kreative.paint.stroke.PowerStroke;
 import com.kreative.paint.util.SwingUtils;
 
 public class StrokeCapJoinPanel extends PaintContextPanel {
@@ -56,12 +57,12 @@ public class StrokeCapJoinPanel extends PaintContextPanel {
 					if (StrokeCapJoinPanel.this.pc != null) {
 						float f = ((Number)((JSpinner)e.getSource()).getModel().getValue()).floatValue();
 						Stroke s = StrokeCapJoinPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke) {
-							DerivableStroke ds = (DerivableStroke)s;
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(f));
+						if (s instanceof PowerStroke) {
+							PowerStroke ds = (PowerStroke)s;
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveLineWidth(f));
 						} else if (s instanceof BasicStroke) {
-							DerivableStroke ds = new BasicDerivableStroke((BasicStroke)s);
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(f));
+							PowerStroke ds = PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s);
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveLineWidth(f));
 						}
 					}
 					eventexec = false;
@@ -90,12 +91,12 @@ public class StrokeCapJoinPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokeCapJoinPanel.this.pc != null) {
 						Stroke s = StrokeCapJoinPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke) {
-							DerivableStroke ds = (DerivableStroke)s;
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(DerivableStroke.CAP_BUTT, ds.getLineJoin(), ds.getMiterLimit()));
+						if (s instanceof PowerStroke) {
+							PowerStroke ds = (PowerStroke)s;
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveEndCap(EndCap.BUTT));
 						} else if (s instanceof BasicStroke) {
-							DerivableStroke ds = new BasicDerivableStroke((BasicStroke)s);
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(DerivableStroke.CAP_BUTT, ds.getLineJoin(), ds.getMiterLimit()));
+							PowerStroke ds = PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s);
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveEndCap(EndCap.BUTT));
 						}
 					}
 					eventexec = false;
@@ -108,12 +109,12 @@ public class StrokeCapJoinPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokeCapJoinPanel.this.pc != null) {
 						Stroke s = StrokeCapJoinPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke) {
-							DerivableStroke ds = (DerivableStroke)s;
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(DerivableStroke.CAP_ROUND, ds.getLineJoin(), ds.getMiterLimit()));
+						if (s instanceof PowerStroke) {
+							PowerStroke ds = (PowerStroke)s;
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveEndCap(EndCap.ROUND));
 						} else if (s instanceof BasicStroke) {
-							DerivableStroke ds = new BasicDerivableStroke((BasicStroke)s);
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(DerivableStroke.CAP_ROUND, ds.getLineJoin(), ds.getMiterLimit()));
+							PowerStroke ds = PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s);
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveEndCap(EndCap.ROUND));
 						}
 					}
 					eventexec = false;
@@ -126,12 +127,12 @@ public class StrokeCapJoinPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokeCapJoinPanel.this.pc != null) {
 						Stroke s = StrokeCapJoinPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke) {
-							DerivableStroke ds = (DerivableStroke)s;
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(DerivableStroke.CAP_SQUARE, ds.getLineJoin(), ds.getMiterLimit()));
+						if (s instanceof PowerStroke) {
+							PowerStroke ds = (PowerStroke)s;
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveEndCap(EndCap.SQUARE));
 						} else if (s instanceof BasicStroke) {
-							DerivableStroke ds = new BasicDerivableStroke((BasicStroke)s);
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(DerivableStroke.CAP_SQUARE, ds.getLineJoin(), ds.getMiterLimit()));
+							PowerStroke ds = PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s);
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveEndCap(EndCap.SQUARE));
 						}
 					}
 					eventexec = false;
@@ -144,12 +145,12 @@ public class StrokeCapJoinPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokeCapJoinPanel.this.pc != null) {
 						Stroke s = StrokeCapJoinPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke) {
-							DerivableStroke ds = (DerivableStroke)s;
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(ds.getEndCap(), DerivableStroke.JOIN_MITER, ds.getMiterLimit()));
+						if (s instanceof PowerStroke) {
+							PowerStroke ds = (PowerStroke)s;
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveLineJoin(LineJoin.MITER));
 						} else if (s instanceof BasicStroke) {
-							DerivableStroke ds = new BasicDerivableStroke((BasicStroke)s);
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(ds.getEndCap(), DerivableStroke.JOIN_MITER, ds.getMiterLimit()));
+							PowerStroke ds = PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s);
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveLineJoin(LineJoin.MITER));
 						}
 					}
 					eventexec = false;
@@ -162,12 +163,12 @@ public class StrokeCapJoinPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokeCapJoinPanel.this.pc != null) {
 						Stroke s = StrokeCapJoinPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke) {
-							DerivableStroke ds = (DerivableStroke)s;
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(ds.getEndCap(), DerivableStroke.JOIN_ROUND, ds.getMiterLimit()));
+						if (s instanceof PowerStroke) {
+							PowerStroke ds = (PowerStroke)s;
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveLineJoin(LineJoin.ROUND));
 						} else if (s instanceof BasicStroke) {
-							DerivableStroke ds = new BasicDerivableStroke((BasicStroke)s);
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(ds.getEndCap(), DerivableStroke.JOIN_ROUND, ds.getMiterLimit()));
+							PowerStroke ds = PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s);
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveLineJoin(LineJoin.ROUND));
 						}
 					}
 					eventexec = false;
@@ -180,12 +181,12 @@ public class StrokeCapJoinPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokeCapJoinPanel.this.pc != null) {
 						Stroke s = StrokeCapJoinPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke) {
-							DerivableStroke ds = (DerivableStroke)s;
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(ds.getEndCap(), DerivableStroke.JOIN_BEVEL, ds.getMiterLimit()));
+						if (s instanceof PowerStroke) {
+							PowerStroke ds = (PowerStroke)s;
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveLineJoin(LineJoin.BEVEL));
 						} else if (s instanceof BasicStroke) {
-							DerivableStroke ds = new BasicDerivableStroke((BasicStroke)s);
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(ds.getEndCap(), DerivableStroke.JOIN_BEVEL, ds.getMiterLimit()));
+							PowerStroke ds = PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s);
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveLineJoin(LineJoin.BEVEL));
 						}
 					}
 					eventexec = false;
@@ -201,12 +202,12 @@ public class StrokeCapJoinPanel extends PaintContextPanel {
 					if (StrokeCapJoinPanel.this.pc != null) {
 						float f = ((Number)((JSpinner)e.getSource()).getModel().getValue()).floatValue();
 						Stroke s = StrokeCapJoinPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke) {
-							DerivableStroke ds = (DerivableStroke)s;
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(ds.getEndCap(), ds.getLineJoin(), f));
+						if (s instanceof PowerStroke) {
+							PowerStroke ds = (PowerStroke)s;
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveMiterLimit(f));
 						} else if (s instanceof BasicStroke) {
-							DerivableStroke ds = new BasicDerivableStroke((BasicStroke)s);
-							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveStroke(ds.getEndCap(), ds.getLineJoin(), f));
+							PowerStroke ds = PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s);
+							StrokeCapJoinPanel.this.pc.setStroke(ds.deriveMiterLimit(f));
 						}
 					}
 					eventexec = false;
@@ -235,16 +236,16 @@ public class StrokeCapJoinPanel extends PaintContextPanel {
 			eventexec = true;
 			if (pc != null) {
 				Stroke s = pc.getStroke();
-				if (s instanceof DerivableStroke) {
-					DerivableStroke ds = (DerivableStroke)s;
-					width.setValue((double)ds.getLineWidth());
-					cb.setSelected(ds.getEndCap() == DerivableStroke.CAP_BUTT);
-					cr.setSelected(ds.getEndCap() == DerivableStroke.CAP_ROUND);
-					cs.setSelected(ds.getEndCap() == DerivableStroke.CAP_SQUARE);
-					jm.setSelected(ds.getLineJoin() == DerivableStroke.JOIN_MITER);
-					jr.setSelected(ds.getLineJoin() == DerivableStroke.JOIN_ROUND);
-					jb.setSelected(ds.getLineJoin() == DerivableStroke.JOIN_BEVEL);
-					limit.setValue((double)ds.getMiterLimit());
+				if (s instanceof PowerStroke) {
+					PowerStroke ds = (PowerStroke)s;
+					width.setValue((double)ds.lineWidth);
+					cb.setSelected(ds.endCap == EndCap.BUTT);
+					cr.setSelected(ds.endCap == EndCap.ROUND);
+					cs.setSelected(ds.endCap == EndCap.SQUARE);
+					jm.setSelected(ds.lineJoin == LineJoin.MITER);
+					jr.setSelected(ds.lineJoin == LineJoin.ROUND);
+					jb.setSelected(ds.lineJoin == LineJoin.BEVEL);
+					limit.setValue((double)ds.miterLimit);
 				} else if (s instanceof BasicStroke) {
 					BasicStroke bs = (BasicStroke)s;
 					width.setValue((double)bs.getLineWidth());

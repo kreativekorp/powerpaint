@@ -33,7 +33,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.awt.CheckerboardPaint;
+import com.kreative.paint.rcp.CheckerboardPaint;
 import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.util.Pair;
 import com.kreative.paint.util.PairList;

@@ -38,10 +38,10 @@ import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.PaintContextListener;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.awt.Arrowhead;
-import com.kreative.paint.awt.BasicDerivableStroke;
-import com.kreative.paint.awt.DerivableStroke;
 import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.stroke.Arrowhead;
+import com.kreative.paint.stroke.EndCap;
+import com.kreative.paint.stroke.PowerStroke;
 
 public class StrokePresetPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
@@ -96,7 +96,7 @@ public class StrokePresetPanel extends PaintContextPanel {
 				BufferedImage bi = new BufferedImage(Math.max(ROW_WIDTH, list.getWidth()), ROW_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 				Graphics2D g = bi.createGraphics();
 				g.setPaint(new Color((sel ? SystemColor.textHighlightText : SystemColor.textText).getRGB(), true));
-				g.setStroke(new BasicDerivableStroke(((Number)value).floatValue()));
+				g.setStroke(PowerStroke.DEFAULT.deriveLineWidth(((Number)value).floatValue()));
 				g.drawLine(0, bi.getHeight()/2, bi.getWidth()-1, bi.getHeight()/2);
 				g.dispose();
 				l.setIcon(new ImageIcon(bi));
@@ -115,7 +115,7 @@ public class StrokePresetPanel extends PaintContextPanel {
 				BufferedImage bi = new BufferedImage(Math.max(ROW_WIDTH, list.getWidth()), ROW_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 				Graphics2D g = bi.createGraphics();
 				g.setPaint(new Color((sel ? SystemColor.textHighlightText : SystemColor.textText).getRGB(), true));
-				g.setStroke(new BasicDerivableStroke().deriveStroke(((Number)value).intValue()));
+				g.setStroke(PowerStroke.DEFAULT.deriveMultiplicity(((Number)value).intValue()));
 				g.drawLine(0, bi.getHeight()/2, bi.getWidth()-1, bi.getHeight()/2);
 				g.dispose();
 				l.setIcon(new ImageIcon(bi));
@@ -133,7 +133,7 @@ public class StrokePresetPanel extends PaintContextPanel {
 				BufferedImage bi = new BufferedImage(Math.max(ROW_WIDTH, list.getWidth()), ROW_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 				Graphics2D g = bi.createGraphics();
 				g.setPaint(new Color((sel ? SystemColor.textHighlightText : SystemColor.textText).getRGB(), true));
-				g.setStroke(new BasicDerivableStroke(1.0f, DerivableStroke.CAP_BUTT, DerivableStroke.JOIN_MITER, 10.0f, (float[])value, 0.0f));
+				g.setStroke(PowerStroke.DEFAULT.deriveEndCap(EndCap.BUTT).deriveDashArray((float[])value));
 				g.drawLine(0, bi.getHeight()/2, bi.getWidth()-1, bi.getHeight()/2);
 				g.dispose();
 				l.setIcon(new ImageIcon(bi));
@@ -151,7 +151,7 @@ public class StrokePresetPanel extends PaintContextPanel {
 				BufferedImage bi = new BufferedImage(Math.max(ROW_WIDTH, list.getWidth()), ROW_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 				Graphics2D g = bi.createGraphics();
 				g.setPaint(new Color((sel ? SystemColor.textHighlightText : SystemColor.textText).getRGB(), true));
-				g.setStroke(new BasicDerivableStroke().deriveStroke((Arrowhead)value, null));
+				g.setStroke(PowerStroke.DEFAULT.deriveArrowOnStart((Arrowhead)value));
 				g.drawLine(ARROW_OFFSET, bi.getHeight()/2, bi.getWidth()-1, bi.getHeight()/2);
 				g.dispose();
 				l.setIcon(new ImageIcon(bi));
@@ -169,7 +169,7 @@ public class StrokePresetPanel extends PaintContextPanel {
 				BufferedImage bi = new BufferedImage(Math.max(ROW_WIDTH, list.getWidth()), ROW_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 				Graphics2D g = bi.createGraphics();
 				g.setPaint(new Color((sel ? SystemColor.textHighlightText : SystemColor.textText).getRGB(), true));
-				g.setStroke(new BasicDerivableStroke().deriveStroke(null, (Arrowhead)value));
+				g.setStroke(PowerStroke.DEFAULT.deriveArrowOnEnd((Arrowhead)value));
 				g.drawLine(0, bi.getHeight()/2, bi.getWidth()-1-ARROW_OFFSET, bi.getHeight()/2);
 				g.dispose();
 				l.setIcon(new ImageIcon(bi));
@@ -182,10 +182,10 @@ public class StrokePresetPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokePresetPanel.this.pc != null) {
 						Stroke s = StrokePresetPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke || s instanceof BasicStroke) {
-							DerivableStroke ds = (s instanceof BasicStroke) ? new BasicDerivableStroke((BasicStroke)s) : (DerivableStroke)s;
+						if (s instanceof PowerStroke || s instanceof BasicStroke) {
+							PowerStroke ds = (s instanceof BasicStroke) ? PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s) : (PowerStroke)s;
 							float width = ((Number)widthView.getSelectedValue()).floatValue();
-							StrokePresetPanel.this.pc.setStroke(ds.deriveStroke(width));
+							StrokePresetPanel.this.pc.setStroke(ds.deriveLineWidth(width));
 						}
 					}
 					eventexec = false;
@@ -198,10 +198,10 @@ public class StrokePresetPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokePresetPanel.this.pc != null) {
 						Stroke s = StrokePresetPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke || s instanceof BasicStroke) {
-							DerivableStroke ds = (s instanceof BasicStroke) ? new BasicDerivableStroke((BasicStroke)s) : (DerivableStroke)s;
+						if (s instanceof PowerStroke || s instanceof BasicStroke) {
+							PowerStroke ds = (s instanceof BasicStroke) ? PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s) : (PowerStroke)s;
 							int mult = ((Number)multView.getSelectedValue()).intValue();
-							StrokePresetPanel.this.pc.setStroke(ds.deriveStroke(mult));
+							StrokePresetPanel.this.pc.setStroke(ds.deriveMultiplicity(mult));
 						}
 					}
 					eventexec = false;
@@ -214,10 +214,10 @@ public class StrokePresetPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokePresetPanel.this.pc != null) {
 						Stroke s = StrokePresetPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke || s instanceof BasicStroke) {
-							DerivableStroke ds = (s instanceof BasicStroke) ? new BasicDerivableStroke((BasicStroke)s) : (DerivableStroke)s;
+						if (s instanceof PowerStroke || s instanceof BasicStroke) {
+							PowerStroke ds = (s instanceof BasicStroke) ? PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s) : (PowerStroke)s;
 							float[] dash = (float[])dashView.getSelectedValue();
-							StrokePresetPanel.this.pc.setStroke(ds.deriveStroke(dash, ds.getDashPhase()));
+							StrokePresetPanel.this.pc.setStroke(ds.deriveDashArray(dash));
 						}
 					}
 					eventexec = false;
@@ -230,10 +230,10 @@ public class StrokePresetPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokePresetPanel.this.pc != null) {
 						Stroke s = StrokePresetPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke || s instanceof BasicStroke) {
-							DerivableStroke ds = (s instanceof BasicStroke) ? new BasicDerivableStroke((BasicStroke)s) : (DerivableStroke)s;
+						if (s instanceof PowerStroke || s instanceof BasicStroke) {
+							PowerStroke ds = (s instanceof BasicStroke) ? PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s) : (PowerStroke)s;
 							Arrowhead a = (Arrowhead)arrowView1.getSelectedValue();
-							StrokePresetPanel.this.pc.setStroke(ds.deriveStroke(a, ds.getArrowOnEnd()));
+							StrokePresetPanel.this.pc.setStroke(ds.deriveArrowOnStart(a));
 						}
 					}
 					eventexec = false;
@@ -246,10 +246,10 @@ public class StrokePresetPanel extends PaintContextPanel {
 					eventexec = true;
 					if (StrokePresetPanel.this.pc != null) {
 						Stroke s = StrokePresetPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke || s instanceof BasicStroke) {
-							DerivableStroke ds = (s instanceof BasicStroke) ? new BasicDerivableStroke((BasicStroke)s) : (DerivableStroke)s;
+						if (s instanceof PowerStroke || s instanceof BasicStroke) {
+							PowerStroke ds = (s instanceof BasicStroke) ? PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s) : (PowerStroke)s;
 							Arrowhead a = (Arrowhead)arrowView2.getSelectedValue();
-							StrokePresetPanel.this.pc.setStroke(ds.deriveStroke(ds.getArrowOnStart(), a));
+							StrokePresetPanel.this.pc.setStroke(ds.deriveArrowOnEnd(a));
 						}
 					}
 					eventexec = false;
@@ -278,21 +278,21 @@ public class StrokePresetPanel extends PaintContextPanel {
 				arrowView1.clearSelection();
 				arrowView2.clearSelection();
 				Stroke s = pc.getStroke();
-				if (s instanceof DerivableStroke) {
-					DerivableStroke ds = (DerivableStroke)s;
-					widthView.setSelectedValue(ds.getLineWidth(), true);
-					multView.setSelectedValue(ds.getMultiplicity(), true);
+				if (s instanceof PowerStroke) {
+					PowerStroke ds = (PowerStroke)s;
+					widthView.setSelectedValue(ds.lineWidth, true);
+					multView.setSelectedValue(ds.multiplicity, true);
 					{
 						ListModel m = dashView.getModel();
 						for (int i = 0; i < m.getSize(); i++) {
-							if (Arrays.equals((float[])m.getElementAt(i), ds.getDashArray())) {
+							if (Arrays.equals((float[])m.getElementAt(i), ds.dashArray)) {
 								dashView.setSelectedIndex(i);
 								dashView.ensureIndexIsVisible(i);
 								break;
 							}
 						}
 					}
-					if (ds.getArrowOnStart() == null) {
+					if (ds.arrowOnStart == null) {
 						ListModel m = arrowView1.getModel();
 						for (int i = 0; i < m.getSize(); i++) {
 							if (m.getElementAt(i) == null) {
@@ -302,9 +302,9 @@ public class StrokePresetPanel extends PaintContextPanel {
 							}
 						}
 					} else {
-						arrowView1.setSelectedValue(ds.getArrowOnStart(), true);
+						arrowView1.setSelectedValue(ds.arrowOnStart, true);
 					}
-					if (ds.getArrowOnEnd() == null) {
+					if (ds.arrowOnEnd == null) {
 						ListModel m = arrowView2.getModel();
 						for (int i = 0; i < m.getSize(); i++) {
 							if (m.getElementAt(i) == null) {
@@ -314,7 +314,7 @@ public class StrokePresetPanel extends PaintContextPanel {
 							}
 						}
 					} else {
-						arrowView2.setSelectedValue(ds.getArrowOnEnd(), true);
+						arrowView2.setSelectedValue(ds.arrowOnEnd, true);
 					}
 				} else if (s instanceof BasicStroke) {
 					BasicStroke bs = (BasicStroke)s;
@@ -376,7 +376,7 @@ public class StrokePresetPanel extends PaintContextPanel {
 			BufferedImage bi = new BufferedImage(ROW_WIDTH, ROW_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 			Graphics2D g = bi.createGraphics();
 			g.setPaint(Color.black);
-			g.setStroke(new BasicDerivableStroke(width));
+			g.setStroke(PowerStroke.DEFAULT.deriveLineWidth(width));
 			g.drawLine(0, bi.getHeight()/2, bi.getWidth()-1, bi.getHeight()/2);
 			g.dispose();
 			setIcon(new ImageIcon(bi));
@@ -385,9 +385,9 @@ public class StrokePresetPanel extends PaintContextPanel {
 				public void actionPerformed(ActionEvent e) {
 					if (StrokePresetPanel.this.pc != null) {
 						Stroke s = StrokePresetPanel.this.pc.getStroke();
-						if (s instanceof DerivableStroke || s instanceof BasicStroke) {
-							DerivableStroke ds = (s instanceof BasicStroke) ? new BasicDerivableStroke((BasicStroke)s) : (DerivableStroke)s;
-							StrokePresetPanel.this.pc.setStroke(ds.deriveStroke(WidthMenuItem.this.width));
+						if (s instanceof PowerStroke || s instanceof BasicStroke) {
+							PowerStroke ds = (s instanceof BasicStroke) ? PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s) : (PowerStroke)s;
+							StrokePresetPanel.this.pc.setStroke(ds.deriveLineWidth(WidthMenuItem.this.width));
 						}
 					}
 				}
@@ -399,8 +399,8 @@ public class StrokePresetPanel extends PaintContextPanel {
 		public void paintSettingsChanged(PaintContext src, PaintSettings ps, int delta) {
 			if ((delta & CHANGED_STROKE) != 0) {
 				Stroke s = ps.getStroke();
-				if (s instanceof DerivableStroke) {
-					WidthMenuItem.this.setSelected(((DerivableStroke)s).getLineWidth() == width);
+				if (s instanceof PowerStroke) {
+					WidthMenuItem.this.setSelected(((PowerStroke)s).lineWidth == width);
 				} else if (s instanceof BasicStroke) {
 					WidthMenuItem.this.setSelected(((BasicStroke)s).getLineWidth() == width);
 				} else {
@@ -418,7 +418,7 @@ public class StrokePresetPanel extends PaintContextPanel {
 			BufferedImage bi = new BufferedImage(ROW_WIDTH, ROW_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 			Graphics2D g = bi.createGraphics();
 			g.setPaint(Color.black);
-			g.setStroke(new BasicDerivableStroke(1.0f, DerivableStroke.CAP_BUTT, DerivableStroke.JOIN_MITER, 10.0f, dash, 0.0f));
+			g.setStroke(PowerStroke.DEFAULT.deriveEndCap(EndCap.BUTT).deriveDashArray(dash));
 			g.drawLine(0, bi.getHeight()/2, bi.getWidth()-1, bi.getHeight()/2);
 			g.dispose();
 			setIcon(new ImageIcon(bi));
@@ -426,9 +426,9 @@ public class StrokePresetPanel extends PaintContextPanel {
 			addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					Stroke s = StrokePresetPanel.this.pc.getStroke();
-					if (s instanceof DerivableStroke || s instanceof BasicStroke) {
-						DerivableStroke ds = (s instanceof BasicStroke) ? new BasicDerivableStroke((BasicStroke)s) : (DerivableStroke)s;
-						StrokePresetPanel.this.pc.setStroke(ds.deriveStroke(DashMenuItem.this.dash, ds.getDashPhase()));
+					if (s instanceof PowerStroke || s instanceof BasicStroke) {
+						PowerStroke ds = (s instanceof BasicStroke) ? PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s) : (PowerStroke)s;
+						StrokePresetPanel.this.pc.setStroke(ds.deriveDashArray(DashMenuItem.this.dash));
 					}
 				}
 			});
@@ -439,8 +439,8 @@ public class StrokePresetPanel extends PaintContextPanel {
 		public void paintSettingsChanged(PaintContext src, PaintSettings ps, int delta) {
 			if ((delta & CHANGED_STROKE) != 0) {
 				Stroke s = ps.getStroke();
-				if (s instanceof DerivableStroke) {
-					DashMenuItem.this.setSelected(Arrays.equals(((DerivableStroke)s).getDashArray(), dash));
+				if (s instanceof PowerStroke) {
+					DashMenuItem.this.setSelected(Arrays.equals(((PowerStroke)s).dashArray, dash));
 				} else if (s instanceof BasicStroke) {
 					DashMenuItem.this.setSelected(Arrays.equals(((BasicStroke)s).getDashArray(), dash));
 				} else {
@@ -461,10 +461,10 @@ public class StrokePresetPanel extends PaintContextPanel {
 			Graphics2D g = bi.createGraphics();
 			g.setPaint(Color.black);
 			if (right) {
-				g.setStroke(new BasicDerivableStroke().deriveStroke(null, arrow));
+				g.setStroke(PowerStroke.DEFAULT.deriveArrowOnEnd(arrow));
 				g.drawLine(0, bi.getHeight()/2, bi.getWidth()-1-ARROW_OFFSET, bi.getHeight()/2);
 			} else {
-				g.setStroke(new BasicDerivableStroke().deriveStroke(arrow, null));
+				g.setStroke(PowerStroke.DEFAULT.deriveArrowOnStart(arrow));
 				g.drawLine(ARROW_OFFSET, bi.getHeight()/2, bi.getWidth()-1, bi.getHeight()/2);
 			}
 			g.dispose();
@@ -473,12 +473,12 @@ public class StrokePresetPanel extends PaintContextPanel {
 			addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					Stroke s = StrokePresetPanel.this.pc.getStroke();
-					if (s instanceof DerivableStroke || s instanceof BasicStroke) {
-						DerivableStroke ds = (s instanceof BasicStroke) ? new BasicDerivableStroke((BasicStroke)s) : (DerivableStroke)s;
+					if (s instanceof PowerStroke || s instanceof BasicStroke) {
+						PowerStroke ds = (s instanceof BasicStroke) ? PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s) : (PowerStroke)s;
 						if (ArrowMenuItem.this.right) {
-							StrokePresetPanel.this.pc.setStroke(ds.deriveStroke(ds.getArrowOnStart(), ArrowMenuItem.this.arrow));
+							StrokePresetPanel.this.pc.setStroke(ds.deriveArrowOnEnd(ArrowMenuItem.this.arrow));
 						} else {
-							StrokePresetPanel.this.pc.setStroke(ds.deriveStroke(ArrowMenuItem.this.arrow, ds.getArrowOnEnd()));
+							StrokePresetPanel.this.pc.setStroke(ds.deriveArrowOnStart(ArrowMenuItem.this.arrow));
 						}
 					}
 				}
@@ -490,9 +490,9 @@ public class StrokePresetPanel extends PaintContextPanel {
 		public void paintSettingsChanged(PaintContext src, PaintSettings ps, int delta) {
 			if ((delta & CHANGED_STROKE) != 0) {
 				Stroke s = ps.getStroke();
-				if (s instanceof DerivableStroke || s instanceof BasicStroke) {
-					DerivableStroke ds = (s instanceof BasicStroke) ? new BasicDerivableStroke((BasicStroke)s) : (DerivableStroke)s;
-					Arrowhead psa = right ? ds.getArrowOnEnd() : ds.getArrowOnStart();
+				if (s instanceof PowerStroke || s instanceof BasicStroke) {
+					PowerStroke ds = (s instanceof BasicStroke) ? PowerStroke.DEFAULT.deriveBasicStroke((BasicStroke)s) : (PowerStroke)s;
+					Arrowhead psa = right ? ds.arrowOnEnd : ds.arrowOnStart;
 					ArrowMenuItem.this.setSelected(arrow == null ? psa == null : psa == null ? arrow == null : arrow.equals(psa));
 				} else {
 					ArrowMenuItem.this.setSelected(false);

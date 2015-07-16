@@ -60,9 +60,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
 
-import com.kreative.paint.awt.Arrowhead;
-import com.kreative.paint.awt.CircleArrowhead;
-import com.kreative.paint.awt.PolygonArrowhead;
 import com.kreative.paint.filter.Filter;
 import com.kreative.paint.format.Format;
 import com.kreative.paint.geom.ParameterPoint;
@@ -82,6 +79,8 @@ import com.kreative.paint.rcp.RCPXOrientation;
 import com.kreative.paint.rcp.RCPXPalette;
 import com.kreative.paint.rcp.RCPXParser;
 import com.kreative.paint.rcp.RCPXSwatch;
+import com.kreative.paint.stroke.Arrowhead;
+import com.kreative.paint.stroke.ArrowheadShape;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.Bitmap;
 import com.kreative.paint.util.DitherAlgorithm;
@@ -674,11 +673,9 @@ public class MaterialsManager {
 										a[i-1] = Float.parseFloat(fields[i]);
 									}  catch (NumberFormatException nfe) {}
 								}
-								lineArrowheads.add(new PolygonArrowhead(
-										a,
-										fields[0].contains("f"),
-										fields[0].contains("s")
-								));
+								Arrowhead ah = new Arrowhead(fields[0].contains("s"));
+								ah.add(new ArrowheadShape.PolyLine(a, true, fields[0].contains("f")));
+								lineArrowheads.add(ah);
 							}
 							break;
 						case '*':
@@ -686,14 +683,15 @@ public class MaterialsManager {
 								lineArrowheads.add(null);
 							} else if (fields.length >= 5) {
 								try {
-									lineArrowheads.add(new CircleArrowhead(
-											Float.parseFloat(fields[1]),
-											Float.parseFloat(fields[2]),
-											Float.parseFloat(fields[3]),
-											Float.parseFloat(fields[4]),
-											fields[0].contains("f"),
-											fields[0].contains("s")
+									Arrowhead ah = new Arrowhead(fields[0].contains("s"));
+									ah.add(new ArrowheadShape.Ellipse(
+										Float.parseFloat(fields[1]),
+										Float.parseFloat(fields[2]),
+										Float.parseFloat(fields[3])/2,
+										Float.parseFloat(fields[4])/2,
+										true, fields[0].contains("f")
 									));
+									lineArrowheads.add(ah);
 								} catch (NumberFormatException nfe) {}
 							}
 							break;
@@ -725,6 +723,7 @@ public class MaterialsManager {
 		if (lineArrowheads.isEmpty()) {
 			System.err.println("Notice: No arrowheads found. Generating generic arrowheads.");
 			lineArrowheads.add(null);
+			/*
 			lineArrowheads.add(new PolygonArrowhead(new float[]{6,0,0,6,0,-6,6,0}, true, true));
 			lineArrowheads.add(new PolygonArrowhead(new float[]{6,0,0,6,0,-6,6,0}, false, true));
 			lineArrowheads.add(new PolygonArrowhead(new float[]{0,6,6,0,0,0,6,0,0,-6}, false, true));
@@ -733,6 +732,7 @@ public class MaterialsManager {
 			lineArrowheads.add(new PolygonArrowhead(new float[]{4,2,0,2,0,-2,4,-2,4,2}, false, true));
 			lineArrowheads.add(new CircleArrowhead(2,0,4,4, true, true));
 			lineArrowheads.add(new CircleArrowhead(2,0,4,4, false, true));
+			*/
 		}
 	}
 	

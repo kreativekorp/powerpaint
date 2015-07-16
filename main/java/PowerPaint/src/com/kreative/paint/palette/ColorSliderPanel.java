@@ -32,7 +32,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.awt.CheckerboardPaint;
+import com.kreative.paint.rcp.CheckerboardPaint;
 import com.kreative.paint.util.SwingUtils;
 
 public class ColorSliderPanel extends PaintContextPanel {
