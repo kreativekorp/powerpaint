@@ -1,7 +1,9 @@
 package com.kreative.paint.stroke;
 
+import java.awt.BasicStroke;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.Stroke;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
@@ -27,6 +29,7 @@ public abstract class ArrowheadShape implements Shape {
 		this.fill = fill;
 	}
 	
+	public abstract Stroke getStroke(float lineWidth);
 	protected abstract boolean equalsImpl(ArrowheadShape that);
 	protected abstract int hashCodeImpl();
 	
@@ -56,6 +59,10 @@ public abstract class ArrowheadShape implements Shape {
 			this.cx = cx; this.cy = cy; this.r = r;
 		}
 		@Override
+		public Stroke getStroke(float lineWidth) {
+			return new BasicStroke(lineWidth);
+		}
+		@Override
 		protected boolean equalsImpl(ArrowheadShape that) {
 			return (that instanceof Circle)
 			    && (this.cx == ((Circle)that).cx)
@@ -75,6 +82,10 @@ public abstract class ArrowheadShape implements Shape {
 			this.cx = cx; this.cy = cy; this.rx = rx; this.ry = ry;
 		}
 		@Override
+		public Stroke getStroke(float lineWidth) {
+			return new BasicStroke(lineWidth);
+		}
+		@Override
 		protected boolean equalsImpl(ArrowheadShape that) {
 			return (that instanceof Ellipse)
 			    && (this.cx == ((Ellipse)that).cx)
@@ -90,9 +101,20 @@ public abstract class ArrowheadShape implements Shape {
 	
 	public static class Line extends ArrowheadShape {
 		public final float x1, y1, x2, y2;
-		public Line(float x1, float y1, float x2, float y2, boolean stroke, boolean fill) {
+		public final EndCap endCap;
+		public Line(float x1, float y1, float x2, float y2, EndCap endCap, boolean stroke, boolean fill) {
 			super(new Line2D.Float(x1, y1, x2, y2), stroke, fill);
 			this.x1 = x1; this.y1 = y1; this.x2 = x2; this.y2 = y2;
+			this.endCap = endCap;
+		}
+		@Override
+		public Stroke getStroke(float lineWidth) {
+			return new BasicStroke(
+				lineWidth,
+				((endCap != null) ? endCap.awtValue : BasicStroke.CAP_SQUARE),
+				BasicStroke.JOIN_MITER,
+				10.0f
+			);
 		}
 		@Override
 		protected boolean equalsImpl(ArrowheadShape that) {
@@ -100,7 +122,8 @@ public abstract class ArrowheadShape implements Shape {
 			    && (this.x1 == ((Line)that).x1)
 			    && (this.y1 == ((Line)that).y1)
 			    && (this.x2 == ((Line)that).x2)
-			    && (this.y2 == ((Line)that).y2);
+			    && (this.y2 == ((Line)that).y2)
+			    && (this.endCap == ((Line)that).endCap);
 		}
 		@Override
 		protected int hashCodeImpl() {
@@ -110,18 +133,37 @@ public abstract class ArrowheadShape implements Shape {
 	
 	public static class Path extends ArrowheadShape {
 		public final String d;
-		public Path(String d, boolean stroke, boolean fill) {
-			this(parseInstructions(d), stroke, fill);
+		public final EndCap endCap;
+		public final LineJoin lineJoin;
+		public final float miterLimit;
+		public Path(String d, EndCap endCap, LineJoin lineJoin, float miterLimit, boolean stroke, boolean fill) {
+			this(parseInstructions(d), endCap, lineJoin, miterLimit, stroke, fill);
 		}
 		// Do not try this at home.
-		private Path(Object[] o, boolean stroke, boolean fill) {
+		private Path(Object[] o, EndCap endCap, LineJoin lineJoin, float miterLimit, boolean stroke, boolean fill) {
 			super((Path2D.Float)o[1], stroke, fill);
 			this.d = (String)o[0];
+			this.endCap = endCap;
+			this.lineJoin = lineJoin;
+			this.miterLimit = miterLimit;
+		}
+		@Override
+		public Stroke getStroke(float lineWidth) {
+			return new BasicStroke(
+				lineWidth,
+				((endCap != null) ? endCap.awtValue : BasicStroke.CAP_SQUARE),
+				((lineJoin != null) ? lineJoin.awtValue : BasicStroke.JOIN_MITER),
+				miterLimit
+			);
 		}
 		@Override
 		protected boolean equalsImpl(ArrowheadShape that) {
 			if (that instanceof Path) {
-				return this.d.equals(((Path)that).d);
+				if (!this.d.equals(((Path)that).d)) return false;
+				if (this.endCap != ((Path)that).endCap) return false;
+				if (this.lineJoin != ((Path)that).lineJoin) return false;
+				if (this.miterLimit != ((Path)that).miterLimit) return false;
+				return true;
 			} else {
 				return false;
 			}
@@ -134,12 +176,27 @@ public abstract class ArrowheadShape implements Shape {
 	
 	public static class Polygon extends ArrowheadShape {
 		public final float[] points;
-		public Polygon(float[] points, boolean stroke, boolean fill) {
+		public final EndCap endCap;
+		public final LineJoin lineJoin;
+		public final float miterLimit;
+		public Polygon(float[] points, EndCap endCap, LineJoin lineJoin, float miterLimit, boolean stroke, boolean fill) {
 			super(makeShape(points), stroke, fill);
 			this.points = points;
+			this.endCap = endCap;
+			this.lineJoin = lineJoin;
+			this.miterLimit = miterLimit;
 		}
-		public Polygon(String points, boolean stroke, boolean fill) {
-			this(parseFloats(points), stroke, fill);
+		public Polygon(String points, EndCap endCap, LineJoin lineJoin, float miterLimit, boolean stroke, boolean fill) {
+			this(parseFloats(points), endCap, lineJoin, miterLimit, stroke, fill);
+		}
+		@Override
+		public Stroke getStroke(float lineWidth) {
+			return new BasicStroke(
+				lineWidth,
+				((endCap != null) ? endCap.awtValue : BasicStroke.CAP_SQUARE),
+				((lineJoin != null) ? lineJoin.awtValue : BasicStroke.JOIN_MITER),
+				miterLimit
+			);
 		}
 		@Override
 		protected boolean equalsImpl(ArrowheadShape that) {
@@ -152,6 +209,9 @@ public abstract class ArrowheadShape implements Shape {
 						return false;
 					}
 				}
+				if (this.endCap != ((Polygon)that).endCap) return false;
+				if (this.lineJoin != ((Polygon)that).lineJoin) return false;
+				if (this.miterLimit != ((Polygon)that).miterLimit) return false;
 				return true;
 			} else {
 				return false;
@@ -180,12 +240,27 @@ public abstract class ArrowheadShape implements Shape {
 	
 	public static class PolyLine extends ArrowheadShape {
 		public final float[] points;
-		public PolyLine(float[] points, boolean stroke, boolean fill) {
+		public final EndCap endCap;
+		public final LineJoin lineJoin;
+		public final float miterLimit;
+		public PolyLine(float[] points, EndCap endCap, LineJoin lineJoin, float miterLimit, boolean stroke, boolean fill) {
 			super(makeShape(points), stroke, fill);
 			this.points = points;
+			this.endCap = endCap;
+			this.lineJoin = lineJoin;
+			this.miterLimit = miterLimit;
 		}
-		public PolyLine(String points, boolean stroke, boolean fill) {
-			this(parseFloats(points), stroke, fill);
+		public PolyLine(String points, EndCap endCap, LineJoin lineJoin, float miterLimit, boolean stroke, boolean fill) {
+			this(parseFloats(points), endCap, lineJoin, miterLimit, stroke, fill);
+		}
+		@Override
+		public Stroke getStroke(float lineWidth) {
+			return new BasicStroke(
+				lineWidth,
+				((endCap != null) ? endCap.awtValue : BasicStroke.CAP_SQUARE),
+				((lineJoin != null) ? lineJoin.awtValue : BasicStroke.JOIN_MITER),
+				miterLimit
+			);
 		}
 		@Override
 		protected boolean equalsImpl(ArrowheadShape that) {
@@ -198,6 +273,9 @@ public abstract class ArrowheadShape implements Shape {
 						return false;
 					}
 				}
+				if (this.endCap != ((PolyLine)that).endCap) return false;
+				if (this.lineJoin != ((PolyLine)that).lineJoin) return false;
+				if (this.miterLimit != ((PolyLine)that).miterLimit) return false;
 				return true;
 			} else {
 				return false;
@@ -225,9 +303,12 @@ public abstract class ArrowheadShape implements Shape {
 	
 	public static class Rect extends ArrowheadShape {
 		public final float x, y, width, height, rx, ry;
+		public final LineJoin lineJoin;
+		public final float miterLimit;
 		public Rect(
 			float x, float y, float width, float height,
-			float rx, float ry, boolean stroke, boolean fill
+			float rx, float ry, LineJoin lineJoin, float miterLimit,
+			boolean stroke, boolean fill
 		) {
 			super(
 				(rx == 0.0f && ry == 0.0f) ?
@@ -238,6 +319,17 @@ public abstract class ArrowheadShape implements Shape {
 			this.x = x; this.y = y;
 			this.width = width; this.height = height;
 			this.rx = rx; this.ry = ry;
+			this.lineJoin = lineJoin;
+			this.miterLimit = miterLimit;
+		}
+		@Override
+		public Stroke getStroke(float lineWidth) {
+			return new BasicStroke(
+				lineWidth,
+				BasicStroke.CAP_SQUARE,
+				((lineJoin != null) ? lineJoin.awtValue : BasicStroke.JOIN_MITER),
+				miterLimit
+			);
 		}
 		@Override
 		protected boolean equalsImpl(ArrowheadShape that) {
@@ -247,7 +339,9 @@ public abstract class ArrowheadShape implements Shape {
 			    && (this.width == ((Rect)that).width)
 			    && (this.height == ((Rect)that).height)
 			    && (this.rx == ((Rect)that).rx)
-			    && (this.ry == ((Rect)that).ry);
+			    && (this.ry == ((Rect)that).ry)
+			    && (this.lineJoin == ((Rect)that).lineJoin)
+			    && (this.miterLimit == ((Rect)that).miterLimit);
 		}
 		@Override
 		protected int hashCodeImpl() {

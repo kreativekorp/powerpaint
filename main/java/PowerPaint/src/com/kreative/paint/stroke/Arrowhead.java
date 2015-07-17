@@ -1,7 +1,7 @@
 package com.kreative.paint.stroke;
 
-import java.awt.BasicStroke;
 import java.awt.Shape;
+import java.awt.Stroke;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
 import java.util.ArrayList;
@@ -22,15 +22,19 @@ public class Arrowhead implements List<ArrowheadShape> {
 	public Shape createArrowhead(float prevX, float prevY, float endX, float endY, float lineWidth) {
 		float s = scale ? (((lineWidth-1)/2)+1) : 1;
 		double r = Math.atan2(endY-prevY, endX-prevX);
-		BasicStroke stroke = new BasicStroke(lineWidth);
 		AffineTransform st = AffineTransform.getScaleInstance(s, s);
 		AffineTransform rt = AffineTransform.getRotateInstance(r);
 		AffineTransform tt = AffineTransform.getTranslateInstance(endX, endY);
 		Area a = new Area();
 		for (ArrowheadShape ash : shapes) {
 			Shape sh = st.createTransformedShape(ash);
-			if (ash.fill) a.add(new Area(sh));
-			if (ash.stroke) a.add(new Area(stroke.createStrokedShape(sh)));
+			if (ash.fill) {
+				a.add(new Area(sh));
+			}
+			if (ash.stroke) {
+				Stroke stroke = ash.getStroke(lineWidth);
+				a.add(new Area(stroke.createStrokedShape(sh)));
+			}
 		}
 		Shape sh = rt.createTransformedShape(a);
 		return tt.createTransformedShape(sh);

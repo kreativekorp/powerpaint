@@ -81,6 +81,8 @@ import com.kreative.paint.rcp.RCPXParser;
 import com.kreative.paint.rcp.RCPXSwatch;
 import com.kreative.paint.stroke.Arrowhead;
 import com.kreative.paint.stroke.ArrowheadShape;
+import com.kreative.paint.stroke.EndCap;
+import com.kreative.paint.stroke.LineJoin;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.Bitmap;
 import com.kreative.paint.util.DitherAlgorithm;
@@ -674,7 +676,7 @@ public class MaterialsManager {
 									}  catch (NumberFormatException nfe) {}
 								}
 								Arrowhead ah = new Arrowhead(fields[0].contains("s"));
-								ah.add(new ArrowheadShape.PolyLine(a, true, fields[0].contains("f")));
+								ah.add(new ArrowheadShape.PolyLine(a, EndCap.SQUARE, LineJoin.MITER, 10.0f, true, fields[0].contains("f")));
 								lineArrowheads.add(ah);
 							}
 							break;

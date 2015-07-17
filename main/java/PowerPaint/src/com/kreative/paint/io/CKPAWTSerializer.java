@@ -29,11 +29,11 @@ public class CKPAWTSerializer extends Serializer {
 		addTypeAndClass(TYPE_ARROWHEAD, 1, Arrowhead.class);
 		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_CIRCLE, 1, ArrowheadShape.Circle.class);
 		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_ELLIPSE, 1, ArrowheadShape.Ellipse.class);
-		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_LINE, 1, ArrowheadShape.Line.class);
-		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_PATH, 1, ArrowheadShape.Path.class);
-		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_POLYGON, 1, ArrowheadShape.Polygon.class);
-		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_POLYLINE, 1, ArrowheadShape.PolyLine.class);
-		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_RECT, 1, ArrowheadShape.Rect.class);
+		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_LINE, 2, ArrowheadShape.Line.class);
+		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_PATH, 2, ArrowheadShape.Path.class);
+		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_POLYGON, 2, ArrowheadShape.Polygon.class);
+		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_POLYLINE, 2, ArrowheadShape.PolyLine.class);
+		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_RECT, 2, ArrowheadShape.Rect.class);
 		addTypeAndClass(TYPE_END_CAP, 1, EndCap.class);
 		addTypeAndClass(TYPE_LINE_JOIN, 1, LineJoin.class);
 		addTypeAndClass(TYPE_POWERSTROKE, 2, PowerStroke.class);
@@ -109,11 +109,15 @@ public class CKPAWTSerializer extends Serializer {
 			stream.writeFloat(v.y1);
 			stream.writeFloat(v.x2);
 			stream.writeFloat(v.y2);
+			stream.writeInt((v.endCap != null) ? v.endCap.awtValue : -1);
 		} else if (o instanceof ArrowheadShape.Path) {
 			ArrowheadShape.Path v = (ArrowheadShape.Path)o;
 			stream.writeBoolean(v.stroke);
 			stream.writeBoolean(v.fill);
 			stream.writeUTF(v.d);
+			stream.writeInt((v.endCap != null) ? v.endCap.awtValue : -1);
+			stream.writeInt((v.lineJoin != null) ? v.lineJoin.awtValue : -1);
+			stream.writeFloat(v.miterLimit);
 		} else if (o instanceof ArrowheadShape.Polygon) {
 			ArrowheadShape.Polygon v = (ArrowheadShape.Polygon)o;
 			stream.writeBoolean(v.stroke);
@@ -122,6 +126,9 @@ public class CKPAWTSerializer extends Serializer {
 			for (float p : v.points) {
 				stream.writeFloat(p);
 			}
+			stream.writeInt((v.endCap != null) ? v.endCap.awtValue : -1);
+			stream.writeInt((v.lineJoin != null) ? v.lineJoin.awtValue : -1);
+			stream.writeFloat(v.miterLimit);
 		} else if (o instanceof ArrowheadShape.PolyLine) {
 			ArrowheadShape.PolyLine v = (ArrowheadShape.PolyLine)o;
 			stream.writeBoolean(v.stroke);
@@ -130,6 +137,9 @@ public class CKPAWTSerializer extends Serializer {
 			for (float p : v.points) {
 				stream.writeFloat(p);
 			}
+			stream.writeInt((v.endCap != null) ? v.endCap.awtValue : -1);
+			stream.writeInt((v.lineJoin != null) ? v.lineJoin.awtValue : -1);
+			stream.writeFloat(v.miterLimit);
 		} else if (o instanceof ArrowheadShape.Rect) {
 			ArrowheadShape.Rect v = (ArrowheadShape.Rect)o;
 			stream.writeBoolean(v.stroke);
@@ -140,6 +150,8 @@ public class CKPAWTSerializer extends Serializer {
 			stream.writeFloat(v.height);
 			stream.writeFloat(v.rx);
 			stream.writeFloat(v.ry);
+			stream.writeInt((v.lineJoin != null) ? v.lineJoin.awtValue : -1);
+			stream.writeFloat(v.miterLimit);
 		} else if (o instanceof EndCap) {
 			EndCap v = (EndCap)o;
 			stream.writeInt(v.awtValue);
@@ -282,22 +294,26 @@ public class CKPAWTSerializer extends Serializer {
 			float ry = stream.readFloat();
 			return new ArrowheadShape.Ellipse(cx, cy, rx, ry, stroke, fill);
 		} else if (type == TYPE_ARROWHEAD_SHAPE_LINE) {
-			if (version != 1) throw new IOException("Invalid version number.");
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			boolean stroke = stream.readBoolean();
 			boolean fill = stream.readBoolean();
 			float x1 = stream.readFloat();
 			float y1 = stream.readFloat();
 			float x2 = stream.readFloat();
 			float y2 = stream.readFloat();
-			return new ArrowheadShape.Line(x1, y1, x2, y2, stroke, fill);
+			EndCap endCap = (version >= 2) ? EndCap.forAWTValue(stream.readInt()) : EndCap.SQUARE;
+			return new ArrowheadShape.Line(x1, y1, x2, y2, endCap, stroke, fill);
 		} else if (type == TYPE_ARROWHEAD_SHAPE_PATH) {
-			if (version != 1) throw new IOException("Invalid version number.");
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			boolean stroke = stream.readBoolean();
 			boolean fill = stream.readBoolean();
 			String d = stream.readUTF();
-			return new ArrowheadShape.Path(d, stroke, fill);
+			EndCap endCap = (version >= 2) ? EndCap.forAWTValue(stream.readInt()) : EndCap.SQUARE;
+			LineJoin lineJoin = (version >= 2) ? LineJoin.forAWTValue(stream.readInt()) : LineJoin.MITER;
+			float miterLimit = (version >= 2) ? stream.readFloat() : 10.0f;
+			return new ArrowheadShape.Path(d, endCap, lineJoin, miterLimit, stroke, fill);
 		} else if (type == TYPE_ARROWHEAD_SHAPE_POLYGON) {
-			if (version != 1) throw new IOException("Invalid version number.");
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			boolean stroke = stream.readBoolean();
 			boolean fill = stream.readBoolean();
 			int n = stream.readInt();
@@ -305,9 +321,12 @@ public class CKPAWTSerializer extends Serializer {
 			for (int i = 0; i < n; i++) {
 				p[i] = stream.readFloat();
 			}
-			return new ArrowheadShape.Polygon(p, stroke, fill);
+			EndCap endCap = (version >= 2) ? EndCap.forAWTValue(stream.readInt()) : EndCap.SQUARE;
+			LineJoin lineJoin = (version >= 2) ? LineJoin.forAWTValue(stream.readInt()) : LineJoin.MITER;
+			float miterLimit = (version >= 2) ? stream.readFloat() : 10.0f;
+			return new ArrowheadShape.Polygon(p, endCap, lineJoin, miterLimit, stroke, fill);
 		} else if (type == TYPE_ARROWHEAD_SHAPE_POLYLINE) {
-			if (version != 1) throw new IOException("Invalid version number.");
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			boolean stroke = stream.readBoolean();
 			boolean fill = stream.readBoolean();
 			int n = stream.readInt();
@@ -315,9 +334,12 @@ public class CKPAWTSerializer extends Serializer {
 			for (int i = 0; i < n; i++) {
 				p[i] = stream.readFloat();
 			}
-			return new ArrowheadShape.PolyLine(p, stroke, fill);
+			EndCap endCap = (version >= 2) ? EndCap.forAWTValue(stream.readInt()) : EndCap.SQUARE;
+			LineJoin lineJoin = (version >= 2) ? LineJoin.forAWTValue(stream.readInt()) : LineJoin.MITER;
+			float miterLimit = (version >= 2) ? stream.readFloat() : 10.0f;
+			return new ArrowheadShape.PolyLine(p, endCap, lineJoin, miterLimit, stroke, fill);
 		} else if (type == TYPE_ARROWHEAD_SHAPE_RECT) {
-			if (version != 1) throw new IOException("Invalid version number.");
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			boolean stroke = stream.readBoolean();
 			boolean fill = stream.readBoolean();
 			float x = stream.readFloat();
@@ -326,7 +348,9 @@ public class CKPAWTSerializer extends Serializer {
 			float height = stream.readFloat();
 			float rx = stream.readFloat();
 			float ry = stream.readFloat();
-			return new ArrowheadShape.Rect(x, y, width, height, rx, ry, stroke, fill);
+			LineJoin lineJoin = (version >= 2) ? LineJoin.forAWTValue(stream.readInt()) : LineJoin.MITER;
+			float miterLimit = (version >= 2) ? stream.readFloat() : 10.0f;
+			return new ArrowheadShape.Rect(x, y, width, height, rx, ry, lineJoin, miterLimit, stroke, fill);
 		} else if (type == TYPE_END_CAP) {
 			if (version != 1) throw new IOException("Invalid version number.");
 			return EndCap.forAWTValue(stream.readInt());
