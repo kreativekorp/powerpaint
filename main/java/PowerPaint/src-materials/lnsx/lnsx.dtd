@@ -1,0 +1,116 @@
+<!--
+	Date: 2015/07/16 22:36:05 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - SHAPES - - - - - - - - - - - - -->
+
+<!ENTITY % shape "(circle|ellipse|line|path|polygon|polyline|rect)">
+
+<!ELEMENT circle EMPTY>
+<!ATTLIST circle
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	r CDATA #REQUIRED
+	stroke (yes|no) "yes"
+	fill (yes|no) "no"
+>
+
+<!ELEMENT ellipse EMPTY>
+<!ATTLIST ellipse
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	rx CDATA #REQUIRED
+	ry CDATA #REQUIRED
+	stroke (yes|no) "yes"
+	fill (yes|no) "no"
+>
+
+<!ELEMENT line (cap?)>
+<!ATTLIST line
+	x1 CDATA #REQUIRED
+	y1 CDATA #REQUIRED
+	x2 CDATA #REQUIRED
+	y2 CDATA #REQUIRED
+	stroke (yes|no) "yes"
+	fill (yes|no) "no"
+>
+
+<!ELEMENT path (cap?,join?)>
+<!ATTLIST path
+	d CDATA #REQUIRED
+	stroke (yes|no) "yes"
+	fill (yes|no) "no"
+>
+
+<!ELEMENT polygon (cap?,join?)>
+<!ATTLIST polygon
+	points CDATA #REQUIRED
+	stroke (yes|no) "yes"
+	fill (yes|no) "no"
+>
+
+<!ELEMENT polyline (cap?,join?)>
+<!ATTLIST polyline
+	points CDATA #REQUIRED
+	stroke (yes|no) "yes"
+	fill (yes|no) "no"
+>
+
+<!ELEMENT rect (join?)>
+<!ATTLIST rect
+	x CDATA #REQUIRED
+	y CDATA #REQUIRED
+	width CDATA #REQUIRED
+	height CDATA #REQUIRED
+	rx CDATA "0"
+	ry CDATA "0"
+	stroke (yes|no) "yes"
+	fill (yes|no) "no"
+>
+
+<!-- - - - - - - - - - - - - STROKE COMPONENTS - - - - - - - - - - - - -->
+
+<!ELEMENT width EMPTY>
+<!ATTLIST width
+	w CDATA #IMPLIED
+>
+
+<!ELEMENT multiplicity EMPTY>
+<!ATTLIST multiplicity
+	m CDATA #IMPLIED
+>
+
+<!ELEMENT dashes EMPTY>
+<!ATTLIST dashes
+	lengths CDATA #IMPLIED
+	phase CDATA #IMPLIED
+>
+
+<!ELEMENT arrowhead (%shape;)*>
+<!ATTLIST arrowhead
+	scale (yes|no) "no"
+>
+
+<!ELEMENT cap EMPTY>
+<!ATTLIST cap
+	style (butt|round|square) "butt"
+>
+
+<!ELEMENT join EMPTY>
+<!ATTLIST join
+	style (miter|round|bevel) "miter"
+	limit CDATA #IMPLIED
+>
+
+<!-- - - - - - - - - - - - - STROKES - - - - - - - - - - - - -->
+
+<!ELEMENT strokes (stroke|width|multiplicity|dashes|arrowhead)*>
+<!ATTLIST strokes
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT stroke (width?,multiplicity?,dashes?,arrowhead?,arrowhead?,cap?,join?)>
+<!ATTLIST stroke
+	name CDATA #IMPLIED
+>

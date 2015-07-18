@@ -6,16 +6,29 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
 public class Arrowhead implements List<ArrowheadShape> {
+	public static final Arrowhead GENERAL_FILLED_ARROW = new Arrowhead(true, ArrowheadShape.GENERAL_FILLED_ARROW);
+	public static final Arrowhead GENERAL_STROKED_ARROW = new Arrowhead(true, ArrowheadShape.GENERAL_STROKED_ARROW);
+	public static final Arrowhead GENERAL_FILLED_CIRCLE = new Arrowhead(true, ArrowheadShape.GENERAL_FILLED_CIRCLE);
+	public static final Arrowhead GENERAL_STROKED_CIRCLE = new Arrowhead(true, ArrowheadShape.GENERAL_STROKED_CIRCLE);
+	
 	private final List<ArrowheadShape> shapes;
 	public final boolean scale;
 	
 	public Arrowhead(boolean scale) {
 		this.shapes = new ArrayList<ArrowheadShape>();
+		this.scale = scale;
+	}
+	
+	private Arrowhead(boolean scale, ArrowheadShape... shapes) {
+		List<ArrowheadShape> shapesIntl = new ArrayList<ArrowheadShape>();
+		for (ArrowheadShape shape : shapes) shapesIntl.add(shape);
+		this.shapes = Collections.unmodifiableList(shapesIntl);
 		this.scale = scale;
 	}
 	

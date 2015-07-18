@@ -19,6 +19,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class ArrowheadShape implements Shape {
+	public static final ArrowheadShape GENERAL_FILLED_ARROW = new ArrowheadShape.Polygon(
+		new float[]{6,0,0,6,0,-6}, EndCap.SQUARE, LineJoin.MITER, 10.0f, true, true
+	);
+	public static final ArrowheadShape GENERAL_STROKED_ARROW = new ArrowheadShape.Polygon(
+		new float[]{6,0,0,6,0,-6}, EndCap.SQUARE, LineJoin.MITER, 10.0f, true, false
+	);
+	public static final ArrowheadShape GENERAL_FILLED_CIRCLE = new ArrowheadShape.Circle(2, 0, 4, true, true);
+	public static final ArrowheadShape GENERAL_STROKED_CIRCLE = new ArrowheadShape.Circle(2, 0, 4, true, false);
+	
 	private final Shape awtShape;
 	public final boolean stroke;
 	public final boolean fill;

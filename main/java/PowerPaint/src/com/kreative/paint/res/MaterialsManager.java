@@ -80,9 +80,8 @@ import com.kreative.paint.rcp.RCPXPalette;
 import com.kreative.paint.rcp.RCPXParser;
 import com.kreative.paint.rcp.RCPXSwatch;
 import com.kreative.paint.stroke.Arrowhead;
-import com.kreative.paint.stroke.ArrowheadShape;
-import com.kreative.paint.stroke.EndCap;
-import com.kreative.paint.stroke.LineJoin;
+import com.kreative.paint.stroke.StrokeParser;
+import com.kreative.paint.stroke.StrokeSet;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.Bitmap;
 import com.kreative.paint.util.DitherAlgorithm;
@@ -605,103 +604,28 @@ public class MaterialsManager {
 		return gradientColorMaps;
 	}
 	
-	private TreeSet<Float> lineWidths;
-	private TreeSet<Integer> lineMultiplicities;
-	private LinkedHashSet<float[]> lineDashes;
-	private LinkedHashSet<Arrowhead> lineArrowheads;
-	public TreeSet<Float> getLineWidths() {
-		if (lineWidths == null) loadLines();
-		return lineWidths;
-	}
-	public TreeSet<Integer> getLineMultiplicies() {
-		if (lineMultiplicities == null) loadLines();
-		return lineMultiplicities;
-	}
-	public LinkedHashSet<float[]> getLineDashes() {
-		if (lineDashes == null) loadLines();
-		return lineDashes;
-	}
-	public LinkedHashSet<Arrowhead> getLineArrowheads() {
-		if (lineArrowheads == null) loadLines();
-		return lineArrowheads;
-	}
+	private TreeSet<Float> lineWidths = null;
+	private TreeSet<Integer> lineMultiplicities = null;
+	private LinkedHashSet<float[]> lineDashes = null;
+	private LinkedHashSet<Arrowhead> lineArrowheads = null;
 	private void loadLines() {
 		lineWidths = new TreeSet<Float>();
 		lineMultiplicities = new TreeSet<Integer>();
 		lineDashes = new LinkedHashSet<float[]>();
 		lineArrowheads = new LinkedHashSet<Arrowhead>();
 		for (Resource r : rm.getResources(ResourceCategory.LINES)) {
-			Scanner sc = new Scanner(new ByteArrayInputStream(r.data()));
-			while (sc.hasNextLine()) {
-				String line = sc.nextLine().trim();
-				if (line.length() > 0 && !line.startsWith("#")) {
-					String[] fields = line.split("[ ,;]");
-					if (fields[0].length() > 0 && !fields[0].startsWith("#")) {
-						switch (fields[0].charAt(0)) {
-						case '|':
-							for (int i = 1; i < fields.length; i++) {
-								try {
-									lineWidths.add(Float.parseFloat(fields[i]));
-								} catch (NumberFormatException nfe) {}
-							}
-							break;
-						case '-':
-							if (fields[0].contains("0")) {
-								lineDashes.add(null);
-							} else {
-								float[] a = new float[fields.length-1];
-								for (int i = 1; i < fields.length; i++) {
-									try {
-										a[i-1] = Float.parseFloat(fields[i]);
-									}  catch (NumberFormatException nfe) {}
-								}
-								lineDashes.add(a);
-							}
-							break;
-						case 'x':
-							for (int i = 1; i < fields.length; i++) {
-								try {
-									lineMultiplicities.add(Integer.parseInt(fields[i]));
-								} catch (NumberFormatException nfe) {}
-							}
-							break;
-						case '>':
-							if (fields[0].contains("0")) {
-								lineArrowheads.add(null);
-							} else {
-								float[] a = new float[fields.length-1];
-								for (int i = 1; i < fields.length; i++) {
-									try {
-										a[i-1] = Float.parseFloat(fields[i]);
-									}  catch (NumberFormatException nfe) {}
-								}
-								Arrowhead ah = new Arrowhead(fields[0].contains("s"));
-								ah.add(new ArrowheadShape.PolyLine(a, EndCap.SQUARE, LineJoin.MITER, 10.0f, true, fields[0].contains("f")));
-								lineArrowheads.add(ah);
-							}
-							break;
-						case '*':
-							if (fields[0].contains("0")) {
-								lineArrowheads.add(null);
-							} else if (fields.length >= 5) {
-								try {
-									Arrowhead ah = new Arrowhead(fields[0].contains("s"));
-									ah.add(new ArrowheadShape.Ellipse(
-										Float.parseFloat(fields[1]),
-										Float.parseFloat(fields[2]),
-										Float.parseFloat(fields[3])/2,
-										Float.parseFloat(fields[4])/2,
-										true, fields[0].contains("f")
-									));
-									lineArrowheads.add(ah);
-								} catch (NumberFormatException nfe) {}
-							}
-							break;
-						}
-					}
-				}
+			try {
+				ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
+				StrokeSet ss = StrokeParser.parse(r.name(), bin);
+				bin.close();
+				for (float width : ss.widths) lineWidths.add(width);
+				for (int multiplicity : ss.multiplicities) lineMultiplicities.add(multiplicity);
+				for (float[] dashes : ss.dashes) lineDashes.add(dashes);
+				for (Arrowhead arrowhead : ss.arrowheads) lineArrowheads.add(arrowhead);
+			} catch (IOException ioe) {
+				System.err.println("Warning: Failed to compile gradient set " + r.name() + ".");
+				ioe.printStackTrace();
 			}
-			sc.close();
 		}
 		if (lineWidths.isEmpty()) {
 			System.err.println("Notice: No line widths found. Generating generic line widths.");
@@ -725,17 +649,27 @@ public class MaterialsManager {
 		if (lineArrowheads.isEmpty()) {
 			System.err.println("Notice: No arrowheads found. Generating generic arrowheads.");
 			lineArrowheads.add(null);
-			/*
-			lineArrowheads.add(new PolygonArrowhead(new float[]{6,0,0,6,0,-6,6,0}, true, true));
-			lineArrowheads.add(new PolygonArrowhead(new float[]{6,0,0,6,0,-6,6,0}, false, true));
-			lineArrowheads.add(new PolygonArrowhead(new float[]{0,6,6,0,0,0,6,0,0,-6}, false, true));
-			lineArrowheads.add(new PolygonArrowhead(new float[]{0,6,0,-6}, false, true));
-			lineArrowheads.add(new PolygonArrowhead(new float[]{4,2,0,2,0,-2,4,-2,4,2}, true, true));
-			lineArrowheads.add(new PolygonArrowhead(new float[]{4,2,0,2,0,-2,4,-2,4,2}, false, true));
-			lineArrowheads.add(new CircleArrowhead(2,0,4,4, true, true));
-			lineArrowheads.add(new CircleArrowhead(2,0,4,4, false, true));
-			*/
+			lineArrowheads.add(Arrowhead.GENERAL_FILLED_ARROW);
+			lineArrowheads.add(Arrowhead.GENERAL_STROKED_ARROW);
+			lineArrowheads.add(Arrowhead.GENERAL_FILLED_CIRCLE);
+			lineArrowheads.add(Arrowhead.GENERAL_STROKED_CIRCLE);
 		}
+	}
+	public TreeSet<Float> getLineWidths() {
+		if (lineWidths == null) loadLines();
+		return lineWidths;
+	}
+	public TreeSet<Integer> getLineMultiplicies() {
+		if (lineMultiplicities == null) loadLines();
+		return lineMultiplicities;
+	}
+	public LinkedHashSet<float[]> getLineDashes() {
+		if (lineDashes == null) loadLines();
+		return lineDashes;
+	}
+	public LinkedHashSet<Arrowhead> getLineArrowheads() {
+		if (lineArrowheads == null) loadLines();
+		return lineArrowheads;
 	}
 	
 	private PairList<String,PairList<String,ParameterizedPath>> shapes = null;
