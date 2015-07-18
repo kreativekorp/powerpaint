@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fonts PUBLIC "-//Kreative//DTD ResplendentFont 1.0//EN" "rfpx.dtd">
+<fonts name="Lisa Fonts RE">
+	<font name="Empty Folders 2X3Y"           />
+	<font name="Empty Folders Raw"            />
+	<font name="Engelbart 2X3Y"               />
+	<font name="Engelbart Raw"                />
+	<font name="LisaCalc Paper 2X3Y"          />
+	<font name="LisaCalc Paper Raw"           />
+	<font name="LisaDraw Paper 2X3Y"          />
+	<font name="LisaDraw Paper Raw"           />
+	<font name="LisaGraph Paper 2X3Y"         />
+	<font name="LisaGraph Paper Raw"          />
+	<font name="LisaGuide Paper 2X3Y"         />
+	<font name="LisaGuide Paper Raw"          />
+	<font name="LisaProject Paper 2X3Y"       />
+	<font name="LisaProject Paper Raw"        />
+	<font name="LisaSketch Paper 2X3Y"        />
+	<font name="LisaSketch Paper Raw"         />
+	<font name="LisaTerminal Paper 2X3Y"      />
+	<font name="LisaTerminal Paper Raw"       />
+	<font name="LisaTerminal Paper Small 2X3Y"/>
+	<font name="LisaTerminal Paper Small Raw" />
+	<font name="LisaWrite Paper 2X3Y"         />
+	<font name="LisaWrite Paper Raw"          />
+	<font name="Priam Whamos 2X3Y"            />
+	<font name="Priam Whamos Raw"             />
+	<font name="Some Acronym 2X3Y"            />
+	<font name="Some Acronym Raw"             />
+	<font name="Startup From 2X3Y"            />
+	<font name="Startup From Raw"             />
+	<font name="Twiggy 2X3Y"                  />
+	<font name="Twiggy Raw"                   />
+</fonts>

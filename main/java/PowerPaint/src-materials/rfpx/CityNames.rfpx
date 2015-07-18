@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fonts PUBLIC "-//Kreative//DTD ResplendentFont 1.0//EN" "rfpx.dtd">
+<fonts name="City Names">
+	<font id= "7" name="Athens"       />
+	<font id="11" name="Cairo"        />
+	<font id= "0" name="Chicago"      />
+	<font id= "3" name="Geneva"       />
+	<font id= "6" name="London"       />
+	<font id="12" name="Los Angeles"  />
+	<font id="24" name="Mobile"       />
+	<font id= "4" name="Monaco"       />
+	<font id= "2" name="New York"     />
+	<font id= "8" name="San Francisco"/>
+	<font id="24" name="Taliesin"     />
+	<font id= "9" name="Toronto"      />
+	<font id= "5" name="Venice"       />
+</fonts>

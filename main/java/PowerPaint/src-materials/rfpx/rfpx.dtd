@@ -1,0 +1,17 @@
+<!--
+	Date: 2015/07/17 23:35:10 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - FONTS - - - - - - - - - - - - -->
+
+<!ELEMENT fonts (font*)>
+<!ATTLIST fonts
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT font EMPTY>
+<!ATTLIST font
+	id CDATA #IMPLIED
+	name CDATA #REQUIRED
+>

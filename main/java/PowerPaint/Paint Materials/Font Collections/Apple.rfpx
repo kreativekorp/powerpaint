@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fonts PUBLIC "-//Kreative//DTD ResplendentFont 1.0//EN" "rfpx.dtd">
+<fonts name="Apple">
+	<font name="Apple Braille"         />
+	<font name="Apple Casual"          />
+	<font name="Apple Chancery"        />
+	<font name="Apple Garamond"        />
+	<font name="Apple Symbols"         />
+	<font name="Athens"                />
+	<font name="Cairo"                 />
+	<font name="Casual"                />
+	<font name="Capitals"              />
+	<font name="Chalkboard"            />
+	<font name="Charcoal"              />
+	<font name="Chicago"               />
+	<font name="Gadget"                />
+	<font name="Geneva"                />
+	<font name="Helvetica Neue"        />
+	<font name="Hoefler Text"          />
+	<font name="Hoefler Text Ornaments"/>
+	<font name="London"                />
+	<font name="Los Angeles"           />
+	<font name="Lucida Grande"         />
+	<font name="Mobile"                />
+	<font name="Monaco"                />
+	<font name="New York"              />
+	<font name="San Francisco"         />
+	<font name="Sand"                  />
+	<font name="Skia"                  />
+	<font name="Taliesin"              />
+	<font name="Techno"                />
+	<font name="Textile"               />
+	<font name="Toronto"               />
+	<font name="Venice"                />
+	<font name="Zapfino"               />
+</fonts>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fonts PUBLIC "-//Kreative//DTD ResplendentFont 1.0//EN" "rfpx.dtd">
+<fonts name="Mac OS X Fixed Width">
+	<font name="Andale Mono"/>
+	<font name="Courier"    />
+	<font name="Courier New"/>
+	<font name="Menlo"      />
+	<font name="Monaco"     />
+</fonts>

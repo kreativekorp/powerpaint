@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fonts PUBLIC "-//Kreative//DTD ResplendentFont 1.0//EN" "rfpx.dtd">
+<fonts name="Mac OS X Web">
+	<font name="Andale Mono"    />
+	<font name="Arial"          />
+	<font name="Arial Black"    />
+	<font name="Brush Script MT"/>
+	<font name="Comic Sans MS"  />
+	<font name="Georgia"        />
+	<font name="Impact"         />
+	<font name="Times New Roman"/>
+	<font name="Trebuchet MS"   />
+	<font name="Verdana"        />
+	<font name="Webdings"       />
+</fonts>

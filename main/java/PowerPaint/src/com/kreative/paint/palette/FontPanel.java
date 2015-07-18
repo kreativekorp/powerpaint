@@ -30,6 +30,7 @@ package com.kreative.paint.palette;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Map;
+import java.util.SortedMap;
 import java.util.TreeMap;
 import javax.swing.*;
 import javax.swing.event.*;
@@ -37,6 +38,8 @@ import com.kreative.paint.PaintContext;
 import com.kreative.paint.PaintContextListener;
 import com.kreative.paint.PaintSettings;
 import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.rfp.FontList;
+import com.kreative.paint.util.Pair;
 import com.kreative.paint.util.SwingUtils;
 
 public class FontPanel extends PaintContextPanel {
@@ -63,9 +66,9 @@ public class FontPanel extends PaintContextPanel {
 		Font.BOLD|Font.ITALIC
 	};
 	
-	private TreeMap<String,TreeMap<String,Font>> fontLists;
-	private TreeMap<String,Font> allFonts;
 	private String allFontsName;
+	private SortedMap<String,Font> allFonts;
+	private SortedMap<String,FontList> fontLists;
 	private DefaultListModel collectionList;
 	private JList collectionView;
 	private DefaultListModel fontList;
@@ -82,11 +85,27 @@ public class FontPanel extends PaintContextPanel {
 	
 	public FontPanel(PaintContext pc, MaterialsManager mm) {
 		super(pc, CHANGED_FONT);
-		fontLists = new TreeMap<String,TreeMap<String,Font>>();
-		allFonts = mm.getFonts();
 		allFontsName = PaletteUtilities.messages.getString("fonts.all");
-		fontLists.put(allFontsName, allFonts);
-		fontLists.putAll(mm.getFontLists().asMap());
+		allFonts = mm.getFonts();
+		String[] allFontNames = allFonts.keySet().toArray(new String[allFonts.size()]);
+		FontList allFontsList = new FontList(allFontsName, allFontNames);
+		fontLists = new TreeMap<String,FontList>();
+		fontLists.put(allFontsName, allFontsList);
+		for (Pair<String,FontList> p : mm.getFontLists()) {
+			String listName = p.getFormer();
+			FontList oldList = p.getLatter();
+			FontList newList = new FontList(listName);
+			for (int i = 0, n = oldList.size(); i < n; i++) {
+				Integer fontId = oldList.getId(i);
+				String fontName = oldList.getName(i);
+				if (allFonts.containsKey(fontName)) {
+					newList.add(fontId, fontName);
+				}
+			}
+			if (!newList.isEmpty()) {
+				fontLists.put(listName, newList);
+			}
+		}
 		
 		collectionList = new DefaultListModel();
 		for (String coll : fontLists.keySet()) collectionList.addElement(coll);
@@ -126,14 +145,10 @@ public class FontPanel extends PaintContextPanel {
 				if (!eventexec) {
 					eventexec = true;
 					fontList.removeAllElements();
-					TreeMap<String,Font> coll = fontLists.get(collectionView.getSelectedValue().toString());
-					for (String font : coll.keySet()) fontList.addElement(font);
+					FontList coll = fontLists.get(collectionView.getSelectedValue().toString());
+					for (String font : coll.uniqueNamesToArray()) fontList.addElement(font);
 					if (FontPanel.this.pc != null) {
 						Font f = FontPanel.this.pc.getFont();
-						if (!coll.containsKey(f.getFamily())) {
-							f = coll.get(fontList.get(0).toString()).deriveFont(f.getStyle(), f.getSize2D());
-							FontPanel.this.pc.setFont(f);
-						}
 						fontView.setSelectedValue(f.getFamily(), true);
 						int style = f.getStyle();
 						for (int i=0; i<styleNames.length && i<styles.length; i++) {
@@ -151,11 +166,12 @@ public class FontPanel extends PaintContextPanel {
 				if (!eventexec) {
 					eventexec = true;
 					if (FontPanel.this.pc != null) {
-						TreeMap<String,Font> fc = fontLists.get(collectionView.getSelectedValue().toString());
-						Font fn = fc.get(fontView.getSelectedValue().toString());
+						String fn = fontView.getSelectedValue().toString();
 						int st = styles[styleView.getSelectedIndex()];
 						int sz = ((Number)sizeView.getSelectedValue()).intValue();
-						Font font = fn.deriveFont(st, (float)sz);
+						Font font = allFonts.containsKey(fn) ?
+						            allFonts.get(fn).deriveFont(st, (float)sz) :
+						            new Font(fn, st, sz);
 						FontPanel.this.pc.setFont(font);
 					}
 					eventexec = false;
@@ -168,11 +184,12 @@ public class FontPanel extends PaintContextPanel {
 				if (!eventexec) {
 					eventexec = true;
 					if (FontPanel.this.pc != null) {
-						TreeMap<String,Font> fc = fontLists.get(collectionView.getSelectedValue().toString());
-						Font fn = fc.get(fontView.getSelectedValue().toString());
+						String fn = fontView.getSelectedValue().toString();
 						int st = styles[styleView.getSelectedIndex()];
 						int sz = ((Number)sizeView.getSelectedValue()).intValue();
-						Font font = fn.deriveFont(st, (float)sz);
+						Font font = allFonts.containsKey(fn) ?
+						            allFonts.get(fn).deriveFont(st, (float)sz) :
+						            new Font(fn, st, sz);
 						FontPanel.this.pc.setFont(font);
 					}
 					eventexec = false;
@@ -185,11 +202,12 @@ public class FontPanel extends PaintContextPanel {
 				if (!eventexec) {
 					eventexec = true;
 					if (FontPanel.this.pc != null) {
-						TreeMap<String,Font> fc = fontLists.get(collectionView.getSelectedValue().toString());
-						Font fn = fc.get(fontView.getSelectedValue().toString());
+						String fn = fontView.getSelectedValue().toString();
 						int st = styles[styleView.getSelectedIndex()];
 						int sz = ((Number)sizeView.getSelectedValue()).intValue();
-						Font font = fn.deriveFont(st, (float)sz);
+						Font font = allFonts.containsKey(fn) ?
+						            allFonts.get(fn).deriveFont(st, (float)sz) :
+						            new Font(fn, st, sz);
 						FontPanel.this.pc.setFont(font);
 						sizeSpin.setValue(sz);
 					}
@@ -203,11 +221,12 @@ public class FontPanel extends PaintContextPanel {
 				if (!eventexec) {
 					eventexec = true;
 					if (FontPanel.this.pc != null) {
-						TreeMap<String,Font> fc = fontLists.get(collectionView.getSelectedValue().toString());
-						Font fn = fc.get(fontView.getSelectedValue().toString());
+						String fn = fontView.getSelectedValue().toString();
 						int st = styles[styleView.getSelectedIndex()];
 						int sz = ((Number)sizeSpin.getValue()).intValue();
-						Font font = fn.deriveFont(st, (float)sz);
+						Font font = allFonts.containsKey(fn) ?
+						            allFonts.get(fn).deriveFont(st, (float)sz) :
+						            new Font(fn, st, sz);
 						FontPanel.this.pc.setFont(font);
 						sizeView.clearSelection();
 						sizeView.setSelectedValue(sz, true);
@@ -278,7 +297,7 @@ public class FontPanel extends PaintContextPanel {
 			add(new ShowFontsMenuItem(this));
 			addSeparator();
 			String sel = FontPanel.this.pc.getFont().getFamily();
-			for (Map.Entry<String,TreeMap<String,Font>> c : fontLists.entrySet()) {
+			for (Map.Entry<String,FontList> c : fontLists.entrySet()) {
 				if (c.getKey().equals(allFontsName)) {
 					// All Fonts is handled specially because Java is terrible at handling long menus.
 					JMenu m = new JMenu(c.getKey());
@@ -287,19 +306,23 @@ public class FontPanel extends PaintContextPanel {
 						sm[i] = new JMenu(ALPHABET_LETTERS[i]);
 						m.add(sm[i]);
 					}
-					for (Map.Entry<String,Font> e : c.getValue().entrySet()) {
-						JMenuItem mi = new JCheckBoxMenuItem(e.getKey());
-						mi.setSelected(e.getKey().equals(sel));
-						final Font fn = e.getValue();
+					for (final String fontName : c.getValue().uniqueNamesToArray()) {
+						JMenuItem mi = new JCheckBoxMenuItem(fontName);
+						mi.setSelected(fontName.equals(sel));
 						mi.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								Font pf = FontPanel.this.pc.getFont();
-								FontPanel.this.pc.setFont(fn.deriveFont(pf.getStyle(), pf.getSize2D()));
+								int st = pf.getStyle();
+								int sz = pf.getSize();
+								Font font = allFonts.containsKey(fontName) ?
+								            allFonts.get(fontName).deriveFont(st, (float)sz) :
+								            new Font(fontName, st, sz);
+								FontPanel.this.pc.setFont(font);
 							}
 						});
 						boolean found = false;
 						for (int i = 0; i < ALPHABET_LETTERS.length; i++) {
-							if (e.getKey().toLowerCase().startsWith(ALPHABET_LETTERS[i].toLowerCase())) {
+							if (fontName.toLowerCase().startsWith(ALPHABET_LETTERS[i].toLowerCase())) {
 								sm[i].add(mi);
 								found = true; break;
 							}
@@ -309,14 +332,18 @@ public class FontPanel extends PaintContextPanel {
 					add(m);
 				} else {
 					JMenu m = new JMenu(c.getKey());
-					for (Map.Entry<String,Font> e : c.getValue().entrySet()) {
-						JMenuItem mi = new JCheckBoxMenuItem(e.getKey());
-						mi.setSelected(e.getKey().equals(sel));
-						final Font fn = e.getValue();
+					for (final String fontName : c.getValue().uniqueNamesToArray()) {
+						JMenuItem mi = new JCheckBoxMenuItem(fontName);
+						mi.setSelected(fontName.equals(sel));
 						mi.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								Font pf = FontPanel.this.pc.getFont();
-								FontPanel.this.pc.setFont(fn.deriveFont(pf.getStyle(), pf.getSize2D()));
+								int st = pf.getStyle();
+								int sz = pf.getSize();
+								Font font = allFonts.containsKey(fontName) ?
+								            allFonts.get(fontName).deriveFont(st, (float)sz) :
+								            new Font(fontName, st, sz);
+								FontPanel.this.pc.setFont(font);
 							}
 						});
 						m.add(mi);

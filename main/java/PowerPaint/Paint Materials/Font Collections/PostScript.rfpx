@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fonts PUBLIC "-//Kreative//DTD ResplendentFont 1.0//EN" "rfpx.dtd">
+<fonts name="PostScript">
+	<font id="33" name="Avant Garde"           />
+	<font id="14" name="Bookman"               />
+	<font id="22" name="Courier"               />
+	<font id="21" name="Helvetica"             />
+	<font id="15" name="Helvetica Narrow"      />
+	<font id="34" name="New Century Schoolbook"/>
+	<font id="16" name="Palatino"              />
+	<font id="23" name="Symbol"                />
+	<font id="20" name="Times"                 />
+	<font id="18" name="Zapf Chancery"         />
+	<font id="13" name="Zapf Dingbats"         />
+</fonts>

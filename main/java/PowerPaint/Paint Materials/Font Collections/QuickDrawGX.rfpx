@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fonts PUBLIC "-//Kreative//DTD ResplendentFont 1.0//EN" "rfpx.dtd">
+<fonts name="QuickDraw GX">
+	<font id="2311" name="Apple Chancery"        />
+	<font id="2013" name="Hoefler Text"          />
+	<font id="2018" name="Hoefler Text Ornaments"/>
+	<font id="2040" name="Skia"                  />
+	<font id= "642" name="Zapfino"               />
+</fonts>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fonts PUBLIC "-//Kreative//DTD ResplendentFont 1.0//EN" "rfpx.dtd">
+<fonts name="CSS">
+	<font name="serif"     />
+	<font name="sans-serif"/>
+	<font name="monospace" />
+	<font name="cursive"   />
+	<font name="fantasy"   />
+</fonts>

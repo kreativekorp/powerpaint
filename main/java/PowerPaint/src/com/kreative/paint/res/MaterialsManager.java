@@ -56,6 +56,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
@@ -79,6 +80,8 @@ import com.kreative.paint.rcp.RCPXOrientation;
 import com.kreative.paint.rcp.RCPXPalette;
 import com.kreative.paint.rcp.RCPXParser;
 import com.kreative.paint.rcp.RCPXSwatch;
+import com.kreative.paint.rfp.FontList;
+import com.kreative.paint.rfp.FontListParser;
 import com.kreative.paint.stroke.Arrowhead;
 import com.kreative.paint.stroke.StrokeParser;
 import com.kreative.paint.stroke.StrokeSet;
@@ -228,37 +231,51 @@ public class MaterialsManager {
 		return colorArrays;
 	}
 	
-	private TreeMap<String,Font> fonts = null;
-	public TreeMap<String,Font> getFonts() {
-		if (fonts == null) {
-			fonts = new TreeMap<String,Font>();
-			for (String f : GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames()) {
-				fonts.put(f, new Font(f, Font.PLAIN, 1));
-			}
+	private SortedMap<String,Font> fonts = null;
+	private void loadFonts() {
+		fonts = new TreeMap<String,Font>();
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		String[] ffn = ge.getAvailableFontFamilyNames();
+		for (String fontName : ffn) {
+			Font font = new Font(fontName, Font.PLAIN, 1);
+			fonts.put(fontName, font);
 		}
+	}
+	public SortedMap<String,Font> getFonts() {
+		if (fonts == null) loadFonts();
 		return fonts;
 	}
 	
-	private PairList<String,TreeMap<String,Font>> fontLists = null;
-	public PairList<String,TreeMap<String,Font>> getFontLists() {
-		if (fontLists == null) {
-			getFonts();
-			fontLists = new PairList<String,TreeMap<String,Font>>();
-			for (Resource r : rm.getResources(ResourceCategory.FONTSETS)) {
-				TreeMap<String,Font> fs = new TreeMap<String,Font>();
-				Scanner sc = new Scanner(new ByteArrayInputStream(r.data()), "UTF-8");
-				while (sc.hasNextLine()) {
-					String s = sc.nextLine();
-					if (s.length() > 0 && fonts.containsKey(s)) {
-						fs.put(s, fonts.get(s));
-					}
-				}
-				sc.close();
-				if (!fs.isEmpty()) {
-					fontLists.add(r.name(), fs);
-				}
+	private PairList<String,FontList> fontLists = null;
+	private void loadFontLists() {
+		fontLists = new PairList<String,FontList>();
+		for (Resource r : rm.getResources(ResourceCategory.FONTSETS)) {
+			try {
+				ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
+				FontList list = FontListParser.parse(r.name(), bin);
+				bin.close();
+				String name = (list.name != null) ? list.name : r.name();
+				fontLists.add(name, list);
+			} catch (IOException ioe) {
+				System.err.println("Warning: Failed to compile font list " + r.name() + ".");
+				ioe.printStackTrace();
 			}
 		}
+		if (fontLists.isEmpty()) {
+			System.err.println("Notice: No font lists found. Generating generic font lists.");
+			fontLists.add("CSS", new FontList("CSS",
+				"serif", "sans-serif", "monospace", "cursive", "fantasy"
+			));
+			fontLists.add("General", new FontList("General",
+				"Courier", "Helvetica", "Palatino", "Symbol", "Times"
+			));
+			fontLists.add("Java", new FontList("Java",
+				"Dialog", "DialogInput", "Monospaced", "SansSerif", "Serif"
+			));
+		}
+	}
+	public PairList<String,FontList> getFontLists() {
+		if (fontLists == null) loadFontLists();
 		return fontLists;
 	}
 	
@@ -623,7 +640,7 @@ public class MaterialsManager {
 				for (float[] dashes : ss.dashes) lineDashes.add(dashes);
 				for (Arrowhead arrowhead : ss.arrowheads) lineArrowheads.add(arrowhead);
 			} catch (IOException ioe) {
-				System.err.println("Warning: Failed to compile gradient set " + r.name() + ".");
+				System.err.println("Warning: Failed to compile stroke set " + r.name() + ".");
 				ioe.printStackTrace();
 			}
 		}
