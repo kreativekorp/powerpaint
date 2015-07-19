@@ -5,8 +5,6 @@
 		You may notice the similarity to the SVG path element syntax.
 		You may be tempted to copypasta SVG paths into here.
 		Before doing so, keep in mind the following caveats:
-		  * This will only support M m H h V v L l Q q C c A a Z z.
-		  * This does NOT support T t S s.
 		  * Repeated instructions cannot be omitted:
 		        "L 1 2 L 3 4" is valid here;
 		        "L 1 2 3 4" is NOT valid here.

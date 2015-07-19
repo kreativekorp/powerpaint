@@ -422,9 +422,8 @@ public abstract class ArrowheadShape implements Shape {
 	private static Object[] parseInstructions(String s) {
 		List<String> instructions = new ArrayList<String>();
 		GeneralPath p = new GeneralPath();
-		float lx = 0.0f, ly = 0.0f;
-		float cx1, cy1, cx2, cy2;
-		float arx, ary, a;
+		float lcx = 0.0f, lcy = 0.0f, lx = 0.0f, ly = 0.0f;
+		float ccx, ccy, arx, ary, aa;
 		boolean large, sweep;
 		Matcher m = INSTRUCTION_PATTERN.matcher(s);
 		while (m.find()) {
@@ -432,105 +431,141 @@ public abstract class ArrowheadShape implements Shape {
 			switch (inst.charAt(0)) {
 				case 'M':
 					instructions.add("M");
-					instructions.add(Float.toString(lx = parseInstructionFloat(m)));
-					instructions.add(Float.toString(ly = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = lx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly = parseInstructionFloat(m)));
 					p.moveTo(lx, ly);
 					break;
 				case 'm':
 					instructions.add("M");
-					instructions.add(Float.toString(lx += parseInstructionFloat(m)));
-					instructions.add(Float.toString(ly += parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = lx += parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly += parseInstructionFloat(m)));
 					p.moveTo(lx, ly);
 					break;
 				case 'H':
 					instructions.add("H");
-					instructions.add(Float.toString(lx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = lx = parseInstructionFloat(m)));
 					p.lineTo(lx, ly);
 					break;
 				case 'h':
 					instructions.add("H");
-					instructions.add(Float.toString(lx += parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = lx += parseInstructionFloat(m)));
 					p.lineTo(lx, ly);
 					break;
 				case 'V':
 					instructions.add("V");
-					instructions.add(Float.toString(ly = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly = parseInstructionFloat(m)));
 					p.lineTo(lx, ly);
 					break;
 				case 'v':
 					instructions.add("V");
-					instructions.add(Float.toString(ly += parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly += parseInstructionFloat(m)));
 					p.lineTo(lx, ly);
 					break;
 				case 'L':
 					instructions.add("L");
-					instructions.add(Float.toString(lx = parseInstructionFloat(m)));
-					instructions.add(Float.toString(ly = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = lx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly = parseInstructionFloat(m)));
 					p.lineTo(lx, ly);
 					break;
 				case 'l':
 					instructions.add("L");
-					instructions.add(Float.toString(lx += parseInstructionFloat(m)));
-					instructions.add(Float.toString(ly += parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = lx += parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly += parseInstructionFloat(m)));
 					p.lineTo(lx, ly);
 					break;
 				case 'Q':
 					instructions.add("Q");
-					instructions.add(Float.toString(cx1 = parseInstructionFloat(m)));
-					instructions.add(Float.toString(cy1 = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = parseInstructionFloat(m)));
 					instructions.add(Float.toString(lx = parseInstructionFloat(m)));
 					instructions.add(Float.toString(ly = parseInstructionFloat(m)));
-					p.quadTo(cx1, cy1, lx, ly);
+					p.quadTo(lcx, lcy, lx, ly);
 					break;
 				case 'q':
 					instructions.add("Q");
-					instructions.add(Float.toString(cx1 = lx + parseInstructionFloat(m)));
-					instructions.add(Float.toString(cy1 = ly + parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = lx + parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly + parseInstructionFloat(m)));
 					instructions.add(Float.toString(lx += parseInstructionFloat(m)));
 					instructions.add(Float.toString(ly += parseInstructionFloat(m)));
-					p.quadTo(cx1, cy1, lx, ly);
+					p.quadTo(lcx, lcy, lx, ly);
+					break;
+				case 'T':
+					instructions.add("T");
+					lcx = lx + lx - lcx;
+					lcy = ly + ly - lcy;
+					instructions.add(Float.toString(lx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(ly = parseInstructionFloat(m)));
+					p.quadTo(lcx, lcy, lx, ly);
+					break;
+				case 't':
+					instructions.add("T");
+					lcx = lx + lx - lcx;
+					lcy = ly + ly - lcy;
+					instructions.add(Float.toString(lx += parseInstructionFloat(m)));
+					instructions.add(Float.toString(ly += parseInstructionFloat(m)));
+					p.quadTo(lcx, lcy, lx, ly);
 					break;
 				case 'C':
 					instructions.add("C");
-					instructions.add(Float.toString(cx1 = parseInstructionFloat(m)));
-					instructions.add(Float.toString(cy1 = parseInstructionFloat(m)));
-					instructions.add(Float.toString(cx2 = parseInstructionFloat(m)));
-					instructions.add(Float.toString(cy2 = parseInstructionFloat(m)));
+					instructions.add(Float.toString(ccx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(ccy = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = parseInstructionFloat(m)));
 					instructions.add(Float.toString(lx = parseInstructionFloat(m)));
 					instructions.add(Float.toString(ly = parseInstructionFloat(m)));
-					p.curveTo(cx1, cy1, cx2, cy2, lx, ly);
+					p.curveTo(ccx, ccy, lcx, lcy, lx, ly);
 					break;
 				case 'c':
 					instructions.add("C");
-					instructions.add(Float.toString(cx1 = lx + parseInstructionFloat(m)));
-					instructions.add(Float.toString(cy1 = ly + parseInstructionFloat(m)));
-					instructions.add(Float.toString(cx2 = lx + parseInstructionFloat(m)));
-					instructions.add(Float.toString(cy2 = ly + parseInstructionFloat(m)));
+					instructions.add(Float.toString(ccx = lx + parseInstructionFloat(m)));
+					instructions.add(Float.toString(ccy = ly + parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcx = lx + parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly + parseInstructionFloat(m)));
 					instructions.add(Float.toString(lx += parseInstructionFloat(m)));
 					instructions.add(Float.toString(ly += parseInstructionFloat(m)));
-					p.curveTo(cx1, cy1, cx2, cy2, lx, ly);
+					p.curveTo(ccx, ccy, lcx, lcy, lx, ly);
+					break;
+				case 'S':
+					instructions.add("S");
+					ccx = lx + lx - lcx;
+					ccy = ly + ly - lcy;
+					instructions.add(Float.toString(lcx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(ly = parseInstructionFloat(m)));
+					p.curveTo(ccx, ccy, lcx, lcy, lx, ly);
+					break;
+				case 's':
+					instructions.add("S");
+					ccx = lx + lx - lcx;
+					ccy = ly + ly - lcy;
+					instructions.add(Float.toString(lcx = lx + parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly + parseInstructionFloat(m)));
+					instructions.add(Float.toString(lx += parseInstructionFloat(m)));
+					instructions.add(Float.toString(ly += parseInstructionFloat(m)));
+					p.curveTo(ccx, ccy, lcx, lcy, lx, ly);
 					break;
 				case 'A':
 					instructions.add("A");
 					instructions.add(Float.toString(arx = parseInstructionFloat(m)));
 					instructions.add(Float.toString(ary = parseInstructionFloat(m)));
-					instructions.add(Float.toString(a = parseInstructionFloat(m)));
+					instructions.add(Float.toString(aa = parseInstructionFloat(m)));
 					instructions.add((large = (parseInstructionFloat(m) != 0)) ? "1" : "0");
 					instructions.add((sweep = (parseInstructionFloat(m) != 0)) ? "1" : "0");
-					instructions.add(Float.toString(lx = parseInstructionFloat(m)));
-					instructions.add(Float.toString(ly = parseInstructionFloat(m)));
-					arcTo(p, arx, ary, a, large, sweep, lx, ly);
+					instructions.add(Float.toString(lcx = lx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly = parseInstructionFloat(m)));
+					arcTo(p, arx, ary, aa, large, sweep, lx, ly);
 					break;
 				case 'a':
 					instructions.add("A");
 					instructions.add(Float.toString(arx = parseInstructionFloat(m)));
 					instructions.add(Float.toString(ary = parseInstructionFloat(m)));
-					instructions.add(Float.toString(a = parseInstructionFloat(m)));
+					instructions.add(Float.toString(aa = parseInstructionFloat(m)));
 					instructions.add((large = (parseInstructionFloat(m) != 0)) ? "1" : "0");
 					instructions.add((sweep = (parseInstructionFloat(m) != 0)) ? "1" : "0");
-					instructions.add(Float.toString(lx += parseInstructionFloat(m)));
-					instructions.add(Float.toString(ly += parseInstructionFloat(m)));
-					arcTo(p, arx, ary, a, large, sweep, lx, ly);
+					instructions.add(Float.toString(lcx = lx += parseInstructionFloat(m)));
+					instructions.add(Float.toString(lcy = ly += parseInstructionFloat(m)));
+					arcTo(p, arx, ary, aa, large, sweep, lx, ly);
 					break;
 				case 'Z':
 				case 'z':
