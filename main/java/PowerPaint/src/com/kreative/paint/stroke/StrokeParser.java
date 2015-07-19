@@ -215,7 +215,20 @@ public class StrokeParser {
 		}
 		String type = node.getNodeName();
 		NamedNodeMap attr = node.getAttributes();
-		if (type.equalsIgnoreCase("circle")) {
+		if (type.equalsIgnoreCase("arc")) {
+			return new ArrowheadShape.Arc(
+				parseFloat(attr, "cx", 0.0f),
+				parseFloat(attr, "cy", 0.0f),
+				parseFloat(attr, "rx", 0.0f),
+				parseFloat(attr, "ry", 0.0f),
+				parseFloat(attr, "start", 0.0f),
+				parseFloat(attr, "extent", 0.0f),
+				parseArcType(node),
+				endCap, lineJoin, miterLimit,
+				parseBoolean(attr, "stroke", true),
+				parseBoolean(attr, "fill", false)
+			);
+		} else if (type.equalsIgnoreCase("circle")) {
 			return new ArrowheadShape.Circle(
 				parseFloat(attr, "cx", 0.0f),
 				parseFloat(attr, "cy", 0.0f),
@@ -275,6 +288,25 @@ public class StrokeParser {
 				parseBoolean(attr, "stroke", true),
 				parseBoolean(attr, "fill", false)
 			);
+		} else {
+			throw new IOException("Unknown element: " + type);
+		}
+	}
+	
+	private static ArcType parseArcType(Node node) throws IOException {
+		String type = node.getNodeName();
+		if (type.equalsIgnoreCase("arc")) {
+			NamedNodeMap attr = node.getAttributes();
+			String arcType = parseString(attr, "type");
+			if (arcType == null || arcType.equalsIgnoreCase("open")) {
+				return ArcType.OPEN;
+			} else if (arcType.equalsIgnoreCase("chord")) {
+				return ArcType.CHORD;
+			} else if (arcType.equalsIgnoreCase("pie")) {
+				return ArcType.PIE;
+			} else {
+				return null;
+			}
 		} else {
 			throw new IOException("Unknown element: " + type);
 		}

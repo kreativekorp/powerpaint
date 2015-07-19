@@ -1,11 +1,24 @@
 <!--
-	Date: 2015/07/16 22:36:05 PDT
+	Date: 2015/07/18 22:15:05 PDT
 	Author: Rebecca Bettencourt <support@kreativekorp.com>
 -->
 
 <!-- - - - - - - - - - - - - SHAPES - - - - - - - - - - - - -->
 
-<!ENTITY % shape "(circle|ellipse|line|path|polygon|polyline|rect)">
+<!ENTITY % shape "(arc|circle|ellipse|line|path|polygon|polyline|rect)">
+
+<!ELEMENT arc (cap?,join?)>
+<!ATTLIST arc
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	rx CDATA #REQUIRED
+	ry CDATA #REQUIRED
+	start CDATA #REQUIRED
+	extent CDATA #REQUIRED
+	type (open|chord|pie) "open"
+	stroke (yes|no) "yes"
+	fill (yes|no) "no"
+>
 
 <!ELEMENT circle EMPTY>
 <!ATTLIST circle

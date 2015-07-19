@@ -10,6 +10,7 @@ public class CKPAWTSerializer extends Serializer {
 	private static final int TYPE_PATTERN_LIST = fcc("Pats");
 	private static final int TYPE_PATTERN_PAINT = fcc("PPnt");
 	private static final int TYPE_ARROWHEAD = fcc("Arhd");
+	private static final int TYPE_ARROWHEAD_SHAPE_ARC = fcc(">Arc");
 	private static final int TYPE_ARROWHEAD_SHAPE_CIRCLE = fcc(">Cir");
 	private static final int TYPE_ARROWHEAD_SHAPE_ELLIPSE = fcc(">Ell");
 	private static final int TYPE_ARROWHEAD_SHAPE_LINE = fcc(">Lin");
@@ -27,6 +28,7 @@ public class CKPAWTSerializer extends Serializer {
 		addTypeAndClass(TYPE_PATTERN_LIST, 1, PatternList.class);
 		addTypeAndClass(TYPE_PATTERN_PAINT, 2, PatternPaint.class);
 		addTypeAndClass(TYPE_ARROWHEAD, 1, Arrowhead.class);
+		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_ARC, 2, ArrowheadShape.Arc.class);
 		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_CIRCLE, 1, ArrowheadShape.Circle.class);
 		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_ELLIPSE, 1, ArrowheadShape.Ellipse.class);
 		addTypeAndClass(TYPE_ARROWHEAD_SHAPE_LINE, 2, ArrowheadShape.Line.class);
@@ -86,6 +88,20 @@ public class CKPAWTSerializer extends Serializer {
 			for (ArrowheadShape sh : v) {
 				SerializationManager.writeObject(sh, stream);
 			}
+		} else if (o instanceof ArrowheadShape.Arc) {
+			ArrowheadShape.Arc v = (ArrowheadShape.Arc)o;
+			stream.writeBoolean(v.stroke);
+			stream.writeBoolean(v.fill);
+			stream.writeFloat(v.cx);
+			stream.writeFloat(v.cy);
+			stream.writeFloat(v.rx);
+			stream.writeFloat(v.ry);
+			stream.writeFloat(v.start);
+			stream.writeFloat(v.extent);
+			stream.writeInt((v.type != null) ? v.type.awtValue : -1);
+			stream.writeInt((v.endCap != null) ? v.endCap.awtValue : -1);
+			stream.writeInt((v.lineJoin != null) ? v.lineJoin.awtValue : -1);
+			stream.writeFloat(v.miterLimit);
 		} else if (o instanceof ArrowheadShape.Circle) {
 			ArrowheadShape.Circle v = (ArrowheadShape.Circle)o;
 			stream.writeBoolean(v.stroke);
@@ -276,6 +292,24 @@ public class CKPAWTSerializer extends Serializer {
 				a.add((ArrowheadShape)SerializationManager.readObject(stream));
 			}
 			return a;
+		} else if (type == TYPE_ARROWHEAD_SHAPE_ARC) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
+			boolean stroke = stream.readBoolean();
+			boolean fill = stream.readBoolean();
+			float cx = stream.readFloat();
+			float cy = stream.readFloat();
+			float rx = stream.readFloat();
+			float ry = stream.readFloat();
+			float start = stream.readFloat();
+			float extent = stream.readFloat();
+			ArcType arcType = ArcType.forAWTValue(stream.readInt());
+			EndCap endCap = (version >= 2) ? EndCap.forAWTValue(stream.readInt()) : EndCap.SQUARE;
+			LineJoin lineJoin = (version >= 2) ? LineJoin.forAWTValue(stream.readInt()) : LineJoin.MITER;
+			float miterLimit = (version >= 2) ? stream.readFloat() : 10.0f;
+			return new ArrowheadShape.Arc(
+				cx, cy, rx, ry, start, extent, arcType,
+				endCap, lineJoin, miterLimit, stroke, fill
+			);
 		} else if (type == TYPE_ARROWHEAD_SHAPE_CIRCLE) {
 			if (version != 1) throw new IOException("Invalid version number.");
 			boolean stroke = stream.readBoolean();

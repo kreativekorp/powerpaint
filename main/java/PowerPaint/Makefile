@@ -98,6 +98,6 @@ PowerPaint-src.tgz: osxclean
 	tar -czf PowerPaint-src.tgz src/com/kreative/paint LICENSE
 
 run:
-	java -Xmx1024M com.kreative.paint.ui.Main
+	java -Xmx1024M -cp ./bin com.kreative.paint.ui.Main
 
 .PHONY: all eclipseall clean eclipseclean osxclean decorate

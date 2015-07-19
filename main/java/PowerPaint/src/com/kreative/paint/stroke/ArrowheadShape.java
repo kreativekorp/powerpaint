@@ -62,6 +62,59 @@ public abstract class ArrowheadShape implements Shape {
 		return hashCode;
 	}
 	
+	public static class Arc extends ArrowheadShape {
+		public final float cx, cy, rx, ry;
+		public final float start, extent;
+		public final ArcType type;
+		public final EndCap endCap;
+		public final LineJoin lineJoin;
+		public final float miterLimit;
+		public Arc(
+			float cx, float cy, float rx, float ry,
+			float start, float extent, ArcType type,
+			EndCap endCap, LineJoin lineJoin, float miterLimit,
+			boolean stroke, boolean fill
+		) {
+			super(new Arc2D.Float(
+				cx-rx, cy-ry, rx+rx, ry+ry, start, extent,
+				((type != null) ? type.awtValue : Arc2D.OPEN)
+			), stroke, fill);
+			this.cx = cx; this.cy = cy; this.rx = rx; this.ry = ry;
+			this.start = start; this.extent = extent;
+			this.type = type;
+			this.endCap = endCap;
+			this.lineJoin = lineJoin;
+			this.miterLimit = miterLimit;
+		}
+		@Override
+		public Stroke getStroke(float lineWidth) {
+			return new BasicStroke(
+				lineWidth,
+				((endCap != null) ? endCap.awtValue : BasicStroke.CAP_SQUARE),
+				((lineJoin != null) ? lineJoin.awtValue : BasicStroke.JOIN_MITER),
+				miterLimit
+			);
+		}
+		@Override
+		protected boolean equalsImpl(ArrowheadShape that) {
+			return (that instanceof Arc)
+			    && (this.cx == ((Arc)that).cx)
+			    && (this.cy == ((Arc)that).cy)
+			    && (this.rx == ((Arc)that).rx)
+			    && (this.ry == ((Arc)that).ry)
+			    && (this.start == ((Arc)that).start)
+			    && (this.extent == ((Arc)that).extent)
+			    && (this.type == ((Arc)that).type)
+			    && (this.endCap == ((Arc)that).endCap)
+			    && (this.lineJoin == ((Arc)that).lineJoin)
+			    && (this.miterLimit == ((Arc)that).miterLimit);
+		}
+		@Override
+		protected int hashCodeImpl() {
+			return Float.floatToIntBits(cx + cy + rx + ry + start + extent);
+		}
+	}
+	
 	public static class Circle extends ArrowheadShape {
 		public final float cx, cy, r;
 		public Circle(float cx, float cy, float r, boolean stroke, boolean fill) {

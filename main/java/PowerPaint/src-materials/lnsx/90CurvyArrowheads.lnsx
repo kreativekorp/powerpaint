@@ -27,4 +27,13 @@
 	<arrowhead scale="yes">
 		<path d="M 0 0 a 6 6 0 0 1 6 6 a 6 6 0 0 1 6 -6 a 6 6 0 0 1 -6 -6 a 6 6 0 0 1 -6 6" fill="yes"/>
 	</arrowhead>
+	<arrowhead scale="yes">
+		<arc cx="5" cy="0" rx="5" ry="5" start="45" extent="270" type="open"/>
+	</arrowhead>
+	<arrowhead scale="yes">
+		<arc cx="5" cy="0" rx="5" ry="5" start="45" extent="270" type="pie"/>
+	</arrowhead>
+	<arrowhead scale="yes">
+		<arc cx="5" cy="0" rx="5" ry="5" start="45" extent="270" type="pie" fill="yes"/>
+	</arrowhead>
 </strokes>
