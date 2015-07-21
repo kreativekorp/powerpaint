@@ -478,6 +478,8 @@ public abstract class ArrowheadShape implements Shape {
 		float lcx = 0.0f, lcy = 0.0f, lx = 0.0f, ly = 0.0f;
 		float ccx, ccy, arx, ary, aa;
 		boolean large, sweep;
+		float rx, ry, rw, rh, rrx, rry, ras, rae;
+		int rat;
 		Matcher m = INSTRUCTION_PATTERN.matcher(s);
 		while (m.find()) {
 			String inst = m.group();
@@ -497,22 +499,22 @@ public abstract class ArrowheadShape implements Shape {
 				case 'H':
 					instructions.add("H");
 					instructions.add(Float.toString(lcx = lx = parseInstructionFloat(m)));
-					p.lineTo(lx, ly);
+					p.lineTo(lx, lcy = ly);
 					break;
 				case 'h':
 					instructions.add("H");
 					instructions.add(Float.toString(lcx = lx += parseInstructionFloat(m)));
-					p.lineTo(lx, ly);
+					p.lineTo(lx, lcy = ly);
 					break;
 				case 'V':
 					instructions.add("V");
 					instructions.add(Float.toString(lcy = ly = parseInstructionFloat(m)));
-					p.lineTo(lx, ly);
+					p.lineTo(lcx = lx, ly);
 					break;
 				case 'v':
 					instructions.add("V");
 					instructions.add(Float.toString(lcy = ly += parseInstructionFloat(m)));
-					p.lineTo(lx, ly);
+					p.lineTo(lcx = lx, ly);
 					break;
 				case 'L':
 					instructions.add("L");
@@ -623,7 +625,70 @@ public abstract class ArrowheadShape implements Shape {
 				case 'Z':
 				case 'z':
 					instructions.add("Z");
+					lcx = lx; lcy = ly;
 					p.closePath();
+					break;
+				case 'R':
+					instructions.add("R");
+					instructions.add(Float.toString(rx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(ry = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rw = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rh = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rrx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rry = parseInstructionFloat(m)));
+					if (rrx == 0 || rry == 0) {
+						p.append(new Rectangle2D.Float(rx, ry, rw, rh), false);
+					} else {
+						p.append(new RoundRectangle2D.Float(rx, ry, rw, rh, rrx, rry), false);
+					}
+					p.moveTo(lcx = lx, lcy = ly);
+					break;
+				case 'r':
+					instructions.add("R");
+					instructions.add(Float.toString(rx = lx + parseInstructionFloat(m)));
+					instructions.add(Float.toString(ry = ly + parseInstructionFloat(m)));
+					instructions.add(Float.toString(rw = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rh = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rrx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rry = parseInstructionFloat(m)));
+					if (rrx == 0 || rry == 0) {
+						p.append(new Rectangle2D.Float(rx, ry, rw, rh), false);
+					} else {
+						p.append(new RoundRectangle2D.Float(rx, ry, rw, rh, rrx, rry), false);
+					}
+					p.moveTo(lcx = lx, lcy = ly);
+					break;
+				case 'E':
+					instructions.add("E");
+					instructions.add(Float.toString(rx = parseInstructionFloat(m)));
+					instructions.add(Float.toString(ry = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rw = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rh = parseInstructionFloat(m)));
+					instructions.add(Float.toString(ras = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rae = parseInstructionFloat(m)));
+					instructions.add(Integer.toString(rat = (Math.abs((int)Math.round(parseInstructionFloat(m))) % 3)));
+					if (rae <= -360 || rae >= 360) {
+						p.append(new Ellipse2D.Float(rx, ry, rw, rh), false);
+					} else {
+						p.append(new Arc2D.Float(rx, ry, rw, rh, ras, rae, rat), false);
+					}
+					p.moveTo(lcx = lx, lcy = ly);
+					break;
+				case 'e':
+					instructions.add("E");
+					instructions.add(Float.toString(rx = lx + parseInstructionFloat(m)));
+					instructions.add(Float.toString(ry = ly + parseInstructionFloat(m)));
+					instructions.add(Float.toString(rw = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rh = parseInstructionFloat(m)));
+					instructions.add(Float.toString(ras = parseInstructionFloat(m)));
+					instructions.add(Float.toString(rae = parseInstructionFloat(m)));
+					instructions.add(Integer.toString(rat = (Math.abs((int)Math.round(parseInstructionFloat(m))) % 3)));
+					if (rae <= -360 || rae >= 360) {
+						p.append(new Ellipse2D.Float(rx, ry, rw, rh), false);
+					} else {
+						p.append(new Arc2D.Float(rx, ry, rw, rh, ras, rae, rat), false);
+					}
+					p.moveTo(lcx = lx, lcy = ly);
 					break;
 			}
 		}
