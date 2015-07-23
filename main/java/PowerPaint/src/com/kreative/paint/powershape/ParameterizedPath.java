@@ -219,8 +219,9 @@ public class ParameterizedPath extends ParameterizedShape {
 					break;
 				case 'Z':
 				case 'z':
-					lcx = lx; lcy = ly;
 					p.closePath();
+					lcx = lx = p.getCurrentPoint().getX();
+					lcy = ly = p.getCurrentPoint().getY();
 					break;
 				case 'G':
 					ccx = args.get(0).value(bindings);
@@ -271,13 +272,20 @@ public class ParameterizedPath extends ParameterizedShape {
 					rh = args.get(3).value(bindings);
 					ras = args.get(4).value(bindings);
 					rae = args.get(5).value(bindings);
-					rat = (Math.abs((int)Math.round(args.get(6).value(bindings))) % 3);
+					rat = (Math.abs((int)Math.round(args.get(6).value(bindings))) % 4);
 					if (rae <= -360 || rae >= 360) {
 						p.append(new Ellipse2D.Double(rx, ry, rw, rh), false);
+						p.moveTo(lcx = lx, lcy = ly);
 					} else {
-						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, rat), false);
+						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, rat % 3), rat >= 3);
+						if (rat >= 3) {
+							Point2D cp = p.getCurrentPoint();
+							lcx = lx = cp.getX();
+							lcy = ly = cp.getY();
+						} else {
+							p.moveTo(lcx = lx, lcy = ly);
+						}
 					}
-					p.moveTo(lcx = lx, lcy = ly);
 					break;
 				case 'e':
 					rx = lx + args.get(0).value(bindings);
@@ -286,13 +294,20 @@ public class ParameterizedPath extends ParameterizedShape {
 					rh = args.get(3).value(bindings);
 					ras = args.get(4).value(bindings);
 					rae = args.get(5).value(bindings);
-					rat = (Math.abs((int)Math.round(args.get(6).value(bindings))) % 3);
+					rat = (Math.abs((int)Math.round(args.get(6).value(bindings))) % 4);
 					if (rae <= -360 || rae >= 360) {
 						p.append(new Ellipse2D.Double(rx, ry, rw, rh), false);
+						p.moveTo(lcx = lx, lcy = ly);
 					} else {
-						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, rat), false);
+						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, rat % 3), rat >= 3);
+						if (rat >= 3) {
+							Point2D cp = p.getCurrentPoint();
+							lcx = lx = cp.getX();
+							lcy = ly = cp.getY();
+						} else {
+							p.moveTo(lcx = lx, lcy = ly);
+						}
 					}
-					p.moveTo(lcx = lx, lcy = ly);
 					break;
 			}
 		}

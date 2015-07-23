@@ -23,11 +23,16 @@
 		        E x y w h start extent type
 		            Draws an arc of an ellipse bounded by the rectangle with
 		            upper-left corner x,y, width w, and height h, starting at
-		            angle (start) and ending at angle (start+extent), without
-		            changing the current point. Type is 0 for an arc with
-		            disconnected endpoints, 1 for an arc with connected
-		            endpoints, or 2 for a pie slice. If abs(extent) >= 360,
-		            draws a full ellipse.
+		            angle (start) and ending at angle (start+extent). Type 0
+		            is an arc with disconnected endpoints. Type 1 is an arc
+		            with endpoints connected with a chord. Type 2 is an arc
+		            with each endpoint connected to the center of the ellipse
+		            (in other words, a pie slice). Type 3 is an arc with the
+		            starting endpoint connected to the current point, and the
+		            current point becoming the ending endpoint. (Types 0-2 do
+		            not change the current point.) If abs(extent) >= 360,
+		            draws a full ellipse instead, without changing the current
+		            point.
 	-->
 	<arrowhead scale="yes">
 		<path d="M 0 -6 C 0 -3 6 0 12 0 C 6 0 0 3 0 6 Z"/>
@@ -61,5 +66,11 @@
 	</arrowhead>
 	<arrowhead scale="yes">
 		<arc cx="5" cy="0" rx="5" ry="5" start="45" extent="270" type="pie" fill="yes"/>
+	</arrowhead>
+	<arrowhead scale="yes">
+		<path d="M 0 0 e 0 -5 10 10 45 270 3 Z"/>
+	</arrowhead>
+	<arrowhead scale="yes">
+		<path d="M 0 0 e 0 -5 10 10 45 270 3 Z" fill="yes"/>
 	</arrowhead>
 </strokes>
