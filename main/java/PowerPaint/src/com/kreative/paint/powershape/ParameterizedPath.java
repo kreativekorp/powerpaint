@@ -72,6 +72,7 @@ public class ParameterizedPath extends ParameterizedShape {
 				return 2;
 			case 'Q': case 'q':
 			case 'S': case 's':
+			case 'G': case 'g':
 				return 4;
 			case 'C': case 'c':
 			case 'R': case 'r':
@@ -221,6 +222,20 @@ public class ParameterizedPath extends ParameterizedShape {
 					lcx = lx; lcy = ly;
 					p.closePath();
 					break;
+				case 'G':
+					ccx = args.get(0).value(bindings);
+					ccy = args.get(1).value(bindings);
+					lcx = lx = args.get(2).value(bindings);
+					lcy = ly = args.get(3).value(bindings);
+					coArcTo(p, ccx, ccy, lx, ly);
+					break;
+				case 'g':
+					ccx = lx + args.get(0).value(bindings);
+					ccy = ly + args.get(1).value(bindings);
+					lcx = lx += args.get(2).value(bindings);
+					lcy = ly += args.get(3).value(bindings);
+					coArcTo(p, ccx, ccy, lx, ly);
+					break;
 				case 'R':
 					rx = args.get(0).value(bindings);
 					ry = args.get(1).value(bindings);
@@ -368,5 +383,50 @@ public class ParameterizedPath extends ParameterizedShape {
 		double acy = arc.getCenterY();
 		AffineTransform t = AffineTransform.getRotateInstance(a, acx, acy);
 		p.append(t.createTransformedShape(arc), true);
+	}
+	
+	private static void coArcTo(GeneralPath p, double x2, double y2, double x3, double y3) {
+		Point2D p1 = p.getCurrentPoint();
+		double x1 = p1.getX();
+		double y1 = p1.getY();
+		boolean xe = (x1 == x2 && x2 == x3);
+		boolean ye = (y1 == y2 && y2 == y3);
+		if (xe && ye) return;
+		if (xe || ye) { p.lineTo(x3, y3); return; }
+		double d = arcHK(x1, y1, x2, y2, x3, y3);
+		double h = arcH(x1, y1, x2, y2, x3, y3) / d;
+		double k = arcK(x1, y1, x2, y2, x3, y3) / d;
+		if (Double.isNaN(h) || Double.isInfinite(h)) { p.lineTo(x3, y3); return; }
+		if (Double.isNaN(k) || Double.isInfinite(k)) { p.lineTo(x3, y3); return; }
+		double r = Math.hypot(k - y1, x1 - h);
+		double a1 = Math.toDegrees(Math.atan2(k - y1, x1 - h));
+		double a2 = Math.toDegrees(Math.atan2(k - y2, x2 - h));
+		double a3 = Math.toDegrees(Math.atan2(k - y3, x3 - h));
+		Arc2D.Double arc = new Arc2D.Double();
+		arc.x = h - r;
+		arc.y = k - r;
+		arc.width = r + r;
+		arc.height = r + r;
+		arc.start = a1;
+		if ((a1 <= a2 && a2 <= a3) || (a3 <= a2 && a2 <= a1)) {
+			arc.extent = a3 - a1;
+		} else if (a3 <= a1) {
+			arc.extent = a3 - a1 + 360;
+		} else {
+			arc.extent = a3 - a1 - 360;
+		}
+		p.append(arc, true);
+	}
+	private static double arcdet(double a, double b, double c, double d, double e, double f, double g, double h, double i) {
+		return a*e*i + b*f*g + c*d*h - a*f*h - b*d*i - c*e*g;
+	}
+	private static double arcHK(double x1, double y1, double x2, double y2, double x3, double y3) {
+		return arcdet(x1, y1, 1, x2, y2, 1, x3, y3, 1) * 2;
+	}
+	private static double arcH(double x1, double y1, double x2, double y2, double x3, double y3) {
+		return arcdet(x1*x1 + y1*y1, y1, 1, x2*x2 + y2*y2, y2, 1, x3*x3 + y3*y3, y3, 1);
+	}
+	private static double arcK(double x1, double y1, double x2, double y2, double x3, double y3) {
+		return arcdet(x1, x1*x1 + y1*y1, 1, x2, x2*x2 + y2*y2, 1, x3, x3*x3 + y3*y3, 1);
 	}
 }

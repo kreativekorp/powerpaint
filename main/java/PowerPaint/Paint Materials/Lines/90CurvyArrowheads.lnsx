@@ -8,6 +8,26 @@
 		  * Repeated instructions cannot be omitted:
 		        "L 1 2 L 3 4" is valid here;
 		        "L 1 2 3 4" is NOT valid here.
+		You may be tempted to copypasta paths from here into SVG.
+		Before doing so, keep in mind the following caveats:
+		  * There are three instructions supported here but not in SVG:
+		        G x1 y1 x2 y2
+		            Draws the circular arc starting at the current point,
+		            ending at x2,y2, and containing x1,y1. The current point
+		            becomes x2,y2.
+		        R x y w h rx ry
+		            Draws a rectangle with upper-left corner x,y, width w,
+		            height h, and rounded corners of radius rx,ry, without
+		            changing the current point. If rx = 0 or ry = 0, draws
+		            a rectangle without rounded corners.
+		        E x y w h start extent type
+		            Draws an arc of an ellipse bounded by the rectangle with
+		            upper-left corner x,y, width w, and height h, starting at
+		            angle (start) and ending at angle (start+extent), without
+		            changing the current point. Type is 0 for an arc with
+		            disconnected endpoints, 1 for an arc with connected
+		            endpoints, or 2 for a pie slice. If abs(extent) >= 360,
+		            draws a full ellipse.
 	-->
 	<arrowhead scale="yes">
 		<path d="M 0 -6 C 0 -3 6 0 12 0 C 6 0 0 3 0 6 Z"/>
@@ -26,6 +46,12 @@
 	</arrowhead>
 	<arrowhead scale="yes">
 		<path d="M 0 0 a 6 6 0 0 1 6 6 a 6 6 0 0 1 6 -6 a 6 6 0 0 1 -6 -6 a 6 6 0 0 1 -6 6" fill="yes"/>
+	</arrowhead>
+	<arrowhead scale="yes">
+		<path d="M 0 0 g 6 -3 12 0 g -6 3 -12 0"/>
+	</arrowhead>
+	<arrowhead scale="yes">
+		<path d="M 0 0 g 6 -3 12 0 g -6 3 -12 0" fill="yes"/>
 	</arrowhead>
 	<arrowhead scale="yes">
 		<arc cx="5" cy="0" rx="5" ry="5" start="45" extent="270" type="open"/>
