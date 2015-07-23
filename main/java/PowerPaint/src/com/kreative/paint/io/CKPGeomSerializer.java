@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.io;
 
 import java.awt.Shape;
@@ -33,32 +6,49 @@ import java.io.*;
 import java.util.*;
 import java.util.zip.*;
 import com.kreative.paint.geom.*;
+import com.kreative.paint.powershape.*;
 
 public class CKPGeomSerializer extends Serializer {
 	private static final int TYPE_BITMAP_SHAPE = fcc("BmSh");
 	private static final int TYPE_CYCLOID = fcc("Cycl");
 	private static final int TYPE_FLOWER = fcc("Flow");
-	private static final int TYPE_PARAMETER_POINT = fcc("pPrm");
-	private static final int TYPE_PARAMETERIZED_POINT = fcc("pPnt");
-	private static final int TYPE_PARAMETERIZED_PATH = fcc("pPth");
-	private static final int TYPE_PARAMETERIZED_SHAPE = fcc("pShp");
 	private static final int TYPE_REGULAR_POLYGON = fcc("RPly");
 	private static final int TYPE_RIGHT_ARC = fcc("ArcR");
 	private static final int TYPE_SCALED_SHAPE = fcc("ScSh");
 	private static final int TYPE_SPIRAL = fcc("Spir");
+	private static final int TYPE_PARAMETER = fcc("pPrm");
+	private static final int TYPE_PARAMETERIZED_PATH = fcc("pPth");
+	private static final int TYPE_PARAMETERIZED_POINT = fcc("pPnt");
+	private static final int TYPE_PARAMETERIZED_SHAPE_ARC = fcc("pArc");
+	private static final int TYPE_PARAMETERIZED_SHAPE_CIRCLE = fcc("pCir");
+	private static final int TYPE_PARAMETERIZED_SHAPE_ELLIPSE = fcc("pEll");
+	private static final int TYPE_PARAMETERIZED_SHAPE_LINE = fcc("pLin");
+	private static final int TYPE_PARAMETERIZED_SHAPE_POLYGON = fcc("pPly");
+	private static final int TYPE_PARAMETERIZED_SHAPE_POLYLINE = fcc("pPLn");
+	private static final int TYPE_PARAMETERIZED_SHAPE_RECT = fcc("pRec");
+	private static final int TYPE_PARAMETERIZED_VALUE = fcc("pVal");
+	private static final int TYPE_POWERSHAPE = fcc("pShp");
 	
 	protected void loadRecognizedTypesAndClasses() {
 		addTypeAndClass(TYPE_BITMAP_SHAPE, 1, BitmapShape.class);
 		addTypeAndClass(TYPE_CYCLOID, 1, Cycloid.class);
 		addTypeAndClass(TYPE_FLOWER, 1, Flower.class);
-		addTypeAndClass(TYPE_PARAMETER_POINT, 1, ParameterPoint.class);
-		addTypeAndClass(TYPE_PARAMETERIZED_POINT, 1, ParameterizedPoint.class);
-		addTypeAndClass(TYPE_PARAMETERIZED_PATH, 1, ParameterizedPath.class);
-		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE, 1, ParameterizedShape.class);
 		addTypeAndClass(TYPE_REGULAR_POLYGON, 1, RegularPolygon.class);
 		addTypeAndClass(TYPE_RIGHT_ARC, 1, RightArc.class);
 		addTypeAndClass(TYPE_SCALED_SHAPE, 1, ScaledShape.class);
 		addTypeAndClass(TYPE_SPIRAL, 1, Spiral.class);
+		addTypeAndClass(TYPE_PARAMETER, 1, Parameter.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_PATH, 2, ParameterizedPath.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_POINT, 1, ParameterizedPoint.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_ARC, 1, ParameterizedShape.Arc.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_CIRCLE, 1, ParameterizedShape.Circle.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_ELLIPSE, 1, ParameterizedShape.Ellipse.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_LINE, 1, ParameterizedShape.Line.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_POLYGON, 1, ParameterizedShape.Polygon.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_POLYLINE, 1, ParameterizedShape.PolyLine.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_RECT, 1, ParameterizedShape.Rect.class);
+		addTypeAndClass(TYPE_PARAMETERIZED_VALUE, 1, ParameterizedValue.class);
+		addTypeAndClass(TYPE_POWERSHAPE, 2, PowerShape.class);
 	}
 	
 	public void serializeObject(Object o, DataOutputStream stream) throws IOException {
@@ -81,8 +71,7 @@ public class CKPGeomSerializer extends Serializer {
 			byte crgb[] = bos.toByteArray();
 			stream.writeInt(crgb.length);
 			stream.write(crgb);
-		}
-		else if (o instanceof Cycloid) {
+		} else if (o instanceof Cycloid) {
 			Cycloid v = (Cycloid)o;
 			stream.writeInt(v.isEpicycloid() ? 1 : 0);
 			stream.writeInt(v.getSmoothness());
@@ -95,8 +84,7 @@ public class CKPGeomSerializer extends Serializer {
 			stream.writeFloat(v.getCenter().y);
 			stream.writeFloat(v.getEndpoint().x);
 			stream.writeFloat(v.getEndpoint().y);
-		}
-		else if (o instanceof Flower) {
+		} else if (o instanceof Flower) {
 			Flower v = (Flower)o;
 			stream.writeInt(v.getPetals());
 			stream.writeDouble(v.getWidth());
@@ -106,88 +94,7 @@ public class CKPGeomSerializer extends Serializer {
 			stream.writeFloat(v.getCenter().y);
 			stream.writeFloat(v.getEndpoint().x);
 			stream.writeFloat(v.getEndpoint().y);
-		}
-		else if (o instanceof ParameterPoint) {
-			ParameterPoint v = (ParameterPoint)o;
-			stream.writeInt(v.isPolar() ? 0x706F6C72 : 0x72656374);
-			stream.writeDouble(v.getOriginX());
-			stream.writeDouble(v.getOriginY());
-			stream.writeDouble(v.getMinimumXorRadius());
-			stream.writeDouble(v.getMinimumYorTheta());
-			stream.writeDouble(v.getDefaultXorRadius());
-			stream.writeDouble(v.getDefaultYorTheta());
-			stream.writeDouble(v.getMaximumXorRadius());
-			stream.writeDouble(v.getMaximumYorTheta());
-			stream.writeUTF(v.getName());
-		}
-		else if (o instanceof ParameterizedPoint) {
-			ParameterizedPoint v = (ParameterizedPoint)o;
-			if (v.hasXValue() && v.hasYValue()) {
-				stream.writeInt(-2);
-				stream.writeInt(-2);
-				stream.writeDouble(v.getXValue());
-				stream.writeDouble(v.getYValue());
-			} else {
-				stream.writeInt(-1);
-				stream.writeInt(-1);
-				stream.writeUTF(v.getXExpression());
-				stream.writeUTF(v.getYExpression());
-			}
-		}
-		else if (o instanceof ParameterizedPath) {
-			ParameterizedPath v = (ParameterizedPath)o;
-			switch (v.getWindingRule()) {
-			case ParameterizedPath.WIND_EVEN_ODD: stream.writeShort(0x454F); break;
-			case ParameterizedPath.WIND_NON_ZERO: stream.writeShort(0x4E5A); break;
-			default: stream.writeShort(0x3F3F); break;
-			}
-			stream.writeShort(0);
-			Collection<ParameterPoint> pp = v.getParameterPoints();
-			stream.writeInt(pp.size());
-			for (ParameterPoint p : pp) {
-				SerializationManager.writeObject(p, stream);
-			}
-			int sc = v.getSegmentCount();
-			stream.writeInt(sc);
-			for (int i = 0; i < sc; i++) {
-				ParameterizedPoint[] coords = new ParameterizedPoint[3];
-				int type = v.getSegment(i, coords);
-				int n = 0;
-				switch (type) {
-				case ParameterizedPath.SEG_CLOSE: stream.writeShort(0x436C); n = 0; break;
-				case ParameterizedPath.SEG_CUBICTO: stream.writeShort(0x4375); n = 3; break;
-				case ParameterizedPath.SEG_LINETO: stream.writeShort(0x4C69); n = 1; break;
-				case ParameterizedPath.SEG_MOVETO: stream.writeShort(0x4D6F); n = 1; break;
-				case ParameterizedPath.SEG_QUADTO: stream.writeShort(0x5175); n = 2; break;
-				case ParameterizedPath.SEG_ARCTO: stream.writeShort(0x4172); n = 2; break;
-				case ParameterizedPath.SEG_APPEND_RECT: stream.writeShort(0x6152); n = 2; break;
-				case ParameterizedPath.SEG_CONNECT_RECT: stream.writeShort(0x6352); n = 2; break;
-				case ParameterizedPath.SEG_APPEND_RRECT: stream.writeShort(0x6144); n = 3; break;
-				case ParameterizedPath.SEG_CONNECT_RRECT: stream.writeShort(0x6344); n = 3; break;
-				case ParameterizedPath.SEG_APPEND_ELLIPSE: stream.writeShort(0x6145); n = 2; break;
-				case ParameterizedPath.SEG_CONNECT_ELLIPSE: stream.writeShort(0x6345); n = 2; break;
-				case ParameterizedPath.SEG_APPEND_ARC: stream.writeShort(0x6141); n = 3; break;
-				case ParameterizedPath.SEG_CONNECT_ARC: stream.writeShort(0x6341); n = 3; break;
-				default: stream.writeShort(0x3F3F); n = 0; break;
-				}
-				stream.writeShort(n);
-				for (int j = 0; j < n; j++) {
-					SerializationManager.writeObject(coords[j], stream);
-				}
-			}
-		}
-		else if (o instanceof ParameterizedShape) {
-			ParameterizedShape v = (ParameterizedShape)o;
-			SerializationManager.writeObject(v.getParameterizedPath(), stream);
-			Set<Map.Entry<String,Point2D>> pp = v.getParameterValues();
-			stream.writeInt(pp.size());
-			for (Map.Entry<String,Point2D> p : pp) {
-				stream.writeDouble(p.getValue().getX());
-				stream.writeDouble(p.getValue().getY());
-				stream.writeUTF(p.getKey());
-			}
-		}
-		else if (o instanceof RegularPolygon) {
+		} else if (o instanceof RegularPolygon) {
 			RegularPolygon v = (RegularPolygon)o;
 			stream.writeInt(v.getSides());
 			stream.writeInt(v.getSkips());
@@ -211,23 +118,20 @@ public class CKPGeomSerializer extends Serializer {
 			else {
 				stream.writeInt(fcc("????"));
 			}
-		}
-		else if (o instanceof RightArc) {
+		} else if (o instanceof RightArc) {
 			RightArc v = (RightArc)o;
 			stream.writeFloat((float)v.getX());
 			stream.writeFloat((float)v.getY());
 			stream.writeFloat((float)v.getWidth());
 			stream.writeFloat((float)v.getHeight());
-		}
-		else if (o instanceof ScaledShape) {
+		} else if (o instanceof ScaledShape) {
 			ScaledShape v = (ScaledShape)o;
 			stream.writeDouble(v.getX());
 			stream.writeDouble(v.getY());
 			stream.writeDouble(v.getWidth());
 			stream.writeDouble(v.getHeight());
 			SerializationManager.writeObject(v.getOriginalShape(), stream);
-		}
-		else if (o instanceof Spiral) {
+		} else if (o instanceof Spiral) {
 			Spiral v = (Spiral)o;
 			stream.writeInt(v.getSides());
 			stream.writeInt(v.getSpokes() ? 1 : 0);
@@ -236,12 +140,134 @@ public class CKPGeomSerializer extends Serializer {
 			stream.writeFloat(v.getCenter().y);
 			stream.writeFloat(v.getEndpoint().x);
 			stream.writeFloat(v.getEndpoint().y);
+		} else if (o instanceof Parameter) {
+			Parameter v = (Parameter)o;
+			stream.writeInt(v.polar ? 0x706F6C72 : 0x72656374);
+			stream.writeDouble(v.originX);
+			stream.writeDouble(v.originY);
+			if (v.polar) {
+				stream.writeDouble(v.minR);
+				stream.writeDouble(v.minA);
+				stream.writeDouble(v.defR);
+				stream.writeDouble(v.defA);
+				stream.writeDouble(v.maxR);
+				stream.writeDouble(v.maxA);
+			} else {
+				stream.writeDouble(v.minX);
+				stream.writeDouble(v.minY);
+				stream.writeDouble(v.defX);
+				stream.writeDouble(v.defY);
+				stream.writeDouble(v.maxX);
+				stream.writeDouble(v.maxY);
+			}
+			stream.writeUTF(v.name);
+		} else if (o instanceof ParameterizedPath) {
+			ParameterizedPath v = (ParameterizedPath)o;
+			stream.writeInt(v.size());
+			for (int i = 0, n = v.size(); i < n; i++) {
+				stream.writeChar(v.getOpcode(i));
+				stream.writeShort(v.getOperands(i).size());
+				for (ParameterizedValue pv : v.getOperands(i)) {
+					SerializationManager.writeObject(pv, stream);
+				}
+			}
+		} else if (o instanceof ParameterizedPoint) {
+			ParameterizedPoint v = (ParameterizedPoint)o;
+			boolean xv = (v.x.expr instanceof Expression.Value);
+			boolean yv = (v.y.expr instanceof Expression.Value);
+			if (xv && yv) {
+				stream.writeInt(-2);
+				stream.writeInt(-2);
+				stream.writeDouble(((Expression.Value)v.x.expr).value);
+				stream.writeDouble(((Expression.Value)v.y.expr).value);
+			} else {
+				stream.writeInt(-1);
+				stream.writeInt(-1);
+				stream.writeUTF(v.x.source);
+				stream.writeUTF(v.y.source);
+			}
+		} else if (o instanceof ParameterizedShape.Arc) {
+			ParameterizedShape.Arc v = (ParameterizedShape.Arc)o;
+			SerializationManager.writeObject(v.cx, stream);
+			SerializationManager.writeObject(v.cy, stream);
+			SerializationManager.writeObject(v.rx, stream);
+			SerializationManager.writeObject(v.ry, stream);
+			SerializationManager.writeObject(v.start, stream);
+			SerializationManager.writeObject(v.extent, stream);
+			stream.writeInt((v.type != null) ? v.type.awtValue : -1);
+		} else if (o instanceof ParameterizedShape.Circle) {
+			ParameterizedShape.Circle v = (ParameterizedShape.Circle)o;
+			SerializationManager.writeObject(v.cx, stream);
+			SerializationManager.writeObject(v.cy, stream);
+			SerializationManager.writeObject(v.r, stream);
+		} else if (o instanceof ParameterizedShape.Ellipse) {
+			ParameterizedShape.Ellipse v = (ParameterizedShape.Ellipse)o;
+			SerializationManager.writeObject(v.cx, stream);
+			SerializationManager.writeObject(v.cy, stream);
+			SerializationManager.writeObject(v.rx, stream);
+			SerializationManager.writeObject(v.ry, stream);
+		} else if (o instanceof ParameterizedShape.Line) {
+			ParameterizedShape.Line v = (ParameterizedShape.Line)o;
+			SerializationManager.writeObject(v.x1, stream);
+			SerializationManager.writeObject(v.y1, stream);
+			SerializationManager.writeObject(v.x2, stream);
+			SerializationManager.writeObject(v.y2, stream);
+		} else if (o instanceof ParameterizedShape.Polygon) {
+			ParameterizedShape.Polygon v = (ParameterizedShape.Polygon)o;
+			stream.writeInt(v.points.length);
+			for (ParameterizedValue pv : v.points) {
+				SerializationManager.writeObject(pv, stream);
+			}
+		} else if (o instanceof ParameterizedShape.PolyLine) {
+			ParameterizedShape.PolyLine v = (ParameterizedShape.PolyLine)o;
+			stream.writeInt(v.points.length);
+			for (ParameterizedValue pv : v.points) {
+				SerializationManager.writeObject(pv, stream);
+			}
+		} else if (o instanceof ParameterizedShape.Rect) {
+			ParameterizedShape.Rect v = (ParameterizedShape.Rect)o;
+			SerializationManager.writeObject(v.x, stream);
+			SerializationManager.writeObject(v.y, stream);
+			SerializationManager.writeObject(v.width, stream);
+			SerializationManager.writeObject(v.height, stream);
+			SerializationManager.writeObject(v.rx, stream);
+			SerializationManager.writeObject(v.ry, stream);
+		} else if (o instanceof ParameterizedValue) {
+			ParameterizedValue v = (ParameterizedValue)o;
+			if (v.expr instanceof Expression.Value) {
+				stream.writeInt(-2);
+				stream.writeDouble(((Expression.Value)v.expr).value);
+			} else {
+				stream.writeInt(-1);
+				stream.writeUTF(v.source);
+			}
+		} else if (o instanceof PowerShape) {
+			PowerShape v = (PowerShape)o;
+			List<String> params = v.getParameterNames();
+			List<ParameterizedShape> shapes = v.getShapes();
+			stream.writeInt(params.size());
+			stream.writeInt(params.size());
+			stream.writeInt(shapes.size());
+			stream.writeInt((v.windingRule != null) ? v.windingRule.awtValue : -1);
+			stream.writeUTF((v.name != null) ? v.name : "");
+			for (String n : params) {
+				SerializationManager.writeObject(v.getParameter(n), stream);
+			}
+			for (String n : params) {
+				Point2D p = v.getParameterValue(n);
+				stream.writeDouble(p.getX());
+				stream.writeDouble(p.getY());
+				stream.writeUTF(n);
+			}
+			for (ParameterizedShape s : shapes) {
+				SerializationManager.writeObject(s, stream);
+			}
 		}
 	}
 	
 	public Object deserializeObject(int type, int version, DataInputStream stream) throws IOException {
-		if (version != 1) throw new IOException("Invalid version number.");
-		else if (type == TYPE_BITMAP_SHAPE) {
+		if (type == TYPE_BITMAP_SHAPE) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			int x = stream.readInt();
 			int y = stream.readInt();
 			int w = stream.readInt();
@@ -259,8 +285,8 @@ public class CKPGeomSerializer extends Serializer {
 			iis.close();
 			bis.close();
 			return new BitmapShape(rgb, x, y, w, h);
-		}
-		else if (type == TYPE_CYCLOID) {
+		} else if (type == TYPE_CYCLOID) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			boolean epi = (stream.readInt() != 0);
 			int smoothness = stream.readInt();
 			int begin = stream.readInt();
@@ -273,8 +299,8 @@ public class CKPGeomSerializer extends Serializer {
 			float vx = stream.readFloat();
 			float vy = stream.readFloat();
 			return new Cycloid(epi, smoothness, begin, end, R, r, d, cx, cy, vx, vy);
-		}
-		else if (type == TYPE_FLOWER) {
+		} else if (type == TYPE_FLOWER) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			int petals = stream.readInt();
 			double width = stream.readDouble();
 			int smoothness = stream.readInt();
@@ -284,108 +310,8 @@ public class CKPGeomSerializer extends Serializer {
 			float vx = stream.readFloat();
 			float vy = stream.readFloat();
 			return new Flower(petals, width, smoothness, includeCenter, cx, cy, vx, vy);
-		}
-		else if (type == TYPE_PARAMETER_POINT) {
-			boolean polar = (stream.readInt() == 0x706F6C72);
-			double ox = stream.readDouble();
-			double oy = stream.readDouble();
-			double minx = stream.readDouble();
-			double miny = stream.readDouble();
-			double defx = stream.readDouble();
-			double defy = stream.readDouble();
-			double maxx = stream.readDouble();
-			double maxy = stream.readDouble();
-			String n = stream.readUTF();
-			return new ParameterPoint(n, ox, oy, polar, minx, miny, defx, defy, maxx, maxy);
-		}
-		else if (type == TYPE_PARAMETERIZED_POINT) {
-			int nx = stream.readInt();
-			int ny = stream.readInt();
-			if (nx < 0 || ny < 0) {
-				if (nx == -2) {
-					double x = stream.readDouble();
-					double y = stream.readDouble();
-					return new ParameterizedPoint(x, y);
-				} else {
-					String x = stream.readUTF();
-					String y = stream.readUTF();
-					return new ParameterizedPoint(x, y);
-				}
-			} else {
-				String x = "";
-				String y = "";
-				while (nx-->0) {
-					double v = stream.readDouble();
-					String k = stream.readUTF();
-					if (k.length() > 0)
-						x += "+(" + ParameterizedPoint.FORMAT.format(v) + "*(" + k + "))";
-					else
-						x += "+(" + ParameterizedPoint.FORMAT.format(v) + ")";
-				}
-				while (ny-->0) {
-					double v = stream.readDouble();
-					String k = stream.readUTF();
-					if (k.length() > 0)
-						y += "+(" + ParameterizedPoint.FORMAT.format(v) + "*(" + k + "))";
-					else
-						y += "+(" + ParameterizedPoint.FORMAT.format(v) + ")";
-				}
-				if (x.length() > 0) x = x.substring(1);
-				if (y.length() > 0) y = y.substring(1);
-				return new ParameterizedPoint(x, y);
-			}
-		}
-		else if (type == TYPE_PARAMETERIZED_PATH) {
-			ParameterizedPath path = new ParameterizedPath();
-			switch (stream.readShort()) {
-			case 0x454F: path.setWindingRule(ParameterizedPath.WIND_EVEN_ODD); break;
-			case 0x4E5A: path.setWindingRule(ParameterizedPath.WIND_NON_ZERO); break;
-			}
-			stream.readShort();
-			int npp = stream.readInt();
-			while (npp-->0) {
-				path.addParameterPoint((ParameterPoint)SerializationManager.readObject(stream));
-			}
-			int nseg = stream.readInt();
-			while (nseg-->0) {
-				int t = stream.readShort();
-				int n = stream.readShort();
-				ParameterizedPoint[] c = new ParameterizedPoint[n];
-				for (int j = 0; j < n; j++) {
-					c[j] = (ParameterizedPoint)SerializationManager.readObject(stream);
-				}
-				switch (t) {
-				case 0x436C: path.closePath(); break;
-				case 0x4375: path.curveTo(c[0], c[1], c[2]); break;
-				case 0x4C69: path.lineTo(c[0]); break;
-				case 0x4D6F: path.moveTo(c[0]); break;
-				case 0x5175: path.quadTo(c[0], c[1]); break;
-				case 0x4172: path.arcTo(c[0], c[1]); break;
-				case 0x6152: path.appendRectangle(c[0], c[1], false); break;
-				case 0x6352: path.appendRectangle(c[0], c[1], true); break;
-				case 0x6144: path.appendRoundRectangle(c[0], c[1], c[2], false); break;
-				case 0x6344: path.appendRoundRectangle(c[0], c[1], c[2], true); break;
-				case 0x6145: path.appendEllipse(c[0], c[1], false); break;
-				case 0x6345: path.appendEllipse(c[0], c[1], true); break;
-				case 0x6141: path.appendArc(c[0], c[1], c[2], false); break;
-				case 0x6341: path.appendArc(c[0], c[1], c[2], true); break;
-				}
-			}
-			return path;
-		}
-		else if (type == TYPE_PARAMETERIZED_SHAPE) {
-			ParameterizedPath path = (ParameterizedPath)SerializationManager.readObject(stream);
-			ParameterizedShape ps = new ParameterizedShape(path);
-			int npp = stream.readInt();
-			while (npp-->0) {
-				double x = stream.readDouble();
-				double y = stream.readDouble();
-				String n = stream.readUTF();
-				ps.setParameterValue(n, x, y);
-			}
-			return ps;
-		}
-		else if (type == TYPE_REGULAR_POLYGON) {
+		} else if (type == TYPE_REGULAR_POLYGON) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			int sides = stream.readInt();
 			int skips = stream.readInt();
 			int t = stream.readInt();
@@ -404,23 +330,23 @@ public class CKPGeomSerializer extends Serializer {
 				return new RegularPolygon(cx, cy, vx, vy, sides, skips, true);
 			}
 			else return null;
-		}
-		else if (type == TYPE_RIGHT_ARC) {
+		} else if (type == TYPE_RIGHT_ARC) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			float x = stream.readFloat();
 			float y = stream.readFloat();
 			float w = stream.readFloat();
 			float h = stream.readFloat();
 			return new RightArc(x, y, w, h);
-		}
-		else if (type == TYPE_SCALED_SHAPE) {
+		} else if (type == TYPE_SCALED_SHAPE) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			double x = stream.readDouble();
 			double y = stream.readDouble();
 			double w = stream.readDouble();
 			double h = stream.readDouble();
 			Shape shape = (Shape)SerializationManager.readObject(stream);
 			return new ScaledShape(x, y, w, h, shape);
-		}
-		else if (type == TYPE_SPIRAL) {
+		} else if (type == TYPE_SPIRAL) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			int sides = stream.readInt();
 			boolean spokes = (stream.readInt() != 0);
 			double spacing = stream.readDouble();
@@ -429,7 +355,352 @@ public class CKPGeomSerializer extends Serializer {
 			float vx = stream.readFloat();
 			float vy = stream.readFloat();
 			return new Spiral(sides, spacing, spokes, cx, cy, vx, vy);
+		} else if (type == TYPE_PARAMETER) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			boolean polar = (stream.readInt() == 0x706F6C72);
+			double originX = stream.readDouble();
+			double originY = stream.readDouble();
+			double minX = stream.readDouble();
+			double minY = stream.readDouble();
+			double defX = stream.readDouble();
+			double defY = stream.readDouble();
+			double maxX = stream.readDouble();
+			double maxY = stream.readDouble();
+			String name = stream.readUTF();
+			return new Parameter(
+				name, originX, originY, polar,
+				minX, minY, minX, minY,
+				defX, defY, defX, defY,
+				maxX, maxY, maxX, maxY
+			);
+		} else if (type == TYPE_PARAMETERIZED_PATH) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
+			if (version >= 2) {
+				ParameterizedPath path = new ParameterizedPath();
+				int nseg = stream.readInt();
+				while (nseg-- > 0) {
+					char t = stream.readChar();
+					int n = stream.readShort();
+					List<ParameterizedValue> v = new ArrayList<ParameterizedValue>();
+					while (n-- > 0) {
+						v.add((ParameterizedValue)SerializationManager.readObject(stream));
+					}
+					path.add(t, v);
+				}
+				return path;
+			} else {
+				ParameterizedPath path = new ParameterizedPath();
+				switch (stream.readShort()) {
+				case 0x454F: path.add('W', new ParameterizedValue(0.0)); break;
+				case 0x4E5A: path.add('W', new ParameterizedValue(1.0)); break;
+				}
+				stream.readShort();
+				int npp = stream.readInt();
+				while (npp-- > 0) {
+					Parameter pp = (Parameter)SerializationManager.readObject(stream);
+					path.add(
+						'P',
+						new ParameterizedValue(pp.name, new Expression.Binding(pp.name)),
+						new ParameterizedValue(pp.originX),
+						new ParameterizedValue(pp.originY),
+						new ParameterizedValue(pp.polar ? 1.0 : 0.0),
+						new ParameterizedValue(pp.polar ? pp.minR : pp.minX),
+						new ParameterizedValue(pp.polar ? pp.minA : pp.minY),
+						new ParameterizedValue(pp.polar ? pp.defR : pp.defX),
+						new ParameterizedValue(pp.polar ? pp.defA : pp.defY),
+						new ParameterizedValue(pp.polar ? pp.maxR : pp.maxX),
+						new ParameterizedValue(pp.polar ? pp.maxA : pp.maxY)
+					);
+				}
+				int nseg = stream.readInt();
+				while (nseg-- > 0) {
+					int t = stream.readShort();
+					int n = stream.readShort();
+					ParameterizedPoint[] c = new ParameterizedPoint[n];
+					for (int j = 0; j < n; j++) {
+						c[j] = (ParameterizedPoint)SerializationManager.readObject(stream);
+					}
+					switch (t) {
+					case 0x436C:
+						path.add('Z');
+						break;
+					case 0x4375:
+						path.add('C', c[0].x, c[0].y, c[1].x, c[1].y, c[2].x, c[2].y);
+						break;
+					case 0x4C69:
+						path.add('L', c[0].x, c[0].y);
+						break;
+					case 0x4D6F:
+						path.add('M', c[0].x, c[0].y);
+						break;
+					case 0x5175:
+						path.add('Q', c[0].x, c[0].y, c[1].x, c[1].y);
+						break;
+					case 0x4172:
+						path.add('G', c[0].x, c[0].y, c[1].x, c[1].y);
+						break;
+					case 0x6152: case 0x6352:
+						path.add(
+							'R', c[0].x, c[0].y, c[1].x, c[1].y,
+							new ParameterizedValue(0.0),
+							new ParameterizedValue(0.0)
+						);
+						break;
+					case 0x6144: case 0x6344:
+						path.add('R', c[0].x, c[0].y, c[1].x, c[1].y, c[2].x, c[2].y);
+						break;
+					case 0x6145: case 0x6345:
+						path.add(
+							'E', c[0].x, c[0].y, c[1].x, c[1].y,
+							new ParameterizedValue(0.0),
+							new ParameterizedValue(360.0),
+							new ParameterizedValue(0.0)
+						);
+						break;
+					case 0x6141:
+						path.add(
+							'E', c[0].x, c[0].y, c[1].x, c[1].y,
+							new ParameterizedValue("toDeg(" + c[2].x.source + ")"),
+							new ParameterizedValue("toDeg(" + c[2].y.source + ")"),
+							new ParameterizedValue(3.0)
+						);
+						break;
+					case 0x6341:
+						path.add(
+							'E', c[0].x, c[0].y, c[1].x, c[1].y,
+							new ParameterizedValue("toDeg(" + c[2].x.source + ")"),
+							new ParameterizedValue("toDeg(" + c[2].y.source + ")"),
+							new ParameterizedValue(4.0)
+						);
+						break;
+					}
+				}
+				return path;
+			}
+		} else if (type == TYPE_PARAMETERIZED_POINT) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			int nx = stream.readInt();
+			int ny = stream.readInt();
+			if (nx < 0 || ny < 0) {
+				if (nx == -2) {
+					ParameterizedValue x = new ParameterizedValue(stream.readDouble());
+					ParameterizedValue y = new ParameterizedValue(stream.readDouble());
+					return new ParameterizedPoint(x, y);
+				} else {
+					ParameterizedValue x = new ParameterizedValue(stream.readUTF());
+					ParameterizedValue y = new ParameterizedValue(stream.readUTF());
+					return new ParameterizedPoint(x, y);
+				}
+			} else {
+				Expression xe = null;
+				Expression ye = null;
+				StringBuffer xs = new StringBuffer();
+				StringBuffer ys = new StringBuffer();
+				while (nx-- > 0) {
+					double v = stream.readDouble();
+					String k = stream.readUTF();
+					if (k.length() > 0) {
+						Expression ve = new Expression.Value(v);
+						Expression ke = new Expression.Binding(k);
+						Expression te = new Expression.Binary(Operator.mul, ve, ke);
+						xe = ((xe == null) ? te : new Expression.Binary(Operator.add, xe, te));
+						xs.append("+(" + ParameterizedValue.NUMBER_FORMAT.format(v) + "*(" + k + "))");
+					} else {
+						Expression te = new Expression.Value(v);
+						xe = ((xe == null) ? te : new Expression.Binary(Operator.add, xe, te));
+						xs.append("+(" + ParameterizedValue.NUMBER_FORMAT.format(v) + ")");
+					}
+				}
+				while (ny-- > 0) {
+					double v = stream.readDouble();
+					String k = stream.readUTF();
+					if (k.length() > 0) {
+						Expression ve = new Expression.Value(v);
+						Expression ke = new Expression.Binding(k);
+						Expression te = new Expression.Binary(Operator.mul, ve, ke);
+						ye = ((ye == null) ? te : new Expression.Binary(Operator.add, ye, te));
+						ys.append("+(" + ParameterizedValue.NUMBER_FORMAT.format(v) + "*(" + k + "))");
+					} else {
+						Expression te = new Expression.Value(v);
+						ye = ((ye == null) ? te : new Expression.Binary(Operator.add, ye, te));
+						ys.append("+(" + ParameterizedValue.NUMBER_FORMAT.format(v) + ")");
+					}
+				}
+				if (xe == null) {
+					xe = new Expression.Value(0);
+					xs.append("+0");
+				}
+				if (ye == null) {
+					ye = new Expression.Value(0);
+					ys.append("+0");
+				}
+				ParameterizedValue xp = new ParameterizedValue(xs.toString().substring(1), xe);
+				ParameterizedValue yp = new ParameterizedValue(ys.toString().substring(1), ye);
+				return new ParameterizedPoint(xp, yp);
+			}
+		} else if (type == TYPE_PARAMETERIZED_SHAPE_ARC) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			ParameterizedValue cx = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue cy = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue rx = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue ry = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue start = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue extent = (ParameterizedValue)SerializationManager.readObject(stream);
+			ArcType arcType = ArcType.forAWTValue(stream.readInt());
+			return new ParameterizedShape.Arc(cx, cy, rx, ry, start, extent, arcType);
+		} else if (type == TYPE_PARAMETERIZED_SHAPE_CIRCLE) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			ParameterizedValue cx = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue cy = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue r = (ParameterizedValue)SerializationManager.readObject(stream);
+			return new ParameterizedShape.Circle(cx, cy, r);
+		} else if (type == TYPE_PARAMETERIZED_SHAPE_ELLIPSE) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			ParameterizedValue cx = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue cy = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue rx = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue ry = (ParameterizedValue)SerializationManager.readObject(stream);
+			return new ParameterizedShape.Ellipse(cx, cy, rx, ry);
+		} else if (type == TYPE_PARAMETERIZED_SHAPE_LINE) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			ParameterizedValue x1 = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue y1 = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue x2 = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue y2 = (ParameterizedValue)SerializationManager.readObject(stream);
+			return new ParameterizedShape.Line(x1, y1, x2, y2);
+		} else if (type == TYPE_PARAMETERIZED_SHAPE_POLYGON) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			int count = stream.readInt(); if (count < 0) count = 0;
+			ParameterizedValue[] points = new ParameterizedValue[count];
+			for (int i = 0; i < count; i++) {
+				points[i] = (ParameterizedValue)SerializationManager.readObject(stream);
+			}
+			return new ParameterizedShape.Polygon(points);
+		} else if (type == TYPE_PARAMETERIZED_SHAPE_POLYLINE) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			int count = stream.readInt(); if (count < 0) count = 0;
+			ParameterizedValue[] points = new ParameterizedValue[count];
+			for (int i = 0; i < count; i++) {
+				points[i] = (ParameterizedValue)SerializationManager.readObject(stream);
+			}
+			return new ParameterizedShape.PolyLine(points);
+		} else if (type == TYPE_PARAMETERIZED_SHAPE_RECT) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			ParameterizedValue x = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue y = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue width = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue height = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue rx = (ParameterizedValue)SerializationManager.readObject(stream);
+			ParameterizedValue ry = (ParameterizedValue)SerializationManager.readObject(stream);
+			return new ParameterizedShape.Rect(x, y, width, height, rx, ry);
+		} else if (type == TYPE_PARAMETERIZED_VALUE) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			int n = stream.readInt();
+			if (n < 0) {
+				if (n == -2) {
+					return new ParameterizedValue(stream.readDouble());
+				} else {
+					return new ParameterizedValue(stream.readUTF());
+				}
+			} else {
+				Expression e = null;
+				StringBuffer s = new StringBuffer();
+				while (n-- > 0) {
+					double v = stream.readDouble();
+					String k = stream.readUTF();
+					if (k.length() > 0) {
+						Expression ve = new Expression.Value(v);
+						Expression ke = new Expression.Binding(k);
+						Expression te = new Expression.Binary(Operator.mul, ve, ke);
+						e = ((e == null) ? te : new Expression.Binary(Operator.add, e, te));
+						s.append("+(" + ParameterizedValue.NUMBER_FORMAT.format(v) + "*(" + k + "))");
+					} else {
+						Expression te = new Expression.Value(v);
+						e = ((e == null) ? te : new Expression.Binary(Operator.add, e, te));
+						s.append("+(" + ParameterizedValue.NUMBER_FORMAT.format(v) + ")");
+					}
+				}
+				if (e == null) {
+					e = new Expression.Value(0);
+					s.append("+0");
+				}
+				return new ParameterizedValue(s.toString().substring(1), e);
+			}
+		} else if (type == TYPE_POWERSHAPE) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
+			if (version >= 2) {
+				int np = stream.readInt();
+				int nv = stream.readInt();
+				int ns = stream.readInt();
+				WindingRule winding = WindingRule.forAWTValue(stream.readInt());
+				String name = stream.readUTF();
+				PowerShape ps = new PowerShape(winding, name);
+				while (np-- > 0) {
+					ps.addParameter((Parameter)SerializationManager.readObject(stream));
+				}
+				while (nv-- > 0) {
+					double x = stream.readDouble();
+					double y = stream.readDouble();
+					String n = stream.readUTF();
+					ps.setParameterValue(n, x, y);
+				}
+				while (ns-- > 0) {
+					ps.addShape((ParameterizedShape)SerializationManager.readObject(stream));
+				}
+				return ps;
+			} else {
+				WindingRule winding = WindingRule.NON_ZERO;
+				List<Parameter> params = new ArrayList<Parameter>();
+				ParameterizedPath newPath = new ParameterizedPath();
+				ParameterizedPath oldPath = (ParameterizedPath)SerializationManager.readObject(stream);
+				for (int i = 0, n = oldPath.size(); i < n; i++) {
+					char inst = oldPath.getOpcode(i);
+					List<ParameterizedValue> args = oldPath.getOperands(i);
+					switch (inst) {
+					case 'W': case 'w':
+						double wdv = args.get(0).value(null);
+						int wiv = Math.abs((int)Math.round(wdv)) % 2;
+						winding = WindingRule.forAWTValue(wiv);
+						break;
+					case 'P': case 'p':
+						params.add(new Parameter(
+							args.get(0).source,
+							args.get(1).value(null),
+							args.get(2).value(null),
+							args.get(3).value(null) != 0,
+							args.get(4).value(null),
+							args.get(5).value(null),
+							args.get(4).value(null),
+							args.get(5).value(null),
+							args.get(6).value(null),
+							args.get(7).value(null),
+							args.get(6).value(null),
+							args.get(7).value(null),
+							args.get(8).value(null),
+							args.get(9).value(null),
+							args.get(8).value(null),
+							args.get(9).value(null)
+						));
+						break;
+					default:
+						newPath.add(inst, args);
+						break;
+					}
+				}
+				PowerShape ps = new PowerShape(winding, null);
+				for (Parameter param : params) ps.addParameter(param);
+				ps.addShape(newPath);
+				int npp = stream.readInt();
+				while (npp-- > 0) {
+					double x = stream.readDouble();
+					double y = stream.readDouble();
+					String n = stream.readUTF();
+					ps.setParameterValue(n, x, y);
+				}
+				return ps;
+			}
+		} else {
+			return null;
 		}
-		else return null;
 	}
 }

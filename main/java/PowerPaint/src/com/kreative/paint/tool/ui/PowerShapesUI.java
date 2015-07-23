@@ -38,7 +38,6 @@ import javax.swing.border.Border;
 import com.kreative.paint.ToolContext;
 import com.kreative.paint.ToolContextConstants;
 import com.kreative.paint.ToolContextListener;
-import com.kreative.paint.geom.ParameterizedShape;
 import com.kreative.paint.gradient.GradientColor;
 import com.kreative.paint.gradient.GradientColorMap;
 import com.kreative.paint.gradient.GradientColorStop;
@@ -166,7 +165,7 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 	}
 	private Image getShapeImage(int coll, int idx, boolean mini) {
 		int size = mini ? 19 : 25;
-		Shape ss = AffineTransform.getScaleInstance(size-1, size-1).createTransformedShape(new ParameterizedShape(tc.getPowerShapeSets().getLatter(coll).getLatter(idx)));
+		Shape ss = AffineTransform.getScaleInstance(size-1, size-1).createTransformedShape(tc.getPowerShapeSets().getLatter(coll).getLatter(idx));
 		BufferedImage bi = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = bi.createGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

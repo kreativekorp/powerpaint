@@ -37,11 +37,6 @@ import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.TexturePaint;
 import java.awt.Toolkit;
-import java.awt.geom.Arc2D;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -63,8 +58,6 @@ import java.util.Vector;
 
 import com.kreative.paint.filter.Filter;
 import com.kreative.paint.format.Format;
-import com.kreative.paint.geom.ParameterPoint;
-import com.kreative.paint.geom.ParameterizedPath;
 import com.kreative.paint.gradient.GradientColorMap;
 import com.kreative.paint.gradient.GradientList;
 import com.kreative.paint.gradient.GradientParser;
@@ -73,6 +66,13 @@ import com.kreative.paint.gradient.GradientShape;
 import com.kreative.paint.pattern.Pattern;
 import com.kreative.paint.pattern.PatternList;
 import com.kreative.paint.pattern.PatternParser;
+import com.kreative.paint.powershape.ArcType;
+import com.kreative.paint.powershape.Parameter;
+import com.kreative.paint.powershape.ParameterizedPath;
+import com.kreative.paint.powershape.ParameterizedShape;
+import com.kreative.paint.powershape.ParameterizedValue;
+import com.kreative.paint.powershape.PowerShape;
+import com.kreative.paint.powershape.WindingRule;
 import com.kreative.paint.rcp.RCPXBorder;
 import com.kreative.paint.rcp.RCPXColor;
 import com.kreative.paint.rcp.RCPXLayout;
@@ -689,14 +689,16 @@ public class MaterialsManager {
 		return lineArrowheads;
 	}
 	
-	private PairList<String,PairList<String,ParameterizedPath>> shapes = null;
-	public PairList<String,PairList<String,ParameterizedPath>> getShapes() {
+	private PairList<String,PairList<String,PowerShape>> shapes = null;
+	public PairList<String,PairList<String,PowerShape>> getShapes() {
 		if (shapes == null) {
-			shapes = new PairList<String,PairList<String,ParameterizedPath>>();
+			shapes = new PairList<String,PairList<String,PowerShape>>();
 			for (Resource r : rm.getResources(ResourceCategory.SHAPES)) {
 				String collectionName = r.name();
-				PairList<String,ParameterizedPath> collectionShapes = new PairList<String,ParameterizedPath>();
+				PairList<String,PowerShape> collectionShapes = new PairList<String,PowerShape>();
 				String lastName = null;
+				WindingRule lastWinding = null;
+				List<Parameter> lastParams = null;
 				ParameterizedPath lastPath = null;
 				Scanner sc = new Scanner(new ByteArrayInputStream(r.data()), "UTF-8");
 				while (sc.hasNextLine()) {
@@ -708,51 +710,115 @@ public class MaterialsManager {
 								try {
 									switch (fields[0].charAt(0)) {
 									case 'p':
-										boolean polar = fields[4].trim().toLowerCase().startsWith("p");
-										ParameterPoint pp = new ParameterPoint(
-												fields[1].trim(),
-												Double.parseDouble(fields[2]), Double.parseDouble(fields[3]),
-												polar,
-												Double.parseDouble(fields[5]), (polar ? Math.toRadians(Double.parseDouble(fields[6])) : Double.parseDouble(fields[6])),
-												Double.parseDouble(fields[7]), (polar ? Math.toRadians(Double.parseDouble(fields[8])) : Double.parseDouble(fields[8])),
-												Double.parseDouble(fields[9]), (polar ? Math.toRadians(Double.parseDouble(fields[10])) : Double.parseDouble(fields[10]))
-										);
-										lastPath.addParameterPoint(pp);
+										lastParams.add(new Parameter(
+											fields[1].trim(),
+											Double.parseDouble(fields[2]), Double.parseDouble(fields[3]),
+											fields[4].trim().toLowerCase().startsWith("p"),
+											Double.parseDouble(fields[5]), Double.parseDouble(fields[6]),
+											Double.parseDouble(fields[5]), Math.toRadians(Double.parseDouble(fields[6])),
+											Double.parseDouble(fields[7]), Double.parseDouble(fields[8]),
+											Double.parseDouble(fields[7]), Math.toRadians(Double.parseDouble(fields[8])),
+											Double.parseDouble(fields[9]), Double.parseDouble(fields[10]),
+											Double.parseDouble(fields[9]), Math.toRadians(Double.parseDouble(fields[10]))
+										));
 										break;
 									case 'm':
-										lastPath.moveTo(fields[1], fields[2]);
+										lastPath.add(
+											'M',
+											new ParameterizedValue(fields[1]),
+											new ParameterizedValue(fields[2])
+										);
 										break;
 									case 'l':
-										lastPath.lineTo(fields[1], fields[2]);
+										lastPath.add(
+											'L',
+											new ParameterizedValue(fields[1]),
+											new ParameterizedValue(fields[2])
+										);
 										break;
 									case 'q':
-										lastPath.quadTo(fields[1], fields[2], fields[3], fields[4]);
+										lastPath.add(
+											'Q',
+											new ParameterizedValue(fields[1]),
+											new ParameterizedValue(fields[2]),
+											new ParameterizedValue(fields[3]),
+											new ParameterizedValue(fields[4])
+										);
 										break;
 									case 'c':
-										lastPath.curveTo(fields[1], fields[2], fields[3], fields[4], fields[5], fields[6]);
+										lastPath.add(
+											'C',
+											new ParameterizedValue(fields[1]),
+											new ParameterizedValue(fields[2]),
+											new ParameterizedValue(fields[3]),
+											new ParameterizedValue(fields[4]),
+											new ParameterizedValue(fields[5]),
+											new ParameterizedValue(fields[6])
+										);
 										break;
 									case 'a':
-										lastPath.arcTo(fields[1], fields[2], fields[3], fields[4]);
+										lastPath.add(
+											'G',
+											new ParameterizedValue(fields[1]),
+											new ParameterizedValue(fields[2]),
+											new ParameterizedValue(fields[3]),
+											new ParameterizedValue(fields[4])
+										);
 										break;
 									case 'x':
-										lastPath.closePath();
+										lastPath.add('Z');
 										break;
 									case 'w':
 										String rule = fields[1].toLowerCase().replaceAll("[^a-z]", "");
-										if (rule.equals("eo") || rule.equals("evenodd")) lastPath.setWindingRule(ParameterizedPath.WIND_EVEN_ODD);
-										if (rule.equals("nz") || rule.equals("nonzero")) lastPath.setWindingRule(ParameterizedPath.WIND_NON_ZERO);
+										if (rule.equals("eo") || rule.equals("evenodd")) lastWinding = WindingRule.EVEN_ODD;
+										if (rule.equals("nz") || rule.equals("nonzero")) lastWinding = WindingRule.NON_ZERO;
 										break;
 									case 'r':
-										lastPath.appendRectangle(fields[1], fields[2], fields[3], fields[4], (fields.length > 5) && fields[5].trim().toLowerCase().equals("connect"));
+										lastPath.add(
+											'R',
+											new ParameterizedValue(fields[1]),
+											new ParameterizedValue(fields[2]),
+											new ParameterizedValue(fields[3]),
+											new ParameterizedValue(fields[4]),
+											new ParameterizedValue(0.0),
+											new ParameterizedValue(0.0)
+										);
 										break;
 									case 'd':
-										lastPath.appendRoundRectangle(fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], (fields.length > 7) && fields[7].trim().toLowerCase().equals("connect"));
+										lastPath.add(
+											'R',
+											new ParameterizedValue(fields[1]),
+											new ParameterizedValue(fields[2]),
+											new ParameterizedValue(fields[3]),
+											new ParameterizedValue(fields[4]),
+											new ParameterizedValue(fields[5]),
+											new ParameterizedValue(fields[6])
+										);
 										break;
 									case 'e':
-										lastPath.appendEllipse(fields[1], fields[2], fields[3], fields[4], (fields.length > 5) && fields[5].trim().toLowerCase().equals("connect"));
+										lastPath.add(
+											'E',
+											new ParameterizedValue(fields[1]),
+											new ParameterizedValue(fields[2]),
+											new ParameterizedValue(fields[3]),
+											new ParameterizedValue(fields[4]),
+											new ParameterizedValue(0.0),
+											new ParameterizedValue(360.0),
+											new ParameterizedValue(0.0)
+										);
 										break;
 									case 'h':
-										lastPath.appendArc(fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], (fields.length > 7) && fields[7].trim().toLowerCase().equals("connect"));
+										boolean connect = (fields.length > 7) && fields[7].trim().toLowerCase().equals("connect");
+										lastPath.add(
+											'E',
+											new ParameterizedValue(fields[1]),
+											new ParameterizedValue(fields[2]),
+											new ParameterizedValue(fields[3]),
+											new ParameterizedValue(fields[4]),
+											new ParameterizedValue("toDeg("+fields[5]+")"),
+											new ParameterizedValue("toDeg("+fields[6]+")"),
+											new ParameterizedValue(connect ? 4.0 : 3.0)
+										);
 										break;
 									default:
 										System.err.println("Warning: Invalid instruction '" + fields[0] + "' in shape " + lastName + " in shape resource " + r.name() + ".");
@@ -767,25 +833,72 @@ public class MaterialsManager {
 								System.err.println("Warning: Shape resource " + r.name() + " put the cart before the horse.");
 							}
 						} else {
+							if (lastPath != null) {
+								PowerShape ps = new PowerShape(lastWinding, lastName);
+								for (Parameter p : lastParams) ps.addParameter(p);
+								ps.addShape(lastPath);
+								collectionShapes.add(lastName, ps);
+							}
 							lastName = s.trim();
+							lastWinding = WindingRule.NON_ZERO;
+							lastParams = new Vector<Parameter>();
 							lastPath = new ParameterizedPath();
-							collectionShapes.add(lastName, lastPath);
 						}
 					}
 				}
 				sc.close();
+				if (lastPath != null) {
+					PowerShape ps = new PowerShape(lastWinding, lastName);
+					for (Parameter p : lastParams) ps.addParameter(p);
+					ps.addShape(lastPath);
+					collectionShapes.add(lastName, ps);
+				}
 				if (!collectionShapes.isEmpty()) {
 					shapes.add(collectionName, collectionShapes);
 				}
 			}
 			if (shapes.isEmpty()) {
 				System.err.println("Notice: No shapes found. Generating generic shapes.");
-				PairList<String,ParameterizedPath> collectionShapes = new PairList<String,ParameterizedPath>();
-				collectionShapes.add("Line", new ParameterizedPath(new Line2D.Float(0,0,1,1)));
-				collectionShapes.add("Rectangle", new ParameterizedPath(new Rectangle2D.Float(0,0,1,1)));
-				collectionShapes.add("Round Rectangle", new ParameterizedPath(new RoundRectangle2D.Float(0,0,1,1,0.25f,0.25f)));
-				collectionShapes.add("Ellipse", new ParameterizedPath(new Ellipse2D.Float(0,0,1,1)));
-				collectionShapes.add("Arc", new ParameterizedPath(new Arc2D.Float(-1,0,2,2,0,90,Arc2D.PIE)));
+				PairList<String,PowerShape> collectionShapes = new PairList<String,PowerShape>();
+				ParameterizedShape line = new ParameterizedShape.Line(
+					new ParameterizedValue(0.0), new ParameterizedValue(0.0),
+					new ParameterizedValue(1.0), new ParameterizedValue(1.0)
+				);
+				PowerShape pline = new PowerShape(WindingRule.NON_ZERO, "Line");
+				pline.addShape(line);
+				collectionShapes.add("Line", pline);
+				ParameterizedShape rect = new ParameterizedShape.Rect(
+					new ParameterizedValue(0.0), new ParameterizedValue(0.0),
+					new ParameterizedValue(1.0), new ParameterizedValue(1.0),
+					new ParameterizedValue(0.0), new ParameterizedValue(0.0)
+				);
+				PowerShape prect = new PowerShape(WindingRule.NON_ZERO, "Rectangle");
+				prect.addShape(rect);
+				collectionShapes.add("Rectangle", prect);
+				ParameterizedShape rrect = new ParameterizedShape.Rect(
+					new ParameterizedValue(0.0), new ParameterizedValue(0.0),
+					new ParameterizedValue(1.0), new ParameterizedValue(1.0),
+					new ParameterizedValue(0.25), new ParameterizedValue(0.25)
+				);
+				PowerShape prrect = new PowerShape(WindingRule.NON_ZERO, "Round Rectangle");
+				prrect.addShape(rrect);
+				collectionShapes.add("Round Rectangle", prrect);
+				ParameterizedShape ell = new ParameterizedShape.Ellipse(
+					new ParameterizedValue(0.5), new ParameterizedValue(0.5),
+					new ParameterizedValue(0.5), new ParameterizedValue(0.5)
+				);
+				PowerShape pell = new PowerShape(WindingRule.NON_ZERO, "Ellipse");
+				pell.addShape(ell);
+				collectionShapes.add("Ellipse", pell);
+				ParameterizedShape arc = new ParameterizedShape.Arc(
+					new ParameterizedValue(0.0), new ParameterizedValue(1.0),
+					new ParameterizedValue(1.0), new ParameterizedValue(1.0),
+					new ParameterizedValue(0.0), new ParameterizedValue(90.0),
+					ArcType.OPEN
+				);
+				PowerShape parc = new PowerShape(WindingRule.NON_ZERO, "Arc");
+				parc.addShape(arc);
+				collectionShapes.add("Arc", parc);
 				shapes.add("Basic", collectionShapes);
 			}
 		}

@@ -30,7 +30,6 @@ package com.kreative.paint.tool;
 import java.awt.Image;
 import java.awt.Shape;
 import java.awt.event.KeyEvent;
-import com.kreative.paint.geom.ParameterizedShape;
 import com.kreative.paint.geom.ScaledShape;
 
 public class PowerShapeTool extends SimpleShapeTool implements ToolOptions.PowerShapes {
@@ -66,7 +65,7 @@ public class PowerShapeTool extends SimpleShapeTool implements ToolOptions.Power
 	}
 	
 	protected Shape makeShape(ToolEvent e, float sx, float sy, float x, float y) {
-		return new ScaledShape(sx, sy, x-sx, y-sy, new ParameterizedShape(e.tc().getPowerShape()));
+		return new ScaledShape(sx, sy, x-sx, y-sy, e.tc().getPowerShape().clone());
 	}
 	
 	public boolean keyPressed(ToolEvent e) {

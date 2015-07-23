@@ -46,11 +46,11 @@ import java.util.Vector;
 import com.kreative.paint.PaintSettings;
 import com.kreative.paint.geom.BitmapShape;
 import com.kreative.paint.geom.CircularShape;
-import com.kreative.paint.geom.ParameterPoint;
-import com.kreative.paint.geom.ParameterizedShape;
 import com.kreative.paint.geom.RegularPolygon;
 import com.kreative.paint.geom.RightArc;
 import com.kreative.paint.geom.ScaledShape;
+import com.kreative.paint.powershape.Parameter;
+import com.kreative.paint.powershape.PowerShape;
 import com.kreative.paint.util.ShapeUtils;
 
 public class ShapeDrawObject extends AbstractDrawObject {
@@ -160,9 +160,9 @@ public class ShapeDrawObject extends AbstractDrawObject {
 	}
 	
 	public int getControlPointCount() {
-		if (originalShape instanceof ScaledShape && ((ScaledShape)originalShape).getOriginalShape() instanceof ParameterizedShape) {
-			ParameterizedShape ps = (ParameterizedShape)((ScaledShape)originalShape).getOriginalShape();
-			return 9 + ps.getParameterCount();
+		if (originalShape instanceof ScaledShape && ((ScaledShape)originalShape).getOriginalShape() instanceof PowerShape) {
+			PowerShape ps = (PowerShape)((ScaledShape)originalShape).getOriginalShape();
+			return 9 + ps.getParameterNames().size();
 		}
 		else if (originalShape instanceof Arc2D) return 11;
 		else if (originalShape instanceof RectangularShape) return 9;
@@ -181,10 +181,10 @@ public class ShapeDrawObject extends AbstractDrawObject {
 	}
 	
 	protected ControlPoint getControlPointImpl(int i) {
-		if (originalShape instanceof ScaledShape && ((ScaledShape)originalShape).getOriginalShape() instanceof ParameterizedShape && i >= 9) {
+		if (originalShape instanceof ScaledShape && ((ScaledShape)originalShape).getOriginalShape() instanceof PowerShape && i >= 9) {
 			ScaledShape s = (ScaledShape)originalShape;
-			ParameterizedShape ps = (ParameterizedShape)s.getOriginalShape();
-			Point2D p = ps.getParameterValue(i-9);
+			PowerShape ps = (PowerShape)s.getOriginalShape();
+			Point2D p = ps.getParameterValue(ps.getParameterNames().get(i-9));
 			return new ControlPoint.Double(s.getX()+s.getWidth()*p.getX(), s.getY()+s.getHeight()*p.getY(), ControlPointType.PULLTAB);
 		}
 		else if (originalShape instanceof Arc2D) {
@@ -317,15 +317,16 @@ public class ShapeDrawObject extends AbstractDrawObject {
 	}
 	
 	protected double[][] getControlLinesImpl() {
-		if (originalShape instanceof ScaledShape && ((ScaledShape)originalShape).getOriginalShape() instanceof ParameterizedShape) {
+		if (originalShape instanceof ScaledShape && ((ScaledShape)originalShape).getOriginalShape() instanceof PowerShape) {
 			ScaledShape s = (ScaledShape)originalShape;
-			ParameterizedShape ps = (ParameterizedShape)s.getOriginalShape();
+			PowerShape ps = (PowerShape)s.getOriginalShape();
 			Vector<double[]> lines = new Vector<double[]>();
-			for (ParameterPoint pp : ps.getParameterPoints()) {
-				double x1 = pp.getMinimumXorRadius();
-				double x2 = pp.getMaximumXorRadius();
-				double y1 = pp.getMinimumYorTheta();
-				double y2 = pp.getMaximumYorTheta();
+			for (String pn : ps.getParameterNames()) {
+				Parameter pp = ps.getParameter(pn);
+				double x1 = pp.polar ? pp.minR : pp.minX;
+				double x2 = pp.polar ? pp.maxR : pp.maxX;
+				double y1 = pp.polar ? pp.minA : pp.minY;
+				double y2 = pp.polar ? pp.maxA : pp.maxY;
 				if (!(
 						Double.isNaN(x1) || Double.isInfinite(x1)
 						|| Double.isNaN(x2) || Double.isInfinite(x2)
@@ -333,20 +334,20 @@ public class ShapeDrawObject extends AbstractDrawObject {
 						|| Double.isNaN(y2) || Double.isInfinite(y2)
 						|| (x1 == x2 && y1 == y2)
 				)) {
-					if (pp.isPolar()) {
+					if (pp.polar) {
 						if (x1 != x2) {
 							lines.add(new double[]{
-									s.getX()+s.getWidth()*(pp.getOriginX() + x1 * Math.cos(y1)),
-									s.getY()+s.getHeight()*(pp.getOriginY() + x1 * Math.sin(y1)),
-									s.getX()+s.getWidth()*(pp.getOriginX() + x2 * Math.cos(y1)),
-									s.getY()+s.getHeight()*(pp.getOriginY() + x2 * Math.sin(y1))
+									s.getX()+s.getWidth()*(pp.originX + x1 * Math.cos(y1)),
+									s.getY()+s.getHeight()*(pp.originY + x1 * Math.sin(y1)),
+									s.getX()+s.getWidth()*(pp.originX + x2 * Math.cos(y1)),
+									s.getY()+s.getHeight()*(pp.originY + x2 * Math.sin(y1))
 							});
 							if (y2 != y1) {
 								lines.add(new double[]{
-										s.getX()+s.getWidth()*(pp.getOriginX() + x1 * Math.cos(y2)),
-										s.getY()+s.getHeight()*(pp.getOriginY() + x1 * Math.sin(y2)),
-										s.getX()+s.getWidth()*(pp.getOriginX() + x2 * Math.cos(y2)),
-										s.getY()+s.getHeight()*(pp.getOriginY() + x2 * Math.sin(y2))
+										s.getX()+s.getWidth()*(pp.originX + x1 * Math.cos(y2)),
+										s.getY()+s.getHeight()*(pp.originY + x1 * Math.sin(y2)),
+										s.getX()+s.getWidth()*(pp.originX + x2 * Math.cos(y2)),
+										s.getY()+s.getHeight()*(pp.originY + x2 * Math.sin(y2))
 								});
 							}
 						}
@@ -387,10 +388,10 @@ public class ShapeDrawObject extends AbstractDrawObject {
 	}
 	
 	protected int setControlPointImpl(int i, Point2D p) {
-		if (originalShape instanceof ScaledShape && ((ScaledShape)originalShape).getOriginalShape() instanceof ParameterizedShape && i >= 9) {
+		if (originalShape instanceof ScaledShape && ((ScaledShape)originalShape).getOriginalShape() instanceof PowerShape && i >= 9) {
 			ScaledShape s = (ScaledShape)originalShape;
-			ParameterizedShape ps = (ParameterizedShape)s.getOriginalShape();
-			ps.setParameterValue(i-9, (p.getX()-s.getX())/s.getWidth(), (p.getY()-s.getY())/s.getHeight());
+			PowerShape ps = (PowerShape)s.getOriginalShape();
+			ps.setParameterValue(ps.getParameterNames().get(i-9), (p.getX()-s.getX())/s.getWidth(), (p.getY()-s.getY())/s.getHeight());
 			return i;
 		}
 		else if (originalShape instanceof Arc2D) {

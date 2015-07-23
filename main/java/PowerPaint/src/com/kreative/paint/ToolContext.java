@@ -40,9 +40,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Vector;
-import com.kreative.paint.geom.ParameterizedPath;
 import com.kreative.paint.powerbrush.BrushSettings;
 import com.kreative.paint.powerbrush.BrushShape;
+import com.kreative.paint.powershape.PowerShape;
 import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.Bitmap;
@@ -122,11 +122,11 @@ public class ToolContext implements ToolContextConstants {
 	private Image rubberStamp;
 	private Cursor rubberStampCursor;
 	// PowerShapes
-	private PairList<String,PairList<String,ParameterizedPath>> powerShapeSets;
+	private PairList<String,PairList<String,PowerShape>> powerShapeSets;
 	private int powerShapeSetIndex;
-	private PairList<String,ParameterizedPath> powerShapes;
+	private PairList<String,PowerShape> powerShapes;
 	private int powerShapeIndex;
-	private ParameterizedPath powerShape;
+	private PowerShape powerShape;
 	// sprinkles
 	private PairList<String,Vector<Bitmap>> sprinkleSets;
 	private int sprinkleSetIndex;
@@ -1133,7 +1133,7 @@ public class ToolContext implements ToolContextConstants {
 	
 	// PowerShapes
 
-	public PairList<String, PairList<String, ParameterizedPath>> getPowerShapeSets() {
+	public PairList<String, PairList<String, PowerShape>> getPowerShapeSets() {
 		return powerShapeSets;
 	}
 	
@@ -1145,7 +1145,7 @@ public class ToolContext implements ToolContextConstants {
 		return powerShapeSetIndex;
 	}
 
-	public PairList<String, ParameterizedPath> getPowerShapes() {
+	public PairList<String, PowerShape> getPowerShapes() {
 		return powerShapes;
 	}
 	
@@ -1157,7 +1157,7 @@ public class ToolContext implements ToolContextConstants {
 		return powerShapeIndex;
 	}
 
-	public ParameterizedPath getPowerShape() {
+	public PowerShape getPowerShape() {
 		return powerShape;
 	}
 	
@@ -1189,7 +1189,7 @@ public class ToolContext implements ToolContextConstants {
 		setPowerShapeSetIndex(powerShapeSetIndex+1);
 	}
 
-	public void setPowerShapes(PairList<String, ParameterizedPath> powerShapes) {
+	public void setPowerShapes(PairList<String, PowerShape> powerShapes) {
 		if (powerShapeSets.containsLatter(powerShapes)) {
 			this.powerShapeSetIndex = powerShapeSets.indexOfLatter(powerShapes);
 		}
@@ -1223,7 +1223,7 @@ public class ToolContext implements ToolContextConstants {
 		setPowerShapeIndex(powerShapeIndex+1);
 	}
 
-	public void setPowerShape(ParameterizedPath powerShape) {
+	public void setPowerShape(PowerShape powerShape) {
 		if (powerShapes.containsLatter(powerShape)) {
 			this.powerShapeIndex = powerShapes.indexOfLatter(powerShape);
 		}
