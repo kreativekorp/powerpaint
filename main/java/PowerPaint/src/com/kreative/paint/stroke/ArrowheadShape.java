@@ -683,19 +683,18 @@ public abstract class ArrowheadShape implements Shape {
 					instructions.add(Float.toString(rh = parseInstructionFloat(m)));
 					instructions.add(Float.toString(ras = parseInstructionFloat(m)));
 					instructions.add(Float.toString(rae = parseInstructionFloat(m)));
-					instructions.add(Integer.toString(rat = (Math.abs((int)Math.round(parseInstructionFloat(m))) % 4)));
+					instructions.add(Integer.toString(rat = (Math.abs((int)Math.round(parseInstructionFloat(m))) % 5)));
 					if (rae <= -360 || rae >= 360) {
 						p.append(new Ellipse2D.Float(rx, ry, rw, rh), false);
 						p.moveTo(lcx = lx, lcy = ly);
+					} else if (rat < 3) {
+						p.append(new Arc2D.Float(rx, ry, rw, rh, ras, rae, rat), false);
+						p.moveTo(lcx = lx, lcy = ly);
 					} else {
-						p.append(new Arc2D.Float(rx, ry, rw, rh, ras, rae, rat % 3), rat >= 3);
-						if (rat >= 3) {
-							Point2D cp = p.getCurrentPoint();
-							lcx = lx = (float)cp.getX();
-							lcy = ly = (float)cp.getY();
-						} else {
-							p.moveTo(lcx = lx, lcy = ly);
-						}
+						p.append(new Arc2D.Float(rx, ry, rw, rh, ras, rae, Arc2D.OPEN), rat > 3);
+						Point2D cp = p.getCurrentPoint();
+						lcx = lx = (float)cp.getX();
+						lcy = ly = (float)cp.getY();
 					}
 					break;
 				case 'e':
@@ -706,19 +705,18 @@ public abstract class ArrowheadShape implements Shape {
 					instructions.add(Float.toString(rh = parseInstructionFloat(m)));
 					instructions.add(Float.toString(ras = parseInstructionFloat(m)));
 					instructions.add(Float.toString(rae = parseInstructionFloat(m)));
-					instructions.add(Integer.toString(rat = (Math.abs((int)Math.round(parseInstructionFloat(m))) % 4)));
+					instructions.add(Integer.toString(rat = (Math.abs((int)Math.round(parseInstructionFloat(m))) % 5)));
 					if (rae <= -360 || rae >= 360) {
 						p.append(new Ellipse2D.Float(rx, ry, rw, rh), false);
 						p.moveTo(lcx = lx, lcy = ly);
+					} else if (rat < 3) {
+						p.append(new Arc2D.Float(rx, ry, rw, rh, ras, rae, rat), false);
+						p.moveTo(lcx = lx, lcy = ly);
 					} else {
-						p.append(new Arc2D.Float(rx, ry, rw, rh, ras, rae, rat % 3), rat >= 3);
-						if (rat >= 3) {
-							Point2D cp = p.getCurrentPoint();
-							lcx = lx = (float)cp.getX();
-							lcy = ly = (float)cp.getY();
-						} else {
-							p.moveTo(lcx = lx, lcy = ly);
-						}
+						p.append(new Arc2D.Float(rx, ry, rw, rh, ras, rae, Arc2D.OPEN), rat > 3);
+						Point2D cp = p.getCurrentPoint();
+						lcx = lx = (float)cp.getX();
+						lcy = ly = (float)cp.getY();
 					}
 					break;
 			}

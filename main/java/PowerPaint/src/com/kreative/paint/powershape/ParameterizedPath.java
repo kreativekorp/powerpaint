@@ -272,19 +272,18 @@ public class ParameterizedPath extends ParameterizedShape {
 					rh = args.get(3).value(bindings);
 					ras = args.get(4).value(bindings);
 					rae = args.get(5).value(bindings);
-					rat = (Math.abs((int)Math.round(args.get(6).value(bindings))) % 4);
+					rat = (Math.abs((int)Math.round(args.get(6).value(bindings))) % 5);
 					if (rae <= -360 || rae >= 360) {
 						p.append(new Ellipse2D.Double(rx, ry, rw, rh), false);
 						p.moveTo(lcx = lx, lcy = ly);
+					} else if (rat < 3) {
+						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, rat), false);
+						p.moveTo(lcx = lx, lcy = ly);
 					} else {
-						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, rat % 3), rat >= 3);
-						if (rat >= 3) {
-							Point2D cp = p.getCurrentPoint();
-							lcx = lx = cp.getX();
-							lcy = ly = cp.getY();
-						} else {
-							p.moveTo(lcx = lx, lcy = ly);
-						}
+						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, Arc2D.OPEN), rat > 3);
+						Point2D cp = p.getCurrentPoint();
+						lcx = lx = cp.getX();
+						lcy = ly = cp.getY();
 					}
 					break;
 				case 'e':
@@ -294,19 +293,18 @@ public class ParameterizedPath extends ParameterizedShape {
 					rh = args.get(3).value(bindings);
 					ras = args.get(4).value(bindings);
 					rae = args.get(5).value(bindings);
-					rat = (Math.abs((int)Math.round(args.get(6).value(bindings))) % 4);
+					rat = (Math.abs((int)Math.round(args.get(6).value(bindings))) % 5);
 					if (rae <= -360 || rae >= 360) {
 						p.append(new Ellipse2D.Double(rx, ry, rw, rh), false);
 						p.moveTo(lcx = lx, lcy = ly);
+					} else if (rat < 3) {
+						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, rat), false);
+						p.moveTo(lcx = lx, lcy = ly);
 					} else {
-						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, rat % 3), rat >= 3);
-						if (rat >= 3) {
-							Point2D cp = p.getCurrentPoint();
-							lcx = lx = cp.getX();
-							lcy = ly = cp.getY();
-						} else {
-							p.moveTo(lcx = lx, lcy = ly);
-						}
+						p.append(new Arc2D.Double(rx, ry, rw, rh, ras, rae, Arc2D.OPEN), rat > 3);
+						Point2D cp = p.getCurrentPoint();
+						lcx = lx = cp.getX();
+						lcy = ly = cp.getY();
 					}
 					break;
 			}

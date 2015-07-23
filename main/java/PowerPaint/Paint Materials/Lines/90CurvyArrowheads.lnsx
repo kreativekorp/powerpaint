@@ -28,6 +28,8 @@
 		            with endpoints connected with a chord. Type 2 is an arc
 		            with each endpoint connected to the center of the ellipse
 		            (in other words, a pie slice). Type 3 is an arc with the
+		            starting endpoint disconnected and the current point
+		            becoming the ending endpoint. Type 4 is an arc with the
 		            starting endpoint connected to the current point, and the
 		            current point becoming the ending endpoint. (Types 0-2 do
 		            not change the current point.) If abs(extent) >= 360,
@@ -68,9 +70,9 @@
 		<arc cx="5" cy="0" rx="5" ry="5" start="45" extent="270" type="pie" fill="yes"/>
 	</arrowhead>
 	<arrowhead scale="yes">
-		<path d="M 0 0 e 0 -5 10 10 45 270 3 Z"/>
+		<path d="M 0 0 e 0 -5 10 10 45 270 4 Z"/>
 	</arrowhead>
 	<arrowhead scale="yes">
-		<path d="M 0 0 e 0 -5 10 10 45 270 3 Z" fill="yes"/>
+		<path d="M 0 0 e 0 -5 10 10 45 270 4 Z" fill="yes"/>
 	</arrowhead>
 </strokes>
