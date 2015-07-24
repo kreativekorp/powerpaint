@@ -28,6 +28,7 @@ public class CKPGeomSerializer extends Serializer {
 	private static final int TYPE_PARAMETERIZED_SHAPE_RECT = fcc("pRec");
 	private static final int TYPE_PARAMETERIZED_VALUE = fcc("pVal");
 	private static final int TYPE_POWERSHAPE = fcc("pShp");
+	private static final int TYPE_POWERSHAPE_LIST = fcc("SLst");
 	
 	protected void loadRecognizedTypesAndClasses() {
 		addTypeAndClass(TYPE_BITMAP_SHAPE, 1, BitmapShape.class);
@@ -49,6 +50,7 @@ public class CKPGeomSerializer extends Serializer {
 		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_RECT, 1, ParameterizedShape.Rect.class);
 		addTypeAndClass(TYPE_PARAMETERIZED_VALUE, 1, ParameterizedValue.class);
 		addTypeAndClass(TYPE_POWERSHAPE, 2, PowerShape.class);
+		addTypeAndClass(TYPE_POWERSHAPE_LIST, 1, PowerShapeList.class);
 	}
 	
 	public void serializeObject(Object o, DataOutputStream stream) throws IOException {
@@ -261,6 +263,16 @@ public class CKPGeomSerializer extends Serializer {
 			}
 			for (ParameterizedShape s : shapes) {
 				SerializationManager.writeObject(s, stream);
+			}
+		} else if (o instanceof PowerShapeList) {
+			PowerShapeList v = (PowerShapeList)o;
+			stream.writeInt(v.size());
+			stream.writeBoolean(v.name != null);
+			for (PowerShape shape : v) {
+				SerializationManager.writeObject(shape, stream);
+			}
+			if (v.name != null) {
+				stream.writeUTF(v.name);
 			}
 		}
 	}
@@ -699,6 +711,18 @@ public class CKPGeomSerializer extends Serializer {
 				}
 				return ps;
 			}
+		} else if (type == TYPE_POWERSHAPE_LIST) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			int l = stream.readInt();
+			boolean n = stream.readBoolean();
+			PowerShape[] ps = new PowerShape[l];
+			for (int i = 0; i < l; i++) {
+				ps[i] = (PowerShape)SerializationManager.readObject(stream);
+			}
+			String name = n ? stream.readUTF() : null;
+			PowerShapeList list = new PowerShapeList(name);
+			for (PowerShape shape : ps) list.add(shape);
+			return list;
 		} else {
 			return null;
 		}
