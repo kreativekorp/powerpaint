@@ -56,6 +56,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
 
+import com.kreative.paint.dither.DiffusionDitherAlgorithm;
+import com.kreative.paint.dither.DitherAlgorithm;
 import com.kreative.paint.filter.Filter;
 import com.kreative.paint.format.Format;
 import com.kreative.paint.gradient.GradientColorMap;
@@ -87,7 +89,6 @@ import com.kreative.paint.stroke.StrokeParser;
 import com.kreative.paint.stroke.StrokeSet;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.Bitmap;
-import com.kreative.paint.util.DitherAlgorithm;
 import com.kreative.paint.util.Frame;
 import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.PairList;
@@ -453,14 +454,28 @@ public class MaterialsManager {
 			ditherAlgorithms = new PairList<String,DitherAlgorithm>();
 			for (Resource r : rm.getResources(ResourceCategory.DITHERERS)) {
 				Scanner sc = new Scanner(new ByteArrayInputStream(r.data()));
-				DitherAlgorithm d = new DitherAlgorithm(sc);
+				int columns = sc.hasNextInt() ? sc.nextInt() : 1;
+				int rows = sc.hasNextInt() ? sc.nextInt() : 1;
+				int[][] values = new int[rows][columns];
+				for (int y = 0; y < rows; y++) {
+					for (int x = 0; x < columns; x++) {
+						values[y][x] = sc.hasNextInt() ? sc.nextInt() : 0;
+					}
+				}
+				int denominator = sc.hasNextInt() ? sc.nextInt() : 1;
 				sc.close();
-				ditherAlgorithms.add(r.name(), d);
+				DiffusionDitherAlgorithm a = new DiffusionDitherAlgorithm(rows, columns, denominator, r.name());
+				for (int y = 0; y < rows; y++) {
+					for (int x = 0; x < columns; x++) {
+						a.values[y][x] = values[y][x];
+					}
+				}
+				ditherAlgorithms.add(r.name(), a);
 			}
 			if (ditherAlgorithms.isEmpty()) {
 				System.err.println("Notice: No dither algorithms found. Generating generic dither algorithms.");
-				ditherAlgorithms.add("Threshold", new DitherAlgorithm(new int[][]{new int[]{0}}, 1));
-				ditherAlgorithms.add("Floyd-Steinberg", new DitherAlgorithm(new int[][]{new int[]{0,0,7}, new int[]{3,5,1}}, 16));
+				ditherAlgorithms.add("Threshold", DiffusionDitherAlgorithm.THRESHOLD);
+				ditherAlgorithms.add("Floyd-Steinberg", DiffusionDitherAlgorithm.FLOYD_STEINBERG);
 			}
 		}
 		return ditherAlgorithms;

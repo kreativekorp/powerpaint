@@ -35,11 +35,12 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import javax.swing.JComboBox;
+import com.kreative.paint.dither.DiffusionDitherAlgorithm;
+import com.kreative.paint.dither.DitherAlgorithm;
 import com.kreative.paint.form.CustomOption;
 import com.kreative.paint.form.Form;
 import com.kreative.paint.form.PreviewGenerator;
 import com.kreative.paint.res.MaterialsManager;
-import com.kreative.paint.util.DitherAlgorithm;
 import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.PairList;
 import com.kreative.paint.util.UpdateLock;
@@ -55,14 +56,16 @@ public class DitherFilter extends AbstractFilter {
 	public DitherFilter(MaterialsManager mm) {
 		palettes = mm.getColorArrays();
 		ditherers = mm.getDitherAlgorithms();
-		colorsName = "Black & White";
+		colorsName = "Black & White (Black First)";
 		dithererName = "Threshold";
 		colors = new int[] { 0xFF000000, 0xFFFFFFFF };
-		ditherer = new DitherAlgorithm(new int[][]{new int[]{0}}, 1);
+		ditherer = DiffusionDitherAlgorithm.THRESHOLD;
 	}
 	
 	public Image filter(Image src) {
-		return ditherer.dither(src, colors);
+		BufferedImage dst = ImageUtils.toBufferedImage(src, true);
+		ditherer.dither(dst, colors);
+		return dst;
 	}
 	
 	public boolean usesOptionForm() {
@@ -75,7 +78,8 @@ public class DitherFilter extends AbstractFilter {
 			public String getName() { return null; }
 			public void generatePreview(Graphics2D g, Rectangle r) {
 				Shape clip = g.getClip();
-				BufferedImage i = ditherer.dither(ImageUtils.toBufferedImage(src,200,200), colors);
+				BufferedImage i = ImageUtils.toBufferedImage(src, 200, 200);
+				ditherer.dither(i, colors);
 				g.setClip(r);
 				g.drawImage(i, null, r.x + (r.width-i.getWidth())/2, r.y + (r.height-i.getHeight())/2);
 				g.setClip(clip);

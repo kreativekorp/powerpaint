@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.io;
 
 import java.awt.Image;
@@ -36,23 +9,24 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
+import com.kreative.paint.dither.DiffusionDitherAlgorithm;
 import com.kreative.paint.util.*;
 
 public class CKPUtilitySerializer extends Serializer {
 	private static final int TYPE_BITMAP = fcc("Bmap");
-	private static final int TYPE_DITHER_ALGORITHM = fcc("Dith");
 	private static final int TYPE_FRAME = fcc("Fram");
 	private static final int TYPE_FRAMEINFO = fcc("FrIn");
 	private static final int TYPE_PAIR = fcc("Pair");
 	private static final int TYPE_PAIRLIST = fcc("PLst");
+	private static final int TYPE_DIFFUSION_DITHER_ALGORITHM = fcc("Dith");
 	
 	protected void loadRecognizedTypesAndClasses() {
 		addTypeAndClass(TYPE_BITMAP, 1, Bitmap.class);
-		addTypeAndClass(TYPE_DITHER_ALGORITHM, 1, DitherAlgorithm.class);
 		addTypeAndClass(TYPE_FRAME, 1, Frame.class);
 		addTypeAndClass(TYPE_FRAMEINFO, 1, FrameInfo.class);
 		addTypeAndClass(TYPE_PAIR, 1, Pair.class);
 		addTypeAndClass(TYPE_PAIRLIST, 1, PairList.class);
+		addTypeAndClass(TYPE_DIFFUSION_DITHER_ALGORITHM, 2, DiffusionDitherAlgorithm.class);
 	}
 	
 	public void serializeObject(Object o, DataOutputStream stream) throws IOException {
@@ -73,25 +47,11 @@ public class CKPUtilitySerializer extends Serializer {
 			byte crgb[] = bos.toByteArray();
 			stream.writeInt(crgb.length);
 			stream.write(crgb);
-		}
-		else if (o instanceof DitherAlgorithm) {
-			DitherAlgorithm v = (DitherAlgorithm)o;
-			int[][] m = v.getMatrix();
-			stream.writeByte(m.length);
-			for (int[] r : m) {
-				stream.writeByte(r.length);
-				for (int c : r) {
-					stream.writeByte(c);
-				}
-			}
-			stream.writeByte(v.getDenom());
-		}
-		else if (o instanceof Frame) {
+		} else if (o instanceof Frame) {
 			Frame v = (Frame)o;
 			SerializationManager.writeObject(v.getRawImage(), stream);
 			SerializationManager.writeObject(v.getRawFrameInfo(), stream);
-		}
-		else if (o instanceof FrameInfo) {
+		} else if (o instanceof FrameInfo) {
 			FrameInfo v = (FrameInfo)o;
 			stream.writeShort(v.outerRect == null ? 0 : v.outerRect.x);
 			stream.writeShort(v.outerRect == null ? 0 : v.outerRect.y);
@@ -105,25 +65,34 @@ public class CKPUtilitySerializer extends Serializer {
 			stream.writeShort(v.roundOffOffsetX);
 			stream.writeShort(v.roundOffMultipleY);
 			stream.writeShort(v.roundOffOffsetY);
-		}
-		else if (o instanceof Pair) {
+		} else if (o instanceof Pair) {
 			Pair<?,?> v = (Pair<?,?>)o;
 			SerializationManager.writeObject(v.getFormer(), stream);
 			SerializationManager.writeObject(v.getLatter(), stream);
-		}
-		else if (o instanceof PairList) {
+		} else if (o instanceof PairList) {
 			PairList<?,?> v = (PairList<?,?>)o;
 			stream.writeInt(v.size());
 			for (Pair<?,?> p : v) {
 				SerializationManager.writeObject(p.getFormer(), stream);
 				SerializationManager.writeObject(p.getLatter(), stream);
 			}
+		} else if (o instanceof DiffusionDitherAlgorithm) {
+			DiffusionDitherAlgorithm v = (DiffusionDitherAlgorithm)o;
+			stream.writeUTF((v.name != null) ? v.name : "");
+			stream.writeInt(v.rows);
+			stream.writeInt(v.columns);
+			stream.writeInt(v.denominator);
+			for (int y = 0; y < v.rows; y++) {
+				for (int x = 0; x < v.columns; x++) {
+					stream.writeInt(v.values[y][x]);
+				}
+			}
 		}
 	}
 	
 	public Object deserializeObject(int type, int version, DataInputStream stream) throws IOException {
-		if (!(version == 1)) throw new IOException("Invalid version number.");
-		else if (type == TYPE_BITMAP) {
+		if (type == TYPE_BITMAP) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			int w = stream.readInt();
 			int h = stream.readInt();
 			int l = stream.readInt();
@@ -139,24 +108,13 @@ public class CKPUtilitySerializer extends Serializer {
 			iis.close();
 			bis.close();
 			return new Bitmap(w, h, rgb);
-		}
-		else if (type == TYPE_DITHER_ALGORITHM) {
-			int[][] m = new int[stream.readUnsignedByte()][];
-			for (int i = 0; i < m.length; i++) {
-				m[i] = new int[stream.readUnsignedByte()];
-				for (int j = 0; j < m[i].length; j++) {
-					m[i][j] = stream.readUnsignedByte();
-				}
-			}
-			int d = stream.readUnsignedByte();
-			return new DitherAlgorithm(m, d);
-		}
-		else if (type == TYPE_FRAME) {
+		} else if (type == TYPE_FRAME) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			Image i = (Image)SerializationManager.readObject(stream);
 			FrameInfo f = (FrameInfo)SerializationManager.readObject(stream);
 			return new Frame(i, f);
-		}
-		else if (type == TYPE_FRAMEINFO) {
+		} else if (type == TYPE_FRAMEINFO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			FrameInfo f = new FrameInfo();
 			int x, y, w, h;
 			x = stream.readShort();
@@ -180,13 +138,13 @@ public class CKPUtilitySerializer extends Serializer {
 			f.roundOffMultipleY = stream.readShort();
 			f.roundOffOffsetY = stream.readShort();
 			return f;
-		}
-		else if (type == TYPE_PAIR) {
+		} else if (type == TYPE_PAIR) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			Object f = SerializationManager.readObject(stream);
 			Object l = SerializationManager.readObject(stream);
 			return new Pair<Object,Object>(f,l);
-		}
-		else if (type == TYPE_PAIRLIST) {
+		} else if (type == TYPE_PAIRLIST) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PairList<Object,Object> c = new PairList<Object,Object>();
 			int size = stream.readInt();
 			for (int i = 0; i < size; i++) {
@@ -195,7 +153,43 @@ public class CKPUtilitySerializer extends Serializer {
 				c.add(f, l);
 			}
 			return c;
+		} else if (type == TYPE_DIFFUSION_DITHER_ALGORITHM) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
+			if (version >= 2) {
+				String name = stream.readUTF();
+				int rows = stream.readInt();
+				int columns = stream.readInt();
+				int denominator = stream.readInt();
+				DiffusionDitherAlgorithm a = new DiffusionDitherAlgorithm(rows, columns, denominator, name);
+				for (int y = 0; y < rows; y++) {
+					for (int x = 0; x < columns; x++) {
+						a.values[y][x] = stream.readInt();
+					}
+				}
+				return a;
+			} else {
+				int rows = stream.readUnsignedByte();
+				int columns = 256;
+				int[][] values = new int[rows][];
+				for (int y = 0; y < rows; y++) {
+					int cols = stream.readUnsignedByte();
+					if (columns > cols) columns = cols;
+					values[y] = new int[cols];
+					for (int x = 0; x < cols; x++) {
+						values[y][x] = stream.readUnsignedByte();
+					}
+				}
+				int denominator = stream.readUnsignedByte();
+				DiffusionDitherAlgorithm a = new DiffusionDitherAlgorithm(rows, columns, denominator, null);
+				for (int y = 0; y < rows; y++) {
+					for (int x = 0; x < columns; x++) {
+						a.values[y][x] = values[y][x];
+					}
+				}
+				return a;
+			}
+		} else {
+			return null;
 		}
-		else return null;
 	}
 }
