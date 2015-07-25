@@ -518,6 +518,24 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>rcpx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>ResplendentColor Palette</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>RCPX</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PowerPaintPaletteRCPX</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
 				<string>grd</string>
 			</array>
 			<key>CFBundleTypeName</key>
@@ -532,6 +550,24 @@
 			<string>Default</string>
 			<key>CFBundleTypeIconFile</key>
 			<string>PowerPaintGradientGRD</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>grdx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>PowerPaint Gradient Palette</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>GRDX</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PowerPaintGradientGRDX</string>
 			<key>CFBundleTypeRole</key>
 			<string>None</string>
 		</dict>
@@ -558,6 +594,24 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>patx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>PowerPaint Pattern Palette</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>PATX</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PowerPaintPatternPATX</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
 				<string>rfp</string>
 			</array>
 			<key>CFBundleTypeName</key>
@@ -572,6 +626,24 @@
 			<string>Default</string>
 			<key>CFBundleTypeIconFile</key>
 			<string>PowerPaintFontListRFP</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>rfpx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>PowerPaint Font List</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>RFPX</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PowerPaintFontListRFPX</string>
 			<key>CFBundleTypeRole</key>
 			<string>None</string>
 		</dict>
@@ -596,6 +668,24 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>ditx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>PowerPaint Dither Algorithm</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>DITX</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PowerPaintPatternDITX</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
 				<string>lines</string>
 			</array>
 			<key>CFBundleTypeName</key>
@@ -608,6 +698,24 @@
 			<string>Default</string>
 			<key>CFBundleTypeIconFile</key>
 			<string>PowerPaintLinesLINES</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>lnsx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>PowerPaint Line Settings</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>LNSX</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PowerPaintLinesLNSX</string>
 			<key>CFBundleTypeRole</key>
 			<string>None</string>
 		</dict>
@@ -632,6 +740,24 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>shpx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>PowerPaint Shapes</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>SHPX</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PowerPaintShapesSHPX</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
 				<string>alph</string>
 			</array>
 			<key>CFBundleTypeName</key>
@@ -644,6 +770,24 @@
 			<string>Default</string>
 			<key>CFBundleTypeIconFile</key>
 			<string>PowerPaintAlphabet</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>alpx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>PowerPaint Alphabet</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>ALPX</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PowerPaintAlphabetALPX</string>
 			<key>CFBundleTypeRole</key>
 			<string>None</string>
 		</dict>
