@@ -165,7 +165,7 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 	}
 	private Image getShapeImage(int coll, int idx, boolean mini) {
 		int size = mini ? 19 : 25;
-		Shape ss = AffineTransform.getScaleInstance(size-1, size-1).createTransformedShape(tc.getPowerShapeSets().getLatter(coll).getLatter(idx));
+		Shape ss = AffineTransform.getScaleInstance(size-1, size-1).createTransformedShape(tc.getPowerShapeSets().getLatter(coll).get(idx));
 		BufferedImage bi = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = bi.createGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -177,6 +177,6 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 		return bi;
 	}
 	private String getShapeName(int coll, int idx) {
-		return tc.getPowerShapeSets().getLatter(coll).getFormer(idx);
+		return tc.getPowerShapeSets().getLatter(coll).get(idx).name;
 	}
 }

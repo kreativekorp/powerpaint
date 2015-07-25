@@ -104,15 +104,15 @@ public class PowerShapeParser {
 				parseDouble(attr, "min-x", 0.0),
 				parseDouble(attr, "min-y", 0.0),
 				parseDouble(attr, "min-r", 0.0),
-				parseDouble(attr, "min-a", 0.0),
+				Math.toRadians(parseDouble(attr, "min-a", 0.0)),
 				parseDouble(attr, "def-x", 0.0),
 				parseDouble(attr, "def-y", 0.0),
 				parseDouble(attr, "def-r", 0.0),
-				parseDouble(attr, "def-a", 0.0),
+				Math.toRadians(parseDouble(attr, "def-a", 0.0)),
 				parseDouble(attr, "max-x", 0.0),
 				parseDouble(attr, "max-y", 0.0),
 				parseDouble(attr, "max-r", 0.0),
-				parseDouble(attr, "max-a", 0.0)
+				Math.toRadians(parseDouble(attr, "max-a", 0.0))
 			);
 		} else {
 			throw new IOException("Unknown element: " + type);

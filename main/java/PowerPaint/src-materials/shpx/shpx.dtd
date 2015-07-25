@@ -1,0 +1,100 @@
+<!--
+	Date: 2015/07/19 00:39:30 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - SUBSHAPES - - - - - - - - - - - - -->
+
+<!ENTITY % subshape "(param|arc|circle|ellipse|line|path|polygon|polyline|rect)">
+
+<!ELEMENT param EMPTY>
+<!ATTLIST param
+	name CDATA #REQUIRED
+	origin-x CDATA "0"
+	origin-y CDATA "0"
+	coords (rectangular|polar) "rectangular"
+	min-x CDATA "0"
+	min-y CDATA "0"
+	min-r CDATA "0"
+	min-a CDATA "0"
+	def-x CDATA "0"
+	def-y CDATA "0"
+	def-r CDATA "0"
+	def-a CDATA "0"
+	max-x CDATA "0"
+	max-y CDATA "0"
+	max-r CDATA "0"
+	max-a CDATA "0"
+>
+
+<!ELEMENT arc EMPTY>
+<!ATTLIST arc
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	rx CDATA #REQUIRED
+	ry CDATA #REQUIRED
+	start CDATA #REQUIRED
+	extent CDATA #REQUIRED
+	type (open|chord|pie) "open"
+>
+
+<!ELEMENT circle EMPTY>
+<!ATTLIST circle
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	r CDATA #REQUIRED
+>
+
+<!ELEMENT ellipse EMPTY>
+<!ATTLIST ellipse
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	rx CDATA #REQUIRED
+	ry CDATA #REQUIRED
+>
+
+<!ELEMENT line EMPTY>
+<!ATTLIST line
+	x1 CDATA #REQUIRED
+	y1 CDATA #REQUIRED
+	x2 CDATA #REQUIRED
+	y2 CDATA #REQUIRED
+>
+
+<!ELEMENT path EMPTY>
+<!ATTLIST path
+	d CDATA #REQUIRED
+>
+
+<!ELEMENT polygon EMPTY>
+<!ATTLIST polygon
+	points CDATA #REQUIRED
+>
+
+<!ELEMENT polyline EMPTY>
+<!ATTLIST polyline
+	points CDATA #REQUIRED
+>
+
+<!ELEMENT rect EMPTY>
+<!ATTLIST rect
+	x CDATA #REQUIRED
+	y CDATA #REQUIRED
+	width CDATA #REQUIRED
+	height CDATA #REQUIRED
+	rx CDATA "0"
+	ry CDATA "0"
+>
+
+<!-- - - - - - - - - - - - - SHAPES - - - - - - - - - - - - -->
+
+<!ELEMENT shapes (shape)*>
+<!ATTLIST shapes
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT shape (%subshape;)*>
+<!ATTLIST shape
+	name CDATA #IMPLIED
+	winding (evenodd|nonzero) "nonzero"
+>

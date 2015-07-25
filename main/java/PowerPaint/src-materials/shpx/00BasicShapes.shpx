@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE shapes PUBLIC "-//Kreative//DTD PowerShape 1.0//EN" "shpx.dtd">
+<shapes name="Basic Shapes">
+	<shape name="Line">
+		<line x1="0" y1="0" x2="1" y2="1"/>
+	</shape>
+	<shape name="Rectangle">
+		<rect x="0" y="0" width="1" height="1"/>
+	</shape>
+	<shape name="Round Rectangle">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<param name="b"
+		       origin-x="-0.1" origin-y="0"
+		       min-x="-0.1" min-y="0"
+		       def-x="-0.1" def-y="0.25"
+		       max-x="-0.1" max-y="0.5"/>
+		<rect x="0" y="0" width="1" height="1" rx="2*a.x" ry="2*b.y"/>
+	</shape>
+	<shape name="Ellipse">
+		<ellipse cx="0.5" cy="0.5" rx="0.5" ry="0.5"/>
+	</shape>
+	<shape name="Quarter Arc">
+		<param name="a"
+		       origin-x="0" origin-y="1"
+		       coords="polar"
+		       min-r="1.1" min-a="0"
+		       def-r="1.1" def-a="0"
+		       max-r="1.1" max-a="90"/>
+		<param name="b"
+		       origin-x="0" origin-y="1"
+		       coords="polar"
+		       min-r="1.1" min-a="0"
+		       def-r="1.1" def-a="90"
+		       max-r="1.1" max-a="90"/>
+		<arc cx="0" cy="1" rx="1" ry="1" 
+		     start="toDeg(a.t&lt;b.t?a.t:b.t)"
+		     extent="toDeg(abs(b.t-a.t))"
+		     type="pie"/>
+	</shape>
+	<shape name="Quarter Chord">
+		<param name="a"
+		       origin-x="0" origin-y="1"
+		       coords="polar"
+		       min-r="1.1" min-a="0"
+		       def-r="1.1" def-a="0"
+		       max-r="1.1" max-a="90"/>
+		<param name="b"
+		       origin-x="0" origin-y="1"
+		       coords="polar"
+		       min-r="1.1" min-a="0"
+		       def-r="1.1" def-a="90"
+		       max-r="1.1" max-a="90"/>
+		<arc cx="0" cy="1" rx="1" ry="1" 
+		     start="toDeg(a.t&lt;b.t?a.t:b.t)"
+		     extent="toDeg(abs(b.t-a.t))"
+		     type="chord"/>
+	</shape>
+	<shape name="Quarter Open Arc">
+		<param name="a"
+		       origin-x="0" origin-y="1"
+		       coords="polar"
+		       min-r="1.1" min-a="0"
+		       def-r="1.1" def-a="0"
+		       max-r="1.1" max-a="90"/>
+		<param name="b"
+		       origin-x="0" origin-y="1"
+		       coords="polar"
+		       min-r="1.1" min-a="0"
+		       def-r="1.1" def-a="90"
+		       max-r="1.1" max-a="90"/>
+		<arc cx="0" cy="1" rx="1" ry="1" 
+		     start="toDeg(a.t&lt;b.t?a.t:b.t)"
+		     extent="toDeg(abs(b.t-a.t))"
+		     type="open"/>
+	</shape>
+	<shape name="Half Arc">
+		<arc cx="0.5" cy="1" rx="0.5" ry="1" start="0" extent="180" type="chord"/>
+	</shape>
+	<shape name="Half Open Arc">
+		<arc cx="0.5" cy="1" rx="0.5" ry="1" start="0" extent="180" type="open"/>
+	</shape>
+	<shape name="Full Arc">
+		<param name="a"
+		       origin-x="0.5" origin-y="0.5"
+		       coords="polar"
+		       min-r="0.6" min-a="-180"
+		       def-r="0.6" def-a="45"
+		       max-r="0.6" max-a="180"/>
+		<param name="b"
+		       origin-x="0.5" origin-y="0.5"
+		       coords="polar"
+		       min-r="0.6" min-a="-180"
+		       def-r="0.6" def-a="-45"
+		       max-r="0.6" max-a="180"/>
+		<arc cx="0.5" cy="0.5" rx="0.5" ry="0.5"
+		     start="toDeg(a.t)"
+		     extent="toDeg((a.t&lt;b.t)?(b.t-a.t):(2*pi+b.t-a.t))"
+		     type="pie"/>
+	</shape>
+	<shape name="Full Chord">
+		<param name="a"
+		       origin-x="0.5" origin-y="0.5"
+		       coords="polar"
+		       min-r="0.6" min-a="-180"
+		       def-r="0.6" def-a="45"
+		       max-r="0.6" max-a="180"/>
+		<param name="b"
+		       origin-x="0.5" origin-y="0.5"
+		       coords="polar"
+		       min-r="0.6" min-a="-180"
+		       def-r="0.6" def-a="-45"
+		       max-r="0.6" max-a="180"/>
+		<arc cx="0.5" cy="0.5" rx="0.5" ry="0.5"
+		     start="toDeg(a.t)"
+		     extent="toDeg((a.t&lt;b.t)?(b.t-a.t):(2*pi+b.t-a.t))"
+		     type="chord"/>
+	</shape>
+	<shape name="Full Open Arc">
+		<param name="a"
+		       origin-x="0.5" origin-y="0.5"
+		       coords="polar"
+		       min-r="0.6" min-a="-180"
+		       def-r="0.6" def-a="45"
+		       max-r="0.6" max-a="180"/>
+		<param name="b"
+		       origin-x="0.5" origin-y="0.5"
+		       coords="polar"
+		       min-r="0.6" min-a="-180"
+		       def-r="0.6" def-a="-45"
+		       max-r="0.6" max-a="180"/>
+		<arc cx="0.5" cy="0.5" rx="0.5" ry="0.5"
+		     start="toDeg(a.t)"
+		     extent="toDeg((a.t&lt;b.t)?(b.t-a.t):(2*pi+b.t-a.t))"
+		     type="open"/>
+	</shape>
+	<shape name="Triangle">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.5" def-y="-0.1"
+		       max-x="1" max-y="-0.1"/>
+		<polygon points="a.x 0 1 1 0 1"/>
+	</shape>
+	<shape name="Right Triangle">
+		<polygon points="0 0 1 1 0 1"/>
+	</shape>
+	<shape name="Diamond">
+		<polygon points="0.5 0 1 0.5 0.5 1 0 0.5"/>
+	</shape>
+	<shape name="Trapezoid">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<polygon points="0 1 a.x 0 1-a.x 0 1 1"/>
+	</shape>
+	<shape name="Parallelogram">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="1" max-y="-0.1"/>
+		<polygon points="a.x 0 1 0 1-a.x 1 0 1"/>
+	</shape>
+	<shape name="Pentagon">
+		<polygon points="0.5 0 1 0.382 0.808 1 0.192 1 0 0.382"/>
+	</shape>
+	<shape name="Hexagon">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<polygon points="0 0.5 a.x 0 1-a.x 0 1 0.5 1-a.x 1 a.x 1"/>
+	</shape>
+	<shape name="Octagon">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.2929" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<polygon points="a.x 0 1-a.x 0 1 a.x 1 1-a.x
+		                 1-a.x 1 a.x 1 0 1-a.x 0 a.x"/>
+	</shape>
+	<shape name="Cross">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.333333" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<polygon points="a.x 0 1-a.x 0 1-a.x a.x 1 a.x 1 1-a.x 1-a.x 1-a.x
+		                 1-a.x 1 a.x 1 a.x 1-a.x 0 1-a.x 0 a.x a.x a.x"/>
+	</shape>
+	<shape name="Ex">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<polygon points="0 a.x a.x 0 0.5 0.5-a.x 1-a.x 0 1 a.x 0.5+a.x 0.5
+		                 1 1-a.x 1-a.x 1 0.5 0.5+a.x a.x 1 0 1-a.x 0.5-a.x 0.5"/>
+	</shape>
+	<shape name="Box" winding="evenodd">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<rect x="0" y="0" width="1" height="1"/>
+		<rect x="a.x" y="a.x" width="1-2*a.x" height="1-2*a.x"/>
+	</shape>
+	<shape name="Frame" winding="evenodd">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<rect x="0" y="0" width="1" height="1"/>
+		<rect x="a.x" y="a.x" width="1-2*a.x" height="1-2*a.x"/>
+		<line x1="0" y1="0" x2="a.x" y2="a.x"/>
+		<line x1="1" y1="0" x2="1-a.x" y2="a.x"/>
+		<line x1="1" y1="1" x2="1-a.x" y2="1-a.x"/>
+		<line x1="0" y1="1" x2="a.x" y2="1-a.x"/>
+	</shape>
+	<shape name="Doughnut (3)" winding="evenodd">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.333333" def-y="0.4"
+		       max-x="0.5" max-y="0.4"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5" ry="0.5"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5-a.x" ry="0.5-a.x"/>
+	</shape>
+	<shape name="Doughnut (4)" winding="evenodd">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.25" def-y="0.4"
+		       max-x="0.5" max-y="0.4"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5" ry="0.5"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5-a.x" ry="0.5-a.x"/>
+	</shape>
+	<shape name="Doughnut (5)" winding="evenodd">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.2" def-y="0.4"
+		       max-x="0.5" max-y="0.4"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5" ry="0.5"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5-a.x" ry="0.5-a.x"/>
+	</shape>
+	<shape name="Rainbow (3)">
+		<param name="a"
+		       origin-x="0.5" origin-y="0.6"
+		       min-x="0" min-y="0.6"
+		       def-x="0.333333" def-y="0.6"
+		       max-x="0.5" max-y="0.6"/>
+		<param name="b"
+		       origin-x="0.5" origin-y="0.5"
+		       coords="polar"
+		       min-r="0.6" min-a="-90"
+		       def-r="0.6" def-a="0"
+		       max-r="0.6" max-a="90"/>
+		<path d="E 0 0 1 1 toDeg(b.t) toDeg(pi-2*b.t) 3
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(pi-b.t) toDeg(2*b.t-pi) 4 Z"/>
+	</shape>
+	<shape name="Rainbow (4)">
+		<param name="a"
+		       origin-x="0.5" origin-y="0.6"
+		       min-x="0" min-y="0.6"
+		       def-x="0.25" def-y="0.6"
+		       max-x="0.5" max-y="0.6"/>
+		<param name="b"
+		       origin-x="0.5" origin-y="0.5"
+		       coords="polar"
+		       min-r="0.6" min-a="-90"
+		       def-r="0.6" def-a="0"
+		       max-r="0.6" max-a="90"/>
+		<path d="E 0 0 1 1 toDeg(b.t) toDeg(pi-2*b.t) 3
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(pi-b.t) toDeg(2*b.t-pi) 4 Z"/>
+	</shape>
+	<shape name="Rainbow (5)">
+		<param name="a"
+		       origin-x="0.5" origin-y="0.6"
+		       min-x="0" min-y="0.6"
+		       def-x="0.2" def-y="0.6"
+		       max-x="0.5" max-y="0.6"/>
+		<param name="b"
+		       origin-x="0.5" origin-y="0.5"
+		       coords="polar"
+		       min-r="0.6" min-a="-90"
+		       def-r="0.6" def-a="0"
+		       max-r="0.6" max-a="90"/>
+		<path d="E 0 0 1 1 toDeg(b.t) toDeg(pi-2*b.t) 3
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(pi-b.t) toDeg(2*b.t-pi) 4 Z"/>
+	</shape>
+	<shape name="No Symbol" winding="evenodd">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.2" def-y="0.4"
+		       max-x="0.333333" max-y="0.4"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5" ry="0.5"/>
+		<path d="E a.x a.x 1-2*a.x 1-2*a.x toDeg(-0.785398+asin(a.x/(1-2*a.x))) toDeg(pi-2*asin(a.x/(1-2*a.x))) 3 Z
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(2.356194+asin(a.x/(1-2*a.x))) toDeg(pi-2*asin(a.x/(1-2*a.x))) 3 Z"/>
+	</shape>
+	<shape name="Ex Symbol" winding="evenodd">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.2" def-y="0.4"
+		       max-x="0.292893" max-y="0.4"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5" ry="0.5"/>
+		<path d="E a.x a.x 1-2*a.x 1-2*a.x toDeg(-0.785398+asin(a.x/(1-2*a.x))) toDeg(pi/2-2*asin(a.x/(1-2*a.x))) 3
+		         L 0.5+0.707107*a.x 0.5 Z
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(0.785398+asin(a.x/(1-2*a.x))) toDeg(pi/2-2*asin(a.x/(1-2*a.x))) 3
+		         L 0.5 0.5-0.707107*a.x Z
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(2.356194+asin(a.x/(1-2*a.x))) toDeg(pi/2-2*asin(a.x/(1-2*a.x))) 3
+		         L 0.5-0.707107*a.x 0.5 Z
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(-2.356194+asin(a.x/(1-2*a.x))) toDeg(pi/2-2*asin(a.x/(1-2*a.x))) 3
+		         L 0.5 0.5+0.707107*a.x Z"/>
+	</shape>
+	<shape name="Left Arrow">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.5" def-y="-0.1"
+		       max-x="1" max-y="-0.1"/>
+		<param name="b"
+		       origin-x="1.1" origin-y="0"
+		       min-x="1.1" min-y="0"
+		       def-x="1.1" def-y="0.25"
+		       max-x="1.1" max-y="0.5"/>
+		<polygon points="1 b.y a.x b.y a.x 0 0 0.5 a.x 1 a.x 1-b.y 1 1-b.y"/>
+	</shape>
+	<shape name="Right Arrow">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.5" def-y="-0.1"
+		       max-x="1" max-y="-0.1"/>
+		<param name="b"
+		       origin-x="-0.1" origin-y="0"
+		       min-x="-0.1" min-y="0"
+		       def-x="-0.1" def-y="0.25"
+		       max-x="-0.1" max-y="0.5"/>
+		<polygon points="0 b.y a.x b.y a.x 0 1 0.5 a.x 1 a.x 1-b.y 0 1-b.y"/>
+	</shape>
+	<shape name="Up Arrow">
+		<param name="a"
+		       origin-x="-0.1" origin-y="0"
+		       min-x="-0.1" min-y="0"
+		       def-x="-0.1" def-y="0.5"
+		       max-x="-0.1" max-y="1"/>
+		<param name="b"
+		       origin-x="0" origin-y="1.1"
+		       min-x="0" min-y="1.1"
+		       def-x="0.25" def-y="1.1"
+		       max-x="0.5" max-y="1.1"/>
+		<polygon points="b.x 1 b.x a.y 0 a.y 0.5 0 1 a.y 1-b.x a.y 1-b.x 1"/>
+	</shape>
+	<shape name="Down Arrow">
+		<param name="a"
+		       origin-x="-0.1" origin-y="0"
+		       min-x="-0.1" min-y="0"
+		       def-x="-0.1" def-y="0.5"
+		       max-x="-0.1" max-y="1"/>
+		<param name="b"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<polygon points="b.x 0 b.x a.y 0 a.y 0.5 1 1 a.y 1-b.x a.y 1-b.x 0"/>
+	</shape>
+	<shape name="4-Point Star">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.375" def-y="0.4"
+		       max-x="0.5" max-y="0.4"/>
+		<polygon points="0.5 0 1-a.x a.x 1 0.5 1-a.x 1-a.x
+		                 0.5 1 a.x 1-a.x 0 0.5 a.x a.x"/>
+	</shape>
+	<shape name="5-Point Star">
+		<polygon points="0.5 0 0.618 0.382
+		                 1 0.382 0.692 0.618
+		                 0.808 1 0.5 0.766
+		                 0.192 1 0.308 0.618
+		                 0 0.382 0.382 0.382"/>
+	</shape>
+	<shape name="6-Point Star">
+		<polygon points="0.5 0 0.666667 0.25 1 0.25 0.833333 0.5
+		                 1 0.75 0.666667 0.75 0.5 1 0.333333 0.75
+		                 0 0.75 0.166667 0.5 0 0.25 0.333333 0.25"/>
+	</shape>
+	<shape name="8-Point Star">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.117317" def-y="0.4"
+		       max-x="0.5" max-y="0.4"/>
+		<polygon points="0.5 0
+		                 0.691342-0.382683*a.x 0.03806+0.92388*a.x
+		                 0.853553 0.146447
+		                 0.96194-0.92388*a.x 0.308658+0.382683*a.x
+		                 1 0.5
+		                 0.96194-0.92388*a.x 0.691342-0.382683*a.x
+		                 0.853553 0.853553
+		                 0.691342-0.382683*a.x 0.96194-0.92388*a.x
+		                 0.5 1
+		                 0.308658+0.382683*a.x 0.96194-0.92388*a.x
+		                 0.146447 0.853553
+		                 0.03806+0.92388*a.x 0.691342-0.382683*a.x
+		                 0 0.5
+		                 0.03806+0.92388*a.x 0.308658+0.382683*a.x
+		                 0.146447 0.146447
+		                 0.308658+0.382683*a.x 0.03806+0.92388*a.x"/>
+	</shape>
+	<shape name="16-Point Star">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.074785" def-y="0.4"
+		       max-x="0.5" max-y="0.4"/>
+		<polygon points="0.5 0
+		                 0.597545-0.19509*a.x 0.009607+0.980785*a.x
+		                 0.691342 0.03806
+		                 0.777785-0.55557*a.x 0.084265+0.83147*a.x
+		                 0.853553 0.146447
+		                 0.915735-0.83147*a.x 0.222215+0.55557*a.x
+		                 0.96194 0.308658
+		                 0.990393-0.980785*a.x 0.402455+0.19509*a.x
+		                 1 0.5
+		                 0.990393-0.980785*a.x 0.597545-0.19509*a.x
+		                 0.96194 0.691342
+		                 0.915735-0.83147*a.x 0.777785-0.55557*a.x
+		                 0.853553 0.853553
+		                 0.777785-0.55557*a.x 0.915735-0.83147*a.x
+		                 0.691342 0.96194
+		                 0.597545-0.19509*a.x 0.990393-0.980785*a.x
+		                 0.5 1
+		                 0.402455+0.19509*a.x 0.990393-0.980785*a.x
+		                 0.308658 0.96194
+		                 0.222215+0.55557*a.x 0.915735-0.83147*a.x
+		                 0.146447 0.853553
+		                 0.084265+0.83147*a.x 0.777785-0.55557*a.x
+		                 0.03806 0.691342
+		                 0.009607+0.980785*a.x 0.597545-0.19509*a.x
+		                 0 0.5
+		                 0.009607+0.980785*a.x 0.402455+0.19509*a.x
+		                 0.03806 0.308658
+		                 0.084265+0.83147*a.x 0.222215+0.55557*a.x
+		                 0.146447 0.146447
+		                 0.222215+0.55557*a.x 0.084265+0.83147*a.x
+		                 0.308658 0.03806
+		                 0.402455+0.19509*a.x 0.009607+0.980785*a.x"/>
+	</shape>
+	<shape name="24-Point Star">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.054356" def-y="0.4"
+		       max-x="0.5" max-y="0.4"/>
+		<polygon points="0.5 0
+		                 0.565263-0.130526*a.x 0.004278+0.991445*a.x
+		                 0.62941 0.017037
+		                 0.691342-0.382683*a.x 0.03806+0.92388*a.x
+		                 0.75 0.066987
+		                 0.804381-0.608761*a.x 0.103323+0.793353*a.x
+		                 0.853553 0.146447
+		                 0.896677-0.793353*a.x 0.195619+0.608761*a.x
+		                 0.933013 0.25
+		                 0.96194-0.92388*a.x 0.308658+0.382683*a.x
+		                 0.982963 0.37059
+		                 0.995722-0.991445*a.x 0.434737+0.130526*a.x
+		                 1 0.5
+		                 0.995722-0.991445*a.x 0.565263-0.130526*a.x
+		                 0.982963 0.62941
+		                 0.96194-0.92388*a.x 0.691342-0.382683*a.x
+		                 0.933013 0.75
+		                 0.896677-0.793353*a.x 0.804381-0.608761*a.x
+		                 0.853553 0.853553
+		                 0.804381-0.608761*a.x 0.896677-0.793353*a.x
+		                 0.75 0.933013
+		                 0.691342-0.382683*a.x 0.96194-0.92388*a.x
+		                 0.62941 0.982963
+		                 0.565263-0.130526*a.x 0.995722-0.991445*a.x
+		                 0.5 1
+		                 0.434737+0.130526*a.x 0.995722-0.991445*a.x
+		                 0.37059 0.982963
+		                 0.308658+0.382683*a.x 0.96194-0.92388*a.x
+		                 0.25 0.933013
+		                 0.195619+0.608761*a.x 0.896677-0.793353*a.x
+		                 0.146447 0.853553
+		                 0.103323+0.793353*a.x 0.804381-0.608761*a.x
+		                 0.066987 0.75
+		                 0.03806+0.92388*a.x 0.691342-0.382683*a.x
+		                 0.017037 0.62941
+		                 0.004278+0.991445*a.x 0.565263-0.130526*a.x
+		                 0 0.5
+		                 0.004278+0.991445*a.x 0.434737+0.130526*a.x
+		                 0.017037 0.37059
+		                 0.03806+0.92388*a.x 0.308658+0.382683*a.x
+		                 0.066987 0.25
+		                 0.103323+0.793353*a.x 0.195619+0.608761*a.x
+		                 0.146447 0.146447
+		                 0.195619+0.608761*a.x 0.103323+0.793353*a.x
+		                 0.25 0.066987
+		                 0.308658+0.382683*a.x 0.03806+0.92388*a.x
+		                 0.37059 0.017037
+		                 0.434737+0.130526*a.x 0.004278+0.991445*a.x"/>
+	</shape>
+	<shape name="32-Point Star">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.042628" def-y="0.4"
+		       max-x="0.5" max-y="0.4"/>
+		<polygon points="0.5 0
+		                 0.549009-0.098017*a.x 0.002408+0.995185*a.x
+		                 0.597545 0.009607
+		                 0.645142-0.290285*a.x 0.02153+0.95694*a.x
+		                 0.691342 0.03806
+		                 0.735698-0.471397*a.x 0.059039+0.881921*a.x
+		                 0.777785 0.084265
+		                 0.817197-0.634393*a.x 0.113495+0.77301*a.x
+		                 0.853553 0.146447
+		                 0.886505-0.77301*a.x 0.182803+0.634393*a.x
+		                 0.915735 0.222215
+		                 0.940961-0.881921*a.x 0.264302+0.471397*a.x
+		                 0.96194 0.308658
+		                 0.97847-0.95694*a.x 0.354858+0.290285*a.x
+		                 0.990393 0.402455
+		                 0.997592-0.995185*a.x 0.450991+0.098017*a.x
+		                 1 0.5
+		                 0.997592-0.995185*a.x 0.549009-0.098017*a.x
+		                 0.990393 0.597545
+		                 0.97847-0.95694*a.x 0.645142-0.290285*a.x
+		                 0.96194 0.691342
+		                 0.940961-0.881921*a.x 0.735698-0.471397*a.x
+		                 0.915735 0.777785
+		                 0.886505-0.77301*a.x 0.817197-0.634393*a.x
+		                 0.853553 0.853553
+		                 0.817197-0.634393*a.x 0.886505-0.77301*a.x
+		                 0.777785 0.915735
+		                 0.735698-0.471397*a.x 0.940961-0.881921*a.x
+		                 0.691342 0.96194
+		                 0.645142-0.290285*a.x 0.97847-0.95694*a.x
+		                 0.597545 0.990393
+		                 0.549009-0.098017*a.x 0.997592-0.995185*a.x
+		                 0.5 1
+		                 0.450991+0.098017*a.x 0.997592-0.995185*a.x
+		                 0.402455 0.990393
+		                 0.354858+0.290285*a.x 0.97847-0.95694*a.x
+		                 0.308658 0.96194
+		                 0.264302+0.471397*a.x 0.940961-0.881921*a.x
+		                 0.222215 0.915735
+		                 0.182803+0.634393*a.x 0.886505-0.77301*a.x
+		                 0.146447 0.853553
+		                 0.113495+0.77301*a.x 0.817197-0.634393*a.x
+		                 0.084265 0.777785
+		                 0.059039+0.881921*a.x 0.735698-0.471397*a.x
+		                 0.03806 0.691342
+		                 0.02153+0.95694*a.x 0.645142-0.290285*a.x
+		                 0.009607 0.597545
+		                 0.002408+0.995185*a.x 0.549009-0.098017*a.x
+		                 0 0.5
+		                 0.002408+0.995185*a.x 0.450991+0.098017*a.x
+		                 0.009607 0.402455
+		                 0.02153+0.95694*a.x 0.354858+0.290285*a.x
+		                 0.03806 0.308658
+		                 0.059039+0.881921*a.x 0.264302+0.471397*a.x
+		                 0.084265 0.222215
+		                 0.113495+0.77301*a.x 0.182803+0.634393*a.x
+		                 0.146447 0.146447
+		                 0.182803+0.634393*a.x 0.113495+0.77301*a.x
+		                 0.222215 0.084265
+		                 0.264302+0.471397*a.x 0.059039+0.881921*a.x
+		                 0.308658 0.03806
+		                 0.354858+0.290285*a.x 0.02153+0.95694*a.x
+		                 0.402455 0.009607
+		                 0.450991+0.098017*a.x 0.002408+0.995185*a.x"/>
+	</shape>
+	<shape name="Plaque">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="0.5" max-y="-0.1"/>
+		<param name="b"
+		       origin-x="-0.1" origin-y="0"
+		       min-x="-0.1" min-y="0"
+		       def-x="-0.1" def-y="0.25"
+		       max-x="-0.1" max-y="0.5"/>
+		<path d="M 1-1*a.x 0
+		         C 1-1*a.x 0.44*b.y 1-0.44*a.x b.y 1 b.y
+		         L 1 1-b.y
+		         C 1-0.44*a.x 1-b.y 1-a.x 1-0.44*b.y 1-a.x 1
+		         L a.x 1
+		         C a.x 1-0.44*b.y 0.44*a.x 1-b.y 0 1-b.y
+		         L 0 b.y
+		         C 0.44*a.x b.y a.x 0.44*b.y a.x 0 Z"/>
+	</shape>
+	<shape name="Cube">
+		<param name="a"
+		       origin-x="-0.1" origin-y="0"
+		       min-x="-0.1" min-y="0"
+		       def-x="-0.1" def-y="0.25"
+		       max-x="-0.1" max-y="1"/>
+		<polygon points="0 a.y 1-a.y a.y 1-a.y 1 0 1"/>
+		<polygon points="a.y 0 1 0 1-a.y a.y 0 a.y"/>
+		<polygon points="1-a.y a.y 1 0 1 1-a.y 1-a.y 1"/>
+	</shape>
+	<shape name="Cone">
+		<param name="a"
+		       origin-x="-0.1" origin-y="0"
+		       min-x="-0.1" min-y="0.75"
+		       def-x="-0.1" def-y="0.875"
+		       max-x="-0.1" max-y="1"/>
+		<path d="M 0 a.y
+		         C 0 a.y+(0.44*(1-a.y)) 0.22 1 0.5 1
+		         C 0.78 1 1 a.y+(0.44*(1-a.y)) 1 a.y
+		         L 0.5 0 Z"/>
+	</shape>
+	<shape name="Inverted Cone">
+		<param name="a"
+		       origin-x="0.6" origin-y="0"
+		       min-x="0.6" min-y="0"
+		       def-x="0.6" def-y="0.25"
+		       max-x="0.6" max-y="0.25"/>
+		<path d="M 1 a.y/2
+		         L 0.5 1
+		         L 0 a.y/2
+		         C 0 0.22*a.y 0.22 0 0.5 0
+		         C 0.78 0 1 0.22*a.y 1 a.y/2
+		         C 1 0.78*a.y 0.78 a.y 0.5 a.y
+		         C 0.22 a.y 0 0.78*a.y 0 a.y/2"/>
+	</shape>
+	<shape name="Cylinder">
+		<param name="a"
+		       origin-x="0.6" origin-y="0"
+		       min-x="0.6" min-y="0"
+		       def-x="0.6" def-y="0.25"
+		       max-x="0.6" max-y="1"/>
+		<path d="M 1 a.y/2
+		         L 1 1-a.y/2
+		         C 1 1-0.22*a.y 0.78 1 0.5 1
+		         C 0.22 1 0 1-0.22*a.y 0 1-a.y/2
+		         L 0 a.y/2
+		         C 0 0.22*a.y 0.22 0 0.5 0
+		         C 0.78 0 1 0.22*a.y 1 a.y/2
+		         C 1 0.78*a.y 0.78 a.y 0.5 a.y
+		         C 0.22 a.y 0 0.78*a.y 0 a.y/2"/>
+	</shape>
+</shapes>

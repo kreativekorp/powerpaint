@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE shapes PUBLIC "-//Kreative//DTD PowerShape 1.0//EN" "shpx.dtd">
+<shapes name="More Shapes">
+	<shape name="Smiley">
+		<param name="a"
+		       origin-x="0.6" origin-y="0.5"
+		       min-x="0.6" min-y="0.5"
+		       def-x="0.6" def-y="0.75"
+		       max-x="0.6" max-y="0.75"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5" ry="0.5"/>
+		<ellipse cx="1/3" cy="1/3" rx="1/40" ry="1/40"/>
+		<ellipse cx="2/3" cy="1/3" rx="1/40" ry="1/40"/>
+		<path d="M 0.25 1.25-a.y
+		         G 0.5 a.y 0.75 1.25-a.y
+		         G 0.5 a.y 0.25 1.25-a.y Z"/>
+	</shape>
+	<shape name="Peace Symbol" winding="evenodd">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.125" def-y="0.4"
+		       max-x="0.215" max-y="0.4"/>
+		<ellipse cx="0.5" cy="0.5" rx="0.5" ry="0.5"/>
+		<path d="E a.x a.x 1-2*a.x 1-2*a.x toDeg(-0.785398+asin(a.x/(1-2*a.x))) toDeg(2.356194-2*asin(a.x/(1-2*a.x))) 3
+		         L 0.5+0.5*a.x 0.5-0.207107*a.x Z
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(1.570796+asin(a.x/(1-2*a.x))) toDeg(2.356194-2*asin(a.x/(1-2*a.x))) 3
+		         L 0.5-0.5*a.x 0.5-0.207107*a.x Z
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(-2.356194+asin(a.x/(1-2*a.x))) toDeg(0.785398-2*asin(a.x/(1-2*a.x))) 3
+		         L 0.5-0.5*a.x 0.5+1.207107*a.x Z
+		         E a.x a.x 1-2*a.x 1-2*a.x toDeg(-1.570796+asin(a.x/(1-2*a.x))) toDeg(0.785398-2*asin(a.x/(1-2*a.x))) 3
+		         L 0.5+0.5*a.x 0.5+1.207107*a.x Z"/>
+	</shape>
+	<shape name="Heart">
+		<path d="M 0.5 1
+		         C 0.5 1 0 0.56 0 0.25
+		         C 0 0.11 0.11 0 0.25 0
+		         C 0.39 0 0.5 0.2 0.5 0.2
+		         C 0.5 0.2 0.61 0 0.75 0
+		         C 0.89 0 1 0.11 1 0.25
+		         C 1 0.56 0.5 1 0.5 1 Z"/>
+	</shape>
+	<shape name="Lightning Bolt">
+		<polygon points="0.39 0 0.59 0.28 0.51 0.31 0.76 0.55 0.68 0.59 1 1
+		                 0.46 0.69 0.56 0.64 0.23 0.45 0.35 0.39 0 0.18"/>
+	</shape>
+	<shape name="Sun">
+		<param name="a"
+		       origin-x="0.5" origin-y="0.4"
+		       min-x="0.1" min-y="0.4"
+		       def-x="0.25" def-y="0.4"
+		       max-x="0.475" max-y="0.4"/>
+		<path d="E a.x a.x 1-2*a.x 1-2*a.x 0 360 0
+		         M 0 0.5
+		         L [0.8*a.x] [0.5-(0.5-a.x)/4]
+		         L [0.8*a.x] 1-[0.5-(0.5-a.x)/4] Z
+		         M 0.146447 0.146447
+		         L 0.5+abs([0.5-0.8*a.x])*cos(pi*3/4)+[(0.5-a.x)/4]/sqrt(2) 0.5-abs([0.5-0.8*a.x])*sin(pi*3/4)-[(0.5-a.x)/4]/sqrt(2)
+		         L 0.5+abs([0.5-0.8*a.x])*cos(pi*3/4)-[(0.5-a.x)/4]/sqrt(2) 0.5-abs([0.5-0.8*a.x])*sin(pi*3/4)+[(0.5-a.x)/4]/sqrt(2) Z
+		         M 0.5 0
+		         L 1-[0.5-(0.5-a.x)/4] [0.8*a.x]
+		         L [0.5-(0.5-a.x)/4] [0.8*a.x] Z
+		         M 0.853553 0.146447
+		         L 0.5+abs([0.5-0.8*a.x])*cos(pi/4)+[(0.5-a.x)/4]/sqrt(2) 0.5-abs([0.5-0.8*a.x])*sin(pi/4)+[(0.5-a.x)/4]/sqrt(2)
+		         L 0.5+abs([0.5-0.8*a.x])*cos(pi/4)-[(0.5-a.x)/4]/sqrt(2) 0.5-abs([0.5-0.8*a.x])*sin(pi/4)-[(0.5-a.x)/4]/sqrt(2) Z
+		         M 1 0.5
+		         L 1-[0.8*a.x] 1-[0.5-(0.5-a.x)/4]
+		         L 1-[0.8*a.x] [0.5-(0.5-a.x)/4] Z
+		         M 0.853553 0.853553
+		         L 0.5+abs([0.5-0.8*a.x])*cos(-pi/4)-[(0.5-a.x)/4]/sqrt(2) 0.5-abs([0.5-0.8*a.x])*sin(-pi/4)+[(0.5-a.x)/4]/sqrt(2)
+		         L 0.5+abs([0.5-0.8*a.x])*cos(-pi/4)+[(0.5-a.x)/4]/sqrt(2) 0.5-abs([0.5-0.8*a.x])*sin(-pi/4)-[(0.5-a.x)/4]/sqrt(2) Z
+		         M 0.5 1
+		         L [0.5-(0.5-a.x)/4] 1-[0.8*a.x]
+		         L 1-[0.5-(0.5-a.x)/4] 1-[0.8*a.x] Z
+		         M 0.146447 0.853553
+		         L 0.5+abs([0.5-0.8*a.x])*cos(-pi*3/4)-[(0.5-a.x)/4]/sqrt(2) 0.5-abs([0.5-0.8*a.x])*sin(-pi*3/4)-[(0.5-a.x)/4]/sqrt(2)
+		         L 0.5+abs([0.5-0.8*a.x])*cos(-pi*3/4)+[(0.5-a.x)/4]/sqrt(2) 0.5-abs([0.5-0.8*a.x])*sin(-pi*3/4)+[(0.5-a.x)/4]/sqrt(2) Z"/>
+	</shape>
+	<shape name="Half Moon">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.5" def-y="0.4"
+		       max-x="1" max-y="0.4"/>
+		<path d="M 1 1
+		         C 0.44 1 0 0.78 0 0.5
+		         C 0 0.22 0.44 0 1 0
+		         C 1-0.56*(1-a.x) 0 a.x 0.22 a.x 0.5
+		         C a.x 0.78 1-0.56*(1-a.x) 1 1 1 Z"/>
+	</shape>
+	<shape name="Full Moon">
+		<param name="a"
+		       origin-x="0" origin-y="0.4"
+		       min-x="0" min-y="0.4"
+		       def-x="0.75" def-y="0.4"
+		       max-x="1" max-y="0.4"/>
+		<path d="M 0.5 1
+		         C 0.22 1 0 0.78 0 0.5
+		         C 0 0.22 0.22 0 0.5 0
+		         C 0.5+0.56*(a.x-0.5) 0 a.x 0.22 a.x 0.5
+		         C a.x 0.78 0.5+0.56*(a.x-0.5) 1 0.5 1 Z"/>
+	</shape>
+	<shape name="The Prototype&#8482;">
+		<polygon points="0.375 0 1 0 0.625 0.5 1 1 0 1 0 0.5"/>
+	</shape>
+	<shape name="Kite with Congruent Diagonals">
+		<param name="a"
+		       origin-x="0" origin-y="-0.1"
+		       min-x="0" min-y="-0.1"
+		       def-x="0.25" def-y="-0.1"
+		       max-x="1" max-y="-0.1"/>
+		<polygon points="0 0.5 a.x 0 1 0.5 a.x 1"/>
+	</shape>
+	<shape name="Ambihelical Hexnut">
+		<path d="M 0.3 0
+		         L 0.8 0.25
+		         L 0.7 0.3
+		         L 0.2 0.05 Z
+		         M 0.8 0.25
+		         L 1 0.7
+		         L 0.8 0.95
+		         L 0.3 0.7
+		         C 0.3 0.7 0.175 (0.45) 0.175 0.35
+		         C 0.175 (0.25) [0.225] 0.225 0.325 0.225
+		         C {0.3} 0.225 0.275 {0.25} 0.275 0.35
+		         C 0.275 {0.45} {0.4} 0.775 0.675 0.775
+		         C [0.775] 0.775 0.825 (0.75) 0.825 0.65
+		         C 0.825 (0.55) 0.7 0.3 0.7 0.3 Z
+		         M 0.7 1
+		         L 0.2 0.75
+		         L 0.3 0.7
+		         L 0.8 0.95 Z
+		         M 0.2 0.75
+		         L 0 0.3
+		         L 0.2 0.05
+		         L 0.7 0.3
+		         C 0.7 0.3 0.825 (0.55) 0.825 0.65
+		         C 0.825 (0.75) [0.775] 0.775 0.675 0.775
+		         C {0.7} 0.775 0.725 {0.75} 0.725 0.65
+		         C 0.725 {0.55} {0.6} 0.225 0.325 0.225
+		         C [0.225] 0.225 0.175 (0.25) 0.175 0.35
+		         C 0.175 (0.45) 0.3 0.7 0.3 0.7 Z"/>
+	</shape>
+	<shape name="Rectabular Excrusion Bracket">
+		<polygon points="0.1 0 1 0.45 1 0.95 0.1 0.5 0.2 0.45 0.9 0.8 0.9 0.5 0 0.05"/>
+		<polygon points="0.1 0.2 0.2 0.25 0.2 0.45 0.1 0.5"/>
+		<polygon points="0 0.05 0.9 0.5 0.8 0.55 0.1 0.2 0.1 0.5 1 0.95 0.9 1 0 0.55"/>
+		<polygon points="0.8 0.55 0.9 0.5 0.9 0.8 0.8 0.75"/>
+	</shape>
+</shapes>
