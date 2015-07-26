@@ -58,6 +58,8 @@ import java.util.Vector;
 
 import com.kreative.paint.dither.DiffusionDitherAlgorithm;
 import com.kreative.paint.dither.DitherAlgorithm;
+import com.kreative.paint.dither.DitherAlgorithmList;
+import com.kreative.paint.dither.DitherAlgorithmParser;
 import com.kreative.paint.filter.Filter;
 import com.kreative.paint.format.Format;
 import com.kreative.paint.gradient.GradientColorMap;
@@ -453,24 +455,38 @@ public class MaterialsManager {
 		if (ditherAlgorithms == null) {
 			ditherAlgorithms = new PairList<String,DitherAlgorithm>();
 			for (Resource r : rm.getResources(ResourceCategory.DITHERERS)) {
-				Scanner sc = new Scanner(new ByteArrayInputStream(r.data()));
-				int columns = sc.hasNextInt() ? sc.nextInt() : 1;
-				int rows = sc.hasNextInt() ? sc.nextInt() : 1;
-				int[][] values = new int[rows][columns];
-				for (int y = 0; y < rows; y++) {
-					for (int x = 0; x < columns; x++) {
-						values[y][x] = sc.hasNextInt() ? sc.nextInt() : 0;
+				if (r.data()[0] == '<') {
+					try {
+						ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
+						DitherAlgorithmList list = DitherAlgorithmParser.parse(r.name(), bin);
+						bin.close();
+						for (DitherAlgorithm da : list) {
+							ditherAlgorithms.add(da.name, da);
+						}
+					} catch (IOException ioe) {
+						System.err.println("Warning: Failed to compile dither algorithm set " + r.name() + ".");
+						ioe.printStackTrace();
 					}
-				}
-				int denominator = sc.hasNextInt() ? sc.nextInt() : 1;
-				sc.close();
-				DiffusionDitherAlgorithm a = new DiffusionDitherAlgorithm(rows, columns, denominator, r.name());
-				for (int y = 0; y < rows; y++) {
-					for (int x = 0; x < columns; x++) {
-						a.values[y][x] = values[y][x];
+				} else {
+					Scanner sc = new Scanner(new ByteArrayInputStream(r.data()));
+					int columns = sc.hasNextInt() ? sc.nextInt() : 1;
+					int rows = sc.hasNextInt() ? sc.nextInt() : 1;
+					int[][] values = new int[rows][columns];
+					for (int y = 0; y < rows; y++) {
+						for (int x = 0; x < columns; x++) {
+							values[y][x] = sc.hasNextInt() ? sc.nextInt() : 0;
+						}
 					}
+					int denominator = sc.hasNextInt() ? sc.nextInt() : 1;
+					sc.close();
+					DiffusionDitherAlgorithm a = new DiffusionDitherAlgorithm(rows, columns, denominator, r.name());
+					for (int y = 0; y < rows; y++) {
+						for (int x = 0; x < columns; x++) {
+							a.values[y][x] = values[y][x];
+						}
+					}
+					ditherAlgorithms.add(r.name(), a);
 				}
-				ditherAlgorithms.add(r.name(), a);
 			}
 			if (ditherAlgorithms.isEmpty()) {
 				System.err.println("Notice: No dither algorithms found. Generating generic dither algorithms.");

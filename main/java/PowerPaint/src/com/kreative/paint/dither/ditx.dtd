@@ -1,0 +1,20 @@
+<!--
+	Date: 2015/07/25 12:25:50 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - DITHER ALGORITHMS - - - - - - - - - - - - -->
+
+<!ELEMENT dither-algorithms (dither-algorithm)*>
+<!ATTLIST dither-algorithms
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT dither-algorithm (#PCDATA)>
+<!ATTLIST dither-algorithm
+	type (ordered|diffusion) #REQUIRED
+	rows CDATA #REQUIRED
+	cols CDATA #REQUIRED
+	d CDATA #REQUIRED
+	name CDATA #IMPLIED
+>

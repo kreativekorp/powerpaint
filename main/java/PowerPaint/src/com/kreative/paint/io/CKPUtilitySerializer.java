@@ -9,7 +9,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
-import com.kreative.paint.dither.DiffusionDitherAlgorithm;
+import com.kreative.paint.dither.*;
 import com.kreative.paint.util.*;
 
 public class CKPUtilitySerializer extends Serializer {
@@ -19,6 +19,8 @@ public class CKPUtilitySerializer extends Serializer {
 	private static final int TYPE_PAIR = fcc("Pair");
 	private static final int TYPE_PAIRLIST = fcc("PLst");
 	private static final int TYPE_DIFFUSION_DITHER_ALGORITHM = fcc("Dith");
+	private static final int TYPE_ORDERED_DITHER_ALGORITHM = fcc("Orth");
+	private static final int TYPE_RANDOM_DITHER_ALGORITHM = fcc("Rath");
 	
 	protected void loadRecognizedTypesAndClasses() {
 		addTypeAndClass(TYPE_BITMAP, 1, Bitmap.class);
@@ -27,6 +29,8 @@ public class CKPUtilitySerializer extends Serializer {
 		addTypeAndClass(TYPE_PAIR, 1, Pair.class);
 		addTypeAndClass(TYPE_PAIRLIST, 1, PairList.class);
 		addTypeAndClass(TYPE_DIFFUSION_DITHER_ALGORITHM, 2, DiffusionDitherAlgorithm.class);
+		addTypeAndClass(TYPE_ORDERED_DITHER_ALGORITHM, 2, OrderedDitherAlgorithm.class);
+		addTypeAndClass(TYPE_RANDOM_DITHER_ALGORITHM, 2, RandomDitherAlgorithm.class);
 	}
 	
 	public void serializeObject(Object o, DataOutputStream stream) throws IOException {
@@ -87,6 +91,20 @@ public class CKPUtilitySerializer extends Serializer {
 					stream.writeInt(v.values[y][x]);
 				}
 			}
+		} else if (o instanceof OrderedDitherAlgorithm) {
+			OrderedDitherAlgorithm v = (OrderedDitherAlgorithm)o;
+			stream.writeUTF((v.name != null) ? v.name : "");
+			stream.writeInt(v.rows);
+			stream.writeInt(v.columns);
+			stream.writeInt(v.denominator);
+			for (int y = 0; y < v.rows; y++) {
+				for (int x = 0; x < v.columns; x++) {
+					stream.writeInt(v.values[y][x]);
+				}
+			}
+		} else if (o instanceof RandomDitherAlgorithm) {
+			RandomDitherAlgorithm v = (RandomDitherAlgorithm)o;
+			stream.writeUTF((v.name != null) ? v.name : "");
 		}
 	}
 	
@@ -187,6 +205,49 @@ public class CKPUtilitySerializer extends Serializer {
 					}
 				}
 				return a;
+			}
+		} else if (type == TYPE_ORDERED_DITHER_ALGORITHM) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
+			if (version >= 2) {
+				String name = stream.readUTF();
+				int rows = stream.readInt();
+				int columns = stream.readInt();
+				int denominator = stream.readInt();
+				OrderedDitherAlgorithm a = new OrderedDitherAlgorithm(rows, columns, denominator, name);
+				for (int y = 0; y < rows; y++) {
+					for (int x = 0; x < columns; x++) {
+						a.values[y][x] = stream.readInt();
+					}
+				}
+				return a;
+			} else {
+				int rows = stream.readUnsignedByte();
+				int columns = 256;
+				int[][] values = new int[rows][];
+				for (int y = 0; y < rows; y++) {
+					int cols = stream.readUnsignedByte();
+					if (columns > cols) columns = cols;
+					values[y] = new int[cols];
+					for (int x = 0; x < cols; x++) {
+						values[y][x] = stream.readUnsignedByte();
+					}
+				}
+				int denominator = stream.readUnsignedByte();
+				OrderedDitherAlgorithm a = new OrderedDitherAlgorithm(rows, columns, denominator, null);
+				for (int y = 0; y < rows; y++) {
+					for (int x = 0; x < columns; x++) {
+						a.values[y][x] = values[y][x];
+					}
+				}
+				return a;
+			}
+		} else if (type == TYPE_RANDOM_DITHER_ALGORITHM) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
+			if (version >= 2) {
+				String name = stream.readUTF();
+				return new RandomDitherAlgorithm(name);
+			} else {
+				return new RandomDitherAlgorithm(null);
 			}
 		} else {
 			return null;
