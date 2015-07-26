@@ -49,7 +49,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -60,6 +59,7 @@ import com.kreative.paint.dither.DiffusionDitherAlgorithm;
 import com.kreative.paint.dither.DitherAlgorithm;
 import com.kreative.paint.dither.DitherAlgorithmList;
 import com.kreative.paint.dither.DitherAlgorithmParser;
+import com.kreative.paint.dither.RandomDitherAlgorithm;
 import com.kreative.paint.filter.Filter;
 import com.kreative.paint.format.Format;
 import com.kreative.paint.gradient.GradientColorMap;
@@ -451,49 +451,30 @@ public class MaterialsManager {
 	}
 	
 	private PairList<String,DitherAlgorithm> ditherAlgorithms = null;
-	public PairList<String,DitherAlgorithm> getDitherAlgorithms() {
-		if (ditherAlgorithms == null) {
-			ditherAlgorithms = new PairList<String,DitherAlgorithm>();
-			for (Resource r : rm.getResources(ResourceCategory.DITHERERS)) {
-				if (r.data()[0] == '<') {
-					try {
-						ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
-						DitherAlgorithmList list = DitherAlgorithmParser.parse(r.name(), bin);
-						bin.close();
-						for (DitherAlgorithm da : list) {
-							ditherAlgorithms.add(da.name, da);
-						}
-					} catch (IOException ioe) {
-						System.err.println("Warning: Failed to compile dither algorithm set " + r.name() + ".");
-						ioe.printStackTrace();
-					}
-				} else {
-					Scanner sc = new Scanner(new ByteArrayInputStream(r.data()));
-					int columns = sc.hasNextInt() ? sc.nextInt() : 1;
-					int rows = sc.hasNextInt() ? sc.nextInt() : 1;
-					int[][] values = new int[rows][columns];
-					for (int y = 0; y < rows; y++) {
-						for (int x = 0; x < columns; x++) {
-							values[y][x] = sc.hasNextInt() ? sc.nextInt() : 0;
-						}
-					}
-					int denominator = sc.hasNextInt() ? sc.nextInt() : 1;
-					sc.close();
-					DiffusionDitherAlgorithm a = new DiffusionDitherAlgorithm(rows, columns, denominator, r.name());
-					for (int y = 0; y < rows; y++) {
-						for (int x = 0; x < columns; x++) {
-							a.values[y][x] = values[y][x];
-						}
-					}
-					ditherAlgorithms.add(r.name(), a);
+	private void loadDitherAlgorithms() {
+		ditherAlgorithms = new PairList<String,DitherAlgorithm>();
+		for (Resource r : rm.getResources(ResourceCategory.DITHERERS)) {
+			try {
+				ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
+				DitherAlgorithmList list = DitherAlgorithmParser.parse(r.name(), bin);
+				bin.close();
+				for (DitherAlgorithm da : list) {
+					ditherAlgorithms.add(da.name, da);
 				}
-			}
-			if (ditherAlgorithms.isEmpty()) {
-				System.err.println("Notice: No dither algorithms found. Generating generic dither algorithms.");
-				ditherAlgorithms.add("Threshold", DiffusionDitherAlgorithm.THRESHOLD);
-				ditherAlgorithms.add("Floyd-Steinberg", DiffusionDitherAlgorithm.FLOYD_STEINBERG);
+			} catch (IOException ioe) {
+				System.err.println("Warning: Failed to compile dither algorithm set " + r.name() + ".");
+				ioe.printStackTrace();
 			}
 		}
+		if (ditherAlgorithms.isEmpty()) {
+			System.err.println("Notice: No dither algorithms found. Generating generic dither algorithms.");
+			ditherAlgorithms.add("Threshold", DiffusionDitherAlgorithm.THRESHOLD);
+			ditherAlgorithms.add("Floyd-Steinberg", DiffusionDitherAlgorithm.FLOYD_STEINBERG);
+		}
+		ditherAlgorithms.add("Random", RandomDitherAlgorithm.RANDOM);
+	}
+	public PairList<String,DitherAlgorithm> getDitherAlgorithms() {
+		if (ditherAlgorithms == null) loadDitherAlgorithms();
 		return ditherAlgorithms;
 	}
 	
