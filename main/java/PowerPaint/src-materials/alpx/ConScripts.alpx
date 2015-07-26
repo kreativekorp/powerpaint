@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE alphabets PUBLIC "-//Kreative//DTD PowerAlphabet 1.0//EN" "alpx.dtd">
+<alphabets name="ConScripts"
+           width="14"
+           font-family="Constructium"
+           font-size="36"
+           font-weight="normal"
+           font-style="normal">
+	<alphabet name="Tengwar">
+															
+															
+															
+															
+															
+															
+															
+															
+	</alphabet>
+	<alphabet name="Cirth">
+															
+															
+															
+															
+															
+															
+															
+												·	·	·	·
+	</alphabet>
+	<alphabet name="ámman îar">
+															
+															
+	</alphabet>
+	<alphabet name="Ewellic">
+															
+															
+															
+															
+											·	·	·	·	·
+	</alphabet>
+	<alphabet name="Klingon">
+															
+															
+															
+	</alphabet>
+</alphabets>

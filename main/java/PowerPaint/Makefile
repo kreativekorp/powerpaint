@@ -28,6 +28,7 @@ eclipseclean:
 bin:
 	mkdir -p bin
 	javac -target 1.5 -sourcepath src $(SRCFILES) -d bin
+	cp src/com/kreative/paint/alphabet/*.dtd bin/com/kreative/paint/alphabet/
 	cp src/com/kreative/paint/dither/*.dtd bin/com/kreative/paint/dither/
 	cp src/com/kreative/paint/gradient/*.dtd bin/com/kreative/paint/gradient/
 	cp src/com/kreative/paint/palette/*.png bin/com/kreative/paint/palette/

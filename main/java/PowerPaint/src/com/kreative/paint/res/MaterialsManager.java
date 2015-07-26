@@ -41,8 +41,6 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
-import java.text.CharacterIterator;
-import java.text.StringCharacterIterator;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -55,6 +53,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
 
+import com.kreative.paint.alphabet.Alphabet;
+import com.kreative.paint.alphabet.AlphabetList;
+import com.kreative.paint.alphabet.AlphabetParser;
 import com.kreative.paint.dither.DiffusionDitherAlgorithm;
 import com.kreative.paint.dither.DitherAlgorithm;
 import com.kreative.paint.dither.DitherAlgorithmList;
@@ -313,53 +314,31 @@ public class MaterialsManager {
 		return patterns;
 	}
 	
-	private PairList<String,char[]> alphabets = null;
-	public PairList<String,char[]> getAlphabets() {
-		if (alphabets == null) {
-			alphabets = new PairList<String,char[]>();
-			for (Resource r : rm.getResources(ResourceCategory.ALPHABETS)) {
-				try {
-					String s1 = new String(r.data(), "UTF-8");
-					StringBuffer s2 = new StringBuffer();
-					CharacterIterator i = new StringCharacterIterator(s1);
-					for (char ch = i.first(); ch != CharacterIterator.DONE; ch = i.next()) {
-						if (!(Character.isWhitespace(ch) || Character.isSpaceChar(ch) || Character.isISOControl(ch) || ch == 0xFFEF || ch == 0xFFFE)) {
-							s2.append(ch);
-						}
+	private PairList<String,Alphabet> alphabets = null;
+	private void loadAlphabets() {
+		alphabets = new PairList<String,Alphabet>();
+		for (Resource r : rm.getResources(ResourceCategory.ALPHABETS)) {
+			try {
+				ByteArrayInputStream bin = new ByteArrayInputStream(r.data());
+				AlphabetList list = AlphabetParser.parse(r.name(), bin);
+				bin.close();
+				for (Alphabet a : list) {
+					if (a.letters.length > 0) {
+						alphabets.add(a.name, a);
 					}
-					if (s2.length() > 0) {
-						alphabets.add(r.name(), s2.toString().toCharArray());
-					}
-				} catch (IOException ioe) {
-					System.err.println("Warning: Ignoring invalid alphabet: "+r.name());
 				}
-			}
-			if (alphabets.isEmpty()) {
-				System.err.println("Notice: No alphabets found. Generating generic alphabet.");
-				alphabets.add("Latin", new char[] {
-						'A','B','C','D','E','F','G','H','I','J','K','L','M','N',
-						'O','P','Q','R','S','T','U','V','W','X','Y','Z','!','?',
-						'0','1','2','3','4','5','6','7','8','9','+','-','=','&',
-						'a','b','c','d','e','f','g','h','i','j','k','l','m','n',
-						'o','p','q','r','s','t','u','v','w','x','y','z','\u00A1','\u00BF',
-						';',':',',','.','@','#','\'','"','*','/','(',')','[',']',
-						'\u00C0','\u00C1','\u00C2','\u00C3','\u00C4','\u00C5','\u00C6',
-						'\u00C7','\u00C8','\u00C9','\u00CA','\u00CB','\u00CC','\u00CD',
-						'\u00CE','\u00CF','\u00D1','\u00D2','\u00D3','\u00D4','\u00D5',
-						'\u00D6','\u00D8','\u00D9','\u00DA','\u00DB','\u00DC','\u00DD',
-						'\u00E0','\u00E1','\u00E2','\u00E3','\u00E4','\u00E5','\u00E6',
-						'\u00E7','\u00E8','\u00E9','\u00EA','\u00EB','\u00EC','\u00ED',
-						'\u00EE','\u00EF','\u00F1','\u00F2','\u00F3','\u00F4','\u00F5',
-						'\u00F6','\u00F8','\u00F9','\u00FA','\u00FB','\u00FC','\u00FD',
-						'\u00D0','\u00F0','\u00DE','\u00FE','\u0152','\u0153','\u0178',
-						'\u00FF','\u00DF','\u00D7','\u00F7','%','^','_',
-						'$','\u00A2','\u00A3','\u00A5','\u00A7','\u00B6','\u00A9',
-						'\u00AE','{','}','<','>','\u00AB','\u00BB',
-						'\\','`','~','\u00A8','|','\u00A6','\u00A4',
-						'\u00AA','\u00BA','\u00B0','\u00B1','\u00B5','\u00AC','\u00B7'
-				});
+			} catch (IOException ioe) {
+				System.err.println("Warning: Failed to compile alphabet set " + r.name() + ".");
+				ioe.printStackTrace();
 			}
 		}
+		if (alphabets.isEmpty()) {
+			System.err.println("Notice: No alphabets found. Generating generic alphabet.");
+			alphabets.add(Alphabet.DEFAULT_ALPHABET.name, Alphabet.DEFAULT_ALPHABET);
+		}
+	}
+	public PairList<String,Alphabet> getAlphabets() {
+		if (alphabets == null) loadAlphabets();
 		return alphabets;
 	}
 	

@@ -40,6 +40,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Vector;
+import com.kreative.paint.alphabet.Alphabet;
 import com.kreative.paint.powerbrush.BrushSettings;
 import com.kreative.paint.powerbrush.BrushShape;
 import com.kreative.paint.powershape.PowerShape;
@@ -85,13 +86,11 @@ public class ToolContext implements ToolContextConstants {
 	private int polygonSides;
 	private int polygonStellation;
 	// alphabets
-	private PairList<String,char[]> alphabets;
+	private PairList<String,Alphabet> alphabets;
 	private int alphabetIndex;
-	private char[] alphabet;
+	private Alphabet alphabet;
 	private int letterIndex;
-	private char letter;
-	private Font letterFont;
-	private Font letterPUAFont;
+	private int letter;
 	private BufferedImage letterImage;
 	private Cursor letterCursor;
 	// brushes
@@ -178,9 +177,7 @@ public class ToolContext implements ToolContextConstants {
 		this.alphabetIndex = 0;
 		this.alphabet = this.alphabets.getLatter(0);
 		this.letterIndex = 0;
-		this.letter = this.alphabet[0];
-		this.letterFont = new Font("Helvetica", Font.BOLD, 36);
-		this.letterPUAFont = new Font("Constructium", Font.PLAIN, 36);
+		this.letter = this.alphabet.letters[0];
 		setLetterImageAndCursor();
 		// brushes
 		this.brushSets = mm.getBrushes();
@@ -618,19 +615,19 @@ public class ToolContext implements ToolContextConstants {
 	
 	// alphabets
 	
-	public PairList<String, char[]> getAlphabets() {
+	public PairList<String, Alphabet> getAlphabets() {
 		return alphabets;
 	}
 	
 	public String getAlphabetName() {
-		return alphabets.getFormer(alphabetIndex);
+		return alphabet.name;
 	}
 	
 	public int getAlphabetIndex() {
 		return alphabetIndex;
 	}
 	
-	public char[] getAlphabet() {
+	public Alphabet getAlphabet() {
 		return alphabet;
 	}
 	
@@ -638,20 +635,12 @@ public class ToolContext implements ToolContextConstants {
 		return letterIndex;
 	}
 	
-	public char getLetter() {
+	public int getLetter() {
 		return letter;
 	}
 	
 	public Font getLetterFont() {
-		return letterFont;
-	}
-	
-	public Font getLetterPUAFont() {
-		return letterPUAFont;
-	}
-	
-	public Font getFontForLetter() {
-		return (Character.getType(letter) == Character.PRIVATE_USE) ? letterPUAFont : letterFont;
+		return alphabet.font;
 	}
 	
 	public Image getLetterImage() {
@@ -667,7 +656,7 @@ public class ToolContext implements ToolContextConstants {
 			this.alphabetIndex = alphabets.indexOfFormer(alphabetName);
 			this.alphabet = alphabets.getLatter(alphabetIndex);
 			this.letterIndex = 0;
-			this.letter = this.alphabet[this.letterIndex];
+			this.letter = this.alphabet.letters[0];
 			setLetterImageAndCursor();
 			notifyToolContextListeners(CHANGED_ALPHABET_SET | CHANGED_ALPHABET_LETTER);
 		}
@@ -679,50 +668,39 @@ public class ToolContext implements ToolContextConstants {
 		this.alphabetIndex = alphabetIndex;
 		this.alphabet = alphabets.getLatter(alphabetIndex);
 		this.letterIndex = 0;
-		this.letter = this.alphabet[this.letterIndex];
+		this.letter = this.alphabet.letters[0];
 		setLetterImageAndCursor();
 		notifyToolContextListeners(CHANGED_ALPHABET_SET | CHANGED_ALPHABET_LETTER);
 	}
 	
 	public void prevAlphabet() {
-		setAlphabetIndex(alphabetIndex-1);
+		setAlphabetIndex(alphabetIndex - 1);
 	}
 	
 	public void nextAlphabet() {
-		setAlphabetIndex(alphabetIndex+1);
-	}
-	
-	public void setAlphabet(char[] alphabet) {
-		if (alphabets.containsLatter(alphabet)) {
-			this.alphabetIndex = alphabets.indexOfLatter(alphabet);
-		}
-		this.alphabet = alphabet;
-		this.letterIndex = 0;
-		this.letter = this.alphabet[this.letterIndex];
-		setLetterImageAndCursor();
-		notifyToolContextListeners(CHANGED_ALPHABET_SET | CHANGED_ALPHABET_LETTER);
+		setAlphabetIndex(alphabetIndex + 1);
 	}
 	
 	public void setLetterIndex(int letterIndex) {
-		while (letterIndex < 0) letterIndex += alphabet.length;
-		while (letterIndex >= alphabet.length) letterIndex -= alphabet.length;
+		while (letterIndex < 0) letterIndex += alphabet.letters.length;
+		while (letterIndex >= alphabet.letters.length) letterIndex -= alphabet.letters.length;
 		this.letterIndex = letterIndex;
-		this.letter = this.alphabet[this.letterIndex];
+		this.letter = this.alphabet.letters[letterIndex];
 		setLetterImageAndCursor();
 		notifyToolContextListeners(CHANGED_ALPHABET_LETTER);
 	}
 	
 	public void prevLetter() {
-		setLetterIndex(letterIndex-1);
+		setLetterIndex(letterIndex - 1);
 	}
 	
 	public void nextLetter() {
-		setLetterIndex(letterIndex+1);
+		setLetterIndex(letterIndex + 1);
 	}
 	
-	public void setLetter(char letter) {
-		for (int i = 0; i < alphabet.length; i++) {
-			if (alphabet[i] == letter) {
+	public void setLetter(int letter) {
+		for (int i = 0; i < alphabet.letters.length; i++) {
+			if (alphabet.letters[i] == letter) {
 				this.letterIndex = i;
 				break;
 			}
@@ -730,18 +708,6 @@ public class ToolContext implements ToolContextConstants {
 		this.letter = letter;
 		setLetterImageAndCursor();
 		notifyToolContextListeners(CHANGED_ALPHABET_LETTER);
-	}
-	
-	public void setLetterFont(Font letterFont) {
-		this.letterFont = letterFont;
-		setLetterImageAndCursor();
-		notifyToolContextListeners(CHANGED_ALPHABET_FONT);
-	}
-	
-	public void setLetterPUAFont(Font letterPUAFont) {
-		this.letterPUAFont = letterPUAFont;
-		setLetterImageAndCursor();
-		notifyToolContextListeners(CHANGED_ALPHABET_FONT);
 	}
 	
 	// brushes
@@ -1472,9 +1438,9 @@ public class ToolContext implements ToolContextConstants {
 		// calculate font metrics
 		this.letterImage = new BufferedImage(8, 8, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = this.letterImage.createGraphics();
-		Font f = (Character.getType(this.letter) == Character.PRIVATE_USE) ? this.letterPUAFont : this.letterFont;
+		Font f = this.alphabet.font;
 		FontMetrics fm = g.getFontMetrics(f);
-		int w = fm.stringWidth(Character.toString(this.letter));
+		int w = fm.charWidth(this.letter);
 		int h = fm.getHeight();
 		int a = fm.getAscent();
 		g.dispose();
@@ -1483,7 +1449,7 @@ public class ToolContext implements ToolContextConstants {
 		g = this.letterImage.createGraphics();
 		g.setFont(f);
 		g.setColor(Color.black);
-		g.drawString(Character.toString(this.letter), w/2, h/2+a);
+		g.drawString(String.valueOf(Character.toChars(this.letter)), w/2, h/2+a);
 		g.dispose();
 		// calculate bounding box and final hot spot using the temporary image
 		int hsx = w;

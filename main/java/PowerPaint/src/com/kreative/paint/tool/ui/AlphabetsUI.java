@@ -36,16 +36,13 @@ import javax.swing.border.Border;
 import com.kreative.paint.ToolContext;
 import com.kreative.paint.ToolContextConstants;
 import com.kreative.paint.ToolContextListener;
+import com.kreative.paint.alphabet.Alphabet;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.SwingUtils;
 import com.kreative.paint.util.UpdateLock;
 
 public class AlphabetsUI extends JPanel implements ToolContextListener {
 	private static final long serialVersionUID = 1L;
-	private static final Font smallfont = new Font("Helvetica", Font.BOLD, 18);
-	private static final Font font = new Font("Helvetica", Font.BOLD, 36);
-	private static final Font smallpuafont = new Font("Constructium", Font.BOLD, 18);
-	private static final Font puafont = new Font("Constructium", Font.BOLD, 36);
 	private UpdateLock u = new UpdateLock();
 	private ToolContext tc;
 	private JComboBox apop;
@@ -67,7 +64,7 @@ public class AlphabetsUI extends JPanel implements ToolContextListener {
 				if (u.lock()) {
 					AlphabetsUI.this.tc.setAlphabetIndex(apop.getSelectedIndex());
 					alyt.show(apanel, Integer.toString(AlphabetsUI.this.tc.getAlphabetIndex()));
-					afld.setText(Character.toString(AlphabetsUI.this.tc.getLetter()));
+					afld.setText(String.valueOf(Character.toChars(AlphabetsUI.this.tc.getLetter())));
 					u.unlock();
 				}
 			}
@@ -82,7 +79,7 @@ public class AlphabetsUI extends JPanel implements ToolContextListener {
 			apanels.add(a);
 		}
 		
-		afld = new JTextField(Character.toString(tc.getLetter()), 2);
+		afld = new JTextField(String.valueOf(Character.toChars(tc.getLetter())), 2);
 		afld.setEditable(false);
 		if (mini) SwingUtils.shrink(afld);
 		afld.addKeyListener(new KeyListener() {
@@ -121,13 +118,13 @@ public class AlphabetsUI extends JPanel implements ToolContextListener {
 			if (u.lock()) {
 				apop.setSelectedIndex(tc.getAlphabetIndex());
 				alyt.show(apanel, Integer.toString(tc.getAlphabetIndex()));
-				afld.setText(Character.toString(tc.getLetter()));
+				afld.setText(String.valueOf(Character.toChars(tc.getLetter())));
 				u.unlock();
 			}
 			for (LetterPanel a : apanels) a.updateSelection();
 		} else if ((delta & ToolContextConstants.CHANGED_ALPHABET_LETTER) != 0L) {
 			if (u.lock()) {
-				afld.setText(Character.toString(tc.getLetter()));
+				afld.setText(String.valueOf(Character.toChars(tc.getLetter())));
 				u.unlock();
 			}
 			for (LetterPanel a : apanels) a.updateSelection();
@@ -137,11 +134,11 @@ public class AlphabetsUI extends JPanel implements ToolContextListener {
 	private class LetterPanel extends JPanel implements Scrollable {
 		private static final long serialVersionUID = 1L;
 		private Set<LetterLabel> labels;
-		public LetterPanel(char[] ch, boolean mini) {
+		public LetterPanel(Alphabet ch, boolean mini) {
 			super(new GridLayout(0,14,-1,-1));
 			labels = new HashSet<LetterLabel>();
-			for (char c : ch) {
-				LetterLabel l = new LetterLabel(c, mini);
+			for (int c : ch.letters) {
+				LetterLabel l = new LetterLabel(ch, c, mini);
 				add(l);
 				labels.add(l);
 			}
@@ -183,17 +180,13 @@ public class AlphabetsUI extends JPanel implements ToolContextListener {
 	
 	private class LetterLabel extends JLabel {
 		private static final long serialVersionUID = 1L;
-		private char ch;
-		public LetterLabel(char ch, boolean mini) {
-			super(Character.toString(ch));
+		private final int ch;
+		public LetterLabel(Alphabet a, int ch, boolean mini) {
+			super(String.valueOf(Character.toChars(ch)));
 			setOpaque(true);
 			setBackground(Color.white);
 			setForeground(Color.black);
-			setFont(
-					(Character.getType(ch) == Character.PRIVATE_USE)
-					? (mini ? smallpuafont : puafont)
-					: (mini ? smallfont : font)
-			);
+			setFont(mini ? a.font.deriveFont(a.font.getSize2D() / 2.0f) : a.font);
 			setHorizontalAlignment(JLabel.CENTER);
 			this.ch = ch;
 			updateSelection();
