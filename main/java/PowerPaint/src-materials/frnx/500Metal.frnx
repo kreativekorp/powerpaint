@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE frame PUBLIC "-//Kreative//DTD FrameInfo 1.0//EN" "frnx.dtd">
+<frame
+	name="Metal"
+	content-start-x="11"
+	content-start-y="7"
+	content-extent-x="65"
+	content-extent-y="27"
+	repeat-start-x="24"
+	repeat-start-y="17"
+	repeat-extent-x="22"
+	repeat-extent-y="2"
+/>

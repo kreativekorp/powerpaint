@@ -1,0 +1,23 @@
+<!--
+	Date: 2015/07/26 20:40:50 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - FRAME INFO - - - - - - - - - - - - -->
+
+<!ELEMENT frame EMPTY>
+<!ATTLIST frame
+	name CDATA #IMPLIED
+	content-start-x CDATA #IMPLIED
+	content-start-y CDATA #IMPLIED
+	content-extent-x CDATA #IMPLIED
+	content-extent-y CDATA #IMPLIED
+	repeat-start-x CDATA #IMPLIED
+	repeat-start-y CDATA #IMPLIED
+	repeat-extent-x CDATA #IMPLIED
+	repeat-extent-y CDATA #IMPLIED
+	restrict-content-width-multiplier CDATA #IMPLIED
+	restrict-content-width-base CDATA #IMPLIED
+	restrict-content-height-multiplier CDATA #IMPLIED
+	restrict-content-height-base CDATA #IMPLIED
+>

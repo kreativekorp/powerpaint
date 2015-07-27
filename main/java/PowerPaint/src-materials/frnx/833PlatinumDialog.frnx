@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE frame PUBLIC "-//Kreative//DTD FrameInfo 1.0//EN" "frnx.dtd">
+<frame
+	name="Platinum Dialog"
+	content-start-x="4"
+	content-start-y="4"
+	content-extent-x="7"
+	content-extent-y="7"
+	repeat-start-x="4"
+	repeat-start-y="4"
+	repeat-extent-x="7"
+	repeat-extent-y="7"
+/>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE frame PUBLIC "-//Kreative//DTD FrameInfo 1.0//EN" "frnx.dtd">
+<frame
+	name="Lisa Menu"
+	content-start-x="2"
+	content-start-y="1"
+	content-extent-x="7"
+	content-extent-y="11"
+	repeat-start-x="7"
+	repeat-start-y="1"
+	repeat-extent-x="2"
+	repeat-extent-y="11"
+/>

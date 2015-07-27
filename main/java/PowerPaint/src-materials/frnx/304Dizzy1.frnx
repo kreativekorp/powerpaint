@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE frame PUBLIC "-//Kreative//DTD FrameInfo 1.0//EN" "frnx.dtd">
+<frame
+	name="Dizzy 1"
+	content-start-x="24"
+	content-start-y="23"
+	content-extent-x="10"
+	content-extent-y="10"
+	repeat-start-x="24"
+	repeat-start-y="23"
+	repeat-extent-x="10"
+	repeat-extent-y="10"
+	restrict-content-width-multiplier="10"
+	restrict-content-width-base="-2"
+	restrict-content-height-multiplier="10"
+	restrict-content-height-base="-2"
+/>
