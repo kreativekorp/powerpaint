@@ -41,6 +41,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Vector;
 import com.kreative.paint.alphabet.Alphabet;
+import com.kreative.paint.frame.Frame;
 import com.kreative.paint.powerbrush.BrushSettings;
 import com.kreative.paint.powerbrush.BrushShape;
 import com.kreative.paint.powershape.PowerShape;
@@ -49,7 +50,6 @@ import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.Bitmap;
 import com.kreative.paint.util.CursorUtils;
-import com.kreative.paint.util.Frame;
 import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.PairList;
 

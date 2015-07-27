@@ -1,7 +1,6 @@
 package com.kreative.paint.io;
 
-import java.awt.Image;
-import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -10,27 +9,26 @@ import java.io.IOException;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
 import com.kreative.paint.dither.*;
+import com.kreative.paint.frame.*;
 import com.kreative.paint.util.*;
 
 public class CKPUtilitySerializer extends Serializer {
 	private static final int TYPE_BITMAP = fcc("Bmap");
-	private static final int TYPE_FRAME = fcc("Fram");
-	private static final int TYPE_FRAMEINFO = fcc("FrIn");
 	private static final int TYPE_PAIR = fcc("Pair");
 	private static final int TYPE_PAIRLIST = fcc("PLst");
 	private static final int TYPE_DIFFUSION_DITHER_ALGORITHM = fcc("Dith");
 	private static final int TYPE_ORDERED_DITHER_ALGORITHM = fcc("Orth");
 	private static final int TYPE_RANDOM_DITHER_ALGORITHM = fcc("Rath");
+	private static final int TYPE_FRAME = fcc("Frm2");
 	
 	protected void loadRecognizedTypesAndClasses() {
 		addTypeAndClass(TYPE_BITMAP, 1, Bitmap.class);
-		addTypeAndClass(TYPE_FRAME, 1, Frame.class);
-		addTypeAndClass(TYPE_FRAMEINFO, 1, FrameInfo.class);
 		addTypeAndClass(TYPE_PAIR, 1, Pair.class);
 		addTypeAndClass(TYPE_PAIRLIST, 1, PairList.class);
 		addTypeAndClass(TYPE_DIFFUSION_DITHER_ALGORITHM, 2, DiffusionDitherAlgorithm.class);
 		addTypeAndClass(TYPE_ORDERED_DITHER_ALGORITHM, 2, OrderedDitherAlgorithm.class);
 		addTypeAndClass(TYPE_RANDOM_DITHER_ALGORITHM, 2, RandomDitherAlgorithm.class);
+		addTypeAndClass(TYPE_FRAME, 1, Frame.class);
 	}
 	
 	public void serializeObject(Object o, DataOutputStream stream) throws IOException {
@@ -51,24 +49,6 @@ public class CKPUtilitySerializer extends Serializer {
 			byte crgb[] = bos.toByteArray();
 			stream.writeInt(crgb.length);
 			stream.write(crgb);
-		} else if (o instanceof Frame) {
-			Frame v = (Frame)o;
-			SerializationManager.writeObject(v.getRawImage(), stream);
-			SerializationManager.writeObject(v.getRawFrameInfo(), stream);
-		} else if (o instanceof FrameInfo) {
-			FrameInfo v = (FrameInfo)o;
-			stream.writeShort(v.outerRect == null ? 0 : v.outerRect.x);
-			stream.writeShort(v.outerRect == null ? 0 : v.outerRect.y);
-			stream.writeShort(v.outerRect == null ? 0 : v.outerRect.width);
-			stream.writeShort(v.outerRect == null ? 0 : v.outerRect.height);
-			stream.writeShort(v.innerRect == null ? 0 : v.innerRect.x);
-			stream.writeShort(v.innerRect == null ? 0 : v.innerRect.y);
-			stream.writeShort(v.innerRect == null ? 0 : v.innerRect.width);
-			stream.writeShort(v.innerRect == null ? 0 : v.innerRect.height);
-			stream.writeShort(v.roundOffMultipleX);
-			stream.writeShort(v.roundOffOffsetX);
-			stream.writeShort(v.roundOffMultipleY);
-			stream.writeShort(v.roundOffOffsetY);
 		} else if (o instanceof Pair) {
 			Pair<?,?> v = (Pair<?,?>)o;
 			SerializationManager.writeObject(v.getFormer(), stream);
@@ -105,6 +85,22 @@ public class CKPUtilitySerializer extends Serializer {
 		} else if (o instanceof RandomDitherAlgorithm) {
 			RandomDitherAlgorithm v = (RandomDitherAlgorithm)o;
 			stream.writeUTF((v.name != null) ? v.name : "");
+		} else if (o instanceof Frame) {
+			Frame v = (Frame)o;
+			stream.writeShort(v.contentStartX);
+			stream.writeShort(v.contentStartY);
+			stream.writeShort(v.contentExtentX);
+			stream.writeShort(v.contentExtentY);
+			stream.writeShort(v.repeatStartX);
+			stream.writeShort(v.repeatStartY);
+			stream.writeShort(v.repeatExtentX);
+			stream.writeShort(v.repeatExtentY);
+			stream.writeShort(v.widthMultiplier);
+			stream.writeShort(v.widthBase);
+			stream.writeShort(v.heightMultiplier);
+			stream.writeShort(v.heightBase);
+			stream.writeUTF((v.name != null) ? v.name : "");
+			SerializationManager.writeObject(v.image, stream);
 		}
 	}
 	
@@ -126,36 +122,6 @@ public class CKPUtilitySerializer extends Serializer {
 			iis.close();
 			bis.close();
 			return new Bitmap(w, h, rgb);
-		} else if (type == TYPE_FRAME) {
-			if (version != 1) throw new IOException("Invalid version number.");
-			Image i = (Image)SerializationManager.readObject(stream);
-			FrameInfo f = (FrameInfo)SerializationManager.readObject(stream);
-			return new Frame(i, f);
-		} else if (type == TYPE_FRAMEINFO) {
-			if (version != 1) throw new IOException("Invalid version number.");
-			FrameInfo f = new FrameInfo();
-			int x, y, w, h;
-			x = stream.readShort();
-			y = stream.readShort();
-			w = stream.readShort();
-			h = stream.readShort();
-			if (x != 0 || y != 0 || w != 0 || h != 0)
-				f.outerRect = new Rectangle(x,y,w,h);
-			else
-				f.outerRect = null;
-			x = stream.readShort();
-			y = stream.readShort();
-			w = stream.readShort();
-			h = stream.readShort();
-			if (x != 0 || y != 0 || w != 0 || h != 0)
-				f.innerRect = new Rectangle(x,y,w,h);
-			else
-				f.innerRect = null;
-			f.roundOffMultipleX = stream.readShort();
-			f.roundOffOffsetX = stream.readShort();
-			f.roundOffMultipleY = stream.readShort();
-			f.roundOffOffsetY = stream.readShort();
-			return f;
 		} else if (type == TYPE_PAIR) {
 			if (version != 1) throw new IOException("Invalid version number.");
 			Object f = SerializationManager.readObject(stream);
@@ -249,6 +215,29 @@ public class CKPUtilitySerializer extends Serializer {
 			} else {
 				return new RandomDitherAlgorithm(null);
 			}
+		} else if (type == TYPE_FRAME) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			int contentStartX = stream.readShort();
+			int contentStartY = stream.readShort();
+			int contentExtentX = stream.readShort();
+			int contentExtentY = stream.readShort();
+			int repeatStartX = stream.readShort();
+			int repeatStartY = stream.readShort();
+			int repeatExtentX = stream.readShort();
+			int repeatExtentY = stream.readShort();
+			int widthMultiplier = stream.readShort();
+			int widthBase = stream.readShort();
+			int heightMultiplier = stream.readShort();
+			int heightBase = stream.readShort();
+			String name = stream.readUTF();
+			BufferedImage image = (BufferedImage)SerializationManager.readObject(stream);
+			return new Frame(
+				image,
+				contentStartX, contentStartY, contentExtentX, contentExtentY,
+				repeatStartX, repeatStartY, repeatExtentX, repeatExtentY,
+				widthMultiplier, widthBase, heightMultiplier, heightBase,
+				name
+			);
 		} else {
 			return null;
 		}

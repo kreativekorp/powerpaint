@@ -63,6 +63,8 @@ import com.kreative.paint.dither.DitherAlgorithmParser;
 import com.kreative.paint.dither.RandomDitherAlgorithm;
 import com.kreative.paint.filter.Filter;
 import com.kreative.paint.format.Format;
+import com.kreative.paint.frame.Frame;
+import com.kreative.paint.frame.FrameReader;
 import com.kreative.paint.gradient.GradientColorMap;
 import com.kreative.paint.gradient.GradientList;
 import com.kreative.paint.gradient.GradientParser;
@@ -92,7 +94,6 @@ import com.kreative.paint.stroke.StrokeParser;
 import com.kreative.paint.stroke.StrokeSet;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.Bitmap;
-import com.kreative.paint.util.Frame;
 import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.PairList;
 
@@ -520,41 +521,43 @@ public class MaterialsManager {
 	}
 	
 	private PairList<String,Frame> frames = null;
-	public PairList<String,Frame> getFrames() {
-		if (frames == null) {
-			frames = new PairList<String,Frame>();
-			for (Resource r : rm.getResources(ResourceCategory.FRAMES)) {
-				try {
-					Frame f = new Frame(r.data());
-					frames.add(r.name(), f);
-				} catch (Exception e) {
-					System.err.println("Warning: Ignoring invalid image: "+r.name());
-				}
-			}
-			if (frames.isEmpty()) {
-				System.err.println("Notice: No frames found. Generating generic frames.");
-				BufferedImage i1 = new BufferedImage(4, 4, BufferedImage.TYPE_INT_ARGB);
-				BufferedImage i2 = new BufferedImage(4, 4, BufferedImage.TYPE_INT_ARGB);
-				BufferedImage i3 = new BufferedImage(4, 4, BufferedImage.TYPE_INT_ARGB);
-				for (int j = 0; j < 4; j++) {
-					i1.setRGB(0, j, 0xFF000000);
-					i1.setRGB(3, j, 0xFF000000);
-					i1.setRGB(j, 0, 0xFF000000);
-					i1.setRGB(j, 3, 0xFF000000);
-					i2.setRGB(0, j, 0xFF808080);
-					i2.setRGB(3, j, 0xFF808080);
-					i2.setRGB(j, 0, 0xFF808080);
-					i2.setRGB(j, 3, 0xFF808080);
-					i3.setRGB(0, j, 0xFFFFFFFF);
-					i3.setRGB(3, j, 0xFFFFFFFF);
-					i3.setRGB(j, 0, 0xFFFFFFFF);
-					i3.setRGB(j, 3, 0xFFFFFFFF);
-				}
-				frames.add("Simple Black", new Frame(i1));
-				frames.add("Simple Gray", new Frame(i2));
-				frames.add("Simple White", new Frame(i3));
+	private void loadFrames() {
+		frames = new PairList<String,Frame>();
+		for (Resource r : rm.getResources(ResourceCategory.FRAMES)) {
+			try {
+				Frame frame = FrameReader.readFrame(r.name(), r.data());
+				String name = (frame.name != null) ? frame.name : r.name();
+				frames.add(name, frame);
+			} catch (IOException ioe) {
+				System.err.println("Warning: Ignoring invalid image: " + r.name());
 			}
 		}
+		if (frames.isEmpty()) {
+			System.err.println("Notice: No frames found. Generating generic frames.");
+			BufferedImage i1 = new BufferedImage(4, 4, BufferedImage.TYPE_INT_ARGB);
+			BufferedImage i2 = new BufferedImage(4, 4, BufferedImage.TYPE_INT_ARGB);
+			BufferedImage i3 = new BufferedImage(4, 4, BufferedImage.TYPE_INT_ARGB);
+			for (int j = 0; j < 4; j++) {
+				i1.setRGB(0, j, 0xFF000000);
+				i1.setRGB(3, j, 0xFF000000);
+				i1.setRGB(j, 0, 0xFF000000);
+				i1.setRGB(j, 3, 0xFF000000);
+				i2.setRGB(0, j, 0xFF808080);
+				i2.setRGB(3, j, 0xFF808080);
+				i2.setRGB(j, 0, 0xFF808080);
+				i2.setRGB(j, 3, 0xFF808080);
+				i3.setRGB(0, j, 0xFFFFFFFF);
+				i3.setRGB(3, j, 0xFFFFFFFF);
+				i3.setRGB(j, 0, 0xFFFFFFFF);
+				i3.setRGB(j, 3, 0xFFFFFFFF);
+			}
+			frames.add("Simple Black", new Frame(i1, "Simple Black"));
+			frames.add("Simple Gray", new Frame(i2, "Simple Gray"));
+			frames.add("Simple White", new Frame(i3, "Simple White"));
+		}
+	}
+	public PairList<String,Frame> getFrames() {
+		if (frames == null) loadFrames();
 		return frames;
 	}
 	
