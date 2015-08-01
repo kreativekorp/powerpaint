@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Base16 Ashes">
+	<colors ordered="ordered">
+		<rgb r= "28" g= "32" b= "35"/>
+		<rgb r= "57" g= "63" b= "69"/>
+		<rgb r= "86" g= "94" b="101"/>
+		<rgb r="116" g="124" b="132"/>
+		<rgb r="173" g="179" b="186"/>
+		<rgb r="199" g="204" b="209"/>
+		<rgb r="223" g="226" b="229"/>
+		<rgb r="243" g="244" b="245"/>
+		<rgb r="199" g="174" b="149"/>
+		<rgb r="199" g="199" b="149"/>
+		<rgb r="174" g="199" b="149"/>
+		<rgb r="149" g="199" b="174"/>
+		<rgb r="149" g="174" b="199"/>
+		<rgb r="174" g="149" b="199"/>
+		<rgb r="199" g="149" b="174"/>
+		<rgb r="199" g="149" b="149"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

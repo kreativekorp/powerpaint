@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Base16 Brewer">
+	<colors ordered="ordered">
+		<rgb r= "12" g= "13" b= "14"/>
+		<rgb r= "46" g= "47" b= "48"/>
+		<rgb r= "81" g= "82" b= "83"/>
+		<rgb r="115" g="116" b="117"/>
+		<rgb r="149" g="150" b="151"/>
+		<rgb r="183" g="184" b="185"/>
+		<rgb r="218" g="219" b="220"/>
+		<rgb r="252" g="253" b="254"/>
+		<rgb r="227" g= "26" b= "28"/>
+		<rgb r="230" g= "85" b= "13"/>
+		<rgb r="220" g="160" b= "96"/>
+		<rgb r= "49" g="163" b= "84"/>
+		<rgb r="128" g="177" b="211"/>
+		<rgb r= "49" g="130" b="189"/>
+		<rgb r="117" g="107" b="177"/>
+		<rgb r="177" g= "89" b= "40"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

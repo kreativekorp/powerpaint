@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Base16 Railscasts">
+	<colors ordered="ordered">
+		<rgb r= "43" g= "43" b= "43"/>
+		<rgb r= "39" g= "41" b= "53"/>
+		<rgb r= "58" g= "64" b= "85"/>
+		<rgb r= "90" g="100" b="126"/>
+		<rgb r="212" g="207" b="201"/>
+		<rgb r="230" g="225" b="220"/>
+		<rgb r="244" g="241" b="237"/>
+		<rgb r="249" g="247" b="243"/>
+		<rgb r="218" g= "73" b= "57"/>
+		<rgb r="204" g="120" b= "51"/>
+		<rgb r="255" g="198" b="109"/>
+		<rgb r="165" g="194" b= "97"/>
+		<rgb r= "81" g="159" b= "80"/>
+		<rgb r="109" g="156" b="190"/>
+		<rgb r="182" g="179" b="235"/>
+		<rgb r="188" g="148" b= "88"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

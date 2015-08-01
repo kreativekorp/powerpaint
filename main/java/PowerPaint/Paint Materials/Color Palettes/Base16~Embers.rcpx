@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Base16 Embers">
+	<colors ordered="ordered">
+		<rgb r= "22" g= "19" b= "15"/>
+		<rgb r= "44" g= "38" b= "32"/>
+		<rgb r= "67" g= "59" b= "50"/>
+		<rgb r= "90" g= "80" b= "71"/>
+		<rgb r="138" g="128" b="117"/>
+		<rgb r="163" g="154" b="144"/>
+		<rgb r="190" g="182" b="174"/>
+		<rgb r="219" g="214" b="209"/>
+		<rgb r="130" g="109" b= "87"/>
+		<rgb r="130" g="130" b= "87"/>
+		<rgb r="109" g="130" b= "87"/>
+		<rgb r= "87" g="130" b="109"/>
+		<rgb r= "87" g="109" b="130"/>
+		<rgb r="109" g= "87" b="130"/>
+		<rgb r="130" g= "87" b="109"/>
+		<rgb r="130" g= "87" b= "87"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
