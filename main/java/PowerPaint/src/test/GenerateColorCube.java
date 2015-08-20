@@ -1,42 +1,64 @@
 package test;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
 public class GenerateColorCube {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		for (String arg : args) {
 			int s = Integer.parseInt(arg);
-			generateCubePalette(s);
+			File file = new File(cubePaletteFileName(s));
+			FileOutputStream fout = new FileOutputStream(file);
+			PrintStream out = new PrintStream(fout);
+			generateCubePalette(out, s);
+			out.flush();
+			out.close();
+			fout.close();
 		}
 	}
 	
-	private static void generateCubePalette(int s) {
-		System.out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-		System.out.println("<!DOCTYPE palette PUBLIC \"-//Kreative//DTD ResplendentColor 1.0//EN\" \"rcpx.dtd\">");
-		System.out.println("<palette name=\"" + cubePaletteName(s) + "\"" + cubePaletteSize(s) + ">");
-		System.out.println("\t<colors ordered=\"unordered\">");
-		generateCubeColors("\t\t", s - 1);
-		System.out.println("\t</colors>");
-		System.out.println("\t<layout>");
-		System.out.println("\t\t<oriented>");
-		System.out.println("\t\t\t<horizontal>");
-		System.out.println("\t\t\t\t<row>");
-		generateCubeLayout("\t\t\t\t\t", s);
-		System.out.println("\t\t\t\t</row>");
-		System.out.println("\t\t\t</horizontal>");
-		System.out.println("\t\t\t<square>");
-		generateCubeLayoutSquare("\t\t\t\t", s);
-		System.out.println("\t\t\t</square>");
-		System.out.println("\t\t\t<vertical>");
-		System.out.println("\t\t\t\t<column>");
-		generateCubeLayout("\t\t\t\t\t", s);
-		System.out.println("\t\t\t\t</column>");
-		System.out.println("\t\t\t</vertical>");
-		System.out.println("\t\t</oriented>");
-		System.out.println("\t</layout>");
-		System.out.println("</palette>");
+	private static String cubePaletteFileName(int s) {
+		String ss = "00" + s;
+		ss = ss.substring(ss.length() - 2);
+		ss = "0" + ss + "Cubic";
+		switch (s) {
+			case 2: ss += "Process"; break;
+			case 6: ss += "WebSafe"; break;
+		}
+		return ss + ".rcpx";
+	}
+	
+	private static void generateCubePalette(PrintStream out, int s) {
+		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+		out.println("<!DOCTYPE palette PUBLIC \"-//Kreative//DTD ResplendentColor 1.0//EN\" \"rcpx.dtd\">");
+		out.println("<palette name=\"" + cubePaletteName(s) + "\"" + cubePaletteSize(s) + ">");
+		out.println("\t<colors ordered=\"unordered\">");
+		generateCubeColors(out, "\t\t", s - 1);
+		out.println("\t</colors>");
+		out.println("\t<layout>");
+		out.println("\t\t<oriented>");
+		out.println("\t\t\t<horizontal>");
+		out.println("\t\t\t\t<row>");
+		generateCubeLayout(out, "\t\t\t\t\t", s);
+		out.println("\t\t\t\t</row>");
+		out.println("\t\t\t</horizontal>");
+		out.println("\t\t\t<square>");
+		generateCubeLayoutSquare(out, "\t\t\t\t", s);
+		out.println("\t\t\t</square>");
+		out.println("\t\t\t<vertical>");
+		out.println("\t\t\t\t<column>");
+		generateCubeLayout(out, "\t\t\t\t\t", s);
+		out.println("\t\t\t\t</column>");
+		out.println("\t\t\t</vertical>");
+		out.println("\t\t</oriented>");
+		out.println("\t</layout>");
+		out.println("</palette>");
 	}
 	
 	private static String cubePaletteName(int s) {
-		String ss = s + " Cubed";
+		String ss = "Cubic " + s + "x" + s + "x" + s;
 		switch (s) {
 			case 2: ss += " (Process)"; break;
 			case 6: ss += " (Web-Safe)"; break;
@@ -68,7 +90,7 @@ public class GenerateColorCube {
 		     + "\n         vwidth=" + hhs + " vheight=" + hws;
 	}
 	
-	private static void generateCubeColors(String prefix, int m) {
+	private static void generateCubeColors(PrintStream out, String prefix, int m) {
 		for (int z = 0; z <= m; z++) {
 			int b = (int)Math.round(65535.0 * (double)z / (double)m);
 			String bs = "        \"" + b + "\"";
@@ -81,53 +103,53 @@ public class GenerateColorCube {
 					int r = (int)Math.round(65535.0 * (double)x / (double)m);
 					String rs = "        \"" + r + "\"";
 					rs = rs.substring(rs.length() - 7);
-					System.out.println(prefix + "<rgb16 r=" + rs + " g=" + gs + " b=" + bs + "/>");
+					out.println(prefix + "<rgb16 r=" + rs + " g=" + gs + " b=" + bs + "/>");
 				}
 			}
 		}
 	}
 	
-	private static void generateCubeLayout(String prefix, int n) {
+	private static void generateCubeLayout(PrintStream out, String prefix, int n) {
 		int l = Integer.toString(n * n * n).length() + 2;
 		int i = 0;
 		for (int z = 0; z < n; z++) {
-			i = generateCubeFace(prefix, n, l, i);
+			i = generateCubeFace(out, prefix, n, l, i);
 		}
 	}
 	
-	private static void generateCubeLayoutSquare(String prefix, int n) {
+	private static void generateCubeLayoutSquare(PrintStream out, String prefix, int n) {
 		int n3 = n * n * n;
 		int l = Integer.toString(n3).length() + 2;
 		int i = 0;
 		int r = (int)Math.floor(Math.sqrt((double)n));
 		if (r < 2) r = 2;
 		int c = (int)Math.ceil((double)n / (double)r);
-		System.out.println(prefix + "<column>");
+		out.println(prefix + "<column>");
 		for (int y = 0; y < r; y++) {
-			System.out.println(prefix + "\t<row>");
+			out.println(prefix + "\t<row>");
 			for (int x = 0; x < c; x++) {
 				if (i < n3) {
-					i = generateCubeFace(prefix + "\t\t", n, l, i);
+					i = generateCubeFace(out, prefix + "\t\t", n, l, i);
 				} else {
-					System.out.println(prefix + "\t\t<empty/>");
+					out.println(prefix + "\t\t<empty/>");
 				}
 			}
-			System.out.println(prefix + "\t</row>");
+			out.println(prefix + "\t</row>");
 		}
-		System.out.println(prefix + "</column>");
+		out.println(prefix + "</column>");
 	}
 	
-	private static int generateCubeFace(String prefix, int n, int l, int i) {
-		System.out.println(prefix + "<column>");
+	private static int generateCubeFace(PrintStream out, String prefix, int n, int l, int i) {
+		out.println(prefix + "<column>");
 		for (int y = 0; y < n; y++) {
 			String ss = "        \"" + i + "\"";
 			ss = ss.substring(ss.length() - l);
 			i += n;
 			String es = "        \"" + i + "\"";
 			es = es.substring(es.length() - l);
-			System.out.println(prefix + "\t<row><range start=" + ss + " end=" + es + "/></row>");
+			out.println(prefix + "\t<row><range start=" + ss + " end=" + es + "/></row>");
 		}
-		System.out.println(prefix + "</column>");
+		out.println(prefix + "</column>");
 		return i;
 	}
 }
