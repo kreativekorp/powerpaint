@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
-<palette name="CGA">
+<palette name="CGA (Imitation)">
 	<colors ordered="ordered">
 		<rgb r=  "0" g=  "0" b=  "0"/>
 		<rgb r=  "0" g=  "0" b="170"/>
@@ -8,7 +8,7 @@
 		<rgb r=  "0" g="170" b="170"/>
 		<rgb r="170" g=  "0" b=  "0"/>
 		<rgb r="170" g=  "0" b="170"/>
-		<rgb r="170" g= "85" b=  "0"/>
+		<rgb r="170" g="170" b=  "0"/>
 		<rgb r="170" g="170" b="170"/>
 		<rgb r= "85" g= "85" b= "85"/>
 		<rgb r= "85" g= "85" b="255"/>
