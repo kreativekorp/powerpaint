@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
 <palette name="Cubic 9x9x9"
-         hwidth="568" hheight= "73"
-         swidth="190" sheight="190"
-         vwidth= "73" vheight="568">
+         hwidth="649" hheight= "73"
+         swidth="217" sheight="217"
+         vwidth= "73" vheight="649">
 	<colors ordered="unordered">
 		<rgb16 r=    "0" g=    "0" b=    "0"/>
 		<rgb16 r= "8192" g=    "0" b=    "0"/>

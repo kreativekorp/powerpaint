@@ -67,14 +67,14 @@ public class GenerateColorCube {
 	}
 	
 	private static String cubePaletteSize(int n) {
-		int hch = (int)Math.round(72.0 / (double)n); if (hch < 7) hch = 7;
-		int hcw = (int)Math.round(288.0 / (double)(n * n)); if (hcw < 7) hcw = 7;
+		int hch = (int)Math.round(72.0 / (double)n); if (hch < 8) hch = 8;
+		int hcw = (int)Math.round(288.0 / (double)(n * n)); if (hcw < 8) hcw = 8;
 		int hh = hch * n + 1;
 		int hw = hcw * n * n + 1;
 		int r = (int)Math.floor(Math.sqrt((double)n)); if (r < 2) r = 2;
 		int c = (int)Math.ceil((double)n / (double)r);
-		int sch = (int)Math.round(144.0 / (double)(r * n)); if (sch < 7) sch = 7;
-		int scw = (int)Math.round(144.0 / (double)(c * n)); if (scw < 7) scw = 7;
+		int sch = (int)Math.round(144.0 / (double)(r * n)); if (sch < 8) sch = 8;
+		int scw = (int)Math.round(144.0 / (double)(c * n)); if (scw < 8) scw = 8;
 		int sh = sch * r * n + 1;
 		int sw = scw * c * n + 1;
 		while (sw > (sh + sh / 2)) {
