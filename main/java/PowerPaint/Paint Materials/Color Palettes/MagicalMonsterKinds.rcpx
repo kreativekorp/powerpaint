@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Magical Monster Kinds"
+         hwidth="325" hheight= "73"
+         swidth="145" sheight="145"
+         vwidth= "73" vheight="325">
+	<colors ordered="unordered">
+		<rgb r="168" g="168" b="124" name="Normal"  />
+		<rgb r="195" g= "45" b= "41" name="Fighting"/>
+		<rgb r="169" g="144" b="235" name="Flying"  />
+		<rgb r="163" g= "63" b="156" name="Poison"  />
+		<rgb r="225" g="192" b="113" name="Ground"  />
+		<rgb r="185" g="160" b= "69" name="Rock"    />
+		<rgb r="167" g="184" b= "60" name="Bug"     />
+		<rgb r="113" g= "88" b="149" name="Ghost"   />
+		<rgb r="184" g="184" b="207" name="Steel"   />
+		<rgb r="243" g="127" b= "58" name="Fire"    />
+		<rgb r="101" g="144" b="235" name="Water"   />
+		<rgb r="115" g="200" b= "94" name="Grass"   />
+		<rgb r="250" g="208" b= "74" name="Electric"/>
+		<rgb r="252" g= "85" b="134" name="Psychic" />
+		<rgb r="148" g="216" b="216" name="Ice"     />
+		<rgb r="113" g= "56" b="241" name="Dragon"  />
+		<rgb r="113" g= "88" b= "73" name="Dark"    />
+		<rgb r="241" g="152" b="171" name="Fairy"   />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "9"/></row>
+					<row><range start="9" end="18"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "3"/></row>
+					<row><range start= "3" end= "6"/></row>
+					<row><range start= "6" end= "9"/></row>
+					<row><range start= "9" end="12"/></row>
+					<row><range start="12" end="15"/></row>
+					<row><range start="15" end="18"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "9"/></column>
+					<column><range start="9" end="18"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
