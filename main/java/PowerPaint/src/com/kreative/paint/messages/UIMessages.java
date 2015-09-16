@@ -42,6 +42,7 @@ public class UIMessages extends ListResourceBundle {
 			{ "program.copyright3", "Melissa Superpaint \u00A9 1999-2012 Rebecca G. Bettencourt /<br>Kreative Entertainment. All rights reserved." },
 			// This is the default color palette, the default texture palette, and the default pattern palette.
 			{ "program.pdef.colors", "SuperPaint" },
+			{ "program.pdef.colorlist", "Mac OS Classic Crayons" },
 			{ "program.pdef.textures", "SuperPaint" },
 			{ "program.pdef.patterns", "SuperPaint" },
 			// This is the credits roll.

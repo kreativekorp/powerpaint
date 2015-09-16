@@ -49,13 +49,16 @@ public class PaletteManager {
 	private FontPalette fontPalette;
 	private ToolOptionsPalette toolOptionsPalette;
 	
-	public PaletteManager(ToolContext tc, PaintContext pc, ToolManager tm, MaterialsManager mm, String defCP, String defTP, String defPP) {
+	public PaletteManager(
+		ToolContext tc, PaintContext pc, ToolManager tm, MaterialsManager mm,
+		String defCP, String defCL, String defTP, String defPP
+	) {
 		toolPalette = new ToolPalette(tc, tm);
 		snfPalette = new SNFPalette(
 				pc,
 				colorPalettePalette = new ColorPalettePalette(pc, mm, defCP),
 				new PaintContextPalette[]{
-					colorListPalette = new ColorListPalette(pc, mm),
+					colorListPalette = new ColorListPalette(pc, mm, defCL),
 					colorCubePalette = new ColorCubePalette(pc),
 					colorSliderPalette = new ColorSliderPalette(pc),
 					colorWheelPalette = new ColorWheelPalette(pc),

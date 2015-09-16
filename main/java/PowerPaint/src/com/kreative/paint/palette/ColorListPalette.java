@@ -35,9 +35,9 @@ public class ColorListPalette extends PaintContextPalette {
 	
 	private ColorListPanel cpp;
 	
-	public ColorListPalette(PaintContext pc, MaterialsManager mm) {
+	public ColorListPalette(PaintContext pc, MaterialsManager mm, String initialSelection) {
 		super(pc);
-		panels.add(cpp = new ColorListPanel(pc, mm));
+		panels.add(cpp = new ColorListPanel(pc, mm, initialSelection));
 		setContentPane(cpp);
 		setResizable(true);
 		pack();

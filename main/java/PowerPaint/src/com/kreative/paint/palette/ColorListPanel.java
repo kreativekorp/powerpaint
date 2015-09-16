@@ -49,7 +49,7 @@ public class ColorListPanel extends PaintContextPanel {
 	private JList colorsList;
 	private JComboBox list;
 	
-	public ColorListPanel(PaintContext pc, MaterialsManager mm) {
+	public ColorListPanel(PaintContext pc, MaterialsManager mm, String initialSelection) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
 		colorMap = mm.getColorLists();
 		
@@ -109,8 +109,11 @@ public class ColorListPanel extends PaintContextPanel {
 			}
 		};
 		list.addItemListener(il);
-		list.setSelectedIndex(0);
-		il.itemStateChanged(new ItemEvent(list, ItemEvent.SELECTED, list.getItemAt(0), ItemEvent.SELECTED));
+		if (!colorMap.containsFormer(initialSelection)) {
+			initialSelection = colorMap.getFormer(0);
+		}
+		list.setSelectedItem(initialSelection);
+		il.itemStateChanged(new ItemEvent(list, ItemEvent.SELECTED, initialSelection, ItemEvent.SELECTED));
 		update();
 	}
 	

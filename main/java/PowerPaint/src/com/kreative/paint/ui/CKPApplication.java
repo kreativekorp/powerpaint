@@ -132,6 +132,7 @@ public class CKPApplication {
 		pm = new PaletteManager(
 				tc, pc, tm, mm,
 				UIUtilities.messages.getString("program.pdef.colors"),
+				UIUtilities.messages.getString("program.pdef.colorlist"),
 				UIUtilities.messages.getString("program.pdef.textures"),
 				UIUtilities.messages.getString("program.pdef.patterns")
 		);
