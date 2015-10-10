@@ -60,6 +60,19 @@ public abstract class GradientColor {
 		}
 	}
 	
+	public static class RGBD extends GradientColor {
+		public final float r, g, b;
+		public RGBD(float r, float g, float b) {
+			this.r = r1(r);
+			this.g = r1(g);
+			this.b = r1(b);
+		}
+		@Override
+		public Color awtColor() {
+			return new Color(r, g, b);
+		}
+	}
+	
 	public static class RGBA extends GradientColor {
 		public final int r, g, b, a;
 		public RGBA(int r, int g, int b, int a) {
@@ -85,6 +98,20 @@ public abstract class GradientColor {
 		@Override
 		public Color awtColor() {
 			return new Color(r / 65535.0f, g / 65535.0f, b / 65535.0f, a / 65535.0f);
+		}
+	}
+	
+	public static class RGBAD extends GradientColor {
+		public final float r, g, b, a;
+		public RGBAD(float r, float g, float b, float a) {
+			this.r = r1(r);
+			this.g = r1(g);
+			this.b = r1(b);
+			this.a = r1(a);
+		}
+		@Override
+		public Color awtColor() {
+			return new Color(r, g, b, a);
 		}
 	}
 	
@@ -126,6 +153,12 @@ public abstract class GradientColor {
 	private static int r16(int value) {
 		if (value <= 0) return 0;
 		if (value >= 65535) return 65535;
+		return value;
+	}
+	
+	private static float r1(float value) {
+		if (value <= 0.0f) return 0.0f;
+		if (value >= 1.0f) return 1.0f;
 		return value;
 	}
 	

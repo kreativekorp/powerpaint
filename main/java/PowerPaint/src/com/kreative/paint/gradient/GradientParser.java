@@ -219,6 +219,12 @@ public class GradientParser {
 				parseInt(attr, "g", 0),
 				parseInt(attr, "b", 0)
 			);
+		} else if (type.equalsIgnoreCase("rgbd")) {
+			return new GradientColor.RGBD(
+				parseRGBD(attr, "r", 0.0f),
+				parseRGBD(attr, "g", 0.0f),
+				parseRGBD(attr, "b", 0.0f)
+			);
 		} else if (type.equalsIgnoreCase("rgba")) {
 			return new GradientColor.RGBA(
 				parseInt(attr, "r", 0),
@@ -232,6 +238,13 @@ public class GradientParser {
 				parseInt(attr, "g", 0),
 				parseInt(attr, "b", 0),
 				parseInt(attr, "a", 0)
+			);
+		} else if (type.equalsIgnoreCase("rgbad")) {
+			return new GradientColor.RGBAD(
+				parseRGBD(attr, "r", 0.0f),
+				parseRGBD(attr, "g", 0.0f),
+				parseRGBD(attr, "b", 0.0f),
+				parseRGBD(attr, "a", 0.0f)
 			);
 		} else if (type.equalsIgnoreCase("hsv")) {
 			return new GradientColor.HSV(
@@ -248,6 +261,30 @@ public class GradientParser {
 			);
 		} else {
 			throw new IOException("Unknown element: " + type);
+		}
+	}
+	
+	private static float parseRGBD(NamedNodeMap attr, String key, float def) {
+		if (attr == null) return def;
+		Node node = attr.getNamedItem(key);
+		if (node == null) return def;
+		String text = node.getTextContent();
+		if (text == null) return def;
+		try {
+			int o = text.indexOf("/");
+			if (o >= 0) {
+				float n = Float.parseFloat(text.substring(0, o).trim());
+				float d = Float.parseFloat(text.substring(o + 1).trim());
+				return n / d;
+			}
+			text = text.trim();
+			if (text.endsWith("%")) {
+				float p = Float.parseFloat(text.substring(0, text.length() - 1).trim());
+				return p / 100.0f;
+			}
+			return Float.parseFloat(text);
+		} catch (NumberFormatException nfe) {
+			return def;
 		}
 	}
 	

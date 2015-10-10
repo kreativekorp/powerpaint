@@ -40,6 +40,23 @@ public abstract class RCPXColor {
 		}
 	}
 	
+	public static class RGBD extends RCPXColor {
+		public final float r, g, b;
+		public final String name;
+		public RGBD(float r, float g, float b, String name) {
+			this.r = r; this.g = g; this.b = b;
+			this.name = name;
+		}
+		@Override
+		public Color awtColor() {
+			return new Color(r, g, b);
+		}
+		@Override
+		public String name() {
+			return name;
+		}
+	}
+	
 	public static class RGBA extends RCPXColor {
 		public final int r, g, b, a;
 		public final String name;
@@ -67,6 +84,23 @@ public abstract class RCPXColor {
 		@Override
 		public Color awtColor() {
 			return new Color(r / 65535.0f, g / 65535.0f, b / 65535.0f, a / 65535.0f);
+		}
+		@Override
+		public String name() {
+			return name;
+		}
+	}
+	
+	public static class RGBAD extends RCPXColor {
+		public final float r, g, b, a;
+		public final String name;
+		public RGBAD(float r, float g, float b, float a, String name) {
+			this.r = r; this.g = g; this.b = b; this.a = a;
+			this.name = name;
+		}
+		@Override
+		public Color awtColor() {
+			return new Color(r, g, b, a);
 		}
 		@Override
 		public String name() {
