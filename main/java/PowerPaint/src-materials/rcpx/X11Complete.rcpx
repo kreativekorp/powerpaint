@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
-<palette name="X11 Colors"
-         hwidth="369" hheight= "97"
-         swidth="193" sheight="185"
-         vwidth= "97" vheight="369">
+<palette name="X11 Complete"
+         hwidth="417" hheight="105"
+         swidth="209" sheight="209"
+         vwidth="105" vheight="417">
 	<colors ordered="ordered">
 		<rgb r="255" g="250" b="250" name="Snow"                  />
 		<rgb r="248" g="248" b="255" name="Ghost White"           />
@@ -33,10 +33,20 @@
 		<rgb r="255" g="255" b="255" name="White"                 />
 		<rgb r=  "0" g=  "0" b=  "0" name="Black"                 />
 		<rgb r= "47" g= "79" b= "79" name="Dark Slate Gray"       />
+		<rgb r= "47" g= "79" b= "79" name="Dark Slate Grey"       />
 		<rgb r="105" g="105" b="105" name="Dim Gray"              />
+		<rgb r="105" g="105" b="105" name="Dim Grey"              />
 		<rgb r="112" g="128" b="144" name="Slate Gray"            />
+		<rgb r="112" g="128" b="144" name="Slate Grey"            />
 		<rgb r="119" g="136" b="153" name="Light Slate Gray"      />
+		<rgb r="119" g="136" b="153" name="Light Slate Grey"      />
 		<rgb r="190" g="190" b="190" name="Gray"                  />
+		<rgb r="190" g="190" b="190" name="Grey"                  />
+		<rgb r="190" g="190" b="190" name="X11 Gray"              />
+		<rgb r="190" g="190" b="190" name="X11 Grey"              />
+		<rgb r="128" g="128" b="128" name="Web Gray"              />
+		<rgb r="128" g="128" b="128" name="Web Grey"              />
+		<rgb r="211" g="211" b="211" name="Light Grey"            />
 		<rgb r="211" g="211" b="211" name="Light Gray"            />
 		<rgb r= "25" g= "25" b="112" name="Midnight Blue"         />
 		<rgb r=  "0" g=  "0" b="128" name="Navy"                  />
@@ -62,6 +72,7 @@
 		<rgb r= "72" g="209" b="204" name="Medium Turquoise"      />
 		<rgb r= "64" g="224" b="208" name="Turquoise"             />
 		<rgb r=  "0" g="255" b="255" name="Cyan"                  />
+		<rgb r=  "0" g="255" b="255" name="Aqua"                  />
 		<rgb r="224" g="255" b="255" name="Light Cyan"            />
 		<rgb r= "95" g="158" b="160" name="Cadet Blue"            />
 		<rgb r="102" g="205" b="170" name="Medium Aquamarine"     />
@@ -76,6 +87,9 @@
 		<rgb r=  "0" g="255" b="127" name="Spring Green"          />
 		<rgb r="124" g="252" b=  "0" name="Lawn Green"            />
 		<rgb r=  "0" g="255" b=  "0" name="Green"                 />
+		<rgb r=  "0" g="255" b=  "0" name="Lime"                  />
+		<rgb r=  "0" g="255" b=  "0" name="X11 Green"             />
+		<rgb r=  "0" g="128" b=  "0" name="Web Green"             />
 		<rgb r="127" g="255" b=  "0" name="Chartreuse"            />
 		<rgb r=  "0" g="250" b="154" name="Medium Spring Green"   />
 		<rgb r="173" g="255" b= "47" name="Green Yellow"          />
@@ -122,9 +136,12 @@
 		<rgb r="255" g="182" b="193" name="Light Pink"            />
 		<rgb r="219" g="112" b="147" name="Pale Violet Red"       />
 		<rgb r="176" g= "48" b= "96" name="Maroon"                />
+		<rgb r="176" g= "48" b= "96" name="X11 Maroon"            />
+		<rgb r="128" g=  "0" b=  "0" name="Web Maroon"            />
 		<rgb r="199" g= "21" b="133" name="Medium Violet Red"     />
 		<rgb r="208" g= "32" b="144" name="Violet Red"            />
 		<rgb r="255" g=  "0" b="255" name="Magenta"               />
+		<rgb r="255" g=  "0" b="255" name="Fuchsia"               />
 		<rgb r="238" g="130" b="238" name="Violet"                />
 		<rgb r="221" g="160" b="221" name="Plum"                  />
 		<rgb r="218" g="112" b="214" name="Orchid"                />
@@ -133,6 +150,8 @@
 		<rgb r="148" g=  "0" b="211" name="Dark Violet"           />
 		<rgb r="138" g= "43" b="226" name="Blue Violet"           />
 		<rgb r="160" g= "32" b="240" name="Purple"                />
+		<rgb r="160" g= "32" b="240" name="X11 Purple"            />
+		<rgb r="128" g=  "0" b="128" name="Web Purple"            />
 		<rgb r="147" g="112" b="219" name="Medium Purple"         />
 		<rgb r="216" g="191" b="216" name="Thistle"               />
 		<rgb r="255" g="250" b="250" name="Snow 1"                />
@@ -448,215 +467,324 @@
 		<rgb r="205" g="181" b="205" name="Thistle 3"             />
 		<rgb r="139" g="123" b="139" name="Thistle 4"             />
 		<rgb r=  "0" g=  "0" b=  "0" name="Gray 0"                />
+		<rgb r=  "0" g=  "0" b=  "0" name="Grey 0"                />
 		<rgb r=  "3" g=  "3" b=  "3" name="Gray 1"                />
+		<rgb r=  "3" g=  "3" b=  "3" name="Grey 1"                />
 		<rgb r=  "5" g=  "5" b=  "5" name="Gray 2"                />
+		<rgb r=  "5" g=  "5" b=  "5" name="Grey 2"                />
 		<rgb r=  "8" g=  "8" b=  "8" name="Gray 3"                />
+		<rgb r=  "8" g=  "8" b=  "8" name="Grey 3"                />
 		<rgb r= "10" g= "10" b= "10" name="Gray 4"                />
+		<rgb r= "10" g= "10" b= "10" name="Grey 4"                />
 		<rgb r= "13" g= "13" b= "13" name="Gray 5"                />
+		<rgb r= "13" g= "13" b= "13" name="Grey 5"                />
 		<rgb r= "15" g= "15" b= "15" name="Gray 6"                />
+		<rgb r= "15" g= "15" b= "15" name="Grey 6"                />
 		<rgb r= "18" g= "18" b= "18" name="Gray 7"                />
+		<rgb r= "18" g= "18" b= "18" name="Grey 7"                />
 		<rgb r= "20" g= "20" b= "20" name="Gray 8"                />
+		<rgb r= "20" g= "20" b= "20" name="Grey 8"                />
 		<rgb r= "23" g= "23" b= "23" name="Gray 9"                />
+		<rgb r= "23" g= "23" b= "23" name="Grey 9"                />
 		<rgb r= "26" g= "26" b= "26" name="Gray 10"               />
+		<rgb r= "26" g= "26" b= "26" name="Grey 10"               />
 		<rgb r= "28" g= "28" b= "28" name="Gray 11"               />
+		<rgb r= "28" g= "28" b= "28" name="Grey 11"               />
 		<rgb r= "31" g= "31" b= "31" name="Gray 12"               />
+		<rgb r= "31" g= "31" b= "31" name="Grey 12"               />
 		<rgb r= "33" g= "33" b= "33" name="Gray 13"               />
+		<rgb r= "33" g= "33" b= "33" name="Grey 13"               />
 		<rgb r= "36" g= "36" b= "36" name="Gray 14"               />
+		<rgb r= "36" g= "36" b= "36" name="Grey 14"               />
 		<rgb r= "38" g= "38" b= "38" name="Gray 15"               />
+		<rgb r= "38" g= "38" b= "38" name="Grey 15"               />
 		<rgb r= "41" g= "41" b= "41" name="Gray 16"               />
+		<rgb r= "41" g= "41" b= "41" name="Grey 16"               />
 		<rgb r= "43" g= "43" b= "43" name="Gray 17"               />
+		<rgb r= "43" g= "43" b= "43" name="Grey 17"               />
 		<rgb r= "46" g= "46" b= "46" name="Gray 18"               />
+		<rgb r= "46" g= "46" b= "46" name="Grey 18"               />
 		<rgb r= "48" g= "48" b= "48" name="Gray 19"               />
+		<rgb r= "48" g= "48" b= "48" name="Grey 19"               />
 		<rgb r= "51" g= "51" b= "51" name="Gray 20"               />
+		<rgb r= "51" g= "51" b= "51" name="Grey 20"               />
 		<rgb r= "54" g= "54" b= "54" name="Gray 21"               />
+		<rgb r= "54" g= "54" b= "54" name="Grey 21"               />
 		<rgb r= "56" g= "56" b= "56" name="Gray 22"               />
+		<rgb r= "56" g= "56" b= "56" name="Grey 22"               />
 		<rgb r= "59" g= "59" b= "59" name="Gray 23"               />
+		<rgb r= "59" g= "59" b= "59" name="Grey 23"               />
 		<rgb r= "61" g= "61" b= "61" name="Gray 24"               />
+		<rgb r= "61" g= "61" b= "61" name="Grey 24"               />
 		<rgb r= "64" g= "64" b= "64" name="Gray 25"               />
+		<rgb r= "64" g= "64" b= "64" name="Grey 25"               />
 		<rgb r= "66" g= "66" b= "66" name="Gray 26"               />
+		<rgb r= "66" g= "66" b= "66" name="Grey 26"               />
 		<rgb r= "69" g= "69" b= "69" name="Gray 27"               />
+		<rgb r= "69" g= "69" b= "69" name="Grey 27"               />
 		<rgb r= "71" g= "71" b= "71" name="Gray 28"               />
+		<rgb r= "71" g= "71" b= "71" name="Grey 28"               />
 		<rgb r= "74" g= "74" b= "74" name="Gray 29"               />
+		<rgb r= "74" g= "74" b= "74" name="Grey 29"               />
 		<rgb r= "77" g= "77" b= "77" name="Gray 30"               />
+		<rgb r= "77" g= "77" b= "77" name="Grey 30"               />
 		<rgb r= "79" g= "79" b= "79" name="Gray 31"               />
+		<rgb r= "79" g= "79" b= "79" name="Grey 31"               />
 		<rgb r= "82" g= "82" b= "82" name="Gray 32"               />
+		<rgb r= "82" g= "82" b= "82" name="Grey 32"               />
 		<rgb r= "84" g= "84" b= "84" name="Gray 33"               />
+		<rgb r= "84" g= "84" b= "84" name="Grey 33"               />
 		<rgb r= "87" g= "87" b= "87" name="Gray 34"               />
+		<rgb r= "87" g= "87" b= "87" name="Grey 34"               />
 		<rgb r= "89" g= "89" b= "89" name="Gray 35"               />
+		<rgb r= "89" g= "89" b= "89" name="Grey 35"               />
 		<rgb r= "92" g= "92" b= "92" name="Gray 36"               />
+		<rgb r= "92" g= "92" b= "92" name="Grey 36"               />
 		<rgb r= "94" g= "94" b= "94" name="Gray 37"               />
+		<rgb r= "94" g= "94" b= "94" name="Grey 37"               />
 		<rgb r= "97" g= "97" b= "97" name="Gray 38"               />
+		<rgb r= "97" g= "97" b= "97" name="Grey 38"               />
 		<rgb r= "99" g= "99" b= "99" name="Gray 39"               />
+		<rgb r= "99" g= "99" b= "99" name="Grey 39"               />
 		<rgb r="102" g="102" b="102" name="Gray 40"               />
+		<rgb r="102" g="102" b="102" name="Grey 40"               />
 		<rgb r="105" g="105" b="105" name="Gray 41"               />
+		<rgb r="105" g="105" b="105" name="Grey 41"               />
 		<rgb r="107" g="107" b="107" name="Gray 42"               />
+		<rgb r="107" g="107" b="107" name="Grey 42"               />
 		<rgb r="110" g="110" b="110" name="Gray 43"               />
+		<rgb r="110" g="110" b="110" name="Grey 43"               />
 		<rgb r="112" g="112" b="112" name="Gray 44"               />
+		<rgb r="112" g="112" b="112" name="Grey 44"               />
 		<rgb r="115" g="115" b="115" name="Gray 45"               />
+		<rgb r="115" g="115" b="115" name="Grey 45"               />
 		<rgb r="117" g="117" b="117" name="Gray 46"               />
+		<rgb r="117" g="117" b="117" name="Grey 46"               />
 		<rgb r="120" g="120" b="120" name="Gray 47"               />
+		<rgb r="120" g="120" b="120" name="Grey 47"               />
 		<rgb r="122" g="122" b="122" name="Gray 48"               />
+		<rgb r="122" g="122" b="122" name="Grey 48"               />
 		<rgb r="125" g="125" b="125" name="Gray 49"               />
+		<rgb r="125" g="125" b="125" name="Grey 49"               />
 		<rgb r="127" g="127" b="127" name="Gray 50"               />
+		<rgb r="127" g="127" b="127" name="Grey 50"               />
 		<rgb r="130" g="130" b="130" name="Gray 51"               />
+		<rgb r="130" g="130" b="130" name="Grey 51"               />
 		<rgb r="133" g="133" b="133" name="Gray 52"               />
+		<rgb r="133" g="133" b="133" name="Grey 52"               />
 		<rgb r="135" g="135" b="135" name="Gray 53"               />
+		<rgb r="135" g="135" b="135" name="Grey 53"               />
 		<rgb r="138" g="138" b="138" name="Gray 54"               />
+		<rgb r="138" g="138" b="138" name="Grey 54"               />
 		<rgb r="140" g="140" b="140" name="Gray 55"               />
+		<rgb r="140" g="140" b="140" name="Grey 55"               />
 		<rgb r="143" g="143" b="143" name="Gray 56"               />
+		<rgb r="143" g="143" b="143" name="Grey 56"               />
 		<rgb r="145" g="145" b="145" name="Gray 57"               />
+		<rgb r="145" g="145" b="145" name="Grey 57"               />
 		<rgb r="148" g="148" b="148" name="Gray 58"               />
+		<rgb r="148" g="148" b="148" name="Grey 58"               />
 		<rgb r="150" g="150" b="150" name="Gray 59"               />
+		<rgb r="150" g="150" b="150" name="Grey 59"               />
 		<rgb r="153" g="153" b="153" name="Gray 60"               />
+		<rgb r="153" g="153" b="153" name="Grey 60"               />
 		<rgb r="156" g="156" b="156" name="Gray 61"               />
+		<rgb r="156" g="156" b="156" name="Grey 61"               />
 		<rgb r="158" g="158" b="158" name="Gray 62"               />
+		<rgb r="158" g="158" b="158" name="Grey 62"               />
 		<rgb r="161" g="161" b="161" name="Gray 63"               />
+		<rgb r="161" g="161" b="161" name="Grey 63"               />
 		<rgb r="163" g="163" b="163" name="Gray 64"               />
+		<rgb r="163" g="163" b="163" name="Grey 64"               />
 		<rgb r="166" g="166" b="166" name="Gray 65"               />
+		<rgb r="166" g="166" b="166" name="Grey 65"               />
 		<rgb r="168" g="168" b="168" name="Gray 66"               />
+		<rgb r="168" g="168" b="168" name="Grey 66"               />
 		<rgb r="171" g="171" b="171" name="Gray 67"               />
+		<rgb r="171" g="171" b="171" name="Grey 67"               />
 		<rgb r="173" g="173" b="173" name="Gray 68"               />
+		<rgb r="173" g="173" b="173" name="Grey 68"               />
 		<rgb r="176" g="176" b="176" name="Gray 69"               />
+		<rgb r="176" g="176" b="176" name="Grey 69"               />
 		<rgb r="179" g="179" b="179" name="Gray 70"               />
+		<rgb r="179" g="179" b="179" name="Grey 70"               />
 		<rgb r="181" g="181" b="181" name="Gray 71"               />
+		<rgb r="181" g="181" b="181" name="Grey 71"               />
 		<rgb r="184" g="184" b="184" name="Gray 72"               />
+		<rgb r="184" g="184" b="184" name="Grey 72"               />
 		<rgb r="186" g="186" b="186" name="Gray 73"               />
+		<rgb r="186" g="186" b="186" name="Grey 73"               />
 		<rgb r="189" g="189" b="189" name="Gray 74"               />
+		<rgb r="189" g="189" b="189" name="Grey 74"               />
 		<rgb r="191" g="191" b="191" name="Gray 75"               />
+		<rgb r="191" g="191" b="191" name="Grey 75"               />
 		<rgb r="194" g="194" b="194" name="Gray 76"               />
+		<rgb r="194" g="194" b="194" name="Grey 76"               />
 		<rgb r="196" g="196" b="196" name="Gray 77"               />
+		<rgb r="196" g="196" b="196" name="Grey 77"               />
 		<rgb r="199" g="199" b="199" name="Gray 78"               />
+		<rgb r="199" g="199" b="199" name="Grey 78"               />
 		<rgb r="201" g="201" b="201" name="Gray 79"               />
+		<rgb r="201" g="201" b="201" name="Grey 79"               />
 		<rgb r="204" g="204" b="204" name="Gray 80"               />
+		<rgb r="204" g="204" b="204" name="Grey 80"               />
 		<rgb r="207" g="207" b="207" name="Gray 81"               />
+		<rgb r="207" g="207" b="207" name="Grey 81"               />
 		<rgb r="209" g="209" b="209" name="Gray 82"               />
+		<rgb r="209" g="209" b="209" name="Grey 82"               />
 		<rgb r="212" g="212" b="212" name="Gray 83"               />
+		<rgb r="212" g="212" b="212" name="Grey 83"               />
 		<rgb r="214" g="214" b="214" name="Gray 84"               />
+		<rgb r="214" g="214" b="214" name="Grey 84"               />
 		<rgb r="217" g="217" b="217" name="Gray 85"               />
+		<rgb r="217" g="217" b="217" name="Grey 85"               />
 		<rgb r="219" g="219" b="219" name="Gray 86"               />
+		<rgb r="219" g="219" b="219" name="Grey 86"               />
 		<rgb r="222" g="222" b="222" name="Gray 87"               />
+		<rgb r="222" g="222" b="222" name="Grey 87"               />
 		<rgb r="224" g="224" b="224" name="Gray 88"               />
+		<rgb r="224" g="224" b="224" name="Grey 88"               />
 		<rgb r="227" g="227" b="227" name="Gray 89"               />
+		<rgb r="227" g="227" b="227" name="Grey 89"               />
 		<rgb r="229" g="229" b="229" name="Gray 90"               />
+		<rgb r="229" g="229" b="229" name="Grey 90"               />
 		<rgb r="232" g="232" b="232" name="Gray 91"               />
+		<rgb r="232" g="232" b="232" name="Grey 91"               />
 		<rgb r="235" g="235" b="235" name="Gray 92"               />
+		<rgb r="235" g="235" b="235" name="Grey 92"               />
 		<rgb r="237" g="237" b="237" name="Gray 93"               />
+		<rgb r="237" g="237" b="237" name="Grey 93"               />
 		<rgb r="240" g="240" b="240" name="Gray 94"               />
+		<rgb r="240" g="240" b="240" name="Grey 94"               />
 		<rgb r="242" g="242" b="242" name="Gray 95"               />
+		<rgb r="242" g="242" b="242" name="Grey 95"               />
 		<rgb r="245" g="245" b="245" name="Gray 96"               />
+		<rgb r="245" g="245" b="245" name="Grey 96"               />
 		<rgb r="247" g="247" b="247" name="Gray 97"               />
+		<rgb r="247" g="247" b="247" name="Grey 97"               />
 		<rgb r="250" g="250" b="250" name="Gray 98"               />
+		<rgb r="250" g="250" b="250" name="Grey 98"               />
 		<rgb r="252" g="252" b="252" name="Gray 99"               />
+		<rgb r="252" g="252" b="252" name="Grey 99"               />
 		<rgb r="255" g="255" b="255" name="Gray 100"              />
+		<rgb r="255" g="255" b="255" name="Grey 100"              />
+		<rgb r="169" g="169" b="169" name="Dark Grey"             />
 		<rgb r="169" g="169" b="169" name="Dark Gray"             />
 		<rgb r=  "0" g=  "0" b="139" name="Dark Blue"             />
 		<rgb r=  "0" g="139" b="139" name="Dark Cyan"             />
 		<rgb r="139" g=  "0" b="139" name="Dark Magenta"          />
 		<rgb r="139" g=  "0" b=  "0" name="Dark Red"              />
 		<rgb r="144" g="238" b="144" name="Light Green"           />
+		<rgb r="220" g= "20" b= "60" name="Crimson"               />
+		<rgb r= "75" g=  "0" b="130" name="Indigo"                />
+		<rgb r="128" g="128" b=  "0" name="Olive"                 />
+		<rgb r="102" g= "51" b="153" name="Rebecca Purple"        />
+		<rgb r="192" g="192" b="192" name="Silver"                />
+		<rgb r=  "0" g="128" b="128" name="Teal"                  />
 	</colors>
 	<layout>
 		<oriented>
 			<horizontal>
 				<column>
-					<row><range start=  "0" end= "46"/></row>
-					<row><range start= "46" end= "92"/></row>
-					<row><range start= "92" end="138"/></row>
-					<row><range start="138" end="184"/></row>
-					<row><range start="184" end="230"/></row>
-					<row><range start="230" end="276"/></row>
-					<row><range start="276" end="322"/></row>
-					<row><range start="322" end="368"/></row>
-					<row><range start="368" end="414"/></row>
-					<row><range start="414" end="460"/></row>
-					<row><range start="460" end="506"/></row>
-					<row>
-						<range start="506" end="549"/>
-						<empty repeat="3"/>
-					</row>
+					<row><range start=  "0" end= "52"/></row>
+					<row><range start= "52" end="104"/></row>
+					<row><range start="104" end="156"/></row>
+					<row><range start="156" end="208"/></row>
+					<row><range start="208" end="260"/></row>
+					<row><range start="260" end="312"/></row>
+					<row><range start="312" end="364"/></row>
+					<row><range start="364" end="416"/></row>
+					<row><range start="416" end="468"/></row>
+					<row><range start="468" end="520"/></row>
+					<row><range start="520" end="572"/></row>
+					<row><range start="572" end="624"/></row>
+					<row><range start="624" end="676"/></row>
 				</column>
 			</horizontal>
 			<square>
 				<column>
-					<row><range start=  "0" end= "24"/></row>
-					<row><range start= "24" end= "48"/></row>
-					<row><range start= "48" end= "72"/></row>
-					<row><range start= "72" end= "96"/></row>
-					<row><range start= "96" end="120"/></row>
-					<row><range start="120" end="144"/></row>
-					<row><range start="144" end="168"/></row>
-					<row><range start="168" end="192"/></row>
-					<row><range start="192" end="216"/></row>
-					<row><range start="216" end="240"/></row>
-					<row><range start="240" end="264"/></row>
-					<row><range start="264" end="288"/></row>
-					<row><range start="288" end="312"/></row>
-					<row><range start="312" end="336"/></row>
-					<row><range start="336" end="360"/></row>
-					<row><range start="360" end="384"/></row>
-					<row><range start="384" end="408"/></row>
-					<row><range start="408" end="432"/></row>
-					<row><range start="432" end="456"/></row>
-					<row><range start="456" end="480"/></row>
-					<row><range start="480" end="504"/></row>
-					<row><range start="504" end="528"/></row>
-					<row>
-						<range start="528" end="549"/>
-						<empty repeat="3"/>
-					</row>
+					<row><range start=  "0" end= "26"/></row>
+					<row><range start= "26" end= "52"/></row>
+					<row><range start= "52" end= "78"/></row>
+					<row><range start= "78" end="104"/></row>
+					<row><range start="104" end="130"/></row>
+					<row><range start="130" end="156"/></row>
+					<row><range start="156" end="182"/></row>
+					<row><range start="182" end="208"/></row>
+					<row><range start="208" end="234"/></row>
+					<row><range start="234" end="260"/></row>
+					<row><range start="260" end="286"/></row>
+					<row><range start="286" end="312"/></row>
+					<row><range start="312" end="338"/></row>
+					<row><range start="338" end="364"/></row>
+					<row><range start="364" end="390"/></row>
+					<row><range start="390" end="416"/></row>
+					<row><range start="416" end="442"/></row>
+					<row><range start="442" end="468"/></row>
+					<row><range start="468" end="494"/></row>
+					<row><range start="494" end="520"/></row>
+					<row><range start="520" end="546"/></row>
+					<row><range start="546" end="572"/></row>
+					<row><range start="572" end="598"/></row>
+					<row><range start="598" end="624"/></row>
+					<row><range start="624" end="650"/></row>
+					<row><range start="650" end="676"/></row>
 				</column>
 			</square>
 			<vertical>
 				<column>
-					<row><range start=  "0" end= "12"/></row>
-					<row><range start= "12" end= "24"/></row>
-					<row><range start= "24" end= "36"/></row>
-					<row><range start= "36" end= "48"/></row>
-					<row><range start= "48" end= "60"/></row>
-					<row><range start= "60" end= "72"/></row>
-					<row><range start= "72" end= "84"/></row>
-					<row><range start= "84" end= "96"/></row>
-					<row><range start= "96" end="108"/></row>
-					<row><range start="108" end="120"/></row>
-					<row><range start="120" end="132"/></row>
-					<row><range start="132" end="144"/></row>
-					<row><range start="144" end="156"/></row>
-					<row><range start="156" end="168"/></row>
-					<row><range start="168" end="180"/></row>
-					<row><range start="180" end="192"/></row>
-					<row><range start="192" end="204"/></row>
-					<row><range start="204" end="216"/></row>
-					<row><range start="216" end="228"/></row>
-					<row><range start="228" end="240"/></row>
-					<row><range start="240" end="252"/></row>
-					<row><range start="252" end="264"/></row>
-					<row><range start="264" end="276"/></row>
-					<row><range start="276" end="288"/></row>
-					<row><range start="288" end="300"/></row>
-					<row><range start="300" end="312"/></row>
-					<row><range start="312" end="324"/></row>
-					<row><range start="324" end="336"/></row>
-					<row><range start="336" end="348"/></row>
-					<row><range start="348" end="360"/></row>
-					<row><range start="360" end="372"/></row>
-					<row><range start="372" end="384"/></row>
-					<row><range start="384" end="396"/></row>
-					<row><range start="396" end="408"/></row>
-					<row><range start="408" end="420"/></row>
-					<row><range start="420" end="432"/></row>
-					<row><range start="432" end="444"/></row>
-					<row><range start="444" end="456"/></row>
-					<row><range start="456" end="468"/></row>
-					<row><range start="468" end="480"/></row>
-					<row><range start="480" end="492"/></row>
-					<row><range start="492" end="504"/></row>
-					<row><range start="504" end="516"/></row>
-					<row><range start="516" end="528"/></row>
-					<row><range start="528" end="540"/></row>
-					<row>
-						<range start="540" end="549"/>
-						<empty repeat="3"/>
-					</row>
+					<row><range start=  "0" end= "13"/></row>
+					<row><range start= "13" end= "26"/></row>
+					<row><range start= "26" end= "39"/></row>
+					<row><range start= "39" end= "52"/></row>
+					<row><range start= "52" end= "65"/></row>
+					<row><range start= "65" end= "78"/></row>
+					<row><range start= "78" end= "91"/></row>
+					<row><range start= "91" end="104"/></row>
+					<row><range start="104" end="117"/></row>
+					<row><range start="117" end="130"/></row>
+					<row><range start="130" end="143"/></row>
+					<row><range start="143" end="156"/></row>
+					<row><range start="156" end="169"/></row>
+					<row><range start="169" end="182"/></row>
+					<row><range start="182" end="195"/></row>
+					<row><range start="195" end="208"/></row>
+					<row><range start="208" end="221"/></row>
+					<row><range start="221" end="234"/></row>
+					<row><range start="234" end="247"/></row>
+					<row><range start="247" end="260"/></row>
+					<row><range start="260" end="273"/></row>
+					<row><range start="273" end="286"/></row>
+					<row><range start="286" end="299"/></row>
+					<row><range start="299" end="312"/></row>
+					<row><range start="312" end="325"/></row>
+					<row><range start="325" end="338"/></row>
+					<row><range start="338" end="351"/></row>
+					<row><range start="351" end="364"/></row>
+					<row><range start="364" end="377"/></row>
+					<row><range start="377" end="390"/></row>
+					<row><range start="390" end="403"/></row>
+					<row><range start="403" end="416"/></row>
+					<row><range start="416" end="429"/></row>
+					<row><range start="429" end="442"/></row>
+					<row><range start="442" end="455"/></row>
+					<row><range start="455" end="468"/></row>
+					<row><range start="468" end="481"/></row>
+					<row><range start="481" end="494"/></row>
+					<row><range start="494" end="507"/></row>
+					<row><range start="507" end="520"/></row>
+					<row><range start="520" end="533"/></row>
+					<row><range start="533" end="546"/></row>
+					<row><range start="546" end="559"/></row>
+					<row><range start="559" end="572"/></row>
+					<row><range start="572" end="585"/></row>
+					<row><range start="585" end="598"/></row>
+					<row><range start="598" end="611"/></row>
+					<row><range start="611" end="624"/></row>
+					<row><range start="624" end="637"/></row>
+					<row><range start="637" end="650"/></row>
+					<row><range start="650" end="663"/></row>
+					<row><range start="663" end="676"/></row>
 				</column>
 			</vertical>
 		</oriented>

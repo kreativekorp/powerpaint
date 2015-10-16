@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
 <palette name="X11 Simple"
-         hwidth="281" hheight= "99"
-         swidth="197" sheight="141"
-         vwidth= "99" vheight="281">
+         hwidth="301" hheight= "73"
+         swidth="157" sheight="145"
+         vwidth= "73" vheight="301">
 	<colors ordered="ordered">
 		<rgb r="255" g="250" b="250" name="Snow"                  />
 		<rgb r="248" g="248" b="255" name="Ghost White"           />
@@ -37,6 +37,7 @@
 		<rgb r="112" g="128" b="144" name="Slate Gray"            />
 		<rgb r="119" g="136" b="153" name="Light Slate Gray"      />
 		<rgb r="190" g="190" b="190" name="Gray"                  />
+		<rgb r="128" g="128" b="128" name="Web Gray"              />
 		<rgb r="211" g="211" b="211" name="Light Gray"            />
 		<rgb r= "25" g= "25" b="112" name="Midnight Blue"         />
 		<rgb r=  "0" g=  "0" b="128" name="Navy"                  />
@@ -62,6 +63,7 @@
 		<rgb r= "72" g="209" b="204" name="Medium Turquoise"      />
 		<rgb r= "64" g="224" b="208" name="Turquoise"             />
 		<rgb r=  "0" g="255" b="255" name="Cyan"                  />
+		<rgb r=  "0" g="255" b="255" name="Aqua"                  />
 		<rgb r="224" g="255" b="255" name="Light Cyan"            />
 		<rgb r= "95" g="158" b="160" name="Cadet Blue"            />
 		<rgb r="102" g="205" b="170" name="Medium Aquamarine"     />
@@ -76,6 +78,8 @@
 		<rgb r=  "0" g="255" b="127" name="Spring Green"          />
 		<rgb r="124" g="252" b=  "0" name="Lawn Green"            />
 		<rgb r=  "0" g="255" b=  "0" name="Green"                 />
+		<rgb r=  "0" g="255" b=  "0" name="Lime"                  />
+		<rgb r=  "0" g="128" b=  "0" name="Web Green"             />
 		<rgb r="127" g="255" b=  "0" name="Chartreuse"            />
 		<rgb r=  "0" g="250" b="154" name="Medium Spring Green"   />
 		<rgb r="173" g="255" b= "47" name="Green Yellow"          />
@@ -122,9 +126,11 @@
 		<rgb r="255" g="182" b="193" name="Light Pink"            />
 		<rgb r="219" g="112" b="147" name="Pale Violet Red"       />
 		<rgb r="176" g= "48" b= "96" name="Maroon"                />
+		<rgb r="128" g=  "0" b=  "0" name="Web Maroon"            />
 		<rgb r="199" g= "21" b="133" name="Medium Violet Red"     />
 		<rgb r="208" g= "32" b="144" name="Violet Red"            />
 		<rgb r="255" g=  "0" b="255" name="Magenta"               />
+		<rgb r="255" g=  "0" b="255" name="Fuchsia"               />
 		<rgb r="238" g="130" b="238" name="Violet"                />
 		<rgb r="221" g="160" b="221" name="Plum"                  />
 		<rgb r="218" g="112" b="214" name="Orchid"                />
@@ -133,6 +139,7 @@
 		<rgb r="148" g=  "0" b="211" name="Dark Violet"           />
 		<rgb r="138" g= "43" b="226" name="Blue Violet"           />
 		<rgb r="160" g= "32" b="240" name="Purple"                />
+		<rgb r="128" g=  "0" b="128" name="Web Purple"            />
 		<rgb r="147" g="112" b="219" name="Medium Purple"         />
 		<rgb r="216" g="191" b="216" name="Thistle"               />
 		<rgb r="169" g="169" b="169" name="Dark Gray"             />
@@ -141,60 +148,77 @@
 		<rgb r="139" g=  "0" b="139" name="Dark Magenta"          />
 		<rgb r="139" g=  "0" b=  "0" name="Dark Red"              />
 		<rgb r="144" g="238" b="144" name="Light Green"           />
-		<rgb r=  "0" g=  "0" b=  "0"/>
-		<rgb r= "85" g= "85" b= "85"/>
-		<rgb r="170" g="170" b="170"/>
-		<rgb r="255" g="255" b="255"/>
+		<rgb r="220" g= "20" b= "60" name="Crimson"               />
+		<rgb r= "75" g=  "0" b="130" name="Indigo"                />
+		<rgb r="128" g="128" b=  "0" name="Olive"                 />
+		<rgb r="102" g= "51" b="153" name="Rebecca Purple"        />
+		<rgb r="192" g="192" b="192" name="Silver"                />
+		<rgb r=  "0" g="128" b="128" name="Teal"                  />
 	</colors>
 	<layout>
 		<oriented>
 			<horizontal>
 				<column>
-					<row><range start=  "0" end= "20"/></row>
-					<row><range start= "20" end= "40"/></row>
-					<row><range start= "40" end= "60"/></row>
-					<row><range start= "60" end= "80"/></row>
-					<row><range start= "80" end="100"/></row>
-					<row><range start="100" end="120"/></row>
-					<row><range start="120" end="140"/></row>
+					<row><range start=  "0" end= "25"/></row>
+					<row><range start= "25" end= "50"/></row>
+					<row><range start= "50" end= "75"/></row>
+					<row><range start= "75" end="100"/></row>
+					<row><range start="100" end="125"/></row>
+					<row>
+						<range start="125" end="149"/>
+						<empty/>
+					</row>
 				</column>
 			</horizontal>
 			<square>
 				<column>
-					<row><range start=  "0" end= "14"/></row>
-					<row><range start= "14" end= "28"/></row>
-					<row><range start= "28" end= "42"/></row>
-					<row><range start= "42" end= "56"/></row>
-					<row><range start= "56" end= "70"/></row>
-					<row><range start= "70" end= "84"/></row>
-					<row><range start= "84" end= "98"/></row>
-					<row><range start= "98" end="112"/></row>
-					<row><range start="112" end="126"/></row>
-					<row><range start="126" end="140"/></row>
+					<row><range start=  "0" end= "13"/></row>
+					<row><range start= "13" end= "26"/></row>
+					<row><range start= "26" end= "39"/></row>
+					<row><range start= "39" end= "52"/></row>
+					<row><range start= "52" end= "65"/></row>
+					<row><range start= "65" end= "78"/></row>
+					<row><range start= "78" end= "91"/></row>
+					<row><range start= "91" end="104"/></row>
+					<row><range start="104" end="117"/></row>
+					<row><range start="117" end="130"/></row>
+					<row><range start="130" end="143"/></row>
+					<row>
+						<range start="143" end="149"/>
+						<empty repeat="7"/>
+					</row>
 				</column>
 			</square>
 			<vertical>
 				<column>
-					<row><range start=  "0" end=  "7"/></row>
-					<row><range start=  "7" end= "14"/></row>
-					<row><range start= "14" end= "21"/></row>
-					<row><range start= "21" end= "28"/></row>
-					<row><range start= "28" end= "35"/></row>
-					<row><range start= "35" end= "42"/></row>
-					<row><range start= "42" end= "49"/></row>
-					<row><range start= "49" end= "56"/></row>
-					<row><range start= "56" end= "63"/></row>
-					<row><range start= "63" end= "70"/></row>
-					<row><range start= "70" end= "77"/></row>
-					<row><range start= "77" end= "84"/></row>
-					<row><range start= "84" end= "91"/></row>
-					<row><range start= "91" end= "98"/></row>
-					<row><range start= "98" end="105"/></row>
-					<row><range start="105" end="112"/></row>
-					<row><range start="112" end="119"/></row>
-					<row><range start="119" end="126"/></row>
-					<row><range start="126" end="133"/></row>
-					<row><range start="133" end="140"/></row>
+					<row><range start=  "0" end=  "6"/></row>
+					<row><range start=  "6" end= "12"/></row>
+					<row><range start= "12" end= "18"/></row>
+					<row><range start= "18" end= "24"/></row>
+					<row><range start= "24" end= "30"/></row>
+					<row><range start= "30" end= "36"/></row>
+					<row><range start= "36" end= "42"/></row>
+					<row><range start= "42" end= "48"/></row>
+					<row><range start= "48" end= "54"/></row>
+					<row><range start= "54" end= "60"/></row>
+					<row><range start= "60" end= "66"/></row>
+					<row><range start= "66" end= "72"/></row>
+					<row><range start= "72" end= "78"/></row>
+					<row><range start= "78" end= "84"/></row>
+					<row><range start= "84" end= "90"/></row>
+					<row><range start= "90" end= "96"/></row>
+					<row><range start= "96" end="102"/></row>
+					<row><range start="102" end="108"/></row>
+					<row><range start="108" end="114"/></row>
+					<row><range start="114" end="120"/></row>
+					<row><range start="120" end="126"/></row>
+					<row><range start="126" end="132"/></row>
+					<row><range start="132" end="138"/></row>
+					<row><range start="138" end="144"/></row>
+					<row>
+						<range start="144" end="149"/>
+						<empty/>
+					</row>
 				</column>
 			</vertical>
 		</oriented>
