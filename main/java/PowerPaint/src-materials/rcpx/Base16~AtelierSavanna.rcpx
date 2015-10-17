@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Base16 Atelier Savanna">
+	<colors ordered="ordered">
+		<rgb r= "23" g= "28" b= "25"/>
+		<rgb r= "35" g= "42" b= "37"/>
+		<rgb r= "82" g= "96" b= "87"/>
+		<rgb r= "95" g="109" b="100"/>
+		<rgb r="120" g="135" b="125"/>
+		<rgb r="135" g="146" b="138"/>
+		<rgb r="223" g="231" b="226"/>
+		<rgb r="236" g="244" b="238"/>
+		<rgb r="177" g= "97" b= "57"/>
+		<rgb r="159" g="113" b= "60"/>
+		<rgb r="160" g="126" b= "59"/>
+		<rgb r= "72" g="153" b= "99"/>
+		<rgb r= "28" g="154" b="160"/>
+		<rgb r= "71" g="140" b="144"/>
+		<rgb r= "85" g="133" b="155"/>
+		<rgb r="134" g="116" b="105"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Base16 Atelier Dune">
+	<colors ordered="ordered">
+		<rgb r= "32" g= "32" b= "29"/>
+		<rgb r= "41" g= "40" b= "36"/>
+		<rgb r="110" g="107" b= "94"/>
+		<rgb r="125" g="122" b="104"/>
+		<rgb r="153" g="149" b="128"/>
+		<rgb r="166" g="162" b="140"/>
+		<rgb r="232" g="228" b="207"/>
+		<rgb r="254" g="251" b="236"/>
+		<rgb r="215" g= "55" b= "55"/>
+		<rgb r="182" g= "86" b= "17"/>
+		<rgb r="174" g="149" b= "19"/>
+		<rgb r= "96" g="172" b= "57"/>
+		<rgb r= "31" g="173" b="131"/>
+		<rgb r="102" g="132" b="225"/>
+		<rgb r="184" g= "84" b="212"/>
+		<rgb r="212" g= "53" b= "82"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

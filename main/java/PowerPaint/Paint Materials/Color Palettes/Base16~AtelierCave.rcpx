@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
+<palette name="Base16 Atelier Cave">
+	<colors ordered="ordered">
+		<rgb r= "25" g= "23" b= "28"/>
+		<rgb r= "38" g= "35" b= "42"/>
+		<rgb r= "88" g= "82" b= "96"/>
+		<rgb r="101" g= "95" b="109"/>
+		<rgb r="126" g="120" b="135"/>
+		<rgb r="139" g="135" b="146"/>
+		<rgb r="226" g="223" b="231"/>
+		<rgb r="239" g="236" b="244"/>
+		<rgb r="190" g= "70" b="120"/>
+		<rgb r="170" g= "87" b= "60"/>
+		<rgb r="160" g="110" b= "59"/>
+		<rgb r= "42" g="146" b="146"/>
+		<rgb r= "57" g="139" b="198"/>
+		<rgb r= "87" g="109" b="219"/>
+		<rgb r="149" g= "90" b="231"/>
+		<rgb r="191" g= "64" b="191"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
