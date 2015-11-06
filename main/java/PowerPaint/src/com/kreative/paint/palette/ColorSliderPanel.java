@@ -1,20 +1,22 @@
 package com.kreative.paint.palette;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.GridLayout;
 import java.awt.Paint;
-import javax.swing.JList;
+import java.awt.Window;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.rcp.ColorChangeEvent;
 import com.kreative.paint.rcp.ColorChangeListener;
+import com.kreative.paint.util.CIEColorModel;
 import com.kreative.paint.util.ColorModel;
 import com.kreative.paint.util.SwingUtils;
 
@@ -22,10 +24,9 @@ public class ColorSliderPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private final ColorModel[] cm;
-	private final JList csl;
+	private final JComboBox csl;
 	private final ColorSliderModelPanel[] csp;
 	private final ColorSliderModelComponent[] csc;
-	private final CardLayout cardLayout;
 	private final JPanel cardPanel;
 	private boolean eventexec = false;
 	
@@ -34,22 +35,27 @@ public class ColorSliderPanel extends PaintContextPanel {
 		
 		// Initialize Components
 		this.cm = new ColorModel[] {
-			ColorModel.GRAY_ALPHA_4,
-			ColorModel.GRAY_ALPHA_8,
-			ColorModel.GRAY_ALPHA_100,
-			ColorModel.RGBA_4,
-			ColorModel.RGBA_8,
-			ColorModel.RGBA_16,
-			ColorModel.RGBA_100,
-			ColorModel.HSVA_360_100,
-			ColorModel.HSLA_360_100,
-			ColorModel.HWBA_360_100,
-			ColorModel.NAIVE_CMYKA_100
+			ColorModel.GRAY_4,
+			ColorModel.GRAY_8,
+			ColorModel.GRAY_100,
+			ColorModel.RGB_4,
+			ColorModel.RGB_8,
+			ColorModel.RGB_16,
+			ColorModel.RGB_100,
+			ColorModel.HSV_360_100,
+			ColorModel.HSL_360_100,
+			ColorModel.HWB_360_100,
+			ColorModel.NAIVE_CMYK_100,
+			CIEColorModel.CIE_XYZ_100,
+			CIEColorModel.CIE_xyY_100,
+			CIEColorModel.CIE_RGB_100,
+			CIEColorModel.CIE_Lab_D65,
+			CIEColorModel.Hunter_Lab_D65
 		};
-		this.csl = new JList(cm);
-		this.csl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.csl.setSelectedValue(ColorModel.RGBA_8, false);
-		this.csl.setVisibleRowCount(1);
+		this.csl = new JComboBox(cm);
+		this.csl.setEditable(false);
+		this.csl.setMaximumRowCount(48);
+		this.csl.setSelectedItem(ColorModel.RGB_8);
 		this.csp = new ColorSliderModelPanel[cm.length];
 		this.csc = new ColorSliderModelComponent[cm.length];
 		for (int i = 0; i < cm.length; i++) {
@@ -65,25 +71,29 @@ public class ColorSliderPanel extends PaintContextPanel {
 		}
 		
 		// Create Layout
-		this.cardLayout = new CardLayout();
-		this.cardPanel = new JPanel(cardLayout);
+		this.cardPanel = new JPanel(new GridLayout());
 		for (int i = 0; i < cm.length; i++) {
-			cardPanel.add(csp[i], cm[i].getName());
+			if (cm[i] == ColorModel.RGB_8) {
+				cardPanel.add(csp[i]);
+				break;
+			}
 		}
-		cardLayout.show(cardPanel, ColorModel.RGBA_8.getName());
 		setLayout(new BorderLayout());
-		add(SwingUtils.shrink(new JScrollPane(csl,
-			JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-			JScrollPane.HORIZONTAL_SCROLLBAR_NEVER
-		)), BorderLayout.LINE_START);
+		add(SwingUtils.shrink(csl), BorderLayout.PAGE_START);
 		add(cardPanel, BorderLayout.CENTER);
 		
 		// Add Listeners
-		csl.addListSelectionListener(new ListSelectionListener() {
+		csl.addItemListener(new ItemListener() {
 			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				ColorModel scm = (ColorModel)csl.getSelectedValue();
-				if (scm != null) cardLayout.show(cardPanel, scm.getName());
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					int i = csl.getSelectedIndex();
+					if (i >= 0 && i < csp.length) {
+						cardPanel.removeAll();
+						cardPanel.add(csp[i]);
+						pack();
+					}
+				}
 			}
 		});
 		ColorChangeListener ccl = new ColorChangeListener() {
@@ -120,6 +130,27 @@ public class ColorSliderPanel extends PaintContextPanel {
 				}
 			}
 			eventexec = false;
+		}
+	}
+	
+	private void pack() {
+		this.invalidate();
+		Component c = this.getParent();
+		while (true) {
+			if (c == null) {
+				break;
+			} else if (c instanceof Window) {
+				((Window)c).pack();
+				break;
+			} else if (c instanceof Frame) {
+				((Frame)c).pack();
+				break;
+			} else if (c instanceof Dialog) {
+				((Dialog)c).pack();
+				break;
+			} else {
+				c = c.getParent();
+			}
 		}
 	}
 }

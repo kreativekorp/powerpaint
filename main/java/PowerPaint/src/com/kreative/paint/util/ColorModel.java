@@ -27,15 +27,15 @@ public abstract class ColorModel {
 	public abstract float[] unmakeColor(Color color, float[] channels);
 	@Override public final String toString() { return getName(); }
 	
-	public static final ColorModel GRAY_ALPHA_4 = new GrayAlpha(15);
-	public static final ColorModel GRAY_ALPHA_8 = new GrayAlpha(255);
-	public static final ColorModel GRAY_ALPHA_16 = new GrayAlpha(65535);
-	public static final ColorModel GRAY_ALPHA_100 = new GrayAlpha(100);
-	public static class GrayAlpha extends ColorModel {
+	public static final ColorModel GRAY_4 = new Gray(15);
+	public static final ColorModel GRAY_8 = new Gray(255);
+	public static final ColorModel GRAY_16 = new Gray(65535);
+	public static final ColorModel GRAY_100 = new Gray(100);
+	public static class Gray extends ColorModel {
 		private final float max;
 		private final String name;
 		private final ColorChannel[] channels;
-		public GrayAlpha(int max) {
+		public Gray(int max) {
 			this.max = max;
 			this.name = "Gray (0-" + max + ")";
 			this.channels = new ColorChannel[] {
@@ -62,17 +62,17 @@ public abstract class ColorModel {
 		}
 	}
 	
-	public static final ColorModel RGBA_4 = new RGBA(15);
-	public static final ColorModel RGBA_8 = new RGBA(255);
-	public static final ColorModel RGBA_16 = new RGBA(65535);
-	public static final ColorModel RGBA_100 = new RGBA(100);
-	public static class RGBA extends ColorModel {
+	public static final ColorModel RGB_4 = new RGB(15);
+	public static final ColorModel RGB_8 = new RGB(255);
+	public static final ColorModel RGB_16 = new RGB(65535);
+	public static final ColorModel RGB_100 = new RGB(100);
+	public static class RGB extends ColorModel {
 		private final float max;
 		private final String name;
 		private final ColorChannel[] channels;
-		public RGBA(int max) {
+		public RGB(int max) {
 			this.max = max;
-			this.name = "RGBA (0-" + max + ")";
+			this.name = "RGB (0-" + max + ")";
 			this.channels = new ColorChannel[] {
 				new ColorChannel("R", "Red"  , 0, max, 1),
 				new ColorChannel("G", "Green", 0, max, 1),
@@ -98,19 +98,19 @@ public abstract class ColorModel {
 		}
 	}
 	
-	public static final ColorModel HSVA_360_100 = new HSVA(360, 100);
-	public static class HSVA extends ColorModel {
+	public static final ColorModel HSV_360_100 = new HSV(360, 100);
+	public static class HSV extends ColorModel {
 		private final float hmax;
 		private final float vmax;
 		private final String name;
 		private final ColorChannel[] channels;
-		public HSVA(int hmax, int vmax) {
+		public HSV(int hmax, int vmax) {
 			this.hmax = hmax;
 			this.vmax = vmax;
-			if (hmax == 360 && vmax == 100) this.name = "HSVA";
-			else if (hmax == 360) this.name = "HSVA (V:0-" + vmax + ")";
-			else if (vmax == 100) this.name = "HSVA (H:0-" + hmax + ")";
-			else this.name = "HSVA (H:0-" + hmax + "/V:0-" + vmax + ")";
+			if (hmax == 360 && vmax == 100) this.name = "HSV";
+			else if (hmax == 360) this.name = "HSV (V:0-" + vmax + ")";
+			else if (vmax == 100) this.name = "HSV (H:0-" + hmax + ")";
+			else this.name = "HSV (H:0-" + hmax + "/V:0-" + vmax + ")";
 			this.channels = new ColorChannel[] {
 				new ColorChannel("H", "Hue"       , 0, hmax, 1),
 				new ColorChannel("S", "Saturation", 0, vmax, 1),
@@ -147,19 +147,19 @@ public abstract class ColorModel {
 		}
 	}
 	
-	public static final ColorModel HSLA_360_100 = new HSLA(360, 100);
-	public static class HSLA extends ColorModel {
+	public static final ColorModel HSL_360_100 = new HSL(360, 100);
+	public static class HSL extends ColorModel {
 		private final float hmax;
 		private final float vmax;
 		private final String name;
 		private final ColorChannel[] channels;
-		public HSLA(int hmax, int vmax) {
+		public HSL(int hmax, int vmax) {
 			this.hmax = hmax;
 			this.vmax = vmax;
-			if (hmax == 360 && vmax == 100) this.name = "HSLA";
-			else if (hmax == 360) this.name = "HSLA (V:0-" + vmax + ")";
-			else if (vmax == 100) this.name = "HSLA (H:0-" + hmax + ")";
-			else this.name = "HSLA (H:0-" + hmax + "/V:0-" + vmax + ")";
+			if (hmax == 360 && vmax == 100) this.name = "HSL";
+			else if (hmax == 360) this.name = "HSL (V:0-" + vmax + ")";
+			else if (vmax == 100) this.name = "HSL (H:0-" + hmax + ")";
+			else this.name = "HSL (H:0-" + hmax + "/V:0-" + vmax + ")";
 			this.channels = new ColorChannel[] {
 				new ColorChannel("H", "Hue"       , 0, hmax, 1),
 				new ColorChannel("S", "Saturation", 0, vmax, 1),
@@ -205,19 +205,19 @@ public abstract class ColorModel {
 		}
 	}
 	
-	public static final ColorModel HWBA_360_100 = new HWBA(360, 100);
-	public static class HWBA extends ColorModel {
+	public static final ColorModel HWB_360_100 = new HWB(360, 100);
+	public static class HWB extends ColorModel {
 		private final float hmax;
 		private final float vmax;
 		private final String name;
 		private final ColorChannel[] channels;
-		public HWBA(int hmax, int vmax) {
+		public HWB(int hmax, int vmax) {
 			this.hmax = hmax;
 			this.vmax = vmax;
-			if (hmax == 360 && vmax == 100) this.name = "HWBA";
-			else if (hmax == 360) this.name = "HWBA (V:0-" + vmax + ")";
-			else if (vmax == 100) this.name = "HWBA (H:0-" + hmax + ")";
-			else this.name = "HWBA (H:0-" + hmax + "/V:0-" + vmax + ")";
+			if (hmax == 360 && vmax == 100) this.name = "HWB";
+			else if (hmax == 360) this.name = "HWB (V:0-" + vmax + ")";
+			else if (vmax == 100) this.name = "HWB (H:0-" + hmax + ")";
+			else this.name = "HWB (H:0-" + hmax + "/V:0-" + vmax + ")";
 			this.channels = new ColorChannel[] {
 				new ColorChannel("H", "Hue"  , 0, hmax, 1),
 				new ColorChannel("W", "White", 0, vmax, 1),
@@ -264,15 +264,15 @@ public abstract class ColorModel {
 		}
 	}
 	
-	public static final ColorModel NAIVE_CMYKA_100 = new NaiveCMYKA(100);
-	public static class NaiveCMYKA extends ColorModel {
+	public static final ColorModel NAIVE_CMYK_100 = new NaiveCMYK(100);
+	public static class NaiveCMYK extends ColorModel {
 		private final float max;
 		private final String name;
 		private final ColorChannel[] channels;
-		public NaiveCMYKA(int max) {
+		public NaiveCMYK(int max) {
 			this.max = max;
-			if (max == 100) this.name = "Naive CMYKA";
-			else this.name = "Naive CMYKA (0-" + max + ")";
+			if (max == 100) this.name = "Naive CMYK";
+			else this.name = "Naive CMYK (0-" + max + ")";
 			this.channels = new ColorChannel[] {
 				new ColorChannel("C", "Cyan"   , 0, max, 1),
 				new ColorChannel("M", "Magenta", 0, max, 1),
