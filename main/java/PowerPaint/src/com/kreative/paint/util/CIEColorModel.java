@@ -233,14 +233,14 @@ public abstract class CIEColorModel extends ColorModel {
 		private static final float T = 216f / 24389f;
 		private static final float M = 841f / 108f;
 		private static final float B = 4f / 29f;
-		private float f(float t) {
+		private static float f(float t) {
 			if (t > T) return (float)Math.cbrt(t);
 			else return M * t + B;
 		}
 		private static final float T1 = 6f / 29f;
 		private static final float M1 = 108f / 841f;
 		private static final float B1 = 4f / 29f;
-		private float f1(float t) {
+		private static float f1(float t) {
 			if (t > T1) return t * t * t;
 			else return M1 * (t - B1);
 		}
