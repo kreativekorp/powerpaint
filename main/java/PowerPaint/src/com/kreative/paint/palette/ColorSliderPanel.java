@@ -50,7 +50,9 @@ public class ColorSliderPanel extends PaintContextPanel {
 			CIEColorModel.CIE_xyY_100,
 			CIEColorModel.CIE_RGB_100,
 			CIEColorModel.CIE_Lab_D65,
-			CIEColorModel.Hunter_Lab_D65
+			CIEColorModel.CIE_LCh_D65,
+			CIEColorModel.Hunter_Lab_D65,
+			CIEColorModel.Hunter_LCh_D65
 		};
 		this.csl = new JComboBox(cm);
 		this.csl.setEditable(false);
@@ -91,6 +93,7 @@ public class ColorSliderPanel extends PaintContextPanel {
 					if (i >= 0 && i < csp.length) {
 						cardPanel.removeAll();
 						cardPanel.add(csp[i]);
+						repaint();
 						pack();
 					}
 				}

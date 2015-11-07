@@ -176,39 +176,57 @@ public abstract class CIEColorModel extends ColorModel {
 		}
 	}
 	
-	public static final ColorModel CIE_Lab_D65 = new CIELab("D65", 0.95047f, 1f, 1.08883f);
+	public static final ColorModel CIE_Lab_D65 = new CIELab("D65", 0.95047f, 1f, 1.08883f, false);
+	public static final ColorModel CIE_LCh_D65 = new CIELab("D65", 0.95047f, 1f, 1.08883f, true);
 	public static class CIELab extends CIEColorModel {
 		private final float X, Y, Z;
+		private final boolean polar;
 		private final String name;
 		private final ColorChannel[] channels;
-		public CIELab(String name, float X, float Y, float Z) {
+		public CIELab(String name, float X, float Y, float Z, boolean polar) {
 			this.X = X; this.Y = Y; this.Z = Z;
-			this.name = "CIE Lab (" + name + ")";
-			this.channels = new ColorChannel[] {
-				new ColorChannel("L", "L",    0,  100, 1),
-				new ColorChannel("a", "a", -100, +100, 1),
-				new ColorChannel("b", "b", -100, +100, 1),
-				new ColorChannel("A", "A",    0,  100, 1)
-			};
+			this.polar = polar;
+			if (polar) {
+				this.name = "CIE LCh (" + name + ")";
+				this.channels = new ColorChannel[] {
+					new ColorChannel("L", "L", 0, 100, 1),
+					new ColorChannel("C", "C", 0, 100, 1),
+					new ColorChannel("h", "h", 0, 360, 1),
+					new ColorChannel("A", "A", 0, 100, 1)
+				};
+			} else {
+				this.name = "CIE Lab (" + name + ")";
+				this.channels = new ColorChannel[] {
+					new ColorChannel("L", "L",    0,  100, 1),
+					new ColorChannel("a", "a", -100, +100, 1),
+					new ColorChannel("b", "b", -100, +100, 1),
+					new ColorChannel("A", "A",    0,  100, 1)
+				};
+			}
 		}
 		@Override public String getName() { return name; }
 		@Override public ColorChannel[] getChannels() { return channels; }
 		@Override
 		public float[] toXYZ(float[] channels, float[] xyza) {
-			float l = (channels[0] + 16f) / 116f;
+			float ll = (channels[0] + 16f) / 116f;
+			float aa = polar ? (float)(channels[1] * Math.cos(Math.toRadians(channels[2]))) : channels[1];
+			float bb = polar ? (float)(channels[1] * Math.sin(Math.toRadians(channels[2]))) : channels[2];
 			if (xyza == null) xyza = new float[4];
-			xyza[0] = X * f1(l + channels[1] / 500f);
-			xyza[1] = Y * f1(l);
-			xyza[2] = Z * f1(l - channels[2] / 200f);
+			xyza[0] = X * f1(ll + aa / 500f);
+			xyza[1] = Y * f1(ll);
+			xyza[2] = Z * f1(ll - bb / 200f);
 			xyza[3] = channels[3] / 100f;
 			return xyza;
 		}
 		@Override
 		public float[] fromXYZ(float x, float y, float z, float a, float[] channels) {
+			float ll = 116f * f(y / Y) - 16f;
+			float aa = 500f * (f(x / X) - f(y / Y));
+			float bb = 200f * (f(y / Y) - f(z / Z));
 			if (channels == null) channels = new float[4];
-			channels[0] = 116f * f(y / Y) - 16f;
-			channels[1] = 500f * (f(x / X) - f(y / Y));
-			channels[2] = 200f * (f(y / Y) - f(z / Z));
+			channels[0] = ll;
+			channels[1] = polar ? (float)Math.hypot(bb, aa) : aa;
+			channels[2] = polar ? (float)Math.toDegrees(Math.atan2(bb, aa)) : bb;
 			channels[3] = 100f * a;
 			return channels;
 		}
@@ -228,46 +246,66 @@ public abstract class CIEColorModel extends ColorModel {
 		}
 	}
 	
-	public static final ColorModel Hunter_Lab_D65 = new HunterLab("D65", 0.95047f, 1f, 1.08883f);
+	public static final ColorModel Hunter_Lab_D65 = new HunterLab("D65", 0.95047f, 1f, 1.08883f, false, 100, 100);
+	public static final ColorModel Hunter_LCh_D65 = new HunterLab("D65", 0.95047f, 1f, 1.08883f, true, 100, 100);
 	public static class HunterLab extends CIEColorModel {
 		private final float X, Y, Z, Ka, Kb;
+		private final boolean polar;
+		private final float max;
 		private final String name;
 		private final ColorChannel[] channels;
-		public HunterLab(String name, float X, float Y, float Z) {
+		public HunterLab(String name, float X, float Y, float Z, boolean polar, int max, int steps) {
 			this.X = X; this.Y = Y; this.Z = Z;
 			this.Ka = (X + Y) * 175f / 198.04f;
 			this.Kb = (Y + Z) * 70f / 218.11f;
-			this.name = "Hunter Lab (" + name + ")";
-			this.channels = new ColorChannel[] {
-				new ColorChannel("L", "L",    0,  100, 1),
-				new ColorChannel("a", "a", -100, +100, 1),
-				new ColorChannel("b", "b", -100, +100, 1),
-				new ColorChannel("A", "A",    0,  100, 1)
-			};
+			this.polar = polar;
+			this.max = max;
+			float step = (float)max / (float)steps;
+			if (polar) {
+				if (max == 100) this.name = "Hunter LCh (" + name + ")";
+				else this.name = "Hunter LCh (" + name + ") (" + max + ")";
+				this.channels = new ColorChannel[] {
+					new ColorChannel("L", "L", 0, max, step),
+					new ColorChannel("C", "C", 0, max, step),
+					new ColorChannel("h", "h", 0, 360,    1),
+					new ColorChannel("A", "A", 0, max, step)
+				};
+			} else {
+				if (max == 100) this.name = "Hunter Lab (" + name + ")";
+				else this.name = "Hunter Lab (" + name + ") (" + max + ")";
+				this.channels = new ColorChannel[] {
+					new ColorChannel("L", "L",    0,  max, step),
+					new ColorChannel("a", "a", -max, +max, step),
+					new ColorChannel("b", "b", -max, +max, step),
+					new ColorChannel("A", "A",    0,  max, step)
+				};
+			}
 		}
 		@Override public String getName() { return name; }
 		@Override public ColorChannel[] getChannels() { return channels; }
 		@Override
 		public float[] toXYZ(float[] channels, float[] xyza) {
-			float l = channels[0] / 100f;
-			float a = channels[1] / 100f;
-			float b = channels[2] / 100f;
-			float yY = l * l;
+			float ll = channels[0] / max;
+			float aa = (polar ? (float)(channels[1] * Math.cos(Math.toRadians(channels[2]))) : channels[1]) / max;
+			float bb = (polar ? (float)(channels[1] * Math.sin(Math.toRadians(channels[2]))) : channels[2]) / max;
+			float yY = ll * ll;
 			if (xyza == null) xyza = new float[4];
-			xyza[0] = X * (yY + a * l / Ka);
+			xyza[0] = X * (yY + aa * ll / Ka);
 			xyza[1] = Y * yY;
-			xyza[2] = Z * (yY - b * l / Kb);
-			xyza[3] = channels[3] / 100f;
+			xyza[2] = Z * (yY - bb * ll / Kb);
+			xyza[3] = channels[3] / max;
 			return xyza;
 		}
 		@Override
 		public float[] fromXYZ(float x, float y, float z, float a, float[] channels) {
-			float l = (float)Math.sqrt(y / Y);
+			float ll = (float)Math.sqrt(y / Y);
+			float aa = (ll == 0) ? 0 : (max * Ka * ((x / X) - (y / Y)) / ll);
+			float bb = (ll == 0) ? 0 : (max * Kb * ((y / Y) - (z / Z)) / ll);
 			if (channels == null) channels = new float[4];
-			channels[0] = 100f * l;
-			channels[1] = (l == 0) ? 0 : (100f * Ka * ((x / X) - (y / Y)) / l);
-			channels[2] = (l == 0) ? 0 : (100f * Kb * ((y / Y) - (z / Z)) / l);
-			channels[3] = 100f * a;
+			channels[0] = max * ll;
+			channels[1] = polar ? (float)Math.hypot(bb, aa) : aa;
+			channels[2] = polar ? (float)Math.toDegrees(Math.atan2(bb, aa)) : bb;
+			channels[3] = max * a;
 			return channels;
 		}
 	}
