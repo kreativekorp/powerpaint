@@ -89,9 +89,9 @@ public class ColorSliderModelPanel extends JPanel {
 	}
 	
 	private static String toDecString(float v, float min) {
-		if (v > 0 && min < 0) return "+" + toDecString(v, 0);
-		if (v == (int)v) return Integer.toString((int)v);
-		return Float.toString(v);
+		v = Math.round(v * 1000f) / 1000f;
+		String s = (v == (int)v) ? Integer.toString((int)v) : Float.toString(v);
+		return (v > 0 && min < 0) ? ("+" + s) : s;
 	}
 	
 	private static String toHexString(float v, float max, boolean sel) {

@@ -19,9 +19,11 @@ public abstract class CIEColorModel extends ColorModel {
 		g = (g <= 0.0031308f) ? (12.92f * g) : (float)(1.055 * Math.pow(g, 1.0/2.4) - 0.055);
 		b = (b <= 0.0031308f) ? (12.92f * b) : (float)(1.055 * Math.pow(b, 1.0/2.4) - 0.055);
 		// Constrain to sRGB gamut
-		if (r < 0) r = 0; if (r > 1) r = 1;
-		if (g < 0) g = 0; if (g > 1) g = 1;
-		if (b < 0) b = 0; if (b > 1) b = 1;
+		float min = Math.min(Math.min(Math.min(r, g), b), 0);
+		float max = Math.max(Math.max(Math.max(r, g), b), 1);
+		r = (r - min) / (max - min);
+		g = (g - min) / (max - min);
+		b = (b - min) / (max - min);
 		// Compose color
 		return new Color(r, g, b, xyza[3]);
 	}

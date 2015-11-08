@@ -311,4 +311,149 @@ public abstract class ColorModel {
 			return channels;
 		}
 	}
+	
+	public static final ColorModel YUV_SDTV = new YUV("YUV (SDTV)", "U", "V", 0.299f, 0.114f, 0.436f, 0.615f);
+	public static final ColorModel YUV_HDTV = new YUV("YUV (HDTV)", "U", "V", 0.2126f, 0.0722f, 0.436f, 0.615f);
+	public static final ColorModel Y_CB_CR_SDTV = new YUV("YCbCr (SDTV)", "Cb", "Cr", 0.299f, 0.114f, 0.5f, 0.5f);
+	public static final ColorModel Y_CB_CR_HDTV = new YUV("YCbCr (HDTV)", "Cb", "Cr", 0.2126f, 0.0722f, 0.5f, 0.5f);
+	public static final ColorModel Y_DB_DR = new YUV("YDbDr", "Db", "Dr", 0.299f, 0.114f, 1.333f, -1.333f);
+	public static class YUV extends ColorModel {
+		private final float wr, wg, wb;
+		private final float umax, vmax;
+		private final String name;
+		private final ColorChannel[] channels;
+		public YUV(String name, String U, String V, float wr, float wb, float umax, float vmax) {
+			this.wr = wr; this.wg = 1 - wr - wb; this.wb = wb;
+			this.umax = umax; this.vmax = vmax;
+			this.name = name;
+			if (umax < 0) umax = -umax;
+			if (vmax < 0) vmax = -vmax;
+			this.channels = new ColorChannel[] {
+				new ColorChannel("Y", "Y",     0,     1, 0.001f),
+				new ColorChannel( U ,  U , -umax, +umax, 0.001f),
+				new ColorChannel( V ,  V , -vmax, +vmax, 0.001f),
+				new ColorChannel("A", "A",     0,     1, 0.001f)
+			};
+		}
+		@Override public String getName() { return name; }
+		@Override public ColorChannel[] getChannels() { return channels; }
+		@Override
+		public Color makeColor(float[] channels) {
+			float y = channels[0];
+			float r_y = channels[2] * (1 - wr) / vmax;
+			float b_y = channels[1] * (1 - wb) / umax;
+			float g = y - b_y * wb / wg - r_y * wr / wg;
+			float r = y + r_y;
+			float b = y + b_y;
+			float a = channels[3];
+			return new Color(clamp(r), clamp(g), clamp(b), clamp(a));
+		}
+		@Override
+		public float[] unmakeColor(Color color, float[] channels) {
+			channels = color.getRGBComponents(channels);
+			float y = wr * channels[0] + wg * channels[1] + wb * channels[2];
+			float u = umax * (channels[2] - y) / (1 - wb);
+			float v = vmax * (channels[0] - y) / (1 - wr);
+			float a = channels[3];
+			channels[0] = y;
+			channels[1] = u;
+			channels[2] = v;
+			channels[3] = a;
+			return channels;
+		}
+		private static float clamp(float v) {
+			if (v <= 0) return 0;
+			if (v >= 1) return 1;
+			return v;
+		}
+	}
+	
+	public static final ColorModel YIQ = new MatrixColorModel(
+		"YIQ",
+		"Y", 0, 1, 0.001f,
+		"I", -0.5957f, +0.5957f, 0.001f,
+		"Q", -0.5226f, +0.5226f, 0.001f,
+		+0.299f, +0.587f, +0.114f,
+		+0.596f, -0.274f, -0.322f,
+		+0.211f, -0.523f, +0.312f,
+		+1, +0.956f, +0.621f,
+		+1, -0.272f, -0.647f,
+		+1, -1.106f, +1.703f
+	);
+	public static final ColorModel Y_CG_CO = new MatrixColorModel(
+		"YCgCo",
+		"Y", 0, 1, 0.001f,
+		"Cg", -0.5f, +0.5f, 0.001f,
+		"Co", -0.5f, +0.5f, 0.001f,
+		+1/4f, +1/2f, +1/4f,
+		-1/4f, +1/2f, -1/4f,
+		+1/2f,   0  , -1/2f,
+		+1, -1, +1,
+		+1, +1,  0,
+		+1, -1, -1
+	);
+	public static class MatrixColorModel extends ColorModel {
+		private final float fa, fb, fc;
+		private final float fd, fe, ff;
+		private final float fg, fh, fi;
+		private final float ra, rb, rc;
+		private final float rd, re, rf;
+		private final float rg, rh, ri;
+		private final String name;
+		private final ColorChannel[] channels;
+		public MatrixColorModel(
+			String name,
+			String c1, float c1min, float c1max, float c1step,
+			String c2, float c2min, float c2max, float c2step,
+			String c3, float c3min, float c3max, float c3step,
+			float fa, float fb, float fc,
+			float fd, float fe, float ff,
+			float fg, float fh, float fi,
+			float ra, float rb, float rc,
+			float rd, float re, float rf,
+			float rg, float rh, float ri
+		) {
+			this.fa = fa; this.fb = fb; this.fc = fc;
+			this.fd = fd; this.fe = fe; this.ff = ff;
+			this.fg = fg; this.fh = fh; this.fi = fi;
+			this.ra = ra; this.rb = rb; this.rc = rc;
+			this.rd = rd; this.re = re; this.rf = rf;
+			this.rg = rg; this.rh = rh; this.ri = ri;
+			this.name = name;
+			this.channels = new ColorChannel[] {
+				new ColorChannel(c1, c1, c1min, c1max, c1step),
+				new ColorChannel(c2, c2, c2min, c2max, c2step),
+				new ColorChannel(c3, c3, c3min, c3max, c3step),
+				new ColorChannel("A", "A", 0, 1, 0.001f)
+			};
+		}
+		@Override public String getName() { return name; }
+		@Override public ColorChannel[] getChannels() { return channels; }
+		@Override
+		public Color makeColor(float[] channels) {
+			float r = channels[0] * ra + channels[1] * rb + channels[2] * rc;
+			float g = channels[0] * rd + channels[1] * re + channels[2] * rf;
+			float b = channels[0] * rg + channels[1] * rh + channels[2] * ri;
+			float a = channels[3];
+			return new Color(clamp(r), clamp(g), clamp(b), clamp(a));
+		}
+		@Override
+		public float[] unmakeColor(Color color, float[] channels) {
+			channels = color.getRGBComponents(channels);
+			float x = channels[0] * fa + channels[1] * fb + channels[2] * fc;
+			float y = channels[0] * fd + channels[1] * fe + channels[2] * ff;
+			float z = channels[0] * fg + channels[1] * fh + channels[2] * fi;
+			float a = channels[3];
+			channels[0] = x;
+			channels[1] = y;
+			channels[2] = z;
+			channels[3] = a;
+			return channels;
+		}
+		private static float clamp(float v) {
+			if (v <= 0) return 0;
+			if (v >= 1) return 1;
+			return v;
+		}
+	}
 }
