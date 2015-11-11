@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import com.kreative.paint.rcp.ColorChangeEvent;
 import com.kreative.paint.rcp.ColorChangeListener;
 import com.kreative.paint.util.ColorModel;
+import com.kreative.paint.util.ColorModel.ColorChannel;
 import com.kreative.paint.util.SwingUtils;
 
 public class ColorSliderModelPanel extends JPanel {
@@ -35,7 +36,7 @@ public class ColorSliderModelPanel extends JPanel {
 		JPanel lp = new JPanel(new GridLayout(nc, 1));
 		JPanel vp = new JPanel(new GridLayout(nc, 1));
 		for (int ci = 0; ci < nc; ci++) {
-			ColorModel.ColorChannel cc = cs.getChannel(ci);
+			ColorChannel cc = cs.getChannel(ci);
 			lp.add(shrink(new JLabel(cc.symbol), cc.name, JLabel.CENTER));
 			vp.add(shrink(vl[ci] = newDecLabel(cc), null, JLabel.RIGHT));
 		}
@@ -44,7 +45,7 @@ public class ColorSliderModelPanel extends JPanel {
 			this.hl = new JLabel[nc];
 			JPanel hp = new JPanel(new GridLayout(nc, 1));
 			for (int ci = 0; ci < nc; ci++) {
-				ColorModel.ColorChannel cc = cs.getChannel(ci);
+				ColorChannel cc = cs.getChannel(ci);
 				hp.add(shrink(hl[ci] = newHexLabel(cc), null, JLabel.LEFT));
 			}
 			JPanel rp = new JPanel(new GridLayout(1, 2, 4, 4));
@@ -75,7 +76,7 @@ public class ColorSliderModelPanel extends JPanel {
 	private void updateLabels() {
 		int nc = cs.getChannelCount();
 		for (int ci = 0; ci < nc; ci++) {
-			ColorModel.ColorChannel cc = cs.getChannel(ci);
+			ColorChannel cc = cs.getChannel(ci);
 			float cv = cs.getChannelValue(ci);
 			String ds = toDecString(cv, cc.min);
 			vl[ci].setText(ds);
@@ -105,7 +106,7 @@ public class ColorSliderModelPanel extends JPanel {
 		}
 	}
 	
-	private static JLabel newDecLabel(ColorModel.ColorChannel cc) {
+	private static JLabel newDecLabel(ColorChannel cc) {
 		String[] candidateStrings = new String[] {
 			toDecString(cc.min, cc.min),
 			toDecString(cc.min + cc.step, cc.min),
@@ -127,7 +128,7 @@ public class ColorSliderModelPanel extends JPanel {
 		return l;
 	}
 	
-	private static JLabel newHexLabel(ColorModel.ColorChannel cc) {
+	private static JLabel newHexLabel(ColorChannel cc) {
 		String[] candidateStrings = new String[] {
 			toHexString(cc.min, cc.max, cc.hex),
 			toHexString(cc.min + cc.step, cc.max, cc.hex),

@@ -17,12 +17,13 @@ import com.kreative.paint.rcp.CheckerboardPaint;
 import com.kreative.paint.rcp.ColorChangeEvent;
 import com.kreative.paint.rcp.ColorChangeListener;
 import com.kreative.paint.util.ColorModel;
+import com.kreative.paint.util.ColorModel.ColorChannel;
 
 public class ColorSliderModelComponent extends JComponent {
 	private static final long serialVersionUID = 1L;
 	
 	private final ColorModel cm;
-	private final ColorModel.ColorChannel[] cd;
+	private final ColorChannel[] cd;
 	private final List<ColorChangeListener> listeners;
 	private Color color;
 	private float[] cc;
@@ -53,7 +54,7 @@ public class ColorSliderModelComponent extends JComponent {
 		return cd.length;
 	}
 	
-	public ColorModel.ColorChannel getChannel(int i) {
+	public ColorChannel getChannel(int i) {
 		return cd[i];
 	}
 	
@@ -138,8 +139,8 @@ public class ColorSliderModelComponent extends JComponent {
 		if (ci < 0 || ci >= cd.length) return;
 		float v = (float)(mx - x - 1) / (float)(w - 3);
 		v *= (cd[ci].max - cd[ci].min);
-		v = Math.round(v / cd[ci].step) * cd[ci].step;
 		v += cd[ci].min;
+		v = Math.round(v / cd[ci].step) * cd[ci].step;
 		if (v < cd[ci].min) v = cd[ci].min;
 		if (v > cd[ci].max) v = cd[ci].max;
 		cc[ci] = v;

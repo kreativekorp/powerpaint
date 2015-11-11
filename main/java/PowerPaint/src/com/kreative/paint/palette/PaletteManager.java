@@ -37,8 +37,8 @@ public class PaletteManager {
 	private SNFPalette snfPalette;
 	private ColorPalettePalette colorPalettePalette;
 	private ColorListPalette colorListPalette;
-	private ColorCubePalette colorCubePalette;
 	private ColorSliderPalette colorSliderPalette;
+	private ColorCubePalette colorCubePalette;
 	private ColorWheelPalette colorWheelPalette;
 	private ColorMixerPalette colorMixerPalette;
 	private TexturePalette texturePalette;
@@ -59,8 +59,8 @@ public class PaletteManager {
 				colorPalettePalette = new ColorPalettePalette(pc, mm, defCP),
 				new PaintContextPalette[]{
 					colorListPalette = new ColorListPalette(pc, mm, defCL),
-					colorCubePalette = new ColorCubePalette(pc),
 					colorSliderPalette = new ColorSliderPalette(pc),
+					colorCubePalette = new ColorCubePalette(pc),
 					colorWheelPalette = new ColorWheelPalette(pc),
 					colorMixerPalette = new ColorMixerPalette(pc)
 				},
@@ -90,12 +90,12 @@ public class PaletteManager {
 		return colorListPalette;
 	}
 
-	public ColorCubePalette getColorCubePalette() {
-		return colorCubePalette;
-	}
-
 	public ColorSliderPalette getColorSliderPalette() {
 		return colorSliderPalette;
+	}
+
+	public ColorCubePalette getColorCubePalette() {
+		return colorCubePalette;
 	}
 
 	public ColorWheelPalette getColorWheelPalette() {
