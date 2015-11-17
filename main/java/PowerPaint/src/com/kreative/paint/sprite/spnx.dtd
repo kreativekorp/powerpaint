@@ -1,0 +1,46 @@
+<!--
+	Date: 2015/11/12 10:13:15 PST
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - SPRITE INFO - - - - - - - - - - - - -->
+
+<!ELEMENT sprite-sheet (slice|sprite-set|sprite)*>
+<!ATTLIST sprite-sheet
+	name CDATA #IMPLIED
+	intent CDATA #IMPLIED
+	cols CDATA #IMPLIED
+	rows CDATA #IMPLIED
+	order CDATA #IMPLIED
+>
+
+<!ELEMENT slice EMPTY>
+<!ATTLIST slice
+	sx CDATA #IMPLIED
+	sy CDATA #IMPLIED
+	cw CDATA #IMPLIED
+	ch CDATA #IMPLIED
+	chx CDATA #IMPLIED
+	chy CDATA #IMPLIED
+	cdx CDATA #IMPLIED
+	cdy CDATA #IMPLIED
+	cols CDATA #IMPLIED
+	rows CDATA #IMPLIED
+	order CDATA #IMPLIED
+	color-transform CDATA #IMPLIED
+>
+
+<!ELEMENT sprite-set (sprite-set|sprite)*>
+<!ATTLIST sprite-set
+	name CDATA #IMPLIED
+	index CDATA #IMPLIED
+	duration CDATA #IMPLIED
+>
+
+<!ELEMENT sprite EMPTY>
+<!ATTLIST sprite
+	name CDATA #IMPLIED
+	index CDATA #IMPLIED
+	duration CDATA #IMPLIED
+	count CDATA #IMPLIED
+>

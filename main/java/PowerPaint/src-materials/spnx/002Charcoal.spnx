@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sprite-sheet PUBLIC "-//Kreative//DTD SpriteInfo 1.0//EN" "spnx.dtd">
+<sprite-sheet name="Charcoal Brushes"
+              intent="sprayed-brush"
+              cols="6" rows="1"
+              order="ltr-ttb">
+
+	<slice sx="0" sy="0"
+	       cw="16" ch="16"
+	       chx="8" chy="8"
+	       cdx="16" cdy="16"
+	       cols="8" rows="6"
+	       order="ltr-ttb"
+	       color-transform="replace-grays
+	                        grayscale
+	                        white-to-alpha
+	                        alpha-threshold
+	                        color-threshold"/>
+
+	<sprite-set index= "0"><sprite index= "1" count="7"/></sprite-set>
+	<sprite-set index= "8"><sprite index= "9" count="7"/></sprite-set>
+	<sprite-set index="16"><sprite index="17" count="7"/></sprite-set>
+	<sprite-set index="24"><sprite index="25" count="7"/></sprite-set>
+	<sprite-set index="32"><sprite index="33" count="7"/></sprite-set>
+	<sprite-set index="40"><sprite index="41" count="7"/></sprite-set>
+
+</sprite-sheet>
