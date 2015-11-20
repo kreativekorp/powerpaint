@@ -1,6 +1,10 @@
 package com.kreative.paint.sprite;
 
+import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 public class Sprite {
@@ -69,8 +73,12 @@ public class Sprite {
 	
 	private int[] rawPixels = null;
 	private Image rawImage = null;
+	private Cursor rawVCursor = null;
+	private Cursor rawOCursor = null;
 	private int[] preparedPixels = null;
 	private Image preparedImage = null;
+	private Cursor preparedVCursor = null;
+	private Cursor preparedOCursor = null;
 	
 	public int[] getRawPixels() {
 		if (rawPixels == null) {
@@ -99,6 +107,24 @@ public class Sprite {
 		return rawImage;
 	}
 	
+	public Cursor getRawCursor(boolean outline) {
+		Cursor c = (outline ? rawOCursor : rawVCursor);
+		if (c == null) {
+			Toolkit tk = Toolkit.getDefaultToolkit();
+			Dimension d = createCursorDimension(tk, outline);
+			if (d == null) {
+				c = Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
+			} else {
+				int[] ca = getRawPixels();
+				String name = super.toString() + "-raw";
+				c = createCursor(tk, d, ca, name, outline);
+			}
+			if (outline) rawOCursor = c;
+			else rawVCursor = c;
+		}
+		return c;
+	}
+	
 	public int[] getPreparedPixels() {
 		if (preparedPixels == null) {
 			ColorTransform tx = slice.transform;
@@ -121,6 +147,24 @@ public class Sprite {
 			preparedImage = bi;
 		}
 		return preparedImage;
+	}
+	
+	public Cursor getPreparedCursor(boolean outline) {
+		Cursor c = (outline ? preparedOCursor : preparedVCursor);
+		if (c == null) {
+			Toolkit tk = Toolkit.getDefaultToolkit();
+			Dimension d = createCursorDimension(tk, outline);
+			if (d == null) {
+				c = Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
+			} else {
+				int[] ca = getPreparedPixels();
+				String name = super.toString() + "-prep";
+				c = createCursor(tk, d, ca, name, outline);
+			}
+			if (outline) preparedOCursor = c;
+			else preparedVCursor = c;
+		}
+		return c;
 	}
 	
 	public int[] getPixels(
@@ -148,5 +192,82 @@ public class Sprite {
 		int[] ret = getPixels(k, w, r, y, g, c, b, m);
 		bi.setRGB(0, 0, cw, ch, ret, 0, cw);
 		return bi;
+	}
+	
+	public Cursor getCursor(
+		int k, int w, int r, int y,
+		int g, int c, int b, int m,
+		boolean outline
+	) {
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		Dimension d = createCursorDimension(tk, outline);
+		if (d == null) {
+			return Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
+		} else {
+			int[] ca = getPixels(k, w, r, y, g, c, b, m);
+			String name = super.toString()
+				+ "-" + k + "-" + w + "-" + r + "-" + y
+				+ "-" + g + "-" + c + "-" + b + "-" + m;
+			return createCursor(tk, d, ca, name, outline);
+		}
+	}
+	
+	private Dimension createCursorDimension(Toolkit tk, boolean outline) {
+		int cw = slice.cellWidth;
+		int ch = slice.cellHeight;
+		if (outline) { cw += 2; ch += 2; }
+		Dimension d = tk.getBestCursorSize(cw, ch);
+		if (d.width < cw || d.height < ch) {
+			d = tk.getBestCursorSize(cw + cw, ch + ch);
+			if (d.width < cw || d.height < ch) {
+				return null;
+			}
+		}
+		return d;
+	}
+	
+	private Cursor createCursor(Toolkit tk, Dimension d, int[] ca, String name, boolean outline) {
+		int cw = slice.cellWidth;
+		int ch = slice.cellHeight;
+		int hx = slice.hotspotX;
+		int hy = slice.hotspotY;
+		if (outline) {
+			cw += 2; ch += 2; hx++; hy++;
+			ca = createCursorOutline(ca);
+			name += "-outline";
+		}
+		int bt = BufferedImage.TYPE_INT_ARGB;
+		BufferedImage ci = new BufferedImage(d.width, d.height, bt);
+		ci.setRGB(0, 0, cw, ch, ca, 0, cw);
+		return tk.createCustomCursor(ci, new Point(hx, hy), name);
+	}
+	
+	private int[] createCursorOutline(int[] pixels) {
+		int cw = slice.cellWidth;
+		int ch = slice.cellHeight;
+		int[] ca = new int[(cw + 2) * (ch + 2)];
+		for (int sy = 0, dy = cw + 2, iy = 0; iy < ch; sy += cw, dy += cw + 2, iy++) {
+			for (int sx = sy, dx = dy + 1, ix = 0; ix < cw; sx++, dx++, ix++) {
+				if ((pixels[sx] >>> 24) != 0) {
+					ca[dx] = pixels[sx];
+				}
+			}
+		}
+		for (int ay = cw + 2, iy = 0; iy < ch; ay += cw + 2, iy++) {
+			for (int ax = ay + 1, ix = 0; ix < cw; ax++, ix++) {
+				if ((ca[ax] >>> 24) != 0) {
+					if ((ca[ax - 1] >>> 24) == 0) ca[ax - 1] = 0xBECC1E;
+					if ((ca[ax + 1] >>> 24) == 0) ca[ax + 1] = 0xBECC1E;
+					if ((ca[ax - cw - 2] >>> 24) == 0) ca[ax - cw - 2] = 0xBECC1E;
+					if ((ca[ax + cw + 2] >>> 24) == 0) ca[ax + cw + 2] = 0xBECC1E;
+				}
+			}
+		}
+		for (int i = 0; i < ca.length; i++) {
+			if (ca[i] == 0xBECC1E) {
+				ca[i] = -1;
+			}
+		}
+		return ca;
 	}
 }
