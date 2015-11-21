@@ -2,8 +2,11 @@ package com.kreative.paint.sprite;
 
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Paint;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
@@ -210,6 +213,36 @@ public class Sprite {
 				+ "-" + g + "-" + c + "-" + b + "-" + m;
 			return createCursor(tk, d, ca, name, outline);
 		}
+	}
+	
+	public void paint(Graphics2D gr, int gx, int gy) {
+		paint(gr, gx, gy, gr.getPaint(), gr.getBackground());
+	}
+	
+	public void paint(Graphics2D gr, int gx, int gy, Paint fg, Paint bg) {
+		paint(gr, gx, gy, fg, bg, null, null, null, null, null, null);
+	}
+	
+	public void paint(
+		Graphics2D gr, int gx, int gy,
+		Paint k, Paint w, Paint r, Paint y,
+		Paint g, Paint c, Paint b, Paint m
+	) {
+		int cw = slice.cellWidth;
+		int ch = slice.cellHeight;
+		int[] prep = getPreparedPixels();
+		int[] ret = new int[prep.length];
+		slice.transform.replacePixels(
+			ret, 0, cw, prep, 0, cw,
+			new Rectangle(gx, gy, cw, ch),
+			gr.getTransform(),
+			gr.getRenderingHints(),
+			k, w, r, y, g, c, b, m
+		);
+		int bt = BufferedImage.TYPE_INT_ARGB;
+		BufferedImage bi = new BufferedImage(cw, ch, bt);
+		bi.setRGB(0, 0, cw, ch, ret, 0, cw);
+		gr.drawImage(bi, null, gx, gy);
 	}
 	
 	private Dimension createCursorDimension(Toolkit tk, boolean outline) {

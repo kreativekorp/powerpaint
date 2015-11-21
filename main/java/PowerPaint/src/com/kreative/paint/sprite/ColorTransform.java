@@ -1,6 +1,13 @@
 package com.kreative.paint.sprite;
 
 import java.awt.Color;
+import java.awt.Paint;
+import java.awt.PaintContext;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.geom.AffineTransform;
+import java.awt.image.ColorModel;
+import java.awt.image.Raster;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -171,6 +178,60 @@ public class ColorTransform {
 		while (length > 0) {
 			dst[dstOffset] = replacePixel(src[srcOffset], k, w, r, y, g, c, b, m);
 			dstOffset++; srcOffset++; length--;
+		}
+	}
+	
+	public void replacePixels(
+		int[] dst, int dstOffset, int dstScan,
+		int[] src, int srcOffset, int srcScan,
+		Rectangle rect, AffineTransform tx, RenderingHints rh,
+		Paint k, Paint w, Paint r, Paint y,
+		Paint g, Paint c, Paint b, Paint m
+	) {
+		int kc = (k == null) ? 0xFF000000 : (k instanceof Color) ? ((Color)k).getRGB() : 0;
+		int wc = (w == null) ? 0xFFFFFFFF : (w instanceof Color) ? ((Color)w).getRGB() : 0;
+		int rc = (r == null) ? 0xFFFF0000 : (r instanceof Color) ? ((Color)r).getRGB() : 0;
+		int yc = (y == null) ? 0xFFFFFF00 : (y instanceof Color) ? ((Color)y).getRGB() : 0;
+		int gc = (g == null) ? 0xFF00FF00 : (g instanceof Color) ? ((Color)g).getRGB() : 0;
+		int cc = (c == null) ? 0xFF00FFFF : (c instanceof Color) ? ((Color)c).getRGB() : 0;
+		int bc = (b == null) ? 0xFF0000FF : (b instanceof Color) ? ((Color)b).getRGB() : 0;
+		int mc = (m == null) ? 0xFFFF00FF : (m instanceof Color) ? ((Color)m).getRGB() : 0;
+		PaintContext kpc = (k == null || k instanceof Color) ? null : k.createContext(null, rect, rect, tx, rh);
+		PaintContext wpc = (w == null || w instanceof Color) ? null : w.createContext(null, rect, rect, tx, rh);
+		PaintContext rpc = (r == null || r instanceof Color) ? null : r.createContext(null, rect, rect, tx, rh);
+		PaintContext ypc = (y == null || y instanceof Color) ? null : y.createContext(null, rect, rect, tx, rh);
+		PaintContext gpc = (g == null || g instanceof Color) ? null : g.createContext(null, rect, rect, tx, rh);
+		PaintContext cpc = (c == null || c instanceof Color) ? null : c.createContext(null, rect, rect, tx, rh);
+		PaintContext bpc = (b == null || b instanceof Color) ? null : b.createContext(null, rect, rect, tx, rh);
+		PaintContext mpc = (m == null || m instanceof Color) ? null : m.createContext(null, rect, rect, tx, rh);
+		ColorModel kcm = (kpc == null) ? null : kpc.getColorModel();
+		ColorModel wcm = (wpc == null) ? null : wpc.getColorModel();
+		ColorModel rcm = (rpc == null) ? null : rpc.getColorModel();
+		ColorModel ycm = (ypc == null) ? null : ypc.getColorModel();
+		ColorModel gcm = (gpc == null) ? null : gpc.getColorModel();
+		ColorModel ccm = (cpc == null) ? null : cpc.getColorModel();
+		ColorModel bcm = (bpc == null) ? null : bpc.getColorModel();
+		ColorModel mcm = (mpc == null) ? null : mpc.getColorModel();
+		Raster kr = (kpc == null) ? null : kpc.getRaster(rect.x, rect.y, rect.width, rect.height);
+		Raster wr = (wpc == null) ? null : wpc.getRaster(rect.x, rect.y, rect.width, rect.height);
+		Raster rr = (rpc == null) ? null : rpc.getRaster(rect.x, rect.y, rect.width, rect.height);
+		Raster yr = (ypc == null) ? null : ypc.getRaster(rect.x, rect.y, rect.width, rect.height);
+		Raster gr = (gpc == null) ? null : gpc.getRaster(rect.x, rect.y, rect.width, rect.height);
+		Raster cr = (cpc == null) ? null : cpc.getRaster(rect.x, rect.y, rect.width, rect.height);
+		Raster br = (bpc == null) ? null : bpc.getRaster(rect.x, rect.y, rect.width, rect.height);
+		Raster mr = (mpc == null) ? null : mpc.getRaster(rect.x, rect.y, rect.width, rect.height);
+		for (int iy = 0, dy = dstOffset, sy = srcOffset; iy < rect.height; iy++, dy += dstScan, sy += srcScan) {
+			for (int ix = 0, dx = dy, sx = sy; ix < rect.width; ix++, dx++, sx++) {
+				if (kpc != null) kc = kcm.getRGB(kr.getDataElements(ix, iy, null));
+				if (wpc != null) wc = wcm.getRGB(wr.getDataElements(ix, iy, null));
+				if (rpc != null) rc = rcm.getRGB(rr.getDataElements(ix, iy, null));
+				if (ypc != null) yc = ycm.getRGB(yr.getDataElements(ix, iy, null));
+				if (gpc != null) gc = gcm.getRGB(gr.getDataElements(ix, iy, null));
+				if (cpc != null) cc = ccm.getRGB(cr.getDataElements(ix, iy, null));
+				if (bpc != null) bc = bcm.getRGB(br.getDataElements(ix, iy, null));
+				if (mpc != null) mc = mcm.getRGB(mr.getDataElements(ix, iy, null));
+				dst[dx] = replacePixel(src[sx], kc, wc, rc, yc, gc, cc, bc, mc);
+			}
 		}
 	}
 	
