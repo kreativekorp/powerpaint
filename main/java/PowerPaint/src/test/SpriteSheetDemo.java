@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,6 +29,7 @@ public class SpriteSheetDemo {
 			SpriteSheetTreeModel model = new SpriteSheetTreeModel(sheet);
 			SpriteSheetCellRenderer renderer = new SpriteSheetCellRenderer();
 			final JTree view = new JTree(model);
+			view.setRowHeight(0);
 			view.setCellRenderer(renderer);
 			view.addMouseListener(new MouseListener() {
 				@Override
@@ -131,6 +133,7 @@ public class SpriteSheetDemo {
 					label.setText("<Sprite>");
 				}
 			}
+			label.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
 			return label;
 		}
 	}
