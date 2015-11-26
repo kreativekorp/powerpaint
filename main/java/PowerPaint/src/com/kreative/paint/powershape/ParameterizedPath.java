@@ -175,8 +175,8 @@ public class ParameterizedPath extends ParameterizedShape {
 					ccy = ly + args.get(1).value(bindings);
 					lcx = lx + args.get(2).value(bindings);
 					lcy = ly + args.get(3).value(bindings);
-					lx = args.get(4).value(bindings);
-					ly = args.get(5).value(bindings);
+					lx += args.get(4).value(bindings);
+					ly += args.get(5).value(bindings);
 					p.curveTo(ccx, ccy, lcx, lcy, lx, ly);
 					break;
 				case 'S':
@@ -193,8 +193,8 @@ public class ParameterizedPath extends ParameterizedShape {
 					ccy = ly + ly - lcy;
 					lcx = lx + args.get(0).value(bindings);
 					lcy = ly + args.get(1).value(bindings);
-					lx = args.get(2).value(bindings);
-					ly = args.get(3).value(bindings);
+					lx += args.get(2).value(bindings);
+					ly += args.get(3).value(bindings);
 					p.curveTo(ccx, ccy, lcx, lcy, lx, ly);
 					break;
 				case 'A':
