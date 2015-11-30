@@ -38,6 +38,7 @@ bin:
 	cp src/com/kreative/paint/rcp/*.dtd bin/com/kreative/paint/rcp/
 	cp src/com/kreative/paint/rcp/*.png bin/com/kreative/paint/rcp/
 	cp src/com/kreative/paint/rfp/*.dtd bin/com/kreative/paint/rfp/
+	cp src/com/kreative/paint/sprite/*.dtd bin/com/kreative/paint/sprite/
 	cp src/com/kreative/paint/stroke/*.dtd bin/com/kreative/paint/stroke/
 	cp src/com/kreative/paint/tool/*.png bin/com/kreative/paint/tool/
 	cp src/com/kreative/paint/ui/about/*.png bin/com/kreative/paint/ui/about/

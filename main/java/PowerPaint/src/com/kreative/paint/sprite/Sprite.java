@@ -45,33 +45,41 @@ public class Sprite {
 		return slice.hotspotY;
 	}
 	
-	public int getChildCount() {
+	public ColorTransform getColorTransform() {
+		return slice.transform;
+	}
+	
+	private Sprite[] spriteCache = null;
+	
+	private void makeSpriteCache() {
 		if (treeNode instanceof SpriteTreeNode.Branch) {
 			SpriteTreeNode.Branch b = (SpriteTreeNode.Branch)treeNode;
-			return b.getChildCount();
+			int n = b.getChildCount();
+			spriteCache = new Sprite[n];
+			for (int i = 0; i < n; i++) {
+				SpriteTreeNode c = b.getChild(i);
+				spriteCache[i] = new Sprite(spriteSheet, c);
+			}
 		} else {
-			return 0;
+			spriteCache = new Sprite[0];
 		}
+	}
+	
+	public int getChildCount() {
+		if (spriteCache == null) makeSpriteCache();
+		return spriteCache.length;
 	}
 	
 	public Sprite getChild(int index) {
-		if (treeNode instanceof SpriteTreeNode.Branch) {
-			SpriteTreeNode.Branch b = (SpriteTreeNode.Branch)treeNode;
-			SpriteTreeNode c = b.getChild(index);
-			return (c == null) ? null : new Sprite(spriteSheet, c);
-		} else {
-			return this;
-		}
+		if (spriteCache == null) makeSpriteCache();
+		if (index < 0 || index >= spriteCache.length) return this;
+		return spriteCache[index];
 	}
 	
 	public Sprite getChildByPath(int... path) {
-		if (treeNode instanceof SpriteTreeNode.Branch) {
-			SpriteTreeNode.Branch b = (SpriteTreeNode.Branch)treeNode;
-			SpriteTreeNode c = b.getChildByPath(path);
-			return (c == null) ? null : new Sprite(spriteSheet, c);
-		} else {
-			return this;
-		}
+		Sprite c = this;
+		for (int i : path) c = c.getChild(i);
+		return c;
 	}
 	
 	private int[] rawPixels = null;
@@ -228,6 +236,8 @@ public class Sprite {
 		Paint k, Paint w, Paint r, Paint y,
 		Paint g, Paint c, Paint b, Paint m
 	) {
+		gx -= slice.hotspotX;
+		gy -= slice.hotspotY;
 		int cw = slice.cellWidth;
 		int ch = slice.cellHeight;
 		int[] prep = getPreparedPixels();
@@ -243,6 +253,18 @@ public class Sprite {
 		BufferedImage bi = new BufferedImage(cw, ch, bt);
 		bi.setRGB(0, 0, cw, ch, ret, 0, cw);
 		gr.drawImage(bi, null, gx, gy);
+	}
+	
+	public void invalidate() {
+		spriteCache = null;
+		rawPixels = null;
+		rawImage = null;
+		rawVCursor = null;
+		rawOCursor = null;
+		preparedPixels = null;
+		preparedImage = null;
+		preparedVCursor = null;
+		preparedOCursor = null;
 	}
 	
 	private Dimension createCursorDimension(Toolkit tk, boolean outline) {

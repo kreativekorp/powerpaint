@@ -29,6 +29,7 @@ package com.kreative.paint;
 
 import java.awt.Color;
 import java.awt.Composite;
+import java.awt.CompositeContext;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
@@ -144,6 +145,21 @@ public class TiledPaintSurfaceGraphics extends Graphics2D {
 	public void drawImage(BufferedImage img, BufferedImageOp op, int x, int y) {
 		int width = img.getWidth();
 		int height = img.getHeight();
+		if (op == null && (ttx == null || ttx.isIdentity()) && p.contains(x, y, width, height)) {
+			BufferedImage dst = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+			int[] dstRGB = new int[width * height];
+			p.getRGB(x, y, width, height, dstRGB, 0, width);
+			dst.setRGB(0, 0, width, height, dstRGB, 0, width);
+			CompositeContext cc = getComposite().createContext(
+				img.getColorModel(),
+				dst.getColorModel(),
+				getRenderingHints()
+			);
+			cc.compose(img.getData(), dst.getData(), dst.getRaster());
+			dst.getRGB(0, 0, width, height, dstRGB, 0, width);
+			p.setRGB(x, y, width, height, dstRGB, 0, width);
+			return;
+		}
 		Rectangle s = (op == null) ? new Rectangle(0, 0, width, height) : op.getBounds2D(img).getBounds();
 		s.x += x; s.y += y;
 		Collection<Tile> tt = getTilesForShape(s);
