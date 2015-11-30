@@ -1,34 +1,5 @@
-/*
- * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.util;
 
-import java.awt.Composite;
-import java.awt.CompositeContext;
 import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -36,7 +7,6 @@ import java.awt.Paint;
 import java.awt.PaintContext;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
@@ -130,56 +100,24 @@ public class Bitmap {
 	}
 	
 	public void paint(PaintSurface srf, Graphics2D g, int x, int y) {
-		// This method takes 1-2 ms on my MacBook Pro 2.33 GHz Intel Core 2 Duo.
-		// I would really like it to be on the microsecond scale, though.
-		// I *dare* you to write a faster method that can take into account all five of:
-		// - the paint (including its alpha channel)
-		// - the composite (including its alpha level)
-		// - the clipping region
-		// - the transformation matrix
-		// - the bitmap's alpha channel
-		// Bonus points for not using any conditionals to optimize
-		// for specific situations (such as t.isIdentity() here).
-		
 		Paint p = g.getPaint();
-		Composite c = g.getComposite();
 		RenderingHints h = g.getRenderingHints();
-		Shape s = g.getClip();
 		AffineTransform t = g.getTransform();
-		
 		Rectangle b = new Rectangle(x, y, width, height);
 		PaintContext pc = p.createContext(null, b, b, t, h);
 		ColorModel cm = pc.getColorModel();
 		Raster r = pc.getRaster(x, y, width, height);
 		
-		boolean fastBlit = (srf != null && (t == null || t.isIdentity()) && srf.contains(x, y, width, height));
-		
-		BufferedImage srci = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-		int[] srca = new int[width * height];
-		for (int iy = 0, gy = y, i = 0; iy < height; iy++, gy++) {
-			for (int ix = 0, gx = x; ix < width; ix++, gx++, i++) {
-				srca[i] = cm.getRGB(r.getDataElements(ix, iy, null));
-				if (!fastBlit || s == null || s.contains(gx, gy)) {
-					srca[i] = (srca[i] & 0xFFFFFF) | (((srca[i] >>> 24) * (pixels[i] >>> 24) / 255) << 24);
-				} else {
-					srca[i] = (srca[i] & 0xFFFFFF);
-				}
+		BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		int[] rgb = new int[width * height];
+		for (int iy = 0, i = 0; iy < height; iy++) {
+			for (int ix = 0; ix < width; ix++, i++) {
+				rgb[i] = cm.getRGB(r.getDataElements(ix, iy, null));
+				rgb[i] = (rgb[i] & 0xFFFFFF) | (((rgb[i] >>> 24) * (pixels[i] >>> 24) / 255) << 24);
 			}
 		}
-		srci.setRGB(0, 0, width, height, srca, 0, width);
-		
-		if (fastBlit) {
-			BufferedImage dsti = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-			int[] dsta = new int[width * height];
-			srf.getRGB(x, y, width, height, dsta, 0, width);
-			dsti.setRGB(0, 0, width, height, dsta, 0, width);
-			CompositeContext cc = c.createContext(srci.getColorModel(), dsti.getColorModel(), h);
-			cc.compose(srci.getData(), dsti.getData(), dsti.getRaster());
-			dsti.getRGB(0, 0, width, height, dsta, 0, width);
-			srf.setRGB(x, y, width, height, dsta, 0, width);
-		} else {
-			g.drawImage(srci, null, x, y);
-		}
+		img.setRGB(0, 0, width, height, rgb, 0, width);
+		g.drawImage(img, null, x, y);
 	}
 	
 	public int hashCode() {

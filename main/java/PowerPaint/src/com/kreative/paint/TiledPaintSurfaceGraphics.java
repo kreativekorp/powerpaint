@@ -145,7 +145,14 @@ public class TiledPaintSurfaceGraphics extends Graphics2D {
 	public void drawImage(BufferedImage img, BufferedImageOp op, int x, int y) {
 		int width = img.getWidth();
 		int height = img.getHeight();
-		if (op == null && (ttx == null || ttx.isIdentity()) && p.contains(x, y, width, height)) {
+		AffineTransform tx = getTransform();
+		Shape clip = getClip();
+		if (
+			op == null &&
+			(tx == null || tx.isIdentity()) &&
+			(clip == null || clip.contains(x, y, width, height)) &&
+			p.contains(x, y, width, height)
+		) {
 			BufferedImage dst = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 			int[] dstRGB = new int[width * height];
 			p.getRGB(x, y, width, height, dstRGB, 0, width);
