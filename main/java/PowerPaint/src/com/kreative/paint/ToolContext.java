@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint;
 
 import java.awt.Color;
@@ -36,10 +9,11 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
-import java.util.Vector;
 import com.kreative.paint.alphabet.Alphabet;
 import com.kreative.paint.frame.Frame;
 import com.kreative.paint.powerbrush.BrushSettings;
@@ -47,10 +21,10 @@ import com.kreative.paint.powerbrush.BrushShape;
 import com.kreative.paint.powershape.PowerShape;
 import com.kreative.paint.powershape.PowerShapeList;
 import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.sprite.SpriteSheet;
 import com.kreative.paint.tool.Tool;
-import com.kreative.paint.util.Bitmap;
 import com.kreative.paint.util.CursorUtils;
-import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.PairList;
 
 public class ToolContext implements ToolContextConstants {
@@ -94,33 +68,30 @@ public class ToolContext implements ToolContextConstants {
 	private BufferedImage letterImage;
 	private Cursor letterCursor;
 	// brushes
-	private PairList<String,Vector<Bitmap>> brushSets;
+	private PairList<String,SpriteSheet> brushSets;
 	private int brushSetIndex;
-	private Vector<Bitmap> brushes;
+	private List<Sprite> brushes;
 	private int brushIndex;
-	private Bitmap brush;
-	private int[] brushRGB;
-	private Cursor brushCursor;
+	private Sprite brush;
 	// calligraphy brushes
-	private PairList<String,Vector<Bitmap>> calligraphyBrushes;
+	private List<Sprite> calligraphyBrushes;
 	private int calligraphyBrushIndex;
-	private Vector<Bitmap> calligraphyBrush;
+	private Sprite calligraphyBrush;
 	private boolean calligraphyContinuous;
 	// charcoal brushes
-	private PairList<String,Vector<Bitmap>> charcoalBrushes;
+	private List<Sprite> charcoalBrushes;
 	private int charcoalBrushIndex;
-	private Vector<Bitmap> charcoalBrush;
+	private Sprite charcoalBrush;
 	// frames
 	private PairList<String,Frame> frames;
 	private int frameIndex;
 	private Frame frame;
 	// rubber stamps
-	private PairList<String,Vector<Image>> rubberStampSets;
+	private PairList<String,SpriteSheet> rubberStampSets;
 	private int rubberStampSetIndex;
-	private Vector<Image> rubberStamps;
+	private List<Sprite> rubberStamps;
 	private int rubberStampIndex;
-	private Image rubberStamp;
-	private Cursor rubberStampCursor;
+	private Sprite rubberStamp;
 	// PowerShapes
 	private PairList<String,PowerShapeList> powerShapeSets;
 	private int powerShapeSetIndex;
@@ -128,11 +99,11 @@ public class ToolContext implements ToolContextConstants {
 	private int powerShapeIndex;
 	private PowerShape powerShape;
 	// sprinkles
-	private PairList<String,Vector<Bitmap>> sprinkleSets;
+	private List<Sprite> sprinkleSets;
 	private int sprinkleSetIndex;
-	private Vector<Bitmap> sprinkles;
+	private Sprite sprinkles;
 	private int sprinkleIndex;
-	private Bitmap sprinkle;
+	private Sprite sprinkle;
 	private boolean sprinkleBrushMode;
 	// custom
 	private HashMap<String,Object> custom;
@@ -182,20 +153,24 @@ public class ToolContext implements ToolContextConstants {
 		// brushes
 		this.brushSets = mm.getBrushes();
 		this.brushSetIndex = 0;
-		this.brushes = this.brushSets.getLatter(0);
+		this.brushes = this.brushSets.getLatter(0).getSprites();
 		this.brushIndex = 0;
 		this.brush = this.brushes.get(0);
-		this.brushRGB = this.brush.getRGB();
-		this.brushCursor = this.brush.getCursor();
 		// calligraphy brushes
-		this.calligraphyBrushes = mm.getCalligraphyBrushes();
+		this.calligraphyBrushes = new ArrayList<Sprite>();
+		for (SpriteSheet ss : mm.getCalligraphyBrushes().latterList()) {
+			this.calligraphyBrushes.addAll(ss.getSprites());
+		}
 		this.calligraphyBrushIndex = 0;
-		this.calligraphyBrush = this.calligraphyBrushes.getLatter(0);
+		this.calligraphyBrush = this.calligraphyBrushes.get(0);
 		this.calligraphyContinuous = false;
 		// charcoal brushes
-		this.charcoalBrushes = mm.getCharcoalBrushes();
+		this.charcoalBrushes = new ArrayList<Sprite>();
+		for (SpriteSheet ss : mm.getCharcoalBrushes().latterList()) {
+			this.charcoalBrushes.addAll(ss.getSprites());
+		}
 		this.charcoalBrushIndex = 0;
-		this.charcoalBrush = this.charcoalBrushes.getLatter(0);
+		this.charcoalBrush = this.charcoalBrushes.get(0);
 		// frames
 		this.frames = mm.getFrames();
 		this.frameIndex = 0;
@@ -203,11 +178,9 @@ public class ToolContext implements ToolContextConstants {
 		// rubber stamps
 		this.rubberStampSets = mm.getRubberStamps();
 		this.rubberStampSetIndex = 0;
-		this.rubberStamps = this.rubberStampSets.getLatter(0);
+		this.rubberStamps = this.rubberStampSets.getLatter(0).getSprites();
 		this.rubberStampIndex = 0;
 		this.rubberStamp = this.rubberStamps.get(0);
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
-		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		// PowerShapes
 		this.powerShapeSets = mm.getShapes();
 		this.powerShapeSetIndex = 0;
@@ -215,11 +188,14 @@ public class ToolContext implements ToolContextConstants {
 		this.powerShapeIndex = 0;
 		this.powerShape = this.powerShapes.get(0);
 		// sprinkles
-		this.sprinkleSets = mm.getSprinkles();
+		this.sprinkleSets = new ArrayList<Sprite>();
+		for (SpriteSheet ss : mm.getSprinkles().latterList()) {
+			this.sprinkleSets.addAll(ss.getSprites());
+		}
 		this.sprinkleSetIndex = 0;
-		this.sprinkles = this.sprinkleSets.getLatter(0);
+		this.sprinkles = this.sprinkleSets.get(0);
 		this.sprinkleIndex = 0;
-		this.sprinkle = this.sprinkles.get(0);
+		this.sprinkle = this.sprinkles.getChild(0);
 		this.sprinkleBrushMode = false;
 		// custom
 		this.custom = new HashMap<String,Object>();
@@ -712,7 +688,7 @@ public class ToolContext implements ToolContextConstants {
 	
 	// brushes
 	
-	public PairList<String, Vector<Bitmap>> getBrushSets() {
+	public PairList<String,SpriteSheet> getBrushSets() {
 		return brushSets;
 	}
 	
@@ -724,7 +700,7 @@ public class ToolContext implements ToolContextConstants {
 		return brushSetIndex;
 	}
 	
-	public Vector<Bitmap> getBrushes() {
+	public List<Sprite> getBrushes() {
 		return brushes;
 	}
 	
@@ -732,26 +708,16 @@ public class ToolContext implements ToolContextConstants {
 		return brushIndex;
 	}
 	
-	public Bitmap getBrush() {
+	public Sprite getBrush() {
 		return brush;
-	}
-	
-	public int[] getBrushRGB() {
-		return brushRGB;
-	}
-	
-	public Cursor getBrushCursor() {
-		return brushCursor;
 	}
 	
 	public void setBrushSetName(String brushSetName) {
 		if (brushSets.containsFormer(brushSetName)) {
 			this.brushSetIndex = brushSets.indexOfFormer(brushSetName);
-			this.brushes = brushSets.getLatter(brushSetIndex);
+			this.brushes = brushSets.getLatter(brushSetIndex).getSprites();
 			this.brushIndex = 0;
 			this.brush = this.brushes.get(0);
-			this.brushRGB = this.brush.getRGB();
-			this.brushCursor = this.brush.getCursor();
 			notifyToolContextListeners(CHANGED_BRUSH_SET | CHANGED_BRUSH);
 		}
 	}
@@ -760,11 +726,9 @@ public class ToolContext implements ToolContextConstants {
 		while (brushSetIndex < 0) brushSetIndex += brushSets.size();
 		while (brushSetIndex >= brushSets.size()) brushSetIndex -= brushSets.size();
 		this.brushSetIndex = brushSetIndex;
-		this.brushes = brushSets.getLatter(brushSetIndex);
+		this.brushes = brushSets.getLatter(brushSetIndex).getSprites();
 		this.brushIndex = 0;
 		this.brush = this.brushes.get(0);
-		this.brushRGB = this.brush.getRGB();
-		this.brushCursor = this.brush.getCursor();
 		notifyToolContextListeners(CHANGED_BRUSH_SET | CHANGED_BRUSH);
 	}
 	
@@ -776,15 +740,13 @@ public class ToolContext implements ToolContextConstants {
 		setBrushSetIndex(brushSetIndex+1);
 	}
 	
-	public void setBrushes(Vector<Bitmap> brushes) {
+	public void setBrushes(List<Sprite> brushes) {
 		if (brushSets.containsLatter(brushes)) {
 			this.brushSetIndex = brushSets.indexOfLatter(brushes);
 		}
 		this.brushes = brushes;
 		this.brushIndex = 0;
 		this.brush = this.brushes.get(0);
-		this.brushRGB = this.brush.getRGB();
-		this.brushCursor = this.brush.getCursor();
 		notifyToolContextListeners(CHANGED_BRUSH_SET | CHANGED_BRUSH);
 	}
 	
@@ -793,8 +755,6 @@ public class ToolContext implements ToolContextConstants {
 		while (brushIndex >= brushes.size()) brushIndex -= brushes.size();
 		this.brushIndex = brushIndex;
 		this.brush = this.brushes.get(brushIndex);
-		this.brushRGB = this.brush.getRGB();
-		this.brushCursor = this.brush.getCursor();
 		notifyToolContextListeners(CHANGED_BRUSH);
 	}
 	
@@ -806,59 +766,37 @@ public class ToolContext implements ToolContextConstants {
 		setBrushIndex(brushIndex+1);
 	}
 	
-	public void setBrush(Bitmap brush) {
+	public void setBrush(Sprite brush) {
 		if (brushes.contains(brush)) {
 			this.brushIndex = brushes.indexOf(brush);
 		}
 		this.brush = brush;
-		this.brushRGB = this.brush.getRGB();
-		this.brushCursor = this.brush.getCursor();
 		notifyToolContextListeners(CHANGED_BRUSH);
 	}
 	
 	// calligraphy brushes
 	
-	public PairList<String, Vector<Bitmap>> getCalligraphyBrushes() {
+	public List<Sprite> getCalligraphyBrushes() {
 		return calligraphyBrushes;
-	}
-	
-	public String getCalligraphyBrushName() {
-		return calligraphyBrushes.getFormer(calligraphyBrushIndex);
 	}
 	
 	public int getCalligraphyBrushIndex() {
 		return calligraphyBrushIndex;
 	}
 	
-	public Vector<Bitmap> getCalligraphyBrush() {
+	public Sprite getCalligraphyBrush() {
 		return calligraphyBrush;
-	}
-	
-	public Bitmap getCalligraphyBrushBitmap(int i) {
-		return calligraphyBrush.get(i);
-	}
-	
-	public Cursor getCalligraphyBrushCursor(int i) {
-		return calligraphyBrush.get(i).getCursor();
 	}
 	
 	public boolean calligraphyContinuous() {
 		return calligraphyContinuous;
 	}
 	
-	public void setCalligraphyBrushName(String calligraphyBrushName) {
-		if (calligraphyBrushes.containsFormer(calligraphyBrushName)) {
-			this.calligraphyBrushIndex = calligraphyBrushes.indexOfFormer(calligraphyBrushName);
-			this.calligraphyBrush = calligraphyBrushes.getLatter(calligraphyBrushIndex);
-			notifyToolContextListeners(CHANGED_CALLIGRAPHY_BRUSH);
-		}
-	}
-	
 	public void setCalligraphyBrushIndex(int calligraphyBrushIndex) {
 		while (calligraphyBrushIndex < 0) calligraphyBrushIndex += calligraphyBrushes.size();
 		while (calligraphyBrushIndex >= calligraphyBrushes.size()) calligraphyBrushIndex -= calligraphyBrushes.size();
 		this.calligraphyBrushIndex = calligraphyBrushIndex;
-		this.calligraphyBrush = calligraphyBrushes.getLatter(calligraphyBrushIndex);
+		this.calligraphyBrush = calligraphyBrushes.get(calligraphyBrushIndex);
 		notifyToolContextListeners(CHANGED_CALLIGRAPHY_BRUSH);
 	}
 	
@@ -870,9 +808,9 @@ public class ToolContext implements ToolContextConstants {
 		setCalligraphyBrushIndex(calligraphyBrushIndex+1);
 	}
 	
-	public void setCalligraphyBrush(Vector<Bitmap> calligraphyBrush) {
-		if (this.calligraphyBrushes.containsLatter(calligraphyBrush)) {
-			this.calligraphyBrushIndex = this.calligraphyBrushes.indexOfLatter(calligraphyBrush);
+	public void setCalligraphyBrush(Sprite calligraphyBrush) {
+		if (this.calligraphyBrushes.contains(calligraphyBrush)) {
+			this.calligraphyBrushIndex = this.calligraphyBrushes.indexOf(calligraphyBrush);
 		}
 		this.calligraphyBrush = calligraphyBrush;
 		notifyToolContextListeners(CHANGED_CALLIGRAPHY_BRUSH);
@@ -890,43 +828,23 @@ public class ToolContext implements ToolContextConstants {
 	
 	// charcoal brushes
 	
-	public PairList<String, Vector<Bitmap>> getCharcoalBrushes() {
+	public List<Sprite> getCharcoalBrushes() {
 		return charcoalBrushes;
-	}
-	
-	public String getCharcoalBrushName() {
-		return charcoalBrushes.getFormer(charcoalBrushIndex);
 	}
 	
 	public int getCharcoalBrushIndex() {
 		return charcoalBrushIndex;
 	}
 	
-	public Vector<Bitmap> getCharcoalBrush() {
+	public Sprite getCharcoalBrush() {
 		return charcoalBrush;
-	}
-	
-	public Bitmap getCharcoalBrushBitmap(int i) {
-		return charcoalBrush.get(i);
-	}
-	
-	public Cursor getCharcoalBrushCursor() {
-		return charcoalBrush.get(0).getCursor();
-	}
-	
-	public void setCharcoalBrushName(String charcoalBrushName) {
-		if (charcoalBrushes.containsFormer(charcoalBrushName)) {
-			this.charcoalBrushIndex = charcoalBrushes.indexOfFormer(charcoalBrushName);
-			this.charcoalBrush = charcoalBrushes.getLatter(charcoalBrushIndex);
-			notifyToolContextListeners(CHANGED_CHARCOAL_BRUSH);
-		}
 	}
 	
 	public void setCharcoalBrushIndex(int charcoalBrushIndex) {
 		while (charcoalBrushIndex < 0) charcoalBrushIndex += charcoalBrushes.size();
 		while (charcoalBrushIndex >= charcoalBrushes.size()) charcoalBrushIndex -= charcoalBrushes.size();
 		this.charcoalBrushIndex = charcoalBrushIndex;
-		this.charcoalBrush = charcoalBrushes.getLatter(charcoalBrushIndex);
+		this.charcoalBrush = charcoalBrushes.get(charcoalBrushIndex);
 		notifyToolContextListeners(CHANGED_CHARCOAL_BRUSH);
 	}
 	
@@ -938,9 +856,9 @@ public class ToolContext implements ToolContextConstants {
 		setCharcoalBrushIndex(charcoalBrushIndex+1);
 	}
 	
-	public void setCharcoalBrush(Vector<Bitmap> charcoalBrush) {
-		if (charcoalBrushes.containsLatter(charcoalBrush)) {
-			this.charcoalBrushIndex = charcoalBrushes.indexOfLatter(charcoalBrush);
+	public void setCharcoalBrush(Sprite charcoalBrush) {
+		if (charcoalBrushes.contains(charcoalBrush)) {
+			this.charcoalBrushIndex = charcoalBrushes.indexOf(charcoalBrush);
 		}
 		this.charcoalBrush = charcoalBrush;
 		notifyToolContextListeners(CHANGED_CHARCOAL_BRUSH);
@@ -998,7 +916,7 @@ public class ToolContext implements ToolContextConstants {
 	
 	// rubber stamps
 	
-	public PairList<String, Vector<Image>> getRubberStampSets() {
+	public PairList<String,SpriteSheet> getRubberStampSets() {
 		return rubberStampSets;
 	}
 	
@@ -1010,7 +928,7 @@ public class ToolContext implements ToolContextConstants {
 		return rubberStampSetIndex;
 	}
 	
-	public Vector<Image> getRubberStamps() {
+	public List<Sprite> getRubberStamps() {
 		return rubberStamps;
 	}
 	
@@ -1018,22 +936,16 @@ public class ToolContext implements ToolContextConstants {
 		return rubberStampIndex;
 	}
 	
-	public Image getRubberStamp() {
+	public Sprite getRubberStamp() {
 		return rubberStamp;
-	}
-	
-	public Cursor getRubberStampCursor() {
-		return rubberStampCursor;
 	}
 	
 	public void setRubberStampSetName(String rubberStampSetName) {
 		if (rubberStampSets.containsFormer(rubberStampSetName)) {
 			this.rubberStampSetIndex = rubberStampSets.indexOfFormer(rubberStampSetName);
-			this.rubberStamps = rubberStampSets.getLatter(rubberStampSetIndex);
+			this.rubberStamps = rubberStampSets.getLatter(rubberStampSetIndex).getSprites();
 			this.rubberStampIndex = 0;
 			this.rubberStamp = this.rubberStamps.get(0);
-			BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
-			this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 			notifyToolContextListeners(CHANGED_STAMP_SET | CHANGED_STAMP);
 		}
 	}
@@ -1042,11 +954,9 @@ public class ToolContext implements ToolContextConstants {
 		while (rubberStampSetIndex < 0) rubberStampSetIndex += rubberStampSets.size();
 		while (rubberStampSetIndex >= rubberStampSets.size()) rubberStampSetIndex -= rubberStampSets.size();
 		this.rubberStampSetIndex = rubberStampSetIndex;
-		this.rubberStamps = rubberStampSets.getLatter(rubberStampSetIndex);
+		this.rubberStamps = rubberStampSets.getLatter(rubberStampSetIndex).getSprites();
 		this.rubberStampIndex = 0;
 		this.rubberStamp = this.rubberStamps.get(0);
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
-		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		notifyToolContextListeners(CHANGED_STAMP_SET | CHANGED_STAMP);
 	}
 	
@@ -1058,15 +968,13 @@ public class ToolContext implements ToolContextConstants {
 		setRubberStampSetIndex(rubberStampSetIndex+1);
 	}
 	
-	public void setRubberStamps(Vector<Image> rubberStamps) {
+	public void setRubberStamps(List<Sprite> rubberStamps) {
 		if (rubberStampSets.containsLatter(rubberStamps)) {
 			this.rubberStampSetIndex = rubberStampSets.indexOfLatter(rubberStamps);
 		}
 		this.rubberStamps = rubberStamps;
 		this.rubberStampIndex = 0;
 		this.rubberStamp = this.rubberStamps.get(0);
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
-		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		notifyToolContextListeners(CHANGED_STAMP_SET | CHANGED_STAMP);
 	}
 	
@@ -1075,8 +983,6 @@ public class ToolContext implements ToolContextConstants {
 		while (rubberStampIndex >= rubberStamps.size()) rubberStampIndex -= rubberStamps.size();
 		this.rubberStampIndex = rubberStampIndex;
 		this.rubberStamp = this.rubberStamps.get(rubberStampIndex);
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
-		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		notifyToolContextListeners(CHANGED_STAMP);
 	}
 	
@@ -1088,13 +994,11 @@ public class ToolContext implements ToolContextConstants {
 		setRubberStampIndex(rubberStampIndex+1);
 	}
 	
-	public void setRubberStamp(Image rubberStamp) {
+	public void setRubberStamp(Sprite rubberStamp) {
 		if (rubberStamps.contains(rubberStamp)) {
 			this.rubberStampIndex = rubberStamps.indexOf(rubberStamp);
 		}
 		this.rubberStamp = rubberStamp;
-		BufferedImage rsi = ImageUtils.toBufferedImage(this.rubberStamp, false);
-		this.rubberStampCursor = CursorUtils.makeCursor(rsi, rsi.getWidth()/2, rsi.getHeight()/2, "Stamp");
 		notifyToolContextListeners(CHANGED_STAMP);
 	}
 	
@@ -1203,19 +1107,15 @@ public class ToolContext implements ToolContextConstants {
 	
 	// sprinkles
 	
-	public PairList<String,Vector<Bitmap>> getSprinkleSets() {
+	public List<Sprite> getSprinkleSets() {
 		return sprinkleSets;
-	}
-	
-	public String getSprinkleSetName() {
-		return sprinkleSets.getFormer(sprinkleSetIndex);
 	}
 	
 	public int getSprinkleSetIndex() {
 		return sprinkleSetIndex;
 	}
 	
-	public Vector<Bitmap> getSprinkles() {
+	public Sprite getSprinkles() {
 		return sprinkles;
 	}
 	
@@ -1223,35 +1123,21 @@ public class ToolContext implements ToolContextConstants {
 		return sprinkleIndex;
 	}
 	
-	public Bitmap getSprinkle() {
+	public Sprite getSprinkle() {
 		return sprinkle;
-	}
-	
-	public Cursor getSprinkleCursor() {
-		return sprinkle.getCursor();
 	}
 	
 	public boolean sprinkleBrushMode() {
 		return sprinkleBrushMode;
 	}
 	
-	public void setSprinkleSetName(String sprinkleSetName) {
-		if (sprinkleSets.containsFormer(sprinkleSetName)) {
-			this.sprinkleSetIndex = sprinkleSets.indexOfFormer(sprinkleSetName);
-			this.sprinkles = sprinkleSets.getLatter(sprinkleSetIndex);
-			this.sprinkleIndex = random.nextInt(this.sprinkles.size());
-			this.sprinkle = this.sprinkles.get(this.sprinkleIndex);
-			notifyToolContextListeners(CHANGED_SPRINKLE_SET | CHANGED_SPRINKLE);
-		}
-	}
-	
 	public void setSprinkleSetIndex(int sprinkleSetIndex) {
 		while (sprinkleSetIndex < 0) sprinkleSetIndex += sprinkleSets.size();
 		while (sprinkleSetIndex >= sprinkleSets.size()) sprinkleSetIndex -= sprinkleSets.size();
 		this.sprinkleSetIndex = sprinkleSetIndex;
-		this.sprinkles = sprinkleSets.getLatter(sprinkleSetIndex);
-		this.sprinkleIndex = random.nextInt(this.sprinkles.size());
-		this.sprinkle = this.sprinkles.get(this.sprinkleIndex);
+		this.sprinkles = sprinkleSets.get(sprinkleSetIndex);
+		this.sprinkleIndex = random.nextInt(this.sprinkles.getChildCount());
+		this.sprinkle = this.sprinkles.getChild(this.sprinkleIndex);
 		notifyToolContextListeners(CHANGED_SPRINKLE_SET | CHANGED_SPRINKLE);
 	}
 	
@@ -1263,21 +1149,22 @@ public class ToolContext implements ToolContextConstants {
 		setSprinkleSetIndex(sprinkleSetIndex+1);
 	}
 	
-	public void setSprinkles(Vector<Bitmap> sprinkles) {
-		if (sprinkleSets.containsLatter(sprinkles)) {
-			this.sprinkleSetIndex = sprinkleSets.indexOfLatter(sprinkles);
+	public void setSprinkles(Sprite sprinkles) {
+		if (sprinkleSets.contains(sprinkles)) {
+			this.sprinkleSetIndex = sprinkleSets.indexOf(sprinkles);
 		}
 		this.sprinkles = sprinkles;
-		this.sprinkleIndex = random.nextInt(this.sprinkles.size());
-		this.sprinkle = this.sprinkles.get(this.sprinkleIndex);
+		this.sprinkleIndex = random.nextInt(this.sprinkles.getChildCount());
+		this.sprinkle = this.sprinkles.getChild(this.sprinkleIndex);
 		notifyToolContextListeners(CHANGED_SPRINKLE_SET | CHANGED_SPRINKLE);
 	}
 	
 	public void setSprinkleIndex(int sprinkleIndex) {
-		while (sprinkleIndex < 0) sprinkleIndex += sprinkles.size();
-		while (sprinkleIndex >= sprinkles.size()) sprinkleIndex -= sprinkles.size();
+		int n = sprinkles.getChildCount();
+		while (sprinkleIndex < 0) sprinkleIndex += n;
+		while (sprinkleIndex >= n) sprinkleIndex -= n;
 		this.sprinkleIndex = sprinkleIndex;
-		this.sprinkle = this.sprinkles.get(this.sprinkleIndex);
+		this.sprinkle = this.sprinkles.getChild(this.sprinkleIndex);
 		notifyToolContextListeners(CHANGED_SPRINKLE);
 	}
 	
@@ -1290,15 +1177,12 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void randomSprinkle() {
-		this.sprinkleIndex = random.nextInt(this.sprinkles.size());
-		this.sprinkle = this.sprinkles.get(this.sprinkleIndex);
+		this.sprinkleIndex = random.nextInt(this.sprinkles.getChildCount());
+		this.sprinkle = this.sprinkles.getChild(this.sprinkleIndex);
 		notifyToolContextListeners(CHANGED_SPRINKLE);
 	}
 	
-	public void setSprinkle(Bitmap sprinkle) {
-		if (sprinkles.contains(sprinkle)) {
-			this.sprinkleIndex = sprinkles.indexOf(sprinkle);
-		}
+	public void setSprinkle(Sprite sprinkle) {
 		this.sprinkle = sprinkle;
 		notifyToolContextListeners(CHANGED_SPRINKLE);
 	}

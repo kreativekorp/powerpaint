@@ -1,41 +1,15 @@
-/*
- * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.tool.ui;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.Vector;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import com.kreative.paint.ToolContext;
 import com.kreative.paint.ToolContextConstants;
 import com.kreative.paint.ToolContextListener;
+import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.sprite.SpriteSheet;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.SwingUtils;
 import com.kreative.paint.util.UpdateLock;
@@ -50,7 +24,7 @@ public class RubberStampsUI extends JPanel implements ToolContextListener {
 		this.tc = tc;
 		
 		ssetl = new JList(tc.getRubberStampSets().toFormerArray(new String[0]));
-		ssetl.setCellRenderer(new StampSetCellRenderer(mini));
+		ssetl.setCellRenderer(new StampSetCellRenderer());
 		ssetl.setVisibleRowCount(mini ? 3 : 5);
 		ssetl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ssetl.setSelectedIndex(tc.getRubberStampSetIndex());
@@ -129,7 +103,7 @@ public class RubberStampsUI extends JPanel implements ToolContextListener {
 				boolean isSelected,
 				boolean cellHasFocus
 		) {
-			Image img = tc.getRubberStamps().get(index);
+			Image img = tc.getRubberStamps().get(index).getPreparedImage();
 			JLabel l = new JLabel(new ImageIcon(img));
 			l.setOpaque(true);
 			l.setBackground(isSelected ? SystemColor.textHighlight : SystemColor.text);
@@ -141,10 +115,6 @@ public class RubberStampsUI extends JPanel implements ToolContextListener {
 	
 	private class StampSetCellRenderer implements ListCellRenderer {
 		private static final int BORDER = 4;
-		private boolean mini;
-		public StampSetCellRenderer(boolean mini) {
-			this.mini = mini;
-		}
 		public Component getListCellRendererComponent(
 				JList list,
 				Object value,
@@ -153,13 +123,23 @@ public class RubberStampsUI extends JPanel implements ToolContextListener {
 				boolean cellHasFocus
 		) {
 			JLabel l = new JLabel();
-			Vector<Image> ss = tc.getRubberStampSets().getLatter(index);
-			BufferedImage img = new BufferedImage(mini ? 300 : 600, 32, BufferedImage.TYPE_INT_ARGB);
+			SpriteSheet ss = tc.getRubberStampSets().getLatter(index);
+			int n = ss.getSpriteCount();
+			int w = -1;
+			int h = 0;
+			for (int i = 0; i < n; i++) {
+				Sprite s = ss.getSprite(i);
+				w += s.getWidth() + 1;
+				if (s.getHeight() > h) h = s.getHeight();
+			}
+			if (w > 400) w = 400;
+			BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 			Graphics2D g = img.createGraphics();
-			for (int i = 0, x = 0; i < ss.size() && x < img.getWidth(); i++) {
-				Image ii = ss.get(i);
-				while (!g.drawImage(ii, x, 0, null));
-				x += ii.getWidth(null) + 1;
+			g.setColor(new Color((isSelected ? SystemColor.textHighlightText : SystemColor.textText).getRGB()));
+			for (int i = 0, x = 0; i < n && x < w; i++) {
+				Sprite s = ss.getSprite(i);
+				s.paint(g, x + s.getHotspotX(), ((h - s.getHeight()) / 2) + s.getHotspotY());
+				x += s.getWidth() + 1;
 			}
 			g.dispose();
 			l.setIcon(new ImageIcon(img));

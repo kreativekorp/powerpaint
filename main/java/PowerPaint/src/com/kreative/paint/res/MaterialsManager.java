@@ -1,35 +1,7 @@
-/*
- * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.res;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
@@ -89,11 +61,17 @@ import com.kreative.paint.rcp.RCPXParser;
 import com.kreative.paint.rcp.RCPXSwatch;
 import com.kreative.paint.rfp.FontList;
 import com.kreative.paint.rfp.FontListParser;
+import com.kreative.paint.sprite.ArrayOrdering;
+import com.kreative.paint.sprite.ColorTransform;
+import com.kreative.paint.sprite.SpriteIntent;
+import com.kreative.paint.sprite.SpriteSheet;
+import com.kreative.paint.sprite.SpriteSheetReader;
+import com.kreative.paint.sprite.SpriteSheetSlice;
+import com.kreative.paint.sprite.SpriteTreeNode;
 import com.kreative.paint.stroke.Arrowhead;
 import com.kreative.paint.stroke.StrokeParser;
 import com.kreative.paint.stroke.StrokeSet;
 import com.kreative.paint.tool.Tool;
-import com.kreative.paint.util.Bitmap;
 import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.PairList;
 
@@ -343,91 +321,179 @@ public class MaterialsManager {
 		return alphabets;
 	}
 	
-	private PairList<String,Vector<Bitmap>> brushes = null;
-	public PairList<String,Vector<Bitmap>> getBrushes() {
-		if (brushes == null) {
-			brushes = getBitmaps(ResourceCategory.BRUSHES);
-			if (brushes.isEmpty()) {
-				System.err.println("Notice: No brushes found. Generating generic brushes.");
-				Vector<Bitmap> v = new Vector<Bitmap>();
-				for (int x = 6, w = 4; x >= 0 && w <= 16; x -= 2, w += 4) {
-					BufferedImage i = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
-					Graphics2D g = i.createGraphics();
-					g.setColor(Color.black);
-					g.fillOval(x, x, w, w);
-					g.dispose();
-					int[] rgb = new int[256];
-					i.getRGB(0, 0, 16, 16, rgb, 0, 16);
-					v.add(new Bitmap(16, 16, rgb));
+	private PairList<String,SpriteSheet> brushes = null;
+	private PairList<String,SpriteSheet> calligraphyBrushes = null;
+	private PairList<String,SpriteSheet> charcoalBrushes = null;
+	private PairList<String,SpriteSheet> sprinkles = null;
+	private PairList<String,SpriteSheet> rubberStamps = null;
+	private void loadSprites(ResourceCategory rc, PairList<String,SpriteSheet> spriteSets) {
+		SpriteSheetReader.Options o = new SpriteSheetReader.Options();
+		if (spriteSets == brushes) o.setDefaultPresentation(12, -1, ArrayOrdering.LTR_TTB);
+		if (spriteSets == calligraphyBrushes) o.setDefaultStructureSingleParent(false);
+		if (spriteSets == charcoalBrushes) o.setDefaultStructureSingleParent(true);
+		if (spriteSets == sprinkles) o.setDefaultStructureSingleParent(false);
+		if (spriteSets != rubberStamps) o.setDefaultColorTransform(ColorTransform.ALL);
+		for (Resource r : rm.getResources(rc)) {
+			try {
+				SpriteSheet ss = SpriteSheetReader.readSpriteSheet(r.name(), r.data(), o);
+				String name = (ss.name != null) ? ss.name : r.name();
+				switch (ss.intent) {
+					case SpriteIntent.STATIC_BRUSH:      spriteSets = brushes;            break;
+					case SpriteIntent.ACCELERATED_BRUSH: spriteSets = calligraphyBrushes; break;
+					case SpriteIntent.SPRAYED_BRUSH:     spriteSets = charcoalBrushes;    break;
+					case SpriteIntent.STAMPED_BRUSH:     spriteSets = sprinkles;          break;
+					case SpriteIntent.RUBBER_STAMPS:     spriteSets = rubberStamps;       break;
+					case SpriteIntent.ANIMATED_STAMPS:   spriteSets = rubberStamps;       break;
 				}
-				for (int x = 6, w = 4; x >= 0 && w <= 16; x -= 2, w += 4) {
-					BufferedImage i = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
-					Graphics2D g = i.createGraphics();
-					g.setColor(Color.black);
-					g.fillRect(x, x, w, w);
-					g.dispose();
-					int[] rgb = new int[256];
-					i.getRGB(0, 0, 16, 16, rgb, 0, 16);
-					v.add(new Bitmap(16, 16, rgb));
-				}
-				brushes.add("Simple", v);
+				spriteSets.add(name, ss);
+			} catch (IOException ioe) {
+				System.err.println("Warning: Ignoring invalid image: " + r.name());
 			}
 		}
+	}
+	private void loadSprites() {
+		brushes            = new PairList<String,SpriteSheet>();
+		calligraphyBrushes = new PairList<String,SpriteSheet>();
+		charcoalBrushes    = new PairList<String,SpriteSheet>();
+		sprinkles          = new PairList<String,SpriteSheet>();
+		rubberStamps       = new PairList<String,SpriteSheet>();
+		loadSprites(ResourceCategory.BRUSHES,     brushes           );
+		loadSprites(ResourceCategory.CALLIGRAPHY, calligraphyBrushes);
+		loadSprites(ResourceCategory.CHARCOALS,   charcoalBrushes   );
+		loadSprites(ResourceCategory.SPRINKLES,   sprinkles         );
+		loadSprites(ResourceCategory.STAMPS,      rubberStamps      );
+		if (brushes.isEmpty()) {
+			System.err.println("Notice: No brushes found. Generating generic brushes.");
+			BufferedImage bi = new BufferedImage(128, 16, BufferedImage.TYPE_INT_ARGB);
+			Graphics2D g = bi.createGraphics();
+			g.setColor(Color.black);
+			for (
+				int rx = 0, sx = 64, x = 6, w = 4;
+				rx < 64 && sx < 128 && x >= 0 && w <= 16;
+				rx += 16, sx += 16, x -= 2, w += 4
+			) {
+				g.fillOval(rx + x, x, w, w);
+				g.fillRect(sx + x, x, w, w);
+			}
+			g.dispose();
+			SpriteSheet ss = new SpriteSheet(bi, "Simple", 0, 2, 4, ArrayOrdering.TTB_LTR);
+			ss.slices.add(new SpriteSheetSlice(0, 0, 16, 16, 8, 8, 16, 16, 8, 1, ArrayOrdering.LTR_TTB, ColorTransform.ALL));
+			ss.root.children.add(new SpriteTreeNode.Leaf("", 0, 0, 8));
+			brushes.add("Simple", ss);
+		}
+		if (calligraphyBrushes.isEmpty()) {
+			System.err.println("Notice: No calligraphy brushes found. Generating generic calligraphy brushes.");
+			BufferedImage bi = new BufferedImage(256, 32, BufferedImage.TYPE_INT_ARGB);
+			Graphics2D g = bi.createGraphics();
+			g.setColor(Color.black);
+			for (int x = 8, d = 16; x < 256 && d > 0; x += 16, d--) {
+				g.fillOval(x - d / 2,  8 - d / 2, d, d);
+				g.fillRect(x - d / 2, 24 - d / 2, d, d);
+			}
+			g.dispose();
+			SpriteSheet ss = new SpriteSheet(bi, "Simple", 0, 2, 1, ArrayOrdering.LTR_TTB);
+			ss.slices.add(new SpriteSheetSlice(0, 0, 16, 16, 8, 8, 16, 16, 16, 2, ArrayOrdering.LTR_TTB, ColorTransform.ALL));
+			SpriteTreeNode.Branch stb;
+			stb = new SpriteTreeNode.Branch("Round", 0, 0);
+			stb.children.add(new SpriteTreeNode.Leaf("", 0, 0, 16));
+			ss.root.children.add(stb);
+			stb = new SpriteTreeNode.Branch("Square", 16, 0);
+			stb.children.add(new SpriteTreeNode.Leaf("", 16, 0, 16));
+			ss.root.children.add(stb);
+			calligraphyBrushes.add("Simple", ss);
+		}
+		if (charcoalBrushes.isEmpty()) {
+			System.err.println("Notice: No charcoal brushes found. Generating generic charcoal brushes.");
+			BufferedImage bi = new BufferedImage(128, 16, BufferedImage.TYPE_INT_ARGB);
+			int[] rgb = new int[256];
+			Random r = new Random();
+			for (int i = 0, x = 0; i < 8 && x < 128; i++, x += 16) {
+				for (int j = 0; j < 256; j++) {
+					rgb[j] = r.nextBoolean() ? 0xFF000000 : 0; 
+				}
+				bi.setRGB(x, 0, 16, 16, rgb, 0, 16);
+			}
+			SpriteSheet ss = new SpriteSheet(bi, "Simple", 0, 1, 1, ArrayOrdering.LTR_TTB);
+			ss.slices.add(new SpriteSheetSlice(0, 0, 16, 16, 8, 8, 16, 16, 8, 1, ArrayOrdering.LTR_TTB, ColorTransform.ALL));
+			SpriteTreeNode.Branch stb = new SpriteTreeNode.Branch("Square", 0, 0);
+			stb.children.add(new SpriteTreeNode.Leaf("", 0, 0, 8));
+			ss.root.children.add(stb);
+			charcoalBrushes.add("Simple", ss);
+		}
+		if (sprinkles.isEmpty()) {
+			System.err.println("Notice: No sprinkles found. Generating generic sprinkles.");
+			int k = 0xFF000000;
+			int[] rgb = new int[] {
+				0,0,0,0,0,k,k,k,k,k,k,0,0,0,0,0,
+				0,0,0,k,k,k,0,0,0,0,k,k,k,0,0,0,
+				0,0,k,k,0,0,0,0,0,0,0,0,k,k,0,0,
+				0,k,k,0,0,0,0,0,0,0,0,0,0,k,k,0,
+				0,k,0,0,0,k,0,0,0,0,k,0,0,0,k,0,
+				k,k,0,0,0,k,0,0,0,0,k,0,0,0,k,k,
+				k,0,0,0,0,0,0,0,0,0,0,0,0,0,0,k,
+				k,0,0,k,0,0,0,0,0,0,0,0,k,0,0,k,
+				k,0,k,k,0,0,0,0,0,0,0,0,k,k,0,k,
+				k,0,0,0,k,k,0,0,0,0,k,k,0,0,0,k,
+				k,k,0,0,k,0,k,k,k,k,0,k,0,0,k,k,
+				0,k,0,0,0,k,0,0,0,0,k,0,0,0,k,0,
+				0,k,k,0,0,0,k,k,k,k,0,0,0,k,k,0,
+				0,0,k,k,0,0,0,0,0,0,0,0,k,k,0,0,
+				0,0,0,k,k,k,0,0,0,0,k,k,k,0,0,0,
+				0,0,0,0,0,k,k,k,k,k,k,0,0,0,0,0
+			};
+			BufferedImage bi = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
+			bi.setRGB(0, 0, 16, 16, rgb, 0, 16);
+			SpriteSheet ss = new SpriteSheet(bi, "Smiley", 0, 1, 1, ArrayOrdering.LTR_TTB);
+			ss.slices.add(new SpriteSheetSlice(0, 0, 16, 16, 8, 8, 16, 16, 1, 1, ArrayOrdering.LTR_TTB, ColorTransform.ALL));
+			SpriteTreeNode.Branch stb = new SpriteTreeNode.Branch("Smiley", 0, 0);
+			stb.children.add(new SpriteTreeNode.Leaf("", 0, 0, 1));
+			ss.root.children.add(stb);
+			sprinkles.add("Smiley", ss);
+		}
+		if (rubberStamps.isEmpty()) {
+			System.err.println("Notice: No rubber stamps found. Generating generic rubber stamps.");
+			BufferedImage bi = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
+			Graphics2D g = bi.createGraphics();
+			g.setColor(Color.black);
+			g.fillOval(0, 0, 32, 32);
+			g.setColor(Color.yellow);
+			g.fillOval(1, 1, 30, 30);
+			Shape s = g.getClip();
+			g.setClip(new Rectangle(0, 16, 32, 32));
+			g.setColor(Color.black);
+			g.fillOval(8, 8, 16, 16);
+			g.setColor(Color.yellow);
+			g.fillOval(9, 9, 14, 14);
+			g.setClip(s);
+			g.setColor(Color.black);
+			g.fillRect(10, 10, 2, 2);
+			g.fillRect(20, 10, 2, 2);
+			g.dispose();
+			SpriteSheet ss = new SpriteSheet(bi, "Smiley", 0, 1, 1, ArrayOrdering.LTR_TTB);
+			ss.slices.add(new SpriteSheetSlice(0, 0, 32, 32, 16, 16, 32, 32, 1, 1, ArrayOrdering.LTR_TTB, ColorTransform.NONE));
+			ss.root.children.add(new SpriteTreeNode.Leaf("", 0, 0, 1));
+			rubberStamps.add("Smiley", ss);
+		}
+	}
+	public PairList<String,SpriteSheet> getBrushes() {
+		if (brushes == null) loadSprites();
 		return brushes;
 	}
-	
-	private PairList<String,Vector<Bitmap>> calligraphyBrushes = null;
-	public PairList<String,Vector<Bitmap>> getCalligraphyBrushes() {
-		if (calligraphyBrushes == null) {
-			calligraphyBrushes = getBitmaps(ResourceCategory.CALLIGRAPHY);
-			if (calligraphyBrushes.isEmpty()) {
-				System.err.println("Notice: No calligraphy brushes found. Generating generic calligraphy brushes.");
-				Vector<Bitmap> v1 = new Vector<Bitmap>();
-				Vector<Bitmap> v2 = new Vector<Bitmap>();
-				for (int d = 16; d > 0; d--) {
-					BufferedImage i1 = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
-					BufferedImage i2 = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
-					Graphics g1 = i1.createGraphics();
-					Graphics g2 = i2.createGraphics();
-					g1.setColor(Color.black);
-					g2.setColor(Color.black);
-					g1.fillOval(8-d/2, 8-d/2, d, d);
-					g2.fillRect(8-d/2, 8-d/2, d, d);
-					g1.dispose();
-					g2.dispose();
-					int[] rgb1 = new int[256];
-					int[] rgb2 = new int[256];
-					i1.getRGB(0, 0, 16, 16, rgb1, 0, 16);
-					i2.getRGB(0, 0, 16, 16, rgb2, 0, 16);
-					v1.add(new Bitmap(16, 16, rgb1));
-					v2.add(new Bitmap(16, 16, rgb2));
-				}
-				calligraphyBrushes.add("Round", v1);
-				calligraphyBrushes.add("Square", v2);
-			}
-		}
+	public PairList<String,SpriteSheet> getCalligraphyBrushes() {
+		if (calligraphyBrushes == null) loadSprites();
 		return calligraphyBrushes;
 	}
-	
-	private PairList<String,Vector<Bitmap>> charcoalBrushes = null;
-	public PairList<String,Vector<Bitmap>> getCharcoalBrushes() {
-		if (charcoalBrushes == null) {
-			charcoalBrushes = getBitmaps(ResourceCategory.CHARCOALS);
-			if (charcoalBrushes.isEmpty()) {
-				System.err.println("Notice: No charcoal brushes found. Generating generic charcoal brushes.");
-				Vector<Bitmap> v = new Vector<Bitmap>();
-				for (int i = 0; i < 8; i++) {
-					int[] rgb = new int[256];
-					Random r = new Random();
-					for (int j = 0; j < rgb.length; j++) {
-						rgb[j] = r.nextBoolean() ? 0xFF000000 : 0;
-					}
-					v.add(new Bitmap(16, 16, rgb));
-				}
-				charcoalBrushes.add("Square", v);
-			}
-		}
+	public PairList<String,SpriteSheet> getCharcoalBrushes() {
+		if (charcoalBrushes == null) loadSprites();
 		return charcoalBrushes;
+	}
+	public PairList<String,SpriteSheet> getSprinkles() {
+		if (sprinkles == null) loadSprites();
+		return sprinkles;
+	}
+	public PairList<String,SpriteSheet> getRubberStamps() {
+		if (rubberStamps == null) loadSprites();
+		return rubberStamps;
 	}
 	
 	private PairList<String,DitherAlgorithm> ditherAlgorithms = null;
@@ -743,70 +809,6 @@ public class MaterialsManager {
 		return shapes;
 	}
 	
-	private PairList<String,Vector<Bitmap>> sprinkles = null;
-	public PairList<String,Vector<Bitmap>> getSprinkles() {
-		if (sprinkles == null) {
-			sprinkles = getBitmaps(ResourceCategory.SPRINKLES);
-			if (sprinkles.isEmpty()) {
-				System.err.println("Notice: No sprinkles found. Generating generic sprinkles.");
-				Vector<Bitmap> v = new Vector<Bitmap>();
-				int k = 0xFF000000;
-				int[] rgb = new int[]{
-						0,0,0,0,0,k,k,k,k,k,k,0,0,0,0,0,
-						0,0,0,k,k,k,0,0,0,0,k,k,k,0,0,0,
-						0,0,k,k,0,0,0,0,0,0,0,0,k,k,0,0,
-						0,k,k,0,0,0,0,0,0,0,0,0,0,k,k,0,
-						0,k,0,0,0,k,0,0,0,0,k,0,0,0,k,0,
-						k,k,0,0,0,k,0,0,0,0,k,0,0,0,k,k,
-						k,0,0,0,0,0,0,0,0,0,0,0,0,0,0,k,
-						k,0,0,k,0,0,0,0,0,0,0,0,k,0,0,k,
-						k,0,k,k,0,0,0,0,0,0,0,0,k,k,0,k,
-						k,0,0,0,k,k,0,0,0,0,k,k,0,0,0,k,
-						k,k,0,0,k,0,k,k,k,k,0,k,0,0,k,k,
-						0,k,0,0,0,k,0,0,0,0,k,0,0,0,k,0,
-						0,k,k,0,0,0,k,k,k,k,0,0,0,k,k,0,
-						0,0,k,k,0,0,0,0,0,0,0,0,k,k,0,0,
-						0,0,0,k,k,k,0,0,0,0,k,k,k,0,0,0,
-						0,0,0,0,0,k,k,k,k,k,k,0,0,0,0,0
-				};
-				v.add(new Bitmap(16, 16, rgb));
-				sprinkles.add("Smiley", v);
-			}
-		}
-		return sprinkles;
-	}
-	
-	private PairList<String,Vector<Image>> rubberStamps = null;
-	public PairList<String,Vector<Image>> getRubberStamps() {
-		if (rubberStamps == null) {
-			rubberStamps = getImages(ResourceCategory.STAMPS);
-			if (rubberStamps.isEmpty()) {
-				System.err.println("Notice: No rubber stamps found. Generating generic rubber stamps.");
-				Vector<Image> v = new Vector<Image>();
-				BufferedImage bi = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
-				Graphics2D g = bi.createGraphics();
-				g.setColor(Color.black);
-				g.fillOval(0, 0, 32, 32);
-				g.setColor(Color.yellow);
-				g.fillOval(1, 1, 30, 30);
-				Shape s = g.getClip();
-				g.setClip(new Rectangle(0, 16, 32, 32));
-				g.setColor(Color.black);
-				g.fillOval(8, 8, 16, 16);
-				g.setColor(Color.yellow);
-				g.fillOval(9, 9, 14, 14);
-				g.setClip(s);
-				g.setColor(Color.black);
-				g.fillRect(10, 10, 2, 2);
-				g.fillRect(20, 10, 2, 2);
-				g.dispose();
-				v.add(bi);
-				rubberStamps.add("Smiley", v);
-			}
-		}
-		return rubberStamps;
-	}
-	
 	private LinkedHashMap<String,PairList<String,TexturePaint>> textures = null;
 	public LinkedHashMap<String,PairList<String,TexturePaint>> getTextures() {
 		if (textures == null) {
@@ -853,53 +855,5 @@ public class MaterialsManager {
 			}
 		}
 		return pluginTools;
-	}
-	
-	private PairList<String,Vector<Bitmap>> getBitmaps(ResourceCategory cat) {
-		PairList<String,Vector<Bitmap>> bmps = new PairList<String,Vector<Bitmap>>();
-		Toolkit tk = Toolkit.getDefaultToolkit();
-		for (Resource r : rm.getResources(cat)) {
-			Image i = tk.createImage(r.data());
-			boolean prepd = (i == null) ? false : ImageUtils.prepImage(tk, i);
-			BufferedImage bi = (i == null) ? null : ImageUtils.toBufferedImage(i, false);
-			if (i == null || !prepd || bi == null) {
-				System.err.println("Warning: Ignoring invalid image: "+r.name());
-			} else {
-				Vector<Bitmap> v = new Vector<Bitmap>();
-				int size = bi.getHeight();
-				for (int x = 0; x+size <= bi.getWidth(); x += size) {
-					int[] rgb = new int[size*size];
-					bi.getRGB(x, 0, size, size, rgb, 0, size);
-					v.add(new Bitmap(size, size, rgb));
-				}
-				if (!v.isEmpty()) bmps.add(r.name(), v);
-			}
-		}
-		return bmps;
-	}
-	
-	private PairList<String,Vector<Image>> getImages(ResourceCategory cat) {
-		PairList<String,Vector<Image>> imgs = new PairList<String,Vector<Image>>();
-		Toolkit tk = Toolkit.getDefaultToolkit();
-		for (Resource r : rm.getResources(cat)) {
-			Image i = tk.createImage(r.data());
-			boolean prepd = (i == null) ? false : ImageUtils.prepImage(tk, i);
-			BufferedImage bi = (i == null) ? null : ImageUtils.toBufferedImage(i, false);
-			if (i == null || !prepd || bi == null) {
-				System.err.println("Warning: Ignoring invalid image: "+r.name());
-			} else {
-				Vector<Image> v = new Vector<Image>();
-				int size = bi.getHeight();
-				int[] rgb = new int[size*size];
-				for (int x = 0; x+size <= bi.getWidth(); x += size) {
-					bi.getRGB(x, 0, size, size, rgb, 0, size);
-					BufferedImage e = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
-					e.setRGB(0, 0, size, size, rgb, 0, size);
-					v.add(e);
-				}
-				if (!v.isEmpty()) imgs.add(r.name(), v);
-			}
-		}
-		return imgs;
 	}
 }

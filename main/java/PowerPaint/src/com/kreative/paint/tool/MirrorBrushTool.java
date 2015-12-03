@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.tool;
 
 import java.awt.Cursor;
@@ -34,13 +7,13 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
-import com.kreative.paint.PaintSurface;
 import com.kreative.paint.ToolContext;
 import com.kreative.paint.draw.BrushStrokeDrawObject;
+import com.kreative.paint.draw.GroupDrawObject;
 import com.kreative.paint.form.BooleanOption;
 import com.kreative.paint.form.EnumOption;
 import com.kreative.paint.form.Form;
-import com.kreative.paint.util.Bitmap;
+import com.kreative.paint.sprite.Sprite;
 
 public class MirrorBrushTool extends AbstractPaintDrawTool implements ToolOptions.Brushes, ToolOptions.Custom {
 	private static final int K = 0xFF000000;
@@ -84,16 +57,9 @@ public class MirrorBrushTool extends AbstractPaintDrawTool implements ToolOption
 	
 	private GeneralPath currentPath;
 	
-	private Bitmap brushCache = null;
-	private Cursor brushCursor = null;
-	private int brushW = 0, brushH = 0;
 	private boolean rvc = false, rhc = false;
 	private CenterPoint cpc = null;
 	private void makeCache(ToolEvent e) {
-		brushCache = e.tc().getBrush();
-		brushCursor = brushCache.getCursor();
-		brushW = brushCache.getWidth()/2;
-		brushH = brushCache.getHeight()/2;
 		rvc = e.tc().getCustom(MirrorBrushTool.class, "refVert", Boolean.class, true);
 		rhc = e.tc().getCustom(MirrorBrushTool.class, "refHoriz", Boolean.class, true);
 		cpc = e.tc().getCustom(MirrorBrushTool.class, "centerPoint", CenterPoint.class, CenterPoint.CANVAS_CENTER);
@@ -116,31 +82,31 @@ public class MirrorBrushTool extends AbstractPaintDrawTool implements ToolOption
 	}
 	
 	public boolean mousePressed(ToolEvent e) {
-		if (brushCache == null) makeCache(e);
 		e.beginTransaction(getName());
 		if (e.isInPaintMode()) {
 			Graphics2D g = e.getPaintGraphics();
 			e.getPaintSettings().applyFill(g);
+			Sprite brush = e.tc().getBrush();
 			Point2D center = getCenterPoint(e);
 			{
-				float x = e.getX() - brushW;
-				float y = e.getY() - brushH;
-				brushCache.paint(e.getPaintSurface(), g, (int)x, (int)y);
+				float x = e.getX();
+				float y = e.getY();
+				brush.paint(g, (int)x, (int)y);
 			}
 			if (rvc) {
-				float x = 2.0f*(float)center.getX() - e.getX() - brushW;
-				float y = e.getY() - brushH;
-				brushCache.paint(e.getPaintSurface(), g, (int)x, (int)y);
+				float x = (float)center.getX() * 2 - e.getX();
+				float y = e.getY();
+				brush.paint(g, (int)x, (int)y);
 			}
 			if (rhc) {
-				float x = e.getX() - brushW;
-				float y = 2.0f*(float)center.getY() - e.getY() - brushH;
-				brushCache.paint(e.getPaintSurface(), g, (int)x, (int)y);
+				float x = e.getX();
+				float y = (float)center.getY() * 2 - e.getY();
+				brush.paint(g, (int)x, (int)y);
 			}
 			if (rvc && rhc) {
-				float x = 2.0f*(float)center.getX() - e.getX() - brushW;
-				float y = 2.0f*(float)center.getY() - e.getY() - brushH;
-				brushCache.paint(e.getPaintSurface(), g, (int)x, (int)y);
+				float x = (float)center.getX() * 2 - e.getX();
+				float y = (float)center.getY() * 2 - e.getY();
+				brush.paint(g, (int)x, (int)y);
 			}
 			return true;
 		} else {
@@ -151,82 +117,81 @@ public class MirrorBrushTool extends AbstractPaintDrawTool implements ToolOption
 	}
 	
 	public boolean mouseDragged(ToolEvent e) {
-		if (brushCache == null) makeCache(e);
 		if (e.isInPaintMode()) {
 			Graphics2D g = e.getPaintGraphics();
 			e.getPaintSettings().applyFill(g);
+			Sprite brush = e.tc().getBrush();
 			Point2D center = getCenterPoint(e);
 			{
 				float lastX = e.getPreviousX();
 				float lastY = e.getPreviousY();
 				float x = e.getX();
 				float y = e.getY();
-				drag(e.getPaintSurface(), g, lastX, lastY, x, y);
+				drag(brush, g, lastX, lastY, x, y);
 			}
 			if (rvc) {
-				float lastX = 2.0f*(float)center.getX() - e.getPreviousX();
+				float lastX = (float)center.getX() * 2 - e.getPreviousX();
 				float lastY = e.getPreviousY();
-				float x = 2.0f*(float)center.getX() - e.getX();
+				float x = (float)center.getX() * 2 - e.getX();
 				float y = e.getY();
-				drag(e.getPaintSurface(), g, lastX, lastY, x, y);
+				drag(brush, g, lastX, lastY, x, y);
 			}
 			if (rhc) {
 				float lastX = e.getPreviousX();
-				float lastY = 2.0f*(float)center.getY() - e.getPreviousY();
+				float lastY = (float)center.getY() * 2 - e.getPreviousY();
 				float x = e.getX();
-				float y = 2.0f*(float)center.getY() - e.getY();
-				drag(e.getPaintSurface(), g, lastX, lastY, x, y);
+				float y = (float)center.getY() * 2 - e.getY();
+				drag(brush, g, lastX, lastY, x, y);
 			}
 			if (rvc && rhc) {
-				float lastX = 2.0f*(float)center.getX() - e.getPreviousX();
-				float lastY = 2.0f*(float)center.getY() - e.getPreviousY();
-				float x = 2.0f*(float)center.getX() - e.getX();
-				float y = 2.0f*(float)center.getY() - e.getY();
-				drag(e.getPaintSurface(), g, lastX, lastY, x, y);
+				float lastX = (float)center.getX() * 2 - e.getPreviousX();
+				float lastY = (float)center.getY() * 2 - e.getPreviousY();
+				float x = (float)center.getX() * 2 - e.getX();
+				float y = (float)center.getY() * 2 - e.getY();
+				drag(brush, g, lastX, lastY, x, y);
 			}
 			return true;
 		} else if (currentPath != null) {
-			float x = e.getX();
-			float y = e.getY();
-			currentPath.lineTo(x, y);
+			currentPath.lineTo(e.getX(), e.getY());
+			return false;
+		} else {
 			return false;
 		}
-		return false;
 	}
 	
 	public boolean mouseReleased(ToolEvent e) {
-		if (brushCache == null) makeCache(e);
 		if (e.isInPaintMode()) {
 			Graphics2D g = e.getPaintGraphics();
 			e.getPaintSettings().applyFill(g);
+			Sprite brush = e.tc().getBrush();
 			Point2D center = getCenterPoint(e);
 			{
 				float lastX = e.getPreviousX();
 				float lastY = e.getPreviousY();
 				float x = e.getX();
 				float y = e.getY();
-				drag(e.getPaintSurface(), g, lastX, lastY, x, y);
+				drag(brush, g, lastX, lastY, x, y);
 			}
 			if (rvc) {
 				float lastX = (float)center.getX() - e.getPreviousX();
 				float lastY = e.getPreviousY();
 				float x = (float)center.getX() - e.getX();
 				float y = e.getY();
-				drag(e.getPaintSurface(), g, lastX, lastY, x, y);
+				drag(brush, g, lastX, lastY, x, y);
 			}
 			if (rhc) {
 				float lastX = e.getPreviousX();
 				float lastY = (float)center.getY() - e.getPreviousY();
 				float x = e.getX();
 				float y = (float)center.getY() - e.getY();
-				drag(e.getPaintSurface(), g, lastX, lastY, x, y);
+				drag(brush, g, lastX, lastY, x, y);
 			}
 			if (rvc && rhc) {
 				float lastX = (float)center.getX() - e.getPreviousX();
 				float lastY = (float)center.getY() - e.getPreviousY();
 				float x = (float)center.getX() - e.getX();
 				float y = (float)center.getY() - e.getY();
-				drag(e.getPaintSurface(), g, lastX, lastY, x, y);
+				drag(brush, g, lastX, lastY, x, y);
 			}
 			e.commitTransaction();
 			return true;
@@ -234,68 +199,89 @@ public class MirrorBrushTool extends AbstractPaintDrawTool implements ToolOption
 			float x = e.getX();
 			float y = e.getY();
 			currentPath.lineTo(x, y);
+			Sprite brush = e.tc().getBrush();
 			Point2D center = getCenterPoint(e);
+			GroupDrawObject group = new GroupDrawObject();
 			{
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brushCache, currentPath, e.getPaintSettings());
-				e.getDrawSurface().add(o);
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				group.add(o);
 			}
 			if (rvc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brushCache, currentPath, e.getPaintSettings());
-				o.setTransform(new AffineTransform(-1, 0, 0, 1, 2.0f*(float)center.getX(), 0));
-				e.getDrawSurface().add(o);
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				o.setTransform(new AffineTransform(
+					-1, 0, 0, 1, (float)center.getX() * 2, 0
+				));
+				group.add(o);
 			}
 			if (rhc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brushCache, currentPath, e.getPaintSettings());
-				o.setTransform(new AffineTransform(1, 0, 0, -1, 0, 2.0f*(float)center.getY()));
-				e.getDrawSurface().add(o);
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				o.setTransform(new AffineTransform(
+					1, 0, 0, -1, 0, (float)center.getY() * 2
+				));
+				group.add(o);
 			}
 			if (rvc && rhc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brushCache, currentPath, e.getPaintSettings());
-				o.setTransform(new AffineTransform(-1, 0, 0, -1, 2.0f*(float)center.getX(), 2.0f*(float)center.getY()));
-				e.getDrawSurface().add(o);
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				o.setTransform(new AffineTransform(
+					-1, 0, 0, -1,
+					(float)center.getX() * 2,
+					(float)center.getY() * 2
+				));
+				group.add(o);
 			}
+			e.getDrawSurface().add(group);
 			currentPath = null;
 			e.commitTransaction();
 			return true;
+		} else {
+			e.commitTransaction();
+			return false;
 		}
-		e.commitTransaction();
-		return false;
 	}
 	
 	public boolean paintIntermediate(ToolEvent e, Graphics2D g) {
-		if (brushCache == null) makeCache(e);
 		if (e.isInDrawMode() && currentPath != null) {
+			Sprite brush = e.tc().getBrush();
 			Point2D center = getCenterPoint(e);
 			{
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brushCache, currentPath, e.getPaintSettings());
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
 				o.paint(g);
 			}
 			if (rvc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brushCache, currentPath, e.getPaintSettings());
-				o.setTransform(new AffineTransform(-1, 0, 0, 1, 2.0f*(float)center.getX(), 0));
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				o.setTransform(new AffineTransform(
+					-1, 0, 0, 1, (float)center.getX() * 2, 0
+				));
 				o.paint(g);
 			}
 			if (rhc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brushCache, currentPath, e.getPaintSettings());
-				o.setTransform(new AffineTransform(1, 0, 0, -1, 0, 2.0f*(float)center.getY()));
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				o.setTransform(new AffineTransform(
+					1, 0, 0, -1, 0, (float)center.getY() * 2
+				));
 				o.paint(g);
 			}
 			if (rvc && rhc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brushCache, currentPath, e.getPaintSettings());
-				o.setTransform(new AffineTransform(-1, 0, 0, -1, 2.0f*(float)center.getX(), 2.0f*(float)center.getY()));
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				o.setTransform(new AffineTransform(
+					-1, 0, 0, -1,
+					(float)center.getX() * 2,
+					(float)center.getY() * 2
+				));
 				o.paint(g);
 			}
 			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
 	
-	private void drag(PaintSurface srf, Graphics2D g, float sx, float sy, float dx, float dy) {
+	private void drag(Sprite brush, Graphics2D g, float sx, float sy, float dx, float dy) {
 		int m = (int)Math.ceil(Math.max(Math.abs(dx-sx),Math.abs(dy-sy)));
 		for (int i = 1; i <= m; i++) {
-			float x = sx + ((dx-sx)*i)/m - brushW;
-			float y = sy + ((dy-sy)*i)/m - brushH;
-			brushCache.paint(srf, g, (int)x, (int)y);
+			float x = sx + ((dx-sx)*i)/m;
+			float y = sy + ((dy-sy)*i)/m;
+			brush.paint(g, (int)x, (int)y);
 		}
 	}
 	
@@ -360,8 +346,7 @@ public class MirrorBrushTool extends AbstractPaintDrawTool implements ToolOption
 	}
 	
 	public Cursor getCursor(ToolEvent e) {
-		if (brushCursor == null) makeCache(e);
-		return brushCursor;
+		return e.tc().getBrush().getPreparedCursor(true);
 	}
 	
 	public boolean shiftConstrainsCoordinates() {

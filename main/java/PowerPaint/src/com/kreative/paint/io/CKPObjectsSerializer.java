@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.io;
 
 import java.awt.*;
@@ -35,6 +8,8 @@ import java.io.*;
 import com.kreative.paint.PaintSettings;
 import com.kreative.paint.draw.*;
 import com.kreative.paint.powerbrush.BrushSettings;
+import com.kreative.paint.sprite.ColorTransform;
+import com.kreative.paint.sprite.Sprite;
 import com.kreative.paint.util.Bitmap;
 import com.kreative.paint.util.ImageUtils;
 
@@ -62,7 +37,7 @@ public class CKPObjectsSerializer extends Serializer {
 	private static final int IDO_TYPE_NONE = fcc("null");
 	
 	protected void loadRecognizedTypesAndClasses() {
-		addTypeAndClass(TYPE_BRUSH_STROKE_DO, 1, BrushStrokeDrawObject.class);
+		addTypeAndClass(TYPE_BRUSH_STROKE_DO, 2, BrushStrokeDrawObject.class);
 		addTypeAndClass(TYPE_CONTROL_POINT_DOUBLE, 1, ControlPoint.Double.class);
 		addTypeAndClass(TYPE_CONTROL_POINT_FLOAT, 1, ControlPoint.Float.class);
 		addTypeAndClass(TYPE_CONTROL_POINT_TYPE, 1, ControlPointType.class);
@@ -88,26 +63,26 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeBoolean(v.isLocked());
 			stream.writeBoolean(v.isSelected());
 			stream.writeByte(0);
-			SerializationManager.writeObject(v.getBrush(), stream);
+			Sprite s = v.getBrush();
+			SerializationManager.writeObject(s.getRawImage(), stream);
+			stream.writeShort(s.getHotspotX());
+			stream.writeShort(s.getHotspotY());
+			stream.writeShort(s.getColorTransform().intValue);
 			SerializationManager.writeObject(v.getPath(), stream);
-		}
-		else if (o instanceof ControlPoint.Double) {
+		} else if (o instanceof ControlPoint.Double) {
 			ControlPoint.Double v = (ControlPoint.Double)o;
 			stream.writeDouble(v.x);
 			stream.writeDouble(v.y);
 			stream.writeInt(v.type.getSerializedForm());
-		}
-		else if (o instanceof ControlPoint.Float) {
+		} else if (o instanceof ControlPoint.Float) {
 			ControlPoint.Float v = (ControlPoint.Float)o;
 			stream.writeFloat(v.x);
 			stream.writeFloat(v.y);
 			stream.writeInt(v.type.getSerializedForm());
-		}
-		else if (o instanceof ControlPointType) {
+		} else if (o instanceof ControlPointType) {
 			ControlPointType v = (ControlPointType)o;
 			stream.writeInt(v.getSerializedForm());
-		}
-		else if (o instanceof CropMarkDrawObject) {
+		} else if (o instanceof CropMarkDrawObject) {
 			CropMarkDrawObject v = (CropMarkDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -121,8 +96,7 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeFloat(v.getY2());
 			stream.writeInt(v.getHorizDivisions());
 			stream.writeInt(v.getVertDivisions());
-		}
-		else if (o instanceof GridDrawObject) {
+		} else if (o instanceof GridDrawObject) {
 			GridDrawObject v = (GridDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -139,8 +113,7 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeFloat(v.getHorizGridSpacing());
 			stream.writeInt(v.getVertGridType());
 			stream.writeFloat(v.getVertGridSpacing());
-		}
-		else if (o instanceof GroupDrawObject) {
+		} else if (o instanceof GroupDrawObject) {
 			GroupDrawObject v = (GroupDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -152,8 +125,7 @@ public class CKPObjectsSerializer extends Serializer {
 			for (DrawObject d : v) {
 				SerializationManager.writeObject(d, stream);
 			}
-		}
-		else if (o instanceof ImageDrawObject) {
+		} else if (o instanceof ImageDrawObject) {
 			ImageDrawObject v = (ImageDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -175,29 +147,23 @@ public class CKPObjectsSerializer extends Serializer {
 				stream.writeInt(IDO_TYPE_IMAGE);
 				BufferedImage bimg = ImageUtils.toBufferedImage(v.getImage(), false);
 				SerializationManager.writeObject(bimg, stream);
-			}
-			else if (v.getBufferedImage() != null && v.getBufferedImageOp() != null) {
+			} else if (v.getBufferedImage() != null && v.getBufferedImageOp() != null) {
 				stream.writeInt(IDO_TYPE_BUFFERED_IMAGE);
 				SerializationManager.writeObject(v.getBufferedImage(), stream);
 				SerializationManager.writeObject(v.getBufferedImageOp(), stream); // this WILL fail until we can serialize BufferedImageOps
-			}
-			else if (v.getBufferedImage() != null) {
+			} else if (v.getBufferedImage() != null) {
 				stream.writeInt(IDO_TYPE_IMAGE);
 				SerializationManager.writeObject(v.getBufferedImage(), stream);
-			}
-			else if (v.getRenderableImage() != null) {
+			} else if (v.getRenderableImage() != null) {
 				stream.writeInt(IDO_TYPE_RENDERABLE_IMAGE);
 				SerializationManager.writeObject(v.getRenderableImage(), stream); // this WILL fail until we can serialize RenderableImages
-			}
-			else if (v.getRenderedImage() != null) {
+			} else if (v.getRenderedImage() != null) {
 				stream.writeInt(IDO_TYPE_RENDERED_IMAGE);
 				SerializationManager.writeObject(v.getRenderedImage(), stream); // this WILL fail until we can serialize RenderedImages
-			}
-			else {
+			} else {
 				stream.writeInt(IDO_TYPE_NONE);
 			}
-		}
-		else if (o instanceof PencilStrokeDrawObject) {
+		} else if (o instanceof PencilStrokeDrawObject) {
 			PencilStrokeDrawObject v = (PencilStrokeDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -206,8 +172,7 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeBoolean(v.isSelected());
 			stream.writeByte(0);
 			SerializationManager.writeObject(v.getPath(), stream);
-		}
-		else if (o instanceof PerspectiveGridDrawObject) {
+		} else if (o instanceof PerspectiveGridDrawObject) {
 			PerspectiveGridDrawObject v = (PerspectiveGridDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -223,8 +188,7 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeInt(v.getGridWidthTop());
 			stream.writeInt(v.getGridWidthBottom());
 			stream.writeInt(v.getGridHeight());
-		}
-		else if (o instanceof PowerBrushStrokeDrawObject) {
+		} else if (o instanceof PowerBrushStrokeDrawObject) {
 			PowerBrushStrokeDrawObject v = (PowerBrushStrokeDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -234,8 +198,7 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeByte(0);
 			SerializationManager.writeObject(v.getBrush(), stream);
 			SerializationManager.writeObject(v.getPath(), stream);
-		}
-		else if (o instanceof QuickShadowDrawObject) {
+		} else if (o instanceof QuickShadowDrawObject) {
 			QuickShadowDrawObject v = (QuickShadowDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -248,8 +211,7 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeInt(v.getXOffset());
 			stream.writeInt(v.getYOffset());
 			SerializationManager.writeObject(v.getOriginalShape(), stream);
-		}
-		else if (o instanceof ShapeDrawObject) {
+		} else if (o instanceof ShapeDrawObject) {
 			ShapeDrawObject v = (ShapeDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -258,8 +220,7 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeBoolean(v.isSelected());
 			stream.writeByte(0);
 			SerializationManager.writeObject(v.getOriginalShape(), stream);
-		}
-		else if (o instanceof TextDrawObject) {
+		} else if (o instanceof TextDrawObject) {
 			TextDrawObject v = (TextDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -273,8 +234,7 @@ public class CKPObjectsSerializer extends Serializer {
 			stream.writeInt(v.getCursorStart());
 			stream.writeInt(v.getCursorEnd());
 			stream.writeUTF(v.getText());
-		}
-		else if (o instanceof ThreeDBoxDrawObject) {
+		} else if (o instanceof ThreeDBoxDrawObject) {
 			ThreeDBoxDrawObject v = (ThreeDBoxDrawObject)o;
 			SerializationManager.writeObject(v.getPaintSettings(), stream);
 			SerializationManager.writeObject(v.getTransform(), stream);
@@ -293,16 +253,30 @@ public class CKPObjectsSerializer extends Serializer {
 	}
 	
 	public Object deserializeObject(int type, int version, DataInputStream stream) throws IOException {
-		if (version != 1) throw new IOException("Invalid version number.");
-		else if (type == TYPE_BRUSH_STROKE_DO) {
+		if (type == TYPE_BRUSH_STROKE_DO) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
 			boolean lock = stream.readBoolean();
 			boolean sel = stream.readBoolean();
 			stream.readByte();
-			Object tmp = SerializationManager.readObject(stream);
-			Bitmap br = (tmp instanceof BufferedImage) ? new Bitmap((BufferedImage)tmp) : (Bitmap)tmp;
+			BufferedImage raw;
+			int hx, hy;
+			ColorTransform ctx;
+			if (version < 2) {
+				Object tmp = SerializationManager.readObject(stream);
+				raw = (tmp instanceof BufferedImage) ? (BufferedImage)tmp : ((Bitmap)tmp).getImage();
+				hx = raw.getWidth() / 2;
+				hy = raw.getHeight() / 2;
+				ctx = ColorTransform.ALL;
+			} else {
+				raw = (BufferedImage)SerializationManager.readObject(stream);
+				hx = stream.readShort();
+				hy = stream.readShort();
+				ctx = new ColorTransform(stream.readShort());
+			}
+			Sprite br = new Sprite(raw, hx, hy, ctx);
 			GeneralPath pa = (GeneralPath)SerializationManager.readObject(stream);
 			BrushStrokeDrawObject o = new BrushStrokeDrawObject(br, pa, ps);
 			o.setTransform(tx);
@@ -310,30 +284,30 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
-		}
-		else if (type == TYPE_CONTROL_POINT_DOUBLE) {
+		} else if (type == TYPE_CONTROL_POINT_DOUBLE) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			double x = stream.readDouble();
 			double y = stream.readDouble();
 			int t = stream.readInt();
 			ControlPointType ty = ControlPointType.forSerializedForm(t);
 			if (ty == null) ty = ControlPointType.GENERIC;
 			return new ControlPoint.Double(x,y,ty);
-		}
-		else if (type == TYPE_CONTROL_POINT_FLOAT) {
+		} else if (type == TYPE_CONTROL_POINT_FLOAT) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			float x = stream.readFloat();
 			float y = stream.readFloat();
 			int t = stream.readInt();
 			ControlPointType ty = ControlPointType.forSerializedForm(t);
 			if (ty == null) ty = ControlPointType.GENERIC;
 			return new ControlPoint.Float(x,y,ty);
-		}
-		else if (type == TYPE_CONTROL_POINT_TYPE) {
+		} else if (type == TYPE_CONTROL_POINT_TYPE) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			int t = stream.readInt();
 			ControlPointType ty = ControlPointType.forSerializedForm(t);
 			if (ty == null) ty = ControlPointType.GENERIC;
 			return ty;
-		}
-		else if (type == TYPE_CROP_MARK_DO) {
+		} else if (type == TYPE_CROP_MARK_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -352,8 +326,8 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
-		}
-		else if (type == TYPE_GRID_DO) {
+		} else if (type == TYPE_GRID_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -374,8 +348,8 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
-		}
-		else if (type == TYPE_GROUP_DO) {
+		} else if (type == TYPE_GROUP_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -394,8 +368,8 @@ public class CKPObjectsSerializer extends Serializer {
 				gr.add(obj);
 			}
 			return gr;
-		}
-		else if (type == TYPE_IMAGE_DO) {
+		} else if (type == TYPE_IMAGE_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -420,8 +394,7 @@ public class CKPObjectsSerializer extends Serializer {
 				o.setLocked(lock);
 				o.setSelected(sel);
 				return o;
-			}
-			else if (t == IDO_TYPE_BUFFERED_IMAGE) {
+			} else if (t == IDO_TYPE_BUFFERED_IMAGE) {
 				BufferedImage img = (BufferedImage)SerializationManager.readObject(stream);
 				BufferedImageOp op = (BufferedImageOp)SerializationManager.readObject(stream);
 				ImageDrawObject o = new ImageDrawObject(ps, tx, b, i, img, op);
@@ -429,26 +402,25 @@ public class CKPObjectsSerializer extends Serializer {
 				o.setLocked(lock);
 				o.setSelected(sel);
 				return o;
-			}
-			else if (t == IDO_TYPE_RENDERABLE_IMAGE) {
+			} else if (t == IDO_TYPE_RENDERABLE_IMAGE) {
 				RenderableImage img = (RenderableImage)SerializationManager.readObject(stream);
 				ImageDrawObject o = new ImageDrawObject(ps, tx, b, i, img);
 				o.setVisible(vis);
 				o.setLocked(lock);
 				o.setSelected(sel);
 				return o;
-			}
-			else if (t == IDO_TYPE_RENDERED_IMAGE) {
+			} else if (t == IDO_TYPE_RENDERED_IMAGE) {
 				RenderedImage img = (RenderedImage)SerializationManager.readObject(stream);
 				ImageDrawObject o = new ImageDrawObject(ps, tx, b, i, img);
 				o.setVisible(vis);
 				o.setLocked(lock);
 				o.setSelected(sel);
 				return o;
+			} else {
+				return null;
 			}
-			else return null;
-		}
-		else if (type == TYPE_PENCIL_STROKE_DO) {
+		} else if (type == TYPE_PENCIL_STROKE_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -462,8 +434,8 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
-		}
-		else if (type == TYPE_PERSPECTIVE_GRID_DO) {
+		} else if (type == TYPE_PERSPECTIVE_GRID_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -483,8 +455,8 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
-		}
-		else if (type == TYPE_POWERBRUSH_STROKE_DO) {
+		} else if (type == TYPE_POWERBRUSH_STROKE_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -499,8 +471,8 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
-		}
-		else if (type == TYPE_QUICKSHADOW_DO) {
+		} else if (type == TYPE_QUICKSHADOW_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -518,8 +490,8 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
-		}
-		else if (type == TYPE_SHAPE_DO) {
+		} else if (type == TYPE_SHAPE_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -533,8 +505,8 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
-		}
-		else if (type == TYPE_TEXT_DO) {
+		} else if (type == TYPE_TEXT_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -555,8 +527,8 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
-		}
-		else if (type == TYPE_THREEDBOX_DO) {
+		} else if (type == TYPE_THREEDBOX_DO) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			PaintSettings ps = (PaintSettings)SerializationManager.readObject(stream);
 			AffineTransform tx = (AffineTransform)SerializationManager.readObject(stream);
 			boolean vis = !stream.readBoolean();
@@ -575,7 +547,8 @@ public class CKPObjectsSerializer extends Serializer {
 			o.setLocked(lock);
 			o.setSelected(sel);
 			return o;
+		} else {
+			return null;
 		}
-		else return null;
 	}
 }
