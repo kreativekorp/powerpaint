@@ -17,6 +17,22 @@ public class SpriteSheet {
 	
 	public SpriteSheet(
 		BufferedImage image,
+		int hotspotX,
+		int hotspotY,
+		ColorTransform transform
+	) {
+		this(image, "", 0, 1, 1, ArrayOrdering.LTR_TTB);
+		int w = image.getWidth(), h = image.getHeight();
+		this.slices.add(new SpriteSheetSlice(
+			0, 0, w, h, hotspotX, hotspotY,
+			0, 0, 1, 1, ArrayOrdering.LTR_TTB,
+			transform
+		));
+		this.root.children.add(new SpriteTreeNode.Leaf("", 0, 0, 1));
+	}
+	
+	public SpriteSheet(
+		BufferedImage image,
 		String name,
 		int intent,
 		int columns,
@@ -91,5 +107,15 @@ public class SpriteSheet {
 	public Sprite getSpriteByPath(int... path) {
 		SpriteTreeNode c = root.getChildByPath(path);
 		return (c == null) ? null : new Sprite(this, c);
+	}
+	
+	public List<Sprite> getSprites() {
+		int n = root.getChildCount();
+		List<Sprite> sprites = new ArrayList<Sprite>(n);
+		for (int i = 0; i < n; i++) {
+			SpriteTreeNode c = root.getChild(i);
+			sprites.add(new Sprite(this, c));
+		}
+		return sprites;
 	}
 }

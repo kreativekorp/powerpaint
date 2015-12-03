@@ -9,11 +9,20 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Sprite {
 	private final SpriteSheet spriteSheet;
 	private final SpriteTreeNode treeNode;
 	private final SpriteSheetSlice slice;
+	
+	public Sprite(BufferedImage image, int hx, int hy, ColorTransform transform) {
+		this.spriteSheet = new SpriteSheet(image, hx, hy, transform);
+		this.treeNode = this.spriteSheet.root.children.get(0);
+		this.slice = this.spriteSheet.slices.get(0);
+	}
 	
 	public Sprite(SpriteSheet spriteSheet, SpriteTreeNode treeNode) {
 		this.spriteSheet = spriteSheet;
@@ -80,6 +89,13 @@ public class Sprite {
 		Sprite c = this;
 		for (int i : path) c = c.getChild(i);
 		return c;
+	}
+	
+	public List<Sprite> getChildren() {
+		if (spriteCache == null) makeSpriteCache();
+		List<Sprite> children = new ArrayList<Sprite>();
+		children.addAll(Arrays.asList(spriteCache));
+		return children;
 	}
 	
 	private int[] rawPixels = null;
