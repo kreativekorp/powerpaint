@@ -1,6 +1,6 @@
 SRCFILES := $(shell find src -name \*.java)
 RESFILES := $(shell (find src -name \*.png ; find src -name \*.dtd) | sed s/^src\\///)
-PACKAGES := $(shell find src/com/kreative/paint -type d | sed s/^src\\/// | tr / .)
+PACKAGES := $(shell find src/com/kreative/paint -type d \! -path \*/.\* | sed s/^src\\/// | tr / .)
 
 all: clean bin doc materials.pmz decorate osxclean PowerPaint.jar PowerPaint.app PowerPaint.exe PowerPaint-src.tgz
 
