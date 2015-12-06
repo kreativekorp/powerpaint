@@ -38,10 +38,10 @@ import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.PaintContextListener;
 import com.kreative.paint.PaintSettings;
+import com.kreative.paint.material.stroke.Arrowhead;
+import com.kreative.paint.material.stroke.EndCap;
+import com.kreative.paint.material.stroke.PowerStroke;
 import com.kreative.paint.res.MaterialsManager;
-import com.kreative.paint.stroke.Arrowhead;
-import com.kreative.paint.stroke.EndCap;
-import com.kreative.paint.stroke.PowerStroke;
 
 public class StrokePresetPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;

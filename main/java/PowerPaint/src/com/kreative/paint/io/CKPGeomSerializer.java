@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.*;
 import java.util.zip.*;
 import com.kreative.paint.geom.*;
-import com.kreative.paint.powershape.*;
+import com.kreative.paint.material.shape.*;
 
 public class CKPGeomSerializer extends Serializer {
 	private static final int TYPE_BITMAP_SHAPE = fcc("BmSh");

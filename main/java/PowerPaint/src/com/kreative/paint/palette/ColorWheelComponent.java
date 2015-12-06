@@ -22,10 +22,9 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComponent;
-
-import com.kreative.paint.gradient.GradientPaint2;
-import com.kreative.paint.rcp.ColorChangeEvent;
-import com.kreative.paint.rcp.ColorChangeListener;
+import com.kreative.paint.material.colorpalette.ColorChangeEvent;
+import com.kreative.paint.material.colorpalette.ColorChangeListener;
+import com.kreative.paint.material.gradient.GradientPaint2;
 
 public class ColorWheelComponent extends JComponent {
 	private static final long serialVersionUID = 1L;

@@ -31,7 +31,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.rcp.CheckerboardPaint;
+import com.kreative.paint.material.colorpalette.CheckerboardPaint;
 
 public class SNFPresetsPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;

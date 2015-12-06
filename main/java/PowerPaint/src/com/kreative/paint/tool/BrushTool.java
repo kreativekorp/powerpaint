@@ -6,7 +6,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.GeneralPath;
 import com.kreative.paint.draw.BrushStrokeDrawObject;
-import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.material.sprite.Sprite;
 
 public class BrushTool extends AbstractPaintDrawTool implements ToolOptions.Brushes {
 	private static final int K = 0xFF000000;

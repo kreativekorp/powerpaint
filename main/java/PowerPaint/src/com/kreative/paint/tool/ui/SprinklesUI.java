@@ -9,7 +9,7 @@ import javax.swing.event.*;
 import com.kreative.paint.ToolContext;
 import com.kreative.paint.ToolContextConstants;
 import com.kreative.paint.ToolContextListener;
-import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.material.sprite.Sprite;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.tool.ToolUtilities;
 import com.kreative.paint.util.SwingUtils;

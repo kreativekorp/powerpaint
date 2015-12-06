@@ -2,8 +2,8 @@ package com.kreative.paint.io;
 
 import java.awt.*;
 import java.io.*;
-import com.kreative.paint.pattern.*;
-import com.kreative.paint.stroke.*;
+import com.kreative.paint.material.pattern.*;
+import com.kreative.paint.material.stroke.*;
 
 public class CKPAWTSerializer extends Serializer {
 	private static final int TYPE_PATTERN = fcc("Patt");

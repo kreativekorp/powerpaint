@@ -32,9 +32,9 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.stroke.EndCap;
-import com.kreative.paint.stroke.LineJoin;
-import com.kreative.paint.stroke.PowerStroke;
+import com.kreative.paint.material.stroke.EndCap;
+import com.kreative.paint.material.stroke.LineJoin;
+import com.kreative.paint.material.stroke.PowerStroke;
 import com.kreative.paint.util.SwingUtils;
 
 public class StrokeCapJoinPanel extends PaintContextPanel {

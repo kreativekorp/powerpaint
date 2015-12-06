@@ -2,7 +2,7 @@ package com.kreative.paint.io;
 
 import java.awt.geom.Rectangle2D;
 import java.io.*;
-import com.kreative.paint.gradient.*;
+import com.kreative.paint.material.gradient.*;
 
 public class CKPGradientSerializer extends Serializer {
 	private static final int TYPE_GRADIENT_COLOR_RGB = fcc("GC03");

@@ -38,8 +38,8 @@ import java.awt.RenderingHints;
 import java.awt.Stroke;
 import java.util.Collection;
 import java.util.HashSet;
-import com.kreative.paint.pattern.Pattern;
-import com.kreative.paint.pattern.PatternPaint;
+import com.kreative.paint.material.pattern.Pattern;
+import com.kreative.paint.material.pattern.PatternPaint;
 
 public class PaintContext implements PaintContextConstants {
 	private static final Color COLOR_CLEAR = new Color(0, true);

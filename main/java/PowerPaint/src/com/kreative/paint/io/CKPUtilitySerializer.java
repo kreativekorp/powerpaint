@@ -8,8 +8,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
-import com.kreative.paint.dither.*;
-import com.kreative.paint.frame.*;
+import com.kreative.paint.material.dither.*;
+import com.kreative.paint.material.frame.*;
 import com.kreative.paint.util.*;
 
 public class CKPUtilitySerializer extends Serializer {

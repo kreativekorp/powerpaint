@@ -14,10 +14,9 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComponent;
-
-import com.kreative.paint.rcp.CheckerboardPaint;
-import com.kreative.paint.rcp.ColorChangeEvent;
-import com.kreative.paint.rcp.ColorChangeListener;
+import com.kreative.paint.material.colorpalette.CheckerboardPaint;
+import com.kreative.paint.material.colorpalette.ColorChangeEvent;
+import com.kreative.paint.material.colorpalette.ColorChangeListener;
 import com.kreative.paint.util.ColorModel;
 import com.kreative.paint.util.ColorModel.ColorChannel;
 

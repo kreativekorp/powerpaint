@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -18,13 +17,12 @@ import javax.swing.event.TreeModelListener;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
-
-import com.kreative.paint.sprite.ArrayOrdering;
-import com.kreative.paint.sprite.ColorTransform;
-import com.kreative.paint.sprite.Sprite;
-import com.kreative.paint.sprite.SpriteIntent;
-import com.kreative.paint.sprite.SpriteSheet;
-import com.kreative.paint.sprite.SpriteSheetReader;
+import com.kreative.paint.material.sprite.ArrayOrdering;
+import com.kreative.paint.material.sprite.ColorTransform;
+import com.kreative.paint.material.sprite.Sprite;
+import com.kreative.paint.material.sprite.SpriteIntent;
+import com.kreative.paint.material.sprite.SpriteSheet;
+import com.kreative.paint.material.sprite.SpriteSheetReader;
 
 public class SpriteSheetDemo {
 	public static void main(String[] args) throws IOException {

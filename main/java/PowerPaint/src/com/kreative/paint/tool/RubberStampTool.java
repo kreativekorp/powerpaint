@@ -5,8 +5,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import com.kreative.paint.sprite.ColorTransform;
-import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.material.sprite.ColorTransform;
+import com.kreative.paint.material.sprite.Sprite;
 import com.kreative.paint.util.CursorUtils;
 
 public class RubberStampTool extends AbstractPaintDrawTool implements ToolOptions.RubberStamps {

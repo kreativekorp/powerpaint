@@ -29,8 +29,8 @@ package com.kreative.paint.palette;
 
 import java.awt.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.pattern.Pattern;
-import com.kreative.paint.pattern.PatternPaint;
+import com.kreative.paint.material.pattern.Pattern;
+import com.kreative.paint.material.pattern.PatternPaint;
 
 public class SNFPatternSelector extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;

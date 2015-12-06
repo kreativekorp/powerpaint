@@ -31,7 +31,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.rcp.CheckerboardPaint;
+import com.kreative.paint.material.colorpalette.CheckerboardPaint;
 import com.kreative.paint.util.CursorUtils;
 
 public class SNFCustomPaintPanel extends PaintContextPanel {

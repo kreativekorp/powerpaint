@@ -49,8 +49,8 @@ import com.kreative.paint.geom.CircularShape;
 import com.kreative.paint.geom.RegularPolygon;
 import com.kreative.paint.geom.RightArc;
 import com.kreative.paint.geom.ScaledShape;
-import com.kreative.paint.powershape.Parameter;
-import com.kreative.paint.powershape.PowerShape;
+import com.kreative.paint.material.shape.Parameter;
+import com.kreative.paint.material.shape.PowerShape;
 import com.kreative.paint.util.ShapeUtils;
 
 public class ShapeDrawObject extends AbstractDrawObject {

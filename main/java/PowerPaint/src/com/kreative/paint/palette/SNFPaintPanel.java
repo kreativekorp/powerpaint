@@ -31,7 +31,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.gradient.GradientPaint2;
+import com.kreative.paint.material.gradient.GradientPaint2;
 import com.kreative.paint.swing.JPopupPanel;
 
 public class SNFPaintPanel extends PaintContextPanel {

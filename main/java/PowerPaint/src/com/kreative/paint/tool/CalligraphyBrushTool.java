@@ -4,7 +4,7 @@ import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.material.sprite.Sprite;
 
 public class CalligraphyBrushTool extends AbstractPaintTool implements ToolOptions.CalligraphyBrushes {
 	private static final int K = 0xFF000000;

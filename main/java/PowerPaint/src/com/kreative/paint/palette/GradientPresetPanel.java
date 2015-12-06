@@ -30,7 +30,7 @@ package com.kreative.paint.palette;
 import java.awt.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.gradient.*;
+import com.kreative.paint.material.gradient.*;
 import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.*;
 

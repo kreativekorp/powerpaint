@@ -6,8 +6,8 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-import com.kreative.paint.sprite.ColorTransform;
-import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.material.sprite.ColorTransform;
+import com.kreative.paint.material.sprite.Sprite;
 
 public class DryBrushTool extends AbstractPaintTool implements ToolOptions.Brushes {
 	private static final int K = 0xFF000000;

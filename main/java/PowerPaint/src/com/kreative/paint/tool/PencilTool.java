@@ -37,7 +37,7 @@ import java.awt.geom.GeneralPath;
 import com.kreative.paint.PaintSettings;
 import com.kreative.paint.PaintSurface;
 import com.kreative.paint.draw.PencilStrokeDrawObject;
-import com.kreative.paint.pattern.PatternPaint;
+import com.kreative.paint.material.pattern.PatternPaint;
 import com.kreative.paint.util.CursorUtils;
 
 public class PencilTool extends AbstractPaintDrawTool {

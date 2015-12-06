@@ -37,8 +37,8 @@ import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.PaintContextListener;
 import com.kreative.paint.PaintSettings;
+import com.kreative.paint.material.fontlist.FontList;
 import com.kreative.paint.res.MaterialsManager;
-import com.kreative.paint.rfp.FontList;
 import com.kreative.paint.util.Pair;
 import com.kreative.paint.util.SwingUtils;
 

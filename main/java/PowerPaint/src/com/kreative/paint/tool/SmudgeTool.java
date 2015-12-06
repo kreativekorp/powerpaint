@@ -4,7 +4,7 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import com.kreative.paint.PaintSurface;
-import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.material.sprite.Sprite;
 
 public class SmudgeTool extends AbstractPaintTool implements ToolOptions.Brushes {
 	private static final int K = 0xFF000000;

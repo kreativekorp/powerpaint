@@ -7,9 +7,9 @@ import java.awt.image.renderable.RenderableImage;
 import java.io.*;
 import com.kreative.paint.PaintSettings;
 import com.kreative.paint.draw.*;
+import com.kreative.paint.material.sprite.ColorTransform;
+import com.kreative.paint.material.sprite.Sprite;
 import com.kreative.paint.powerbrush.BrushSettings;
-import com.kreative.paint.sprite.ColorTransform;
-import com.kreative.paint.sprite.Sprite;
 import com.kreative.paint.util.Bitmap;
 import com.kreative.paint.util.ImageUtils;
 

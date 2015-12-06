@@ -4,10 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Paint;
 import javax.swing.BorderFactory;
-
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.rcp.ColorChangeEvent;
-import com.kreative.paint.rcp.ColorChangeListener;
+import com.kreative.paint.material.colorpalette.ColorChangeEvent;
+import com.kreative.paint.material.colorpalette.ColorChangeListener;
 
 public class ColorWheelPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;

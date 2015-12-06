@@ -10,7 +10,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.material.sprite.Sprite;
 
 public class BrushStrokeDrawObject extends AbstractDrawObject {
 	private Sprite brush;

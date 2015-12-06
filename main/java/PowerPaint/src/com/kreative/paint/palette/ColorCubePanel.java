@@ -12,10 +12,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
-
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.rcp.ColorChangeEvent;
-import com.kreative.paint.rcp.ColorChangeListener;
+import com.kreative.paint.material.colorpalette.ColorChangeEvent;
+import com.kreative.paint.material.colorpalette.ColorChangeListener;
 import com.kreative.paint.util.CIEColorModel;
 import com.kreative.paint.util.ColorModel;
 import com.kreative.paint.util.SwingUtils;

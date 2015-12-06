@@ -7,9 +7,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import com.kreative.paint.rcp.ColorChangeEvent;
-import com.kreative.paint.rcp.ColorChangeListener;
+import com.kreative.paint.material.colorpalette.ColorChangeEvent;
+import com.kreative.paint.material.colorpalette.ColorChangeListener;
 import com.kreative.paint.util.ColorModel;
 import com.kreative.paint.util.ColorModel.ColorChannel;
 import com.kreative.paint.util.SwingUtils;

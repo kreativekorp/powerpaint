@@ -32,7 +32,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.gradient.*;
+import com.kreative.paint.material.gradient.*;
 import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.*;
 

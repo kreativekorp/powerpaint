@@ -13,7 +13,7 @@ import com.kreative.paint.draw.GroupDrawObject;
 import com.kreative.paint.form.BooleanOption;
 import com.kreative.paint.form.EnumOption;
 import com.kreative.paint.form.Form;
-import com.kreative.paint.sprite.Sprite;
+import com.kreative.paint.material.sprite.Sprite;
 
 public class MirrorBrushTool extends AbstractPaintDrawTool implements ToolOptions.Brushes, ToolOptions.Custom {
 	private static final int K = 0xFF000000;

@@ -14,8 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import com.kreative.paint.rcp.CheckerboardPaint;
-import com.kreative.paint.sprite.ColorTransform;
+import com.kreative.paint.material.colorpalette.CheckerboardPaint;
+import com.kreative.paint.material.sprite.ColorTransform;
 
 public class ColorTransformDemo {
 	private static final int[] ALPHAS = {

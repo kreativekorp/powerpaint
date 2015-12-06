@@ -30,7 +30,7 @@ package com.kreative.paint.palette;
 import java.awt.*;
 import java.awt.event.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.rcp.CheckerboardPaint;
+import com.kreative.paint.material.colorpalette.CheckerboardPaint;
 
 public class SNFStrokeFillSelector extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;

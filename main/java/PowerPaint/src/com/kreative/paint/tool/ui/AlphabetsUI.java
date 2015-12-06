@@ -36,7 +36,7 @@ import javax.swing.border.Border;
 import com.kreative.paint.ToolContext;
 import com.kreative.paint.ToolContextConstants;
 import com.kreative.paint.ToolContextListener;
-import com.kreative.paint.alphabet.Alphabet;
+import com.kreative.paint.material.alphabet.Alphabet;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.SwingUtils;
 import com.kreative.paint.util.UpdateLock;
