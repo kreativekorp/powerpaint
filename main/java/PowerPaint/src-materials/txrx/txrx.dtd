@@ -1,0 +1,17 @@
+<!--
+	Date: 2015/12/06 17:38:50 PST
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - TEXTURES - - - - - - - - - - - - -->
+
+<!ELEMENT textures (texture*)>
+<!ATTLIST textures
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT texture EMPTY>
+<!ATTLIST texture
+	href CDATA #REQUIRED
+	name CDATA #IMPLIED
+>

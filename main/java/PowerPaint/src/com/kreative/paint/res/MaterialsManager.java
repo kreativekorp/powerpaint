@@ -4,14 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GraphicsEnvironment;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.TexturePaint;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.util.Collection;
 import java.util.HashSet;
@@ -24,6 +23,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
+import javax.imageio.ImageIO;
 import com.kreative.paint.filter.Filter;
 import com.kreative.paint.format.Format;
 import com.kreative.paint.material.alphabet.Alphabet;
@@ -70,8 +70,10 @@ import com.kreative.paint.material.sprite.SpriteTreeNode;
 import com.kreative.paint.material.stroke.Arrowhead;
 import com.kreative.paint.material.stroke.StrokeParser;
 import com.kreative.paint.material.stroke.StrokeSet;
+import com.kreative.paint.material.texture.Texture;
+import com.kreative.paint.material.texture.TextureList;
+import com.kreative.paint.material.texture.TextureParser;
 import com.kreative.paint.tool.Tool;
-import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.PairList;
 
 /*
@@ -809,30 +811,66 @@ public class MaterialsManager {
 	}
 	
 	private LinkedHashMap<String,PairList<String,TexturePaint>> textures = null;
-	public LinkedHashMap<String,PairList<String,TexturePaint>> getTextures() {
-		if (textures == null) {
-			textures = new LinkedHashMap<String,PairList<String,TexturePaint>>();
-			for (Resource r : rm.getResources(ResourceCategory.TEXTURES)) {
-				String[] ss = r.name().split("/", 2);
-				String categoryName = (ss.length >= 2) ? ss[0] : "Textures";
-				String textureName = (ss.length >= 2) ? ss[1] : ss[0];
-				Image i = Toolkit.getDefaultToolkit().createImage(r.data());
-				boolean prepd = (i == null) ? false : ImageUtils.prepImage(i);
-				BufferedImage bi = (i == null) ? null : ImageUtils.toBufferedImage(i, false);
-				if (i == null || !prepd || bi == null) {
-					System.err.println("Warning: Ignoring invalid image: "+r.name());
-				} else {
-					TexturePaint t = new TexturePaint(bi, new Rectangle(0, 0, bi.getWidth(), bi.getHeight()));
-					if (textures.containsKey(categoryName)) {
-						textures.get(categoryName).add(textureName, t);
-					} else {
-						PairList<String,TexturePaint> cat = new PairList<String,TexturePaint>();
-						cat.add(textureName, t);
-						textures.put(categoryName, cat);
+	private void loadTextures() {
+		textures = new LinkedHashMap<String,PairList<String,TexturePaint>>();
+		final List<Resource> rr = rm.getResources(ResourceCategory.TEXTURES);
+		for (Resource r : rr) {
+			String name = r.name();
+			byte[] data = r.data();
+			if (name.contains("/") && data[0] == '<') try {
+				final String prefix = name.substring(0, name.lastIndexOf("/") + 1);
+				TextureParser.HrefResolver hr = new TextureParser.HrefResolver() {
+					@Override
+					public BufferedImage resolveHref(String href) throws IOException {
+						href = href.replaceFirst("^#[0-9]+ ", "");
+						href = href.replaceFirst("\\.[a-zA-Z0-9]+$", "");
+						href = prefix + href.trim();
+						for (Resource r : rr) {
+							if (r.name().equals(href)) {
+								InputStream in = new ByteArrayInputStream(r.data());
+								BufferedImage image = ImageIO.read(in);
+								in.close();
+								return image;
+							}
+						}
+						throw new IOException("Resource not found.");
 					}
+				};
+				ByteArrayInputStream bin = new ByteArrayInputStream(data);
+				TextureList list = TextureParser.parse(hr, name, bin);
+				bin.close();
+				if (textures.containsKey(list.name)) {
+					PairList<String,TexturePaint> cat = textures.get(list.name);
+					for (Texture t : list) cat.add(t.name, t.paint);
+				} else {
+					PairList<String,TexturePaint> cat = new PairList<String,TexturePaint>();
+					for (Texture t : list) cat.add(t.name, t.paint);
+					textures.put(list.name, cat);
 				}
+			} catch (IOException ioe) {
+				System.err.println("Warning: Failed to compile texture list " + r.name() + ".");
+				ioe.printStackTrace();
 			}
 		}
+		if (textures.isEmpty()) {
+			System.err.println("Notice: No textures found. Generating generic textures.");
+			BufferedImage image = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
+			Graphics2D g = image.createGraphics();
+			g.setColor(Color.black);
+			g.fillRect(0, 0, 8, 8);
+			g.fillRect(8, 8, 8, 8);
+			g.setColor(Color.white);
+			g.fillRect(8, 0, 8, 8);
+			g.fillRect(0, 8, 8, 8);
+			g.dispose();
+			Texture t = new Texture("Checkerboard", image);
+			PairList<String,TexturePaint> cat = new PairList<String,TexturePaint>();
+			cat.add(t.name, t.paint);
+			textures.put("Simple", cat);
+		}
+	}
+	public LinkedHashMap<String,PairList<String,TexturePaint>> getTextures() {
+		if (textures == null) loadTextures();
 		return textures;
 	}
 	

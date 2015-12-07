@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE textures PUBLIC "-//Kreative//DTD PowerTexture 1.0//EN" "../txrx.dtd">
+<textures name="Copland Grid">
+	<texture href="00Black.png"    name="Black"   />
+	<texture href="01Gray.png"     name="Gray"    />
+	<texture href="02White.png"    name="White"   />
+	<texture href="03Lavender.png" name="Lavender"/>
+</textures>
