@@ -28,8 +28,8 @@
 package com.kreative.paint.palette;
 
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.gradient.GradientPaint2;
-import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.JPopupPanel;
 
 public class GradientPalette extends PaintContextPalette {
@@ -37,7 +37,7 @@ public class GradientPalette extends PaintContextPalette {
 	
 	private GradientPanel pp;
 	
-	public GradientPalette(PaintContext pc, MaterialsManager mm) {
+	public GradientPalette(PaintContext pc, MaterialManager mm) {
 		super(pc);
 		panels.add(pp = new GradientPanel(pc, mm));
 		setContentPane(pp);

@@ -1,5 +1,9 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
+/**
+ * This package provides classes for reading and using paint materials,
+ * such as brushes, color palettes, fonts, font collections, gradients,
+ * line settings, patterns, rubber stamps, shapes, textures, etc.
+ * <p>
+ * Copyright &copy; 2015 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -24,16 +28,4 @@
  * @since PowerPaint 1.0
  * @author Rebecca G. Bettencourt, Kreative Software
  */
-
-package com.kreative.paint.res;
-
-import java.util.List;
-
-public abstract class ResourceManager {
-	public abstract List<String> getResourceNames(ResourceCategory category);
-	public abstract List<Resource> getResources(ResourceCategory category);
-	
-	public final ClassLoader getClassLoader(ResourceCategory category) {
-		return new ResourceClassLoader(this, category);
-	}
-}
+package com.kreative.paint.material;

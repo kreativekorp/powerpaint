@@ -30,8 +30,8 @@ package com.kreative.paint.palette;
 import java.awt.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.gradient.*;
-import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.*;
 
 public class GradientPanel extends PaintContextPanel {
@@ -40,7 +40,7 @@ public class GradientPanel extends PaintContextPanel {
 	private GradientShapePanel gsp;
 	private GradientColorPanel gcp;
 	
-	public GradientPanel(PaintContext pc, MaterialsManager mm) {
+	public GradientPanel(PaintContext pc, MaterialManager mm) {
 		super(pc, 0);
 		JPanel gppp = new JPanel(new BorderLayout(4,4));
 		gppp.add(shrink(new JLabel(PaletteUtilities.messages.getString("gradients.presets"))), BorderLayout.PAGE_START);

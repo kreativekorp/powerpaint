@@ -31,12 +31,12 @@ import java.util.List;
 import java.util.Vector;
 import java.util.Collections;
 import java.util.Comparator;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialManager;
 
 public class FilterManager {
 	private List<Filter> filters;
 	
-	public FilterManager(MaterialsManager mm) {
+	public FilterManager(MaterialManager mm) {
 		filters = new Vector<Filter>();
 		filters.add(new BlurFilter());
 		filters.add(new BrightenFilter());
@@ -62,7 +62,10 @@ public class FilterManager {
 		filters.add(new RippleFilter());
 		filters.add(new SeedsFilter());
 		filters.add(new WireWorldFilter());
-		filters.addAll(mm.getPluginFilters());
+		for (Class<? extends Filter> c : mm.jarLoader().listClasses(Filter.class)) {
+			try { filters.add(c.newInstance()); }
+			catch (Exception e) { e.printStackTrace(); }
+		}
 		Collections.sort(filters, new Comparator<Filter>() {
 			public int compare(Filter o1, Filter o2) {
 				int i = o1.getCategory().compareToIgnoreCase(o2.getCategory());

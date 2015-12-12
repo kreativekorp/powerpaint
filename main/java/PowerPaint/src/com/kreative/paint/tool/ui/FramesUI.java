@@ -46,7 +46,7 @@ public class FramesUI extends JPanel implements ToolContextListener {
 	
 	public FramesUI(ToolContext tc, boolean mini) {
 		this.tc = tc;
-		l = new JList(tc.getFrames().toFormerArray(new String[0]));
+		l = new JList(tc.getFrames().toNameArray());
 		l.setCellRenderer(new FrameCellRenderer());
 		l.setVisibleRowCount(mini ? 3 : 5);
 		l.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -101,7 +101,7 @@ public class FramesUI extends JPanel implements ToolContextListener {
 			BufferedImage img = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
 			Graphics2D g = img.createGraphics();
 			g.setColor(Color.white);
-			tc.getFrames().getLatter(index).paintWithin(g, 0, 0, WIDTH, HEIGHT);
+			tc.getFrames().getValue(index).paintWithin(g, 0, 0, WIDTH, HEIGHT);
 			g.dispose();
 			setIcon(new ImageIcon(img));
 			setText(value.toString());

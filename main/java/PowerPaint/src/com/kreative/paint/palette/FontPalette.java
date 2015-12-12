@@ -29,14 +29,14 @@ package com.kreative.paint.palette;
 
 import javax.swing.JPopupMenu;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialManager;
 
 public class FontPalette extends PaintContextPalette {
 	private static final long serialVersionUID = 1L;
 	
 	private FontPanel fp;
 	
-	public FontPalette(PaintContext pc, MaterialsManager mm) {
+	public FontPalette(PaintContext pc, MaterialManager mm) {
 		super(pc);
 		panels.add(fp = new FontPanel(pc, mm));
 		setContentPane(fp);

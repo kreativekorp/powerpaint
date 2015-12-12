@@ -27,7 +27,7 @@ public class BrushesUI extends JPanel implements ToolContextListener {
 	public BrushesUI(ToolContext tc, boolean mini) {
 		this.tc = tc;
 		
-		bpop = new JComboBox(tc.getBrushSets().toFormerArray(new String[0]));
+		bpop = new JComboBox(tc.getBrushSets().toNameArray());
 		bpop.setEditable(false);
 		bpop.setMaximumRowCount(48);
 		if (mini) SwingUtils.shrink(bpop);
@@ -82,7 +82,7 @@ public class BrushesUI extends JPanel implements ToolContextListener {
 		private Set<BrushLabel> labels;
 		public BrushPanel(int n) {
 			labels = new HashSet<BrushLabel>();
-			SpriteSheet ss = tc.getBrushSets().getLatter(n);
+			SpriteSheet ss = tc.getBrushSets().getValue(n);
 			int cells = ss.getSpriteCount();
 			int rows = ss.rows;
 			int cols = ss.columns;

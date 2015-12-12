@@ -31,6 +31,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import com.kreative.paint.material.MaterialLocator;
 
 public class DecoratePMZ {
 	private static boolean verbose = false;
@@ -53,7 +54,8 @@ public class DecoratePMZ {
 	}
 	
 	public static void decorate() throws IOException {
-		File root = FileResourceManager.instance.getResourcesRoot();
+		MaterialLocator ml = new MaterialLocator("Kreative", "PowerPaint");
+		File root = ml.getFirstAvailableRoot();
 		if (!root.exists()) root.mkdirs();
 		decorate(root);
 	}

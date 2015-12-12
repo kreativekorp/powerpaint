@@ -37,9 +37,9 @@ import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.PaintContextListener;
 import com.kreative.paint.PaintSettings;
+import com.kreative.paint.material.MaterialList;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.fontlist.FontList;
-import com.kreative.paint.res.MaterialsManager;
-import com.kreative.paint.util.Pair;
 import com.kreative.paint.util.SwingUtils;
 
 public class FontPanel extends PaintContextPanel {
@@ -83,17 +83,18 @@ public class FontPanel extends PaintContextPanel {
 	private JPopupMenu spop;
 	private boolean eventexec = false;
 	
-	public FontPanel(PaintContext pc, MaterialsManager mm) {
+	public FontPanel(PaintContext pc, MaterialManager mm) {
 		super(pc, CHANGED_FONT);
 		allFontsName = PaletteUtilities.messages.getString("fonts.all");
-		allFonts = mm.getFonts();
+		allFonts = mm.fontLoader().getFonts();
 		String[] allFontNames = allFonts.keySet().toArray(new String[allFonts.size()]);
 		FontList allFontsList = new FontList(allFontsName, allFontNames);
 		fontLists = new TreeMap<String,FontList>();
 		fontLists.put(allFontsName, allFontsList);
-		for (Pair<String,FontList> p : mm.getFontLists()) {
-			String listName = p.getFormer();
-			FontList oldList = p.getLatter();
+		MaterialList<FontList> fl = mm.fontLoader().getFontLists();
+		for (int j = 0; j < fl.size(); j++) {
+			String listName = fl.getName(j);
+			FontList oldList = fl.getValue(j);
 			FontList newList = new FontList(listName);
 			for (int i = 0, n = oldList.size(); i < n; i++) {
 				Integer fontId = oldList.getId(i);

@@ -30,7 +30,7 @@ package com.kreative.paint.palette;
 import java.awt.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialManager;
 
 public class StrokePalette extends PaintContextPalette {
 	private static final long serialVersionUID = 1L;
@@ -38,7 +38,7 @@ public class StrokePalette extends PaintContextPalette {
 	private StrokePresetPanel spp;
 	private StrokeCapJoinPanel cjp;
 	
-	public StrokePalette(PaintContext pc, MaterialsManager mm) {
+	public StrokePalette(PaintContext pc, MaterialManager mm) {
 		super(pc);
 		panels.add(spp = new StrokePresetPanel(pc, mm));
 		panels.add(cjp = new StrokeCapJoinPanel(pc));

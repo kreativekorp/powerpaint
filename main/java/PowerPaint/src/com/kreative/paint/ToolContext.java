@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import com.kreative.paint.material.MaterialList;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.alphabet.Alphabet;
 import com.kreative.paint.material.frame.Frame;
 import com.kreative.paint.material.shape.PowerShape;
@@ -22,10 +24,8 @@ import com.kreative.paint.material.sprite.Sprite;
 import com.kreative.paint.material.sprite.SpriteSheet;
 import com.kreative.paint.powerbrush.BrushSettings;
 import com.kreative.paint.powerbrush.BrushShape;
-import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.util.CursorUtils;
-import com.kreative.paint.util.PairList;
 
 public class ToolContext implements ToolContextConstants {
 	// tool
@@ -60,7 +60,7 @@ public class ToolContext implements ToolContextConstants {
 	private int polygonSides;
 	private int polygonStellation;
 	// alphabets
-	private PairList<String,Alphabet> alphabets;
+	private MaterialList<Alphabet> alphabets;
 	private int alphabetIndex;
 	private Alphabet alphabet;
 	private int letterIndex;
@@ -68,7 +68,7 @@ public class ToolContext implements ToolContextConstants {
 	private BufferedImage letterImage;
 	private Cursor letterCursor;
 	// brushes
-	private PairList<String,SpriteSheet> brushSets;
+	private MaterialList<SpriteSheet> brushSets;
 	private int brushSetIndex;
 	private List<Sprite> brushes;
 	private int brushIndex;
@@ -83,17 +83,17 @@ public class ToolContext implements ToolContextConstants {
 	private int charcoalBrushIndex;
 	private Sprite charcoalBrush;
 	// frames
-	private PairList<String,Frame> frames;
+	private MaterialList<Frame> frames;
 	private int frameIndex;
 	private Frame frame;
 	// rubber stamps
-	private PairList<String,SpriteSheet> rubberStampSets;
+	private MaterialList<SpriteSheet> rubberStampSets;
 	private int rubberStampSetIndex;
 	private List<Sprite> rubberStamps;
 	private int rubberStampIndex;
 	private Sprite rubberStamp;
 	// PowerShapes
-	private PairList<String,PowerShapeList> powerShapeSets;
+	private MaterialList<PowerShapeList> powerShapeSets;
 	private int powerShapeSetIndex;
 	private PowerShapeList powerShapes;
 	private int powerShapeIndex;
@@ -111,7 +111,7 @@ public class ToolContext implements ToolContextConstants {
 	private Random random;
 	private HashSet<ToolContextListener> listeners;
 	
-	public ToolContext(MaterialsManager mm) {
+	public ToolContext(MaterialManager mm) {
 		// tool
 		this.drawMode = false;
 		this.tool = null;
@@ -144,21 +144,21 @@ public class ToolContext implements ToolContextConstants {
 		this.polygonSides = 6;
 		this.polygonStellation = 1;
 		// alphabets
-		this.alphabets = mm.getAlphabets();
+		this.alphabets = mm.alphabetLoader().getAlphabets();
 		this.alphabetIndex = 0;
-		this.alphabet = this.alphabets.getLatter(0);
+		this.alphabet = this.alphabets.getValue(0);
 		this.letterIndex = 0;
 		this.letter = this.alphabet.letters[0];
 		setLetterImageAndCursor();
 		// brushes
-		this.brushSets = mm.getBrushes();
+		this.brushSets = mm.spriteLoader().getBrushes();
 		this.brushSetIndex = 0;
-		this.brushes = this.brushSets.getLatter(0).getSprites();
+		this.brushes = this.brushSets.getValue(0).getSprites();
 		this.brushIndex = 0;
 		this.brush = this.brushes.get(0);
 		// calligraphy brushes
 		this.calligraphyBrushes = new ArrayList<Sprite>();
-		for (SpriteSheet ss : mm.getCalligraphyBrushes().latterList()) {
+		for (SpriteSheet ss : mm.spriteLoader().getCalligraphyBrushes().valueList()) {
 			this.calligraphyBrushes.addAll(ss.getSprites());
 		}
 		this.calligraphyBrushIndex = 0;
@@ -166,30 +166,30 @@ public class ToolContext implements ToolContextConstants {
 		this.calligraphyContinuous = false;
 		// charcoal brushes
 		this.charcoalBrushes = new ArrayList<Sprite>();
-		for (SpriteSheet ss : mm.getCharcoalBrushes().latterList()) {
+		for (SpriteSheet ss : mm.spriteLoader().getCharcoalBrushes().valueList()) {
 			this.charcoalBrushes.addAll(ss.getSprites());
 		}
 		this.charcoalBrushIndex = 0;
 		this.charcoalBrush = this.charcoalBrushes.get(0);
 		// frames
-		this.frames = mm.getFrames();
+		this.frames = mm.frameLoader().getFrames();
 		this.frameIndex = 0;
-		this.frame = frames.getLatter(0);
+		this.frame = frames.getValue(0);
 		// rubber stamps
-		this.rubberStampSets = mm.getRubberStamps();
+		this.rubberStampSets = mm.spriteLoader().getRubberStamps();
 		this.rubberStampSetIndex = 0;
-		this.rubberStamps = this.rubberStampSets.getLatter(0).getSprites();
+		this.rubberStamps = this.rubberStampSets.getValue(0).getSprites();
 		this.rubberStampIndex = 0;
 		this.rubberStamp = this.rubberStamps.get(0);
 		// PowerShapes
-		this.powerShapeSets = mm.getShapes();
+		this.powerShapeSets = mm.shapeLoader().getShapes();
 		this.powerShapeSetIndex = 0;
-		this.powerShapes = this.powerShapeSets.getLatter(0);
+		this.powerShapes = this.powerShapeSets.getValue(0);
 		this.powerShapeIndex = 0;
 		this.powerShape = this.powerShapes.get(0);
 		// sprinkles
 		this.sprinkleSets = new ArrayList<Sprite>();
-		for (SpriteSheet ss : mm.getSprinkles().latterList()) {
+		for (SpriteSheet ss : mm.spriteLoader().getSprinkles().valueList()) {
 			this.sprinkleSets.addAll(ss.getSprites());
 		}
 		this.sprinkleSetIndex = 0;
@@ -591,7 +591,7 @@ public class ToolContext implements ToolContextConstants {
 	
 	// alphabets
 	
-	public PairList<String, Alphabet> getAlphabets() {
+	public MaterialList<Alphabet> getAlphabets() {
 		return alphabets;
 	}
 	
@@ -628,9 +628,9 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void setAlphabetName(String alphabetName) {
-		if (alphabets.containsFormer(alphabetName)) {
-			this.alphabetIndex = alphabets.indexOfFormer(alphabetName);
-			this.alphabet = alphabets.getLatter(alphabetIndex);
+		if (alphabets.containsName(alphabetName)) {
+			this.alphabetIndex = alphabets.indexOfName(alphabetName);
+			this.alphabet = alphabets.getValue(alphabetIndex);
 			this.letterIndex = 0;
 			this.letter = this.alphabet.letters[0];
 			setLetterImageAndCursor();
@@ -642,7 +642,7 @@ public class ToolContext implements ToolContextConstants {
 		while (alphabetIndex < 0) alphabetIndex += alphabets.size();
 		while (alphabetIndex >= alphabets.size()) alphabetIndex -= alphabets.size();
 		this.alphabetIndex = alphabetIndex;
-		this.alphabet = alphabets.getLatter(alphabetIndex);
+		this.alphabet = alphabets.getValue(alphabetIndex);
 		this.letterIndex = 0;
 		this.letter = this.alphabet.letters[0];
 		setLetterImageAndCursor();
@@ -688,12 +688,12 @@ public class ToolContext implements ToolContextConstants {
 	
 	// brushes
 	
-	public PairList<String,SpriteSheet> getBrushSets() {
+	public MaterialList<SpriteSheet> getBrushSets() {
 		return brushSets;
 	}
 	
 	public String getBrushSetName() {
-		return brushSets.getFormer(brushSetIndex);
+		return brushSets.getName(brushSetIndex);
 	}
 	
 	public int getBrushSetIndex() {
@@ -713,9 +713,9 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void setBrushSetName(String brushSetName) {
-		if (brushSets.containsFormer(brushSetName)) {
-			this.brushSetIndex = brushSets.indexOfFormer(brushSetName);
-			this.brushes = brushSets.getLatter(brushSetIndex).getSprites();
+		if (brushSets.containsName(brushSetName)) {
+			this.brushSetIndex = brushSets.indexOfName(brushSetName);
+			this.brushes = brushSets.getValue(brushSetIndex).getSprites();
 			this.brushIndex = 0;
 			this.brush = this.brushes.get(0);
 			notifyToolContextListeners(CHANGED_BRUSH_SET | CHANGED_BRUSH);
@@ -726,7 +726,7 @@ public class ToolContext implements ToolContextConstants {
 		while (brushSetIndex < 0) brushSetIndex += brushSets.size();
 		while (brushSetIndex >= brushSets.size()) brushSetIndex -= brushSets.size();
 		this.brushSetIndex = brushSetIndex;
-		this.brushes = brushSets.getLatter(brushSetIndex).getSprites();
+		this.brushes = brushSets.getValue(brushSetIndex).getSprites();
 		this.brushIndex = 0;
 		this.brush = this.brushes.get(0);
 		notifyToolContextListeners(CHANGED_BRUSH_SET | CHANGED_BRUSH);
@@ -741,9 +741,6 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void setBrushes(List<Sprite> brushes) {
-		if (brushSets.containsLatter(brushes)) {
-			this.brushSetIndex = brushSets.indexOfLatter(brushes);
-		}
 		this.brushes = brushes;
 		this.brushIndex = 0;
 		this.brush = this.brushes.get(0);
@@ -866,12 +863,12 @@ public class ToolContext implements ToolContextConstants {
 	
 	// frames
 	
-	public PairList<String, Frame> getFrames() {
+	public MaterialList<Frame> getFrames() {
 		return frames;
 	}
 	
 	public String getFrameName() {
-		return frames.getFormer(frameIndex);
+		return frames.getName(frameIndex);
 	}
 	
 	public int getFrameIndex() {
@@ -883,9 +880,9 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void setFrameName(String frameName) {
-		if (frames.containsFormer(frameName)) {
-			this.frameIndex = frames.indexOfFormer(frameName);
-			this.frame = frames.getLatter(frameIndex);
+		if (frames.containsName(frameName)) {
+			this.frameIndex = frames.indexOfName(frameName);
+			this.frame = frames.getValue(frameIndex);
 			notifyToolContextListeners(CHANGED_FRAME);
 		}
 	}
@@ -894,7 +891,7 @@ public class ToolContext implements ToolContextConstants {
 		while (frameIndex < 0) frameIndex += frames.size();
 		while (frameIndex >= frames.size()) frameIndex -= frames.size();
 		this.frameIndex = frameIndex;
-		this.frame = frames.getLatter(frameIndex);
+		this.frame = frames.getValue(frameIndex);
 		notifyToolContextListeners(CHANGED_FRAME);
 	}
 	
@@ -907,8 +904,8 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void setFrame(Frame frame) {
-		if (frames.containsLatter(frame)) {
-			this.frameIndex = frames.indexOfLatter(frame);
+		if (frames.containsValue(frame)) {
+			this.frameIndex = frames.indexOfValue(frame);
 		}
 		this.frame = frame;
 		notifyToolContextListeners(CHANGED_FRAME);
@@ -916,12 +913,12 @@ public class ToolContext implements ToolContextConstants {
 	
 	// rubber stamps
 	
-	public PairList<String,SpriteSheet> getRubberStampSets() {
+	public MaterialList<SpriteSheet> getRubberStampSets() {
 		return rubberStampSets;
 	}
 	
 	public String getRubberStampSetName() {
-		return rubberStampSets.getFormer(rubberStampSetIndex);
+		return rubberStampSets.getName(rubberStampSetIndex);
 	}
 	
 	public int getRubberStampSetIndex() {
@@ -941,9 +938,9 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void setRubberStampSetName(String rubberStampSetName) {
-		if (rubberStampSets.containsFormer(rubberStampSetName)) {
-			this.rubberStampSetIndex = rubberStampSets.indexOfFormer(rubberStampSetName);
-			this.rubberStamps = rubberStampSets.getLatter(rubberStampSetIndex).getSprites();
+		if (rubberStampSets.containsName(rubberStampSetName)) {
+			this.rubberStampSetIndex = rubberStampSets.indexOfName(rubberStampSetName);
+			this.rubberStamps = rubberStampSets.getValue(rubberStampSetIndex).getSprites();
 			this.rubberStampIndex = 0;
 			this.rubberStamp = this.rubberStamps.get(0);
 			notifyToolContextListeners(CHANGED_STAMP_SET | CHANGED_STAMP);
@@ -954,7 +951,7 @@ public class ToolContext implements ToolContextConstants {
 		while (rubberStampSetIndex < 0) rubberStampSetIndex += rubberStampSets.size();
 		while (rubberStampSetIndex >= rubberStampSets.size()) rubberStampSetIndex -= rubberStampSets.size();
 		this.rubberStampSetIndex = rubberStampSetIndex;
-		this.rubberStamps = rubberStampSets.getLatter(rubberStampSetIndex).getSprites();
+		this.rubberStamps = rubberStampSets.getValue(rubberStampSetIndex).getSprites();
 		this.rubberStampIndex = 0;
 		this.rubberStamp = this.rubberStamps.get(0);
 		notifyToolContextListeners(CHANGED_STAMP_SET | CHANGED_STAMP);
@@ -969,9 +966,6 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void setRubberStamps(List<Sprite> rubberStamps) {
-		if (rubberStampSets.containsLatter(rubberStamps)) {
-			this.rubberStampSetIndex = rubberStampSets.indexOfLatter(rubberStamps);
-		}
 		this.rubberStamps = rubberStamps;
 		this.rubberStampIndex = 0;
 		this.rubberStamp = this.rubberStamps.get(0);
@@ -1004,12 +998,12 @@ public class ToolContext implements ToolContextConstants {
 	
 	// PowerShapes
 	
-	public PairList<String, PowerShapeList> getPowerShapeSets() {
+	public MaterialList<PowerShapeList> getPowerShapeSets() {
 		return powerShapeSets;
 	}
 	
 	public String getPowerShapeSetName() {
-		return powerShapeSets.getFormer(powerShapeSetIndex);
+		return powerShapeSets.getName(powerShapeSetIndex);
 	}
 	
 	public int getPowerShapeSetIndex() {
@@ -1033,9 +1027,9 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void setPowerShapeSetName(String powerShapeSetName) {
-		if (powerShapeSets.containsFormer(powerShapeSetName)) {
-			this.powerShapeSetIndex = powerShapeSets.indexOfFormer(powerShapeSetName);
-			this.powerShapes = powerShapeSets.getLatter(powerShapeSetIndex);
+		if (powerShapeSets.containsName(powerShapeSetName)) {
+			this.powerShapeSetIndex = powerShapeSets.indexOfName(powerShapeSetName);
+			this.powerShapes = powerShapeSets.getValue(powerShapeSetIndex);
 			this.powerShapeIndex = 0;
 			this.powerShape = this.powerShapes.get(0);
 			notifyToolContextListeners(CHANGED_SHAPE_SET | CHANGED_SHAPE);
@@ -1046,7 +1040,7 @@ public class ToolContext implements ToolContextConstants {
 		while (powerShapeSetIndex < 0) powerShapeSetIndex += powerShapeSets.size();
 		while (powerShapeSetIndex >= powerShapeSets.size()) powerShapeSetIndex -= powerShapeSets.size();
 		this.powerShapeSetIndex = powerShapeSetIndex;
-		this.powerShapes = powerShapeSets.getLatter(powerShapeSetIndex);
+		this.powerShapes = powerShapeSets.getValue(powerShapeSetIndex);
 		this.powerShapeIndex = 0;
 		this.powerShape = this.powerShapes.get(0);
 		notifyToolContextListeners(CHANGED_SHAPE_SET | CHANGED_SHAPE);
@@ -1061,8 +1055,8 @@ public class ToolContext implements ToolContextConstants {
 	}
 	
 	public void setPowerShapes(PowerShapeList powerShapes) {
-		if (powerShapeSets.containsLatter(powerShapes)) {
-			this.powerShapeSetIndex = powerShapeSets.indexOfLatter(powerShapes);
+		if (powerShapeSets.containsValue(powerShapes)) {
+			this.powerShapeSetIndex = powerShapeSets.indexOfValue(powerShapes);
 		}
 		this.powerShapes = powerShapes;
 		this.powerShapeIndex = 0;

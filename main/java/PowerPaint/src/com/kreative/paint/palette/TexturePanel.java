@@ -29,12 +29,11 @@ package com.kreative.paint.palette;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialList;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.swing.*;
-import com.kreative.paint.util.PairList;
 import com.kreative.paint.util.SwingUtils;
 import com.kreative.paint.util.UpdateLock;
 
@@ -43,19 +42,24 @@ public class TexturePanel extends PaintContextPanel {
 	
 	private UpdateLock u = new UpdateLock();
 	private CellSelector<TexturePaint> palcomp;
-	private PairList<String,CellSelectorModel<TexturePaint>> palmap;
+	private MaterialList<CellSelectorModel<TexturePaint>> palmap;
 	private JComboBox list;
 	
-	public TexturePanel(PaintContext pc, MaterialsManager mm, String initialSelection) {
+	public TexturePanel(PaintContext pc, MaterialManager mm, String initialSelection) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
-		palmap = new PairList<String,CellSelectorModel<TexturePaint>>();
-		for (Map.Entry<String,PairList<String,TexturePaint>> e : mm.getTextures().entrySet()) {
-			palmap.add(e.getKey(), new DefaultCellSelectorModel<TexturePaint>(e.getValue().asMap()));
+		palmap = new MaterialList<CellSelectorModel<TexturePaint>>();
+		MaterialList<MaterialList<TexturePaint>> tl = mm.textureLoader().getTextures();
+		for (int j = 0; j < tl.size(); j++) {
+			String name = tl.getName(j);
+			MaterialList<TexturePaint> list = tl.getValue(j);
+			DefaultCellSelectorModel<TexturePaint> model = new DefaultCellSelectorModel<TexturePaint>();
+			for (int k = 0; k < list.size(); k++) model.add(list.getValue(k), list.getName(k));
+			palmap.add(name, model);
 		}
 		TexturePaint firstTexture;
-		if (palmap.containsFormer("SuperPaint")) firstTexture = palmap.getLatter(palmap.indexOfFormer("SuperPaint")).get(0);
-		else firstTexture = palmap.getLatter(0).get(0);
-		for (CellSelectorModel<TexturePaint> m : palmap.latterList()) {
+		if (palmap.containsName("SuperPaint")) firstTexture = palmap.getValue(palmap.indexOfName("SuperPaint")).get(0);
+		else firstTexture = palmap.getValue(0).get(0);
+		for (CellSelectorModel<TexturePaint> m : palmap.valueList()) {
 			m.setSelectedObject(firstTexture);
 			m.addCellSelectionListener(new CellSelectionListener<TexturePaint>() {
 				public void cellSelected(CellSelectionEvent<TexturePaint> e) {
@@ -67,7 +71,7 @@ public class TexturePanel extends PaintContextPanel {
 			});
 		}
 		
-		list = new JComboBox(palmap.toFormerArray(new String[0]));
+		list = new JComboBox(palmap.toNameArray());
 		list.setEditable(false);
 		list.setMaximumRowCount(48);
 		SwingUtils.shrink(list);
@@ -93,7 +97,7 @@ public class TexturePanel extends PaintContextPanel {
 		ItemListener il = new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					palcomp.setModel(palmap.getLatter(list.getSelectedIndex()));
+					palcomp.setModel(palmap.getValue(list.getSelectedIndex()));
 					palcomp.pack();
 					Container c = TexturePanel.this;
 					while (!(c == null || c instanceof Window || c instanceof Frame || c instanceof Dialog)) c = c.getParent();
@@ -105,13 +109,13 @@ public class TexturePanel extends PaintContextPanel {
 			}
 		};
 		list.addItemListener(il);
-		if (palmap.containsFormer(initialSelection)) {
-			int i = palmap.indexOfFormer(initialSelection);
+		if (palmap.containsName(initialSelection)) {
+			int i = palmap.indexOfName(initialSelection);
 			list.setSelectedIndex(i);
-			palcomp.setModel(palmap.getLatter(i));
+			palcomp.setModel(palmap.getValue(i));
 		} else {
 			list.setSelectedIndex(0);
-			palcomp.setModel(palmap.getLatter(0));
+			palcomp.setModel(palmap.getValue(0));
 		}
 		palcomp.pack();
 		update();
@@ -122,7 +126,7 @@ public class TexturePanel extends PaintContextPanel {
 			Paint p = pc.getEditedEditedground();
 			if (p instanceof TexturePaint) {
 				TexturePaint tp = (TexturePaint)p;
-				for (CellSelectorModel<TexturePaint> m : palmap.latterList()) {
+				for (CellSelectorModel<TexturePaint> m : palmap.valueList()) {
 					m.setSelectedObject(tp);
 				}
 				Container c = TexturePanel.this;
@@ -147,7 +151,7 @@ public class TexturePanel extends PaintContextPanel {
 	}
 	
 	public TexturePaint getTexture() {
-		for (CellSelectorModel<TexturePaint> m : palmap.latterList()) {
+		for (CellSelectorModel<TexturePaint> m : palmap.valueList()) {
 			if (m.getSelectedObject() != null) {
 				return m.getSelectedObject();
 			}

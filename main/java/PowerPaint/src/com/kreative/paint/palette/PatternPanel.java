@@ -31,13 +31,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.material.MaterialList;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.pattern.Pattern;
 import com.kreative.paint.material.pattern.PatternList;
 import com.kreative.paint.material.pattern.PatternPaint;
-import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.*;
-import com.kreative.paint.util.Pair;
-import com.kreative.paint.util.PairList;
 import com.kreative.paint.util.SwingUtils;
 
 public class PatternPanel extends PaintContextPanel {
@@ -45,16 +44,17 @@ public class PatternPanel extends PaintContextPanel {
 
 	private boolean eventexec = false;
 	private CellSelector<Pattern> palcomp;
-	private PairList<String,CellSelectorModel<Pattern>> palmap;
+	private MaterialList<CellSelectorModel<Pattern>> palmap;
 	private JComboBox list;
 	
-	public PatternPanel(PaintContext pc, MaterialsManager mm, String initialSelection) {
+	public PatternPanel(PaintContext pc, MaterialManager mm, String initialSelection) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
-		palmap = new PairList<String,CellSelectorModel<Pattern>>();
-		for (Pair<String,PatternList> e : mm.getPatterns()) {
-			palmap.add(e.getFormer(), new DefaultCellSelectorModel<Pattern>(e.getLatter()));
+		palmap = new MaterialList<CellSelectorModel<Pattern>>();
+		MaterialList<PatternList> pl = mm.patternLoader().getPatternLists();
+		for (int j = 0; j < pl.size(); j++) {
+			palmap.add(pl.getName(j), new DefaultCellSelectorModel<Pattern>(pl.getValue(j)));
 		}
-		for (CellSelectorModel<Pattern> m : palmap.latterList()) {
+		for (CellSelectorModel<Pattern> m : palmap.valueList()) {
 			m.setSelectedObject(Pattern.FOREGROUND);
 			m.addCellSelectionListener(new CellSelectionListener<Pattern>() {
 				public void cellSelected(CellSelectionEvent<Pattern> e) {
@@ -63,7 +63,7 @@ public class PatternPanel extends PaintContextPanel {
 			});
 		}
 		
-		list = new JComboBox(palmap.toFormerArray(new String[0]));
+		list = new JComboBox(palmap.toNameArray());
 		list.setEditable(false);
 		list.setMaximumRowCount(48);
 		SwingUtils.shrink(list);
@@ -89,7 +89,7 @@ public class PatternPanel extends PaintContextPanel {
 		ItemListener il = new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					palcomp.setModel(palmap.getLatter(list.getSelectedIndex()));
+					palcomp.setModel(palmap.getValue(list.getSelectedIndex()));
 					palcomp.pack();
 					Container c = PatternPanel.this;
 					while (!(c == null || c instanceof Window || c instanceof Frame || c instanceof Dialog)) c = c.getParent();
@@ -102,7 +102,7 @@ public class PatternPanel extends PaintContextPanel {
 		};
 		list.addItemListener(il);
 		list.setSelectedItem(initialSelection);
-		palcomp.setModel(palmap.getLatter(list.getSelectedIndex()));
+		palcomp.setModel(palmap.getValue(list.getSelectedIndex()));
 		palcomp.pack();
 		update();
 	}
@@ -111,7 +111,7 @@ public class PatternPanel extends PaintContextPanel {
 		if (!eventexec) {
 			eventexec = true;
 			Pattern p = pc.getEditedPattern();
-			for (CellSelectorModel<Pattern> m : palmap.latterList()) {
+			for (CellSelectorModel<Pattern> m : palmap.valueList()) {
 				m.setSelectedObject(p);
 			}
 			Container c = PatternPanel.this;

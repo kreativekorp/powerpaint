@@ -2,14 +2,14 @@ package com.kreative.paint.tool;
 
 import java.util.List;
 import java.util.Vector;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialManager;
 
 public class ToolManager {
 	private ArrowTool arrowTool;
 	private MarqueeTool marqueeTool;
 	private List<Tool> tools;
 	
-	public ToolManager(MaterialsManager mm) {
+	public ToolManager(MaterialManager mm) {
 		tools = new Vector<Tool>();
 		// SELECTION TOOLS
 		tools.add(arrowTool = new ArrowTool());
@@ -82,7 +82,10 @@ public class ToolManager {
 		tools.add(new SprinklerTool());
 		tools.add(new TwisterTool());
 		// PLUGIN TOOLS
-		tools.addAll(mm.getPluginTools());
+		for (Class<? extends Tool> c : mm.jarLoader().listClasses(Tool.class)) {
+			try { tools.add(c.newInstance()); }
+			catch (Exception e) { e.printStackTrace(); }
+		}
 		// COPLAND PERSPECTIVE TOOLS
 		// HAIKU PERSPECTIVE TOOLS
 	}

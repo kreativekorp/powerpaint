@@ -36,13 +36,13 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Vector;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.util.OSUtils;
 
 public class FormatManager {
 	private Collection<Format> formats;
 	
-	public FormatManager(MaterialsManager mm) {
+	public FormatManager(MaterialManager mm) {
 		formats = new HashSet<Format>();
 		formats.add(new PowerPaintFormat());
 		formats.add(new PNGFormat());
@@ -61,7 +61,10 @@ public class FormatManager {
 		formats.add(new RaaBitsFormat());
 		formats.add(new WOBAFormat());
 		formats.add(new SICFormat());
-		formats.addAll(mm.getPluginFormats());
+		for (Class<? extends Format> c : mm.jarLoader().listClasses(Format.class)) {
+			try { formats.add(c.newInstance()); }
+			catch (Exception e) { e.printStackTrace(); }
+		}
 	}
 	
 	public List<Format> toSortedList() {

@@ -54,7 +54,7 @@ public class AlphabetsUI extends JPanel implements ToolContextListener {
 	public AlphabetsUI(ToolContext tc, boolean mini) {
 		this.tc = tc;
 		
-		apop = new JComboBox(tc.getAlphabets().toFormerArray(new String[0]));
+		apop = new JComboBox(tc.getAlphabets().toNameArray());
 		apop.setEditable(false);
 		apop.setMaximumRowCount(48);
 		if (mini) SwingUtils.shrink(apop);
@@ -73,7 +73,7 @@ public class AlphabetsUI extends JPanel implements ToolContextListener {
 		apanel = new JPanel(alyt = new CardLayout());
 		apanels = new HashSet<LetterPanel>();
 		for (int n = 0; n < tc.getAlphabets().size(); n++) {
-			LetterPanel a = new LetterPanel(tc.getAlphabets().getLatter(n), mini);
+			LetterPanel a = new LetterPanel(tc.getAlphabets().getValue(n), mini);
 			JScrollPane s = new JScrollPane(a, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			apanel.add(s, Integer.toString(n));
 			apanels.add(a);

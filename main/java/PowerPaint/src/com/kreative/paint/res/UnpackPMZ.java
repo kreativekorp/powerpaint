@@ -38,6 +38,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import com.kreative.paint.material.MaterialLocator;
 
 public class UnpackPMZ {
 	private static boolean verbose = false;
@@ -74,7 +75,8 @@ public class UnpackPMZ {
 	public static void unpack(InputStream input) throws IOException {
 		BufferedInputStream bis = new BufferedInputStream(input);
 		ZipInputStream zis = new ZipInputStream(bis);
-		File root = FileResourceManager.instance.getResourcesRoot();
+		MaterialLocator ml = new MaterialLocator("Kreative", "PowerPaint");
+		File root = ml.getFirstAvailableRoot();
 		if (!root.exists()) root.mkdirs();
 		while (unzip(zis, root));
 		zis.close();

@@ -30,8 +30,8 @@ package com.kreative.paint.palette;
 import java.awt.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.gradient.*;
-import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.*;
 
 public class GradientColorPanel extends PaintContextPanel {
@@ -43,9 +43,9 @@ public class GradientColorPanel extends PaintContextPanel {
 	private JScrollPane palsp;
 	private GradientPaint2 paint;
 	
-	public GradientColorPanel(PaintContext pc, MaterialsManager mm) {
+	public GradientColorPanel(PaintContext pc, MaterialManager mm) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
-		palmodel = new DefaultCellSelectorModel<GradientColorMap>(mm.getGradientColors(), GradientColorMap.BLACK_TO_WHITE);
+		palmodel = new DefaultCellSelectorModel<GradientColorMap>(mm.gradientLoader().getGradientColorMaps(), GradientColorMap.BLACK_TO_WHITE);
 		palcomp = new CellSelector<GradientColorMap>(palmodel, new CellSelectorRenderer<GradientColorMap>() {
 			public int getCellHeight() { return 15; }
 			public int getCellWidth() { return 96; }

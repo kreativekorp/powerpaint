@@ -34,6 +34,7 @@ import java.lang.reflect.Constructor;
 import java.net.*;
 import javax.swing.*;
 import com.kreative.paint.io.MonitoredInputStream;
+import com.kreative.paint.material.MaterialLocator;
 import com.kreative.paint.res.*;
 import com.kreative.paint.ui.about.SplashScreen;
 import com.kreative.paint.ui.menu.CKPMenuBar;
@@ -50,7 +51,8 @@ public class Main {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {}
-		File root = FileResourceManager.instance.getResourcesRoot();
+		MaterialLocator mloc = new MaterialLocator("Kreative", "PowerPaint");
+		File root = mloc.getFirstAvailableRoot();
 		if (root == null || !root.exists()) {
 			SwingUtilities.invokeLater(new Loader(args));
 		} else {
@@ -64,9 +66,10 @@ public class Main {
 			this.args = args;
 		}
 		public void run() {
+			final MaterialLocator mloc = new MaterialLocator("Kreative", "PowerPaint");
 			final JDialog promptdlg = new JDialog((JFrame)null, UIUtilities.messages.getString("main.unpack.title"), true);
 			final JLabel promptlbl = new JLabel(UIUtilities.messages.getString("main.unpack.prompt"));
-			final JComboBox promptpop = new JComboBox(FileResourceManager.instance.getResourcesRoots().toArray(new File[0]));
+			final JComboBox promptpop = new JComboBox(mloc.listRoots().toArray());
 			promptpop.setEditable(false);
 			promptpop.setMaximumRowCount(32);
 			final JButton promptok = new JButton(UIUtilities.messages.getString("main.unpack.ok"));
@@ -100,7 +103,6 @@ public class Main {
 			promptdlg.setVisible(true);
 			File root = (File)promptpop.getSelectedItem();
 			if (root == null) System.exit(0);
-			FileResourceManager.instance.setResourcesRoot(root);
 			
 			final UnpackProgressDialog dlg = new UnpackProgressDialog(null, 0, 8000000);
 			dlg.setVisible(true);

@@ -32,16 +32,16 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.TreeSet;
+import java.util.SortedSet;
 import javax.swing.*;
 import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.PaintContextListener;
 import com.kreative.paint.PaintSettings;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.stroke.Arrowhead;
 import com.kreative.paint.material.stroke.EndCap;
 import com.kreative.paint.material.stroke.PowerStroke;
-import com.kreative.paint.res.MaterialsManager;
 
 public class StrokePresetPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
@@ -49,8 +49,8 @@ public class StrokePresetPanel extends PaintContextPanel {
 	private static final int ROW_WIDTH = 100;
 	private static final int ARROW_OFFSET = 16;
 	
-	private TreeSet<Float> widths;
-	private TreeSet<Integer> mults;
+	private SortedSet<Float> widths;
+	private SortedSet<Integer> mults;
 	private LinkedHashSet<float[]> dashes;
 	private LinkedHashSet<Arrowhead> arrows;
 	private JList widthView;
@@ -63,12 +63,12 @@ public class StrokePresetPanel extends PaintContextPanel {
 	private JPopupMenu arrowPopup2;
 	private boolean eventexec = false;
 	
-	public StrokePresetPanel(PaintContext pc, MaterialsManager mm) {
+	public StrokePresetPanel(PaintContext pc, MaterialManager mm) {
 		super(pc, CHANGED_STROKE);
-		widths = mm.getLineWidths();
-		mults = mm.getLineMultiplicies();
-		dashes = mm.getLineDashes();
-		arrows = mm.getLineArrowheads();
+		widths = mm.strokeLoader().getLineWidths();
+		mults = mm.strokeLoader().getLineMultiplicities();
+		dashes = mm.strokeLoader().getLineDashes();
+		arrows = mm.strokeLoader().getLineArrowheads();
 		widthView = new JList(widths.toArray(new Float[0]));
 		multView = new JList(mults.toArray(new Integer[0]));
 		dashView = new JList(dashes.toArray(new float[0][]));

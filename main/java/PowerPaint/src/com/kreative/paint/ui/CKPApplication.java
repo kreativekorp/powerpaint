@@ -50,10 +50,10 @@ import com.kreative.paint.format.Format;
 import com.kreative.paint.format.FormatManager;
 import com.kreative.paint.format.FormatUI;
 import com.kreative.paint.io.MonitoredInputStream;
+import com.kreative.paint.material.MaterialLoader;
+import com.kreative.paint.material.MaterialLocator;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.palette.PaletteManager;
-import com.kreative.paint.res.FileResourceManager;
-import com.kreative.paint.res.MaterialsManager;
-import com.kreative.paint.res.ResourceManager;
 import com.kreative.paint.tool.ToolManager;
 import com.kreative.paint.ui.about.AboutBox;
 import com.kreative.paint.ui.about.SplashScreen;
@@ -63,8 +63,7 @@ import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.OSUtils;
 
 public class CKPApplication {
-	private ResourceManager rm;
-	private MaterialsManager mm;
+	private MaterialManager mm;
 	private ToolContext tc;
 	private PaintContext pc;
 	private ToolManager tm;
@@ -75,25 +74,26 @@ public class CKPApplication {
 	
 	public CKPApplication(SplashScreen ss) {
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.RESOURCES"));
-		rm = FileResourceManager.instance;
-		mm = new MaterialsManager(rm);
+		MaterialLocator mloc = new MaterialLocator("Kreative", "PowerPaint");
+		MaterialLoader ml = mloc.getMaterialLoader();
+		mm = new MaterialManager(ml);
 		
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.ALPHABETS"));
-		mm.getAlphabets();
+		mm.alphabetLoader().getAlphabets();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.BRUSHES"));
-		mm.getBrushes();
+		mm.spriteLoader().getBrushes();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.CALLIGRAPHY"));
-		mm.getCalligraphyBrushes();
+		mm.spriteLoader().getCalligraphyBrushes();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.CHARCOALS"));
-		mm.getCharcoalBrushes();
+		mm.spriteLoader().getCharcoalBrushes();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.FRAMES"));
-		mm.getFrames();
+		mm.frameLoader().getFrames();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.STAMPS"));
-		mm.getRubberStamps();
+		mm.spriteLoader().getRubberStamps();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.SHAPES"));
-		mm.getShapes();
+		mm.shapeLoader().getShapes();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.SPRINKLES"));
-		mm.getSprinkles();
+		mm.spriteLoader().getSprinkles();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.RESOURCES"));
 		tc = new ToolContext(mm);
 		pc = new PaintContext();
@@ -102,7 +102,7 @@ public class CKPApplication {
 		tm = new ToolManager(mm);
 		
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.DITHERERS"));
-		mm.getDitherAlgorithms();
+		mm.ditherLoader().getDitherAlgorithms();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.FILTERS"));
 		ftrm = new FilterManager(mm);
 		
@@ -110,24 +110,24 @@ public class CKPApplication {
 		fmtm = new FormatManager(mm);
 		
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.COLORS"));
-		mm.getColorPalettes();
-		mm.getColorLists();
-		mm.getColorArrays();
+		mm.colorPaletteLoader().getColorPalettes();
+		mm.colorPaletteLoader().getColorLists();
+		mm.colorPaletteLoader().getColorArrays();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.TEXTURES"));
-		mm.getTextures();
+		mm.textureLoader().getTextures();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.GRADIENTS"));
-		mm.getGradientPresets();
-		mm.getGradientShapes();
-		mm.getGradientColors();
+		mm.gradientLoader().getGradientPresets();
+		mm.gradientLoader().getGradientShapes();
+		mm.gradientLoader().getGradientColorMaps();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.PATTERNS"));
-		mm.getPatterns();
+		mm.patternLoader().getPatternLists();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.LINES"));
-		mm.getLineWidths();
-		mm.getLineMultiplicies();
-		mm.getLineDashes();
-		mm.getLineArrowheads();
+		mm.strokeLoader().getLineWidths();
+		mm.strokeLoader().getLineMultiplicities();
+		mm.strokeLoader().getLineDashes();
+		mm.strokeLoader().getLineArrowheads();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.FONTSETS"));
-		mm.getFontLists();
+		mm.fontLoader().getFontLists();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.PALETTES"));
 		pm = new PaletteManager(
 				tc, pc, tm, mm,
@@ -151,11 +151,7 @@ public class CKPApplication {
 		pm.getToolOptionsPalette().setVisible(true);
 	}
 	
-	public ResourceManager getResourceManager() {
-		return rm;
-	}
-	
-	public MaterialsManager getMaterialsManager() {
+	public MaterialManager getMaterialManager() {
 		return mm;
 	}
 	

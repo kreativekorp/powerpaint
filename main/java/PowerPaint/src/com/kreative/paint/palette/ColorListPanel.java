@@ -33,10 +33,9 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.material.MaterialList;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.colorpalette.CheckerboardPaint;
-import com.kreative.paint.res.MaterialsManager;
-import com.kreative.paint.util.Pair;
-import com.kreative.paint.util.PairList;
 import com.kreative.paint.util.SwingUtils;
 import com.kreative.paint.util.UpdateLock;
 
@@ -44,16 +43,16 @@ public class ColorListPanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private UpdateLock u = new UpdateLock();
-	private PairList<String,PairList<Color,String>> colorMap;
+	private MaterialList<MaterialList<Color>> colorMap;
 	private DefaultListModel colorsModel;
 	private JList colorsList;
 	private JComboBox list;
 	
-	public ColorListPanel(PaintContext pc, MaterialsManager mm, String initialSelection) {
+	public ColorListPanel(PaintContext pc, MaterialManager mm, String initialSelection) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
-		colorMap = mm.getColorLists();
+		colorMap = mm.colorPaletteLoader().getColorLists();
 		
-		list = new JComboBox(colorMap.toFormerArray(new String[0]));
+		list = new JComboBox(colorMap.toNameArray());
 		list.setEditable(false);
 		list.setMaximumRowCount(48);
 		SwingUtils.shrink(list);
@@ -65,18 +64,18 @@ public class ColorListPanel extends PaintContextPanel {
 			private static final long serialVersionUID = 1L;
 			public Component getListCellRendererComponent(JList list, Object value, int index, boolean sel, boolean focus) {
 				JLabel l = (JLabel)super.getListCellRendererComponent(list, value, index, sel, focus);
-				Pair<?,?> p = (Pair<?,?>)value;
+				Object[] p = (Object[])value;
 				BufferedImage bi = new BufferedImage(25, 15, BufferedImage.TYPE_INT_ARGB);
 				Graphics2D g = bi.createGraphics();
 				g.setPaint(CheckerboardPaint.LIGHT);
 				g.fillRect(0, 0, 25, 15);
-				g.setPaint((Color)p.getFormer());
+				g.setPaint((Color)p[0]);
 				g.fillRect(0, 0, 25, 15);
-				g.setPaint(((Color)p.getFormer()).darker());
+				g.setPaint(((Color)p[0]).darker());
 				g.drawRect(0, 0, 24, 14);
 				g.dispose();
 				l.setIcon(new ImageIcon(bi));
-				l.setText(p.getLatter().toString());
+				l.setText(p[1].toString());
 				l.setFont(l.getFont().deriveFont(10.0f));
 				l.setBorder(BorderFactory.createEmptyBorder(1, 4, 1, 4));
 				return l;
@@ -85,8 +84,8 @@ public class ColorListPanel extends PaintContextPanel {
 		colorsList.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				if (u.lock()) {
-					Pair<?,?> p = (Pair<?,?>)colorsList.getSelectedValue();
-					if (p != null) ColorListPanel.this.pc.setEditedEditedground((Color)p.getFormer());
+					Object[] p = (Object[])colorsList.getSelectedValue();
+					if (p != null) ColorListPanel.this.pc.setEditedEditedground((Color)p[0]);
 					u.unlock();
 				}
 			}
@@ -99,18 +98,18 @@ public class ColorListPanel extends PaintContextPanel {
 		ItemListener il = new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					PairList<Color,String> v = colorMap.getLatter(list.getSelectedIndex());
+					MaterialList<Color> v = colorMap.getValue(list.getSelectedIndex());
 					colorsModel.clear();
-					for (Pair<Color,String> p : v) {
-						colorsModel.addElement(p);
+					for (int j = 0; j < v.size(); j++) {
+						colorsModel.addElement(new Object[]{ v.getValue(j), v.getName(j) });
 					}
 					update();
 				}
 			}
 		};
 		list.addItemListener(il);
-		if (!colorMap.containsFormer(initialSelection)) {
-			initialSelection = colorMap.getFormer(0);
+		if (!colorMap.containsName(initialSelection)) {
+			initialSelection = colorMap.getName(0);
 		}
 		list.setSelectedItem(initialSelection);
 		il.itemStateChanged(new ItemEvent(list, ItemEvent.SELECTED, initialSelection, ItemEvent.SELECTED));
@@ -123,8 +122,8 @@ public class ColorListPanel extends PaintContextPanel {
 			if (p instanceof Color) {
 				colorsList.clearSelection();
 				for (int i = 0; i < colorsModel.getSize(); i++) {
-					Pair<?,?> pr = (Pair<?,?>)colorsModel.getElementAt(i);
-					if (pr.getFormer().equals(p)) {
+					Object[] pr = (Object[])colorsModel.getElementAt(i);
+					if (pr[0].equals(p)) {
 						colorsList.setSelectedIndex(i);
 						colorsList.ensureIndexIsVisible(i);
 						break;

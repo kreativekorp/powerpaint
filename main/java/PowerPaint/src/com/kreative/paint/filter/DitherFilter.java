@@ -38,24 +38,24 @@ import javax.swing.JComboBox;
 import com.kreative.paint.form.CustomOption;
 import com.kreative.paint.form.Form;
 import com.kreative.paint.form.PreviewGenerator;
+import com.kreative.paint.material.MaterialList;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.dither.DiffusionDitherAlgorithm;
 import com.kreative.paint.material.dither.DitherAlgorithm;
-import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.util.ImageUtils;
-import com.kreative.paint.util.PairList;
 import com.kreative.paint.util.UpdateLock;
 
 public class DitherFilter extends AbstractFilter {
-	private PairList<String,int[]> palettes;
-	private PairList<String,DitherAlgorithm> ditherers;
+	private MaterialList<int[]> palettes;
+	private MaterialList<DitherAlgorithm> ditherers;
 	private String colorsName;
 	private String dithererName;
 	private int[] colors;
 	private DitherAlgorithm ditherer;
 	
-	public DitherFilter(MaterialsManager mm) {
-		palettes = mm.getColorArrays();
-		ditherers = mm.getDitherAlgorithms();
+	public DitherFilter(MaterialManager mm) {
+		palettes = mm.colorPaletteLoader().getColorArrays();
+		ditherers = mm.ditherLoader().getDitherAlgorithms();
 		colorsName = "Black & White (Black First)";
 		dithererName = "Threshold";
 		colors = new int[] { 0xFF000000, 0xFFFFFFFF };
@@ -89,7 +89,7 @@ public class DitherFilter extends AbstractFilter {
 			private UpdateLock u = new UpdateLock();
 			public String getName() { return FilterUtilities.messages.getString("dither.Palette"); }
 			public JComboBox makeUI(boolean mini) {
-				final JComboBox cc = new JComboBox(palettes.toFormerArray(new String[0]));
+				final JComboBox cc = new JComboBox(palettes.toNameArray());
 				cc.setEditable(false);
 				cc.setMaximumRowCount(48);
 				cc.setSelectedItem(colorsName);
@@ -97,7 +97,7 @@ public class DitherFilter extends AbstractFilter {
 					public void itemStateChanged(ItemEvent e) {
 						if (u.lock()) {
 							colorsName = cc.getSelectedItem().toString();
-							colors = palettes.getLatter(cc.getSelectedIndex());
+							colors = palettes.getValue(cc.getSelectedIndex());
 							if (ui != null) ui.update();
 							u.unlock();
 						}
@@ -117,7 +117,7 @@ public class DitherFilter extends AbstractFilter {
 			private UpdateLock u = new UpdateLock();
 			public String getName() { return FilterUtilities.messages.getString("dither.Algorithm"); }
 			public JComboBox makeUI(boolean mini) {
-				final JComboBox ac = new JComboBox(ditherers.toFormerArray(new String[0]));
+				final JComboBox ac = new JComboBox(ditherers.toNameArray());
 				ac.setEditable(false);
 				ac.setMaximumRowCount(48);
 				ac.setSelectedItem(dithererName);
@@ -125,7 +125,7 @@ public class DitherFilter extends AbstractFilter {
 					public void itemStateChanged(ItemEvent e) {
 						if (u.lock()) {
 							dithererName = ac.getSelectedItem().toString();
-							ditherer = ditherers.getLatter(ac.getSelectedIndex());
+							ditherer = ditherers.getValue(ac.getSelectedIndex());
 							if (ui != null) ui.update();
 							u.unlock();
 						}

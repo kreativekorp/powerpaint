@@ -29,7 +29,7 @@ package com.kreative.paint.palette;
 
 import java.awt.Color;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.swing.JPopupPanel;
 
 public class ColorPalettePalette extends PaintContextPalette {
@@ -37,7 +37,7 @@ public class ColorPalettePalette extends PaintContextPalette {
 	
 	private ColorPalettePanel cpp;
 	
-	public ColorPalettePalette(PaintContext pc, MaterialsManager mm, String initialSelection) {
+	public ColorPalettePalette(PaintContext pc, MaterialManager mm, String initialSelection) {
 		super(pc);
 		panels.add(cpp = new ColorPalettePanel(pc, mm, initialSelection));
 		setContentPane(cpp);

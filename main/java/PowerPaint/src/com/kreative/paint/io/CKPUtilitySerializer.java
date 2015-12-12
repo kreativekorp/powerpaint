@@ -14,8 +14,6 @@ import com.kreative.paint.util.*;
 
 public class CKPUtilitySerializer extends Serializer {
 	private static final int TYPE_BITMAP = fcc("Bmap");
-	private static final int TYPE_PAIR = fcc("Pair");
-	private static final int TYPE_PAIRLIST = fcc("PLst");
 	private static final int TYPE_DIFFUSION_DITHER_ALGORITHM = fcc("Dith");
 	private static final int TYPE_ORDERED_DITHER_ALGORITHM = fcc("Orth");
 	private static final int TYPE_RANDOM_DITHER_ALGORITHM = fcc("Rath");
@@ -23,8 +21,6 @@ public class CKPUtilitySerializer extends Serializer {
 	
 	protected void loadRecognizedTypesAndClasses() {
 		addTypeAndClass(TYPE_BITMAP, 1, Bitmap.class);
-		addTypeAndClass(TYPE_PAIR, 1, Pair.class);
-		addTypeAndClass(TYPE_PAIRLIST, 1, PairList.class);
 		addTypeAndClass(TYPE_DIFFUSION_DITHER_ALGORITHM, 2, DiffusionDitherAlgorithm.class);
 		addTypeAndClass(TYPE_ORDERED_DITHER_ALGORITHM, 2, OrderedDitherAlgorithm.class);
 		addTypeAndClass(TYPE_RANDOM_DITHER_ALGORITHM, 2, RandomDitherAlgorithm.class);
@@ -49,17 +45,6 @@ public class CKPUtilitySerializer extends Serializer {
 			byte crgb[] = bos.toByteArray();
 			stream.writeInt(crgb.length);
 			stream.write(crgb);
-		} else if (o instanceof Pair) {
-			Pair<?,?> v = (Pair<?,?>)o;
-			SerializationManager.writeObject(v.getFormer(), stream);
-			SerializationManager.writeObject(v.getLatter(), stream);
-		} else if (o instanceof PairList) {
-			PairList<?,?> v = (PairList<?,?>)o;
-			stream.writeInt(v.size());
-			for (Pair<?,?> p : v) {
-				SerializationManager.writeObject(p.getFormer(), stream);
-				SerializationManager.writeObject(p.getLatter(), stream);
-			}
 		} else if (o instanceof DiffusionDitherAlgorithm) {
 			DiffusionDitherAlgorithm v = (DiffusionDitherAlgorithm)o;
 			stream.writeUTF((v.name != null) ? v.name : "");
@@ -122,21 +107,6 @@ public class CKPUtilitySerializer extends Serializer {
 			iis.close();
 			bis.close();
 			return new Bitmap(w, h, rgb);
-		} else if (type == TYPE_PAIR) {
-			if (version != 1) throw new IOException("Invalid version number.");
-			Object f = SerializationManager.readObject(stream);
-			Object l = SerializationManager.readObject(stream);
-			return new Pair<Object,Object>(f,l);
-		} else if (type == TYPE_PAIRLIST) {
-			if (version != 1) throw new IOException("Invalid version number.");
-			PairList<Object,Object> c = new PairList<Object,Object>();
-			int size = stream.readInt();
-			for (int i = 0; i < size; i++) {
-				Object f = SerializationManager.readObject(stream);
-				Object l = SerializationManager.readObject(stream);
-				c.add(f, l);
-			}
-			return c;
 		} else if (type == TYPE_DIFFUSION_DITHER_ALGORITHM) {
 			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			if (version >= 2) {

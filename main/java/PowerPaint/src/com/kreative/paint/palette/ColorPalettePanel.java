@@ -31,14 +31,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.material.MaterialList;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.colorpalette.ColorChangeEvent;
 import com.kreative.paint.material.colorpalette.ColorChangeListener;
 import com.kreative.paint.material.colorpalette.RCPXComponent;
 import com.kreative.paint.material.colorpalette.RCPXOrientation;
 import com.kreative.paint.material.colorpalette.RCPXPalette;
-import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.JPopupPanel;
-import com.kreative.paint.util.PairList;
 import com.kreative.paint.util.SwingUtils;
 import com.kreative.paint.util.UpdateLock;
 
@@ -48,16 +48,16 @@ public class ColorPalettePanel extends PaintContextPanel {
 	
 	private UpdateLock u = new UpdateLock();
 	private RCPXComponent palcomp;
-	private PairList<String,RCPXPalette> palmap;
+	private MaterialList<RCPXPalette> palmap;
 	private JPanel top, buttons;
 	private JButton hb, sb, vb;
 	private JComboBox list;
 	
-	public ColorPalettePanel(PaintContext pc, MaterialsManager mm, String initialSelection) {
+	public ColorPalettePanel(PaintContext pc, MaterialManager mm, String initialSelection) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
-		palmap = mm.getColorPalettes();
+		palmap = mm.colorPaletteLoader().getColorPalettes();
 		
-		list = new JComboBox(palmap.toFormerArray(new String[0]));
+		list = new JComboBox(palmap.toNameArray());
 		list.setEditable(false);
 		list.setMaximumRowCount(48);
 		SwingUtils.shrink(list);
@@ -98,18 +98,18 @@ public class ColorPalettePanel extends PaintContextPanel {
 		ItemListener il = new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					palcomp.setPalette(palmap.getLatter(list.getSelectedIndex()));
+					palcomp.setPalette(palmap.getValue(list.getSelectedIndex()));
 					palcomp.setOrientation(null);
 					palcomp.pack();
 				}
 			}
 		};
 		list.addItemListener(il);
-		if (!palmap.containsFormer(initialSelection)) {
-			initialSelection = palmap.getFormer(0);
+		if (!palmap.containsName(initialSelection)) {
+			initialSelection = palmap.getName(0);
 		}
 		list.setSelectedItem(initialSelection);
-		palcomp.setPalette(palmap.getLatter(list.getSelectedIndex()));
+		palcomp.setPalette(palmap.getValue(list.getSelectedIndex()));
 		palcomp.setOrientation(null);
 		palcomp.pack();
 		update();

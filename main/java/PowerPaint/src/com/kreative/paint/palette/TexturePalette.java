@@ -29,7 +29,7 @@ package com.kreative.paint.palette;
 
 import java.awt.TexturePaint;
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.swing.JPopupPanel;
 
 public class TexturePalette extends PaintContextPalette {
@@ -37,7 +37,7 @@ public class TexturePalette extends PaintContextPalette {
 	
 	private TexturePanel pp;
 	
-	public TexturePalette(PaintContext pc, MaterialsManager mm, String initialSelection) {
+	public TexturePalette(PaintContext pc, MaterialManager mm, String initialSelection) {
 		super(pc);
 		panels.add(pp = new TexturePanel(pc, mm, initialSelection));
 		setContentPane(pp);

@@ -32,8 +32,8 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 import javax.swing.event.*;
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.gradient.*;
-import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.*;
 
 public class GradientShapePanel extends PaintContextPanel {
@@ -46,10 +46,10 @@ public class GradientShapePanel extends PaintContextPanel {
 	private JScrollPane gsp;
 	private GradientPaint2 paint;
 	
-	public GradientShapePanel(PaintContext pc, MaterialsManager mm) {
+	public GradientShapePanel(PaintContext pc, MaterialManager mm) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
 
-		palmodel = new DefaultCellSelectorModel<GradientShape>(mm.getGradientShapes(), GradientShape.SIMPLE_LINEAR);
+		palmodel = new DefaultCellSelectorModel<GradientShape>(mm.gradientLoader().getGradientShapes(), GradientShape.SIMPLE_LINEAR);
 		palcomp = new CellSelector<GradientShape>(palmodel, new CellSelectorRenderer<GradientShape>() {
 			public int getCellHeight() { return 25; }
 			public int getCellWidth() { return 25; }
@@ -66,8 +66,8 @@ public class GradientShapePanel extends PaintContextPanel {
 		
 		gs = new GradientShapeSelector(
 			GradientPaint2.BLACK_TO_WHITE,
-			mm.getGradientShapes().values().toArray(new GradientShape[0]),
-			mm.getGradientShapes().keySet().toArray(new String[0])
+			mm.gradientLoader().getGradientShapes().values().toArray(new GradientShape[0]),
+			mm.gradientLoader().getGradientShapes().keySet().toArray(new String[0])
 		);
 		gsp = new JScrollPane(gs, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		

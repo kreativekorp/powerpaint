@@ -29,7 +29,7 @@ package com.kreative.paint.palette;
 
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.ToolContext;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.tool.ToolManager;
 
 public class PaletteManager {
@@ -50,7 +50,7 @@ public class PaletteManager {
 	private ToolOptionsPalette toolOptionsPalette;
 	
 	public PaletteManager(
-		ToolContext tc, PaintContext pc, ToolManager tm, MaterialsManager mm,
+		ToolContext tc, PaintContext pc, ToolManager tm, MaterialManager mm,
 		String defCP, String defCL, String defTP, String defPP
 	) {
 		toolPalette = new ToolPalette(tc, tm);

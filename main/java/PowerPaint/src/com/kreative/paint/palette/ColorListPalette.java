@@ -28,14 +28,14 @@
 package com.kreative.paint.palette;
 
 import com.kreative.paint.PaintContext;
-import com.kreative.paint.res.MaterialsManager;
+import com.kreative.paint.material.MaterialManager;
 
 public class ColorListPalette extends PaintContextPalette {
 	private static final long serialVersionUID = 1L;
 	
 	private ColorListPanel cpp;
 	
-	public ColorListPalette(PaintContext pc, MaterialsManager mm, String initialSelection) {
+	public ColorListPalette(PaintContext pc, MaterialManager mm, String initialSelection) {
 		super(pc);
 		panels.add(cpp = new ColorListPanel(pc, mm, initialSelection));
 		setContentPane(cpp);

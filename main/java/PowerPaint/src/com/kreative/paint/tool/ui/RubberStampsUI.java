@@ -23,7 +23,7 @@ public class RubberStampsUI extends JPanel implements ToolContextListener {
 	public RubberStampsUI(ToolContext tc, boolean mini) {
 		this.tc = tc;
 		
-		ssetl = new JList(tc.getRubberStampSets().toFormerArray(new String[0]));
+		ssetl = new JList(tc.getRubberStampSets().toNameArray());
 		ssetl.setCellRenderer(new StampSetCellRenderer());
 		ssetl.setVisibleRowCount(mini ? 3 : 5);
 		ssetl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -123,7 +123,7 @@ public class RubberStampsUI extends JPanel implements ToolContextListener {
 				boolean cellHasFocus
 		) {
 			JLabel l = new JLabel();
-			SpriteSheet ss = tc.getRubberStampSets().getLatter(index);
+			SpriteSheet ss = tc.getRubberStampSets().getValue(index);
 			int n = ss.getSpriteCount();
 			int w = -1;
 			int h = 0;

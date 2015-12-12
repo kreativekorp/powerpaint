@@ -38,6 +38,7 @@ import java.util.zip.CRC32;
 import java.util.zip.CheckedInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+import com.kreative.paint.material.MaterialLocator;
 
 public class PackPMZ {
 	private static boolean verbose = false;
@@ -67,7 +68,8 @@ public class PackPMZ {
 	public static void pack(OutputStream output) throws IOException {
 		BufferedOutputStream bos = new BufferedOutputStream(output);
 		ZipOutputStream zos = new ZipOutputStream(bos);
-		File root = FileResourceManager.instance.getResourcesRoot();
+		MaterialLocator ml = new MaterialLocator("Kreative", "PowerPaint");
+		File root = ml.getFirstAvailableRoot();
 		for (File f : root.listFiles()) zip(zos, f, "");
 		zos.close();
 		bos.close();

@@ -28,8 +28,8 @@
 package com.kreative.paint.palette;
 
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.pattern.Pattern;
-import com.kreative.paint.res.MaterialsManager;
 import com.kreative.paint.swing.JPopupPanel;
 
 public class PatternPalette extends PaintContextPalette {
@@ -37,7 +37,7 @@ public class PatternPalette extends PaintContextPalette {
 	
 	private PatternPanel pp;
 	
-	public PatternPalette(PaintContext pc, MaterialsManager mm, String initialSelection) {
+	public PatternPalette(PaintContext pc, MaterialManager mm, String initialSelection) {
 		super(pc);
 		panels.add(pp = new PatternPanel(pc, mm, initialSelection));
 		setContentPane(pp);

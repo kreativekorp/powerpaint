@@ -59,7 +59,7 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 	public PowerShapesUI(ToolContext tc, boolean mini) {
 		this.tc = tc;
 		
-		spop = new JComboBox(tc.getPowerShapeSets().toFormerArray(new String[0]));
+		spop = new JComboBox(tc.getPowerShapeSets().toNameArray());
 		spop.setEditable(false);
 		spop.setMaximumRowCount(48);
 		if (mini) SwingUtils.shrink(spop);
@@ -115,7 +115,7 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 		public ShapePanel(int n, boolean mini) {
 			super(new GridLayout(0,12));
 			labels = new HashSet<ShapeLabel>();
-			for (int i = 0; i < tc.getPowerShapeSets().getLatter(n).size(); i++) {
+			for (int i = 0; i < tc.getPowerShapeSets().getValue(n).size(); i++) {
 				ShapeLabel l = new ShapeLabel(n, i, mini);
 				add(l);
 				labels.add(l);
@@ -165,7 +165,7 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 	}
 	private Image getShapeImage(int coll, int idx, boolean mini) {
 		int size = mini ? 19 : 25;
-		Shape ss = AffineTransform.getScaleInstance(size-1, size-1).createTransformedShape(tc.getPowerShapeSets().getLatter(coll).get(idx));
+		Shape ss = AffineTransform.getScaleInstance(size-1, size-1).createTransformedShape(tc.getPowerShapeSets().getValue(coll).get(idx));
 		BufferedImage bi = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = bi.createGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -177,6 +177,6 @@ public class PowerShapesUI extends JPanel implements ToolContextListener {
 		return bi;
 	}
 	private String getShapeName(int coll, int idx) {
-		return tc.getPowerShapeSets().getLatter(coll).get(idx).name;
+		return tc.getPowerShapeSets().getValue(coll).get(idx).name;
 	}
 }
