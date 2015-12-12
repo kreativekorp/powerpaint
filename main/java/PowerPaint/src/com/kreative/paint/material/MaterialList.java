@@ -248,4 +248,19 @@ public class MaterialList<T> {
 	public List<T> valueList() {
 		return Collections.unmodifiableList(values);
 	}
+	
+	@Override
+	public boolean equals(Object that) {
+		if (that instanceof MaterialList) {
+			return this.names.equals(((MaterialList<?>)that).names)
+			    && this.values.equals(((MaterialList<?>)that).values);
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		return names.hashCode() ^ values.hashCode();
+	}
 }

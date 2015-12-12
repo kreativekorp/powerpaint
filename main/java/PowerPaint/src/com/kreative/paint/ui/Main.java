@@ -103,6 +103,7 @@ public class Main {
 			promptdlg.setVisible(true);
 			File root = (File)promptpop.getSelectedItem();
 			if (root == null) System.exit(0);
+			if (!root.exists()) root.mkdirs();
 			
 			final UnpackProgressDialog dlg = new UnpackProgressDialog(null, 0, 8000000);
 			dlg.setVisible(true);
