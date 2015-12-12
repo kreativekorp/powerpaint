@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sprite-sheet PUBLIC "-//Kreative//DTD SpriteInfo 1.0//EN" "spnx.dtd">
+<sprite-sheet name="Greek"
+              intent="stamped-brush"
+              cols="1" rows="1"
+              order="ltr-ttb">
+
+	<slice sx="0" sy="0"
+	       cw="16" ch="16"
+	       chx="8" chy="8"
+	       cdx="16" cdy="16"
+	       cols="24" rows="1"
+	       order="ltr-ttb"
+	       color-transform="replace-grays
+	                        grayscale
+	                        white-to-alpha
+	                        alpha-threshold
+	                        color-threshold"/>
+
+	<sprite-set name="Greek" index="0"><sprite index="0" count="24"/></sprite-set>
+
+</sprite-sheet>

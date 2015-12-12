@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE frame PUBLIC "-//Kreative//DTD FrameInfo 1.0//EN" "frnx.dtd">
+<frame
+	name="Platinum Menu"
+	content-start-x="3"
+	content-start-y="3"
+	content-extent-x="9"
+	content-extent-y="10"
+	repeat-start-x="3"
+	repeat-start-y="3"
+	repeat-extent-x="9"
+	repeat-extent-y="10"
+/>

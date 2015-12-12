@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE frame PUBLIC "-//Kreative//DTD FrameInfo 1.0//EN" "frnx.dtd">
+<frame
+	name="Wood Square"
+	content-start-x="5"
+	content-start-y="5"
+	content-extent-x="22"
+	content-extent-y="22"
+	repeat-start-x="5"
+	repeat-start-y="5"
+	repeat-extent-x="22"
+	repeat-extent-y="22"
+/>
