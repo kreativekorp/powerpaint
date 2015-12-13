@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -102,7 +104,9 @@ public abstract class MaterialResource {
 			List<MaterialResource> children = new ArrayList<MaterialResource>();
 			String branchName = this.getBranchName();
 			String parentName = this.getResourceName();
-			for (File childFile : this.file.listFiles()) {
+			File[] files = this.file.listFiles();
+			Arrays.sort(files, new FileComparator());
+			for (File childFile : files) {
 				String childName = childFile.getName();
 				Matcher m = EXTENSION_PATTERN.matcher(childName);
 				String childFormat = m.find() ? m.group(1).toLowerCase() : "";
@@ -110,6 +114,13 @@ public abstract class MaterialResource {
 				children.add(child);
 			}
 			return children;
+		}
+		
+		private static class FileComparator implements Comparator<File> {
+			@Override
+			public int compare(File a, File b) {
+				return a.getName().compareTo(b.getName());
+			}
 		}
 	}
 }

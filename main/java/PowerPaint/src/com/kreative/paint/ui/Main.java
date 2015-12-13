@@ -35,7 +35,7 @@ import java.net.*;
 import javax.swing.*;
 import com.kreative.paint.io.MonitoredInputStream;
 import com.kreative.paint.material.MaterialLocator;
-import com.kreative.paint.res.*;
+import com.kreative.paint.material.MaterialPacker;
 import com.kreative.paint.ui.about.SplashScreen;
 import com.kreative.paint.ui.menu.CKPMenuBar;
 import com.kreative.paint.ui.progress.UnpackProgressDialog;
@@ -101,7 +101,7 @@ public class Main {
 			promptdlg.pack();
 			promptdlg.setLocationRelativeTo(null);
 			promptdlg.setVisible(true);
-			File root = (File)promptpop.getSelectedItem();
+			final File root = (File)promptpop.getSelectedItem();
 			if (root == null) System.exit(0);
 			if (!root.exists()) root.mkdirs();
 			
@@ -110,14 +110,14 @@ public class Main {
 			Thread thr = new Thread() {
 				public void run() {
 					try {
-						URL u = UnpackPMZ.class.getResource("materials.pmz");
+						URL u = Main.class.getResource("materials.pmz");
 						URLConnection uc = u.openConnection();
 						if (uc.getContentLength() > 0) {
 							dlg.setMaximum(uc.getContentLength());
 						}
 						InputStream uin = uc.getInputStream();
 						MonitoredInputStream in = new MonitoredInputStream(dlg, uin, false);
-						UnpackPMZ.unpack(in);
+						MaterialPacker.unzip(in, root);
 						in.close();
 						uin.close();
 					} catch (IOException ex) {
