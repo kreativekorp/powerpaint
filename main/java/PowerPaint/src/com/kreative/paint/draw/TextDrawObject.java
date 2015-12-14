@@ -47,7 +47,7 @@ import java.awt.geom.Rectangle2D;
 import java.text.AttributedCharacterIterator;
 import java.text.AttributedString;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.undo.Atom;
+import com.kreative.paint.document.undo.Atom;
 
 public class TextDrawObject extends AbstractDrawObject {
 	private float x, y;

@@ -32,9 +32,9 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.awt.image.WritableRaster;
-import com.kreative.paint.undo.Atom;
-import com.kreative.paint.undo.History;
-import com.kreative.paint.undo.Recordable;
+import com.kreative.paint.document.undo.Atom;
+import com.kreative.paint.document.undo.History;
+import com.kreative.paint.document.undo.Recordable;
 
 public class Tile implements PaintSurface, Paintable, Recordable {
 	private History history;

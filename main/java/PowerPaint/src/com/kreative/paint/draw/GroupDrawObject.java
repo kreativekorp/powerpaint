@@ -56,9 +56,9 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Vector;
 import com.kreative.paint.PaintSettings;
+import com.kreative.paint.document.undo.History;
+import com.kreative.paint.document.undo.Atom;
 import com.kreative.paint.io.SerializationManager;
-import com.kreative.paint.undo.History;
-import com.kreative.paint.undo.Atom;
 
 // TODO make transforms on the group independent of transforms on the grouped objects
 

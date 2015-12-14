@@ -37,7 +37,7 @@ import java.awt.geom.Point2D;
 import com.kreative.paint.Paintable;
 import com.kreative.paint.PaintContextConstants;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.undo.Recordable;
+import com.kreative.paint.document.undo.Recordable;
 
 public interface DrawObject extends Paintable, Shape, Cloneable, Recordable, PaintContextConstants {
 	public DrawObject clone();

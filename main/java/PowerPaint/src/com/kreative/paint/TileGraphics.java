@@ -53,8 +53,8 @@ import java.awt.image.WritableRaster;
 import java.awt.image.renderable.RenderableImage;
 import java.text.AttributedCharacterIterator;
 import java.util.Map;
-import com.kreative.paint.undo.Atom;
-import com.kreative.paint.undo.History;
+import com.kreative.paint.document.undo.Atom;
+import com.kreative.paint.document.undo.History;
 
 public class TileGraphics extends Graphics2D {
 	private History history;

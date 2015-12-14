@@ -46,8 +46,8 @@ import java.util.ListIterator;
 import java.util.Map;
 import com.kreative.paint.DrawSurface;
 import com.kreative.paint.Layer;
+import com.kreative.paint.document.undo.Atom;
 import com.kreative.paint.draw.DrawObject;
-import com.kreative.paint.undo.Atom;
 import com.kreative.paint.util.CursorUtils;
 
 public class TransformTool extends AbstractPaintDrawSelectionTool {

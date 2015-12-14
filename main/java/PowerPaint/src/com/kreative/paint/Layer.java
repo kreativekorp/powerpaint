@@ -47,11 +47,11 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
+import com.kreative.paint.document.undo.Atom;
+import com.kreative.paint.document.undo.History;
+import com.kreative.paint.document.undo.Recordable;
 import com.kreative.paint.draw.DrawObject;
 import com.kreative.paint.draw.ImageDrawObject;
-import com.kreative.paint.undo.Atom;
-import com.kreative.paint.undo.History;
-import com.kreative.paint.undo.Recordable;
 import com.kreative.paint.util.ImageUtils;
 
 public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recordable {

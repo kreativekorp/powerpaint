@@ -46,9 +46,9 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Vector;
 import javax.swing.SwingConstants;
-import com.kreative.paint.undo.Atom;
-import com.kreative.paint.undo.History;
-import com.kreative.paint.undo.Recordable;
+import com.kreative.paint.document.undo.Atom;
+import com.kreative.paint.document.undo.History;
+import com.kreative.paint.document.undo.Recordable;
 import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.ShapeUtils;
 

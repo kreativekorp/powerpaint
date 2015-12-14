@@ -55,6 +55,9 @@ import com.kreative.paint.Canvas;
 import com.kreative.paint.CanvasController;
 import com.kreative.paint.CanvasView;
 import com.kreative.paint.Layer;
+import com.kreative.paint.document.undo.History;
+import com.kreative.paint.document.undo.HistoryEvent;
+import com.kreative.paint.document.undo.HistoryListener;
 import com.kreative.paint.filter.Filter;
 import com.kreative.paint.filter.FilterUI;
 import com.kreative.paint.format.Format;
@@ -66,9 +69,6 @@ import com.kreative.paint.tool.ToolCommand;
 import com.kreative.paint.ui.dialog.SaveChangesDialog;
 import com.kreative.paint.ui.menu.CKPMenuBar;
 import com.kreative.paint.ui.progress.IOProgressDialog;
-import com.kreative.paint.undo.History;
-import com.kreative.paint.undo.HistoryEvent;
-import com.kreative.paint.undo.HistoryListener;
 import com.kreative.paint.util.ImageUtils;
 
 public class CKPDocument {
@@ -131,7 +131,7 @@ public class CKPDocument {
 				documentWindow.getRootPane().putClientProperty("Window.documentModified", true);
 			}
 			public void transactionRenamed(HistoryEvent e) {}
-			public void transactionRolledback(HistoryEvent e) {}
+			public void transactionRolledBack(HistoryEvent e) {}
 			public void transactionUndone(HistoryEvent e) {
 				changed = true;
 				documentWindow.getRootPane().putClientProperty("Window.documentModified", true);
@@ -358,7 +358,7 @@ public class CKPDocument {
 						documentWindow.getRootPane().putClientProperty("Window.documentModified", true);
 					}
 					public void transactionRenamed(HistoryEvent e) {}
-					public void transactionRolledback(HistoryEvent e) {}
+					public void transactionRolledBack(HistoryEvent e) {}
 					public void transactionUndone(HistoryEvent e) {
 						changed = true;
 						documentWindow.getRootPane().putClientProperty("Window.documentModified", true);

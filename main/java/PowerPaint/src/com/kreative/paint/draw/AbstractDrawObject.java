@@ -40,8 +40,8 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.NoninvertibleTransformException;
 import java.awt.geom.Point2D;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.undo.Atom;
-import com.kreative.paint.undo.History;
+import com.kreative.paint.document.undo.Atom;
+import com.kreative.paint.document.undo.History;
 
 public abstract class AbstractDrawObject implements DrawObject {
 	private static Color COLOR_CLEAR = new Color(0, true);

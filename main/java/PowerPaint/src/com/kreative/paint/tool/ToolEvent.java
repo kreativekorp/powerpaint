@@ -38,8 +38,8 @@ import com.kreative.paint.PaintContextConstants;
 import com.kreative.paint.PaintSettings;
 import com.kreative.paint.PaintSurface;
 import com.kreative.paint.ToolContext;
+import com.kreative.paint.document.undo.History;
 import com.kreative.paint.draw.DrawObject;
-import com.kreative.paint.undo.History;
 
 public class ToolEvent implements PaintContextConstants {
 	public static final int TOOL_SELECTED			= 1;
