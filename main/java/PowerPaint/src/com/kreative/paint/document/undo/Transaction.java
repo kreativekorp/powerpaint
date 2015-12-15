@@ -35,11 +35,13 @@ public class Transaction implements Undoable {
 		this.name = name;
 	}
 	
+	@Override
 	public synchronized void redo() {
 		ListIterator<Atom> i = atoms.listIterator();
 		while (i.hasNext()) i.next().redo();
 	}
 	
+	@Override
 	public synchronized void undo() {
 		ListIterator<Atom> i = atoms.listIterator(atoms.size());
 		while (i.hasPrevious()) i.previous().undo();

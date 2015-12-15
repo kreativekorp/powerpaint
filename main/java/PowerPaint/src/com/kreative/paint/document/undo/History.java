@@ -109,7 +109,7 @@ public class History implements Undoable {
 		}
 	}
 	
-	private void commit(Transaction t) {
+	private synchronized void commit(Transaction t) {
 		transactions.subList(transactionIndex, transactions.size()).clear();
 		transactions.add(t);
 		transactionIndex++;
@@ -137,6 +137,7 @@ public class History implements Undoable {
 		}
 	}
 	
+	@Override
 	public synchronized void redo() {
 		if (inProgress != null) {
 			String thatName = (inProgress.getName() == null) ? "" : inProgress.getName();
@@ -160,7 +161,8 @@ public class History implements Undoable {
 			return null;
 		}
 	}
-
+	
+	@Override
 	public synchronized void undo() {
 		if (inProgress != null) {
 			String thatName = (inProgress.getName() == null) ? "" : inProgress.getName();
