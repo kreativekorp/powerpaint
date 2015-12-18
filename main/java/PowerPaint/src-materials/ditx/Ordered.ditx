@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dither-algorithms PUBLIC "-//Kreative//DTD PowerDither 1.0//EN" "ditx.dtd">
+<!DOCTYPE dither-algorithms PUBLIC "-//Kreative//DTD PowerDither 1.0//EN" "http://www.kreativekorp.com/dtd/ditx.dtd">
 <dither-algorithms name="Ordered">
 	<dither-algorithm
 		type="ordered"

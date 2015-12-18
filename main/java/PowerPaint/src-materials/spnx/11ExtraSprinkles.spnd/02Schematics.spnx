@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sprite-sheet PUBLIC "-//Kreative//DTD SpriteInfo 1.0//EN" "spnx.dtd">
+<!DOCTYPE sprite-sheet PUBLIC "-//Kreative//DTD SpriteInfo 1.0//EN" "http://www.kreativekorp.com/dtd/spnx.dtd">
 <sprite-sheet name="Schematics"
               intent="stamped-brush"
               cols="1" rows="1"

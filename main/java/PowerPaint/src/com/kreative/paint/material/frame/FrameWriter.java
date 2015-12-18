@@ -76,7 +76,7 @@ public class FrameWriter {
 	
 	public static void printFRNX(PrintStream out, Frame frame) {
 		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-		out.println("<!DOCTYPE frame PUBLIC \"-//Kreative//DTD FrameInfo 1.0//EN\" \"frnx.dtd\">");
+		out.println("<!DOCTYPE frame PUBLIC \"-//Kreative//DTD FrameInfo 1.0//EN\" \"http://www.kreativekorp.com/dtd/frnx.dtd\">");
 		out.println("<frame");
 		if (frame.name != null) {
 			out.println("\tname=\"" + xmls(frame.name) + "\"");
@@ -102,7 +102,7 @@ public class FrameWriter {
 	
 	public static void printFRNX(PrintWriter out, Frame frame) {
 		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-		out.println("<!DOCTYPE frame PUBLIC \"-//Kreative//DTD FrameInfo 1.0//EN\" \"frnx.dtd\">");
+		out.println("<!DOCTYPE frame PUBLIC \"-//Kreative//DTD FrameInfo 1.0//EN\" \"http://www.kreativekorp.com/dtd/frnx.dtd\">");
 		out.println("<frame");
 		if (frame.name != null) {
 			out.println("\tname=\"" + xmls(frame.name) + "\"");

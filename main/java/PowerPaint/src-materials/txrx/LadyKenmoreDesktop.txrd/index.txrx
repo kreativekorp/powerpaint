@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE textures PUBLIC "-//Kreative//DTD PowerTexture 1.0//EN" "../txrx.dtd">
+<!DOCTYPE textures PUBLIC "-//Kreative//DTD PowerTexture 1.0//EN" "http://www.kreativekorp.com/dtd/txrx.dtd">
 <textures name="Lady Kenmore Desktop">
 	<texture href="00SimpleGray.png" name="Simple Gray"/>
 	<texture href="01Blue.png"       name="Blue"       />

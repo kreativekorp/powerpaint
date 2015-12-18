@@ -118,7 +118,7 @@ public class SpriteSheetWriter {
 	private static String sheetToString(SpriteSheet sheet) {
 		StringBuffer sb = new StringBuffer();
 		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-		sb.append("<!DOCTYPE sprite-sheet PUBLIC \"-//Kreative//DTD SpriteInfo 1.0//EN\" \"spnx.dtd\">\n");
+		sb.append("<!DOCTYPE sprite-sheet PUBLIC \"-//Kreative//DTD SpriteInfo 1.0//EN\" \"http://www.kreativekorp.com/dtd/spnx.dtd\">\n");
 		
 		List<String> props = new ArrayList<String>();
 		if (sheet.name != null && sheet.name.length() > 0) {

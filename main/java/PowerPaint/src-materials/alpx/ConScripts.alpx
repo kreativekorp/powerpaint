@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE alphabets PUBLIC "-//Kreative//DTD PowerAlphabet 1.0//EN" "alpx.dtd">
+<!DOCTYPE alphabets PUBLIC "-//Kreative//DTD PowerAlphabet 1.0//EN" "http://www.kreativekorp.com/dtd/alpx.dtd">
 <alphabets name="ConScripts"
            width="14"
            font-family="Constructium"

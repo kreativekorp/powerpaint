@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE patterns PUBLIC "-//Kreative//DTD PowerPattern 1.0//EN" "patx.dtd">
+<!DOCTYPE patterns PUBLIC "-//Kreative//DTD PowerPattern 1.0//EN" "http://www.kreativekorp.com/dtd/patx.dtd">
 <patterns name="HyperCard">
 	<pattern w="8" h="8" d="1">
 		. . . . . . . .

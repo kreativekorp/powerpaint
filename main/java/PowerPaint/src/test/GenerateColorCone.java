@@ -34,7 +34,7 @@ public class GenerateColorCone {
 	
 	private static void generateConePalette(PrintStream out, int s) {
 		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-		out.println("<!DOCTYPE palette PUBLIC \"-//Kreative//DTD ResplendentColor 1.0//EN\" \"rcpx.dtd\">");
+		out.println("<!DOCTYPE palette PUBLIC \"-//Kreative//DTD ResplendentColor 1.0//EN\" \"http://www.kreativekorp.com/dtd/rcpx.dtd\">");
 		out.println("<palette name=\"" + conePaletteName(s) + "\"" + conePaletteSize(s) + ">");
 		out.println("\t<colors ordered=\"unordered\">");
 		generateConeColors(out, "\t\t", s - 1);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE shapes PUBLIC "-//Kreative//DTD PowerShape 1.0//EN" "shpx.dtd">
+<!DOCTYPE shapes PUBLIC "-//Kreative//DTD PowerShape 1.0//EN" "http://www.kreativekorp.com/dtd/shpx.dtd">
 <shapes name="More Shapes">
 	<shape name="Smiley">
 		<param name="a"

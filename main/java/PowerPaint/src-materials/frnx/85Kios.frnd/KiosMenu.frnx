@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE frame PUBLIC "-//Kreative//DTD FrameInfo 1.0//EN" "frnx.dtd">
+<!DOCTYPE frame PUBLIC "-//Kreative//DTD FrameInfo 1.0//EN" "http://www.kreativekorp.com/dtd/frnx.dtd">
 <frame
 	name="Kios Menu"
 	content-start-x="3"
