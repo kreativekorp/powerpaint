@@ -39,7 +39,6 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.PaintSurface;
 import com.kreative.paint.ToolContext;
 import com.kreative.paint.form.EnumOption;
 import com.kreative.paint.form.Form;
@@ -101,7 +100,7 @@ implements ToolOptions.DrawFromCenter, ToolOptions.DrawFilled, ToolOptions.Custo
 		}
 	}
 	
-	private static void drawCA(PaintSurface p, Graphics2D g, InitialCondition init, int rule, int x, int y, int w, int h) {
+	private static void drawCA(Graphics2D g, InitialCondition init, int rule, int x, int y, int w, int h) {
 		if (w > 0 && h > 0) {
 			Shape sc = g.getClip();
 			g.clipRect(x, y, w, h);
@@ -135,7 +134,7 @@ implements ToolOptions.DrawFromCenter, ToolOptions.DrawFilled, ToolOptions.Custo
 					}
 				}
 			}
-			new Bitmap(caw, cah, rgb).paint(p, g, x+(w-caw)/2, y);
+			new Bitmap(caw, cah, rgb).paint(g, x+(w-caw)/2, y);
 			g.setClip(sc);
 		}
 	}
@@ -162,11 +161,7 @@ implements ToolOptions.DrawFromCenter, ToolOptions.DrawFilled, ToolOptions.Custo
 			InitialCondition caInit = e.tc().getCustom(CellularAutomatonTool.class, "caInit", InitialCondition.class, InitialCondition.SIMPLE);
 			int caRule = e.tc().getCustom(CellularAutomatonTool.class, "caRule", Integer.class, 30);
 			ps.applyDraw(g);
-			drawCA(
-					null, g,
-					caInit, caRule,
-					r.x, r.y, r.width, r.height
-			);
+			drawCA(g, caInit, caRule, r.x, r.y, r.width, r.height);
 			g.setComposite(AlphaComposite.SrcOver);
 			g.setColor(Color.gray);
 			g.setFont(new Font("SansSerif", Font.PLAIN, 10));
@@ -201,11 +196,7 @@ implements ToolOptions.DrawFromCenter, ToolOptions.DrawFilled, ToolOptions.Custo
 		InitialCondition caInit = e.tc().getCustom(CellularAutomatonTool.class, "caInit", InitialCondition.class, InitialCondition.SIMPLE);
 		int caRule = e.tc().getCustom(CellularAutomatonTool.class, "caRule", Integer.class, 30);
 		ps.applyDraw(g);
-		drawCA(
-				e.getPaintSurface(), g,
-				caInit, caRule,
-				r.x, r.y, r.width, r.height
-		);
+		drawCA(g, caInit, caRule, r.x, r.y, r.width, r.height);
 		e.commitTransaction();
 		return true;
 	}
@@ -269,7 +260,7 @@ implements ToolOptions.DrawFromCenter, ToolOptions.DrawFilled, ToolOptions.Custo
 			public void generatePreview(Graphics2D g, Rectangle r) {
 				InitialCondition caInit = tc.getCustom(CellularAutomatonTool.class, "caInit", InitialCondition.class, InitialCondition.SIMPLE);
 				int caRule = tc.getCustom(CellularAutomatonTool.class, "caRule", Integer.class, 30);
-				drawCA(null, g, caInit, caRule, r.x, r.y, r.width, r.height);
+				drawCA(g, caInit, caRule, r.x, r.y, r.width, r.height);
 			}
 		});
 		f.add(new IntegerOption() {

@@ -182,6 +182,10 @@ public class Tile implements Recordable, PaintSurface {
 		this.notifyTileListeners(TileEvent.TILE_MATTE_CHANGED);
 	}
 	
+	public BufferedImage getImage() {
+		return image;
+	}
+	
 	public void paint(Graphics2D g) {
 		g.drawImage(image, null, x, y);
 	}
@@ -323,7 +327,7 @@ public class Tile implements Recordable, PaintSurface {
 			int[] oldRGB = new int[width * height];
 			this.getRGB(x, y, width, height, oldRGB, 0, width);
 			for (int oy = 0, ny = offset, ay = y, iy = 0; iy < height; oy += width, ny += rowCount, ay++, iy++) {
-				for (int ox = oy, nx = ny, ax = x, ix = 0; ix < width; oy++, ny++, ax++, ix++) {
+				for (int ox = oy, nx = ny, ax = x, ix = 0; ix < width; ox++, nx++, ax++, ix++) {
 					if (clip.contains(ax, ay)) oldRGB[ox] = rgb[nx];
 				}
 			}
@@ -348,7 +352,7 @@ public class Tile implements Recordable, PaintSurface {
 			int[] oldRGB = new int[width * height];
 			this.getRGB(x, y, width, height, oldRGB, 0, width);
 			for (int oy = 0, ay = y, iy = 0; iy < height; oy += width, ay++, iy++) {
-				for (int ox = oy, ax = x, ix = 0; ix < width; oy++, ax++, ix++) {
+				for (int ox = oy, ax = x, ix = 0; ix < width; ox++, ax++, ix++) {
 					if (clip.contains(ax, ay)) oldRGB[ox] = matte;
 				}
 			}

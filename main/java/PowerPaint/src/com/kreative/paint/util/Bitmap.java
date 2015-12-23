@@ -12,7 +12,6 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.Raster;
 import java.util.Arrays;
-import com.kreative.paint.PaintSurface;
 
 public class Bitmap {
 	private int width, height;
@@ -99,7 +98,7 @@ public class Bitmap {
 		return cursorCache;
 	}
 	
-	public void paint(PaintSurface srf, Graphics2D g, int x, int y) {
+	public void paint(Graphics2D g, int x, int y) {
 		Paint p = g.getPaint();
 		RenderingHints h = g.getRenderingHints();
 		AffineTransform t = g.getTransform();

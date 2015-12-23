@@ -34,7 +34,6 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.PaintSurface;
 import com.kreative.paint.ToolContext;
 import com.kreative.paint.form.Form;
 import com.kreative.paint.form.IntegerEnumOption;
@@ -138,36 +137,33 @@ public class SpraypaintTool extends AbstractPaintTool implements ToolOptions.Cus
 		if (rgbcache == null) makeCache(e);
 		e.beginTransaction(getName());
 		PaintSettings ps = e.getPaintSettings();
-		PaintSurface srf = e.getPaintSurface();
 		Graphics2D g = e.getPaintGraphics();
 		float x = e.getX();
 		float y = e.getY();
 		ps.applyFill(g);
-		new Bitmap(32, 32, rgbcache).paint(srf, g, (int)x-16, (int)y-16);
+		new Bitmap(32, 32, rgbcache).paint(g, (int)x-16, (int)y-16);
 		return true;
 	}
 
 	public boolean mouseDragged(ToolEvent e) {
 		if (rgbcache == null) makeCache(e);
 		PaintSettings ps = e.getPaintSettings();
-		PaintSurface srf = e.getPaintSurface();
 		Graphics2D g = e.getPaintGraphics();
 		float x = e.getX();
 		float y = e.getY();
 		ps.applyFill(g);
-		new Bitmap(32, 32, rgbcache).paint(srf, g, (int)x-16, (int)y-16);
+		new Bitmap(32, 32, rgbcache).paint(g, (int)x-16, (int)y-16);
 		return true;
 	}
 
 	public boolean mouseReleased(ToolEvent e) {
 		if (rgbcache == null) makeCache(e);
 		PaintSettings ps = e.getPaintSettings();
-		PaintSurface srf = e.getPaintSurface();
 		Graphics2D g = e.getPaintGraphics();
 		float x = e.getX();
 		float y = e.getY();
 		ps.applyFill(g);
-		new Bitmap(32, 32, rgbcache).paint(srf, g, (int)x-16, (int)y-16);
+		new Bitmap(32, 32, rgbcache).paint(g, (int)x-16, (int)y-16);
 		e.commitTransaction();
 		return true;
 	}

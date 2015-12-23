@@ -33,7 +33,6 @@ import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.util.BitSet;
 import java.util.Random;
-import com.kreative.paint.PaintSurface;
 import com.kreative.paint.util.Bitmap;
 
 public class BrushSettings {
@@ -187,24 +186,14 @@ public class BrushSettings {
 		}
 	}
 	
-	public void spray(PaintSurface srf, Graphics2D g, float x, float y) {
+	public void spray(Graphics2D g, float x, float y) {
 		int[] rgb = new int[bmw*bmh];
 		for (int i = 0, k = flowRate; k >= 0; k--) {
 			i = bmr.nextInt(rgb.length); if (bmi.get(i)) rgb[i] = 0xFF000000;
 			i = bmr.nextInt(rgb.length); if (bmi.get(i)) rgb[i] = 0xFF000000;
 			i = bmr.nextInt(rgb.length); if (bmi.get(i)) rgb[i] = 0xFF000000;
 			i = bmr.nextInt(rgb.length); if (bmi.get(i)) rgb[i] = 0xFF000000;
-			/*
-			do { i = bmr.nextInt(rgb.length); } while (!bmi.get(i));
-			rgb[i] = 0xFF000000;
-			do { i = bmr.nextInt(rgb.length); } while (!bmi.get(i));
-			rgb[i] = 0xFF000000;
-			do { i = bmr.nextInt(rgb.length); } while (!bmi.get(i));
-			rgb[i] = 0xFF000000;
-			do { i = bmr.nextInt(rgb.length); } while (!bmi.get(i));
-			rgb[i] = 0xFF000000;
-			*/
 		}
-		new Bitmap(bmw, bmh, rgb).paint(srf, g, (int)x-bmw/2, (int)y-bmh/2);
+		new Bitmap(bmw, bmh, rgb).paint(g, (int)x-bmw/2, (int)y-bmh/2);
 	}
 }

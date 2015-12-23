@@ -35,7 +35,6 @@ import java.awt.Image;
 import java.awt.Shape;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
-import com.kreative.paint.PaintSurface;
 import com.kreative.paint.powerbrush.BrushSettings;
 import com.kreative.paint.util.CursorUtils;
 
@@ -96,37 +95,33 @@ public class PowerSpraypaintTool extends AbstractPaintTool implements ToolOption
 	public boolean mousePressed(ToolEvent e) {
 		if (cache == null) makeCache(e);
 		e.beginTransaction(getName());
-		PaintSurface srf = e.getPaintSurface();
 		Graphics2D g = e.getPaintGraphics();
 		e.getPaintSettings().applyFill(g);
-		cache.spray(srf, g, e.getX(), e.getY());
+		cache.spray(g, e.getX(), e.getY());
 		return true;
 	}
 	
 	public boolean mouseHeld(ToolEvent e) {
 		if (cache == null) makeCache(e);
-		PaintSurface srf = e.getPaintSurface();
 		Graphics2D g = e.getPaintGraphics();
 		e.getPaintSettings().applyFill(g);
-		cache.spray(srf, g, e.getX(), e.getY());
+		cache.spray(g, e.getX(), e.getY());
 		return true;
 	}
 	
 	public boolean mouseDragged(ToolEvent e) {
 		if (cache == null) makeCache(e);
-		PaintSurface srf = e.getPaintSurface();
 		Graphics2D g = e.getPaintGraphics();
 		e.getPaintSettings().applyFill(g);
-		cache.spray(srf, g, e.getX(), e.getY());
+		cache.spray(g, e.getX(), e.getY());
 		return true;
 	}
 	
 	public boolean mouseReleased(ToolEvent e) {
 		if (cache == null) makeCache(e);
-		PaintSurface srf = e.getPaintSurface();
 		Graphics2D g = e.getPaintGraphics();
 		e.getPaintSettings().applyFill(g);
-		cache.spray(srf, g, e.getX(), e.getY());
+		cache.spray(g, e.getX(), e.getY());
 		e.commitTransaction();
 		return true;
 	}

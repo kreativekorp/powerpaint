@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.io;
 
 import java.awt.*;
@@ -35,6 +8,8 @@ import java.util.Collection;
 import java.util.zip.*;
 import com.kreative.paint.*;
 import com.kreative.paint.Canvas;
+import com.kreative.paint.document.tile.Tile;
+import com.kreative.paint.document.tile.TileSurface;
 import com.kreative.paint.draw.DrawObject;
 
 public class CKPaintSerializer extends Serializer {
@@ -42,6 +17,7 @@ public class CKPaintSerializer extends Serializer {
 	private static final int TYPE_LAYER = fcc("Layr");
 	private static final int TYPE_PAINT_SETTINGS = fcc("PtSt");
 	private static final int TYPE_TILE = fcc("Tile");
+	private static final int TYPE_TILE_SURFACE = fcc("TSrf");
 	
 	private static final int BI_TYPE_INT_ARGB = fcc("argb");
 	
@@ -49,7 +25,8 @@ public class CKPaintSerializer extends Serializer {
 		addTypeAndClass(TYPE_CANVAS, 1, Canvas.class);
 		addTypeAndClass(TYPE_LAYER, 1, Layer.class);
 		addTypeAndClass(TYPE_PAINT_SETTINGS, 2, PaintSettings.class);
-		addTypeAndClass(TYPE_TILE, 1, Tile.class);
+		addTypeAndClass(TYPE_TILE, 2, Tile.class);
+		addTypeAndClass(TYPE_TILE_SURFACE, 1, TileSurface.class);
 	}
 	
 	public void serializeObject(Object o, DataOutputStream stream) throws IOException {
@@ -67,8 +44,7 @@ public class CKPaintSerializer extends Serializer {
 			for (Layer l : v) {
 				SerializationManager.writeObject(l, stream);
 			}
-		}
-		else if (o instanceof Layer) {
+		} else if (o instanceof Layer) {
 			Layer v = (Layer)o;
 			stream.writeUTF(v.getName());
 			stream.writeBoolean(v.isVisible());
@@ -92,8 +68,7 @@ public class CKPaintSerializer extends Serializer {
 			SerializationManager.writeObject(v.getClip(), stream);
 			SerializationManager.writeObject(v.getPoppedImage(), stream);
 			SerializationManager.writeObject(v.getPoppedImageTransform(), stream);
-		}
-		else if (o instanceof PaintSettings) {
+		} else if (o instanceof PaintSettings) {
 			PaintSettings v = (PaintSettings)o;
 			SerializationManager.writeObject(v.getDrawComposite(), stream);
 			SerializationManager.writeObject(v.getDrawPaint(), stream);
@@ -103,16 +78,20 @@ public class CKPaintSerializer extends Serializer {
 			SerializationManager.writeObject(v.getFont(), stream);
 			SerializationManager.writeObject(v.getTextAlignment(), stream);
 			SerializationManager.writeObject(v.isAntiAliased(), stream);
-		}
-		else if (o instanceof Tile) {
+		} else if (o instanceof Tile) {
 			Tile v = (Tile)o;
-			stream.writeInt(v.getX());
-			stream.writeInt(v.getY());
-			stream.writeInt(v.getWidth());
-			stream.writeInt(v.getHeight());
-			stream.writeInt(BI_TYPE_INT_ARGB);
-			int[] rgb = new int[v.getWidth()*v.getHeight()];
-			v.getRGB(0, 0, v.getWidth(), v.getHeight(), rgb, 0, v.getWidth());
+			int x = v.getX();
+			int y = v.getY();
+			int width = v.getWidth();
+			int height = v.getHeight();
+			int matte = v.getMatte();
+			stream.writeInt(x);
+			stream.writeInt(y);
+			stream.writeInt(width);
+			stream.writeInt(height);
+			stream.writeInt(matte);
+			int[] rgb = new int[width * height];
+			v.getRGB(x, y, width, height, rgb, 0, width);
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			DeflaterOutputStream dos = new DeflaterOutputStream(bos);
 			for (int p : rgb) dos.write((p >> 24) & 0xFF);
@@ -125,12 +104,22 @@ public class CKPaintSerializer extends Serializer {
 			byte crgb[] = bos.toByteArray();
 			stream.writeInt(crgb.length);
 			stream.write(crgb);
+		} else if (o instanceof TileSurface) {
+			TileSurface v = (TileSurface)o;
+			stream.writeInt(v.getX());
+			stream.writeInt(v.getY());
+			stream.writeInt(v.getTileWidth());
+			stream.writeInt(v.getTileHeight());
+			stream.writeInt(v.getMatte());
+			Collection<Tile> tiles = v.getTiles();
+			stream.writeInt(tiles.size());
+			for (Tile t : tiles) SerializationManager.writeObject(t, stream);
 		}
 	}
 	
 	public Object deserializeObject(int type, int version, DataInputStream stream) throws IOException {
-		if (!(version == 1 || (type == TYPE_PAINT_SETTINGS && version == 2))) throw new IOException("Invalid version number.");
-		else if (type == TYPE_CANVAS) {
+		if (type == TYPE_CANVAS) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			int w = stream.readInt();
 			int h = stream.readInt();
 			int dx = stream.readInt();
@@ -154,8 +143,8 @@ public class CKPaintSerializer extends Serializer {
 				o.add(l);
 			}
 			return o;
-		}
-		else if (type == TYPE_LAYER) {
+		} else if (type == TYPE_LAYER) {
+			if (version != 1) throw new IOException("Invalid version number.");
 			String name = stream.readUTF();
 			boolean vis = stream.readBoolean();
 			boolean lock = stream.readBoolean();
@@ -166,14 +155,13 @@ public class CKPaintSerializer extends Serializer {
 			int matte = stream.readInt();
 			stream.readInt();
 			int tsize = stream.readInt();
-			Layer l = new Layer(tsize);
+			Layer l = new Layer(tsize, matte);
 			l.setName(name);
 			l.setVisible(vis);
 			l.setLocked(lock);
 			l.setSelected(sel);
 			l.setX(x);
 			l.setY(y);
-			l.setMatte(matte);
 			int ntiles = stream.readInt();
 			for (int i = 0; i < ntiles; i++) {
 				Tile tile = (Tile)SerializationManager.readObject(stream);
@@ -195,8 +183,8 @@ public class CKPaintSerializer extends Serializer {
 				l.setPoppedImage(null, null);
 			}
 			return l;
-		}
-		else if (type == TYPE_PAINT_SETTINGS) {
+		} else if (type == TYPE_PAINT_SETTINGS) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			Composite dc = (Composite)SerializationManager.readObject(stream);
 			Paint dp = (Paint)SerializationManager.readObject(stream);
 			Composite fc = (Composite)SerializationManager.readObject(stream);
@@ -206,17 +194,17 @@ public class CKPaintSerializer extends Serializer {
 			int ta = (Integer)SerializationManager.readObject(stream);
 			boolean aa = (version > 1) ? (Boolean)SerializationManager.readObject(stream) : false;
 			return new PaintSettings(dc,dp,fc,fp,st,fn,ta,aa);
-		}
-		else if (type == TYPE_TILE) {
+		} else if (type == TYPE_TILE) {
+			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			int x = stream.readInt();
 			int y = stream.readInt();
-			int w = stream.readInt();
-			int h = stream.readInt();
-			stream.readInt();
-			int l = stream.readInt();
-			byte[] crgb = new byte[l];
+			int width = stream.readInt();
+			int height = stream.readInt();
+			int matte = stream.readInt();
+			int clen = stream.readInt();
+			byte[] crgb = new byte[clen];
 			stream.read(crgb);
-			int[] rgb = new int[w*h];
+			int[] rgb = new int[width * height];
 			ByteArrayInputStream bis = new ByteArrayInputStream(crgb);
 			InflaterInputStream iis = new InflaterInputStream(bis);
 			for (int i = 0; i < rgb.length; i++) rgb[i] |= ((iis.read() << 24) & 0xFF000000);
@@ -225,10 +213,25 @@ public class CKPaintSerializer extends Serializer {
 			for (int i = 0; i < rgb.length; i++) rgb[i] |= (iis.read() & 0xFF);
 			iis.close();
 			bis.close();
-			Tile bi = new Tile(x,y,w,h);
-			bi.setRGB(0, 0, w, h, rgb, 0, w);
-			return bi;
+			Tile t = new Tile(x, y, width, height, (version < 2) ? 0x00FFFFFF : matte);
+			t.setRGB(x, y, width, height, rgb, 0, width);
+			return t;
+		} else if (type == TYPE_TILE_SURFACE) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			int x = stream.readInt();
+			int y = stream.readInt();
+			int width = stream.readInt();
+			int height = stream.readInt();
+			int matte = stream.readInt();
+			int tiles = stream.readInt();
+			TileSurface ts = new TileSurface(x, y, width, height, matte);
+			for (int i = 0; i < tiles; i++) {
+				Tile t = (Tile)SerializationManager.readObject(stream);
+				ts.addTile(t);
+			}
+			return ts;
+		} else {
+			return null;
 		}
-		else return null;
 	}
 }

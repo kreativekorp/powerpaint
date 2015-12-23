@@ -271,7 +271,22 @@ public class TileSurface implements Recordable, PaintSurface {
 		return t;
 	}
 	
-	protected Tile getTile(int x, int y, boolean create) {
+	public void addTile(Tile t) {
+		int x = t.getX() >> tws;
+		int y = t.getY() >> ths;
+		long key = (x & 0xFFFFFFFFL) | ((y & 0xFFFFFFFFL) << 32L);
+		if (history != null) history.add(new SetTileAtom(this, key, t));
+		if (tiles.containsKey(key)) {
+			tiles.get(key).setHistory(null);
+			tiles.get(key).removeTileListener(tileListener);
+		}
+		t.setHistory(history);
+		t.addTileListener(tileListener);
+		this.tiles.put(key, t);
+		this.notifyTileSurfaceListeners(TileSurfaceEvent.TILE_SURFACE_CONTENT_CHANGED);
+	}
+	
+	public Tile getTile(int x, int y, boolean create) {
 		x = ((x - this.x) >> tws);
 		y = ((y - this.y) >> ths);
 		long key = (x & 0xFFFFFFFFL) | ((y & 0xFFFFFFFFL) << 32L);
@@ -280,7 +295,7 @@ public class TileSurface implements Recordable, PaintSurface {
 		else return null;
 	}
 	
-	protected Collection<Tile> getTiles(int x, int y, int width, int height, boolean create) {
+	public Collection<Tile> getTiles(int x, int y, int width, int height, boolean create) {
 		Collection<Tile> intersectingTiles = new HashSet<Tile>();
 		if (width < 0) { x += width; width = -width; }
 		if (height < 0) { y += height; height = -height; }
@@ -298,7 +313,7 @@ public class TileSurface implements Recordable, PaintSurface {
 		return intersectingTiles;
 	}
 	
-	protected Collection<Tile> getTiles() {
+	public Collection<Tile> getTiles() {
 		return tiles.values();
 	}
 	
@@ -397,7 +412,7 @@ public class TileSurface implements Recordable, PaintSurface {
 			int[] oldRGB = new int[width * height];
 			this.getRGB(x, y, width, height, oldRGB, 0, width);
 			for (int oy = 0, ny = offset, ay = y, iy = 0; iy < height; oy += width, ny += rowCount, ay++, iy++) {
-				for (int ox = oy, nx = ny, ax = x, ix = 0; ix < width; oy++, ny++, ax++, ix++) {
+				for (int ox = oy, nx = ny, ax = x, ix = 0; ix < width; ox++, nx++, ax++, ix++) {
 					if (clip.contains(ax, ay)) oldRGB[ox] = rgb[nx];
 				}
 			}
@@ -420,7 +435,7 @@ public class TileSurface implements Recordable, PaintSurface {
 			int[] oldRGB = new int[width * height];
 			this.getRGB(x, y, width, height, oldRGB, 0, width);
 			for (int oy = 0, ay = y, iy = 0; iy < height; oy += width, ay++, iy++) {
-				for (int ox = oy, ax = x, ix = 0; ix < width; oy++, ax++, ix++) {
+				for (int ox = oy, ax = x, ix = 0; ix < width; ox++, ax++, ix++) {
 					if (clip.contains(ax, ay)) oldRGB[ox] = matte;
 				}
 			}

@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import com.kreative.paint.Layer;
-import com.kreative.paint.PaintSurface;
+import com.kreative.paint.document.tile.PaintSurface;
 import com.kreative.paint.geom.BitmapShape;
 import com.kreative.paint.util.CursorUtils;
 

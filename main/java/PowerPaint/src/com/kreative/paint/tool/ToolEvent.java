@@ -36,8 +36,8 @@ import com.kreative.paint.Layer;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.PaintContextConstants;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.PaintSurface;
 import com.kreative.paint.ToolContext;
+import com.kreative.paint.document.tile.PaintSurface;
 import com.kreative.paint.document.undo.History;
 import com.kreative.paint.draw.DrawObject;
 

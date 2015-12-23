@@ -35,7 +35,7 @@ import java.awt.Image;
 import java.awt.Paint;
 import java.awt.geom.GeneralPath;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.PaintSurface;
+import com.kreative.paint.document.tile.PaintSurface;
 import com.kreative.paint.draw.PencilStrokeDrawObject;
 import com.kreative.paint.material.pattern.PatternPaint;
 import com.kreative.paint.util.CursorUtils;

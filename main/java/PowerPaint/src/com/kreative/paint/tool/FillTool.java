@@ -43,7 +43,7 @@ import java.util.Map;
 import java.util.Set;
 import com.kreative.paint.Layer;
 import com.kreative.paint.PaintSettings;
-import com.kreative.paint.PaintSurface;
+import com.kreative.paint.document.tile.PaintSurface;
 import com.kreative.paint.draw.DrawObject;
 import com.kreative.paint.util.Bitmap;
 import com.kreative.paint.util.CursorUtils;
@@ -183,7 +183,7 @@ public class FillTool extends AbstractPaintDrawTool {
 					nrgb[ny+nx] = prgb[py+px];
 				}
 			}
-			new Bitmap(cw, ch, nrgb).paint(p, g2, bounds.x+cbx1, bounds.y+cby1);
+			new Bitmap(cw, ch, nrgb).paint(g2, bounds.x+cbx1, bounds.y+cby1);
 		}
 	}
 	
@@ -253,7 +253,7 @@ public class FillTool extends AbstractPaintDrawTool {
 					nrgb[ny+nx] = prgb[py+px];
 				}
 			}
-			new Bitmap(cw, ch, nrgb).paint(p, g2, bounds.x+cbx1, bounds.y+cby1);
+			new Bitmap(cw, ch, nrgb).paint(g2, bounds.x+cbx1, bounds.y+cby1);
 		}
 	}
 	

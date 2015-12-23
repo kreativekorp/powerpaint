@@ -2,6 +2,7 @@ package com.kreative.paint.material.pattern;
 
 import java.awt.Paint;
 import java.awt.PaintContext;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
@@ -39,7 +40,7 @@ public class PatternPaint implements Paint {
 		PaintContext bg = background.createContext(cm, deviceBounds, userBounds, xform, hints);
 		if (pattern.isForeground()) return fg;
 		if (pattern.isBackground()) return bg;
-		return new PatternPaintContext(fg, bg, pattern);
+		return new PatternPaintContext(fg, bg, pattern, xform);
 	}
 	
 	@Override
@@ -58,11 +59,13 @@ public class PatternPaint implements Paint {
 		private final PaintContext foreground;
 		private final PaintContext background;
 		private final Pattern pattern;
+		private final AffineTransform tx;
 		
-		public PatternPaintContext(PaintContext foreground, PaintContext background, Pattern pattern) {
+		public PatternPaintContext(PaintContext foreground, PaintContext background, Pattern pattern, AffineTransform tx) {
 			this.foreground = foreground;
 			this.background = background;
 			this.pattern = pattern;
+			this.tx = tx;
 		}
 		
 		@Override
@@ -72,11 +75,18 @@ public class PatternPaint implements Paint {
 			ColorModel foreModel = foreground.getColorModel();
 			ColorModel backModel = background.getColorModel();
 			BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+			Point p = new Point();
 			for (int ry = y, ny = 0; ny < h; ry++, ny++) {
 				for (int rx = x, nx = 0; nx < w; rx++, nx++) {
 					int foreRGB = foreModel.getRGB(foreRaster.getDataElements(nx, ny, null));
 					int backRGB = backModel.getRGB(backRaster.getDataElements(nx, ny, null));
-					int rgb = pattern.getRGB(rx, ry, backRGB, foreRGB);
+					p.x = rx;
+					p.y = ry;
+					if (tx != null) {
+						try { tx.inverseTransform(p, p); }
+						catch (Exception e) {}
+					}
+					int rgb = pattern.getRGB(p.x, p.y, backRGB, foreRGB);
 					img.setRGB(nx, ny, rgb);
 				}
 			}

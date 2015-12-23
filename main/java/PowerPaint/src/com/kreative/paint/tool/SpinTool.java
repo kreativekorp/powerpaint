@@ -170,8 +170,9 @@ public class SpinTool extends AbstractPaintTool implements ToolOptions.Custom {
 		}
 		while (etime >= dc) {
 			new Bitmap(lc*4, lc*4, cache[(phase++) & 63]).paint(
-					e.getPaintSurface(), e.getPaintGraphics(),
-					(int)e.getX()-lc*2, (int)e.getY()-lc*2
+				e.getPaintGraphics(),
+				(int)e.getX()-lc*2,
+				(int)e.getY()-lc*2
 			);
 			etime -= dc;
 		}

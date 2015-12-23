@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint;
 
 import java.awt.AlphaComposite;
@@ -35,18 +8,19 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Area;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
+import com.kreative.paint.document.tile.PaintSurface;
+import com.kreative.paint.document.tile.Tile;
+import com.kreative.paint.document.tile.TileSurface;
 import com.kreative.paint.document.undo.Atom;
 import com.kreative.paint.document.undo.History;
 import com.kreative.paint.document.undo.Recordable;
@@ -54,36 +28,7 @@ import com.kreative.paint.draw.DrawObject;
 import com.kreative.paint.draw.ImageDrawObject;
 import com.kreative.paint.util.ImageUtils;
 
-public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recordable {
-	public static final int TILE_SIZE_MIN = 0;
-	public static final int TILE_SIZE_1x1 = 0;
-	public static final int TILE_SIZE_2x2 = 1;
-	public static final int TILE_SIZE_4x4 = 2;
-	public static final int TILE_SIZE_8x8 = 3;
-	public static final int TILE_SIZE_16x16 = 4;
-	public static final int TILE_SIZE_32x32 = 5;
-	public static final int TILE_SIZE_64x64 = 6;
-	public static final int TILE_SIZE_128x128 = 7;
-	public static final int TILE_SIZE_256x256 = 8;
-	public static final int TILE_SIZE_DEFAULT = 8;
-	public static final int TILE_SIZE_512x512 = 9;
-	public static final int TILE_SIZE_1024x1024 = 10;
-	public static final int TILE_SIZE_2048x2048 = 11;
-	public static final int TILE_SIZE_4096x4096 = 12;
-	public static final int TILE_SIZE_8192x8192 = 13;
-	public static final int TILE_SIZE_16384x16384 = 14;
-	public static final int TILE_SIZE_32768x32768 = 15;
-	public static final int TILE_SIZE_65536x65536 = 16;
-	public static final int TILE_SIZE_131072x131072 = 17;
-	public static final int TILE_SIZE_262144x262144 = 18;
-	public static final int TILE_SIZE_524288x524288 = 19;
-	public static final int TILE_SIZE_1048576x1048576 = 20;
-	public static final int TILE_SIZE_2097152x2097152 = 21;
-	public static final int TILE_SIZE_4194304x4194304 = 22;
-	public static final int TILE_SIZE_8388608x8388608 = 23;
-	public static final int TILE_SIZE_16777216x16777216 = 24;
-	public static final int TILE_SIZE_MAX = 24;
-	
+public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 	private History history;
 	private String name;
 	private boolean visible;
@@ -92,11 +37,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 	private int x;
 	private int y;
 	private Shape clip;
-	private int matte;
-	private int tileSize;
-	private int tileSizeWH;
-	private int tileSizeM;
-	private Map<Long, Tile> tiles;
+	private TileSurface ts;
 	private BufferedImage poppedImage;
 	private AffineTransform poppedImageTransform;
 	private Vector<DrawObject> objects;
@@ -104,13 +45,10 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 	private Graphics2D drawGraphicsCache;
 	
 	public Layer() {
-		this(TILE_SIZE_DEFAULT);
+		this(8, 0x00FFFFFF);
 	}
 	
-	public Layer(int tileSize) {
-		if (tileSize < TILE_SIZE_MIN || tileSize > TILE_SIZE_MAX) {
-			throw new IllegalArgumentException("tileSize = " + tileSize);
-		}
+	public Layer(int tileSize, int matte) {
 		this.name = "";
 		this.visible = true;
 		this.locked = false;
@@ -118,11 +56,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 		this.x = 0;
 		this.y = 0;
 		this.clip = null;
-		this.matte = 0x00FFFFFF;
-		this.tileSize = tileSize;
-		this.tileSizeWH = 1 << tileSize;
-		this.tileSizeM = (1 << tileSize) - 1;
-		this.tiles = new HashMap<Long, Tile>();
+		this.ts = new TileSurface(0, 0, tileSize, tileSize, matte);
 		this.poppedImage = null;
 		this.poppedImageTransform = null;
 		this.objects = new Vector<DrawObject>();
@@ -136,7 +70,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 	
 	public void setHistory(History history) {
 		this.history = history;
-		for (Tile t : tiles.values()) t.setHistory(history);
+		ts.setHistory(history);
 		for (DrawObject d : objects) d.setHistory(history);
 	}
 	
@@ -193,7 +127,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 	}
 	
 	public int getMatte() {
-		return matte;
+		return ts.getMatte();
 	}
 	
 	private static class NameAtom implements Atom {
@@ -402,7 +336,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 		Graphics2D pg = pimg.createGraphics();
 		pg.translate(-bounds.x, -bounds.y);
 		pg.setClip(shape);
-		for (Tile t : tiles.values()) t.paint(pg);
+		ts.paint(pg);
 		pg.dispose();
 		if (!copy) {
 			Shape sc = clip;
@@ -438,7 +372,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 			Graphics2D pg = pimg.createGraphics();
 			pg.translate(-bounds.x, -bounds.y);
 			pg.setClip(shape);
-			for (Tile t : tiles.values()) t.paint(pg);
+			ts.paint(pg);
 			pg.dispose();
 			return pimg;
 		}
@@ -457,7 +391,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 			Graphics2D pg = pimg.createGraphics();
 			pg.translate(-bounds.x, -bounds.y);
 			pg.setClip(shape);
-			for (Tile t : tiles.values()) t.paint(pg);
+			ts.paint(pg);
 			pg.dispose();
 			return new ImageDrawObject((Image)pimg, (AffineTransform)AffineTransform.getTranslateInstance(bounds.x, bounds.y));
 		}
@@ -480,7 +414,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 			AffineTransformOp op = (poppedImageTransform == null) ? null : new AffineTransformOp(poppedImageTransform, AffineTransformOp.TYPE_BICUBIC);
 			Graphics2D g = getCachedPaintGraphics();
 			g.setClip(null);
-			g.setPaint(new Color(matte));
+			g.setPaint(new Color(ts.getMatte()));
 			g.setComposite(AlphaComposite.SrcOver);
 			g.drawImage(poppedImage, op, 0, 0);
 			setPoppedImage(null, null);
@@ -505,42 +439,12 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 		}
 	}
 	
-	private static class MatteAtom implements Atom {
-		private Layer l;
-		private int oldMatte;
-		private int newMatte;
-		public MatteAtom(Layer l, int matte) {
-			this.l = l;
-			this.oldMatte = l.matte;
-			this.newMatte = matte;
-		}
-		public Atom buildUpon(Atom previousAtom) {
-			this.oldMatte = ((MatteAtom)previousAtom).oldMatte;
-			return this;
-		}
-		public boolean canBuildUpon(Atom previousAtom) {
-			return (previousAtom instanceof MatteAtom) && ((MatteAtom)previousAtom).l == this.l;
-		}
-		public void redo() {
-			l.matte = newMatte;
-		}
-		public void undo() {
-			l.matte = oldMatte;
-		}
-	}
-	
-	public void setMatte(int matte) {
-		if (this.matte == matte) return;
-		if (history != null) history.add(new MatteAtom(this, matte));
-		this.matte = matte;
-	}
-	
 	public int getTileSize() {
-		return tileSize;
+		return ts.getTileWidth();
 	}
 	
 	public void paint(Graphics2D g) {
-		for (Tile t : tiles.values()) t.paint(g, x, y);
+		ts.paint(g, x, y);
 		if (poppedImage != null) {
 			AffineTransform tr = AffineTransform.getTranslateInstance(0, 0);
 			tr.translate(x, y);
@@ -551,7 +455,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 	}
 	
 	public void paint(Graphics2D g, int tx, int ty) {
-		for (Tile t : tiles.values()) t.paint(g, x+tx, y+ty);
+		ts.paint(g, x + tx, y + ty);
 		if (poppedImage != null) {
 			AffineTransform tr = AffineTransform.getTranslateInstance(0, 0);
 			tr.translate(x+tx, y+ty);
@@ -562,7 +466,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 	}
 	
 	public Graphics2D createPaintGraphics() {
-		Graphics2D g = new TiledPaintSurfaceGraphics(this);
+		Graphics2D g = ts.createPaintGraphics();
 		g.setClip(clip);
 		return g;
 	}
@@ -573,7 +477,7 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 	
 	public Graphics2D getCachedPaintGraphics() {
 		if (paintGraphicsCache == null)
-			paintGraphicsCache = new TiledPaintSurfaceGraphics(this);
+			paintGraphicsCache = ts.createPaintGraphics();
 		paintGraphicsCache.setClip(clip);
 		return paintGraphicsCache;
 	}
@@ -618,197 +522,66 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 	}
 	
 	public int getRGB(int x, int y) {
-		Tile t = getTile(x, y, false);
-		if (t == null) return matte;
-		else return t.getRGB(x & tileSizeM, y & tileSizeM);
+		return ts.getRGB(x, y);
 	}
 	
 	public int[] getRGB(int bx, int by, int width, int height, int[] rgb, int offset, int rowCount) {
-		if (rgb == null) {
-			rgb = new int[offset + height * rowCount];
-		}
-		Arrays.fill(rgb, offset, offset + height * rowCount, matte);
-		Collection<Tile> tt = getTiles(bx, by, width, height, false);
-		for (Tile t : tt) {
-			int x1 = bx - t.getX(); if (x1 < 0) x1 = 0; else if (x1 > t.getWidth()) x1 = t.getWidth();
-			int y1 = by - t.getY(); if (y1 < 0) y1 = 0; else if (y1 > t.getHeight()) y1 = t.getHeight();
-			int x2 = bx+width - t.getX(); if (x2 < 0) x2 = 0; else if (x2 > t.getWidth()) x2 = t.getWidth();
-			int y2 = by+height - t.getY(); if (y2 < 0) y2 = 0; else if (y2 > t.getHeight()) y2 = t.getHeight();
-			int xo = t.getX() - bx; if (xo < 0) xo = 0;
-			int yo = t.getY() - by; if (yo < 0) yo = 0;
-			t.getRGB(x1, y1, x2-x1, y2-y1, rgb, offset+xo+(yo*rowCount), rowCount);
-		}
-		return rgb;
+		return ts.getRGB(bx, by, width, height, rgb, offset, rowCount);
 	}
 	
 	public void setRGB(int x, int y, int rgb) {
-		if (clip == null || clip.contains(x, y)) {
-			Tile t = getTile(x, y, true);
-			t.setRGB(x & tileSizeM, y & tileSizeM, rgb);
-		}
+		ts.setRGB(x, y, rgb, clip);
+	}
+	
+	public void setRGB(int x, int y, int rgb, Shape clip) {
+		Area a = new Area(this.clip);
+		a.intersect(new Area(clip));
+		ts.setRGB(x, y, rgb, a);
 	}
 	
 	public void setRGB(int bx, int by, int width, int height, int[] rgb, int offset, int rowCount) {
-		if (clip != null) {
-			int[] nrgb = new int[rgb.length];
-			getRGB(bx, by, width, height, nrgb, offset, rowCount);
-			for (int ly = by, ay = offset, dy = 0; dy < height; ly++, ay += rowCount, dy++) {
-				for (int lx = bx, ax = ay, dx = 0; dx < width; lx++, ax++, dx++) {
-					if (clip.contains(lx, ly)) {
-						nrgb[ax] = rgb[ax];
-					}
-				}
-			}
-			rgb = nrgb;
-		}
-		Collection<Tile> tt = getTiles(bx, by, width, height, true);
-		for (Tile t : tt) {
-			int x1 = bx - t.getX(); if (x1 < 0) x1 = 0; else if (x1 > t.getWidth()) x1 = t.getWidth();
-			int y1 = by - t.getY(); if (y1 < 0) y1 = 0; else if (y1 > t.getHeight()) y1 = t.getHeight();
-			int x2 = bx+width - t.getX(); if (x2 < 0) x2 = 0; else if (x2 > t.getWidth()) x2 = t.getWidth();
-			int y2 = by+height - t.getY(); if (y2 < 0) y2 = 0; else if (y2 > t.getHeight()) y2 = t.getHeight();
-			int xo = t.getX() - bx; if (xo < 0) xo = 0;
-			int yo = t.getY() - by; if (yo < 0) yo = 0;
-			t.setRGB(x1, y1, x2-x1, y2-y1, rgb, offset+xo+(yo*rowCount), rowCount);
-		}
+		ts.setRGB(bx, by, width, height, rgb, offset, rowCount, clip);
+	}
+	
+	public void setRGB(int bx, int by, int width, int height, int[] rgb, int offset, int rowCount, Shape clip) {
+		Area a = new Area(this.clip);
+		a.intersect(new Area(clip));
+		ts.setRGB(bx, by, width, height, rgb, offset, rowCount, a);
 	}
 	
 	public void clear(int x, int y, int width, int height) {
-		int[] rgb = new int[width*height];
-		Arrays.fill(rgb, matte);
-		setRGB(x, y, width, height, rgb, 0, width);
+		ts.clear(x, y, width, height, clip);
 	}
 	
-	private static class ClearAllAtom implements Atom {
-		private Layer l;
-		private Map<Long, Tile> oldTiles;
-		private Map<Long, Tile> newTiles;
-		public ClearAllAtom(Layer l, Map<Long, Tile> t) {
-			this.l = l;
-			this.oldTiles = l.tiles;
-			this.newTiles = t;
-		}
-		public Atom buildUpon(Atom previousAtom) {
-			this.oldTiles = ((ClearAllAtom)previousAtom).oldTiles;
-			return this;
-		}
-		public boolean canBuildUpon(Atom previousAtom) {
-			return (previousAtom instanceof ClearAllAtom) && ((ClearAllAtom)previousAtom).l == this.l;
-		}
-		public void redo() {
-			l.tiles = newTiles;
-		}
-		public void undo() {
-			l.tiles = oldTiles;
-		}
+	public void clear(int x, int y, int width, int height, Shape clip) {
+		Area a = new Area(this.clip);
+		a.intersect(new Area(clip));
+		ts.clear(x, y, width, height, a);
 	}
 	
 	public void clearAll() {
 		if (clip != null) {
 			Rectangle r = clip.getBounds();
-			int[] rgb = new int[r.width*r.height];
-			Arrays.fill(rgb, matte);
-			setRGB(r.x, r.y, r.width, r.height, rgb, 0, r.width);
+			ts.clear(r.x, r.y, r.width, r.height, clip);
 		} else {
-			HashMap<Long, Tile> t = new HashMap<Long, Tile>();
-			if (history != null) history.add(new ClearAllAtom(this, t));
-			tiles = t;
-		}
-	}
-	
-	private static class AddTileAtom implements Atom {
-		private Layer l;
-		private long key;
-		private Tile oldt;
-		private Tile newt;
-		public AddTileAtom(Layer l, long key, Tile t) {
-			this.l = l;
-			this.key = key;
-			this.oldt = l.tiles.get(key);
-			this.newt = t;
-		}
-		public Atom buildUpon(Atom previousAtom) {
-			this.oldt = ((AddTileAtom)previousAtom).oldt;
-			return this;
-		}
-		public boolean canBuildUpon(Atom previousAtom) {
-			return (previousAtom instanceof AddTileAtom) && (((AddTileAtom)previousAtom).l == this.l)
-				&& (((AddTileAtom)previousAtom).key == this.key);
-		}
-		public void redo() {
-			l.tiles.put(key, newt);
-		}
-		public void undo() {
-			if (oldt == null)
-				l.tiles.remove(key);
-			else
-				l.tiles.put(key, oldt);
+			ts.clearAll();
 		}
 	}
 	
 	public Tile getTile(int x, int y, boolean create) {
-		x >>= tileSize;
-		y >>= tileSize;
-		long l = ((x & 0xFFFFFFFFL) << 32L) | (y & 0xFFFFFFFFL);
-		if (tiles.containsKey(l)) {
-			return tiles.get(l);
-		} else if (create) {
-			Tile t = new Tile(x << tileSize, y << tileSize, tileSizeWH, tileSizeWH);
-			int[] rgb = new int[tileSizeWH * tileSizeWH];
-			Arrays.fill(rgb, matte);
-			t.setRGB(0, 0, tileSizeWH, tileSizeWH, rgb, 0, tileSizeWH);
-			if (history != null) {
-				history.add(new AddTileAtom(this, l, t));
-				t.setHistory(history);
-			}
-			tiles.put(l, t);
-			return t;
-		} else {
-			return null;
-		}
+		return ts.getTile(x, y, create);
 	}
 	
 	public void addTile(Tile t) {
-		int x = t.getX() >> tileSize;
-		int y = t.getY() >> tileSize;
-		long l = ((x & 0xFFFFFFFFL) << 32L) | (y & 0xFFFFFFFFL);
-		if (history != null) {
-			history.add(new AddTileAtom(this, l, t));
-			t.setHistory(history);
-		}
-		tiles.put(l,t);
+		ts.addTile(t);
 	}
 	
 	public Collection<Tile> getTiles(int bx, int by, int width, int height, boolean create) {
-		Collection<Tile> intersectingTiles = new HashSet<Tile>();
-		if (width < 0) { bx += width; width =- width; }
-		if (height < 0) { by += height; height =- height; }
-		int left = (bx - 8) >> tileSize, top = (by - 8) >> tileSize;
-		int right = (bx + width + 8) >> tileSize, bottom = (by + height + 8) >> tileSize;
-		for (int y = top; y <= bottom; y++) {
-			for (int x = left; x <= right; x++) {
-				long l = ((x & 0xFFFFFFFFL) << 32L) | (y & 0xFFFFFFFFL);
-				if (tiles.containsKey(l)) {
-					intersectingTiles.add(tiles.get(l));
-				} else if (create) {
-					Tile t = new Tile(x << tileSize, y << tileSize, tileSizeWH, tileSizeWH);
-					int[] rgb = new int[tileSizeWH * tileSizeWH];
-					Arrays.fill(rgb, matte);
-					t.setRGB(0, 0, tileSizeWH, tileSizeWH, rgb, 0, tileSizeWH);
-					if (history != null) {
-						history.add(new AddTileAtom(this, l, t));
-						t.setHistory(history);
-					}
-					tiles.put(l, t);
-					intersectingTiles.add(t);
-				}
-			}
-		}
-		return intersectingTiles;
+		return ts.getTiles(bx, by, width, height, create);
 	}
 	
 	public Collection<Tile> getTiles() {
-		return tiles.values();
+		return ts.getTiles();
 	}
 	
 	public Collection<DrawObject> getSelectedObjects() {
@@ -1067,9 +840,5 @@ public class Layer implements TiledPaintSurface, DrawSurface, Paintable, Recorda
 
 	public <T> T[] toArray(T[] a) {
 		return objects.toArray(a);
-	}
-	
-	public String toString() {
-		return "com.kreative.paint.Layer["+name+","+visible+","+locked+","+selected+","+x+","+y+","+clip+","+matte+","+tileSize+","+tiles+","+objects+"]";
 	}
 }
