@@ -59,13 +59,19 @@ public class PatternPaint implements Paint {
 		private final PaintContext foreground;
 		private final PaintContext background;
 		private final Pattern pattern;
-		private final AffineTransform tx;
+		private final AffineTransform itx;
 		
 		public PatternPaintContext(PaintContext foreground, PaintContext background, Pattern pattern, AffineTransform tx) {
 			this.foreground = foreground;
 			this.background = background;
 			this.pattern = pattern;
-			this.tx = tx;
+			if (tx == null || tx.isIdentity()) {
+				this.itx = null;
+			} else {
+				try { tx = tx.createInverse(); }
+				catch (Exception e) { tx = null; }
+				this.itx = tx;
+			}
 		}
 		
 		@Override
@@ -82,10 +88,7 @@ public class PatternPaint implements Paint {
 					int backRGB = backModel.getRGB(backRaster.getDataElements(nx, ny, null));
 					p.x = rx;
 					p.y = ry;
-					if (tx != null) {
-						try { tx.inverseTransform(p, p); }
-						catch (Exception e) {}
-					}
+					if (itx != null) itx.transform(p, p);
 					int rgb = pattern.getRGB(p.x, p.y, backRGB, foreRGB);
 					img.setRGB(nx, ny, rgb);
 				}

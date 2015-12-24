@@ -42,6 +42,7 @@ import com.kreative.paint.geom.BitmapShape;
 import com.kreative.paint.geom.CircularShape;
 import com.kreative.paint.geom.RegularPolygon;
 import com.kreative.paint.geom.ScaledShape;
+import com.kreative.paint.material.shape.PowerShape;
 
 public class ShapeUtils {
 	private ShapeUtils() {}
@@ -97,6 +98,7 @@ public class ShapeUtils {
 		if (s instanceof BitmapShape) return (BitmapShape)((BitmapShape)s).clone();
 		if (s instanceof CircularShape) return (CircularShape)((CircularShape)s).clone();
 		if (s instanceof RegularPolygon) return (RegularPolygon)((RegularPolygon)s).clone();
+		if (s instanceof PowerShape) return (PowerShape)((PowerShape)s).clone();
 		throw new RuntimeException("Clone not supported for Shape subclass "+s.getClass().getCanonicalName()+".");
 	}
 	

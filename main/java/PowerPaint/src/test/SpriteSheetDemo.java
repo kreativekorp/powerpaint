@@ -136,7 +136,7 @@ public class SpriteSheetDemo {
 					Object o = view.getLastSelectedPathComponent();
 					if (o instanceof Sprite) {
 						Sprite s = (Sprite)o;
-						view.setCursor(s.getPreparedCursor(!e.isAltDown()));
+						view.setCursor(s.getPreparedCursor(e.isAltDown()));
 					}
 				}
 			}
