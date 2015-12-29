@@ -1,0 +1,23 @@
+package com.kreative.paint.document.draw;
+
+public enum ControlPointType {
+	HIDDEN,
+	GENERIC,
+	CENTER,
+	NORTHWEST,
+	NORTH,
+	NORTHEAST,
+	EAST,
+	SOUTHEAST,
+	SOUTH,
+	SOUTHWEST,
+	WEST,
+	RADIUS,
+	ANGLE,
+	BASELINE,
+	ENDPOINT,
+	CURVED_MIDPOINT,
+	STRAIGHT_MIDPOINT,
+	CONTROL_POINT,
+	PULL_TAB;
+}
