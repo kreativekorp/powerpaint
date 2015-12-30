@@ -2,6 +2,7 @@ package com.kreative.paint.document.draw;
 
 import java.awt.Graphics2D;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Area;
 import java.awt.geom.CubicCurve2D;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import com.kreative.paint.document.undo.Atom;
 
 public abstract class ShapeDrawObject extends DrawObject {
 	public static ShapeDrawObject forShape(PaintSettings ps, Shape s) {
@@ -48,8 +50,57 @@ public abstract class ShapeDrawObject extends DrawObject {
 		}
 	}
 	
-	protected ShapeDrawObject(PaintSettings ps) { super(ps); }
-	protected ShapeDrawObject(ShapeDrawObject original) { super(original); }
+	protected ShadowSettings shadow;
+	
+	protected ShapeDrawObject(PaintSettings ps) {
+		super(ps);
+		this.shadow = null;
+	}
+	
+	protected ShapeDrawObject(ShapeDrawObject original) {
+		super(original);
+		this.shadow = original.shadow;
+	}
+	
+	public ShadowSettings getShadowSettings() { return shadow; }
+	
+	private static class ShadowSettingsAtom implements Atom {
+		private ShapeDrawObject d;
+		private ShadowSettings oldShadow;
+		private ShadowSettings newShadow;
+		public ShadowSettingsAtom(ShapeDrawObject d, ShadowSettings newShadow) {
+			this.d = d;
+			this.oldShadow = d.shadow;
+			this.newShadow = newShadow;
+		}
+		@Override
+		public boolean canBuildUpon(Atom prev) {
+			return (prev instanceof ShadowSettingsAtom)
+			    && (((ShadowSettingsAtom)prev).d == this.d);
+		}
+		@Override
+		public Atom buildUpon(Atom prev) {
+			this.oldShadow = ((ShadowSettingsAtom)prev).oldShadow;
+			return this;
+		}
+		@Override
+		public void undo() {
+			d.shadow = oldShadow;
+			d.notifyDrawObjectListeners(DrawObjectEvent.DRAW_OBJECT_IMPLEMENTATION_PROPERTY_CHANGED);
+		}
+		@Override
+		public void redo() {
+			d.shadow = newShadow;
+			d.notifyDrawObjectListeners(DrawObjectEvent.DRAW_OBJECT_IMPLEMENTATION_PROPERTY_CHANGED);
+		}
+	}
+	
+	public void setShadowSettings(ShadowSettings shadow) {
+		if (equals(this.shadow, shadow)) return;
+		if (history != null) history.add(new ShadowSettingsAtom(this, shadow));
+		this.shadow = shadow;
+		this.notifyDrawObjectListeners(DrawObjectEvent.DRAW_OBJECT_IMPLEMENTATION_PROPERTY_CHANGED);
+	}
 	
 	@Override public abstract ShapeDrawObject clone();
 	public abstract Shape getShape();
@@ -84,6 +135,20 @@ public abstract class ShapeDrawObject extends DrawObject {
 		if (tx != null) {
 			try { s = tx.createTransformedShape(s); }
 			catch (Exception e) { s = getShape(); }
+		}
+		if (shadow != null && shadow.isShadowed()) {
+			AffineTransform t = g.getTransform();
+			shadow.apply(g, ps);
+			Area a = new Area();
+			if (ps.isFilled()) {
+				a.add(new Area(s));
+			}
+			if (ps.isDrawn()) {
+				try { a.add(new Area(ps.drawStroke.createStrokedShape(s))); }
+				catch (Exception e) {}
+			}
+			g.fill(a);
+			g.setTransform(t);
 		}
 		if (ps.isFilled()) {
 			ps.applyFill(g);
@@ -827,5 +892,11 @@ public abstract class ShapeDrawObject extends DrawObject {
 				this.y[0] = y;
 			}
 		}
+	}
+	
+	private static boolean equals(Object dis, Object dat) {
+		if (dis == null) return (dat == null);
+		if (dat == null) return (dis == null);
+		return dis.equals(dat);
 	}
 }
