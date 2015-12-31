@@ -2,6 +2,7 @@ package com.kreative.paint.document.draw;
 
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -167,19 +168,25 @@ public class DrawObjectSurface implements Recordable, DrawSurface {
 	}
 	
 	public void paint(Graphics2D g) {
+		AffineTransform tx = g.getTransform();
+		g.translate(x, y);
 		for (DrawObject o : objects) {
 			if (o.visible) {
-				o.paint(g, x, y);
+				o.paint(g);
 			}
 		}
+		g.setTransform(tx);
 	}
 	
 	public void paint(Graphics2D g, int x, int y) {
+		AffineTransform tx = g.getTransform();
+		g.translate(this.x + x, this.y + y);
 		for (DrawObject o : objects) {
 			if (o.visible) {
-				o.paint(g, this.x + x, this.y + y);
+				o.paint(g);
 			}
 		}
+		g.setTransform(tx);
 	}
 	
 	@Override
