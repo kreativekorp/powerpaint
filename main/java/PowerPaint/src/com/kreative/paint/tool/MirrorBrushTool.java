@@ -7,9 +7,12 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 import com.kreative.paint.ToolContext;
+import com.kreative.paint.document.draw.DrawObject;
+import com.kreative.paint.document.draw.GroupDrawObject;
 import com.kreative.paint.draw.BrushStrokeDrawObject;
-import com.kreative.paint.draw.GroupDrawObject;
 import com.kreative.paint.form.BooleanOption;
 import com.kreative.paint.form.EnumOption;
 import com.kreative.paint.form.Form;
@@ -201,34 +204,35 @@ public class MirrorBrushTool extends AbstractPaintDrawTool implements ToolOption
 			currentPath.lineTo(x, y);
 			Sprite brush = e.tc().getBrush();
 			Point2D center = getCenterPoint(e);
-			GroupDrawObject group = new GroupDrawObject();
+			List<DrawObject> objects = new ArrayList<DrawObject>();
 			{
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
-				group.add(o);
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(e.getPaintSettings(), currentPath, brush);
+				objects.add(o);
 			}
 			if (rvc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(e.getPaintSettings(), currentPath, brush);
 				o.setTransform(new AffineTransform(
 					-1, 0, 0, 1, (float)center.getX() * 2, 0
 				));
-				group.add(o);
+				objects.add(o);
 			}
 			if (rhc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(e.getPaintSettings(), currentPath, brush);
 				o.setTransform(new AffineTransform(
 					1, 0, 0, -1, 0, (float)center.getY() * 2
 				));
-				group.add(o);
+				objects.add(o);
 			}
 			if (rvc && rhc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(e.getPaintSettings(), currentPath, brush);
 				o.setTransform(new AffineTransform(
 					-1, 0, 0, -1,
 					(float)center.getX() * 2,
 					(float)center.getY() * 2
 				));
-				group.add(o);
+				objects.add(o);
 			}
+			GroupDrawObject group = new GroupDrawObject(objects);
 			e.getDrawSurface().add(group);
 			currentPath = null;
 			e.commitTransaction();
@@ -244,25 +248,25 @@ public class MirrorBrushTool extends AbstractPaintDrawTool implements ToolOption
 			Sprite brush = e.tc().getBrush();
 			Point2D center = getCenterPoint(e);
 			{
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(e.getPaintSettings(), currentPath, brush);
 				o.paint(g);
 			}
 			if (rvc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(e.getPaintSettings(), currentPath, brush);
 				o.setTransform(new AffineTransform(
 					-1, 0, 0, 1, (float)center.getX() * 2, 0
 				));
 				o.paint(g);
 			}
 			if (rhc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(e.getPaintSettings(), currentPath, brush);
 				o.setTransform(new AffineTransform(
 					1, 0, 0, -1, 0, (float)center.getY() * 2
 				));
 				o.paint(g);
 			}
 			if (rvc && rhc) {
-				BrushStrokeDrawObject o = new BrushStrokeDrawObject(brush, currentPath, e.getPaintSettings());
+				BrushStrokeDrawObject o = new BrushStrokeDrawObject(e.getPaintSettings(), currentPath, brush);
 				o.setTransform(new AffineTransform(
 					-1, 0, 0, -1,
 					(float)center.getX() * 2,

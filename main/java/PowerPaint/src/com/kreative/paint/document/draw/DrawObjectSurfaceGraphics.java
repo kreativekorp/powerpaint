@@ -1,6 +1,5 @@
 package com.kreative.paint.document.draw;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Composite;
 import java.awt.Font;
@@ -84,7 +83,8 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public boolean drawImage(Image image, AffineTransform xform, ImageObserver obs) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawImage(modelGraphics, image, xform);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawImage(ps, image, xform);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 		return true;
@@ -92,21 +92,24 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public void drawImage(BufferedImage image, BufferedImageOp op, int x, int y) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawImage(modelGraphics, image, op, x, y);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawImage(ps, image, op, x, y);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 	}
 	
 	@Override
 	public void drawRenderableImage(RenderableImage image, AffineTransform xform) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawRenderableImage(modelGraphics, image, xform);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawRenderableImage(ps, image, xform);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 	}
 	
 	@Override
 	public void drawRenderedImage(RenderedImage image, AffineTransform xform) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawRenderedImage(modelGraphics, image, xform);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawRenderedImage(ps, image, xform);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 	}
@@ -269,9 +272,7 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public void clearRect(int x, int y, int width, int height) {
-		PaintSettings ps = PaintSettings.forGraphicsFill(modelGraphics)
-			.deriveFillPaint(modelGraphics.getBackground())
-			.deriveFillComposite(AlphaComposite.SrcOver);
+		PaintSettings ps = PaintSettings.forGraphicsClear(modelGraphics);
 		DrawObject o = new ShapeDrawObject.Rectangle(ps, x, y, width, height);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
@@ -308,7 +309,8 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public boolean drawImage(Image image, int x, int y, ImageObserver observer) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawImage(modelGraphics, image, x, y);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawImage(ps, image, x, y);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 		return true;
@@ -316,7 +318,8 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public boolean drawImage(Image image, int x, int y, Color bgcolor, ImageObserver observer) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawImage(modelGraphics, image, x, y, bgcolor);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawImage(ps, image, x, y, bgcolor);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 		return true;
@@ -324,7 +327,8 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public boolean drawImage(Image image, int x, int y, int width, int height, ImageObserver observer) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawImage(modelGraphics, image, x, y, width, height);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawImage(ps, image, x, y, width, height);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 		return true;
@@ -332,7 +336,8 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public boolean drawImage(Image image, int x, int y, int width, int height, Color bgcolor, ImageObserver observer) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawImage(modelGraphics, image, x, y, width, height, bgcolor);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawImage(ps, image, x, y, width, height, bgcolor);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 		return true;
@@ -340,7 +345,8 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public boolean drawImage(Image image, int dx1, int dy1, int dx2, int dy2, int sx1, int sy1, int sx2, int sy2, ImageObserver observer) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawImage(modelGraphics, image, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawImage(ps, image, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 		return true;
@@ -348,7 +354,8 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public boolean drawImage(Image image, int dx1, int dy1, int dx2, int dy2, int sx1, int sy1, int sx2, int sy2, Color bgcolor, ImageObserver observer) {
-		DrawObject o = ImageDrawObject.forGraphicsDrawImage(modelGraphics, image, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor);
+		PaintSettings ps = PaintSettings.forGraphicsDrawImage(modelGraphics);
+		DrawObject o = ImageDrawObject.forGraphicsDrawImage(ps, image, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor);
 		o.tx = getSurfaceTransform(o.tx);
 		ds.add(o);
 		return true;

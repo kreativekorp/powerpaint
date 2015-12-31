@@ -37,6 +37,12 @@ public class PowerShapeDrawObject extends RectangularShape {
 		return new PowerShapeDrawObject(this);
 	}
 	
+	public PowerShape getPowerShape() { return shape; }
+	public double getX() { return x1; }
+	public double getY() { return y1; }
+	public double getWidth() { return x2 - x1; }
+	public double getHeight() { return y2 - y1; }
+	
 	@Override
 	public Shape getShape() {
 		AffineTransform t = AffineTransform.getTranslateInstance(x1, y1);

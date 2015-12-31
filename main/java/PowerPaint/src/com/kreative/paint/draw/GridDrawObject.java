@@ -1,294 +1,210 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.draw;
 
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.Shape;
-import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
-import java.awt.geom.PathIterator;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
-import com.kreative.paint.PaintSettings;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import com.kreative.paint.document.draw.ControlPoint;
+import com.kreative.paint.document.draw.ControlPointType;
+import com.kreative.paint.document.draw.DrawObject;
+import com.kreative.paint.document.draw.PaintSettings;
 
-public class GridDrawObject extends AbstractDrawObject {
+public class GridDrawObject extends DrawObject {
 	public static final int NONE = 0;
 	public static final int LINEAR = 1;
 	public static final int LOGARITHMIC = 2;
 	
-	private Rectangle2D bounds;
+	private double x1, y1, x2, y2;
 	private int horizGridType;
-	private float horizGridSpacing;
+	private double horizGridSpacing;
 	private int vertGridType;
-	private float vertGridSpacing;
+	private double vertGridSpacing;
 	
-	public GridDrawObject(float x, float y, float w, float h) {
-		super();
-		bounds = new Rectangle2D.Float(x, y, w, h);
-		horizGridType = vertGridType = LINEAR;
-		horizGridSpacing = vertGridSpacing = 10f;
-	}
-	
-	public GridDrawObject(float x, float y, float w, float h, int gt, float gs) {
-		super();
-		bounds = new Rectangle2D.Float(x, y, w, h);
-		horizGridType = vertGridType = gt;
-		horizGridSpacing = vertGridSpacing = gs;
-	}
-	
-	public GridDrawObject(float x, float y, float w, float h, int hgt, float hgs, int vgt, float vgs) {
-		super();
-		bounds = new Rectangle2D.Float(x, y, w, h);
-		horizGridType = hgt;
-		horizGridSpacing = hgs;
-		vertGridType = vgt;
-		vertGridSpacing = vgs;
-	}
-	
-	public GridDrawObject(float x, float y, float w, float h, PaintSettings ps) {
+	public GridDrawObject(
+		PaintSettings ps,
+		double x, double y,
+		double w, double h,
+		int hgt, double hgs,
+		int vgt, double vgs
+	) {
 		super(ps);
-		bounds = new Rectangle2D.Float(x, y, w, h);
-		horizGridType = vertGridType = LINEAR;
-		horizGridSpacing = vertGridSpacing = 10f;
+		this.x1 = x;
+		this.y1 = y;
+		this.x2 = x + w;
+		this.y2 = y + h;
+		this.horizGridType = hgt;
+		this.horizGridSpacing = hgs;
+		this.vertGridType = vgt;
+		this.vertGridSpacing = vgs;
 	}
 	
-	public GridDrawObject(float x, float y, float w, float h, int gt, float gs, PaintSettings ps) {
-		super(ps);
-		bounds = new Rectangle2D.Float(x, y, w, h);
-		horizGridType = vertGridType = gt;
-		horizGridSpacing = vertGridSpacing = gs;
+	private GridDrawObject(GridDrawObject o) {
+		super(o);
+		this.x1 = o.x1;
+		this.y1 = o.y1;
+		this.x2 = o.x2;
+		this.y2 = o.y2;
+		this.horizGridType = o.horizGridType;
+		this.horizGridSpacing = o.horizGridSpacing;
+		this.vertGridType = o.vertGridType;
+		this.vertGridSpacing = o.vertGridSpacing;
 	}
 	
-	public GridDrawObject(float x, float y, float w, float h, int hgt, float hgs, int vgt, float vgs, PaintSettings ps) {
-		super(ps);
-		bounds = new Rectangle2D.Float(x, y, w, h);
-		horizGridType = hgt;
-		horizGridSpacing = hgs;
-		vertGridType = vgt;
-		vertGridSpacing = vgs;
-	}
-	
+	@Override
 	public GridDrawObject clone() {
-		GridDrawObject o = new GridDrawObject(
-				(float)bounds.getX(), (float)bounds.getY(),
-				(float)bounds.getWidth(), (float)bounds.getHeight(),
-				horizGridType, horizGridSpacing,
-				vertGridType, vertGridSpacing,
-				getPaintSettings()
+		return new GridDrawObject(this);
+	}
+	
+	public Rectangle2D getGridBounds() {
+		return new Rectangle2D.Double(
+			Math.min(x1, x2), Math.min(y1, y2),
+			Math.abs(x2 - x1), Math.abs(y2 - y1)
 		);
-		if (getTransform() != null) o.setTransform((AffineTransform)getTransform().clone());
-		return o;
 	}
 	
-	public Rectangle2D getGridBounds() { return bounds; }
 	public int getHorizGridType() { return horizGridType; }
-	public float getHorizGridSpacing() { return horizGridSpacing; }
+	public double getHorizGridSpacing() { return horizGridSpacing; }
 	public int getVertGridType() { return vertGridType; }
-	public float getVertGridSpacing() { return vertGridSpacing; }
+	public double getVertGridSpacing() { return vertGridSpacing; }
 	
-	private void paintGrid(Graphics2D g) {
-		double x1 = bounds.getMinX();
-		double x2 = bounds.getMaxX();
-		double y1 = bounds.getMinY();
-		double y2 = bounds.getMaxY();
-		switch (horizGridType) {
-		case LINEAR:
-			for (double y = y1; y <= y2; y += horizGridSpacing) {
-				g.draw(new Line2D.Double(x1, y, x2-1, y));
-			}
-			break;
-		case LOGARITHMIC:
-			double m = (1.0-1.0/horizGridSpacing);
-			for (double h = (y2-y1)*m; h >= 1.0; h *= m) {
-				g.draw(new Line2D.Double(x1, y1+h-1, x2-1, y1+h-1));
-			}
-			break;
-		}
-		switch (vertGridType) {
-		case LINEAR:
-			for (double x = x1; x <= x2; x += vertGridSpacing) {
-				g.draw(new Line2D.Double(x, y1, x, y2-1));
-			}
-			break;
-		case LOGARITHMIC:
-			double m = (1.0-1.0/vertGridSpacing);
-			for (double w = (x2-x1)*m; w >= 1.0; w *= m) {
-				g.draw(new Line2D.Double(x1+w-1, y1, x1+w-1, y2-1));
-			}
-			break;
-		}
+	@Override protected Shape getBoundaryImpl() { return getGridBounds(); }
+	@Override protected Shape getHitAreaImpl() { return getGridBounds(); }
+	
+	@Override
+	protected Object getControlState() {
+		return new double[]{ x1, y1, x2, y2 };
 	}
 	
-	public void paint(Graphics2D g) {
-		push(g);
-		AffineTransform tx = g.getTransform();
-		if (getTransform() != null) g.transform(getTransform());
-		if (isFilled()) {
-			applyFill(g);
-			g.fill(bounds);
-		}
-		if (isDrawn()) {
-			applyDraw(g);
-			paintGrid(g);
-		}
-		pop(g);
-		g.setTransform(tx);
-	}
-
-	public void paint(Graphics2D g, int x, int y) {
-		push(g);
-		AffineTransform tx = g.getTransform();
-		g.translate(x, y);
-		if (getTransform() != null) g.transform(getTransform());
-		if (isFilled()) {
-			applyFill(g);
-			g.fill(bounds);
-		}
-		if (isDrawn()) {
-			applyDraw(g);
-			paintGrid(g);
-		}
-		pop(g);
-		g.setTransform(tx);
+	@Override
+	protected void setControlState(Object o) {
+		double[] state = (double[])o;
+		x1 = state[0]; y1 = state[1];
+		x2 = state[2]; y2 = state[3];
 	}
 	
-	private Shape getTransformedBounds() {
-		AffineTransform tx = getTransform();
-		return (tx == null) ? bounds : tx.createTransformedShape(bounds);
-	}
-
-	public boolean contains(Point2D p) {
-		return getTransformedBounds().contains(p);
-	}
-
-	public boolean contains(Rectangle2D r) {
-		return getTransformedBounds().contains(r);
-	}
-
-	public boolean contains(double x, double y) {
-		return getTransformedBounds().contains(x, y);
-	}
-
-	public boolean contains(double x, double y, double w, double h) {
-		return getTransformedBounds().contains(x, y, w, h);
-	}
-
-	public Rectangle getBounds() {
-		return getTransformedBounds().getBounds();
-	}
-
-	public Rectangle2D getBounds2D() {
-		return getTransformedBounds().getBounds2D();
-	}
-
-	public PathIterator getPathIterator(AffineTransform at) {
-		return getTransformedBounds().getPathIterator(at);
-	}
-
-	public PathIterator getPathIterator(AffineTransform at, double flatness) {
-		return getTransformedBounds().getPathIterator(at, flatness);
-	}
-
-	public boolean intersects(Rectangle2D r) {
-		return getTransformedBounds().intersects(r);
-	}
-
-	public boolean intersects(double x, double y, double w, double h) {
-		return getTransformedBounds().intersects(x, y, w, h);
-	}
-	
+	@Override
 	public int getControlPointCount() {
 		return 9;
 	}
 	
+	@Override
 	protected ControlPoint getControlPointImpl(int i) {
 		switch (i) {
-		case 0: return new ControlPoint.Double(bounds.getX()+bounds.getWidth()/2.0f, bounds.getY()+bounds.getHeight()/2.0f, ControlPointType.CENTER);
-		case 1: return new ControlPoint.Double(bounds.getX(), bounds.getY(), ControlPointType.NORTHWEST);
-		case 2: return new ControlPoint.Double(bounds.getX()+bounds.getWidth(), bounds.getY(), ControlPointType.NORTHEAST);
-		case 3: return new ControlPoint.Double(bounds.getX(), bounds.getY()+bounds.getHeight(), ControlPointType.SOUTHWEST);
-		case 4: return new ControlPoint.Double(bounds.getX()+bounds.getWidth(), bounds.getY()+bounds.getHeight(), ControlPointType.SOUTHEAST);
-		case 5: return new ControlPoint.Double(bounds.getX()+bounds.getWidth()/2.0f, bounds.getY(), ControlPointType.NORTH);
-		case 6: return new ControlPoint.Double(bounds.getX()+bounds.getWidth()/2.0f, bounds.getY()+bounds.getHeight(), ControlPointType.SOUTH);
-		case 7: return new ControlPoint.Double(bounds.getX(), bounds.getY()+bounds.getHeight()/2.0f, ControlPointType.WEST);
-		case 8: return new ControlPoint.Double(bounds.getX()+bounds.getWidth(), bounds.getY()+bounds.getHeight()/2.0f, ControlPointType.EAST);
-		default: return null;
+			case 0: return new ControlPoint(ControlPointType.CENTER, (x1 + x2) / 2, (y1 + y2) / 2);
+			case 1: return new ControlPoint(ControlPointType.NORTHWEST, x1, y1);
+			case 2: return new ControlPoint(ControlPointType.NORTHEAST, x2, y1);
+			case 3: return new ControlPoint(ControlPointType.SOUTHWEST, x1, y2);
+			case 4: return new ControlPoint(ControlPointType.SOUTHEAST, x2, y2);
+			case 5: return new ControlPoint(ControlPointType.NORTH, (x1 + x2) / 2, y1);
+			case 6: return new ControlPoint(ControlPointType.SOUTH, (x1 + x2) / 2, y2);
+			case 7: return new ControlPoint(ControlPointType.WEST, x1, (y1 + y2) / 2);
+			case 8: return new ControlPoint(ControlPointType.EAST, x2, (y1 + y2) / 2);
+			default: return null;
 		}
 	}
 	
-	protected int setControlPointImpl(int i, Point2D p) {
-		double x1 = bounds.getX(), y1 = bounds.getY(), x2 = bounds.getX()+bounds.getWidth(), y2 = bounds.getY()+bounds.getHeight();
+	@Override
+	protected List<ControlPoint> getControlPointsImpl() {
+		List<ControlPoint> cpts = new ArrayList<ControlPoint>();
+		cpts.add(new ControlPoint(ControlPointType.CENTER, (x1 + x2) / 2, (y1 + y2) / 2));
+		cpts.add(new ControlPoint(ControlPointType.NORTHWEST, x1, y1));
+		cpts.add(new ControlPoint(ControlPointType.NORTHEAST, x2, y1));
+		cpts.add(new ControlPoint(ControlPointType.SOUTHWEST, x1, y2));
+		cpts.add(new ControlPoint(ControlPointType.SOUTHEAST, x2, y2));
+		cpts.add(new ControlPoint(ControlPointType.NORTH, (x1 + x2) / 2, y1));
+		cpts.add(new ControlPoint(ControlPointType.SOUTH, (x1 + x2) / 2, y2));
+		cpts.add(new ControlPoint(ControlPointType.WEST, x1, (y1 + y2) / 2));
+		cpts.add(new ControlPoint(ControlPointType.EAST, x2, (y1 + y2) / 2));
+		return cpts;
+	}
+	
+	@Override
+	protected Collection<Line2D> getControlLinesImpl() {
+		return null;
+	}
+	
+	@Override
+	protected int setControlPointImpl(int i, double x, double y) {
 		switch (i) {
-		case 0:
-			x1 = (int)(p.getX() - bounds.getWidth()/2.0);
-			y1 = (int)(p.getY() - bounds.getHeight()/2.0);
-			x2 = x1+bounds.getWidth();
-			y2 = y1+bounds.getHeight();
-			break;
-		case 1: x1 = p.getX(); y1 = p.getY(); break;
-		case 2: x2 = p.getX(); y1 = p.getY(); break;
-		case 3: x1 = p.getX(); y2 = p.getY(); break;
-		case 4: x2 = p.getX(); y2 = p.getY(); break;
-		case 5: y1 = p.getY(); break;
-		case 6: y2 = p.getY(); break;
-		case 7: x1 = p.getX(); break;
-		case 8: x2 = p.getX(); break;
-		}
-		bounds = new Rectangle2D.Double(Math.min(x1,x2), Math.min(y1,y2), Math.abs(x2-x1), Math.abs(y2-y1));
-		if (x2 < x1) {
-			     if (i == 2) i = 1;
-			else if (i == 8) i = 7;
-			else if (i == 4) i = 3;
-			else if (i == 1) i = 2;
-			else if (i == 7) i = 8;
-			else if (i == 3) i = 4;
-		}
-		if (y2 < y1) {
-			     if (i == 1) i = 3;
-			else if (i == 5) i = 6;
-			else if (i == 2) i = 4;
-			else if (i == 3) i = 1;
-			else if (i == 6) i = 5;
-			else if (i == 4) i = 2;
+			case 0:
+				double width2 = (x2 - x1) / 2;
+				double height2 = (y2 - y1) / 2;
+				x1 = x - width2;
+				y1 = y - height2;
+				x2 = x + width2;
+				y2 = y + height2;
+				break;
+			case 1: x1 = x; y1 = y; break;
+			case 2: x2 = x; y1 = y; break;
+			case 3: x1 = x; y2 = y; break;
+			case 4: x2 = x; y2 = y; break;
+			case 5: y1 = y; break;
+			case 6: y2 = y; break;
+			case 7: x1 = x; break;
+			case 8: x2 = x; break;
 		}
 		return i;
 	}
 	
-	protected Point2D getAnchorImpl() {
-		return new Point2D.Double(bounds.getX(), bounds.getY());
+	@Override
+	protected Point2D getLocationImpl() {
+		return new Point2D.Double(x1, y1);
 	}
 	
-	protected void setAnchorImpl(Point2D p) {
-		bounds.setFrame(p.getX(), p.getY(), bounds.getWidth(), bounds.getHeight());
+	@Override
+	protected void setLocationImpl(double x, double y) {
+		this.x2 = x + (this.x2 - this.x1);
+		this.y2 = y + (this.y2 - this.y1);
+		this.x1 = x;
+		this.y1 = y;
 	}
 	
-	public String toString() {
-		return "com.kreative.paint.objects.GridDrawObject["+bounds+","+horizGridType+","+horizGridSpacing+","+vertGridType+","+vertGridSpacing+","+super.toString()+"]";
+	@Override
+	protected void paintImpl(Graphics2D g) {
+		if (ps.isFilled()) {
+			ps.applyFill(g);
+			g.fill(getGridBounds());
+		}
+		if (ps.isDrawn()) {
+			ps.applyDraw(g);
+			paintGrid(
+				g,
+				Math.min(x1, x2), Math.min(y1, y2),
+				Math.max(x1, x2), Math.max(y1, y2)
+			);
+		}
+	}
+	
+	private void paintGrid(Graphics2D g, double x1, double y1, double x2, double y2) {
+		switch (horizGridType) {
+			case LINEAR:
+				for (double y = y1; y <= y2; y += horizGridSpacing) {
+					g.draw(new Line2D.Double(x1, y, x2 - 1, y));
+				}
+				break;
+			case LOGARITHMIC:
+				double m = (1 - 1 / horizGridSpacing);
+				for (double h = (y2 - y1) * m; h >= 1; h *= m) {
+					g.draw(new Line2D.Double(x1, y1 + h - 1, x2 - 1, y1 + h - 1));
+				}
+				break;
+		}
+		switch (vertGridType) {
+			case LINEAR:
+				for (double x = x1; x <= x2; x += vertGridSpacing) {
+					g.draw(new Line2D.Double(x, y1, x, y2 - 1));
+				}
+				break;
+			case LOGARITHMIC:
+				double m = (1 - 1 / vertGridSpacing);
+				for (double w = (x2 - x1) * m; w >= 1; w *= m) {
+					g.draw(new Line2D.Double(x1 + w - 1, y1, x1 + w - 1, y2 - 1));
+				}
+				break;
+		}
 	}
 }

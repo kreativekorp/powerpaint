@@ -711,7 +711,7 @@ public abstract class DrawObject implements Cloneable, Recordable {
 	 * @param g the graphics context
 	 */
 	protected void preTxPaintImpl(Graphics2D g) {
-		g.transform(tx);
+		if (tx != null) g.transform(tx);
 		paintImpl(g);
 	}
 	

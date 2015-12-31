@@ -154,7 +154,7 @@ public class CurlPencilTool extends AbstractPaintDrawTool implements ToolOptions
 		double y = e.getY() + radius * Math.sin(angle);
 		currentPath.lineTo((float)x, (float)y);
 		// Closing
-		PencilStrokeDrawObject o = new PencilStrokeDrawObject(currentPath, e.getPaintSettings());
+		PencilStrokeDrawObject o = new PencilStrokeDrawObject(e.getPaintSettings(), currentPath);
 		if (e.isInDrawMode()) e.getDrawSurface().add(o);
 		else o.paint(e.getPaintGraphics());
 		currentPath = null;
@@ -165,7 +165,7 @@ public class CurlPencilTool extends AbstractPaintDrawTool implements ToolOptions
 	
 	public boolean paintIntermediate(ToolEvent e, Graphics2D g) {
 		if (currentPath != null) {
-			PencilStrokeDrawObject o = new PencilStrokeDrawObject(currentPath, e.getPaintSettings());
+			PencilStrokeDrawObject o = new PencilStrokeDrawObject(e.getPaintSettings(), currentPath);
 			o.paint(g);
 		}
 		if (e.isMouseOnCanvas()) {

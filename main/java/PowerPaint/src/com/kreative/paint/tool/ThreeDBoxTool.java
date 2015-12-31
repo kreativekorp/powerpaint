@@ -1,37 +1,11 @@
-/*
- * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.tool;
 
 import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.geom.Rectangle2D;
-import com.kreative.paint.draw.ShapeDrawObject;
+import com.kreative.paint.document.draw.PaintSettings;
+import com.kreative.paint.document.draw.ShapeDrawObject;
 import com.kreative.paint.draw.ThreeDBoxDrawObject;
 
 public class ThreeDBoxTool extends AbstractPaintDrawTool
@@ -67,17 +41,17 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter, ToolOptions.DrawF
 	protected Image getBWIcon() {
 		return icon;
 	}
-
-	private ThreeDBoxDrawObject theBox = null;
+	
+	private Rectangle2D theBoundingArea = null;
 	private double lastX, lastY;
 	
 	public boolean toolSelected(ToolEvent e) {
-		theBox = null;
+		theBoundingArea = null;
 		return false;
 	}
 	
 	public boolean toolDeselected(ToolEvent e) {
-		theBox = null;
+		theBoundingArea = null;
 		return false;
 	}
 	
@@ -103,7 +77,7 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter, ToolOptions.DrawF
 	}
 	
 	public boolean paintIntermediate(ToolEvent e, Graphics2D g) {
-		if (theBox != null) {
+		if (theBoundingArea != null) {
 			double dx = e.getX()-lastX;
 			double dy = e.getY()-lastY;
 			if (e.isShiftDown() != e.tc().drawSquare()) {
@@ -111,20 +85,33 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter, ToolOptions.DrawF
 				dx = Math.signum(dx)*s;
 				dy = Math.signum(dy)*s;
 			}
-			theBox.setDX(dx);
-			theBox.setDY(dy);
-			theBox.setPaintSettings(e.getPaintSettings());
+			PaintSettings ps = e.getPaintSettings();
 			if (e.isCtrlDown() == e.tc().drawFilled()) {
-				theBox.setFillPaint(null);
+				ps = ps.deriveFillPaint(null);
 			}
-			theBox.paint(g);
+			new ThreeDBoxDrawObject(
+				ps,
+				theBoundingArea.getX(),
+				theBoundingArea.getY(),
+				theBoundingArea.getWidth(),
+				theBoundingArea.getHeight(),
+				dx,
+				dy
+			).paint(g);
 			return true;
 		} else if (e.isMouseDown()) {
-			ShapeDrawObject o = new ShapeDrawObject(getDrawnBounds(e), e.getPaintSettings());
+			Rectangle2D r = getDrawnBounds(e);
+			PaintSettings ps = e.getPaintSettings();
 			if (e.isCtrlDown() == e.tc().drawFilled()) {
-				o.setFillPaint(null);
+				ps = ps.deriveFillPaint(null);
 			}
-			o.paint(g);
+			new ShapeDrawObject.Rectangle(
+				ps,
+				r.getX(),
+				r.getY(),
+				r.getWidth(),
+				r.getHeight()
+			).paint(g);
 			return true;
 		} else {
 			return false;
@@ -132,9 +119,8 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter, ToolOptions.DrawF
 	}
 	
 	public boolean mouseReleased(ToolEvent e) {
-		if (theBox == null) {
-			Rectangle2D f = getDrawnBounds(e);
-			theBox = new ThreeDBoxDrawObject(f.getMinX(), f.getMinY(), Math.abs(f.getWidth()), Math.abs(f.getHeight()), 0, 0);
+		if (theBoundingArea == null) {
+			theBoundingArea = getDrawnBounds(e);
 			lastX = e.getX();
 			lastY = e.getY();
 			return true;
@@ -146,17 +132,24 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter, ToolOptions.DrawF
 				dx = Math.signum(dx)*s;
 				dy = Math.signum(dy)*s;
 			}
-			theBox.setDX(dx);
-			theBox.setDY(dy);
-			theBox.setPaintSettings(e.getPaintSettings());
+			PaintSettings ps = e.getPaintSettings();
 			if (e.isCtrlDown() == e.tc().drawFilled()) {
-				theBox.setFillPaint(null);
+				ps = ps.deriveFillPaint(null);
 			}
+			ThreeDBoxDrawObject theBox = new ThreeDBoxDrawObject(
+				ps,
+				theBoundingArea.getX(),
+				theBoundingArea.getY(),
+				theBoundingArea.getWidth(),
+				theBoundingArea.getHeight(),
+				dx,
+				dy
+			);
 			e.beginTransaction(getName());
 			if (e.isInDrawMode()) e.getDrawSurface().add(theBox);
 			else theBox.paint(e.getPaintGraphics());
 			e.commitTransaction();
-			theBox = null;
+			theBoundingArea = null;
 			return true;
 		}
 	}

@@ -98,7 +98,7 @@ public class BrushTool extends AbstractPaintDrawTool implements ToolOptions.Brus
 		} else if (currentPoly != null) {
 			currentPoly.lineTo(e.getX(), e.getY());
 			BrushStrokeDrawObject o = new BrushStrokeDrawObject(
-				e.tc().getBrush(), currentPoly, e.getPaintSettings());
+				e.getPaintSettings(), currentPoly, e.tc().getBrush());
 			e.getDrawSurface().add(o);
 			currentPoly = null;
 			e.commitTransaction();
@@ -112,7 +112,7 @@ public class BrushTool extends AbstractPaintDrawTool implements ToolOptions.Brus
 	public boolean paintIntermediate(ToolEvent e, Graphics2D g) {
 		if (e.isInDrawMode() && currentPoly != null) {
 			BrushStrokeDrawObject o = new BrushStrokeDrawObject(
-				e.tc().getBrush(), currentPoly, e.getPaintSettings());
+				e.getPaintSettings(), currentPoly, e.tc().getBrush());
 			o.paint(g);
 			return true;
 		} else {

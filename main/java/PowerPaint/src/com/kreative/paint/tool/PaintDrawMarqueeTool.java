@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.tool;
 
 import java.awt.Cursor;
@@ -44,12 +17,13 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Vector;
 import com.kreative.paint.Canvas;
-import com.kreative.paint.DrawSurface;
 import com.kreative.paint.Layer;
 import com.kreative.paint.datatransfer.ClipboardUtilities;
-import com.kreative.paint.draw.DrawObject;
-import com.kreative.paint.draw.ImageDrawObject;
-import com.kreative.paint.draw.TextDrawObject;
+import com.kreative.paint.document.draw.DrawObject;
+import com.kreative.paint.document.draw.DrawSurface;
+import com.kreative.paint.document.draw.ImageDrawObject;
+import com.kreative.paint.document.draw.PaintSettings;
+import com.kreative.paint.document.draw.TextDrawObject;
 import com.kreative.paint.util.CursorUtils;
 import com.kreative.paint.util.ImageUtils;
 
@@ -185,12 +159,12 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter {
 			DrawSurface d = e.getDrawSurface();
 			for (DrawObject o : d) {
 				if (o.isSelected() && !o.isLocked()) {
-					Point2D p = o.getAnchor();
+					Point2D p = o.getLocation();
 					p = new Point2D.Double(
 							p.getX()+e.getCanvasX()-e.getCanvasPreviousX(),
 							p.getY()+e.getCanvasY()-e.getCanvasPreviousY()
 					);
-					o.setAnchor(p);
+					o.setLocation(p);
 				}
 			}
 			return true;
@@ -205,12 +179,12 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter {
 			DrawSurface d = e.getDrawSurface();
 			for (DrawObject o : d) {
 				if (o.isSelected() && !o.isLocked()) {
-					Point2D p = o.getAnchor();
+					Point2D p = o.getLocation();
 					p = new Point2D.Double(
 							p.getX()+e.getCanvasX()-e.getCanvasPreviousX(),
 							p.getY()+e.getCanvasY()-e.getCanvasPreviousY()
 					);
-					o.setAnchor(p);
+					o.setLocation(p);
 				}
 			}
 			e.commitTransaction();
@@ -347,9 +321,9 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter {
 						o.setSelected(true);
 						o.setVisible(true);
 						o.setLocked(false);
-						Point2D p = o.getAnchor();
+						Point2D p = o.getLocation();
 						p = new Point2D.Double(p.getX()+8, p.getY()+8);
-						o.setAnchor(p);
+						o.setLocation(p);
 						sel.add(o);
 					}
 				}
@@ -464,9 +438,9 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter {
 				d.addAll(sel);
 				e.getCanvas().transformPaintSelection(AffineTransform.getTranslateInstance(8, 8));
 				for (DrawObject o : sel) {
-					Point2D p = o.getAnchor();
+					Point2D p = o.getLocation();
 					p = new Point2D.Double(p.getX()+8, p.getY()+8);
-					o.setAnchor(p);
+					o.setLocation(p);
 				}
 				e.commitTransaction();
 			}
@@ -563,8 +537,8 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter {
 	private void nudge(DrawSurface d, float dx, float dy) {
 		for (DrawObject o : d) {
 			if (o.isSelected() && !o.isLocked()) {
-				Point2D p = o.getAnchor();
-				o.setAnchor(new Point2D.Double(p.getX()+dx, p.getY()+dy));
+				Point2D p = o.getLocation();
+				o.setLocation(new Point2D.Double(p.getX()+dx, p.getY()+dy));
 			}
 		}
 	}
@@ -609,10 +583,16 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter {
 				int w = i.getWidth(null);
 				int h = i.getHeight(null);
 				if (e.isInPaintMode()) {
-					AffineTransform tx = AffineTransform.getTranslateInstance((int)(e.getPreviousClickedX()-w/2.0f), (int)(e.getPreviousClickedY()-h/2.0f));
+					AffineTransform tx = AffineTransform.getTranslateInstance(
+						(int)(e.getPreviousClickedX() - w / 2),
+						(int)(e.getPreviousClickedY() - h / 2));
 					e.getCanvas().pastePaintSelection(i, tx);
 				} else {
-					ImageDrawObject ido = new ImageDrawObject(i, (int)(e.getPreviousClickedX()-w/2.0f), (int)(e.getPreviousClickedY()-h/2.0f));
+					PaintSettings ps = new PaintSettings(null, null);
+					ImageDrawObject ido = ImageDrawObject.forGraphicsDrawImage(
+						ps, i,
+						(int)(e.getPreviousClickedX() - w / 2),
+						(int)(e.getPreviousClickedY() - h / 2));
 					ido.setSelected(true);
 					e.getDrawSurface().add(ido);
 				}
@@ -621,7 +601,13 @@ implements ToolOptions.DrawSquare, ToolOptions.DrawFromCenter {
 			}
 		}
 		else if (ClipboardUtilities.clipboardHasString()) {
-			TextDrawObject tdo = new TextDrawObject(e.getPreviousClickedX(), e.getPreviousClickedY(), ClipboardUtilities.getClipboardString());
+			TextDrawObject tdo = new TextDrawObject(
+				e.getPaintSettings(),
+				e.getPreviousClickedX(),
+				e.getPreviousClickedY(),
+				Integer.MAX_VALUE,
+				ClipboardUtilities.getClipboardString()
+			);
 			tdo.setSelected(true);
 			e.getDrawSurface().add(tdo);
 		}

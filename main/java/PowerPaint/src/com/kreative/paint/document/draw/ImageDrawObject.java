@@ -50,6 +50,12 @@ public class ImageDrawObject extends DrawObject {
 		return new ImageDrawObject(this);
 	}
 	
+	public BufferedImage getImage() { return image; }
+	public double getX() { return x1; }
+	public double getY() { return y1; }
+	public double getWidth() { return x2 - x1; }
+	public double getHeight() { return y2 - y1; }
+	
 	@Override
 	protected Shape getBoundaryImpl() {
 		return new Rectangle2D.Double(
@@ -169,7 +175,7 @@ public class ImageDrawObject extends DrawObject {
 		
 		AffineTransform t = g.getTransform();
 		g.translate(x1, y1);
-		g.scale(x2 - x1, y2 - y1);
+		g.scale((x2 - x1) / image.getWidth(), (y2 - y1) / image.getHeight());
 		g.drawImage(image, null, 0, 0);
 		g.setTransform(t);
 		
@@ -179,81 +185,75 @@ public class ImageDrawObject extends DrawObject {
 		}
 	}
 	
-	public static ImageDrawObject forGraphicsDrawImage(Graphics2D g, Image image, int x, int y) {
-		return forGraphicsDrawImage(g, image, x, y, null);
+	public static ImageDrawObject forGraphicsDrawImage(PaintSettings ps, Image image, int x, int y) {
+		return forGraphicsDrawImage(ps, image, x, y, null);
 	}
 	
-	public static ImageDrawObject forGraphicsDrawImage(Graphics2D g, Image image, int x, int y, Color bgcolor) {
+	public static ImageDrawObject forGraphicsDrawImage(PaintSettings ps, Image image, int x, int y, Color bgcolor) {
 		Dimension d = prepareImage(image); if (d == null) return null;
 		BufferedImage i = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
 		i.createGraphics().drawImage(image, 0, 0, null);
-		PaintSettings ps = PaintSettings.forGraphicsFill(g).deriveFillPaint(bgcolor);
-		return new ImageDrawObject(ps, i, x, y, d.width, d.height);
+		return new ImageDrawObject(ps.deriveFillPaint(bgcolor), i, x, y, d.width, d.height);
 	}
 	
-	public static ImageDrawObject forGraphicsDrawImage(Graphics2D g, Image image, int x, int y, int width, int height) {
-		return forGraphicsDrawImage(g, image, x, y, width, height, null);
+	public static ImageDrawObject forGraphicsDrawImage(PaintSettings ps, Image image, int x, int y, int width, int height) {
+		return forGraphicsDrawImage(ps, image, x, y, width, height, null);
 	}
 	
-	public static ImageDrawObject forGraphicsDrawImage(Graphics2D g, Image image, int x, int y, int width, int height, Color bgcolor) {
+	public static ImageDrawObject forGraphicsDrawImage(PaintSettings ps, Image image, int x, int y, int width, int height, Color bgcolor) {
 		Dimension d = prepareImage(image); if (d == null) return null;
 		BufferedImage i = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
 		i.createGraphics().drawImage(image, 0, 0, null);
-		PaintSettings ps = PaintSettings.forGraphicsFill(g).deriveFillPaint(bgcolor);
-		return new ImageDrawObject(ps, i, x, y, width, height);
+		return new ImageDrawObject(ps.deriveFillPaint(bgcolor), i, x, y, width, height);
 	}
 	
-	public static ImageDrawObject forGraphicsDrawImage(Graphics2D g, Image image, int dx1, int dy1, int dx2, int dy2, int sx1, int sy1, int sx2, int sy2) {
-		return forGraphicsDrawImage(g, image, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, null);
+	public static ImageDrawObject forGraphicsDrawImage(PaintSettings ps, Image image, int dx1, int dy1, int dx2, int dy2, int sx1, int sy1, int sx2, int sy2) {
+		return forGraphicsDrawImage(ps, image, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, null);
 	}
 	
-	public static ImageDrawObject forGraphicsDrawImage(Graphics2D g, Image image, int dx1, int dy1, int dx2, int dy2, int sx1, int sy1, int sx2, int sy2, Color bgcolor) {
+	public static ImageDrawObject forGraphicsDrawImage(PaintSettings ps, Image image, int dx1, int dy1, int dx2, int dy2, int sx1, int sy1, int sx2, int sy2, Color bgcolor) {
 		if (prepareImage(image) == null) return null;
 		int width = Math.abs(sx2 - sx1), height = Math.abs(sy2 - sy1);
 		BufferedImage i = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		i.createGraphics().drawImage(image, 0, 0, width, height, sx1, sy1, sx2, sy2, null);
-		PaintSettings ps = PaintSettings.forGraphicsFill(g).deriveFillPaint(bgcolor);
-		return new ImageDrawObject(ps, i, dx1, dy1, dx2 - dx1, dy2 - dy1);
+		return new ImageDrawObject(ps.deriveFillPaint(bgcolor), i, dx1, dy1, dx2 - dx1, dy2 - dy1);
 	}
 	
-	public static ImageDrawObject forGraphicsDrawImage(Graphics2D g, Image image, AffineTransform tx) {
-		ImageDrawObject ido = forGraphicsDrawImage(g, image, 0, 0);
+	public static ImageDrawObject forGraphicsDrawImage(PaintSettings ps, Image image, AffineTransform tx) {
+		ImageDrawObject ido = forGraphicsDrawImage(ps, image, 0, 0);
 		ido.setTransform(tx);
 		return ido;
 	}
 	
-	public static ImageDrawObject forGraphicsDrawImage(Graphics2D g, BufferedImage image, BufferedImageOp op, int x, int y) {
+	public static ImageDrawObject forGraphicsDrawImage(PaintSettings ps, BufferedImage image, BufferedImageOp op, int x, int y) {
 		Rectangle b = (op != null) ? op.getBounds2D(image).getBounds()
 			: new Rectangle(0, 0, image.getWidth(), image.getHeight());
 		BufferedImage i = new BufferedImage(b.width, b.height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D ig = i.createGraphics();
 		ig.drawImage(image, op, -b.x, -b.y);
 		ig.dispose();
-		PaintSettings ps = PaintSettings.forGraphicsFill(g).deriveFillPaint(null);
 		return new ImageDrawObject(ps, i, x + b.x, y + b.y, b.width, b.height);
 	}
 	
-	public static ImageDrawObject forGraphicsDrawRenderableImage(Graphics2D g, RenderableImage image, AffineTransform tx) {
+	public static ImageDrawObject forGraphicsDrawRenderableImage(PaintSettings ps, RenderableImage image, AffineTransform tx) {
 		int width = (int)Math.ceil(image.getWidth());
 		int height = (int)Math.ceil(image.getHeight());
 		BufferedImage i = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D ig = i.createGraphics();
 		ig.drawRenderableImage(image, null);
 		ig.dispose();
-		PaintSettings ps = PaintSettings.forGraphicsFill(g).deriveFillPaint(null);
 		ImageDrawObject ido = new ImageDrawObject(ps, i, 0, 0, width, height);
 		ido.setTransform(tx);
 		return ido;
 	}
 	
-	public static ImageDrawObject forGraphicsDrawRenderedImage(Graphics2D g, RenderedImage image, AffineTransform tx) {
+	public static ImageDrawObject forGraphicsDrawRenderedImage(PaintSettings ps, RenderedImage image, AffineTransform tx) {
 		int width = image.getWidth();
 		int height = image.getHeight();
 		BufferedImage i = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D ig = i.createGraphics();
 		ig.drawRenderedImage(image, null);
 		ig.dispose();
-		PaintSettings ps = PaintSettings.forGraphicsFill(g).deriveFillPaint(null);
 		ImageDrawObject ido = new ImageDrawObject(ps, i, 0, 0, width, height);
 		ido.setTransform(tx);
 		return ido;

@@ -1,39 +1,11 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.tool;
 
 import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-import java.awt.geom.Point2D;
 import com.kreative.paint.datatransfer.ClipboardUtilities;
-import com.kreative.paint.draw.TextDrawObject;
+import com.kreative.paint.document.draw.TextDrawObject;
 
 public class TextTool extends AbstractPaintDrawTool {
 	private static final int K = 0xFF000000;
@@ -102,7 +74,7 @@ public class TextTool extends AbstractPaintDrawTool {
 			}
 		}
 		e.beginTransaction(getName());
-		text = new TextDrawObject(e.getX(), e.getY(), "", e.getPaintSettings());
+		text = new TextDrawObject(e.getPaintSettings(), e.getX(), e.getY(), Double.MAX_VALUE, "");
 		text.setCursor(0, 0);
 		return false;
 	}
@@ -164,97 +136,25 @@ public class TextTool extends AbstractPaintDrawTool {
 				text = null;
 				return true;
 			case KeyEvent.VK_BACK_SPACE:
-				text.backspace();
+				text.deleteBackward();
 				return true;
 			case KeyEvent.VK_DELETE:
-				text.delete();
+				text.deleteForward();
 				return true;
 			case KeyEvent.VK_ENTER:
 				text.setSelectedText("\n");
 				return true;
 			case KeyEvent.VK_UP:
-				if (e.isShiftDown()) {
-					int cs = text.getCursorStart();
-					int ce = text.getCursorEnd();
-					if (ce > 0) {
-						Graphics2D g = e.getDrawGraphics();
-						Point2D p = text.getLocationOfCursorIndex(g, ce);
-						float x = (float)p.getX();
-						float y = (float)p.getY() - g.getFontMetrics(text.getFont()).getHeight();
-						ce = text.getCursorIndexOfLocation(g, x, y);
-						text.setCursor(cs, ce);
-					}
-				}
-				else {
-					int cs = text.getCursorStart();
-					if (cs > 0) {
-						Graphics2D g = e.getDrawGraphics();
-						Point2D p = text.getLocationOfCursorIndex(g, cs);
-						float x = (float)p.getX();
-						float y = (float)p.getY() - g.getFontMetrics(text.getFont()).getHeight();
-						cs = text.getCursorIndexOfLocation(g, x, y);
-					}
-					text.setCursor(cs, cs);
-				}
+				text.moveCursor(e.getDrawGraphics(), -1, 0, e.isShiftDown());
 				return true;
 			case KeyEvent.VK_LEFT:
-				if (e.isShiftDown()) {
-					int cs = text.getCursorStart();
-					int ce = text.getCursorEnd();
-					if (ce > 0) {
-						ce--;
-						text.setCursor(cs, ce);
-					}
-				}
-				else {
-					int cs = text.getCursorStart();
-					if (cs > 0) {
-						cs--;
-					}
-					text.setCursor(cs, cs);
-				}
+				text.moveCursor(e.getDrawGraphics(), 0, -1, e.isShiftDown());
 				return true;
 			case KeyEvent.VK_RIGHT:
-				if (e.isShiftDown()) {
-					int cs = text.getCursorStart();
-					int ce = text.getCursorEnd();
-					if (ce < text.getText().length()) {
-						ce++;
-						text.setCursor(cs, ce);
-					}
-				}
-				else {
-					int ce = text.getCursorEnd();
-					if (ce < text.getText().length()) {
-						ce++;
-					}
-					text.setCursor(ce, ce);
-				}
+				text.moveCursor(e.getDrawGraphics(), 0, +1, e.isShiftDown());
 				return true;
 			case KeyEvent.VK_DOWN:
-				if (e.isShiftDown()) {
-					int cs = text.getCursorStart();
-					int ce = text.getCursorEnd();
-					if (ce < text.getText().length()) {
-						Graphics2D g = e.getDrawGraphics();
-						Point2D p = text.getLocationOfCursorIndex(g, ce);
-						float x = (float)p.getX();
-						float y = (float)p.getY() + g.getFontMetrics(text.getFont()).getHeight();
-						ce = text.getCursorIndexOfLocation(g, x, y);
-						text.setCursor(cs, ce);
-					}
-				}
-				else {
-					int ce = text.getCursorEnd();
-					if (ce < text.getText().length()) {
-						Graphics2D g = e.getDrawGraphics();
-						Point2D p = text.getLocationOfCursorIndex(g, ce);
-						float x = (float)p.getX();
-						float y = (float)p.getY() + g.getFontMetrics(text.getFont()).getHeight();
-						ce = text.getCursorIndexOfLocation(g, x, y);
-					}
-					text.setCursor(ce, ce);
-				}
+				text.moveCursor(e.getDrawGraphics(), +1, 0, e.isShiftDown());
 				return true;
 			default:
 				return false;

@@ -111,7 +111,7 @@ public class CurlBrushTool extends AbstractPaintDrawTool implements ToolOptions.
 		currentPath.lineTo((float)x, (float)y);
 		// Closing
 		BrushStrokeDrawObject o = new BrushStrokeDrawObject(
-			e.tc().getBrush(), currentPath, e.getPaintSettings());
+			e.getPaintSettings(), currentPath, e.tc().getBrush());
 		if (e.isInDrawMode()) e.getDrawSurface().add(o);
 		else o.paint(e.getPaintGraphics());
 		currentPath = null;
@@ -123,7 +123,7 @@ public class CurlBrushTool extends AbstractPaintDrawTool implements ToolOptions.
 	public boolean paintIntermediate(ToolEvent e, Graphics2D g) {
 		if (currentPath != null) {
 			BrushStrokeDrawObject o = new BrushStrokeDrawObject(
-				e.tc().getBrush(), currentPath, e.getPaintSettings());
+				e.getPaintSettings(), currentPath, e.tc().getBrush());
 			o.paint(g);
 		}
 		if (e.isMouseOnCanvas()) {

@@ -5,6 +5,9 @@ import java.awt.geom.*;
 import java.io.*;
 import java.util.*;
 import java.util.zip.*;
+import com.kreative.paint.document.draw.Path;
+import com.kreative.paint.document.draw.PathContour;
+import com.kreative.paint.document.draw.PathPoint;
 import com.kreative.paint.geom.*;
 import com.kreative.paint.material.shape.*;
 
@@ -27,6 +30,9 @@ public class CKPGeomSerializer extends Serializer {
 	private static final int TYPE_PARAMETERIZED_SHAPE_POLYLINE = fcc("pPLn");
 	private static final int TYPE_PARAMETERIZED_SHAPE_RECT = fcc("pRec");
 	private static final int TYPE_PARAMETERIZED_VALUE = fcc("pVal");
+	private static final int TYPE_PATH = fcc("^Pth");
+	private static final int TYPE_PATH_CONTOUR = fcc("^Cnt");
+	private static final int TYPE_PATH_POINT = fcc("^Pnt");
 	private static final int TYPE_POWERSHAPE = fcc("pShp");
 	private static final int TYPE_POWERSHAPE_LIST = fcc("SLst");
 	
@@ -49,6 +55,9 @@ public class CKPGeomSerializer extends Serializer {
 		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_POLYLINE, 1, ParameterizedShape.PolyLine.class);
 		addTypeAndClass(TYPE_PARAMETERIZED_SHAPE_RECT, 1, ParameterizedShape.Rect.class);
 		addTypeAndClass(TYPE_PARAMETERIZED_VALUE, 1, ParameterizedValue.class);
+		addTypeAndClass(TYPE_PATH, 1, Path.class);
+		addTypeAndClass(TYPE_PATH_CONTOUR, 1, PathContour.class);
+		addTypeAndClass(TYPE_PATH_POINT, 1, PathPoint.class);
 		addTypeAndClass(TYPE_POWERSHAPE, 2, PowerShape.class);
 		addTypeAndClass(TYPE_POWERSHAPE_LIST, 1, PowerShapeList.class);
 	}
@@ -243,6 +252,53 @@ public class CKPGeomSerializer extends Serializer {
 				stream.writeInt(-1);
 				stream.writeUTF(v.source);
 			}
+		} else if (o instanceof Path) {
+			Path v = (Path)o;
+			stream.writeInt(v.size());
+			for (PathContour c : v) {
+				stream.writeInt(c.size());
+				for (PathPoint p : c) {
+					stream.writeDouble(p.getPreviousCtrl().getX());
+					stream.writeDouble(p.getPreviousCtrl().getY());
+					stream.writeDouble(p.getX());
+					stream.writeDouble(p.getY());
+					stream.writeDouble(p.getNextCtrl().getX());
+					stream.writeDouble(p.getNextCtrl().getY());
+					stream.writeBoolean(p.isPreviousQuadratic());
+					stream.writeBoolean(p.isAngleLocked());
+					stream.writeBoolean(p.isRadiusLocked());
+					stream.writeBoolean(p.isNextQuadratic());
+				}
+				stream.writeBoolean(c.isClosed());
+			}
+		} else if (o instanceof PathContour) {
+			PathContour v = (PathContour)o;
+			stream.writeInt(v.size());
+			for (PathPoint p : v) {
+				stream.writeDouble(p.getPreviousCtrl().getX());
+				stream.writeDouble(p.getPreviousCtrl().getY());
+				stream.writeDouble(p.getX());
+				stream.writeDouble(p.getY());
+				stream.writeDouble(p.getNextCtrl().getX());
+				stream.writeDouble(p.getNextCtrl().getY());
+				stream.writeBoolean(p.isPreviousQuadratic());
+				stream.writeBoolean(p.isAngleLocked());
+				stream.writeBoolean(p.isRadiusLocked());
+				stream.writeBoolean(p.isNextQuadratic());
+			}
+			stream.writeBoolean(v.isClosed());
+		} else if (o instanceof PathPoint) {
+			PathPoint v = (PathPoint)o;
+			stream.writeDouble(v.getPreviousCtrl().getX());
+			stream.writeDouble(v.getPreviousCtrl().getY());
+			stream.writeDouble(v.getX());
+			stream.writeDouble(v.getY());
+			stream.writeDouble(v.getNextCtrl().getX());
+			stream.writeDouble(v.getNextCtrl().getY());
+			stream.writeBoolean(v.isPreviousQuadratic());
+			stream.writeBoolean(v.isAngleLocked());
+			stream.writeBoolean(v.isRadiusLocked());
+			stream.writeBoolean(v.isNextQuadratic());
 		} else if (o instanceof PowerShape) {
 			PowerShape v = (PowerShape)o;
 			List<String> params = v.getParameterNames();
@@ -638,6 +694,83 @@ public class CKPGeomSerializer extends Serializer {
 				}
 				return new ParameterizedValue(s.toString().substring(1), e);
 			}
+		} else if (type == TYPE_PATH) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			Path path = new Path();
+			int nc = stream.readInt();
+			for (int ci = 0; ci < nc; ci++) {
+				PathContour c = new PathContour();
+				int np = stream.readInt();
+				for (int pi = 0; pi < np; pi++) {
+					double px = stream.readDouble();
+					double py = stream.readDouble();
+					double x = stream.readDouble();
+					double y = stream.readDouble();
+					double nx = stream.readDouble();
+					double ny = stream.readDouble();
+					boolean pq = stream.readBoolean();
+					boolean al = stream.readBoolean();
+					boolean rl = stream.readBoolean();
+					boolean nq = stream.readBoolean();
+					PathPoint p = new PathPoint(x, y);
+					p.setPreviousCtrl(px, py);
+					p.setNextCtrl(nx, ny);
+					p.setPreviousQuadratic(pq);
+					p.setAngleLocked(al);
+					p.setRadiusLocked(rl);
+					p.setNextQuadratic(nq);
+					c.add(p);
+				}
+				c.setClosed(stream.readBoolean());
+				path.add(c);
+			}
+			return path;
+		} else if (type == TYPE_PATH_CONTOUR) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			PathContour c = new PathContour();
+			int np = stream.readInt();
+			for (int pi = 0; pi < np; pi++) {
+				double px = stream.readDouble();
+				double py = stream.readDouble();
+				double x = stream.readDouble();
+				double y = stream.readDouble();
+				double nx = stream.readDouble();
+				double ny = stream.readDouble();
+				boolean pq = stream.readBoolean();
+				boolean al = stream.readBoolean();
+				boolean rl = stream.readBoolean();
+				boolean nq = stream.readBoolean();
+				PathPoint p = new PathPoint(x, y);
+				p.setPreviousCtrl(px, py);
+				p.setNextCtrl(nx, ny);
+				p.setPreviousQuadratic(pq);
+				p.setAngleLocked(al);
+				p.setRadiusLocked(rl);
+				p.setNextQuadratic(nq);
+				c.add(p);
+			}
+			c.setClosed(stream.readBoolean());
+			return c;
+		} else if (type == TYPE_PATH_POINT) {
+			if (version != 1) throw new IOException("Invalid version number.");
+			double px = stream.readDouble();
+			double py = stream.readDouble();
+			double x = stream.readDouble();
+			double y = stream.readDouble();
+			double nx = stream.readDouble();
+			double ny = stream.readDouble();
+			boolean pq = stream.readBoolean();
+			boolean al = stream.readBoolean();
+			boolean rl = stream.readBoolean();
+			boolean nq = stream.readBoolean();
+			PathPoint p = new PathPoint(x, y);
+			p.setPreviousCtrl(px, py);
+			p.setNextCtrl(nx, ny);
+			p.setPreviousQuadratic(pq);
+			p.setAngleLocked(al);
+			p.setRadiusLocked(rl);
+			p.setNextQuadratic(nq);
+			return p;
 		} else if (type == TYPE_POWERSHAPE) {
 			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			if (version >= 2) {

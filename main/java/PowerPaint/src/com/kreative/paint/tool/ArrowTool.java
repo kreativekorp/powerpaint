@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint.tool;
 
 import java.awt.Cursor;
@@ -40,20 +13,19 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Vector;
-import com.kreative.paint.DrawSurface;
-import com.kreative.paint.PaintSettings;
 import com.kreative.paint.datatransfer.ClipboardUtilities;
-import com.kreative.paint.draw.ControlPoint;
-import com.kreative.paint.draw.ControlPointType;
-import com.kreative.paint.draw.DrawObject;
-import com.kreative.paint.draw.GroupDrawObject;
-import com.kreative.paint.draw.ImageDrawObject;
-import com.kreative.paint.draw.QuickShadowDrawObject;
-import com.kreative.paint.draw.ShapeDrawObject;
-import com.kreative.paint.draw.TextDrawObject;
+import com.kreative.paint.document.draw.ControlPoint;
+import com.kreative.paint.document.draw.ControlPointType;
+import com.kreative.paint.document.draw.DrawObject;
+import com.kreative.paint.document.draw.DrawSurface;
+import com.kreative.paint.document.draw.GroupDrawObject;
+import com.kreative.paint.document.draw.ImageDrawObject;
+import com.kreative.paint.document.draw.PaintSettings;
+import com.kreative.paint.document.draw.PathDrawObject;
+import com.kreative.paint.document.draw.ShapeDrawObject;
+import com.kreative.paint.document.draw.TextDrawObject;
 import com.kreative.paint.util.CursorUtils;
 import com.kreative.paint.util.ImageUtils;
-import com.kreative.paint.util.ShapeUtils;
 
 public class ArrowTool extends AbstractDrawSelectionTool {
 	private static final int K = 0xFF000000;
@@ -80,7 +52,7 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 	);
 	
 	private DrawObject currentObject;
-	private ControlPoint[] originalControlPoints;
+	private List<ControlPoint> originalControlPoints;
 	private int originalCurrentControlPoint; // don't
 	private int currentCurrentControlPoint; // ask
 	private Map<DrawObject,Point2D> anchorPoints;
@@ -161,8 +133,8 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 			DrawObject o = oi.previous();
 			if (o.isSelected()) {
 				for (ControlPoint c : o.getControlPoints()) {
-					if (c.distance(p) <= 3.0) {
-						setCursor(c.getType().getCursor());
+					if (c.getType() != ControlPointType.HIDDEN && c.distance(p) <= 3.0) {
+						setCursor(getControlPointCursor(c));
 						return false;
 					}
 				}
@@ -206,10 +178,10 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 		while (oi.hasPrevious()) {
 			DrawObject o = oi.previous();
 			if (o.isSelected()) {
-				ControlPoint[] cp = o.getControlPoints();
-				for (int i = 0; i < cp.length; i++) {
-					ControlPoint c = cp[i];
-					if (c.distance(p) <= 3.0) {
+				List<ControlPoint> cp = o.getControlPoints();
+				for (int i = 0; i < cp.size(); i++) {
+					ControlPoint c = cp.get(i);
+					if (c.getType() != ControlPointType.HIDDEN && c.distance(p) <= 3.0) {
 						// yes, clicked on a control point of a selected shape
 						// start a control point drag
 						e.renameTransaction(ToolUtilities.messages.getString("arrow.ChangeControlPoint"));
@@ -285,7 +257,7 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 						currentCurrentControlPoint = 0;
 						anchorPoints = new IdentityHashMap<DrawObject,Point2D>();
 						for (DrawObject o2 : d) {
-							if (o2.isSelected()) anchorPoints.put(o2, (Point2D)o2.getAnchor().clone());
+							if (o2.isSelected()) anchorPoints.put(o2, (Point2D)o2.getLocation().clone());
 						}
 						startedDragRect = false;
 						text = null;
@@ -346,7 +318,7 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 						currentCurrentControlPoint = 0;
 						anchorPoints = new IdentityHashMap<DrawObject,Point2D>();
 						for (DrawObject o2 : d) {
-							if (o2.isSelected()) anchorPoints.put(o2, (Point2D)o2.getAnchor().clone());
+							if (o2.isSelected()) anchorPoints.put(o2, (Point2D)o2.getLocation().clone());
 						}
 						startedDragRect = false;
 						text = null;
@@ -416,7 +388,7 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 					if (!o.isLocked()) {
 						Point2D a = me.getValue();
 						Point2D na = new Point2D.Double(a.getX()-sx+x, a.getY()-sy+y);
-						o.setAnchor(na);
+						o.setLocation(na);
 					}
 				}
 				return true;
@@ -512,7 +484,7 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 					if (!o.isLocked()) {
 						Point2D a = me.getValue();
 						Point2D na = new Point2D.Double(a.getX()-sx+x, a.getY()-sy+y);
-						o.setAnchor(na);
+						o.setLocation(na);
 					}
 				}
 			}
@@ -529,7 +501,7 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 	}
 	
 	private Point2D.Float controlPointConstrain(float sx, float sy, float x, float y) {
-		ControlPointType t = originalControlPoints[originalCurrentControlPoint].getType();
+		ControlPointType t = originalControlPoints.get(originalCurrentControlPoint).getType();
 		switch (t) {
 		case NORTHWEST:
 		case NORTHEAST:
@@ -658,33 +630,44 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 			if (delta == -1) {
 				text.setPaintSettings(e.getPaintSettings());
 			} else {
-				if ((delta & CHANGED_DRAW_COMPOSITE) != 0) text.setDrawComposite(e.getPaintSettings().getDrawComposite());
-				if ((delta & CHANGED_DRAW_PAINT) != 0) text.setDrawPaint(e.getPaintSettings().getDrawPaint());
-				if ((delta & CHANGED_FILL_COMPOSITE) != 0) text.setFillComposite(e.getPaintSettings().getFillComposite());
-				if ((delta & CHANGED_FILL_PAINT) != 0) text.setFillPaint(e.getPaintSettings().getFillPaint());
-				if ((delta & CHANGED_STROKE) != 0) text.setStroke(e.getPaintSettings().getStroke());
-				if ((delta & CHANGED_FONT) != 0) text.setFont(e.getPaintSettings().getFont());
-				if ((delta & CHANGED_TEXT_ALIGNMENT) != 0) text.setTextAlignment(e.getPaintSettings().getTextAlignment());
-				if ((delta & CHANGED_ANTI_ALIASED) != 0) text.setAntiAliased(e.getPaintSettings().isAntiAliased());
+				PaintSettings ps = text.getPaintSettings();
+				if ((delta & CHANGED_DRAW_COMPOSITE) != 0) ps = ps.deriveDrawComposite(e.getPaintSettings().drawComposite);
+				if ((delta & CHANGED_DRAW_PAINT) != 0) ps = ps.deriveDrawPaint(e.getPaintSettings().drawPaint);
+				if ((delta & CHANGED_FILL_COMPOSITE) != 0) ps = ps.deriveFillComposite(e.getPaintSettings().fillComposite);
+				if ((delta & CHANGED_FILL_PAINT) != 0) ps = ps.deriveFillPaint(e.getPaintSettings().fillPaint);
+				if ((delta & CHANGED_STROKE) != 0) ps = ps.deriveDrawStroke(e.getPaintSettings().drawStroke);
+				if ((delta & CHANGED_FONT) != 0) ps = ps.deriveTextFont(e.getPaintSettings().textFont);
+				if ((delta & CHANGED_TEXT_ALIGNMENT) != 0) ps = ps.deriveTextAlignment(e.getPaintSettings().textAlignment);
+				if ((delta & CHANGED_ANTI_ALIASED) != 0) {
+					ps = ps.deriveDrawAntiAliased(e.getPaintSettings().drawAntiAliased);
+					ps = ps.deriveFillAntiAliased(e.getPaintSettings().fillAntiAliased);
+					ps = ps.deriveTextAntiAliased(e.getPaintSettings().textAntiAliased);
+				}
+				text.setPaintSettings(ps);
 			}
 			return true;
 		} else {
 			DrawSurface d = e.getDrawSurface();
-			PaintSettings ps = e.getPaintSettings();
 			if (e.isTransactionInProgress()) {
 				for (DrawObject o : d) {
 					if (o.isSelected() && !o.isLocked()) {
 						if (delta == -1) {
-							o.setPaintSettings(ps);
+							o.setPaintSettings(e.getPaintSettings());
 						} else {
-							if ((delta & CHANGED_DRAW_COMPOSITE) != 0) o.setDrawComposite(e.getPaintSettings().getDrawComposite());
-							if ((delta & CHANGED_DRAW_PAINT) != 0) o.setDrawPaint(e.getPaintSettings().getDrawPaint());
-							if ((delta & CHANGED_FILL_COMPOSITE) != 0) o.setFillComposite(e.getPaintSettings().getFillComposite());
-							if ((delta & CHANGED_FILL_PAINT) != 0) o.setFillPaint(e.getPaintSettings().getFillPaint());
-							if ((delta & CHANGED_STROKE) != 0) o.setStroke(e.getPaintSettings().getStroke());
-							if ((delta & CHANGED_FONT) != 0) o.setFont(e.getPaintSettings().getFont());
-							if ((delta & CHANGED_TEXT_ALIGNMENT) != 0) o.setTextAlignment(e.getPaintSettings().getTextAlignment());
-							if ((delta & CHANGED_ANTI_ALIASED) != 0) o.setAntiAliased(e.getPaintSettings().isAntiAliased());
+							PaintSettings ps = o.getPaintSettings();
+							if ((delta & CHANGED_DRAW_COMPOSITE) != 0) ps = ps.deriveDrawComposite(e.getPaintSettings().drawComposite);
+							if ((delta & CHANGED_DRAW_PAINT) != 0) ps = ps.deriveDrawPaint(e.getPaintSettings().drawPaint);
+							if ((delta & CHANGED_FILL_COMPOSITE) != 0) ps = ps.deriveFillComposite(e.getPaintSettings().fillComposite);
+							if ((delta & CHANGED_FILL_PAINT) != 0) ps = ps.deriveFillPaint(e.getPaintSettings().fillPaint);
+							if ((delta & CHANGED_STROKE) != 0) ps = ps.deriveDrawStroke(e.getPaintSettings().drawStroke);
+							if ((delta & CHANGED_FONT) != 0) ps = ps.deriveTextFont(e.getPaintSettings().textFont);
+							if ((delta & CHANGED_TEXT_ALIGNMENT) != 0) ps = ps.deriveTextAlignment(e.getPaintSettings().textAlignment);
+							if ((delta & CHANGED_ANTI_ALIASED) != 0) {
+								ps = ps.deriveDrawAntiAliased(e.getPaintSettings().drawAntiAliased);
+								ps = ps.deriveFillAntiAliased(e.getPaintSettings().fillAntiAliased);
+								ps = ps.deriveTextAntiAliased(e.getPaintSettings().textAntiAliased);
+							}
+							o.setPaintSettings(ps);
 						}
 					}
 				}
@@ -694,16 +677,22 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 				for (DrawObject o : d) {
 					if (o.isSelected() && !o.isLocked()) {
 						if (delta == -1) {
-							o.setPaintSettings(ps);
+							o.setPaintSettings(e.getPaintSettings());
 						} else {
-							if ((delta & CHANGED_DRAW_COMPOSITE) != 0) o.setDrawComposite(e.getPaintSettings().getDrawComposite());
-							if ((delta & CHANGED_DRAW_PAINT) != 0) o.setDrawPaint(e.getPaintSettings().getDrawPaint());
-							if ((delta & CHANGED_FILL_COMPOSITE) != 0) o.setFillComposite(e.getPaintSettings().getFillComposite());
-							if ((delta & CHANGED_FILL_PAINT) != 0) o.setFillPaint(e.getPaintSettings().getFillPaint());
-							if ((delta & CHANGED_STROKE) != 0) o.setStroke(e.getPaintSettings().getStroke());
-							if ((delta & CHANGED_FONT) != 0) o.setFont(e.getPaintSettings().getFont());
-							if ((delta & CHANGED_TEXT_ALIGNMENT) != 0) o.setTextAlignment(e.getPaintSettings().getTextAlignment());
-							if ((delta & CHANGED_ANTI_ALIASED) != 0) o.setAntiAliased(e.getPaintSettings().isAntiAliased());
+							PaintSettings ps = o.getPaintSettings();
+							if ((delta & CHANGED_DRAW_COMPOSITE) != 0) ps = ps.deriveDrawComposite(e.getPaintSettings().drawComposite);
+							if ((delta & CHANGED_DRAW_PAINT) != 0) ps = ps.deriveDrawPaint(e.getPaintSettings().drawPaint);
+							if ((delta & CHANGED_FILL_COMPOSITE) != 0) ps = ps.deriveFillComposite(e.getPaintSettings().fillComposite);
+							if ((delta & CHANGED_FILL_PAINT) != 0) ps = ps.deriveFillPaint(e.getPaintSettings().fillPaint);
+							if ((delta & CHANGED_STROKE) != 0) ps = ps.deriveDrawStroke(e.getPaintSettings().drawStroke);
+							if ((delta & CHANGED_FONT) != 0) ps = ps.deriveTextFont(e.getPaintSettings().textFont);
+							if ((delta & CHANGED_TEXT_ALIGNMENT) != 0) ps = ps.deriveTextAlignment(e.getPaintSettings().textAlignment);
+							if ((delta & CHANGED_ANTI_ALIASED) != 0) {
+								ps = ps.deriveDrawAntiAliased(e.getPaintSettings().drawAntiAliased);
+								ps = ps.deriveFillAntiAliased(e.getPaintSettings().fillAntiAliased);
+								ps = ps.deriveTextAntiAliased(e.getPaintSettings().textAntiAliased);
+							}
+							o.setPaintSettings(ps);
 						}
 					}
 				}
@@ -739,97 +728,25 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 				text = null;
 				return true;
 			case KeyEvent.VK_BACK_SPACE:
-				text.backspace();
+				text.deleteBackward();
 				return true;
 			case KeyEvent.VK_DELETE:
-				text.delete();
+				text.deleteForward();
 				return true;
 			case KeyEvent.VK_ENTER:
 				text.setSelectedText("\n");
 				return true;
 			case KeyEvent.VK_UP:
-				if (e.isShiftDown()) {
-					int cs = text.getCursorStart();
-					int ce = text.getCursorEnd();
-					if (ce > 0) {
-						Graphics2D g = e.getDrawGraphics();
-						Point2D p = text.getLocationOfCursorIndex(g, ce);
-						float x = (float)p.getX();
-						float y = (float)p.getY() - g.getFontMetrics(text.getFont()).getHeight();
-						ce = text.getCursorIndexOfLocation(g, x, y);
-						text.setCursor(cs, ce);
-					}
-				}
-				else {
-					int cs = text.getCursorStart();
-					if (cs > 0) {
-						Graphics2D g = e.getDrawGraphics();
-						Point2D p = text.getLocationOfCursorIndex(g, cs);
-						float x = (float)p.getX();
-						float y = (float)p.getY() - g.getFontMetrics(text.getFont()).getHeight();
-						cs = text.getCursorIndexOfLocation(g, x, y);
-					}
-					text.setCursor(cs, cs);
-				}
+				text.moveCursor(e.getDrawGraphics(), -1, 0, e.isShiftDown());
 				return true;
 			case KeyEvent.VK_LEFT:
-				if (e.isShiftDown()) {
-					int cs = text.getCursorStart();
-					int ce = text.getCursorEnd();
-					if (ce > 0) {
-						ce--;
-						text.setCursor(cs, ce);
-					}
-				}
-				else {
-					int cs = text.getCursorStart();
-					if (cs > 0) {
-						cs--;
-					}
-					text.setCursor(cs, cs);
-				}
+				text.moveCursor(e.getDrawGraphics(), 0, -1, e.isShiftDown());
 				return true;
 			case KeyEvent.VK_RIGHT:
-				if (e.isShiftDown()) {
-					int cs = text.getCursorStart();
-					int ce = text.getCursorEnd();
-					if (ce < text.getText().length()) {
-						ce++;
-						text.setCursor(cs, ce);
-					}
-				}
-				else {
-					int ce = text.getCursorEnd();
-					if (ce < text.getText().length()) {
-						ce++;
-					}
-					text.setCursor(ce, ce);
-				}
+				text.moveCursor(e.getDrawGraphics(), 0, +1, e.isShiftDown());
 				return true;
 			case KeyEvent.VK_DOWN:
-				if (e.isShiftDown()) {
-					int cs = text.getCursorStart();
-					int ce = text.getCursorEnd();
-					if (ce < text.getText().length()) {
-						Graphics2D g = e.getDrawGraphics();
-						Point2D p = text.getLocationOfCursorIndex(g, ce);
-						float x = (float)p.getX();
-						float y = (float)p.getY() + g.getFontMetrics(text.getFont()).getHeight();
-						ce = text.getCursorIndexOfLocation(g, x, y);
-						text.setCursor(cs, ce);
-					}
-				}
-				else {
-					int ce = text.getCursorEnd();
-					if (ce < text.getText().length()) {
-						Graphics2D g = e.getDrawGraphics();
-						Point2D p = text.getLocationOfCursorIndex(g, ce);
-						float x = (float)p.getX();
-						float y = (float)p.getY() + g.getFontMetrics(text.getFont()).getHeight();
-						ce = text.getCursorIndexOfLocation(g, x, y);
-					}
-					text.setCursor(ce, ce);
-				}
+				text.moveCursor(e.getDrawGraphics(), +1, 0, e.isShiftDown());
 				return true;
 			default:
 				return false;
@@ -1254,8 +1171,8 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 	private void nudge(DrawSurface d, float dx, float dy) {
 		for (DrawObject o : d) {
 			if (o.isSelected() && !o.isLocked()) {
-				Point2D p = o.getAnchor();
-				o.setAnchor(new Point2D.Double(p.getX()+dx, p.getY()+dy));
+				Point2D p = o.getLocation();
+				o.setLocation(new Point2D.Double(p.getX()+dx, p.getY()+dy));
 			}
 		}
 	}
@@ -1285,7 +1202,11 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 			if (ImageUtils.prepImage(i)) {
 				int w = i.getWidth(null);
 				int h = i.getHeight(null);
-				ImageDrawObject ido = new ImageDrawObject(i, (int)(e.getPreviousClickedX()-w/2.0f), (int)(e.getPreviousClickedY()-h/2.0f));
+				PaintSettings ps = new PaintSettings(null, null);
+				ImageDrawObject ido = ImageDrawObject.forGraphicsDrawImage(
+					ps, i,
+					(int)(e.getPreviousClickedX() - w / 2),
+					(int)(e.getPreviousClickedY() - h / 2));
 				ido.setSelected(true);
 				e.getDrawSurface().add(ido);
 			} else {
@@ -1293,7 +1214,13 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 			}
 		}
 		else if (ClipboardUtilities.clipboardHasString()) {
-			TextDrawObject tdo = new TextDrawObject(e.getPreviousClickedX(), e.getPreviousClickedY(), ClipboardUtilities.getClipboardString());
+			TextDrawObject tdo = new TextDrawObject(
+				e.getPaintSettings(),
+				e.getPreviousClickedX(),
+				e.getPreviousClickedY(),
+				Integer.MAX_VALUE,
+				ClipboardUtilities.getClipboardString()
+			);
 			tdo.setSelected(true);
 			e.getDrawSurface().add(tdo);
 		}
@@ -1318,9 +1245,9 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 				o.setSelected(true);
 				o.setVisible(true);
 				o.setLocked(false);
-				Point2D p = o.getAnchor();
+				Point2D p = o.getLocation();
 				p = new Point2D.Double(p.getX()+8, p.getY()+8);
-				o.setAnchor(p);
+				o.setLocation(p);
 				sel.add(o);
 			}
 		}
@@ -1338,8 +1265,7 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 			}
 		}
 		if (sel.size() > 1) {
-			GroupDrawObject gdo = new GroupDrawObject(ps);
-			gdo.addAll(sel);
+			GroupDrawObject gdo = new GroupDrawObject(sel);
 			gdo.setSelected(true);
 			d.add(selindex, gdo);
 			d.removeAll(sel);
@@ -1351,7 +1277,7 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 			DrawObject o = d.get(i);
 			if (o.isSelected() && o instanceof GroupDrawObject) {
 				GroupDrawObject g = (GroupDrawObject)o;
-				d.addAll(i+1, g);
+				d.addAll(i+1, g.ungroup());
 				d.remove(i);
 			}
 		}
@@ -1363,33 +1289,17 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 			if (o.isSelected() && !o.isLocked()) {
 				if (o instanceof GroupDrawObject) {
 					GroupDrawObject g = (GroupDrawObject)o;
-					d.addAll(i+1, g);
+					d.addAll(i+1, g.ungroup());
 					d.remove(i);
 				} else if (o instanceof ShapeDrawObject) {
 					ShapeDrawObject s1 = (ShapeDrawObject)o;
-					ShapeDrawObject s2 = new ShapeDrawObject(ShapeUtils.shapeToPath(s1.getOriginalShape()), s1.getPaintSettings());
+					ShapeDrawObject s2 = new PathDrawObject(s1.getPaintSettings(), s1.getShape());
 					s2.setSelected(s1.isSelected());
 					s2.setVisible(s1.isVisible());
 					s2.setLocked(s1.isLocked());
 					s2.setTransform(s1.getTransform());
+					s2.setShadowSettings(s1.getShadowSettings());
 					d.add(i+1, s2);
-					d.remove(i);
-				} else if (o instanceof QuickShadowDrawObject) {
-					QuickShadowDrawObject s1 = (QuickShadowDrawObject)o;
-					QuickShadowDrawObject s2 = new QuickShadowDrawObject(ShapeUtils.shapeToPath(s1.getOriginalShape()), s1.getShadowType(), s1.getShadowOpacity(), s1.getXOffset(), s1.getYOffset(), s1.getPaintSettings());
-					s2.setSelected(s1.isSelected());
-					s2.setVisible(s1.isVisible());
-					s2.setLocked(s1.isLocked());
-					s2.setTransform(s1.getTransform());
-					d.add(i+1, s2);
-					d.remove(i);
-				} else {
-					ShapeDrawObject s = new ShapeDrawObject(ShapeUtils.shapeToPath(o), o.getPaintSettings());
-					s.setSelected(o.isSelected());
-					s.setVisible(o.isVisible());
-					s.setLocked(o.isLocked());
-					s.setTransform(o.getTransform());
-					d.add(i+1, s);
 					d.remove(i);
 				}
 			}
@@ -1463,5 +1373,34 @@ public class ArrowTool extends AbstractDrawSelectionTool {
 	
 	public boolean usesLetterKeys() {
 		return (text != null);
+	}
+	
+	private static Cursor getControlPointCursor(ControlPoint cp) {
+		switch (cp.getType()) {
+			case NORTHWEST:
+				return Cursor.getPredefinedCursor(Cursor.NW_RESIZE_CURSOR);
+			case NORTH:
+				return Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR);
+			case NORTHEAST:
+				return Cursor.getPredefinedCursor(Cursor.NE_RESIZE_CURSOR);
+			case EAST:
+				return Cursor.getPredefinedCursor(Cursor.E_RESIZE_CURSOR);
+			case SOUTHEAST:
+				return Cursor.getPredefinedCursor(Cursor.SE_RESIZE_CURSOR);
+			case SOUTH:
+				return Cursor.getPredefinedCursor(Cursor.S_RESIZE_CURSOR);
+			case SOUTHWEST:
+				return Cursor.getPredefinedCursor(Cursor.SW_RESIZE_CURSOR);
+			case WEST:
+				return Cursor.getPredefinedCursor(Cursor.W_RESIZE_CURSOR);
+			case ENDPOINT:
+			case CURVED_MIDPOINT:
+			case STRAIGHT_MIDPOINT:
+			case CONTROL_POINT:
+			case PULL_TAB:
+				return CursorUtils.CURSOR_ARROW_HALF;
+			default:
+				return CursorUtils.CURSOR_MOVE;
+		}
 	}
 }

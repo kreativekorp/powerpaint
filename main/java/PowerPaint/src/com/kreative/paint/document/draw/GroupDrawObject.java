@@ -20,10 +20,10 @@ public class GroupDrawObject extends DrawObject {
 	public GroupDrawObject(Collection<DrawObject> objects) {
 		super((PaintSettings)null);
 		this.objects = new ArrayList<DrawObject>();
-		this.objects.addAll(objects);
 		Area ba = new Area();
 		Area ha = new Area();
 		for (DrawObject o : objects) {
+			this.objects.add(o.clone());
 			ba.add(new Area(o.getBounds2D()));
 			ha.add(new Area(o.getHitArea()));
 		}
@@ -35,22 +35,51 @@ public class GroupDrawObject extends DrawObject {
 		this.y2 = boundary.getMaxY();
 	}
 	
-	private GroupDrawObject(GroupDrawObject o) {
-		super(o);
+	public GroupDrawObject(Collection<DrawObject> objects, double x, double y, double width, double height) {
+		super((PaintSettings)null);
 		this.objects = new ArrayList<DrawObject>();
-		this.objects.addAll(o.objects);
-		this.boundary = o.boundary;
-		this.hitArea = o.hitArea;
-		this.x1 = o.x1;
-		this.y1 = o.y1;
-		this.x2 = o.x2;
-		this.y2 = o.y2;
+		Area ba = new Area();
+		Area ha = new Area();
+		for (DrawObject o : objects) {
+			this.objects.add(o.clone());
+			ba.add(new Area(o.getBounds2D()));
+			ha.add(new Area(o.getHitArea()));
+		}
+		this.boundary = ba.getBounds2D();
+		this.hitArea = ha;
+		this.x1 = x;
+		this.y1 = y;
+		this.x2 = x + width;
+		this.y2 = y + height;
+	}
+	
+	private GroupDrawObject(GroupDrawObject original) {
+		super(original);
+		this.objects = new ArrayList<DrawObject>();
+		Area ba = new Area();
+		Area ha = new Area();
+		for (DrawObject o : original.objects) {
+			this.objects.add(o.clone());
+			ba.add(new Area(o.getBounds2D()));
+			ha.add(new Area(o.getHitArea()));
+		}
+		this.boundary = ba.getBounds2D();
+		this.hitArea = ha;
+		this.x1 = original.x1;
+		this.y1 = original.y1;
+		this.x2 = original.x2;
+		this.y2 = original.y2;
 	}
 	
 	@Override
 	public GroupDrawObject clone() {
 		return new GroupDrawObject(this);
 	}
+	
+	public double getX() { return x1; }
+	public double getY() { return y1; }
+	public double getWidth() { return x2 - x1; }
+	public double getHeight() { return y2 - y1; }
 	
 	private AffineTransform getGroupTransform() {
 		AffineTransform tx = new AffineTransform();
@@ -167,14 +196,24 @@ public class GroupDrawObject extends DrawObject {
 		}
 	}
 	
+	public List<DrawObject> getObjects() {
+		List<DrawObject> objects = new ArrayList<DrawObject>();
+		for (DrawObject o : this.objects) {
+			objects.add(o.clone());
+		}
+		return objects;
+	}
+	
 	public List<DrawObject> ungroup() {
 		List<DrawObject> ungrouped = new ArrayList<DrawObject>();
-		for (DrawObject o : objects) {
+		for (DrawObject o : this.objects) {
 			o = o.clone();
 			AffineTransform tx = new AffineTransform();
-			if (o.tx != null) tx.concatenate(o.tx);
+			if (this.tx != null) tx.concatenate(this.tx);
 			tx.concatenate(getGroupTransform());
+			if (o.tx != null) tx.concatenate(o.tx);
 			o.tx = tx;
+			ungrouped.add(o);
 		}
 		return ungrouped;
 	}

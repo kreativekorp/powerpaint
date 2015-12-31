@@ -1,5 +1,7 @@
 package com.kreative.paint.document.draw;
 
+import java.awt.AlphaComposite;
+import java.awt.BasicStroke;
 import java.awt.Composite;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -16,9 +18,9 @@ public class PaintSettings {
 			g.getComposite(),
 			(aa == RenderingHints.VALUE_ANTIALIAS_ON),
 			null,
-			null,
-			null,
-			false,
+			g.getComposite(),
+			g.getStroke(),
+			(aa == RenderingHints.VALUE_ANTIALIAS_ON),
 			g.getFont(),
 			TextAlignment.LEFT,
 			(taa == RenderingHints.VALUE_TEXT_ANTIALIAS_ON)
@@ -30,9 +32,43 @@ public class PaintSettings {
 		Object taa = g.getRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING);
 		return new PaintSettings(
 			null,
-			null,
-			false,
+			g.getComposite(),
+			(aa == RenderingHints.VALUE_ANTIALIAS_ON),
 			g.getPaint(),
+			g.getComposite(),
+			g.getStroke(),
+			(aa == RenderingHints.VALUE_ANTIALIAS_ON),
+			g.getFont(),
+			TextAlignment.LEFT,
+			(taa == RenderingHints.VALUE_TEXT_ANTIALIAS_ON)
+		);
+	}
+	
+	public static PaintSettings forGraphicsClear(Graphics2D g) {
+		Object aa = g.getRenderingHint(RenderingHints.KEY_ANTIALIASING);
+		Object taa = g.getRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING);
+		return new PaintSettings(
+			g.getBackground(),
+			AlphaComposite.SrcOver,
+			false,
+			null,
+			g.getComposite(),
+			g.getStroke(),
+			(aa == RenderingHints.VALUE_ANTIALIAS_ON),
+			g.getFont(),
+			TextAlignment.LEFT,
+			(taa == RenderingHints.VALUE_TEXT_ANTIALIAS_ON)
+		);
+	}
+	
+	public static PaintSettings forGraphicsDrawImage(Graphics2D g) {
+		Object aa = g.getRenderingHint(RenderingHints.KEY_ANTIALIASING);
+		Object taa = g.getRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING);
+		return new PaintSettings(
+			null,
+			g.getComposite(),
+			(aa == RenderingHints.VALUE_ANTIALIAS_ON),
+			null,
 			g.getComposite(),
 			g.getStroke(),
 			(aa == RenderingHints.VALUE_ANTIALIAS_ON),
@@ -52,6 +88,22 @@ public class PaintSettings {
 	public final Font textFont;
 	public final TextAlignment textAlignment;
 	public final boolean textAntiAliased;
+	
+	public PaintSettings(Paint fill, Paint draw) {
+		this(fill, draw, new BasicStroke(1));
+	}
+	
+	public PaintSettings(Paint fill, Paint draw, Stroke stroke) {
+		this(fill, draw, stroke, new Font("SansSerif", Font.PLAIN, 12));
+	}
+	
+	public PaintSettings(Paint fill, Paint draw, Stroke stroke, Font font) {
+		this(
+			fill, AlphaComposite.SrcOver, false,
+			draw, AlphaComposite.SrcOver, stroke, false,
+			font, TextAlignment.LEFT, false
+		);
+	}
 	
 	public PaintSettings(
 		Paint fillPaint,

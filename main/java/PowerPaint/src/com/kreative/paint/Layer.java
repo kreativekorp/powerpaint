@@ -12,20 +12,20 @@ import java.awt.geom.Area;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Set;
-import java.util.Vector;
+import com.kreative.paint.document.draw.DrawObject;
+import com.kreative.paint.document.draw.DrawObjectSurface;
+import com.kreative.paint.document.draw.DrawSurface;
+import com.kreative.paint.document.draw.ImageDrawObject;
+import com.kreative.paint.document.draw.PaintSettings;
 import com.kreative.paint.document.tile.PaintSurface;
 import com.kreative.paint.document.tile.Tile;
 import com.kreative.paint.document.tile.TileSurface;
 import com.kreative.paint.document.undo.Atom;
 import com.kreative.paint.document.undo.History;
 import com.kreative.paint.document.undo.Recordable;
-import com.kreative.paint.draw.DrawObject;
-import com.kreative.paint.draw.ImageDrawObject;
 import com.kreative.paint.util.ImageUtils;
 
 public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
@@ -40,7 +40,7 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 	private TileSurface ts;
 	private BufferedImage poppedImage;
 	private AffineTransform poppedImageTransform;
-	private Vector<DrawObject> objects;
+	private DrawObjectSurface ds;
 	private Graphics2D paintGraphicsCache;
 	private Graphics2D drawGraphicsCache;
 	
@@ -59,7 +59,7 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 		this.ts = new TileSurface(0, 0, tileSize, tileSize, matte);
 		this.poppedImage = null;
 		this.poppedImageTransform = null;
-		this.objects = new Vector<DrawObject>();
+		this.ds = new DrawObjectSurface(0, 0);
 		this.paintGraphicsCache = null;
 		this.drawGraphicsCache = null;
 	}
@@ -71,7 +71,7 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 	public void setHistory(History history) {
 		this.history = history;
 		ts.setHistory(history);
-		for (DrawObject d : objects) d.setHistory(history);
+		ds.setHistory(history);
 	}
 	
 	public String getName() {
@@ -379,11 +379,12 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 	}
 	
 	public ImageDrawObject copyImageObject(Shape shape) {
+		PaintSettings ps = new PaintSettings(null, null);
 		if (poppedImage != null) {
 			if (poppedImageTransform == null) {
-				return new ImageDrawObject((Image)poppedImage, 0, 0);
+				return ImageDrawObject.forGraphicsDrawImage(ps, (Image)poppedImage, 0, 0);
 			} else {
-				return new ImageDrawObject((Image)poppedImage, (AffineTransform)poppedImageTransform);
+				return ImageDrawObject.forGraphicsDrawImage(ps, (Image)poppedImage, poppedImageTransform);
 			}
 		} else {
 			Rectangle bounds = shape.getBounds();
@@ -393,7 +394,7 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 			pg.setClip(shape);
 			ts.paint(pg);
 			pg.dispose();
-			return new ImageDrawObject((Image)pimg, (AffineTransform)AffineTransform.getTranslateInstance(bounds.x, bounds.y));
+			return ImageDrawObject.forGraphicsDrawImage(ps, (Image)pimg, AffineTransform.getTranslateInstance(bounds.x, bounds.y));
 		}
 	}
 	
@@ -451,7 +452,7 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 			if (poppedImageTransform != null) tr.concatenate(poppedImageTransform);
 			while (!g.drawImage(poppedImage, tr, null));
 		}
-		for (DrawObject s : objects) if (s.isVisible()) s.paint(g, x, y);
+		ds.paint(g, x, y);
 	}
 	
 	public void paint(Graphics2D g, int tx, int ty) {
@@ -462,7 +463,7 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 			if (poppedImageTransform != null) tr.concatenate(poppedImageTransform);
 			while (!g.drawImage(poppedImage, tr, null));
 		}
-		for (DrawObject s : objects) if (s.isVisible()) s.paint(g, x+tx, y+ty);
+		ds.paint(g, x + tx, y + ty);
 	}
 	
 	public Graphics2D createPaintGraphics() {
@@ -472,7 +473,7 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 	}
 	
 	public Graphics2D createDrawGraphics() {
-		return new DrawSurfaceGraphics(this);
+		return ds.createDrawGraphics();
 	}
 	
 	public Graphics2D getCachedPaintGraphics() {
@@ -484,7 +485,7 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 	
 	public Graphics2D getCachedDrawGraphics() {
 		if (drawGraphicsCache == null)
-			drawGraphicsCache = new DrawSurfaceGraphics(this);
+			drawGraphicsCache = ds.createDrawGraphics();
 		return drawGraphicsCache;
 	}
 	
@@ -584,261 +585,32 @@ public class Layer implements PaintSurface, DrawSurface, Paintable, Recordable {
 		return ts.getTiles();
 	}
 	
-	public Collection<DrawObject> getSelectedObjects() {
-		Set<DrawObject> sel = new HashSet<DrawObject>();
-		for (DrawObject o : objects) {
-			if (o.isSelected()) sel.add(o);
-		}
-		return sel;
-	}
+	public boolean hasSelection() { return ds.hasSelection(); }
+	public int getFirstSelectedIndex() { return ds.getFirstSelectedIndex(); }
+	public int getLastSelectedIndex() { return ds.getLastSelectedIndex(); }
+	public List<DrawObject> getSelection() { return ds.getSelection(); }
 	
-	private static class AddObjectAtom implements Atom {
-		private Layer l;
-		private int index;
-		private DrawObject obj;
-		public AddObjectAtom(Layer l, DrawObject o) {
-			this.l = l;
-			this.index = -1;
-			this.obj = o;
-		}
-		public AddObjectAtom(Layer l, int index, DrawObject o) {
-			this.l = l;
-			this.index = index;
-			this.obj = o;
-		}
-		public Atom buildUpon(Atom previousAtom) {
-			return this;
-		}
-		public boolean canBuildUpon(Atom previousAtom) {
-			return false;
-		}
-		public void redo() {
-			if (index < 0) {
-				l.objects.add(obj);
-			} else {
-				l.objects.add(index, obj);
-			}
-		}
-		public void undo() {
-			if (index < 0) {
-				l.objects.remove(obj);
-			} else {
-				if (l.objects.get(index) == obj) l.objects.remove(index);
-				else l.objects.remove(obj);
-			}
-		}
-	}
-
-	public boolean add(DrawObject o) {
-		if (history != null) {
-			history.add(new AddObjectAtom(this, o));
-			o.setHistory(history);
-		}
-		return objects.add(o);
-	}
-
-	public void add(int index, DrawObject element) {
-		if (history != null) {
-			history.add(new AddObjectAtom(this, index, element));
-			element.setHistory(history);
-		}
-		objects.add(index, element);
-	}
-	
-	private static class ChangeObjectsAtom implements Atom {
-		private Layer l;
-		private Vector<DrawObject> oldObjects;
-		private Vector<DrawObject> newObjects;
-		public ChangeObjectsAtom(Layer l, List<DrawObject> oldobj, List<DrawObject> newobj) {
-			this.l = l;
-			this.oldObjects = new Vector<DrawObject>();
-			this.oldObjects.addAll(oldobj);
-			this.newObjects = new Vector<DrawObject>();
-			this.newObjects.addAll(newobj);
-		}
-		public Atom buildUpon(Atom previousAtom) {
-			this.oldObjects = ((ChangeObjectsAtom)previousAtom).oldObjects;
-			return this;
-		}
-		public boolean canBuildUpon(Atom previousAtom) {
-			return (previousAtom instanceof ChangeObjectsAtom) && ((ChangeObjectsAtom)previousAtom).l == this.l;
-		}
-		public void redo() {
-			l.objects.clear();
-			l.objects.addAll(newObjects);
-		}
-		public void undo() {
-			l.objects.clear();
-			l.objects.addAll(oldObjects);
-		}
-	}
-	
-	private Vector<DrawObject> objectsChangTmp;
-	
-	private void objectsChanging() {
-		if (history != null) {
-			objectsChangTmp = new Vector<DrawObject>();
-			objectsChangTmp.addAll(objects);
-		}
-	}
-	
-	private void objectsChanged() {
-		if (history != null) {
-			history.add(new ChangeObjectsAtom(this, objectsChangTmp, this.objects));
-			for (DrawObject d : this.objects) d.setHistory(history);
-			objectsChangTmp = null;
-		}
-	}
-
-	public boolean addAll(Collection<? extends DrawObject> c) {
-		objectsChanging();
-		boolean ret = objects.addAll(c);
-		objectsChanged();
-		return ret;
-	}
-
-	public boolean addAll(int index, Collection<? extends DrawObject> c) {
-		objectsChanging();
-		boolean ret = objects.addAll(index, c);
-		objectsChanged();
-		return ret;
-	}
-
-	public void clear() {
-		objectsChanging();
-		objects.clear();
-		objectsChanged();
-	}
-
-	public boolean contains(Object o) {
-		return objects.contains(o);
-	}
-
-	public boolean containsAll(Collection<?> c) {
-		return objects.containsAll(c);
-	}
-
-	public DrawObject get(int index) {
-		return objects.get(index);
-	}
-
-	public int indexOf(Object o) {
-		return objects.indexOf(o);
-	}
-
-	public boolean isEmpty() {
-		return objects.isEmpty();
-	}
-
-	public Iterator<DrawObject> iterator() {
-		return objects.iterator();
-	}
-
-	public int lastIndexOf(Object o) {
-		return objects.lastIndexOf(o);
-	}
-
-	public ListIterator<DrawObject> listIterator() {
-		return objects.listIterator();
-	}
-
-	public ListIterator<DrawObject> listIterator(int index) {
-		return objects.listIterator(index);
-	}
-	
-	private static class RemoveObjectAtom implements Atom {
-		private Layer l;
-		private int index;
-		private Object o;
-		public RemoveObjectAtom(Layer l, int index, Object o) {
-			this.l = l;
-			this.index = index;
-			this.o = o;
-		}
-		public Atom buildUpon(Atom previousAtom) {
-			return this;
-		}
-		public boolean canBuildUpon(Atom previousAtom) {
-			return false;
-		}
-		public void redo() {
-			if (l.objects.get(index) == o) l.objects.remove(index);
-			else l.objects.remove(o);
-		}
-		public void undo() {
-			l.objects.add(index, (DrawObject)o);
-		}
-	}
-
-	public boolean remove(Object o) {
-		if (history != null) history.add(new RemoveObjectAtom(this, objects.indexOf(o), o));
-		return objects.remove(o);
-	}
-
-	public DrawObject remove(int index) {
-		if (history != null) history.add(new RemoveObjectAtom(this, index, objects.get(index)));
-		return objects.remove(index);
-	}
-
-	public boolean removeAll(Collection<?> c) {
-		objectsChanging();
-		boolean ret = objects.removeAll(c);
-		objectsChanged();
-		return ret;
-	}
-
-	public boolean retainAll(Collection<?> c) {
-		objectsChanging();
-		boolean ret = objects.retainAll(c);
-		objectsChanged();
-		return ret;
-	}
-	
-	private static class SetObjectAtom implements Atom {
-		private Layer l;
-		private int index;
-		private DrawObject oldo;
-		private DrawObject newo;
-		public SetObjectAtom(Layer l, int index, DrawObject o) {
-			this.l = l;
-			this.index = index;
-			this.oldo = l.objects.get(index);
-			this.newo = o;
-		}
-		public Atom buildUpon(Atom previousAtom) {
-			this.oldo = ((SetObjectAtom)previousAtom).oldo;
-			return this;
-		}
-		public boolean canBuildUpon(Atom previousAtom) {
-			return (previousAtom instanceof SetObjectAtom) && (((SetObjectAtom)previousAtom).l == this.l)
-				&& (((SetObjectAtom)previousAtom).index == this.index);
-		}
-		public void redo() {
-			l.objects.set(index, newo);
-		}
-		public void undo() {
-			l.objects.set(index, oldo);
-		}
-	}
-
-	public DrawObject set(int index, DrawObject element) {
-		if (history != null) history.add(new SetObjectAtom(this, index, element));
-		return objects.set(index, element);
-	}
-
-	public int size() {
-		return objects.size();
-	}
-
-	public List<DrawObject> subList(int fromIndex, int toIndex) {
-		return objects.subList(fromIndex, toIndex);
-	}
-
-	public Object[] toArray() {
-		return objects.toArray();
-	}
-
-	public <T> T[] toArray(T[] a) {
-		return objects.toArray(a);
-	}
+	public boolean add(DrawObject o) { return ds.add(o); }
+	public void add(int index, DrawObject o) { ds.add(index, o); }
+	public boolean addAll(Collection<? extends DrawObject> c) { return ds.addAll(c); }
+	public boolean addAll(int index, Collection<? extends DrawObject> c) { return ds.addAll(index, c); }
+	public void clear() { ds.clear(); }
+	public boolean contains(Object o) { return ds.contains(o); }
+	public boolean containsAll(Collection<?> c) { return ds.containsAll(c); }
+	public DrawObject get(int index) { return ds.get(index); }
+	public int indexOf(Object o) { return ds.indexOf(o); }
+	public boolean isEmpty() { return ds.isEmpty(); }
+	public Iterator<DrawObject> iterator() { return ds.iterator(); }
+	public int lastIndexOf(Object o) { return ds.lastIndexOf(o); }
+	public ListIterator<DrawObject> listIterator() { return ds.listIterator(); }
+	public ListIterator<DrawObject> listIterator(int index) { return ds.listIterator(index); }
+	public boolean remove(Object o) { return ds.remove(o); }
+	public DrawObject remove(int index) { return ds.remove(index); }
+	public boolean removeAll(Collection<?> c) { return ds.removeAll(c); }
+	public boolean retainAll(Collection<?> c) { return ds.retainAll(c); }
+	public DrawObject set(int index, DrawObject o) { return ds.set(index, o); }
+	public int size() { return ds.size(); }
+	public List<DrawObject> subList(int start, int end) { return ds.subList(start, end); }
+	public Object[] toArray() { return ds.toArray(); }
+	public <T> T[] toArray(T[] a) { return ds.toArray(a); }
 }

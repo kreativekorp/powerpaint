@@ -827,6 +827,10 @@ public abstract class ShapeDrawObject extends DrawObject {
 		public Polygon clone() {
 			return new Polygon(this);
 		}
+		public int getPointCount() { return n; }
+		public double getPointX(int i) { return x[i % n]; }
+		public double getPointY(int i) { return y[i % n]; }
+		public boolean isClosed() { return closed; }
 		@Override
 		public GeneralPath getShape() {
 			GeneralPath g = new GeneralPath();

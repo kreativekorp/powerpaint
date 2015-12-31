@@ -350,9 +350,9 @@ public class TextDrawObject extends DrawObject {
 		return new Point2D.Double(0, ly);
 	}
 	
-	public double getWrapWidth() {
-		return wrapWidth;
-	}
+	public double getX() { return x; }
+	public double getY() { return y; }
+	public double getWrapWidth() { return wrapWidth; }
 	
 	private static class WrapWidthAtom implements Atom {
 		private TextDrawObject d;

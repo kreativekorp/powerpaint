@@ -12,13 +12,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.GeneralPath;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 import java.util.Collection;
 import java.util.HashSet;
-
-import com.kreative.paint.draw.ControlPoint;
-import com.kreative.paint.draw.DrawObject;
+import com.kreative.paint.document.draw.ControlPoint;
+import com.kreative.paint.document.draw.ControlPointType;
+import com.kreative.paint.document.draw.DrawObject;
+import com.kreative.paint.document.draw.PaintSettings;
 import com.kreative.paint.tool.Tool;
 import com.kreative.paint.tool.ToolCommand;
 import com.kreative.paint.tool.ToolEvent;
@@ -420,11 +424,13 @@ ToolContextListener, PaintContextListener, CanvasPaintListener {
 								for (DrawObject o : lyr) {
 									if (o.isSelected()) {
 										if (o.isLocked()) g.setColor(Color.red);
-										for (double[] li : o.getControlLines()) {
-											g.draw(new Line2D.Double(li[0], li[1], li[2], li[3]));
+										for (Line2D li : o.getControlLines()) {
+											g.draw(li);
 										}
 										for (ControlPoint c : o.getControlPoints()) {
-											g.draw(c.getShape());
+											if (c.getType() != ControlPointType.HIDDEN) {
+												g.draw(getControlPointShape(c));
+											}
 										}
 										if (o.isLocked()) g.setColor(Color.blue);
 									}
@@ -906,6 +912,27 @@ ToolContextListener, PaintContextListener, CanvasPaintListener {
 					}
 				} catch (Exception e) {}
 			}
+		}
+	}
+	
+	private static Shape getControlPointShape(ControlPoint cp) {
+		switch (cp.getType()) {
+			case CENTER:
+			case RADIUS:
+			case ANGLE:
+			case CURVED_MIDPOINT:
+				return new Ellipse2D.Double(cp.getX() - 3, cp.getY() - 3, 6, 6);
+			case CONTROL_POINT:
+			case PULL_TAB:
+				GeneralPath p = new GeneralPath();
+				p.moveTo(cp.getX() - 3, cp.getY());
+				p.lineTo(cp.getX(), cp.getY() - 3);
+				p.moveTo(cp.getX() + 3, cp.getY());
+				p.lineTo(cp.getX(), cp.getY() + 3);
+				p.closePath();
+				return p;
+			default:
+				return new Rectangle2D.Double(cp.getX() - 2, cp.getY() - 2, 4, 4);
 		}
 	}
 }

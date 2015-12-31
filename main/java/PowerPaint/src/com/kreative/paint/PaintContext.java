@@ -1,30 +1,3 @@
-/*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
- * <p>
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * <a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>
- * <p>
- * Software distributed under the License is distributed on an "AS IS"
- * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
- * License for the specific language governing rights and limitations
- * under the License.
- * <p>
- * Alternatively, the contents of this file may be used under the terms
- * of the GNU Lesser General Public License (the "LGPL License"), in which
- * case the provisions of LGPL License are applicable instead of those
- * above. If you wish to allow use of your version of this file only
- * under the terms of the LGPL License and not to allow others to use
- * your version of this file under the MPL, indicate your decision by
- * deleting the provisions above and replace them with the notice and
- * other provisions required by the LGPL License. If you do not delete
- * the provisions above, a recipient may use your version of this file
- * under either the MPL or the LGPL License.
- * @since PowerPaint 1.0
- * @author Rebecca G. Bettencourt, Kreative Software
- */
-
 package com.kreative.paint;
 
 import java.awt.AlphaComposite;
@@ -38,6 +11,8 @@ import java.awt.RenderingHints;
 import java.awt.Stroke;
 import java.util.Collection;
 import java.util.HashSet;
+import com.kreative.paint.document.draw.PaintSettings;
+import com.kreative.paint.document.draw.TextAlignment;
 import com.kreative.paint.material.pattern.Pattern;
 import com.kreative.paint.material.pattern.PatternPaint;
 
@@ -52,7 +27,7 @@ public class PaintContext implements PaintContextConstants {
 	private Paint fillPaint;
 	private Stroke stroke;
 	private Font font;
-	private int textAlignment;
+	private TextAlignment textAlignment;
 	private boolean antiAliased;
 	
 	private boolean editingStroke;
@@ -67,7 +42,7 @@ public class PaintContext implements PaintContextConstants {
 		this.fillPaint = Color.black;
 		this.stroke = new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER);
 		this.font = new Font("SansSerif", Font.PLAIN, 12);
-		this.textAlignment = LEFT;
+		this.textAlignment = TextAlignment.LEFT;
 		this.antiAliased = false;
 		
 		this.editingStroke = false;
@@ -128,26 +103,28 @@ public class PaintContext implements PaintContextConstants {
 	
 	public PaintSettings getPaintSettings() {
 		return new PaintSettings(
-				drawComposite,
-				drawPaint,
-				fillComposite,
-				fillPaint,
-				stroke,
-				font,
-				textAlignment,
-				antiAliased
+			fillPaint,
+			fillComposite,
+			antiAliased,
+			drawPaint,
+			drawComposite,
+			stroke,
+			antiAliased,
+			font,
+			textAlignment,
+			antiAliased
 		);
 	}
 	
 	public void setPaintSettings(PaintSettings ps) {
-		this.drawComposite = ps.getDrawComposite();
-		this.drawPaint = ps.getDrawPaint();
-		this.fillComposite = ps.getFillComposite();
-		this.fillPaint = ps.getFillPaint();
-		this.stroke = ps.getStroke();
-		this.font = ps.getFont();
-		this.textAlignment = ps.getTextAlignment();
-		this.antiAliased = ps.isAntiAliased();
+		this.drawComposite = ps.drawComposite;
+		this.drawPaint = ps.drawPaint;
+		this.fillComposite = ps.fillComposite;
+		this.fillPaint = ps.fillPaint;
+		this.stroke = ps.drawStroke;
+		this.font = ps.textFont;
+		this.textAlignment = ps.textAlignment;
+		this.antiAliased = ps.fillAntiAliased || ps.drawAntiAliased;
 		notifyPaintContextListenersPaintSettingsChanged(-1);
 	}
 	
@@ -391,7 +368,7 @@ public class PaintContext implements PaintContextConstants {
 		return font;
 	}
 	
-	public int getTextAlignment() {
+	public TextAlignment getTextAlignment() {
 		return textAlignment;
 	}
 	
@@ -400,7 +377,7 @@ public class PaintContext implements PaintContextConstants {
 		notifyPaintContextListenersPaintSettingsChanged(CHANGED_FONT);
 	}
 	
-	public void setTextAlignment(int textAlignment) {
+	public void setTextAlignment(TextAlignment textAlignment) {
 		this.textAlignment = textAlignment;
 		notifyPaintContextListenersPaintSettingsChanged(CHANGED_TEXT_ALIGNMENT);
 	}

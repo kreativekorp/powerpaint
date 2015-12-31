@@ -8,9 +8,11 @@ import java.util.Collection;
 import java.util.zip.*;
 import com.kreative.paint.*;
 import com.kreative.paint.Canvas;
+import com.kreative.paint.document.draw.DrawObject;
+import com.kreative.paint.document.draw.PaintSettings;
+import com.kreative.paint.document.draw.TextAlignment;
 import com.kreative.paint.document.tile.Tile;
 import com.kreative.paint.document.tile.TileSurface;
-import com.kreative.paint.draw.DrawObject;
 
 public class CKPaintSerializer extends Serializer {
 	private static final int TYPE_CANVAS = fcc("Canv");
@@ -24,7 +26,7 @@ public class CKPaintSerializer extends Serializer {
 	protected void loadRecognizedTypesAndClasses() {
 		addTypeAndClass(TYPE_CANVAS, 1, Canvas.class);
 		addTypeAndClass(TYPE_LAYER, 1, Layer.class);
-		addTypeAndClass(TYPE_PAINT_SETTINGS, 2, PaintSettings.class);
+		addTypeAndClass(TYPE_PAINT_SETTINGS, 3, PaintSettings.class);
 		addTypeAndClass(TYPE_TILE, 2, Tile.class);
 		addTypeAndClass(TYPE_TILE_SURFACE, 1, TileSurface.class);
 	}
@@ -70,14 +72,16 @@ public class CKPaintSerializer extends Serializer {
 			SerializationManager.writeObject(v.getPoppedImageTransform(), stream);
 		} else if (o instanceof PaintSettings) {
 			PaintSettings v = (PaintSettings)o;
-			SerializationManager.writeObject(v.getDrawComposite(), stream);
-			SerializationManager.writeObject(v.getDrawPaint(), stream);
-			SerializationManager.writeObject(v.getFillComposite(), stream);
-			SerializationManager.writeObject(v.getFillPaint(), stream);
-			SerializationManager.writeObject(v.getStroke(), stream);
-			SerializationManager.writeObject(v.getFont(), stream);
-			SerializationManager.writeObject(v.getTextAlignment(), stream);
-			SerializationManager.writeObject(v.isAntiAliased(), stream);
+			SerializationManager.writeObject(v.fillPaint, stream);
+			SerializationManager.writeObject(v.fillComposite, stream);
+			SerializationManager.writeObject(v.fillAntiAliased, stream);
+			SerializationManager.writeObject(v.drawPaint, stream);
+			SerializationManager.writeObject(v.drawComposite, stream);
+			SerializationManager.writeObject(v.drawStroke, stream);
+			SerializationManager.writeObject(v.drawAntiAliased, stream);
+			SerializationManager.writeObject(v.textFont, stream);
+			SerializationManager.writeObject(v.textAlignment.awtValue, stream);
+			SerializationManager.writeObject(v.textAntiAliased, stream);
 		} else if (o instanceof Tile) {
 			Tile v = (Tile)o;
 			int x = v.getX();
@@ -184,16 +188,30 @@ public class CKPaintSerializer extends Serializer {
 			}
 			return l;
 		} else if (type == TYPE_PAINT_SETTINGS) {
-			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
-			Composite dc = (Composite)SerializationManager.readObject(stream);
-			Paint dp = (Paint)SerializationManager.readObject(stream);
-			Composite fc = (Composite)SerializationManager.readObject(stream);
-			Paint fp = (Paint)SerializationManager.readObject(stream);
-			Stroke st = (Stroke)SerializationManager.readObject(stream);
-			Font fn = (Font)SerializationManager.readObject(stream);
-			int ta = (Integer)SerializationManager.readObject(stream);
-			boolean aa = (version > 1) ? (Boolean)SerializationManager.readObject(stream) : false;
-			return new PaintSettings(dc,dp,fc,fp,st,fn,ta,aa);
+			if (version < 1 || version > 3) throw new IOException("Invalid version number.");
+			if (version < 3) {
+				Composite dc = (Composite)SerializationManager.readObject(stream);
+				Paint dp = (Paint)SerializationManager.readObject(stream);
+				Composite fc = (Composite)SerializationManager.readObject(stream);
+				Paint fp = (Paint)SerializationManager.readObject(stream);
+				Stroke st = (Stroke)SerializationManager.readObject(stream);
+				Font fn = (Font)SerializationManager.readObject(stream);
+				TextAlignment ta = TextAlignment.forAWTValue((Integer)SerializationManager.readObject(stream));
+				boolean aa = (version > 1) ? (Boolean)SerializationManager.readObject(stream) : false;
+				return new PaintSettings(fp, fc, aa, dp, dc, st, aa, fn, ta, aa);
+			} else {
+				Paint fp = (Paint)SerializationManager.readObject(stream);
+				Composite fc = (Composite)SerializationManager.readObject(stream);
+				boolean fa = (Boolean)SerializationManager.readObject(stream);
+				Paint dp = (Paint)SerializationManager.readObject(stream);
+				Composite dc = (Composite)SerializationManager.readObject(stream);
+				Stroke ds = (Stroke)SerializationManager.readObject(stream);
+				boolean da = (Boolean)SerializationManager.readObject(stream);
+				Font tf = (Font)SerializationManager.readObject(stream);
+				TextAlignment ta = TextAlignment.forAWTValue((Integer)SerializationManager.readObject(stream));
+				boolean taa = (Boolean)SerializationManager.readObject(stream);
+				return new PaintSettings(fp, fc, fa, dp, dc, ds, da, tf, ta, taa);
+			}
 		} else if (type == TYPE_TILE) {
 			if (version < 1 || version > 2) throw new IOException("Invalid version number.");
 			int x = stream.readInt();
