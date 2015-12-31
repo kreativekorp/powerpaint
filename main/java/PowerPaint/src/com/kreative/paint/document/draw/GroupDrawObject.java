@@ -14,21 +14,17 @@ import java.util.List;
 public class GroupDrawObject extends DrawObject {
 	private List<DrawObject> objects;
 	private Rectangle2D boundary;
-	private Area hitArea;
 	private double x1, y1, x2, y2;
 	
 	public GroupDrawObject(Collection<DrawObject> objects) {
 		super((PaintSettings)null);
 		this.objects = new ArrayList<DrawObject>();
 		Area ba = new Area();
-		Area ha = new Area();
 		for (DrawObject o : objects) {
 			this.objects.add(o.clone());
 			ba.add(new Area(o.getBounds2D()));
-			ha.add(new Area(o.getHitArea()));
 		}
 		this.boundary = ba.getBounds2D();
-		this.hitArea = ha;
 		this.x1 = boundary.getMinX();
 		this.y1 = boundary.getMinY();
 		this.x2 = boundary.getMaxX();
@@ -39,14 +35,11 @@ public class GroupDrawObject extends DrawObject {
 		super((PaintSettings)null);
 		this.objects = new ArrayList<DrawObject>();
 		Area ba = new Area();
-		Area ha = new Area();
 		for (DrawObject o : objects) {
 			this.objects.add(o.clone());
 			ba.add(new Area(o.getBounds2D()));
-			ha.add(new Area(o.getHitArea()));
 		}
 		this.boundary = ba.getBounds2D();
-		this.hitArea = ha;
 		this.x1 = x;
 		this.y1 = y;
 		this.x2 = x + width;
@@ -57,14 +50,11 @@ public class GroupDrawObject extends DrawObject {
 		super(original);
 		this.objects = new ArrayList<DrawObject>();
 		Area ba = new Area();
-		Area ha = new Area();
 		for (DrawObject o : original.objects) {
 			this.objects.add(o.clone());
 			ba.add(new Area(o.getBounds2D()));
-			ha.add(new Area(o.getHitArea()));
 		}
 		this.boundary = ba.getBounds2D();
-		this.hitArea = ha;
 		this.x1 = original.x1;
 		this.y1 = original.y1;
 		this.x2 = original.x2;
@@ -95,8 +85,15 @@ public class GroupDrawObject extends DrawObject {
 	}
 	
 	@Override
-	protected Shape getHitAreaImpl() {
-		return getGroupTransform().createTransformedShape(hitArea);
+	protected Shape getPostTxHitAreaImpl(AffineTransform tx) {
+		AffineTransform tx2 = new AffineTransform();
+		if (tx != null) tx2.concatenate(tx);
+		tx2.concatenate(getGroupTransform());
+		Area a = new Area();
+		for (DrawObject o : objects) {
+			a.add(new Area(o.getHitArea(tx2)));
+		}
+		return a;
 	}
 	
 	@Override

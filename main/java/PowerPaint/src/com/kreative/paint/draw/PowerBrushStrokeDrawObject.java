@@ -44,6 +44,11 @@ public class PowerBrushStrokeDrawObject extends StrokeDrawObject {
 		super.notifyDrawObjectListeners(id);
 	}
 	
+	@Override
+	protected int getStrokeWidth() {
+		return (int)Math.ceil(Math.max(brush.getOuterWidth(), brush.getOuterHeight()));
+	}
+	
 	public BrushSettings getBrush() { return brush; }
 	
 	@Override

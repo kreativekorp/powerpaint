@@ -61,13 +61,23 @@ public class CropMarkDrawObject extends DrawObject {
 	}
 	
 	@Override
-	protected Shape getHitAreaImpl() {
+	protected Shape getPostTxHitAreaImpl(AffineTransform tx) {
 		Area a = new Area();
 		if (ps.isFilled()) {
-			a.add(new Area(makeFillShape()));
+			Shape s = makeFillShape();
+			if (tx != null) {
+				try { s = tx.createTransformedShape(s); }
+				catch (Exception e) { s = makeFillShape(); }
+			}
+			a.add(new Area(s));
 		}
 		if (ps.isDrawn()) {
-			try { a.add(new Area(ps.drawStroke.createStrokedShape(makeMarkShape()))); }
+			Shape s = makeMarkShape();
+			if (tx != null) {
+				try { s = tx.createTransformedShape(s); }
+				catch (Exception e) { s = makeMarkShape(); }
+			}
+			try { a.add(new Area(ps.drawStroke.createStrokedShape(s))); }
 			catch (Exception e) {}
 		}
 		return a;

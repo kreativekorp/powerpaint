@@ -59,16 +59,18 @@ public class ThreeDBoxDrawObject extends DrawObject {
 	}
 	
 	@Override
-	protected Shape getHitAreaImpl() {
-		Shape[] ss = getShapes(x1, y1, x2 - x1, y2 - y1, dx, dy);
+	protected Shape getPostTxHitAreaImpl(AffineTransform tx) {
 		Area a = new Area();
-		if (ps.isFilled()) {
-			for (Shape s : ss) {
+		Shape[] ss = getShapes(x1, y1, x2 - x1, y2 - y1, dx, dy);
+		for (Shape s : ss) {
+			if (tx != null) {
+				try { s = tx.createTransformedShape(s); }
+				catch (Exception e) {}
+			}
+			if (ps.isFilled()) {
 				a.add(new Area(s));
 			}
-		}
-		if (ps.isDrawn()) {
-			for (Shape s : ss) {
+			if (ps.isDrawn()) {
 				try { a.add(new Area(ps.drawStroke.createStrokedShape(s))); }
 				catch (Exception e) {}
 			}

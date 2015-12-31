@@ -230,7 +230,12 @@ public class DrawObjectSurfaceGraphics extends Graphics2D {
 	
 	@Override
 	public void setRenderingHint(RenderingHints.Key hintKey, Object hintValue) {
-		unsupported("setRenderingHint(RenderingHints.Key hintKey, Object hintValue)");
+		if (!(
+			hintKey == RenderingHints.KEY_ANTIALIASING ||
+			hintKey == RenderingHints.KEY_TEXT_ANTIALIASING
+		)) {
+			unsupported("setRenderingHint(RenderingHints.Key hintKey, Object hintValue)");
+		}
 		modelGraphics.setRenderingHint(hintKey, hintValue);
 	}
 	

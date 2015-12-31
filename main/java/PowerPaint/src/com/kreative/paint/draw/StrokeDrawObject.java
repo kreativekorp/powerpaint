@@ -2,6 +2,7 @@ package com.kreative.paint.draw;
 
 import java.awt.BasicStroke;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public abstract class StrokeDrawObject extends DrawObject {
 	
 	@Override public abstract StrokeDrawObject clone();
 	public Path getPath() { return path.clone(); }
+	protected int getStrokeWidth() { return 2; }
 	
 	@Override
 	protected Shape getBoundaryImpl() {
@@ -44,9 +46,14 @@ public abstract class StrokeDrawObject extends DrawObject {
 	}
 	
 	@Override
-	protected Shape getHitAreaImpl() {
-		try { return new BasicStroke(2).createStrokedShape(path.toAWTShape()); }
-		catch (Exception e) { return path.toAWTShape(); }
+	protected Shape getPostTxHitAreaImpl(AffineTransform tx) {
+		Shape s = path.toAWTShape();
+		if (tx != null) {
+			try { s = tx.createTransformedShape(s); }
+			catch (Exception e) { s = path.toAWTShape(); }
+		}
+		try { return new BasicStroke(getStrokeWidth()).createStrokedShape(s); }
+		catch (Exception e) { return s; }
 	}
 	
 	@Override

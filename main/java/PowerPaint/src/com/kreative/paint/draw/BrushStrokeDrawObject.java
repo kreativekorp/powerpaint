@@ -44,6 +44,11 @@ public class BrushStrokeDrawObject extends StrokeDrawObject {
 		super.notifyDrawObjectListeners(id);
 	}
 	
+	@Override
+	protected int getStrokeWidth() {
+		return Math.max(brush.getWidth(), brush.getHeight());
+	}
+	
 	public Sprite getBrush() { return brush; }
 	
 	@Override

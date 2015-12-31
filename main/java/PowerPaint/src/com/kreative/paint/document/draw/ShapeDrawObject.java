@@ -111,8 +111,12 @@ public abstract class ShapeDrawObject extends DrawObject {
 	}
 	
 	@Override
-	protected Shape getHitAreaImpl() {
+	protected Shape getPostTxHitAreaImpl(AffineTransform tx) {
 		Shape s = getShape();
+		if (tx != null) {
+			try { s = tx.createTransformedShape(s); }
+			catch (Exception e) { s = getShape(); }
+		}
 		Area a = new Area();
 		if (ps.isFilled()) {
 			a.add(new Area(s));

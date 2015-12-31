@@ -360,19 +360,62 @@ public abstract class DrawObject implements Cloneable, Recordable {
 	 * detection. It is acceptable for the returned area to be approximate.
 	 * @return the area of a graphics context that will be painted on
 	 */
-	protected abstract Shape getHitAreaImpl();
+	protected Shape getHitAreaImpl() { return null; }
+	
+	/**
+	 * Returns the area of a graphics context that will be painted on
+	 * by this DrawObject, after all transformations are applied.
+	 * This will be used mainly for hit detection. It is acceptable
+	 * for the returned area to be approximate.
+	 * @param tx the transformation applied to the DrawObject
+	 * @return the area of a graphics context that will be painted on
+	 */
+	protected Shape getPostTxHitAreaImpl(AffineTransform tx) {
+		Shape ha = getHitAreaImpl();
+		if (tx == null || ha == null) return ha;
+		return tx.createTransformedShape(ha);
+	}
 	
 	/**
 	 * Returns the area of a graphics context that will be painted on
 	 * by this DrawObject, after all transformations are applied.
 	 * Implementations of this class should override getHitAreaImpl()
-	 * instead.
+	 * or getPostTxHitAreaImpl() instead.
 	 * @return the area of a graphics context that will be painted on
 	 */
 	public Shape getHitArea() {
-		Shape ha = getHitAreaImpl();
-		if (tx == null || ha == null) return ha;
-		return tx.createTransformedShape(ha);
+		return getPostTxHitAreaImpl(tx);
+	}
+	
+	/**
+	 * Returns the area of a graphics context that will be painted on
+	 * by this DrawObject, after all transformations are applied.
+	 * Implementations of this class should override getHitAreaImpl()
+	 * or getPostTxHitAreaImpl() instead.
+	 * @param x an additional X coordinate translation to apply
+	 * @param y an additional Y coordinate translation to apply
+	 * @return the area of a graphics context that will be painted on
+	 */
+	public Shape getHitArea(double x, double y) {
+		AffineTransform htx = new AffineTransform();
+		htx.translate(x, y);
+		if (this.tx != null) htx.concatenate(this.tx);
+		return getPostTxHitAreaImpl(htx);
+	}
+	
+	/**
+	 * Returns the area of a graphics context that will be painted on
+	 * by this DrawObject, after all transformations are applied.
+	 * Implementations of this class should override getHitAreaImpl()
+	 * or getPostTxHitAreaImpl() instead.
+	 * @param tx an additional transformation to apply
+	 * @return the area of a graphics context that will be painted on
+	 */
+	public Shape getHitArea(AffineTransform tx) {
+		AffineTransform htx = new AffineTransform();
+		if (tx != null) htx.concatenate(tx);
+		if (this.tx != null) htx.concatenate(this.tx);
+		return getPostTxHitAreaImpl(htx);
 	}
 	
 	public boolean contains(double x, double y) {
