@@ -125,12 +125,7 @@ public abstract class ShapeDrawObject extends DrawObject {
 	}
 	
 	@Override
-	protected void paintImpl(Graphics2D g) {
-		// See preTxPaintImpl().
-	}
-	
-	@Override
-	protected void preTxPaintImpl(Graphics2D g) {
+	protected void preTxPaintImpl(Graphics2D g, AffineTransform tx) {
 		Shape s = getShape();
 		if (tx != null) {
 			try { s = tx.createTransformedShape(s); }

@@ -2,6 +2,7 @@ package com.kreative.paint.draw;
 
 import java.awt.Graphics2D;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Line2D;
@@ -172,12 +173,7 @@ public class ThreeDBoxDrawObject extends DrawObject {
 	}
 	
 	@Override
-	protected void paintImpl(Graphics2D g) {
-		// See preTxPaintImpl().
-	}
-	
-	@Override
-	protected void preTxPaintImpl(Graphics2D g) {
+	protected void preTxPaintImpl(Graphics2D g, AffineTransform tx) {
 		Shape[] ss = getShapes(x1, y1, x2 - x1, y2 - y1, dx, dy);
 		for (Shape s : ss) {
 			if (tx != null) {

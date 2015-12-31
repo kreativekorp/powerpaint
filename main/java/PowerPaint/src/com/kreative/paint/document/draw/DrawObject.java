@@ -701,16 +701,15 @@ public abstract class DrawObject implements Cloneable, Recordable {
 	 * to the DrawObject.
 	 * @param g the graphics context
 	 */
-	protected abstract void paintImpl(Graphics2D g);
+	protected void paintImpl(Graphics2D g) {}
 	
 	/**
 	 * Paints this DrawObject to a graphics context,
 	 * with all transformations applied to the DrawObject.
-	 * Implementations of this class should override
-	 * paintImpl() instead.
 	 * @param g the graphics context
+	 * @param tx the transformation applied to the DrawObject
 	 */
-	protected void preTxPaintImpl(Graphics2D g) {
+	protected void preTxPaintImpl(Graphics2D g, AffineTransform tx) {
 		if (tx != null) g.transform(tx);
 		paintImpl(g);
 	}
@@ -719,7 +718,7 @@ public abstract class DrawObject implements Cloneable, Recordable {
 	 * Paints this DrawObject to a graphics context,
 	 * with all transformations applied to the DrawObject.
 	 * Implementations of this class should override
-	 * paintImpl() instead.
+	 * paintImpl() or preTxPaintImpl() instead.
 	 * @param g the graphics context
 	 */
 	public void paint(Graphics2D g) {
@@ -729,9 +728,9 @@ public abstract class DrawObject implements Cloneable, Recordable {
 		Font f = g.getFont();
 		RenderingHints h = g.getRenderingHints();
 		
-		AffineTransform t = g.getTransform();
-		preTxPaintImpl(g);
-		g.setTransform(t);
+		AffineTransform gtx = g.getTransform();
+		preTxPaintImpl(g, tx);
+		g.setTransform(gtx);
 		
 		g.setPaint(p);
 		g.setComposite(c);
@@ -744,7 +743,7 @@ public abstract class DrawObject implements Cloneable, Recordable {
 	 * Paints this DrawObject to a graphics context,
 	 * with all transformations applied to the DrawObject.
 	 * Implementations of this class should override
-	 * paintImpl() instead.
+	 * paintImpl() or preTxPaintImpl() instead.
 	 * @param g the graphics context
 	 * @param x an additional X coordinate translation to apply
 	 * @param y an additional Y coordinate translation to apply
@@ -756,10 +755,41 @@ public abstract class DrawObject implements Cloneable, Recordable {
 		Font f = g.getFont();
 		RenderingHints h = g.getRenderingHints();
 		
-		AffineTransform t = g.getTransform();
-		g.translate(x, y);
-		preTxPaintImpl(g);
-		g.setTransform(t);
+		AffineTransform gtx = g.getTransform();
+		AffineTransform dtx = new AffineTransform();
+		dtx.translate(x, y);
+		if (this.tx != null) dtx.concatenate(this.tx);
+		preTxPaintImpl(g, dtx);
+		g.setTransform(gtx);
+		
+		g.setPaint(p);
+		g.setComposite(c);
+		g.setStroke(s);
+		g.setFont(f);
+		g.setRenderingHints(h);
+	}
+	
+	/**
+	 * Paints this DrawObject to a graphics context,
+	 * with all transformations applied to the DrawObject.
+	 * Implementations of this class should override
+	 * paintImpl() or preTxPaintImpl() instead.
+	 * @param g the graphics context
+	 * @param tx an additional transformation to apply
+	 */
+	public void paint(Graphics2D g, AffineTransform tx) {
+		Paint p = g.getPaint();
+		Composite c = g.getComposite();
+		Stroke s = g.getStroke();
+		Font f = g.getFont();
+		RenderingHints h = g.getRenderingHints();
+		
+		AffineTransform gtx = g.getTransform();
+		AffineTransform dtx = new AffineTransform();
+		if (tx != null) dtx.concatenate(tx);
+		if (this.tx != null) dtx.concatenate(this.tx);
+		preTxPaintImpl(g, dtx);
+		g.setTransform(gtx);
 		
 		g.setPaint(p);
 		g.setComposite(c);

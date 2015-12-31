@@ -2,6 +2,7 @@ package com.kreative.paint.draw;
 
 import java.awt.Graphics2D;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Line2D;
@@ -162,12 +163,7 @@ public class CropMarkDrawObject extends DrawObject {
 	}
 	
 	@Override
-	protected void paintImpl(Graphics2D g) {
-		// See preTxPaintImpl().
-	}
-	
-	@Override
-	protected void preTxPaintImpl(Graphics2D g) {
+	protected void preTxPaintImpl(Graphics2D g, AffineTransform tx) {
 		if (ps.isFilled()) {
 			Shape s = makeFillShape();
 			if (tx != null) {

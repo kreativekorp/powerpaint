@@ -3,6 +3,7 @@ package com.kreative.paint.draw;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
 import java.awt.image.BufferedImage;
 import com.kreative.paint.document.draw.PaintSettings;
@@ -46,12 +47,7 @@ public class BrushStrokeDrawObject extends StrokeDrawObject {
 	public Sprite getBrush() { return brush; }
 	
 	@Override
-	protected void paintImpl(Graphics2D g) {
-		// See preTxPaintImpl().
-	}
-	
-	@Override
-	protected void preTxPaintImpl(Graphics2D g) {
+	protected void preTxPaintImpl(Graphics2D g, AffineTransform tx) {
 		if (cache == null) {
 			Shape s = path.toAWTShape();
 			if (tx != null) {

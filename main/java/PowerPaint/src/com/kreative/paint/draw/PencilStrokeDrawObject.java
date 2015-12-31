@@ -3,6 +3,7 @@ package com.kreative.paint.draw;
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import com.kreative.paint.document.draw.PaintSettings;
 import com.kreative.paint.document.draw.Path;
 
@@ -25,12 +26,7 @@ public class PencilStrokeDrawObject extends StrokeDrawObject {
 	}
 	
 	@Override
-	protected void paintImpl(Graphics2D g) {
-		// See preTxPaintImpl().
-	}
-	
-	@Override
-	protected void preTxPaintImpl(Graphics2D g) {
+	protected void preTxPaintImpl(Graphics2D g, AffineTransform tx) {
 		Shape s = path.toAWTShape();
 		if (tx != null) {
 			try { s = tx.createTransformedShape(s); }

@@ -189,10 +189,12 @@ public class GroupDrawObject extends DrawObject {
 	}
 	
 	@Override
-	protected void paintImpl(Graphics2D g) {
-		g.transform(getGroupTransform());
+	protected void preTxPaintImpl(Graphics2D g, AffineTransform tx) {
+		AffineTransform tx2 = new AffineTransform();
+		if (tx != null) tx2.concatenate(tx);
+		tx2.concatenate(getGroupTransform());
 		for (DrawObject o : objects) {
-			if (o.visible) o.paint(g);
+			if (o.visible) o.paint(g, tx2);
 		}
 	}
 	
