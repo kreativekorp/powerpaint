@@ -13,7 +13,7 @@ import com.kreative.paint.document.undo.Atom;
 import com.kreative.paint.document.undo.History;
 import com.kreative.paint.document.undo.Recordable;
 
-public class TileSurface implements Recordable, PaintSurface {
+public class TileSurface implements Cloneable, Recordable, PaintSurface {
 	private int x;
 	private int y;
 	private int tws, twa, twm;
@@ -40,6 +40,33 @@ public class TileSurface implements Recordable, PaintSurface {
 		this.history = null;
 		this.listeners = new ArrayList<TileSurfaceListener>();
 		this.tileListener = new TileSurfaceTileListener(this);
+	}
+	
+	private TileSurface(TileSurface o) {
+		this.x = o.x;
+		this.y = o.y;
+		this.tws = o.tws;
+		this.twa = o.twa;
+		this.twm = o.twm;
+		this.ths = o.ths;
+		this.tha = o.tha;
+		this.thm = o.thm;
+		this.matte = o.matte;
+		this.tiles = new HashMap<Long,Tile>();
+		for (Map.Entry<Long,Tile> e : o.tiles.entrySet()) {
+			this.tiles.put(e.getKey(), e.getValue().clone());
+		}
+		this.history = null;
+		this.listeners = new ArrayList<TileSurfaceListener>();
+		this.tileListener = new TileSurfaceTileListener(this);
+		for (Tile t : this.tiles.values()) {
+			t.addTileListener(this.tileListener);
+		}
+	}
+	
+	@Override
+	public TileSurface clone() {
+		return new TileSurface(this);
 	}
 	
 	@Override

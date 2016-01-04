@@ -46,9 +46,8 @@ public abstract class DrawObject implements Cloneable, Recordable {
 		this.visible = original.visible;
 		this.locked = original.locked;
 		this.selected = original.selected;
-		this.history = original.history;
+		this.history = null;
 		this.listeners = new ArrayList<DrawObjectListener>();
-		this.listeners.addAll(original.listeners);
 	}
 	
 	@Override

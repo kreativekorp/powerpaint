@@ -13,7 +13,7 @@ import com.kreative.paint.document.undo.Atom;
 import com.kreative.paint.document.undo.History;
 import com.kreative.paint.document.undo.Recordable;
 
-public class DrawObjectSurface implements Recordable, DrawSurface {
+public class DrawObjectSurface implements Cloneable, Recordable, DrawSurface {
 	private int x;
 	private int y;
 	private List<DrawObject> objects;
@@ -28,6 +28,26 @@ public class DrawObjectSurface implements Recordable, DrawSurface {
 		this.history = null;
 		this.listeners = new ArrayList<DrawObjectSurfaceListener>();
 		this.objectListener = new DrawObjectSurfaceDrawObjectListener(this);
+	}
+	
+	private DrawObjectSurface(DrawObjectSurface o) {
+		this.x = o.x;
+		this.y = o.y;
+		this.objects = new ArrayList<DrawObject>();
+		for (DrawObject d : o.objects) {
+			this.objects.add(d.clone());
+		}
+		this.history = null;
+		this.listeners = new ArrayList<DrawObjectSurfaceListener>();
+		this.objectListener = new DrawObjectSurfaceDrawObjectListener(this);
+		for (DrawObject d : this.objects) {
+			d.addDrawObjectListener(objectListener);
+		}
+	}
+	
+	@Override
+	public DrawObjectSurface clone() {
+		return new DrawObjectSurface(this);
 	}
 	
 	@Override
