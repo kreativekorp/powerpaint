@@ -2,70 +2,71 @@
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
 <palette name="Pebble">
 	<colors ordered="ordered">
-		<rgb r=  "0" g=  "0" b=  "0"/>
-		<rgb r=  "0" g=  "0" b= "85"/>
-		<rgb r=  "0" g=  "0" b="170"/>
-		<rgb r=  "0" g=  "0" b="255"/>
-		<rgb r=  "0" g= "85" b=  "0"/>
-		<rgb r=  "0" g= "85" b= "85"/>
-		<rgb r=  "0" g= "85" b="170"/>
-		<rgb r=  "0" g= "85" b="255"/>
-		<rgb r=  "0" g="170" b=  "0"/>
-		<rgb r=  "0" g="170" b= "85"/>
-		<rgb r=  "0" g="170" b="170"/>
-		<rgb r=  "0" g="170" b="255"/>
-		<rgb r=  "0" g="255" b=  "0"/>
-		<rgb r=  "0" g="255" b= "85"/>
-		<rgb r=  "0" g="255" b="170"/>
-		<rgb r=  "0" g="255" b="255"/>
-		<rgb r= "85" g=  "0" b=  "0"/>
-		<rgb r= "85" g=  "0" b= "85"/>
-		<rgb r= "85" g=  "0" b="170"/>
-		<rgb r= "85" g=  "0" b="255"/>
-		<rgb r= "85" g= "85" b=  "0"/>
-		<rgb r= "85" g= "85" b= "85"/>
-		<rgb r= "85" g= "85" b="170"/>
-		<rgb r= "85" g= "85" b="255"/>
-		<rgb r= "85" g="170" b=  "0"/>
-		<rgb r= "85" g="170" b= "85"/>
-		<rgb r= "85" g="170" b="170"/>
-		<rgb r= "85" g="170" b="255"/>
-		<rgb r= "85" g="255" b=  "0"/>
-		<rgb r= "85" g="255" b= "85"/>
-		<rgb r= "85" g="255" b="170"/>
-		<rgb r= "85" g="255" b="255"/>
-		<rgb r="170" g=  "0" b=  "0"/>
-		<rgb r="170" g=  "0" b= "85"/>
-		<rgb r="170" g=  "0" b="170"/>
-		<rgb r="170" g=  "0" b="255"/>
-		<rgb r="170" g= "85" b=  "0"/>
-		<rgb r="170" g= "85" b= "85"/>
-		<rgb r="170" g= "85" b="170"/>
-		<rgb r="170" g= "85" b="255"/>
-		<rgb r="170" g="170" b=  "0"/>
-		<rgb r="170" g="170" b= "85"/>
-		<rgb r="170" g="170" b="170"/>
-		<rgb r="170" g="170" b="255"/>
-		<rgb r="170" g="255" b=  "0"/>
-		<rgb r="170" g="255" b= "85"/>
-		<rgb r="170" g="255" b="170"/>
-		<rgb r="170" g="255" b="255"/>
-		<rgb r="255" g=  "0" b=  "0"/>
-		<rgb r="255" g=  "0" b= "85"/>
-		<rgb r="255" g=  "0" b="170"/>
-		<rgb r="255" g=  "0" b="255"/>
-		<rgb r="255" g= "85" b=  "0"/>
-		<rgb r="255" g= "85" b= "85"/>
-		<rgb r="255" g= "85" b="170"/>
-		<rgb r="255" g= "85" b="255"/>
-		<rgb r="255" g="170" b=  "0"/>
-		<rgb r="255" g="170" b= "85"/>
-		<rgb r="255" g="170" b="170"/>
-		<rgb r="255" g="170" b="255"/>
-		<rgb r="255" g="255" b=  "0"/>
-		<rgb r="255" g="255" b= "85"/>
-		<rgb r="255" g="255" b="170"/>
-		<rgb r="255" g="255" b="255"/>
+		<!-- Very interesting color name choices, Pebble devs. -->
+		<rgb r=  "0" g=  "0" b=  "0" name="Black"                  />
+		<rgb r=  "0" g=  "0" b= "85" name="Oxford Blue"            />
+		<rgb r=  "0" g=  "0" b="170" name="Duke Blue"              />
+		<rgb r=  "0" g=  "0" b="255" name="Blue"                   />
+		<rgb r=  "0" g= "85" b=  "0" name="Dark Green"             />
+		<rgb r=  "0" g= "85" b= "85" name="Midnight Green"         />
+		<rgb r=  "0" g= "85" b="170" name="Cobalt Blue"            />
+		<rgb r=  "0" g= "85" b="255" name="Blue Moon"              />
+		<rgb r=  "0" g="170" b=  "0" name="Islamic Green"          />
+		<rgb r=  "0" g="170" b= "85" name="Jaeger Green"           />
+		<rgb r=  "0" g="170" b="170" name="Tiffany Blue"           />
+		<rgb r=  "0" g="170" b="255" name="Vivid Cerulean"         />
+		<rgb r=  "0" g="255" b=  "0" name="Green"                  />
+		<rgb r=  "0" g="255" b= "85" name="Malachite"              />
+		<rgb r=  "0" g="255" b="170" name="Medium Spring Green"    />
+		<rgb r=  "0" g="255" b="255" name="Cyan"                   />
+		<rgb r= "85" g=  "0" b=  "0" name="Bulgarian Rose"         />
+		<rgb r= "85" g=  "0" b= "85" name="Imperial Purple"        />
+		<rgb r= "85" g=  "0" b="170" name="Indigo"                 />
+		<rgb r= "85" g=  "0" b="255" name="Electric Ultramarine"   />
+		<rgb r= "85" g= "85" b=  "0" name="Army Green"             />
+		<rgb r= "85" g= "85" b= "85" name="Dark Gray"              />
+		<rgb r= "85" g= "85" b="170" name="Liberty"                />
+		<rgb r= "85" g= "85" b="255" name="Very Light Blue"        />
+		<rgb r= "85" g="170" b=  "0" name="Kelly Green"            />
+		<rgb r= "85" g="170" b= "85" name="May Green"              />
+		<rgb r= "85" g="170" b="170" name="Cadet Blue"             />
+		<rgb r= "85" g="170" b="255" name="Picton Blue"            />
+		<rgb r= "85" g="255" b=  "0" name="Bright Green"           />
+		<rgb r= "85" g="255" b= "85" name="Screamin Green"         />
+		<rgb r= "85" g="255" b="170" name="Medium Aquamarine"      />
+		<rgb r= "85" g="255" b="255" name="Electric Blue"          />
+		<rgb r="170" g=  "0" b=  "0" name="Dark Candy Apple Red"   />
+		<rgb r="170" g=  "0" b= "85" name="Jazzberry Jam"          />
+		<rgb r="170" g=  "0" b="170" name="Purple"                 />
+		<rgb r="170" g=  "0" b="255" name="Vivid Violet"           />
+		<rgb r="170" g= "85" b=  "0" name="Windsor Tan"            />
+		<rgb r="170" g= "85" b= "85" name="Rose Vale"              />
+		<rgb r="170" g= "85" b="170" name="Purpureus"              />
+		<rgb r="170" g= "85" b="255" name="Lavender Indigo"        />
+		<rgb r="170" g="170" b=  "0" name="Limerick"               />
+		<rgb r="170" g="170" b= "85" name="Brass"                  />
+		<rgb r="170" g="170" b="170" name="Light Gray"             />
+		<rgb r="170" g="170" b="255" name="Baby Blue Eyes"         />
+		<rgb r="170" g="255" b=  "0" name="Spring Bud"             />
+		<rgb r="170" g="255" b= "85" name="Inchworm"               />
+		<rgb r="170" g="255" b="170" name="Mint Green"             />
+		<rgb r="170" g="255" b="255" name="Celeste"                />
+		<rgb r="255" g=  "0" b=  "0" name="Red"                    />
+		<rgb r="255" g=  "0" b= "85" name="Folly"                  />
+		<rgb r="255" g=  "0" b="170" name="Fashion Magenta"        />
+		<rgb r="255" g=  "0" b="255" name="Magenta"                />
+		<rgb r="255" g= "85" b=  "0" name="Orange"                 />
+		<rgb r="255" g= "85" b= "85" name="Sunset Orange"          />
+		<rgb r="255" g= "85" b="170" name="Brilliant Rose"         />
+		<rgb r="255" g= "85" b="255" name="Shocking Pink"          />
+		<rgb r="255" g="170" b=  "0" name="Chrome Yellow"          />
+		<rgb r="255" g="170" b= "85" name="Rajah"                  />
+		<rgb r="255" g="170" b="170" name="Melon"                  />
+		<rgb r="255" g="170" b="255" name="Rich Brilliant Lavender"/>
+		<rgb r="255" g="255" b=  "0" name="Yellow"                 />
+		<rgb r="255" g="255" b= "85" name="Icterine"               />
+		<rgb r="255" g="255" b="170" name="Pastel Yellow"          />
+		<rgb r="255" g="255" b="255" name="White"                  />
 	</colors>
 	<layout>
 		<oriented>
