@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Base16 Solar Flare">
+	<colors ordered="ordered">
+		<rgb r= "24" g= "38" b= "47"/>
+		<rgb r= "34" g= "46" b= "56"/>
+		<rgb r= "88" g="104" b="117"/>
+		<rgb r="102" g="117" b="129"/>
+		<rgb r="133" g="147" b="158"/>
+		<rgb r="166" g="175" b="184"/>
+		<rgb r="232" g="233" b="237"/>
+		<rgb r="245" g="247" b="250"/>
+		<rgb r="239" g= "82" b= "83"/>
+		<rgb r="230" g="107" b= "43"/>
+		<rgb r="228" g="181" b= "28"/>
+		<rgb r="124" g="200" b= "68"/>
+		<rgb r= "82" g="203" b="176"/>
+		<rgb r= "51" g="181" b="225"/>
+		<rgb r="163" g= "99" b="213"/>
+		<rgb r="215" g= "60" b="154"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
