@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Commodore 64 (Wikipedia)">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="136" g= "57" b= "50"/>
+		<rgb r="103" g="182" b="189"/>
+		<rgb r="139" g= "63" b="150"/>
+		<rgb r= "85" g="160" b= "73"/>
+		<rgb r= "64" g= "49" b="141"/>
+		<rgb r="191" g="206" b="114"/>
+		<rgb r="139" g= "84" b= "41"/>
+		<rgb r= "87" g= "66" b=  "0"/>
+		<rgb r="184" g="105" b= "98"/>
+		<rgb r= "80" g= "80" b= "80"/>
+		<rgb r="120" g="120" b="120"/>
+		<rgb r="148" g="224" b="137"/>
+		<rgb r="120" g="105" b="196"/>
+		<rgb r="159" g="159" b="159"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

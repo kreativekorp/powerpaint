@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="SAM Coup&#233;">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r=  "0" g=  "0" b= "73"/>
+		<rgb r= "73" g=  "0" b=  "0"/>
+		<rgb r= "73" g=  "0" b= "73"/>
+		<rgb r=  "0" g= "73" b=  "0"/>
+		<rgb r=  "0" g= "73" b= "73"/>
+		<rgb r= "73" g= "73" b=  "0"/>
+		<rgb r= "73" g= "73" b= "73"/>
+		<rgb r= "36" g= "36" b= "36"/>
+		<rgb r= "36" g= "36" b="109"/>
+		<rgb r="109" g= "36" b= "36"/>
+		<rgb r="109" g= "36" b="109"/>
+		<rgb r= "36" g="109" b= "36"/>
+		<rgb r= "36" g="109" b="109"/>
+		<rgb r="109" g="109" b= "36"/>
+		<rgb r="109" g="109" b="109"/>
+		<rgb r=  "0" g=  "0" b="146"/>
+		<rgb r=  "0" g=  "0" b="219"/>
+		<rgb r= "73" g=  "0" b="146"/>
+		<rgb r= "73" g=  "0" b="219"/>
+		<rgb r=  "0" g= "73" b="146"/>
+		<rgb r=  "0" g= "73" b="219"/>
+		<rgb r= "73" g= "73" b="146"/>
+		<rgb r= "73" g= "73" b="219"/>
+		<rgb r= "36" g= "36" b="182"/>
+		<rgb r= "36" g= "36" b="255"/>
+		<rgb r="109" g= "36" b="182"/>
+		<rgb r="109" g= "36" b="255"/>
+		<rgb r= "36" g="109" b="182"/>
+		<rgb r= "36" g="109" b="255"/>
+		<rgb r="109" g="109" b="182"/>
+		<rgb r="109" g="109" b="255"/>
+		<rgb r="146" g=  "0" b=  "0"/>
+		<rgb r="146" g=  "0" b= "73"/>
+		<rgb r="219" g=  "0" b=  "0"/>
+		<rgb r="219" g=  "0" b= "73"/>
+		<rgb r="146" g= "73" b=  "0"/>
+		<rgb r="146" g= "73" b= "73"/>
+		<rgb r="219" g= "73" b=  "0"/>
+		<rgb r="219" g= "73" b= "73"/>
+		<rgb r="182" g= "36" b= "36"/>
+		<rgb r="182" g= "36" b="109"/>
+		<rgb r="255" g= "36" b= "36"/>
+		<rgb r="255" g= "36" b="109"/>
+		<rgb r="182" g="109" b= "36"/>
+		<rgb r="182" g="109" b="109"/>
+		<rgb r="255" g="109" b= "36"/>
+		<rgb r="255" g="109" b="109"/>
+		<rgb r="146" g=  "0" b="146"/>
+		<rgb r="146" g=  "0" b="219"/>
+		<rgb r="219" g=  "0" b="146"/>
+		<rgb r="219" g=  "0" b="219"/>
+		<rgb r="146" g= "73" b="146"/>
+		<rgb r="146" g= "73" b="219"/>
+		<rgb r="219" g= "73" b="146"/>
+		<rgb r="219" g= "73" b="219"/>
+		<rgb r="182" g= "36" b="182"/>
+		<rgb r="182" g= "36" b="255"/>
+		<rgb r="255" g= "36" b="182"/>
+		<rgb r="255" g= "36" b="255"/>
+		<rgb r="182" g="109" b="182"/>
+		<rgb r="182" g="109" b="255"/>
+		<rgb r="255" g="109" b="182"/>
+		<rgb r="255" g="109" b="255"/>
+		<rgb r=  "0" g="146" b=  "0"/>
+		<rgb r=  "0" g="146" b= "73"/>
+		<rgb r= "73" g="146" b=  "0"/>
+		<rgb r= "73" g="146" b= "73"/>
+		<rgb r=  "0" g="219" b=  "0"/>
+		<rgb r=  "0" g="219" b= "73"/>
+		<rgb r= "73" g="219" b=  "0"/>
+		<rgb r= "73" g="219" b= "73"/>
+		<rgb r= "36" g="182" b= "36"/>
+		<rgb r= "36" g="182" b="109"/>
+		<rgb r="109" g="182" b= "36"/>
+		<rgb r="109" g="182" b="109"/>
+		<rgb r= "36" g="255" b= "36"/>
+		<rgb r= "36" g="255" b="109"/>
+		<rgb r="109" g="255" b= "36"/>
+		<rgb r="109" g="255" b="109"/>
+		<rgb r=  "0" g="146" b="146"/>
+		<rgb r=  "0" g="146" b="219"/>
+		<rgb r= "73" g="146" b="146"/>
+		<rgb r= "73" g="146" b="219"/>
+		<rgb r=  "0" g="219" b="146"/>
+		<rgb r=  "0" g="219" b="219"/>
+		<rgb r= "73" g="219" b="146"/>
+		<rgb r= "73" g="219" b="219"/>
+		<rgb r= "36" g="182" b="182"/>
+		<rgb r= "36" g="182" b="255"/>
+		<rgb r="109" g="182" b="182"/>
+		<rgb r="109" g="182" b="255"/>
+		<rgb r= "36" g="255" b="182"/>
+		<rgb r= "36" g="255" b="255"/>
+		<rgb r="109" g="255" b="182"/>
+		<rgb r="109" g="255" b="255"/>
+		<rgb r="146" g="146" b=  "0"/>
+		<rgb r="146" g="146" b= "73"/>
+		<rgb r="219" g="146" b=  "0"/>
+		<rgb r="219" g="146" b= "73"/>
+		<rgb r="146" g="219" b=  "0"/>
+		<rgb r="146" g="219" b= "73"/>
+		<rgb r="219" g="219" b=  "0"/>
+		<rgb r="219" g="219" b= "73"/>
+		<rgb r="182" g="182" b= "36"/>
+		<rgb r="182" g="182" b="109"/>
+		<rgb r="255" g="182" b= "36"/>
+		<rgb r="255" g="182" b="109"/>
+		<rgb r="182" g="255" b= "36"/>
+		<rgb r="182" g="255" b="109"/>
+		<rgb r="255" g="255" b= "36"/>
+		<rgb r="255" g="255" b="109"/>
+		<rgb r="146" g="146" b="146"/>
+		<rgb r="146" g="146" b="219"/>
+		<rgb r="219" g="146" b="146"/>
+		<rgb r="219" g="146" b="219"/>
+		<rgb r="146" g="219" b="146"/>
+		<rgb r="146" g="219" b="219"/>
+		<rgb r="219" g="219" b="146"/>
+		<rgb r="219" g="219" b="219"/>
+		<rgb r="182" g="182" b="182"/>
+		<rgb r="182" g="182" b="255"/>
+		<rgb r="255" g="182" b="182"/>
+		<rgb r="255" g="182" b="255"/>
+		<rgb r="182" g="255" b="182"/>
+		<rgb r="182" g="255" b="255"/>
+		<rgb r="255" g="255" b="182"/>
+		<rgb r="255" g="255" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start=  "0" end= "16"/></row>
+					<row><range start= "16" end= "32"/></row>
+					<row><range start= "32" end= "48"/></row>
+					<row><range start= "48" end= "64"/></row>
+					<row><range start= "64" end= "80"/></row>
+					<row><range start= "80" end= "96"/></row>
+					<row><range start= "96" end="112"/></row>
+					<row><range start="112" end="128"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start=  "0" end= "16"/></row>
+					<row><range start= "16" end= "32"/></row>
+					<row><range start= "32" end= "48"/></row>
+					<row><range start= "48" end= "64"/></row>
+					<row><range start= "64" end= "80"/></row>
+					<row><range start= "80" end= "96"/></row>
+					<row><range start= "96" end="112"/></row>
+					<row><range start="112" end="128"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<row><range start=  "0" end=  "8"/></row>
+					<row><range start=  "8" end= "16"/></row>
+					<row><range start= "16" end= "24"/></row>
+					<row><range start= "24" end= "32"/></row>
+					<row><range start= "32" end= "40"/></row>
+					<row><range start= "40" end= "48"/></row>
+					<row><range start= "48" end= "56"/></row>
+					<row><range start= "56" end= "64"/></row>
+					<row><range start= "64" end= "72"/></row>
+					<row><range start= "72" end= "80"/></row>
+					<row><range start= "80" end= "88"/></row>
+					<row><range start= "88" end= "96"/></row>
+					<row><range start= "96" end="104"/></row>
+					<row><range start="104" end="112"/></row>
+					<row><range start="112" end="120"/></row>
+					<row><range start="120" end="128"/></row>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

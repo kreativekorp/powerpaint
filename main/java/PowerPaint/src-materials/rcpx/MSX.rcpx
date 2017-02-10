@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="MSX">
+	<colors ordered="ordered">
+		<rgba r="0" g="0" b="0" a="0"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "62" g="184" b= "73"/>
+		<rgb r="116" g="208" b="125"/>
+		<rgb r= "89" g= "85" b="224"/>
+		<rgb r="128" g="118" b="241"/>
+		<rgb r="185" g= "94" b= "81"/>
+		<rgb r="101" g="219" b="239"/>
+		<rgb r="219" g="101" b= "89"/>
+		<rgb r="255" g="137" b="125"/>
+		<rgb r="204" g="195" b= "94"/>
+		<rgb r="222" g="208" b="135"/>
+		<rgb r= "58" g="162" b= "65"/>
+		<rgb r="183" g="102" b="181"/>
+		<rgb r="204" g="204" b="204"/>
+		<rgb r="255" g="255" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

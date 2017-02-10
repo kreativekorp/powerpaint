@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Vexillo">
+	<colors ordered="ordered">
+		<rgb r="255" g="255" b="255" name="white"    />
+		<rgb r="255" g="238" b=  "0" name="yellow"   />
+		<rgb r="255" g="153" b=  "0" name="orange"   />
+		<rgb r="255" g=  "0" b=  "0" name="red"      />
+		<rgb r="255" g=  "0" b="204" name="magenta"  />
+		<rgb r="153" g=  "0" b="153" name="violet"   />
+		<rgb r="102" g=  "0" b="255" name="indigo"   />
+		<rgb r=  "0" g=  "0" b="255" name="blue"     />
+		<rgb r=  "0" g="204" b="255" name="turquoise"/>
+		<rgb r=  "0" g="153" b=  "0" name="green"    />
+		<rgb r="153" g="102" b= "51" name="brown"    />
+		<rgb r="204" g="153" b="102" name="tan"      />
+		<rgb r="204" g="204" b="204" name="ltgray"   />
+		<rgb r="153" g="153" b="153" name="gray"     />
+		<rgb r="102" g="102" b="102" name="dkgray"   />
+		<rgb r=  "0" g=  "0" b=  "0" name="black"    />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
