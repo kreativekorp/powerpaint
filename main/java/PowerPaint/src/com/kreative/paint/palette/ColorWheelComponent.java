@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.Stroke;
 import java.awt.Toolkit;
@@ -33,7 +34,7 @@ public class ColorWheelComponent extends JComponent {
 	private static final Stroke bs2 = new BasicStroke(2);
 	private static final Image colorCurs;
 	static {
-		Class<?> cl = ColorCubeModelComponent.class;
+		Class<?> cl = ColorWheelComponent.class;
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		colorCurs = tk.createImage(cl.getResource("ColorCursor.png"));
 		tk.prepareImage(colorCurs, -1, -1, null);
@@ -82,38 +83,23 @@ public class ColorWheelComponent extends JComponent {
 	
 	@Override
 	protected void paintComponent(Graphics gr) {
-		// create buffer
 		Insets i = getInsets();
 		int w = getWidth() - i.left - i.right;
 		int h = getHeight() - i.top - i.bottom;
-		BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-		Graphics2D g = bi.createGraphics();
-		// wheel
-		Area a = new Area(new Ellipse2D.Float(1f, 1f, w - 3f, h - 3f));
-		a.subtract(new Area(new Ellipse2D.Float(17f, 17f, w - 35f, h - 35f)));
-		g.setStroke(bs1);
-		g.setPaint(GradientPaint2.RGB_WHEEL);
-		g.fill(a);
-		g.setPaint(Color.gray);
-		g.drawOval(1, 1, w - 3, h - 3);
-		g.drawOval(17, 17, w - 35, h - 35);
-		// wheel marker
-		Shape hm = AffineTransform
-			.getRotateInstance(-cc[0] * Math.PI * 2.0, w / 2.0, h / 2.0)
-			.createTransformedShape(
-				new Rectangle2D.Float(w - 18f, h / 2f - 3f, 17f, 6f));
-		g.setStroke(bs2);
-		g.setPaint(Color.black);
-		g.draw(hm);
-		// construct triangle
-		float cx = i.left + w / 2f;
-		float cy = i.top + h / 2f;
-		float cpx = cx + (w / 2f - 30f) * (float)Math.cos(cc[0] * Math.PI * 2.0);
-		float cpy = cy - (w / 2f - 30f) * (float)Math.sin(cc[0] * Math.PI * 2.0);
-		float wpx = cx + (w / 2f - 30f) * (float)Math.cos(cc[0] * Math.PI * 2.0 + Math.PI * 2.0/3.0);
-		float wpy = cy - (w / 2f - 30f) * (float)Math.sin(cc[0] * Math.PI * 2.0 + Math.PI * 2.0/3.0);
-		float kpx = cx + (w / 2f - 30f) * (float)Math.cos(cc[0] * Math.PI * 2.0 - Math.PI * 2.0/3.0);
-		float kpy = cy - (w / 2f - 30f) * (float)Math.sin(cc[0] * Math.PI * 2.0 - Math.PI * 2.0/3.0);
+		// construct marker & triangle
+		double cx = w / 2.0;
+		double cy = h / 2.0;
+		double acc = cc[0] * Math.PI * 2.0;
+		double a120 = Math.PI * 2.0 / 3.0;
+		AffineTransform rot = AffineTransform.getRotateInstance(-acc, cx, cy);
+		Shape marker = new Rectangle2D.Float(w - 18f, h / 2f - 3f, 17f, 6f);
+		Shape hm = rot.createTransformedShape(marker);
+		float cpx = (float)(cx + (cx - 30) * Math.cos(acc));
+		float cpy = (float)(cy - (cy - 30) * Math.sin(acc));
+		float wpx = (float)(cx + (cx - 30) * Math.cos(acc + a120));
+		float wpy = (float)(cy - (cy - 30) * Math.sin(acc + a120));
+		float kpx = (float)(cx + (cx - 30) * Math.cos(acc - a120));
+		float kpy = (float)(cy - (cy - 30) * Math.sin(acc - a120));
 		GeneralPath tri = new GeneralPath();
 		tri.moveTo(cpx, cpy);
 		tri.lineTo(wpx, wpy);
@@ -129,8 +115,11 @@ public class ColorWheelComponent extends JComponent {
 		double kd =
 			Math.abs((cpx - wpx) * (wpy - kpy) - (cpy - wpy) * (wpx - kpx)) /
 			Math.hypot(cpx - wpx, cpy - wpy);
-		// paint triangle
-		g.setStroke(bs1);
+		// create buffer
+		BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g = bi.createGraphics();
+		// paint wheel & triangle
+		g.drawImage(makeWheel(w, h), null, 0, 0);
 		for (int y = 0; y < h; y++) {
 			for (int x = 0; x < w; x++) {
 				if (tri.contains(x, y)) {
@@ -151,6 +140,12 @@ public class ColorWheelComponent extends JComponent {
 				}
 			}
 		}
+		// paint markers
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g.setStroke(bs2);
+		g.setPaint(Color.black);
+		g.draw(hm);
+		g.setStroke(bs1);
 		g.setPaint(Color.gray);
 		g.draw(tri);
 		g.setPaint(Color.getHSBColor(cc[0], 1, 1));
@@ -170,6 +165,25 @@ public class ColorWheelComponent extends JComponent {
 		// flush buffer
 		g.dispose();
 		gr.drawImage(bi, i.left, i.top, null);
+	}
+	
+	private BufferedImage wheelCache = null;
+	private BufferedImage makeWheel(int w, int h) {
+		if (wheelCache == null || wheelCache.getWidth() != w || wheelCache.getHeight() != h) {
+			wheelCache = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+			Graphics2D g = wheelCache.createGraphics();
+			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+			Area a = new Area(new Ellipse2D.Float(1f, 1f, w - 3f, h - 3f));
+			a.subtract(new Area(new Ellipse2D.Float(17f, 17f, w - 35f, h - 35f)));
+			g.setStroke(bs1);
+			g.setPaint(GradientPaint2.RGB_WHEEL);
+			g.fill(a);
+			g.setPaint(Color.gray);
+			g.drawOval(1, 1, w - 3, h - 3);
+			g.drawOval(17, 17, w - 35, h - 35);
+			g.dispose();
+		}
+		return wheelCache;
 	}
 	
 	public void addColorChangeListener(ColorChangeListener l) {
@@ -198,7 +212,7 @@ public class ColorWheelComponent extends JComponent {
 		double mr = Math.hypot(cy - my, mx - cx);
 		double ma = Math.atan2(cy - my, mx - cx);
 		if (region == 0) {
-			region = (mr >= w / 2 - 10) ? 1 : 2;
+			region = (mr >= w / 2 - 20) ? 1 : 2;
 		}
 		if (region == 1) {
 			cc[0] = (float)(ma / (Math.PI * 2.0));

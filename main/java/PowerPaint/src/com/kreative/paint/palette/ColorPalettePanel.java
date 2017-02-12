@@ -1,5 +1,5 @@
 /*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
+ * Copyright &copy; 2009-2017 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -46,11 +46,19 @@ public class ColorPalettePanel extends PaintContextPanel {
 	private static final long serialVersionUID = 1L;
 	private static final Dimension BUTTON_SIZE = new Dimension(16,16);
 	
+	private static final Image SIZE_IMAGE;
+	private static final Image SPINNER_IMAGE;
+	static {
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		SIZE_IMAGE = tk.createImage(ColorPalettePanel.class.getResource("RCPSize.png"));
+		SPINNER_IMAGE = tk.createImage(ColorPalettePanel.class.getResource("RCPSpinner.png"));
+	}
+	
 	private UpdateLock u = new UpdateLock();
 	private RCPXComponent palcomp;
 	private MaterialList<RCPXPalette> palmap;
 	private JPanel top, buttons;
-	private JButton hb, sb, vb;
+	private JButton size, spin;
 	private JComboBox list;
 	
 	public ColorPalettePanel(PaintContext pc, MaterialManager mm, String initialSelection) {
@@ -62,20 +70,17 @@ public class ColorPalettePanel extends PaintContextPanel {
 		list.setMaximumRowCount(48);
 		SwingUtils.shrink(list);
 		
-		buttons = new JPanel(new GridLayout(1,3,-1,-1));
-		buttons.add(hb = new JButton(new ImageIcon(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("RCPSizeHoriz.png")))));
-		buttons.add(sb = new JButton(new ImageIcon(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("RCPSizeSquare.png")))));
-		buttons.add(vb = new JButton(new ImageIcon(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("RCPSizeVert.png")))));
-		hb.addActionListener(new SizeActionListener(RCPXOrientation.HORIZONTAL));
-		sb.addActionListener(new SizeActionListener(RCPXOrientation.SQUARE));
-		vb.addActionListener(new SizeActionListener(RCPXOrientation.VERTICAL));
-		hb.putClientProperty("JButton.buttonType", "toolbar"); squareOffButton(hb);
-		sb.putClientProperty("JButton.buttonType", "toolbar"); squareOffButton(sb);
-		vb.putClientProperty("JButton.buttonType", "toolbar"); squareOffButton(vb);
+		buttons = new JPanel(new GridLayout(1,0,-1,-1));
+		buttons.add(size = new JButton(new ImageIcon(SIZE_IMAGE)));
+		buttons.add(spin = new JButton(new ImageIcon(SPINNER_IMAGE)));
+		size.addActionListener(new SizeActionListener());
+		spin.addActionListener(new SpinActionListener());
+		size.putClientProperty("JButton.buttonType", "toolbar"); squareOffButton(size);
+		spin.putClientProperty("JButton.buttonType", "toolbar"); squareOffButton(spin);
 		
 		top = new JPanel(new BorderLayout(-1,-1));
+		top.add(buttons, BorderLayout.LINE_START);
 		top.add(list, BorderLayout.CENTER);
-		top.add(buttons, BorderLayout.LINE_END);
 		
 		palcomp = new RCPXComponent();
 		palcomp.addColorChangeListener(new ColorChangeListener() {
@@ -136,13 +141,33 @@ public class ColorPalettePanel extends PaintContextPanel {
 	}
 	
 	private class SizeActionListener implements ActionListener {
-		private RCPXOrientation orientation;
-		public SizeActionListener(RCPXOrientation orientation) {
-			this.orientation = orientation;
-		}
 		public void actionPerformed(ActionEvent e) {
-			palcomp.setOrientation(orientation);
+			int w = palcomp.getWidth();
+			int h = palcomp.getHeight();
+			if (w > (h + h / 2)) {
+				palcomp.setOrientation(RCPXOrientation.SQUARE);
+			} else if (h <= (w + w / 2)) {
+				palcomp.setOrientation(RCPXOrientation.VERTICAL);
+			} else {
+				palcomp.setOrientation(RCPXOrientation.HORIZONTAL);
+			}
 			palcomp.pack();
+		}
+	}
+	
+	private class SpinActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			Component c = (Component)e.getSource();
+			int center = c.getLocationOnScreen().y + c.getHeight() / 2;
+			int cy = MouseInfo.getPointerInfo().getLocation().y;
+			if (cy < center) {
+				int i = list.getSelectedIndex() - 1;
+				if (i >= 0) list.setSelectedIndex(i);
+			} else {
+				int i = list.getSelectedIndex() + 1;
+				int n = list.getItemCount();
+				if (i < n) list.setSelectedIndex(i);
+			}
 		}
 	}
 	
