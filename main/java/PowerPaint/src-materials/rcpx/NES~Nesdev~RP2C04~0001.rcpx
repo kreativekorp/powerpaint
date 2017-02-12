@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="NES (Nesdev RP2C04-0001)">
+	<!--
+		MAME's source claims that Baseball, Freedom Force, Gradius,
+		Hogan's Alley, Mach Rider, Pinball, and Platoon require this palette.
+	-->
+	<colors ordered="ordered">
+		<rgb16 r="65535" g="46811" b="46811"/>
+		<rgb16 r="56173" g="28086" b="65535"/>
+		<rgb16 r="65535" g=    "0" b=    "0"/>
+		<rgb16 r="37449" g="37449" b="65535"/>
+		<rgb16 r=    "0" g="37449" b="37449"/>
+		<rgb16 r= "9362" g="18724" b=    "0"/>
+		<rgb16 r="18724" g="18724" b="18724"/>
+		<rgb16 r="65535" g=    "0" b="37449"/>
+		<rgb16 r="65535" g="65535" b="65535"/>
+		<rgb16 r="28086" g="28086" b="28086"/>
+		<rgb16 r="65535" g="46811" b=    "0"/>
+		<rgb16 r="46811" g=    "0" b="28086"/>
+		<rgb16 r="37449" g=    "0" b="28086"/>
+		<rgb16 r="56173" g="56173" b=    "0"/>
+		<rgb16 r="28086" g="18724" b=    "0"/>
+		<rgb16 r="65535" g="65535" b="65535"/>
+		<rgb16 r="28086" g="46811" b="65535"/>
+		<rgb16 r="56173" g="46811" b="28086"/>
+		<rgb16 r="28086" g= "9362" b=    "0"/>
+		<rgb16 r="28086" g="56173" b=    "0"/>
+		<rgb16 r="37449" g="56173" b="65535"/>
+		<rgb16 r="56173" g="46811" b="65535"/>
+		<rgb16 r="65535" g="56173" b="37449"/>
+		<rgb16 r=    "0" g="18724" b="65535"/>
+		<rgb16 r="65535" g="56173" b=    "0"/>
+		<rgb16 r="18724" g="65535" b="56173"/>
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r="18724" g=    "0" b=    "0"/>
+		<rgb16 r="56173" g="56173" b="56173"/>
+		<rgb16 r="37449" g="37449" b="37449"/>
+		<rgb16 r="65535" g=    "0" b="65535"/>
+		<rgb16 r=    "0" g= "9362" b="37449"/>
+		<rgb16 r=    "0" g=    "0" b="28086"/>
+		<rgb16 r="46811" g="56173" b="65535"/>
+		<rgb16 r="65535" g="46811" b="65535"/>
+		<rgb16 r=    "0" g="65535" b=    "0"/>
+		<rgb16 r=    "0" g="65535" b="65535"/>
+		<rgb16 r=    "0" g="18724" b="18724"/>
+		<rgb16 r=    "0" g="46811" b="28086"/>
+		<rgb16 r="46811" g=    "0" b="65535"/>
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r="37449" g="18724" b=    "0"/>
+		<rgb16 r="65535" g="37449" b="65535"/>
+		<rgb16 r="46811" g= "9362" b=    "0"/>
+		<rgb16 r="37449" g=    "0" b="65535"/>
+		<rgb16 r=    "0" g=    "0" b="56173"/>
+		<rgb16 r="65535" g="37449" b=    "0"/>
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r= "9362" g="37449" b=    "0"/>
+		<rgb16 r="46811" g="46811" b="46811"/>
+		<rgb16 r=    "0" g="28086" b= "9362"/>
+		<rgb16 r="46811" g="65535" b="18724"/>
+		<rgb16 r="28086" g="18724" b="56173"/>
+		<rgb16 r="65535" g="65535" b=    "0"/>
+		<rgb16 r="56173" g="28086" b=    "0"/>
+		<rgb16 r=    "0" g="18724" b=    "0"/>
+		<rgb16 r=    "0" g="28086" b="56173"/>
+		<rgb16 r=    "0" g="37449" b=    "0"/>
+		<rgb16 r= "9362" g= "9362" b= "9362"/>
+		<rgb16 r="65535" g="65535" b="28086"/>
+		<rgb16 r="65535" g="28086" b="65535"/>
+		<rgb16 r="37449" g="28086" b=    "0"/>
+		<rgb16 r="37449" g="65535" b="28086"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="16"/></row>
+					<row><range start="16" end="32"/></row>
+					<row><range start="32" end="48"/></row>
+					<row><range start="48" end="64"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "8"/></row>
+					<row><range start= "8" end="16"/></row>
+					<row><range start="16" end="24"/></row>
+					<row><range start="24" end="32"/></row>
+					<row><range start="32" end="40"/></row>
+					<row><range start="40" end="48"/></row>
+					<row><range start="48" end="56"/></row>
+					<row><range start="56" end="64"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="16"/></column>
+					<column><range start="16" end="32"/></column>
+					<column><range start="32" end="48"/></column>
+					<column><range start="48" end="64"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
