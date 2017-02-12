@@ -1,5 +1,5 @@
 /*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
+ * Copyright &copy; 2009-2017 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -27,6 +27,7 @@
 
 package com.kreative.paint.palette;
 
+import java.awt.Dimension;
 import javax.swing.JPopupMenu;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.material.MaterialManager;
@@ -41,6 +42,7 @@ public class FontPalette extends PaintContextPalette {
 		panels.add(fp = new FontPanel(pc, mm));
 		setContentPane(fp);
 		setResizable(true);
+		setMinimumSize(new Dimension(76, 100));
 		pack();
 		setSize(480, 320);
 	}

@@ -1,5 +1,5 @@
 /*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
+ * Copyright &copy; 2009-2017 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -27,6 +27,7 @@
 
 package com.kreative.paint.palette;
 
+import java.awt.Dimension;
 import com.kreative.paint.PaintContext;
 import com.kreative.paint.material.MaterialManager;
 
@@ -40,6 +41,7 @@ public class ColorListPalette extends PaintContextPalette {
 		panels.add(cpp = new ColorListPanel(pc, mm, initialSelection));
 		setContentPane(cpp);
 		setResizable(true);
+		setMinimumSize(new Dimension(50, 100));
 		pack();
 	}
 }

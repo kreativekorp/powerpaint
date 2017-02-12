@@ -1,5 +1,5 @@
 /*
- * Copyright &copy; 2007-2011 Rebecca G. Bettencourt / Kreative Software
+ * Copyright &copy; 2007-2017 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -71,6 +71,7 @@ public class JPalette extends JFrame {
 			setFocusable(false);
 			setFocusableWindowState(false);
 			getRootPane().putClientProperty("Window.style", "small");
+			setMinimumSize(new Dimension(16, 16));
 			
 			main = new JPanel(new BorderLayout());
 			titlebar = null;
@@ -89,6 +90,7 @@ public class JPalette extends JFrame {
 			setFocusable(false);
 			setFocusableWindowState(false);
 			setUndecorated(true);
+			setMinimumSize(new Dimension(16, 16));
 			
 			main = new JPanel(new BorderLayout());
 			titlebar = new JPanel(new BorderLayout()) {
@@ -318,7 +320,7 @@ public class JPalette extends JFrame {
 		private static final long serialVersionUID = 1L;
 		private Window whatToClose;
 		public PaletteCloseBox(Window what) {
-			super(new ImageIcon(CLOSE_WIDGET_I));
+			super(new ImageIcon(CLOSE_WIDGET));
 			whatToClose = what;
 			this.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
@@ -334,7 +336,7 @@ public class JPalette extends JFrame {
 		private Window whatToResize;
 		private int ox, oy;
 		public PaletteResizeBox(Window what) {
-			super(new ImageIcon(RESIZE_WIDGET_I));
+			super(new ImageIcon(RESIZE_WIDGET));
 			whatToResize = what;
 			this.addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
@@ -354,57 +356,37 @@ public class JPalette extends JFrame {
 		}
 	}
 	
-	private static final byte[] CLOSE_WIDGET_A = new byte[] {
-		-119,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,
-		0,0,0,13,0,0,0,13,8,6,0,0,0,114,-21,-28,
-		124,0,0,0,66,73,68,65,84,120,-38,99,96,32,7,-4,
-		39,17,56,56,56,-4,7,107,-70,114,-31,4,81,-72,-95,-95,
-		-127,74,-102,64,-82,5,97,92,124,-100,54,-63,20,-94,107,32,
-		-24,60,108,26,-88,107,19,-39,126,-94,109,-112,-125,56,-60,98,
-		-80,38,16,65,42,6,0,1,-108,-69,-110,-56,40,120,-123,0,
-		0,0,0,73,69,78,68,-82,66,96,-126
-	};
-	
-	private static final Image CLOSE_WIDGET_I = Toolkit.getDefaultToolkit().createImage(CLOSE_WIDGET_A);
-	
-	private static final byte[] RESIZE_WIDGET_A = new byte[] {
-		-119,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,
-		0,0,0,11,0,0,0,11,8,6,0,0,0,-87,-84,119,
-		38,0,0,0,-92,73,68,65,84,120,-38,-115,-112,75,10,-124,
-		48,16,68,-67,-1,73,18,93,-27,54,-30,70,18,-125,-97,104,
-		76,80,-4,-20,106,-88,108,100,112,112,44,-24,38,-48,-113,-22,
-		74,103,85,85,-95,-82,-21,87,-107,-79,-67,-43,43,120,28,71,
-		-100,-25,-7,31,-10,-34,35,-49,115,-60,24,-97,97,58,74,41,
-		-47,-74,-19,115,12,58,18,-76,-42,-90,-38,-9,-3,55,60,77,
-		19,-118,-94,-128,-42,26,-61,48,-92,-9,-78,44,119,-104,67,33,
-		4,-116,49,105,61,-35,67,8,-9,24,-52,72,-112,107,-5,-66,
-		79,31,-101,-25,25,101,89,98,93,-41,11,118,-50,37,-105,-82,
-		-21,-48,52,-51,23,-88,-108,-62,113,28,23,-52,59,-14,60,-44,
-		-74,109,41,35,69,71,-126,-44,7,92,-121,-58,18,51,43,-121,
-		32,0,0,0,0,73,69,78,68,-82,66,96,-126
-	};
-	
-	private static final Image RESIZE_WIDGET_I = Toolkit.getDefaultToolkit().createImage(RESIZE_WIDGET_A);
-	
-	private static final byte[] TITLE_WIDGET_A = new byte[] {
-		-119,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,
-		0,0,0,-102,0,0,0,1,8,2,0,0,0,-87,60,32,
-		-64,0,0,0,25,116,69,88,116,83,111,102,116,119,97,
-		114,101,0,65,100,111,98,101,32,73,109,97,103,101,
-		82,101,97,100,121,113,-55,101,60,0,0,0,55,73,68,
-		65,84,120,-38,98,100,48,78,99,-96,59,96,98,98,98,
-		100,100,100,2,3,92,12,102,102,102,-4,12,32,-55,4,
-		3,120,68,-32,12,52,46,49,122,33,-114,-63,-61,-64,
-		-17,5,-6,7,44,64,-128,1,0,-77,61,2,102,105,19,117,
-		39,0,0,0,0,73,69,78,68,-82,66,96,-126
-	};
-	
-	private static final Image TITLE_WIDGET_I = Toolkit.getDefaultToolkit().createImage(TITLE_WIDGET_A);
-	
+	private static final Image CLOSE_WIDGET;
+	private static final Image RESIZE_WIDGET;
 	static {
 		Toolkit tk = Toolkit.getDefaultToolkit();
-		tk.prepareImage(CLOSE_WIDGET_I, -1, -1, null);
-		tk.prepareImage(RESIZE_WIDGET_I, -1, -1, null);
-		tk.prepareImage(TITLE_WIDGET_I, -1, -1, null);
+		CLOSE_WIDGET = tk.createImage(new byte[] {
+			-119,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,
+			0,0,0,13,0,0,0,13,8,6,0,0,0,114,-21,-28,
+			124,0,0,0,66,73,68,65,84,120,-38,99,96,32,7,-4,
+			39,17,56,56,56,-4,7,107,-70,114,-31,4,81,-72,-95,-95,
+			-127,74,-102,64,-82,5,97,92,124,-100,54,-63,20,-94,107,32,
+			-24,60,108,26,-88,107,19,-39,126,-94,109,-112,-125,56,-60,98,
+			-80,38,16,65,42,6,0,1,-108,-69,-110,-56,40,120,-123,0,
+			0,0,0,73,69,78,68,-82,66,96,-126
+		});
+		RESIZE_WIDGET = tk.createImage(new byte[] {
+			-119,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,
+			0,0,0,11,0,0,0,11,8,6,0,0,0,-87,-84,119,
+			38,0,0,0,-92,73,68,65,84,120,-38,-115,-112,75,10,-124,
+			48,16,68,-67,-1,73,18,93,-27,54,-30,70,18,-125,-97,104,
+			76,80,-4,-20,106,-88,108,100,112,112,44,-24,38,-48,-113,-22,
+			74,103,85,85,-95,-82,-21,87,-107,-79,-67,-43,43,120,28,71,
+			-100,-25,-7,31,-10,-34,35,-49,115,-60,24,-97,97,58,74,41,
+			-47,-74,-19,115,12,58,18,-76,-42,-90,-38,-9,-3,55,60,77,
+			19,-118,-94,-128,-42,26,-61,48,-92,-9,-78,44,119,-104,67,33,
+			4,-116,49,105,61,-35,67,8,-9,24,-52,72,-112,107,-5,-66,
+			79,31,-101,-25,25,101,89,98,93,-41,11,118,-50,37,-105,-82,
+			-21,-48,52,-51,23,-88,-108,-62,113,28,23,-52,59,-14,60,-44,
+			-74,109,41,35,69,71,-126,-44,7,92,-121,-58,18,51,43,-121,
+			32,0,0,0,0,73,69,78,68,-82,66,96,-126
+		});
+		tk.prepareImage(CLOSE_WIDGET, -1, -1, null);
+		tk.prepareImage(RESIZE_WIDGET, -1, -1, null);
 	}
 }

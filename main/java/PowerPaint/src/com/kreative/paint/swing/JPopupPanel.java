@@ -1,5 +1,5 @@
 /*
- * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
+ * Copyright &copy; 2010-2017 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -32,6 +32,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.LayoutManager;
 import java.awt.Point;
 import java.awt.event.AWTEventListener;
@@ -69,6 +70,7 @@ public class JPopupPanel extends JFrame {
 		setFocusable(false);
 		setFocusableWindowState(false);
 		setUndecorated(true);
+		setMinimumSize(new Dimension(16, 16));
 		
 		main = new JPanel(new BorderLayout());
 		contentpane = super.getContentPane();
