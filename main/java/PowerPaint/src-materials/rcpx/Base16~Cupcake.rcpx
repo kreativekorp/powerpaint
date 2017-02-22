@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Base16 Cupcake">
+	<colors ordered="ordered">
+		<rgb r="251" g="241" b="242"/>
+		<rgb r="242" g="241" b="244"/>
+		<rgb r="216" g="213" b="221"/>
+		<rgb r="191" g="185" b="198"/>
+		<rgb r="165" g="157" b="175"/>
+		<rgb r="139" g="129" b="152"/>
+		<rgb r="114" g="103" b="126"/>
+		<rgb r= "88" g= "80" b= "98"/>
+		<rgb r="213" g="126" b="133"/>
+		<rgb r="235" g="183" b="144"/>
+		<rgb r="220" g="177" b="108"/>
+		<rgb r="163" g="179" b="103"/>
+		<rgb r="105" g="169" b="167"/>
+		<rgb r="114" g="151" b="185"/>
+		<rgb r="187" g="153" b="180"/>
+		<rgb r="186" g="165" b="140"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
