@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Mac OS 2-Bit">
+	<colors ordered="ordered">
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="127" g="127" b="127"/>
+		<rgb r="204" g="204" b="255"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<row><range start="0" end="4"/></row>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start="0" end="2"/></row>
+					<row><range start="2" end="4"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column><range start="0" end="4"/></column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

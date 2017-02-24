@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE textures PUBLIC "-//Kreative//DTD PowerTexture 1.0//EN" "http://www.kreativekorp.com/dtd/txrx.dtd">
+<textures name="Color It! Classic Patterns">
+	<texture href="00.png"/>
+	<texture href="01.png"/>
+	<texture href="02.png"/>
+	<texture href="03.png"/>
+	<texture href="04.png"/>
+	<texture href="05.png"/>
+	<texture href="06.png"/>
+	<texture href="07.png"/>
+	<texture href="08.png"/>
+	<texture href="09.png"/>
+	<texture href="10.png"/>
+	<texture href="11.png"/>
+	<texture href="12.png"/>
+	<texture href="13.png"/>
+	<texture href="14.png"/>
+	<texture href="15.png"/>
+</textures>

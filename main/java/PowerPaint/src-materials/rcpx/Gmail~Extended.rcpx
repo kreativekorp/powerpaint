@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Gmail Extended" orientation="square">
+	<colors ordered="unordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "67" g= "67" b= "67"/>
+		<rgb r="102" g="102" b="102"/>
+		<rgb r="153" g="153" b="153"/>
+		<rgb r="204" g="204" b="204"/>
+		<rgb r="239" g="239" b="239"/>
+		<rgb r="243" g="243" b="243"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="251" g= "76" b= "47"/>
+		<rgb r="255" g="173" b= "71"/>
+		<rgb r="250" g="209" b="101"/>
+		<rgb r= "22" g="167" b="102"/>
+		<rgb r= "67" g="214" b="146"/>
+		<rgb r= "74" g="134" b="232"/>
+		<rgb r="164" g="121" b="226"/>
+		<rgb r="246" g="145" b="179"/>
+		<rgb r="246" g="197" b="190"/>
+		<rgb r="255" g="230" b="199"/>
+		<rgb r="254" g="241" b="209"/>
+		<rgb r="185" g="228" b="208"/>
+		<rgb r="198" g="243" b="222"/>
+		<rgb r="201" g="218" b="248"/>
+		<rgb r="228" g="215" b="245"/>
+		<rgb r="252" g="222" b="232"/>
+		<rgb r="239" g="160" b="147"/>
+		<rgb r="255" g="214" b="162"/>
+		<rgb r="252" g="232" b="179"/>
+		<rgb r="137" g="211" b="178"/>
+		<rgb r="160" g="234" b="201"/>
+		<rgb r="164" g="194" b="244"/>
+		<rgb r="208" g="188" b="241"/>
+		<rgb r="251" g="200" b="217"/>
+		<rgb r="230" g="101" b= "80"/>
+		<rgb r="255" g="188" b="107"/>
+		<rgb r="252" g="218" b="131"/>
+		<rgb r= "68" g="185" b="132"/>
+		<rgb r="104" g="223" b="169"/>
+		<rgb r="109" g="158" b="235"/>
+		<rgb r="182" g="148" b="232"/>
+		<rgb r="247" g="167" b="192"/>
+		<rgb r="204" g= "58" b= "33"/>
+		<rgb r="234" g="160" b= "65"/>
+		<rgb r="242" g="201" b= "96"/>
+		<rgb r= "20" g="158" b= "96"/>
+		<rgb r= "61" g="199" b="137"/>
+		<rgb r= "60" g="120" b="216"/>
+		<rgb r="142" g= "99" b="206"/>
+		<rgb r="224" g="119" b="152"/>
+		<rgb r="172" g= "43" b= "22"/>
+		<rgb r="207" g="137" b= "51"/>
+		<rgb r="213" g="174" b= "73"/>
+		<rgb r= "11" g="128" b= "75"/>
+		<rgb r= "42" g="156" b="104"/>
+		<rgb r= "40" g= "91" b="172"/>
+		<rgb r="101" g= "62" b="155"/>
+		<rgb r="182" g= "87" b="117"/>
+		<rgb r="130" g= "33" b= "17"/>
+		<rgb r="164" g="106" b= "33"/>
+		<rgb r="170" g="136" b= "49"/>
+		<rgb r=  "7" g= "98" b= "57"/>
+		<rgb r= "26" g="118" b= "77"/>
+		<rgb r= "28" g= "69" b="135"/>
+		<rgb r= "65" g= "35" b="109"/>
+		<rgb r="131" g= "51" b= "76"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row>
+						<range start= "0" end= "8"/>
+						<range start= "8" end="16"/>
+					</row>
+					<row>
+						<range start="16" end="24" border="vt"/>
+						<range start="40" end="48" border="vt"/>
+					</row>
+					<row>
+						<range start="24" end="32" border="v" />
+						<range start="48" end="56" border="v" />
+					</row>
+					<row>
+						<range start="32" end="40" border="vb"/>
+						<range start="56" end="64" border="vb"/>
+					</row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "8"/></row>
+					<row><range start= "8" end="16"/></row>
+					<row><range start="16" end="24" border="vt"/></row>
+					<row><range start="24" end="32" border="v" /></row>
+					<row><range start="32" end="40" border="v" /></row>
+					<row><range start="40" end="48" border="v" /></row>
+					<row><range start="48" end="56" border="v" /></row>
+					<row><range start="56" end="64" border="vb"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column>
+						<range start= "0" end= "8"/>
+						<range start= "8" end="16"/>
+					</column>
+					<column>
+						<range start="16" end="24" border="hl"/>
+						<range start="40" end="48" border="hl"/>
+					</column>
+					<column>
+						<range start="24" end="32" border="h" />
+						<range start="48" end="56" border="h" />
+					</column>
+					<column>
+						<range start="32" end="40" border="hr"/>
+						<range start="56" end="64" border="hr"/>
+					</column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

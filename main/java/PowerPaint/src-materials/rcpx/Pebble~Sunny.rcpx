@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Pebble Sunny">
+	<colors ordered="ordered">
+		<!-- Very interesting color name choices, Pebble devs. -->
+		<rgb r=  "0" g=  "0" b=  "0" name="Black"                  />
+		<rgb r=  "0" g= "30" b= "65" name="Oxford Blue"            />
+		<rgb r=  "0" g= "67" b="135" name="Duke Blue"              />
+		<rgb r=  "0" g="104" b="202" name="Blue"                   />
+		<rgb r= "43" g= "74" b= "44" name="Dark Green"             />
+		<rgb r= "39" g= "81" b= "79" name="Midnight Green"         />
+		<rgb r= "22" g= "99" b="141" name="Cobalt Blue"            />
+		<rgb r=  "0" g="125" b="206" name="Blue Moon"              />
+		<rgb r= "94" g="152" b= "96" name="Islamic Green"          />
+		<rgb r= "92" g="155" b="114" name="Jaeger Green"           />
+		<rgb r= "87" g="165" b="162" name="Tiffany Blue"           />
+		<rgb r= "76" g="180" b="219" name="Vivid Cerulean"         />
+		<rgb r="142" g="227" b="145" name="Green"                  />
+		<rgb r="142" g="230" b="158" name="Malachite"              />
+		<rgb r="138" g="235" b="192" name="Medium Spring Green"    />
+		<rgb r="132" g="245" b="241" name="Cyan"                   />
+		<rgb r= "74" g= "22" b= "27" name="Bulgarian Rose"         />
+		<rgb r= "72" g= "39" b= "72" name="Imperial Purple"        />
+		<rgb r= "64" g= "72" b="138" name="Indigo"                 />
+		<rgb r= "47" g="107" b="204" name="Electric Ultramarine"   />
+		<rgb r= "86" g= "78" b= "54" name="Army Green"             />
+		<rgb r= "84" g= "84" b= "84" name="Dark Gray"              />
+		<rgb r= "79" g="103" b="144" name="Liberty"                />
+		<rgb r= "65" g="128" b="208" name="Very Light Blue"        />
+		<rgb r="117" g="154" b="100" name="Kelly Green"            />
+		<rgb r="117" g="157" b="118" name="May Green"              />
+		<rgb r="113" g="166" b="164" name="Cadet Blue"             />
+		<rgb r="105" g="181" b="221" name="Picton Blue"            />
+		<rgb r="158" g="229" b="148" name="Bright Green"           />
+		<rgb r="157" g="231" b="160" name="Screamin' Green"        />
+		<rgb r="155" g="236" b="194" name="Medium Aquamarine"      />
+		<rgb r="149" g="246" b="242" name="Electric Blue"          />
+		<rgb r="153" g= "53" b= "63" name="Dark Candy Apple Red"   />
+		<rgb r="152" g= "62" b= "90" name="Jazzberry Jam"          />
+		<rgb r="149" g= "86" b="148" name="Purple"                 />
+		<rgb r="143" g="116" b="210" name="Vivid Violet"           />
+		<rgb r="157" g= "91" b= "77" name="Windsor Tan"            />
+		<rgb r="157" g= "96" b="100" name="Rose Vale"              />
+		<rgb r="154" g="112" b="153" name="Purpureus"              />
+		<rgb r="149" g="135" b="213" name="Lavender Indigo"        />
+		<rgb r="175" g="160" b="114" name="Limerick"               />
+		<rgb r="174" g="163" b="130" name="Brass"                  />
+		<rgb r="171" g="171" b="171" name="Light Gray"             />
+		<rgb r="167" g="186" b="226" name="Baby Blue Eyes"         />
+		<rgb r="201" g="232" b="157" name="Spring Bud"             />
+		<rgb r="201" g="234" b="167" name="Inchworm"               />
+		<rgb r="199" g="240" b="200" name="Mint Green"             />
+		<rgb r="195" g="249" b="247" name="Celeste"                />
+		<rgb r="227" g= "84" b= "98" name="Red"                    />
+		<rgb r="226" g= "88" b="116" name="Folly"                  />
+		<rgb r="225" g="106" b="163" name="Fashion Magenta"        />
+		<rgb r="222" g="131" b="220" name="Magenta"                />
+		<rgb r="230" g="110" b="107" name="Orange"                 />
+		<rgb r="230" g="114" b="124" name="Sunset Orange"          />
+		<rgb r="227" g="127" b="167" name="Brilliant Rose"         />
+		<rgb r="225" g="148" b="223" name="Shocking Pink"          />
+		<rgb r="241" g="170" b="134" name="Chrome Yellow"          />
+		<rgb r="241" g="173" b="147" name="Rajah"                  />
+		<rgb r="239" g="181" b="184" name="Melon"                  />
+		<rgb r="236" g="195" b="235" name="Rich Brilliant Lavender"/>
+		<rgb r="255" g="238" b="171" name="Yellow"                 />
+		<rgb r="255" g="241" b="181" name="Icterine"               />
+		<rgb r="255" g="246" b="211" name="Pastel Yellow"          />
+		<rgb r="255" g="255" b="255" name="White"                  />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="16"/></row>
+					<row><range start="16" end="32"/></row>
+					<row><range start="32" end="48"/></row>
+					<row><range start="48" end="64"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><empty       /><empty       /><index i="28"/><index i="45"/><empty       /><index i="61"/><index i="62"/><empty       /><empty       /></row>
+					<row><empty       /><index i="46"/><index i="29"/><index i="12"/><index i="44"/><index i="60"/><index i="57"/><index i="58"/><empty       /></row>
+					<row><index i="30"/><index i="13"/><index i= "8"/><index i="24"/><index i="41"/><index i="40"/><index i="56"/><index i="52"/><index i="53"/></row>
+					<row><index i="47"/><index i="14"/><index i= "9"/><index i="25"/><index i= "4"/><index i="20"/><index i="36"/><index i="48"/><index i="49"/></row>
+					<row><empty       /><index i="26"/><index i="10"/><index i= "5"/><index i="63"/><index i= "0"/><index i="37"/><index i="32"/><empty       /></row>
+					<row><index i="31"/><index i="15"/><index i="11"/><index i= "6"/><index i="42"/><index i="21"/><index i="16"/><index i="33"/><index i="54"/></row>
+					<row><index i="27"/><index i= "7"/><index i= "3"/><index i= "2"/><index i= "1"/><index i="17"/><index i="34"/><index i="50"/><index i="59"/></row>
+					<row><empty       /><index i="22"/><index i="23"/><index i="19"/><index i="18"/><index i="35"/><index i="51"/><index i="55"/><empty       /></row>
+					<row><empty       /><empty       /><empty       /><index i="43"/><index i="39"/><index i="38"/><empty       /><empty       /><empty       /></row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+					<row><range start="16" end="20"/></row>
+					<row><range start="20" end="24"/></row>
+					<row><range start="24" end="28"/></row>
+					<row><range start="28" end="32"/></row>
+					<row><range start="32" end="36"/></row>
+					<row><range start="36" end="40"/></row>
+					<row><range start="40" end="44"/></row>
+					<row><range start="44" end="48"/></row>
+					<row><range start="48" end="52"/></row>
+					<row><range start="52" end="56"/></row>
+					<row><range start="56" end="60"/></row>
+					<row><range start="60" end="64"/></row>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

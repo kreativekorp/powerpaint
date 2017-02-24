@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Google Calendar"
+         orientation="square"
+         hwidth="385" hheight= "65"
+         swidth="193" sheight="129"
+         vwidth= "65" vheight="385">
+	<colors ordered="unordered">
+		<rgb r="172" g="114" b= "94"/>
+		<rgb r="208" g="107" b="100"/>
+		<rgb r="248" g= "58" b= "34"/>
+		<rgb r="250" g= "87" b= "60"/>
+		<rgb r="255" g="117" b= "55"/>
+		<rgb r="255" g="173" b= "70"/>
+		<rgb r= "66" g="214" b="146"/>
+		<rgb r= "22" g="167" b="101"/>
+		<rgb r="123" g="209" b= "72"/>
+		<rgb r="179" g="220" b="108"/>
+		<rgb r="251" g="233" b="131"/>
+		<rgb r="250" g="209" b="101"/>
+		<rgb r="146" g="225" b="192"/>
+		<rgb r="159" g="225" b="231"/>
+		<rgb r="159" g="198" b="231"/>
+		<rgb r= "73" g="134" b="231"/>
+		<rgb r="154" g="156" b="255"/>
+		<rgb r="185" g="154" b="255"/>
+		<rgb r="194" g="194" b="194"/>
+		<rgb r="202" g="189" b="191"/>
+		<rgb r="204" g="166" b="172"/>
+		<rgb r="246" g="145" b="178"/>
+		<rgb r="205" g="116" b="230"/>
+		<rgb r="164" g="122" b="226"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="12"/></row>
+					<row><range start="12" end="24"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "6"/></row>
+					<row><range start= "6" end="12"/></row>
+					<row><range start="12" end="18"/></row>
+					<row><range start="18" end="24"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="12"/></column>
+					<column><range start="12" end="24"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
