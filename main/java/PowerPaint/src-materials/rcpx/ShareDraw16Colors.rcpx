@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="ShareDraw 16 Colors">
+	<colors ordered="unordered">
+		<rgb16 r="65535" g="65535" b="65535"/>
+		<rgb16 r="64512" g="62333" b= "1327"/>
+		<rgb16 r="16384" g="16384" b="16384"/>
+		<rgb16 r="56683" g= "2242" b= "1698"/>
+		<rgb16 r="62167" g= "2134" b="34028"/>
+		<rgb16 r="18147" g=    "0" b="42302"/>
+		<rgb16 r=    "0" g=    "0" b="54272"/>
+		<rgb16 r=  "577" g="43860" b="60159"/>
+		<rgb16 r="32768" g="32768" b="32768"/>
+		<rgb16 r=    "0" g="25775" b= "4528"/>
+		<rgb16 r="65535" g="25738" b=  "652"/>
+		<rgb16 r= "7969" g="46995" b= "5169"/>
+		<rgb16 r="49152" g="49152" b="49152"/>
+		<rgb16 r="37079" g="29024" b="14900"/>
+		<rgb16 r="22016" g="11421" b= "1316"/>
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
