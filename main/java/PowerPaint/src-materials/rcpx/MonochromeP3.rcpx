@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Monochrome P3">
+	<colors ordered="ordered">
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r="65535" g="43176" b=    "0"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end="2"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start="0" end="2"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end="2"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

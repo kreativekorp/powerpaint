@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
-<palette name="Windows 8-Bit">
+<palette name="Windows 8-Bit (Photoshop)">
 	<colors ordered="ordered">
 		<rgb r=  "0" g=  "0" b=  "0"/>
 		<rgb r="128" g=  "0" b=  "0"/>
@@ -9,7 +9,7 @@
 		<rgb r=  "0" g=  "0" b="128"/>
 		<rgb r="128" g=  "0" b="128"/>
 		<rgb r=  "0" g="128" b="128"/>
-		<rgb r="192" g="192" b="192"/>
+		<rgb r="128" g="128" b="128"/>
 		<rgb r="192" g="220" b="192"/>
 		<rgb r="166" g="202" b="240"/>
 		<rgb r= "42" g= "63" b="170"/>
