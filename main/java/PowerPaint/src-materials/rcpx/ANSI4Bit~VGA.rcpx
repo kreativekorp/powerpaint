@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="ANSI 4-Bit (VGA)">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r="170" g=  "0" b=  "0"/>
+		<rgb r=  "0" g="170" b=  "0"/>
+		<rgb r="170" g= "85" b=  "0"/>
+		<rgb r=  "0" g=  "0" b="170"/>
+		<rgb r="170" g=  "0" b="170"/>
+		<rgb r=  "0" g="170" b="170"/>
+		<rgb r="170" g="170" b="170"/>
+		<rgb r= "85" g= "85" b= "85"/>
+		<rgb r="255" g= "85" b= "85"/>
+		<rgb r= "85" g="255" b= "85"/>
+		<rgb r="255" g="255" b= "85"/>
+		<rgb r= "85" g= "85" b="255"/>
+		<rgb r="255" g= "85" b="255"/>
+		<rgb r= "85" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
