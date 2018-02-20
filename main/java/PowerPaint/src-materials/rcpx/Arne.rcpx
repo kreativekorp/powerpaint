@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Arne">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0" name="VOID"      />
+		<rgb r="157" g="157" b="157" name="GRAY"      />
+		<rgb r="255" g="255" b="255" name="WHITE"     />
+		<rgb r="190" g= "38" b= "51" name="RED"       />
+		<rgb r="224" g="111" b="139" name="MEAT"      />
+		<rgb r= "73" g= "60" b= "43" name="DARKBROWN" />
+		<rgb r="164" g="100" b= "34" name="BROWN"     />
+		<rgb r="235" g="137" b= "49" name="ORANGE"    />
+		<rgb r="247" g="226" b="107" name="YELLOW"    />
+		<rgb r= "47" g= "72" b= "78" name="DARKGREEN" />
+		<rgb r= "68" g="137" b= "26" name="GREEN"     />
+		<rgb r="163" g="206" b= "39" name="SLIMEGREEN"/>
+		<rgb r= "27" g= "38" b= "50" name="NIGHTBLUE" />
+		<rgb r=  "0" g= "87" b="132" name="SEABLUE"   />
+		<rgb r= "49" g="162" b="242" name="SKYBLUE"   />
+		<rgb r="178" g="220" b="239" name="CLOUDBLUE" />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

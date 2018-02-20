@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Felice" orientation="square">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "20" g= "53" b= "99"/>
+		<rgb r= "56" g="108" b="156"/>
+		<rgb r= "16" g="136" b= "64"/>
+		<rgb r= "96" g= "48" b= "96"/>
+		<rgb r= "64" g= "80" b= "92"/>
+		<rgb r= "96" g="224" b="255"/>
+		<rgb r= "16" g="224" b= "32"/>
+		<rgb r="157" g= "64" b= "64"/>
+		<rgb r="255" g="138" b="191"/>
+		<rgb r="172" g="168" b="172"/>
+		<rgb r="255" g="242" b= "16"/>
+		<rgb r="237" g= "28" b= "36"/>
+		<rgb r="255" g="144" b= "60"/>
+		<rgb r="255" g="204" b="188"/>
+		<rgb r="255" g="255" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
