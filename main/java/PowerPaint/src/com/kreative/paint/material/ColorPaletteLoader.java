@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import com.kreative.paint.material.colorpalette.PaletteReader;
 import com.kreative.paint.material.colorpalette.RCPXBorder;
 import com.kreative.paint.material.colorpalette.RCPXColor;
 import com.kreative.paint.material.colorpalette.RCPXLayout;
 import com.kreative.paint.material.colorpalette.RCPXOrientation;
 import com.kreative.paint.material.colorpalette.RCPXPalette;
-import com.kreative.paint.material.colorpalette.RCPXParser;
 import com.kreative.paint.material.colorpalette.RCPXSwatch;
 
 public class ColorPaletteLoader {
@@ -61,34 +61,36 @@ public class ColorPaletteLoader {
 	
 	private void loadResources() {
 		for (MaterialResource r : loader.listResources()) {
-			if (r.isFormat("rcpx", false)) {
-				try {
-					InputStream in = r.getInputStream();
-					RCPXPalette rcpx = RCPXParser.parse(r.getResourceName(), in);
-					in.close();
-					MaterialList<Color> list = new MaterialList<Color>();
-					List<Integer> array = new ArrayList<Integer>();
-					for (RCPXColor color : rcpx.colors) {
-						String n = color.name();
-						Color c = color.awtColor();
-						if (n != null) list.add(n, c);
-						array.add(c.getRGB());
-					}
-					String name = (rcpx.name != null) ? rcpx.name : r.getResourceName();
-					palettes.add(name, rcpx);
-					if (!list.isEmpty()) lists.add(name, list);
-					if (!array.isEmpty()) {
-						int n = array.size();
-						int[] c = new int[n];
-						int p = 0;
-						for (int color : array) c[p++] = color;
-						arrays.add(name, c);
-						if (rcpx.colorsOrdered) orderedArrays.add(name, c);
-					}
-				} catch (IOException e) {
-					System.err.println("Warning: Failed to compile color palette " + r.getResourceName() + ".");
-					e.printStackTrace();
+			PaletteReader pr;
+			if (r.isFormat("rcpx", false)) pr = new PaletteReader.RCPXReader();
+			else if (r.isFormat("act", false)) pr = new PaletteReader.ACTReader();
+			else continue;
+			try {
+				InputStream in = r.getInputStream();
+				RCPXPalette rcpx = pr.read(r.getResourceName(), in);
+				in.close();
+				MaterialList<Color> list = new MaterialList<Color>();
+				List<Integer> array = new ArrayList<Integer>();
+				for (RCPXColor color : rcpx.colors) {
+					String n = color.name();
+					Color c = color.awtColor();
+					if (n != null) list.add(n, c);
+					array.add(c.getRGB());
 				}
+				String name = (rcpx.name != null) ? rcpx.name : r.getResourceName();
+				palettes.add(name, rcpx);
+				if (!list.isEmpty()) lists.add(name, list);
+				if (!array.isEmpty()) {
+					int n = array.size();
+					int[] c = new int[n];
+					int p = 0;
+					for (int color : array) c[p++] = color;
+					arrays.add(name, c);
+					if (rcpx.colorsOrdered) orderedArrays.add(name, c);
+				}
+			} catch (IOException e) {
+				System.err.println("Warning: Failed to compile color palette " + r.getResourceName() + ".");
+				e.printStackTrace();
 			}
 		}
 	}

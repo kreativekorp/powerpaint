@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
-<palette name="R Kelly">
-	<colors ordered="ordered"
+<palette name="R Kelly"
          hwidth="287" hheight= "73"
          swidth="145" sheight="145"
          vwidth= "73" vheight="287">
+	<colors ordered="ordered">
 		<rgb r="242" g="243" b="244"/>
 		<rgb r= "34" g= "34" b= "34"/>
 		<rgb r="243" g="195" b=  "0"/>
