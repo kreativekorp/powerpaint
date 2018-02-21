@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="R Tol">
+	<colors ordered="ordered">
+		<rgb r= "51" g= "34" b="136"/>
+		<rgb r="102" g="153" b="204"/>
+		<rgb r="136" g="204" b="238"/>
+		<rgb r= "68" g="170" b="153"/>
+		<rgb r= "17" g="119" b= "51"/>
+		<rgb r="153" g="153" b= "51"/>
+		<rgb r="221" g="204" b="119"/>
+		<rgb r="102" g= "17" b=  "0"/>
+		<rgb r="204" g="102" b="119"/>
+		<rgb r="170" g= "68" b="102"/>
+		<rgb r="136" g= "34" b= "85"/>
+		<rgb r="170" g= "68" b="153"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "6"/></row>
+					<row><range start="6" end="12"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start="0" end= "3"/></row>
+					<row><range start="3" end= "6"/></row>
+					<row><range start="6" end= "9"/></row>
+					<row><range start="9" end="12"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "6"/></column>
+					<column><range start="6" end="12"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

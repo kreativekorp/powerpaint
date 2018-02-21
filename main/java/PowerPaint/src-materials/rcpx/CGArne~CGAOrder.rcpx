@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="CGArne (CGA Order)">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "34" g= "52" b="209"/>
+		<rgb r= "12" g="126" b= "69"/>
+		<rgb r= "68" g="170" b="204"/>
+		<rgb r="138" g= "54" b= "34"/>
+		<rgb r= "92" g= "46" b="120"/>
+		<rgb r="170" g= "92" b= "61"/>
+		<rgb r="181" g="181" b="181"/>
+		<rgb r= "94" g= "96" b="110"/>
+		<rgb r= "76" g="129" b="251"/>
+		<rgb r="108" g="217" b= "71"/>
+		<rgb r="123" g="226" b="249"/>
+		<rgb r="235" g="138" b= "96"/>
+		<rgb r="226" g= "61" b="105"/>
+		<rgb r="255" g="217" b= "63"/>
+		<rgb r="255" g="255" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

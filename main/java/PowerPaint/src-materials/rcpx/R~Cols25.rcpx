@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="R Cols25">
+	<colors ordered="ordered">
+		<rgb r= "31" g="120" b="200"/>
+		<rgb r="255" g=  "0" b=  "0"/>
+		<rgb r= "51" g="160" b= "44"/>
+		<rgb r="106" g= "51" b="194"/>
+		<rgb r="255" g="127" b=  "0"/>
+		<rgb r= "86" g= "86" b= "86"/>
+		<rgb r="255" g="215" b=  "0"/>
+		<rgb r="166" g="206" b="227"/>
+		<rgb r="251" g="100" b="150"/>
+		<rgb r="178" g="223" b="138"/>
+		<rgb r="202" g="178" b="214"/>
+		<rgb r="253" g="191" b="111"/>
+		<rgb r="153" g="153" b="153"/>
+		<rgb r="238" g="230" b="133"/>
+		<rgb r="200" g= "48" b="140"/>
+		<rgb r="255" g="131" b="250"/>
+		<rgb r="200" g= "20" b="250"/>
+		<rgb r=  "0" g=  "0" b="255"/>
+		<rgb r= "54" g="100" b="139"/>
+		<rgb r=  "0" g="226" b="229"/>
+		<rgb r=  "0" g="255" b=  "0"/>
+		<rgb r="119" g="139" b=  "0"/>
+		<rgb r="190" g="190" b=  "0"/>
+		<rgb r="139" g= "59" b=  "0"/>
+		<rgb r="165" g= "42" b= "60"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end= "8"/></row>
+					<row><range start= "8" end="16"/></row>
+					<row><range start="16" end="25"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "5"/></row>
+					<row><range start= "5" end="10"/></row>
+					<row><range start="10" end="15"/></row>
+					<row><range start="15" end="20"/></row>
+					<row><range start="20" end="25"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end= "8"/></column>
+					<column><range start= "8" end="16"/></column>
+					<column><range start="16" end="25"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

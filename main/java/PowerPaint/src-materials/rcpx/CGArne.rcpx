@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
-<palette name="DawnBringer">
+<palette name="CGArne">
 	<colors ordered="ordered">
-		<rgb r= "20" g= "12" b= "28"/>
-		<rgb r= "68" g= "36" b= "52"/>
-		<rgb r= "48" g= "52" b="109"/>
-		<rgb r= "78" g= "74" b= "78"/>
-		<rgb r="133" g= "76" b= "48"/>
-		<rgb r= "52" g="101" b= "36"/>
-		<rgb r="208" g= "70" b= "72"/>
-		<rgb r="117" g="113" b= "97"/>
-		<rgb r= "89" g="125" b="206"/>
-		<rgb r="210" g="125" b= "44"/>
-		<rgb r="133" g="149" b="161"/>
-		<rgb r="109" g="170" b= "44"/>
-		<rgb r="210" g="170" b="153"/>
-		<rgb r="109" g="194" b="202"/>
-		<rgb r="218" g="212" b= "94"/>
-		<rgb r="222" g="238" b="214"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "94" g= "96" b="110"/>
+		<rgb r= "34" g= "52" b="209"/>
+		<rgb r= "76" g="129" b="251"/>
+		<rgb r= "12" g="126" b= "69"/>
+		<rgb r="108" g="217" b= "71"/>
+		<rgb r= "68" g="170" b="204"/>
+		<rgb r="123" g="226" b="249"/>
+		<rgb r="138" g= "54" b= "34"/>
+		<rgb r="235" g="138" b= "96"/>
+		<rgb r= "92" g= "46" b="120"/>
+		<rgb r="226" g= "61" b="105"/>
+		<rgb r="170" g= "92" b= "61"/>
+		<rgb r="255" g="217" b= "63"/>
+		<rgb r="181" g="181" b="181"/>
+		<rgb r="255" g="255" b="255"/>
 	</colors>
 	<layout>
 		<oriented>

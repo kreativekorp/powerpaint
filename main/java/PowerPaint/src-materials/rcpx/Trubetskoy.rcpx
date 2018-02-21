@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Trubetskoy"
+         hwidth="287" hheight= "73"
+         swidth="145" sheight="145"
+         vwidth= "73" vheight="287">
+	<colors ordered="unordered">
+		<rgb r="230" g= "25" b= "75" name="Red"     />
+		<rgb r= "60" g="180" b= "75" name="Green"   />
+		<rgb r="255" g="225" b= "25" name="Yellow"  />
+		<rgb r=  "0" g="130" b="200" name="Blue"    />
+		<rgb r="245" g="130" b= "48" name="Orange"  />
+		<rgb r="145" g= "30" b="180" name="Purple"  />
+		<rgb r= "70" g="240" b="240" name="Cyan"    />
+		<rgb r="240" g= "50" b="230" name="Magenta" />
+		<rgb r="210" g="245" b= "60" name="Lime"    />
+		<rgb r="250" g="190" b="190" name="Pink"    />
+		<rgb r=  "0" g="128" b="128" name="Teal"    />
+		<rgb r="230" g="190" b="255" name="Lavender"/>
+		<rgb r="170" g="110" b= "40" name="Brown"   />
+		<rgb r="255" g="250" b="200" name="Beige"   />
+		<rgb r="128" g=  "0" b=  "0" name="Maroon"  />
+		<rgb r="170" g="255" b="195" name="Mint"    />
+		<rgb r="128" g="128" b=  "0" name="Olive"   />
+		<rgb r="255" g="215" b="180" name="Coral"   />
+		<rgb r=  "0" g=  "0" b="128" name="Navy"    />
+		<rgb r="128" g="128" b="128" name="Grey"    />
+		<rgb r="255" g="255" b="255" name="White"   />
+		<rgb r=  "0" g=  "0" b=  "0" name="Black"   />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="11"/></row>
+					<row><range start="11" end="22"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "6"/></row>
+					<row><range start= "6" end="12"/></row>
+					<row><range start="12" end="18"/></row>
+					<row><range start="18" end="22"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="11"/></column>
+					<column><range start="11" end="22"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

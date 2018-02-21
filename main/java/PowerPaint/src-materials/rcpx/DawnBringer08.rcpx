@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="DawnBringer 8">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "85" g= "65" b= "95"/>
+		<rgb r="100" g="105" b="100"/>
+		<rgb r="215" g="115" b= "85"/>
+		<rgb r= "80" g="140" b="215"/>
+		<rgb r="100" g="185" b="100"/>
+		<rgb r="230" g="200" b="110"/>
+		<rgb r="220" g="245" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end="4"/></row>
+					<row><range start="4" end="8"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start="0" end="2"/></row>
+					<row><range start="2" end="4"/></row>
+					<row><range start="4" end="6"/></row>
+					<row><range start="6" end="8"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end="4"/></column>
+					<column><range start="4" end="8"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
