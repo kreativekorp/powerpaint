@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Andrew Kensler 16">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="201" g="143" b= "76"/>
+		<rgb r="110" g= "78" b= "35"/>
+		<rgb r="232" g=  "2" b=  "0"/>
+		<rgb r="239" g="227" b=  "5"/>
+		<rgb r="106" g="137" b= "39"/>
+		<rgb r= "25" g= "86" b= "72"/>
+		<rgb r= "22" g="237" b="117"/>
+		<rgb r= "50" g="193" b="195"/>
+		<rgb r=  "5" g="127" b="193"/>
+		<rgb r= "63" g= "50" b="174"/>
+		<rgb r="186" g="170" b="255"/>
+		<rgb r="255" g="148" b="157"/>
+		<rgb r="227" g= "14" b="194"/>
+		<rgb r="122" g= "36" b= "61"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

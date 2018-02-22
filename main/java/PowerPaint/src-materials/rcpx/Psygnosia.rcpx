@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Psygnosia">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "27" g= "30" b= "41"/>
+		<rgb r= "54" g= "39" b= "71"/>
+		<rgb r= "68" g= "63" b= "65"/>
+		<rgb r= "82" g= "82" b= "76"/>
+		<rgb r="100" g="100" b="124"/>
+		<rgb r="115" g= "97" b= "80"/>
+		<rgb r="119" g="120" b= "91"/>
+		<rgb r="158" g="164" b="167"/>
+		<rgb r="203" g="232" b="247"/>
+		<rgb r="224" g="139" b="121"/>
+		<rgb r="162" g= "50" b= "78"/>
+		<rgb r=  "0" g= "51" b=  "8"/>
+		<rgb r=  "8" g= "74" b= "60"/>
+		<rgb r= "84" g="106" b=  "0"/>
+		<rgb r= "81" g="108" b="191"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

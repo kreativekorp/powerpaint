@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="JMP (Japanese Machine Palette)">
+	<colors ordered="ordered">
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "25" g= "16" b= "40"/>
+		<rgb r= "70" g="175" b= "69"/>
+		<rgb r="161" g="214" b="133"/>
+		<rgb r= "69" g= "62" b="120"/>
+		<rgb r="118" g="100" b="254"/>
+		<rgb r="131" g= "49" b= "41"/>
+		<rgb r="158" g="194" b="232"/>
+		<rgb r="220" g= "83" b= "75"/>
+		<rgb r="225" g="141" b="121"/>
+		<rgb r="214" g="185" b="123"/>
+		<rgb r="233" g="216" b="161"/>
+		<rgb r= "33" g="108" b= "75"/>
+		<rgb r="211" g="101" b="200"/>
+		<rgb r="175" g="170" b="185"/>
+		<rgb r="245" g="244" b="235"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

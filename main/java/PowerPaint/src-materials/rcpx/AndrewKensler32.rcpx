@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Andrew Kensler 32">
+	<colors ordered="ordered">
+		<rgb r="214" g="160" b="144"/>
+		<rgb r="254" g= "59" b= "30"/>
+		<rgb r="161" g= "44" b= "50"/>
+		<rgb r="250" g= "47" b="122"/>
+		<rgb r="251" g="159" b="218"/>
+		<rgb r="230" g= "28" b="247"/>
+		<rgb r="153" g= "47" b="124"/>
+		<rgb r= "71" g=  "1" b= "31"/>
+		<rgb r=  "5" g= "17" b= "85"/>
+		<rgb r= "79" g=  "2" b="236"/>
+		<rgb r= "45" g="105" b="203"/>
+		<rgb r=  "0" g="166" b="238"/>
+		<rgb r="111" g="235" b="255"/>
+		<rgb r=  "8" g="162" b="154"/>
+		<rgb r= "42" g="102" b="106"/>
+		<rgb r=  "6" g= "54" b= "25"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r= "74" g= "73" b= "87"/>
+		<rgb r="142" g="123" b="164"/>
+		<rgb r="183" g="192" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="172" g="190" b="156"/>
+		<rgb r="130" g="124" b="112"/>
+		<rgb r= "90" g= "59" b= "28"/>
+		<rgb r="174" g="101" b=  "7"/>
+		<rgb r="247" g="170" b= "48"/>
+		<rgb r="244" g="234" b= "92"/>
+		<rgb r="155" g="149" b=  "0"/>
+		<rgb r= "86" g= "98" b=  "4"/>
+		<rgb r= "17" g="150" b= "59"/>
+		<rgb r= "81" g="225" b= "19"/>
+		<rgb r=  "8" g="253" b="204"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end= "8"/></row>
+					<row><range start= "8" end="16"/></row>
+					<row><range start="16" end="24"/></row>
+					<row><range start="24" end="32"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+					<row><range start="16" end="20"/></row>
+					<row><range start="20" end="24"/></row>
+					<row><range start="24" end="28"/></row>
+					<row><range start="28" end="32"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end= "8"/></column>
+					<column><range start= "8" end="16"/></column>
+					<column><range start="16" end="24"/></column>
+					<column><range start="24" end="32"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

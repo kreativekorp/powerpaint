@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
-<palette name="Arne">
+<palette name="Arne 16">
 	<colors ordered="ordered">
 		<rgb r=  "0" g=  "0" b=  "0" name="VOID"      />
 		<rgb r="157" g="157" b="157" name="GRAY"      />
