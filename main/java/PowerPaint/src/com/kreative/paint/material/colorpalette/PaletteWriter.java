@@ -8,6 +8,15 @@ public abstract class PaletteWriter {
 	public abstract boolean isCompatible(RCPXPalette pal);
 	public abstract void write(RCPXPalette pal, OutputStream out) throws IOException;
 	
+	public static class RCPXWriter extends PaletteWriter {
+		public boolean isCompatible(RCPXPalette pal) {
+			return true;
+		}
+		public void write(RCPXPalette pal, OutputStream out) throws IOException {
+			RCPXGenerator.generate(pal, out);
+		}
+	}
+	
 	public static class ACTWriter extends PaletteWriter {
 		public boolean isCompatible(RCPXPalette pal) {
 			int n = pal.colors.size();
