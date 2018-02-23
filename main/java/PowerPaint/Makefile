@@ -1,5 +1,5 @@
 SRCFILES := $(shell find src -name \*.java)
-RESFILES := $(shell (find src -name \*.png ; find src -name \*.dtd) | sed s/^src\\///)
+RESFILES := $(shell (find src -name \*.png ; find src -name \*.dtd ; find src -name \*.icc) | sed s/^src\\///)
 PACKAGES := $(shell find src/com/kreative/paint -type d \! -path \*/.\* | sed s/^src\\/// | tr / .)
 
 all: clean bin doc materials.pmz PowerPaint.jar PowerPaint.app PowerPaint.exe PowerPaint-src.tgz
@@ -41,6 +41,7 @@ materials.pmz: src-materials bin
 	mkdir -p "Paint Materials/Alphabets"
 	mkdir -p "Paint Materials/Brushes"
 	mkdir -p "Paint Materials/Color Palettes"
+	mkdir -p "Paint Materials/Color Profiles"
 	mkdir -p "Paint Materials/Dither Algorithms"
 	mkdir -p "Paint Materials/Font Collections"
 	mkdir -p "Paint Materials/Frames"
@@ -63,6 +64,7 @@ materials.pmz: src-materials bin
 	cp -Rf src-materials/spnx/1*.spnd "Paint Materials/Brushes"
 	cp -Rf src-materials/spnx/2*.spnd "Paint Materials/Rubber Stamps"
 	cp -Rf src-materials/txrx/*.txrd "Paint Materials/Textures"
+	cp -f src/com/kreative/paint/material/colorpalette/ISOcoated_v2_300_eci.icc "Paint Materials/Color Profiles/CMYK ISO Coated v2 300%.icc"
 	java -cp ./bin com.kreative.paint.material.MaterialPacker pack materials.pmz "Paint Materials"/*
 	cp -f materials.pmz src/com/kreative/paint/ui/materials.pmz
 	cp -f materials.pmz bin/com/kreative/paint/ui/materials.pmz
