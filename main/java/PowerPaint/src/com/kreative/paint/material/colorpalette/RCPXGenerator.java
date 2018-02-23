@@ -179,6 +179,18 @@ public class RCPXGenerator {
 			RCPXColor.HSVA c = (RCPXColor.HSVA)color;
 			return t("hsva", true, "h", c.h, "s", c.s, "v", c.v, "a", c.a,
 				((c.name == null || c.name.length() == 0) ? null : "name"), c.name);
+		} else if (color instanceof RCPXColor.Gray) {
+			RCPXColor.Gray c = (RCPXColor.Gray)color;
+			return t("gray", true, "v", c.gray,
+				((c.name == null || c.name.length() == 0) ? null : "name"), c.name);
+		} else if (color instanceof RCPXColor.CMYK) {
+			RCPXColor.CMYK c = (RCPXColor.CMYK)color;
+			return t("cmyk", true, "c", c.c, "m", c.m, "y", c.y, "k", c.k,
+				((c.name == null || c.name.length() == 0) ? null : "name"), c.name);
+		} else if (color instanceof RCPXColor.CIELab) {
+			RCPXColor.CIELab c = (RCPXColor.CIELab)color;
+			return t("lab", true, "l", c.l, "a", c.a, "b", c.b,
+				((c.name == null || c.name.length() == 0) ? null : "name"), c.name);
 		} else {
 			throw new IllegalArgumentException("Unknown RCPXColor class: " + color.getClass());
 		}

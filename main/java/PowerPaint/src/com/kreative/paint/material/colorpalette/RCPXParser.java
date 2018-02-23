@@ -297,6 +297,26 @@ public class RCPXParser {
 				parseFloat(attr, "a", 0.0f),
 				parseString(attr, "name")
 			);
+		} else if (type.equalsIgnoreCase("gray")) {
+			return new RCPXColor.Gray(
+				parseFloat(attr, "v", 0.0f),
+				parseString(attr, "name")
+			);
+		} else if (type.equalsIgnoreCase("cmyk")) {
+			return new RCPXColor.CMYK(
+				parseFloat(attr, "c", 0.0f),
+				parseFloat(attr, "m", 0.0f),
+				parseFloat(attr, "y", 0.0f),
+				parseFloat(attr, "k", 0.0f),
+				parseString(attr, "name")
+			);
+		} else if (type.equalsIgnoreCase("lab")) {
+			return new RCPXColor.CIELab(
+				parseFloat(attr, "l", 0.0f),
+				parseFloat(attr, "a", 0.0f),
+				parseFloat(attr, "b", 0.0f),
+				parseString(attr, "name")
+			);
 		} else {
 			throw new IOException("Unknown element: " + type);
 		}
