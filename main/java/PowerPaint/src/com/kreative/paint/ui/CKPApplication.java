@@ -128,6 +128,9 @@ public class CKPApplication {
 		mm.strokeLoader().getLineArrowheads();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.FONTSETS"));
 		mm.fontLoader().getFontLists();
+		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.PROFILES"));
+		mm.colorProfileLoader().getColorProfiles();
+		mm.colorProfileLoader().getColorModels();
 		if (ss != null) ss.setLoadingMessage(UIUtilities.messages.getString("about.loading.PALETTES"));
 		pm = new PaletteManager(
 				tc, pc, tm, mm,

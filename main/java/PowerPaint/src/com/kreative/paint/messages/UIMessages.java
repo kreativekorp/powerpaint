@@ -159,6 +159,7 @@ public class UIMessages extends ListResourceBundle {
 			// These are labels and titles used by the splash screen.
 			{ "about.loading", "Loading..." },
 			{ "about.loading.COLORS", "Loading color palettes..." },
+			{ "about.loading.PROFILES", "Loading color profiles..." },
 			{ "about.loading.FONTSETS", "Loading font lists..." },
 			{ "about.loading.PATTERNS", "Loading patterns..." },
 			{ "about.loading.FONTS", "Loading fonts..." },

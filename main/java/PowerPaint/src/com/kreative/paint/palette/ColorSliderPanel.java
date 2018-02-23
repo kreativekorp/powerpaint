@@ -13,9 +13,9 @@ import java.awt.event.ItemListener;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import com.kreative.paint.PaintContext;
+import com.kreative.paint.material.MaterialManager;
 import com.kreative.paint.material.colorpalette.ColorChangeEvent;
 import com.kreative.paint.material.colorpalette.ColorChangeListener;
-import com.kreative.paint.util.CIEColorModel;
 import com.kreative.paint.util.ColorModel;
 import com.kreative.paint.util.SwingUtils;
 
@@ -29,38 +29,11 @@ public class ColorSliderPanel extends PaintContextPanel {
 	private final JPanel cardPanel;
 	private boolean eventexec = false;
 	
-	public ColorSliderPanel(PaintContext pc) {
+	public ColorSliderPanel(PaintContext pc, MaterialManager mm) {
 		super(pc, CHANGED_PAINT|CHANGED_EDITING);
 		
 		// Initialize Components
-		this.cm = new ColorModel[] {
-			ColorModel.GRAY_4,
-			ColorModel.GRAY_8,
-			ColorModel.GRAY_16,
-			ColorModel.GRAY_100,
-			ColorModel.RGB_4,
-			ColorModel.RGB_8,
-			ColorModel.RGB_16,
-			ColorModel.RGB_100,
-			ColorModel.HSV_360_100,
-			ColorModel.HSL_360_100,
-			ColorModel.HWB_360_100,
-			ColorModel.NAIVE_CMYK_100,
-			ColorModel.YUV_SDTV,
-			ColorModel.YUV_HDTV,
-			ColorModel.Y_CB_CR_SDTV,
-			ColorModel.Y_CB_CR_HDTV,
-			ColorModel.Y_DB_DR,
-			ColorModel.YIQ,
-			ColorModel.Y_CG_CO,
-			CIEColorModel.CIE_XYZ_100,
-			CIEColorModel.CIE_xyY_100,
-			CIEColorModel.CIE_RGB_100,
-			CIEColorModel.CIE_Lab_D65,
-			CIEColorModel.CIE_LCh_D65,
-			CIEColorModel.Hunter_Lab_D65,
-			CIEColorModel.Hunter_LCh_D65
-		};
+		this.cm = mm.colorProfileLoader().getColorModels().toValueArray(new ColorModel[0]);
 		this.csl = new JComboBox(cm);
 		this.csl.setEditable(false);
 		this.csl.setMaximumRowCount(48);

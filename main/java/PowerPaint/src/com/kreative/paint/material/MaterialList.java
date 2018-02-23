@@ -235,9 +235,7 @@ public class MaterialList<T> {
 		return names.toArray(new String[0]);
 	}
 	
-	public T[] toValueArray() {
-		@SuppressWarnings("unchecked")
-		T[] a = (T[])new Object[0];
+	public T[] toValueArray(T[] a) {
 		return values.toArray(a);
 	}
 	

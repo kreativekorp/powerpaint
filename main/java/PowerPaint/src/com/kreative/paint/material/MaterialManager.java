@@ -4,6 +4,7 @@ public class MaterialManager {
 	private final MaterialLoader     materialLoader     ;
 	private final AlphabetLoader     alphabetLoader     ;
 	private final ColorPaletteLoader colorPaletteLoader ;
+	private final ColorProfileLoader colorProfileLoader ;
 	private final DitherLoader       ditherLoader       ;
 	private final FontLoader         fontLoader         ;
 	private final FrameLoader        frameLoader        ;
@@ -19,6 +20,7 @@ public class MaterialManager {
 		this.materialLoader     =                        (loader);
 		this.alphabetLoader     = new AlphabetLoader     (loader);
 		this.colorPaletteLoader = new ColorPaletteLoader (loader);
+		this.colorProfileLoader = new ColorProfileLoader (loader);
 		this.ditherLoader       = new DitherLoader       (loader);
 		this.fontLoader         = new FontLoader         (loader);
 		this.frameLoader        = new FrameLoader        (loader);
@@ -34,6 +36,7 @@ public class MaterialManager {
 	public MaterialLoader     materialLoader     () { return materialLoader     ; }
 	public AlphabetLoader     alphabetLoader     () { return alphabetLoader     ; }
 	public ColorPaletteLoader colorPaletteLoader () { return colorPaletteLoader ; }
+	public ColorProfileLoader colorProfileLoader () { return colorProfileLoader ; }
 	public DitherLoader       ditherLoader       () { return ditherLoader       ; }
 	public FontLoader         fontLoader         () { return fontLoader         ; }
 	public FrameLoader        frameLoader        () { return frameLoader        ; }

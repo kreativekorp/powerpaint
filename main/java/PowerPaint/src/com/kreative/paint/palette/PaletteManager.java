@@ -59,8 +59,8 @@ public class PaletteManager {
 				colorPalettePalette = new ColorPalettePalette(pc, mm, defCP),
 				new PaintContextPalette[]{
 					colorListPalette = new ColorListPalette(pc, mm, defCL),
-					colorSliderPalette = new ColorSliderPalette(pc),
-					colorCubePalette = new ColorCubePalette(pc),
+					colorSliderPalette = new ColorSliderPalette(pc, mm),
+					colorCubePalette = new ColorCubePalette(pc, mm),
 					colorWheelPalette = new ColorWheelPalette(pc),
 					colorMixerPalette = new ColorMixerPalette(pc)
 				},
