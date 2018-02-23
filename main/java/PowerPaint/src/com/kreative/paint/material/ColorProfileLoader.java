@@ -54,6 +54,9 @@ public class ColorProfileLoader {
 				} catch (IOException e) {
 					System.err.println("Warning: Failed to load color profile " + r.getResourceName() + ".");
 					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					System.err.println("Warning: Failed to load color profile " + r.getResourceName() + ".");
+					e.printStackTrace();
 				}
 			}
 		}

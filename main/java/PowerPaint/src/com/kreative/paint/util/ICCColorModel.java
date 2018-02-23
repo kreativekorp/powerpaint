@@ -1,6 +1,7 @@
 package com.kreative.paint.util;
 
 import java.awt.Color;
+import java.awt.color.CMMException;
 import java.awt.color.ColorSpace;
 import java.awt.color.ICC_ColorSpace;
 import java.awt.color.ICC_Profile;
@@ -32,19 +33,39 @@ public class ICCColorModel extends ColorModel {
 	
 	@Override
 	public Color makeColor(float[] channels) {
-		return new Color(colorspace, channels, channels[components] / 255f);
+		try {
+			return new Color(colorspace, channels, channels[components] / 255f);
+		} catch (IllegalArgumentException e) {
+			System.err.println("Notice: Value out of range for color profile " + name + ".");
+			return Color.black;
+		} catch (CMMException e) {
+			System.err.println("Warning: Error using color profile " + name + ".");
+			return Color.black;
+		}
 	}
 	
 	@Override
 	public float[] unmakeColor(Color color, float[] channels) {
 		if (channels == null) channels = new float[components + 1];
-		channels = color.getColorComponents(colorspace, channels);
-		channels[components] = color.getAlpha();
+		try {
+			channels = color.getColorComponents(colorspace, channels);
+			channels[components] = color.getAlpha();
+		} catch (IllegalArgumentException e) {
+			System.err.println("Notice: Value out of range for color profile " + name + ".");
+			for (int i = 0; i < components; i++) channels[i] = 0;
+			channels[components] = 255;
+		} catch (CMMException e) {
+			System.err.println("Warning: Error using color profile " + name + ".");
+			for (int i = 0; i < components; i++) channels[i] = 0;
+			channels[components] = 255;
+		}
 		return channels;
 	}
 	
 	private static String abbreviate(String channelName) {
 		if (channelName.equalsIgnoreCase("Black")) return "K";
+		if (channelName.equalsIgnoreCase("Gray")) return "Y";
+		if (channelName.equalsIgnoreCase("Grey")) return "Y";
 		return channelName.substring(0, 1);
 	}
 }
