@@ -5,39 +5,40 @@ import java.util.List;
 public class PaletteDimensions {
 	public static PaletteDimensions forColorCount(int n) {
 		/* Early Installment Weirdness */
-		if (n <=          1) return new PaletteDimensions(n,     1,     1, false,     1,     1, false,     1,     1, true );
-		if (n <=          2) return new PaletteDimensions(n,     2,     1, false,     2,     1, false,     1,     2, true );
-		if (n <=          4) return new PaletteDimensions(n,     4,     1, false,     2,     2, false,     1,     4, true );
-		if (n <=          8) return new PaletteDimensions(n,     4,     2, false,     2,     4, false,     2,     4, true );
-		if (n <=         16) return new PaletteDimensions(n,     8,     2, false,     4,     4, false,     2,     8, true );
-		if (n <=         32) return new PaletteDimensions(n,     8,     4, false,     4,     8, false,     4,     8, true );
+		if (n <= 1) return new PaletteDimensions(n, 1, 1, false, 1, 1, false, 1, 1, true);
+		if (n <= 2) return new PaletteDimensions(n, 2, 1, false, 2, 1, false, 1, 2, true);
+		if (n <= 3) return new PaletteDimensions(n, 3, 1, false, 3, 1, false, 1, 3, true);
+		if (n <= 4) return new PaletteDimensions(n, 4, 1, false, 2, 2, false, 1, 4, true);
 		/* Growing the Beard */
-		if (n <=         64) return new PaletteDimensions(n,    16,     4, false,     8,     8, false,     4,    16, false);
-		if (n <=        128) return new PaletteDimensions(n,    16,     8, false,    16,     8, false,     8,    16, false);
-		if (n <=        256) return new PaletteDimensions(n,    32,     8, false,    16,    16, false,     8,    32, false);
-		if (n <=        512) return new PaletteDimensions(n,    32,    16, false,    32,    16, false,    16,    32, false);
-		if (n <=       1024) return new PaletteDimensions(n,    64,    16, false,    32,    32, false,    16,    64, false);
-		if (n <=       2048) return new PaletteDimensions(n,    64,    32, false,    64,    32, false,    32,    64, false);
-		if (n <=       4096) return new PaletteDimensions(n,   128,    32, false,    64,    64, false,    32,   128, false);
-		if (n <=       8192) return new PaletteDimensions(n,   128,    64, false,   128,    64, false,    64,   128, false);
-		if (n <=      16384) return new PaletteDimensions(n,   256,    64, false,   128,   128, false,    64,   256, false);
-		if (n <=      32768) return new PaletteDimensions(n,   256,   128, false,   256,   128, false,   128,   256, false);
-		if (n <=      65536) return new PaletteDimensions(n,   512,   128, false,   256,   256, false,   128,   512, false);
-		if (n <=     131072) return new PaletteDimensions(n,   512,   256, false,   512,   256, false,   256,   512, false);
-		if (n <=     262144) return new PaletteDimensions(n,  1024,   256, false,   512,   512, false,   256,  1024, false);
-		if (n <=     524288) return new PaletteDimensions(n,  1024,   512, false,  1024,   512, false,   512,  1024, false);
-		if (n <=    1048576) return new PaletteDimensions(n,  2048,   512, false,  1024,  1024, false,   512,  2048, false);
-		if (n <=    2097152) return new PaletteDimensions(n,  2048,  1024, false,  2048,  1024, false,  1024,  2048, false);
-		if (n <=    4194304) return new PaletteDimensions(n,  4096,  1024, false,  2048,  2048, false,  1024,  4096, false);
-		if (n <=    8388608) return new PaletteDimensions(n,  4096,  2048, false,  4096,  2048, false,  2048,  4096, false);
-		if (n <=   16777216) return new PaletteDimensions(n,  8192,  2048, false,  4096,  4096, false,  2048,  8192, false);
-		if (n <=   33554432) return new PaletteDimensions(n,  8192,  4096, false,  8192,  4096, false,  4096,  8192, false);
-		if (n <=   67108864) return new PaletteDimensions(n, 16384,  4096, false,  8192,  8192, false,  4096, 16384, false);
-		if (n <=  134217728) return new PaletteDimensions(n, 16384,  8192, false, 16384,  8192, false,  8192, 16384, false);
-		if (n <=  268435456) return new PaletteDimensions(n, 32768,  8192, false, 16384, 16384, false,  8192, 32768, false);
-		if (n <=  536870912) return new PaletteDimensions(n, 32768, 16384, false, 32768, 16384, false, 16384, 32768, false);
-		if (n <= 1073741824) return new PaletteDimensions(n, 65536, 16384, false, 32768, 32768, false, 16384, 65536, false);
-		/* n ² 2147483648 */ return new PaletteDimensions(n, 65536, 32768, false, 65536, 32768, false, 32768, 65536, false);
+		int minhw = (int)Math.round(Math.sqrt(n * 2.0));
+		int opthw = (int)Math.round(Math.sqrt(n * 4.0));
+		int maxhw = (int)Math.round(Math.sqrt(n * 8.0));
+		int opthh = (n + opthw - 1) / opthw;
+		int opthe = opthw * opthh - n;
+		for (int hw = minhw; hw <= maxhw; hw++) {
+			int hh = (n + hw - 1) / hw;
+			int he = hw * hh - n;
+			if (he < opthe) { opthw = hw; opthh = hh; opthe = he; }
+		}
+		int minsw = (int)Math.round(Math.sqrt(n / 2.0));
+		int optsw = (int)Math.round(Math.sqrt(n      ));
+		int maxsw = (int)Math.round(Math.sqrt(n * 2.0));
+		int optsh = (n + optsw - 1) / optsw;
+		int optse = optsw * optsh - n;
+		if (n > 64) {
+			for (int sw = maxsw; sw >= minsw; sw--) {
+				int sh = (n + sw - 1) / sw;
+				int se = sw * sh - n;
+				if (se < optse) { optsw = sw; optsh = sh; optse = se; }
+			}
+		} else {
+			for (int sw = minsw; sw <= maxsw; sw++) {
+				int sh = (n + sw - 1) / sw;
+				int se = sw * sh - n;
+				if (se < optse) { optsw = sw; optsh = sh; optse = se; }
+			}
+		}
+		return new PaletteDimensions(n, opthw, opthh, false, optsw, optsh, false, opthh, opthw, n < 64);
 	}
 	
 	public final int colorCount;
@@ -88,6 +89,8 @@ public class PaletteDimensions {
 		int hpw =  horizWidth * hcw + 1, hph =  horizHeight * hch + 1;
 		int spw = squareWidth * scw + 1, sph = squareHeight * sch + 1;
 		int vpw =   vertWidth * vcw + 1, vph =   vertHeight * vch + 1;
+		while (spw > (sph + sph / 2)) sph += squareHeight;
+		while (sph > (spw + spw / 2)) spw += squareWidth;
 		return new RCPXPalette(
 			name, orientation, hpw, hph, spw, sph, vpw, vph,
 			colors, colorsOrdered, createLayout()
