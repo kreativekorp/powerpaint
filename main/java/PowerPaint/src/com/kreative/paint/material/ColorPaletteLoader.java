@@ -66,6 +66,7 @@ public class ColorPaletteLoader {
 			else if (r.isFormat("act", false)) pr = new PaletteReader.ACTReader();
 			else if (r.isFormat("aco", false)) pr = new PaletteReader.ACOReader();
 			else if (r.isFormat("ase", false)) pr = new PaletteReader.ASEReader();
+			else if (r.isFormat("acb", false)) pr = new PaletteReader.ACBReader();
 			else continue;
 			try {
 				InputStream in = r.getInputStream();

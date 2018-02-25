@@ -234,4 +234,80 @@ public abstract class PaletteWriter {
 			return bout.toByteArray();
 		}
 	}
+	
+	public static class ACBWriter extends PaletteWriter {
+		public boolean isCompatible(RCPXPalette pal) {
+			return (pal.colors.size() > 0);
+		}
+		public void write(RCPXPalette pal, OutputStream out) throws IOException {
+			int colorspace = pal.colors.isEmpty() ? 0 : -1;
+			for (RCPXColor color : pal.colors) {
+				if (color instanceof RCPXColor.CIELab) {
+					if (colorspace == -1) colorspace = 7;
+					else if (colorspace != 7) colorspace = 0;
+				} else if (color instanceof RCPXColor.CMYK) {
+					if (colorspace == -1) colorspace = 2;
+					else if (colorspace != 2) colorspace = 0;
+				} else {
+					colorspace = 0;
+				}
+			}
+			DataOutputStream dout = new DataOutputStream(out);
+			dout.writeInt(0x38424342); // magic
+			dout.writeShort(1); // version
+			dout.writeShort(0); // id
+			writeString(pal.name, dout);
+			dout.writeInt(0); // prefix
+			dout.writeInt(0); // suffix
+			dout.writeInt(0); // description
+			dout.writeShort(pal.colors.size());
+			dout.writeShort(0xCCCC); // page size
+			dout.writeShort(0xCCCC); // page selector offset
+			dout.writeShort(colorspace);
+			int index = 0;
+			for (RCPXColor color : pal.colors) {
+				String cn = color.name();
+				if (cn == null || cn.length() == 0) cn = "#" + index;
+				writeString(cn, dout);
+				dout.writeShort(0x2020); // color
+				dout.writeShort(0x2020); // catalog
+				dout.writeShort(0x2020); // code
+				switch (colorspace) {
+					default:
+						Color rgb = color.awtColor();
+						dout.writeByte(rgb.getRed());
+						dout.writeByte(rgb.getGreen());
+						dout.writeByte(rgb.getBlue());
+						break;
+					case 2:
+						RCPXColor.CMYK cmyk = (RCPXColor.CMYK)color;
+						dout.writeByte(255 - (int)Math.round(cmyk.c * 255f / 100f));
+						dout.writeByte(255 - (int)Math.round(cmyk.m * 255f / 100f));
+						dout.writeByte(255 - (int)Math.round(cmyk.y * 255f / 100f));
+						dout.writeByte(255 - (int)Math.round(cmyk.k * 255f / 100f));
+						break;
+					case 7:
+						RCPXColor.CIELab lab = (RCPXColor.CIELab)color;
+						dout.writeByte((int)Math.round(lab.l * 255f / 100f));
+						dout.writeByte((int)Math.round(lab.a) + 128);
+						dout.writeByte((int)Math.round(lab.b) + 128);
+						break;
+				}
+				index++;
+			}
+			dout.flush();
+		}
+		private void writeString(String s, DataOutputStream out) throws IOException {
+			if (s == null) {
+				out.writeInt(0);
+			} else {
+				s = s.replace("^", "^^");
+				s = s.replace("\u00A9", "^C");
+				s = s.replace("\u00AE", "^R");
+				char[] ca = s.toCharArray();
+				out.writeInt(ca.length);
+				for (char ch : ca) out.writeChar(ch);
+			}
+		}
+	}
 }

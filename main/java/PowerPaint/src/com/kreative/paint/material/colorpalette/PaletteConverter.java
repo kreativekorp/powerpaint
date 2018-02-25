@@ -135,7 +135,8 @@ public class PaletteConverter {
 		RCPX("RCPX (PowerPaint)", new PaletteReader.RCPXReader(), new PaletteWriter.RCPXWriter()),
 		ACT("ACT (Photoshop)", new PaletteReader.ACTReader(), new PaletteWriter.ACTWriter()),
 		ACO("ACO (Photoshop)", new PaletteReader.ACOReader(), new PaletteWriter.ACOWriter()),
-		ASE("ASE (Illustrator)", new PaletteReader.ASEReader(), new PaletteWriter.ASEWriter());
+		ASE("ASE (Illustrator)", new PaletteReader.ASEReader(), new PaletteWriter.ASEWriter()),
+		ACB("ACB (Adobe Color Book)", new PaletteReader.ACBReader(), new PaletteWriter.ACBWriter());
 		
 		public final String description;
 		public final PaletteReader reader;

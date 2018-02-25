@@ -954,7 +954,8 @@ public class PaletteBuilder {
 		RCPX("RCPX (PowerPaint)", new PaletteWriter.RCPXWriter()),
 		ACT("ACT (Photoshop)", new PaletteWriter.ACTWriter()),
 		ACO("ACO (Photoshop)", new PaletteWriter.ACOWriter()),
-		ASE("ASE (Illustrator)", new PaletteWriter.ASEWriter());
+		ASE("ASE (Illustrator)", new PaletteWriter.ASEWriter()),
+		ACB("ACB (Adobe Color Book)", new PaletteWriter.ACBWriter());
 		
 		public final String description;
 		public final PaletteWriter writer;

@@ -143,4 +143,73 @@ public abstract class PaletteReader {
 			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, false);
 		}
 	}
+	
+	public static class ACBReader extends PaletteReader {
+		public RCPXPalette read(String name, InputStream in) throws IOException {
+			List<RCPXColor> colors = new ArrayList<RCPXColor>();
+			DataInputStream din = new DataInputStream(in);
+			if (din.readInt() != 0x38424342) throw new IOException("Bad magic number");
+			if (din.readShort() != 1) throw new IOException("Bad version number");
+			din.readShort(); // id
+			String title = readString(din);
+			String prefix = readString(din);
+			String suffix = readString(din);
+			readString(din); // description
+			int n = din.readUnsignedShort();
+			din.readShort(); // page size
+			din.readShort(); // page selector offset
+			int colorspace = din.readShort();
+			for (int i = 0; i < n; i++) {
+				String cn = readString(din);
+				if (cn != null) {
+					if (prefix != null) cn = prefix + cn;
+					if (suffix != null) cn = cn + suffix;
+				}
+				din.readShort(); // color
+				din.readShort(); // catalog
+				din.readShort(); // code
+				switch (colorspace) {
+					case 0:
+						int r = din.readUnsignedByte();
+						int g = din.readUnsignedByte();
+						int b = din.readUnsignedByte();
+						if (cn != null) colors.add(new RCPXColor.RGB(r, g, b, cn));
+						break;
+					case 2:
+						float c = (255 - din.readUnsignedByte()) * 100f / 255f;
+						float m = (255 - din.readUnsignedByte()) * 100f / 255f;
+						float y = (255 - din.readUnsignedByte()) * 100f / 255f;
+						float k = (255 - din.readUnsignedByte()) * 100f / 255f;
+						if (cn != null) colors.add(new RCPXColor.CMYK(c, m, y, k, cn));
+						break;
+					case 7:
+						float ll = din.readUnsignedByte() * 100f / 255f;
+						float aa = din.readUnsignedByte() - 128;
+						float bb = din.readUnsignedByte() - 128;
+						if (cn != null) colors.add(new RCPXColor.CIELab(ll, aa, bb, cn));
+						break;
+					default:
+						throw new IOException("Unknown color space " + colorspace);
+				}
+			}
+			if (title != null) name = title;
+			PaletteDimensions pd = PaletteDimensions.forColorCount(colors.size());
+			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, false);
+		}
+		private String readString(DataInputStream din) throws IOException {
+			int n = din.readInt();
+			if (n <= 0) return null;
+			StringBuffer sb = new StringBuffer(n);
+			for (int i = 0; i < n; i++) sb.append(din.readChar());
+			String s = sb.toString();
+			if (s.startsWith("$$$")) {
+				int o = s.lastIndexOf('=');
+				if (o >= 0) s = s.substring(o + 1);
+			}
+			s = s.replace("^C", "\u00A9");
+			s = s.replace("^R", "\u00AE");
+			s = s.replace("^^", "^");
+			return s;
+		}
+	}
 }
