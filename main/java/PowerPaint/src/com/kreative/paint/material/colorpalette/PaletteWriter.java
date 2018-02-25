@@ -1,8 +1,12 @@
 package com.kreative.paint.material.colorpalette;
 
 import java.awt.Color;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class PaletteWriter {
 	public abstract boolean isCompatible(RCPXPalette pal);
@@ -142,6 +146,92 @@ public abstract class PaletteWriter {
 				out.write(b >> 8); out.write(b);
 				out.write(0); out.write(0);
 			}
+		}
+	}
+	
+	public static class ASEWriter extends PaletteWriter {
+		public boolean isCompatible(RCPXPalette pal) {
+			return (pal.colors.size() > 0);
+		}
+		public void write(RCPXPalette pal, OutputStream out) throws IOException {
+			List<byte[]> blocks = new ArrayList<byte[]>();
+			if (pal.name != null) blocks.add(block(0xC001, groupBlockData(pal.name)));
+			for (RCPXColor color : pal.colors) blocks.add(block(0x0001, colorBlockData(color)));
+			if (pal.name != null) blocks.add(block(0xC002, null));
+			DataOutputStream dout = new DataOutputStream(out);
+			dout.writeInt(0x41534546);
+			dout.writeInt(0x00010000);
+			dout.writeInt(blocks.size());
+			for (byte[] block : blocks) dout.write(block);
+			dout.flush();
+		}
+		private byte[] block(int type, byte[] data) throws IOException {
+			ByteArrayOutputStream bout = new ByteArrayOutputStream();
+			DataOutputStream dout = new DataOutputStream(bout);
+			dout.writeShort(type);
+			if (data == null) {
+				dout.writeInt(0);
+			} else {
+				dout.writeInt(data.length);
+				dout.write(data);
+			}
+			dout.close();
+			bout.close();
+			return bout.toByteArray();
+		}
+		private byte[] groupBlockData(String name) throws IOException {
+			ByteArrayOutputStream bout = new ByteArrayOutputStream();
+			DataOutputStream dout = new DataOutputStream(bout);
+			if (name == null) {
+				dout.writeShort(0);
+			} else {
+				dout.writeShort(name.length() + 1);
+				for (char ch : name.toCharArray()) dout.writeShort(ch);
+				dout.writeShort(0);
+			}
+			dout.close();
+			bout.close();
+			return bout.toByteArray();
+		}
+		private byte[] colorBlockData(RCPXColor color) throws IOException {
+			ByteArrayOutputStream bout = new ByteArrayOutputStream();
+			DataOutputStream dout = new DataOutputStream(bout);
+			String name = color.name();
+			if (name == null) {
+				dout.writeShort(0);
+			} else {
+				dout.writeShort(name.length() + 1);
+				for (char ch : name.toCharArray()) dout.writeShort(ch);
+				dout.writeShort(0);
+			}
+			if (color instanceof RCPXColor.CMYK) {
+				RCPXColor.CMYK cmyk = (RCPXColor.CMYK)color;
+				dout.writeInt(0x434D594B); // CMYK
+				dout.writeFloat(cmyk.c / 100f);
+				dout.writeFloat(cmyk.m / 100f);
+				dout.writeFloat(cmyk.y / 100f);
+				dout.writeFloat(cmyk.k / 100f);
+			} else if (color instanceof RCPXColor.CIELab) {
+				RCPXColor.CIELab lab = (RCPXColor.CIELab)color;
+				dout.writeInt(0x4C414220); // LAB
+				dout.writeFloat(lab.l / 100f);
+				dout.writeFloat(lab.a / 100f);
+				dout.writeFloat(lab.b / 100f);
+			} else if (color instanceof RCPXColor.Gray) {
+				RCPXColor.Gray gray = (RCPXColor.Gray)color;
+				dout.writeInt(0x47726179); // Gray
+				dout.writeFloat(gray.gray / 100f);
+			} else {
+				float[] rgb = color.awtColor().getRGBColorComponents(null);
+				dout.writeInt(0x52474220); // RGB
+				dout.writeFloat(rgb[0]);
+				dout.writeFloat(rgb[1]);
+				dout.writeFloat(rgb[2]);
+			}
+			dout.writeShort(2);
+			dout.close();
+			bout.close();
+			return bout.toByteArray();
 		}
 	}
 }

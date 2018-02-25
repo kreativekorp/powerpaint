@@ -1,5 +1,7 @@
 package com.kreative.paint.material.colorpalette;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -79,7 +81,66 @@ public abstract class PaletteReader {
 				}
 			}
 			PaletteDimensions pd = PaletteDimensions.forColorCount(colors.size());
-			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, true);
+			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, false);
+		}
+	}
+	
+	public static class ASEReader extends PaletteReader {
+		public RCPXPalette read(String name, InputStream in) throws IOException {
+			List<RCPXColor> colors = new ArrayList<RCPXColor>();
+			List<String> blockNames = new ArrayList<String>();
+			DataInputStream din = new DataInputStream(in);
+			if (din.readInt() != 0x41534546) throw new IOException("Bad magic number");
+			if (din.readInt() != 0x00010000) throw new IOException("Bad version number");
+			int blockCount = din.readInt();
+			for (int i = 0; i < blockCount; i++) {
+				int blockType = din.readUnsignedShort();
+				int blockLength = din.readInt();
+				byte[] blockData = new byte[blockLength];
+				din.readFully(blockData);
+				if (blockType == 0xC001 || blockType == 0x0001) {
+					DataInputStream bin = new DataInputStream(new ByteArrayInputStream(blockData));
+					int nameLength = bin.readUnsignedShort();
+					StringBuffer cn = new StringBuffer(nameLength);
+					for (int j = 0; j < nameLength; j++) {
+						int ch = bin.readUnsignedShort();
+						if (ch != 0) cn.append((char)ch);
+					}
+					if (blockType == 0xC001) {
+						blockNames.add(cn.toString());
+					} else if (blockType == 0x0001) {
+						int colorSpace = bin.readInt();
+						switch (colorSpace) {
+							case 0x52474220: // RGB
+								float r = bin.readFloat();
+								float g = bin.readFloat();
+								float b = bin.readFloat();
+								colors.add(new RCPXColor.RGBD(r, g, b, cn.toString()));
+								break;
+							case 0x434D594B: // CMYK
+								float c = bin.readFloat() * 100f;
+								float m = bin.readFloat() * 100f;
+								float y = bin.readFloat() * 100f;
+								float k = bin.readFloat() * 100f;
+								colors.add(new RCPXColor.CMYK(c, m, y, k, cn.toString()));
+								break;
+							case 0x4C414220: // LAB
+								float ll = bin.readFloat() * 100f;
+								float aa = bin.readFloat() * 100f;
+								float bb = bin.readFloat() * 100f;
+								colors.add(new RCPXColor.CIELab(ll, aa, bb, cn.toString()));
+								break;
+							case 0x47726179: // Gray
+								float w = bin.readFloat() * 100f;
+								colors.add(new RCPXColor.Gray(w, cn.toString()));
+								break;
+						}
+					}
+				}
+			}
+			if (blockNames.size() == 1) name = blockNames.get(0);
+			PaletteDimensions pd = PaletteDimensions.forColorCount(colors.size());
+			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, false);
 		}
 	}
 }

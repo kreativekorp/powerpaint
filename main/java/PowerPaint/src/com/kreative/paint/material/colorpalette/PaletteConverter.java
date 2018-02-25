@@ -134,7 +134,8 @@ public class PaletteConverter {
 	private static enum Format {
 		RCPX("RCPX (PowerPaint)", new PaletteReader.RCPXReader(), new PaletteWriter.RCPXWriter()),
 		ACT("ACT (Photoshop)", new PaletteReader.ACTReader(), new PaletteWriter.ACTWriter()),
-		ACO("ACO (Photoshop)", new PaletteReader.ACOReader(), new PaletteWriter.ACOWriter());
+		ACO("ACO (Photoshop)", new PaletteReader.ACOReader(), new PaletteWriter.ACOWriter()),
+		ASE("ASE (Illustrator)", new PaletteReader.ASEReader(), new PaletteWriter.ASEWriter());
 		
 		public final String description;
 		public final PaletteReader reader;
