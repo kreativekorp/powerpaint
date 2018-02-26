@@ -237,7 +237,7 @@ public abstract class PaletteReader {
 				}
 			}
 			PaletteDimensions pd = PaletteDimensions.forColorCount(colors.size());
-			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, false);
+			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, true);
 		}
 	}
 }
