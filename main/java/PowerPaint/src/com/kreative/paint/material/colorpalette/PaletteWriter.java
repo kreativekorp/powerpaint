@@ -5,6 +5,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -308,6 +310,28 @@ public abstract class PaletteWriter {
 				out.writeInt(ca.length);
 				for (char ch : ca) out.writeChar(ch);
 			}
+		}
+	}
+	
+	public static class GPLWriter extends PaletteWriter {
+		public boolean isCompatible(RCPXPalette pal) {
+			return (pal.colors.size() > 0);
+		}
+		public void write(RCPXPalette pal, OutputStream out) throws IOException {
+			PrintWriter pw = new PrintWriter(new OutputStreamWriter(out, "UTF-8"), true);
+			pw.println("GIMP Palette");
+			if (pal.name != null && pal.name.length() > 0) pw.println("Name: " + pal.name);
+			for (RCPXColor color : pal.colors) {
+				Color c = color.awtColor();
+				String r = "   " + c.getRed()  ; r = r.substring(r.length() - 3);
+				String g = "   " + c.getGreen(); g = g.substring(g.length() - 3);
+				String b = "   " + c.getBlue() ; b = b.substring(b.length() - 3);
+				String s = r + " " + g + " " + b;
+				String n = color.name();
+				if (n != null && n.length() > 0) s += "\t" + n;
+				pw.println(s);
+			}
+			pw.flush();
 		}
 	}
 }

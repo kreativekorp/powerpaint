@@ -136,7 +136,8 @@ public class PaletteConverter {
 		ACT("ACT (Photoshop)", new PaletteReader.ACTReader(), new PaletteWriter.ACTWriter()),
 		ACO("ACO (Photoshop)", new PaletteReader.ACOReader(), new PaletteWriter.ACOWriter()),
 		ASE("ASE (Illustrator)", new PaletteReader.ASEReader(), new PaletteWriter.ASEWriter()),
-		ACB("ACB (Adobe Color Book)", new PaletteReader.ACBReader(), new PaletteWriter.ACBWriter());
+		ACB("ACB (Adobe Color Book)", new PaletteReader.ACBReader(), new PaletteWriter.ACBWriter()),
+		GPL("GPL (GIMP)", new PaletteReader.GPLReader(), new PaletteWriter.GPLWriter());
 		
 		public final String description;
 		public final PaletteReader reader;

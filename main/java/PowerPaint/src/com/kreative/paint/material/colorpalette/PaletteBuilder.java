@@ -955,7 +955,8 @@ public class PaletteBuilder {
 		ACT("ACT (Photoshop)", new PaletteWriter.ACTWriter()),
 		ACO("ACO (Photoshop)", new PaletteWriter.ACOWriter()),
 		ASE("ASE (Illustrator)", new PaletteWriter.ASEWriter()),
-		ACB("ACB (Adobe Color Book)", new PaletteWriter.ACBWriter());
+		ACB("ACB (Adobe Color Book)", new PaletteWriter.ACBWriter()),
+		GPL("GPL (GIMP)", new PaletteWriter.GPLWriter());
 		
 		public final String description;
 		public final PaletteWriter writer;

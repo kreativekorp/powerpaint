@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public abstract class PaletteReader {
 	public abstract RCPXPalette read(String name, InputStream in) throws IOException;
@@ -210,6 +211,33 @@ public abstract class PaletteReader {
 			s = s.replace("^R", "\u00AE");
 			s = s.replace("^^", "^");
 			return s;
+		}
+	}
+	
+	public static class GPLReader extends PaletteReader {
+		public RCPXPalette read(String name, InputStream in) throws IOException {
+			List<RCPXColor> colors = new ArrayList<RCPXColor>();
+			Scanner s = new Scanner(in, "UTF-8");
+			while (s.hasNextLine()) {
+				String line = s.nextLine().trim();
+				if (line.startsWith("Name:")) {
+					name = line.substring(5).trim();
+				} else {
+					String[] f = line.split("\\s+", 4);
+					if (f.length < 3) continue;
+					try {
+						int r = Integer.parseInt(f[0]);
+						int g = Integer.parseInt(f[1]);
+						int b = Integer.parseInt(f[2]);
+						String n = (f.length > 3) ? f[3] : null;
+						colors.add(new RCPXColor.RGB(r, g, b, n));
+					} catch (NumberFormatException e) {
+						continue;
+					}
+				}
+			}
+			PaletteDimensions pd = PaletteDimensions.forColorCount(colors.size());
+			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, false);
 		}
 	}
 }
