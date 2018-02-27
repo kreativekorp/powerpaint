@@ -302,12 +302,27 @@ public class RCPXParser {
 				parseFloat(attr, "v", 0.0f),
 				parseString(attr, "name")
 			);
+		} else if (type.equalsIgnoreCase("grayalpha")) {
+			return new RCPXColor.GrayAlpha(
+				parseFloat(attr, "v", 0.0f),
+				parseFloat(attr, "a", 0.0f),
+				parseString(attr, "name")
+			);
 		} else if (type.equalsIgnoreCase("cmyk")) {
 			return new RCPXColor.CMYK(
 				parseFloat(attr, "c", 0.0f),
 				parseFloat(attr, "m", 0.0f),
 				parseFloat(attr, "y", 0.0f),
 				parseFloat(attr, "k", 0.0f),
+				parseString(attr, "name")
+			);
+		} else if (type.equalsIgnoreCase("cmyka")) {
+			return new RCPXColor.CMYKA(
+				parseFloat(attr, "c", 0.0f),
+				parseFloat(attr, "m", 0.0f),
+				parseFloat(attr, "y", 0.0f),
+				parseFloat(attr, "k", 0.0f),
+				parseFloat(attr, "a", 0.0f),
 				parseString(attr, "name")
 			);
 		} else if (type.equalsIgnoreCase("lab")) {

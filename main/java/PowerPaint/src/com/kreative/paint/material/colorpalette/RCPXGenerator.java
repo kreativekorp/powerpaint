@@ -183,9 +183,17 @@ public class RCPXGenerator {
 			RCPXColor.Gray c = (RCPXColor.Gray)color;
 			return t("gray", true, "v", c.gray,
 				((c.name == null || c.name.length() == 0) ? null : "name"), c.name);
+		} else if (color instanceof RCPXColor.GrayAlpha) {
+			RCPXColor.GrayAlpha c = (RCPXColor.GrayAlpha)color;
+			return t("grayalpha", true, "v", c.gray, "a", c.alpha,
+				((c.name == null || c.name.length() == 0) ? null : "name"), c.name);
 		} else if (color instanceof RCPXColor.CMYK) {
 			RCPXColor.CMYK c = (RCPXColor.CMYK)color;
 			return t("cmyk", true, "c", c.c, "m", c.m, "y", c.y, "k", c.k,
+				((c.name == null || c.name.length() == 0) ? null : "name"), c.name);
+		} else if (color instanceof RCPXColor.CMYKA) {
+			RCPXColor.CMYKA c = (RCPXColor.CMYKA)color;
+			return t("cmyka", true, "c", c.c, "m", c.m, "y", c.y, "k", c.k, "a", c.a,
 				((c.name == null || c.name.length() == 0) ? null : "name"), c.name);
 		} else if (color instanceof RCPXColor.CIELab) {
 			RCPXColor.CIELab c = (RCPXColor.CIELab)color;

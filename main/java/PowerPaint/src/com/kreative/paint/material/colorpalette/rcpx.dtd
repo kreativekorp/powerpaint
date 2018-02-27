@@ -1,11 +1,11 @@
 <!--
-	Date: 2018/02/22 21:15:30 PST
+	Date: 2018/02/27 12:22:30 PST
 	Author: Rebecca Bettencourt <support@kreativekorp.com>
 -->
 
 <!-- - - - - - - - - - - - - COLORS - - - - - - - - - - - - -->
 
-<!ENTITY % color "(rgb|rgb16|rgbd|rgba|rgba16|rgbad|hsv|hsva|gray|cmyk|lab)">
+<!ENTITY % color "(rgb|rgb16|rgbd|rgba|rgba16|rgbad|hsv|hsva|gray|grayalpha|cmyk|cmyka|lab)">
 
 <!ELEMENT rgb EMPTY>
 <!ATTLIST rgb
@@ -81,12 +81,29 @@
 	name CDATA #IMPLIED
 >
 
+<!ELEMENT grayalpha EMPTY>
+<!ATTLIST grayalpha
+	v CDATA #REQUIRED
+	a CDATA #REQUIRED
+	name CDATA #IMPLIED
+>
+
 <!ELEMENT cmyk EMPTY>
 <!ATTLIST cmyk
 	c CDATA #REQUIRED
 	m CDATA #REQUIRED
 	y CDATA #REQUIRED
 	k CDATA #REQUIRED
+	name CDATA #IMPLIED
+>
+
+<!ELEMENT cmyka EMPTY>
+<!ATTLIST cmyka
+	c CDATA #REQUIRED
+	m CDATA #REQUIRED
+	y CDATA #REQUIRED
+	k CDATA #REQUIRED
+	a CDATA #REQUIRED
 	name CDATA #IMPLIED
 >
 

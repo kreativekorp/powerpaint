@@ -167,6 +167,25 @@ public abstract class RCPXColor {
 		}
 	}
 	
+	public static class GrayAlpha extends RCPXColor {
+		public final float gray, alpha;
+		public final String name;
+		public GrayAlpha(float gray, float alpha, String name) {
+			this.gray = gray; this.alpha = alpha;
+			this.name = name;
+		}
+		@Override
+		public Color awtColor() {
+			float w = gray / 100f;
+			float a = alpha / 100f;
+			return new Color(w, w, w, a);
+		}
+		@Override
+		public String name() {
+			return name;
+		}
+	}
+	
 	public static class CMYK extends RCPXColor {
 		public final float c, m, y, k;
 		public final String name;
@@ -180,32 +199,63 @@ public abstract class RCPXColor {
 			float m = this.m / 100f;
 			float y = this.y / 100f;
 			float k = this.k / 100f;
-			if (COLORSPACE == null) {
+			if (CMYK_COLOR_SPACE == null) {
 				float r = 1f - Math.min(1f, c * (1f - k) + k);
 				float g = 1f - Math.min(1f, m * (1f - k) + k);
 				float b = 1f - Math.min(1f, y * (1f - k) + k);
 				return new Color(r, g, b);
 			} else {
 				float[] cmyk = new float[]{c, m, y, k};
-				return new Color(COLORSPACE, cmyk, 1f);
+				return new Color(CMYK_COLOR_SPACE, cmyk, 1f);
 			}
 		}
 		@Override
 		public String name() {
 			return name;
 		}
-		private static final ColorSpace COLORSPACE;
-		static {
-			ColorSpace colorspace;
-			try {
-				InputStream in = RCPXColor.class.getResourceAsStream("ISOcoated_v2_300_eci.icc");
-				colorspace = new ICC_ColorSpace(ICC_Profile.getInstance(in));
-				in.close();
-			} catch (IOException e) {
-				colorspace = null;
-			}
-			COLORSPACE = colorspace;
+	}
+	
+	public static class CMYKA extends RCPXColor {
+		public final float c, m, y, k, a;
+		public final String name;
+		public CMYKA(float c, float m, float y, float k, float a, String name) {
+			this.c = c; this.m = m; this.y = y; this.k = k; this.a = a;
+			this.name = name;
 		}
+		@Override
+		public Color awtColor() {
+			float c = this.c / 100f;
+			float m = this.m / 100f;
+			float y = this.y / 100f;
+			float k = this.k / 100f;
+			float a = this.a / 100f;
+			if (CMYK_COLOR_SPACE == null) {
+				float r = 1f - Math.min(1f, c * (1f - k) + k);
+				float g = 1f - Math.min(1f, m * (1f - k) + k);
+				float b = 1f - Math.min(1f, y * (1f - k) + k);
+				return new Color(r, g, b, a);
+			} else {
+				float[] cmyk = new float[]{c, m, y, k};
+				return new Color(CMYK_COLOR_SPACE, cmyk, a);
+			}
+		}
+		@Override
+		public String name() {
+			return name;
+		}
+	}
+	
+	public static final ColorSpace CMYK_COLOR_SPACE;
+	static {
+		ColorSpace cmykColorSpace;
+		try {
+			InputStream in = RCPXColor.class.getResourceAsStream("ISOcoated_v2_300_eci.icc");
+			cmykColorSpace = new ICC_ColorSpace(ICC_Profile.getInstance(in));
+			in.close();
+		} catch (IOException e) {
+			cmykColorSpace = null;
+		}
+		CMYK_COLOR_SPACE = cmykColorSpace;
 	}
 	
 	public static class CIELab extends RCPXColor {

@@ -119,6 +119,17 @@ public abstract class PaletteWriter {
 				out.write(m >> 8); out.write(m);
 				out.write(y >> 8); out.write(y);
 				out.write(k >> 8); out.write(k);
+			} else if (color instanceof RCPXColor.CMYKA) {
+				RCPXColor.CMYKA cmyk = (RCPXColor.CMYKA)color;
+				int c = 65535 - (int)Math.round(cmyk.c * 65535f / 100f);
+				int m = 65535 - (int)Math.round(cmyk.m * 65535f / 100f);
+				int y = 65535 - (int)Math.round(cmyk.y * 65535f / 100f);
+				int k = 65535 - (int)Math.round(cmyk.k * 65535f / 100f);
+				out.write(0); out.write(2);
+				out.write(c >> 8); out.write(c);
+				out.write(m >> 8); out.write(m);
+				out.write(y >> 8); out.write(y);
+				out.write(k >> 8); out.write(k);
 			} else if (color instanceof RCPXColor.CIELab) {
 				RCPXColor.CIELab lab = (RCPXColor.CIELab)color;
 				int l = (int)Math.round(lab.l * 100f);
@@ -131,6 +142,14 @@ public abstract class PaletteWriter {
 				out.write(0); out.write(0);
 			} else if (color instanceof RCPXColor.Gray) {
 				RCPXColor.Gray gray = (RCPXColor.Gray)color;
+				int v = (int)Math.round(gray.gray * 100f);
+				out.write(0); out.write(8);
+				out.write(v >> 8); out.write(v);
+				out.write(0); out.write(0);
+				out.write(0); out.write(0);
+				out.write(0); out.write(0);
+			} else if (color instanceof RCPXColor.GrayAlpha) {
+				RCPXColor.GrayAlpha gray = (RCPXColor.GrayAlpha)color;
 				int v = (int)Math.round(gray.gray * 100f);
 				out.write(0); out.write(8);
 				out.write(v >> 8); out.write(v);
@@ -213,6 +232,13 @@ public abstract class PaletteWriter {
 				dout.writeFloat(cmyk.m / 100f);
 				dout.writeFloat(cmyk.y / 100f);
 				dout.writeFloat(cmyk.k / 100f);
+			} else if (color instanceof RCPXColor.CMYKA) {
+				RCPXColor.CMYKA cmyk = (RCPXColor.CMYKA)color;
+				dout.writeInt(0x434D594B); // CMYK
+				dout.writeFloat(cmyk.c / 100f);
+				dout.writeFloat(cmyk.m / 100f);
+				dout.writeFloat(cmyk.y / 100f);
+				dout.writeFloat(cmyk.k / 100f);
 			} else if (color instanceof RCPXColor.CIELab) {
 				RCPXColor.CIELab lab = (RCPXColor.CIELab)color;
 				dout.writeInt(0x4C414220); // LAB
@@ -221,6 +247,10 @@ public abstract class PaletteWriter {
 				dout.writeFloat(lab.b / 100f);
 			} else if (color instanceof RCPXColor.Gray) {
 				RCPXColor.Gray gray = (RCPXColor.Gray)color;
+				dout.writeInt(0x47726179); // Gray
+				dout.writeFloat(gray.gray / 100f);
+			} else if (color instanceof RCPXColor.GrayAlpha) {
+				RCPXColor.GrayAlpha gray = (RCPXColor.GrayAlpha)color;
 				dout.writeInt(0x47726179); // Gray
 				dout.writeFloat(gray.gray / 100f);
 			} else {
@@ -247,7 +277,7 @@ public abstract class PaletteWriter {
 				if (color instanceof RCPXColor.CIELab) {
 					if (colorspace == -1) colorspace = 7;
 					else if (colorspace != 7) colorspace = 0;
-				} else if (color instanceof RCPXColor.CMYK) {
+				} else if (color instanceof RCPXColor.CMYK || color instanceof RCPXColor.CMYKA) {
 					if (colorspace == -1) colorspace = 2;
 					else if (colorspace != 2) colorspace = 0;
 				} else {
@@ -282,11 +312,19 @@ public abstract class PaletteWriter {
 						dout.writeByte(rgb.getBlue());
 						break;
 					case 2:
-						RCPXColor.CMYK cmyk = (RCPXColor.CMYK)color;
-						dout.writeByte(255 - (int)Math.round(cmyk.c * 255f / 100f));
-						dout.writeByte(255 - (int)Math.round(cmyk.m * 255f / 100f));
-						dout.writeByte(255 - (int)Math.round(cmyk.y * 255f / 100f));
-						dout.writeByte(255 - (int)Math.round(cmyk.k * 255f / 100f));
+						if (color instanceof RCPXColor.CMYK) {
+							RCPXColor.CMYK cmyk = (RCPXColor.CMYK)color;
+							dout.writeByte(255 - (int)Math.round(cmyk.c * 255f / 100f));
+							dout.writeByte(255 - (int)Math.round(cmyk.m * 255f / 100f));
+							dout.writeByte(255 - (int)Math.round(cmyk.y * 255f / 100f));
+							dout.writeByte(255 - (int)Math.round(cmyk.k * 255f / 100f));
+						} else {
+							RCPXColor.CMYKA cmyk = (RCPXColor.CMYKA)color;
+							dout.writeByte(255 - (int)Math.round(cmyk.c * 255f / 100f));
+							dout.writeByte(255 - (int)Math.round(cmyk.m * 255f / 100f));
+							dout.writeByte(255 - (int)Math.round(cmyk.y * 255f / 100f));
+							dout.writeByte(255 - (int)Math.round(cmyk.k * 255f / 100f));
+						}
 						break;
 					case 7:
 						RCPXColor.CIELab lab = (RCPXColor.CIELab)color;
