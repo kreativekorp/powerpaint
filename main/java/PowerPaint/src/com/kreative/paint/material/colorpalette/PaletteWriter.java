@@ -334,4 +334,22 @@ public abstract class PaletteWriter {
 			pw.flush();
 		}
 	}
+	
+	public static class PALWriter extends PaletteWriter {
+		public boolean isCompatible(RCPXPalette pal) {
+			return (pal.colors.size() > 0);
+		}
+		public void write(RCPXPalette pal, OutputStream out) throws IOException {
+			PrintWriter pw = new PrintWriter(new OutputStreamWriter(out, "UTF-8"), true);
+			pw.println("JASC-PAL");
+			pw.println("0100");
+			pw.println(pal.colors.size());
+			for (RCPXColor color : pal.colors) {
+				Color c = color.awtColor();
+				String s = c.getRed() + " " + c.getGreen() + " " + c.getBlue();
+				pw.println(s);
+			}
+			pw.flush();
+		}
+	}
 }

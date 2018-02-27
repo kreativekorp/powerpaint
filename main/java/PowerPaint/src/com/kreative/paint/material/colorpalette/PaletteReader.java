@@ -240,4 +240,31 @@ public abstract class PaletteReader {
 			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, true);
 		}
 	}
+	
+	public static class PALReader extends PaletteReader {
+		public RCPXPalette read(String name, InputStream in) throws IOException {
+			List<RCPXColor> colors = new ArrayList<RCPXColor>();
+			Scanner s = new Scanner(in, "UTF-8");
+			if (!s.hasNextLine() || !s.nextLine().trim().equals("JASC-PAL")) throw new IOException("Bad magic number");
+			if (!s.hasNextLine() || !s.nextLine().trim().equals("0100")) throw new IOException("Bad version number");
+			if (!s.hasNextLine()) throw new IOException("Bad color count");
+			int n; try { n = Integer.parseInt(s.nextLine().trim()); }
+			catch (NumberFormatException e) { throw new IOException("Bad color count"); }
+			for (int i = 0; i < n; i++) {
+				if (!s.hasNextLine()) throw new IOException("Bad color line");
+				String[] f = s.nextLine().trim().split("\\s+");
+				if (f.length != 3) throw new IOException("Bad color line");
+				try {
+					int r = Integer.parseInt(f[0]);
+					int g = Integer.parseInt(f[1]);
+					int b = Integer.parseInt(f[2]);
+					colors.add(new RCPXColor.RGB(r, g, b, null));
+				} catch (NumberFormatException e) {
+					throw new IOException("Bad color line");
+				}
+			}
+			PaletteDimensions pd = PaletteDimensions.forColorCount(colors.size());
+			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, true);
+		}
+	}
 }
