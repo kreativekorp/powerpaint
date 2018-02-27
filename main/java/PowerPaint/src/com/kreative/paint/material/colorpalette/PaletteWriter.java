@@ -352,4 +352,51 @@ public abstract class PaletteWriter {
 			pw.flush();
 		}
 	}
+	
+	public static class CLUTWriter extends PaletteWriter {
+		public boolean isCompatible(RCPXPalette pal) {
+			return (pal.colors.size() > 0);
+		}
+		public void write(RCPXPalette pal, OutputStream out) throws IOException {
+			DataOutputStream dout = new DataOutputStream(out);
+			int n = pal.colors.size();
+			dout.writeInt(0); // seed
+			dout.writeShort(0); // flags
+			dout.writeShort(n - 1);
+			for (int i = 0; i < n; i++) {
+				Color color = pal.colors.get(i).awtColor();
+				float[] rgb = color.getRGBColorComponents(null);
+				dout.writeShort(i);
+				dout.writeShort((int)Math.round(rgb[0] * 65535f));
+				dout.writeShort((int)Math.round(rgb[1] * 65535f));
+				dout.writeShort((int)Math.round(rgb[2] * 65535f));
+			}
+			dout.flush();
+		}
+	}
+	
+	public static class PLTTWriter extends PaletteWriter {
+		public boolean isCompatible(RCPXPalette pal) {
+			return (pal.colors.size() > 0);
+		}
+		public void write(RCPXPalette pal, OutputStream out) throws IOException {
+			DataOutputStream dout = new DataOutputStream(out);
+			dout.writeShort(pal.colors.size());
+			dout.writeInt(0); // reserved
+			dout.writeShort(0); // reserved
+			dout.writeInt(0); // reserved
+			dout.writeInt(0); // reserved
+			for (RCPXColor color : pal.colors) {
+				float[] rgb = color.awtColor().getRGBColorComponents(null);
+				dout.writeShort((int)Math.round(rgb[0] * 65535f));
+				dout.writeShort((int)Math.round(rgb[1] * 65535f));
+				dout.writeShort((int)Math.round(rgb[2] * 65535f));
+				dout.writeShort(0); // usage
+				dout.writeShort(0); // tolerance
+				dout.writeShort(0); // flags
+				dout.writeInt(0); // reserved
+			}
+			dout.flush();
+		}
+	}
 }

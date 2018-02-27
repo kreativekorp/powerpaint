@@ -138,7 +138,9 @@ public class PaletteConverter {
 		ASE("ASE (Illustrator)", new PaletteReader.ASEReader(), new PaletteWriter.ASEWriter()),
 		ACB("ACB (Adobe Color Book)", new PaletteReader.ACBReader(), new PaletteWriter.ACBWriter()),
 		GPL("GPL (GIMP)", new PaletteReader.GPLReader(), new PaletteWriter.GPLWriter()),
-		PAL("PAL (PaintShop Pro)", new PaletteReader.PALReader(), new PaletteWriter.PALWriter());
+		PAL("PAL (PaintShop Pro)", new PaletteReader.PALReader(), new PaletteWriter.PALWriter()),
+		CLUT("CLUT (Mac OS Classic)", new PaletteReader.CLUTReader(), new PaletteWriter.CLUTWriter()),
+		PLTT("PLTT (Mac OS Classic)", new PaletteReader.PLTTReader(), new PaletteWriter.PLTTWriter());
 		
 		public final String description;
 		public final PaletteReader reader;

@@ -267,4 +267,47 @@ public abstract class PaletteReader {
 			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, true);
 		}
 	}
+	
+	public static class CLUTReader extends PaletteReader {
+		public RCPXPalette read(String name, InputStream in) throws IOException {
+			List<RCPXColor> colors = new ArrayList<RCPXColor>();
+			DataInputStream din = new DataInputStream(in);
+			din.readInt(); // seed
+			din.readUnsignedShort(); // flags
+			int n = din.readShort() + 1;
+			for (int i = 0; i < n; i++) {
+				din.readUnsignedShort(); // index
+				int r = din.readUnsignedShort();
+				int g = din.readUnsignedShort();
+				int b = din.readUnsignedShort();
+				colors.add(new RCPXColor.RGB16(r, g, b, null));
+			}
+			PaletteDimensions pd = PaletteDimensions.forColorCount(colors.size());
+			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, true);
+		}
+	}
+	
+	public static class PLTTReader extends PaletteReader {
+		public RCPXPalette read(String name, InputStream in) throws IOException {
+			List<RCPXColor> colors = new ArrayList<RCPXColor>();
+			DataInputStream din = new DataInputStream(in);
+			int n = din.readShort();
+			din.readInt(); // reserved
+			din.readShort(); // reserved
+			din.readInt(); // reserved
+			din.readInt(); // reserved
+			for (int i = 0; i < n; i++) {
+				int r = din.readUnsignedShort();
+				int g = din.readUnsignedShort();
+				int b = din.readUnsignedShort();
+				din.readUnsignedShort(); // usage
+				din.readUnsignedShort(); // tolerance
+				din.readUnsignedShort(); // flags
+				din.readInt(); // reserved
+				colors.add(new RCPXColor.RGB16(r, g, b, null));
+			}
+			PaletteDimensions pd = PaletteDimensions.forColorCount(colors.size());
+			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, true);
+		}
+	}
 }

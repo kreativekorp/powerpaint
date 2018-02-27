@@ -957,7 +957,9 @@ public class PaletteBuilder {
 		ASE("ASE (Illustrator)", new PaletteWriter.ASEWriter()),
 		ACB("ACB (Adobe Color Book)", new PaletteWriter.ACBWriter()),
 		GPL("GPL (GIMP)", new PaletteWriter.GPLWriter()),
-		PAL("PAL (PaintShop Pro)", new PaletteWriter.PALWriter());
+		PAL("PAL (PaintShop Pro)", new PaletteWriter.PALWriter()),
+		CLUT("CLUT (Mac OS Classic)", new PaletteWriter.CLUTWriter()),
+		PLTT("PLTT (Mac OS Classic)", new PaletteWriter.PLTTWriter());
 		
 		public final String description;
 		public final PaletteWriter writer;
