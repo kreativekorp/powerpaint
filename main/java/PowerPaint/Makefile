@@ -99,4 +99,18 @@ PowerPaint-src.tgz: src src-materials
 run: bin materials.pmz
 	java -Xmx1024M -cp ./bin com.kreative.paint.ui.Main
 
-.PHONY: all eclipseall clean eclipseclean run
+install: PowerPaint.jar
+	sudo mkdir -p /usr/local/lib/
+	sudo cp -f PowerPaint.jar /usr/local/lib/powerpaint.jar
+	sudo chmod -f 644 /usr/local/lib/powerpaint.jar
+	sudo mkdir -p /usr/local/bin/
+	sudo cp -f dep/powerpaint /usr/local/bin/powerpaint
+	sudo chmod -f 755 /usr/local/bin/powerpaint
+	sudo mkdir -p /usr/share/icons/hicolor/128x128/apps/
+	sudo cp -f dep/powerpaint.png /usr/share/icons/hicolor/128x128/apps/powerpaint.png
+	sudo chmod -f 644 /usr/share/icons/hicolor/128x128/apps/powerpaint.png
+	sudo mkdir -p /usr/share/applications/
+	sudo cp -f dep/powerpaint.desktop /usr/share/applications/powerpaint.desktop
+	sudo chmod -f 644 /usr/share/applications/powerpaint.desktop
+
+.PHONY: all eclipseall clean eclipseclean run install

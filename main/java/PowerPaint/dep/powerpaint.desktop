@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Encoding=UTF-8
+Name=Kreative PowerPaint
+Comment=Create, edit, and convert bitmap and vector images
+Exec=java -jar /usr/local/lib/powerpaint.jar %F
+Icon=/usr/share/icons/hicolor/128x128/apps/powerpaint.png
+Terminal=false
+Type=Application
+Categories=Graphics;
+MimeType=image/x-powerpaint;image/png;image/gif;image/jpeg;image/bmp;image/vnd.wap.wbmp;image/pict;image/x-macpaint;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/x-portable-anymap;image/x-portable-arbitrarymap;image/x-raabits;image/x-woba;image/x-sabine-icon;
