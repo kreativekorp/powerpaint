@@ -69,6 +69,7 @@ public class ColorPaletteLoader {
 			else if (r.isFormat("acb", false)) pr = new PaletteReader.ACBReader();
 			else if (r.isFormat("gpl", false)) pr = new PaletteReader.GPLReader();
 			else if (r.isFormat("pal", false)) pr = new PaletteReader.PALReader();
+			else if (r.isFormat("clr", false)) pr = new PaletteReader.CLRReader();
 			else if (r.isFormat("clut", false)) pr = new PaletteReader.CLUTReader();
 			else if (r.isFormat("pltt", false)) pr = new PaletteReader.PLTTReader();
 			else continue;

@@ -268,6 +268,26 @@ public abstract class PaletteReader {
 		}
 	}
 	
+	public static class CLRReader extends PaletteReader {
+		public RCPXPalette read(String name, InputStream in) throws IOException {
+			List<RCPXColor> colors = new ArrayList<RCPXColor>();
+			MEUnarchiver u = new MEUnarchiver(in);
+			int version = ((Number)u.readValueOfType("i")).intValue();
+			if (version != 1) throw new IOException("Bad version number");
+			Object[] header = u.readValuesOfTypes("@i");
+			// I don't know what header[0] is; it always seems to be null.
+			int n = ((Number)header[1]).intValue();
+			for (int i = 0; i < n; i++) {
+				Object[] swatch = u.readValuesOfTypes("@@");
+				MEColor color = (MEColor)swatch[0];
+				String cn = swatch[1].toString();
+				colors.add(color.toRCPXColor(cn));
+			}
+			PaletteDimensions pd = PaletteDimensions.forColorCount(colors.size());
+			return pd.createPalette(name, RCPXOrientation.HORIZONTAL, colors, true);
+		}
+	}
+	
 	public static class CLUTReader extends PaletteReader {
 		public RCPXPalette read(String name, InputStream in) throws IOException {
 			List<RCPXColor> colors = new ArrayList<RCPXColor>();

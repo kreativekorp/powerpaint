@@ -18,6 +18,10 @@ public class PaletteConverter {
 				if (processingOptions && arg.startsWith("-")) {
 					if (arg.equals("--")) {
 						processingOptions = false;
+					} else if (arg.equals("-pn")) {
+						o.usePaletteName = true;
+					} else if (arg.equals("-fn")) {
+						o.usePaletteName = false;
 					} else if (arg.equals("-o") && argi < args.length) {
 						o.dest = new File(args[argi++]);
 					} else if (arg.equals("-f") && argi < args.length) {
@@ -62,6 +66,8 @@ public class PaletteConverter {
 		System.out.println("  java com.kreative.paint.material.colorpalette.PaletteConverter <options> <files>");
 		System.out.println();
 		System.out.println("Options:");
+		System.out.println("  -pn           Use palette name as output file name.");
+		System.out.println("  -fn           Use input file name as output file name.");
 		System.out.println("  -o <path>     Write output to the specified file or directory.");
 		System.out.println("  -f <format>   Set the output format.");
 		System.out.println("  -if <format>  Set the input format.");
@@ -76,6 +82,7 @@ public class PaletteConverter {
 		public Format inFormat = null;
 		public Format outFormat = null;
 		public File dest = null;
+		public boolean usePaletteName = false;
 	}
 	
 	private static void process(Options o, File in) throws IOException {
@@ -94,6 +101,12 @@ public class PaletteConverter {
 		FileInputStream fis = new FileInputStream(in);
 		RCPXPalette pal = inFmt.reader.read(name, fis);
 		fis.close();
+		
+		if (o.usePaletteName) {
+			if (pal.name != null && pal.name.length() > 0) {
+				name = pal.name;
+			}
+		}
 		
 		File out = o.dest;
 		Format outFmt = o.outFormat;
@@ -139,6 +152,7 @@ public class PaletteConverter {
 		ACB("ACB (Adobe Color Book)", new PaletteReader.ACBReader(), new PaletteWriter.ACBWriter()),
 		GPL("GPL (GIMP)", new PaletteReader.GPLReader(), new PaletteWriter.GPLWriter()),
 		PAL("PAL (PaintShop Pro)", new PaletteReader.PALReader(), new PaletteWriter.PALWriter()),
+		CLR("CLR (Mac OS X)", new PaletteReader.CLRReader(), new PaletteWriter.CLRWriter()),
 		CLUT("CLUT (Mac OS Classic)", new PaletteReader.CLUTReader(), new PaletteWriter.CLUTWriter()),
 		PLTT("PLTT (Mac OS Classic)", new PaletteReader.PLTTReader(), new PaletteWriter.PLTTWriter());
 		

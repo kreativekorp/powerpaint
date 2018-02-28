@@ -391,6 +391,25 @@ public abstract class PaletteWriter {
 		}
 	}
 	
+	public static class CLRWriter extends PaletteWriter {
+		public boolean isCompatible(RCPXPalette pal) {
+			return (pal.colors.size() > 0);
+		}
+		public void write(RCPXPalette pal, OutputStream out) throws IOException {
+			int n = pal.colors.size();
+			MEArchiver arc = new MEArchiver(out);
+			arc.writeValueOfType("i", 1);
+			arc.writeValuesOfTypes("@i", null, n);
+			for (int i = 0; i < n; i++) {
+				RCPXColor rc = pal.colors.get(i);
+				MEColor me = MEColor.fromRCPXColor(rc);
+				String cn = rc.name();
+				if (cn == null || cn.length() == 0) cn = "#" + i;
+				arc.writeValuesOfTypes("@@", me, cn);
+			}
+		}
+	}
+	
 	public static class CLUTWriter extends PaletteWriter {
 		public boolean isCompatible(RCPXPalette pal) {
 			return (pal.colors.size() > 0);
