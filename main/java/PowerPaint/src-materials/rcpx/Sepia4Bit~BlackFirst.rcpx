@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Sepia 4-Bit (Black First)">
+	<colors ordered="ordered">
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+		<rgb16 r= "6547" g= "3858" b= "1169"/>
+		<rgb16 r="13094" g= "7716" b= "2338"/>
+		<rgb16 r="19641" g="11574" b= "3507"/>
+		<rgb16 r="26188" g="15432" b= "4676"/>
+		<rgb16 r="30876" g="19727" b= "8578"/>
+		<rgb16 r="34342" g="24308" b="14273"/>
+		<rgb16 r="37808" g="28888" b="19969"/>
+		<rgb16 r="41274" g="33469" b="25665"/>
+		<rgb16 r="44739" g="38050" b="31361"/>
+		<rgb16 r="48205" g="42631" b="37056"/>
+		<rgb16 r="51671" g="47212" b="42752"/>
+		<rgb16 r="55137" g="51793" b="48448"/>
+		<rgb16 r="58603" g="56373" b="54144"/>
+		<rgb16 r="62069" g="60954" b="59839"/>
+		<rgb16 r="65535" g="65535" b="65535"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

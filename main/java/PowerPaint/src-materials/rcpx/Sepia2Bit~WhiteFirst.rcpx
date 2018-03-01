@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Sepia 2-Bit (White First)">
+	<colors ordered="ordered">
+		<rgb16 r="65535" g="65535" b="65535"/>
+		<rgb16 r="48205" g="42631" b="37056"/>
+		<rgb16 r="30876" g="19727" b= "8578"/>
+		<rgb16 r=    "0" g=    "0" b=    "0"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<row><range start="0" end="4"/></row>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start="0" end="2"/></row>
+					<row><range start="2" end="4"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column><range start="0" end="4"/></column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
