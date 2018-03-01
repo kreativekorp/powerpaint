@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Default"
+         hwidth="265" hheight= "73"
+         swidth="151" sheight="145"
+         vwidth= "73" vheight="265">
+	<colors ordered="unordered">
+		<rgb r="255" g=  "0" b=  "0" name="Red"         />
+		<rgb r="255" g=  "0" b="255" name="Magenta"     />
+		<rgb r=  "0" g=  "0" b="255" name="Blue"        />
+		<rgb r=  "0" g="255" b="255" name="Cyan"        />
+		<rgb r=  "0" g="255" b=  "0" name="Green"       />
+		<rgb r="255" g="255" b=  "0" name="Yellow"      />
+		<rgb r="127" g=  "0" b=  "0" name="Dark Red"    />
+		<rgb r="127" g=  "0" b="127" name="Dark Magenta"/>
+		<rgb r=  "0" g=  "0" b="127" name="Dark Blue"   />
+		<rgb r=  "0" g="127" b="127" name="Dark Cyan"   />
+		<rgb r=  "0" g="127" b=  "0" name="Dark Green"  />
+		<rgb r="130" g="127" b=  "0" name="Dark Yellow" />
+		<rgb r=  "0" g=  "0" b=  "0" name="Black"       />
+		<rgb r= "25" g= "25" b= "25" name="Gray 10%"    />
+		<rgb r= "51" g= "51" b= "51" name="Gray 20%"    />
+		<rgb r= "76" g= "76" b= "76" name="Gray 30%"    />
+		<rgb r="102" g="102" b="102" name="Gray 40%"    />
+		<rgb r="127" g="127" b="127" name="Gray 50%"    />
+		<rgb r="153" g="153" b="153" name="Gray 60%"    />
+		<rgb r="178" g="178" b="178" name="Gray 70%"    />
+		<rgb r="204" g="204" b="204" name="Gray 80%"    />
+		<rgb r="229" g="229" b="229" name="Gray 90%"    />
+		<rgb r="255" g="255" b="255" name="White"       />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end= "6"/></row>
+					<row><range start= "6" end="12"/></row>
+					<row><range start="12" end="23"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "6"/></row>
+					<row><range start= "6" end="12"/></row>
+					<row><range start="12" end="18"/></row>
+					<row><range start="18" end="23"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end= "6"/></column>
+					<column><range start= "6" end="12"/></column>
+					<column><range start="12" end="23"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Warm Colors"
+         hwidth="288" hheight= "73"
+         swidth="145" sheight="145"
+         vwidth= "73" vheight="288">
+	<colors ordered="unordered">
+		<rgb r="196" g=  "9" b= "9"/>
+		<rgb r="216" g="213" b= "8"/>
+		<rgb r="237" g="110" b= "0"/>
+		<rgb r="232" g=  "0" b="50"/>
+		<rgb r="140" g= "11" b="11"/>
+		<rgb r="228" g="170" b= "4"/>
+		<rgb r="117" g=  "0" b= "0"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<row><range start="0" end="7"/></row>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start="0" end="2"/></row>
+					<row><range start="2" end="5"/></row>
+					<row><range start="5" end="7"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column><range start="0" end="7"/></column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

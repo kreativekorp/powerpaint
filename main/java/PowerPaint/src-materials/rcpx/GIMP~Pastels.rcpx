@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Pastels">
+	<colors ordered="unordered">
+		<rgb r="226" g="145" b="145"/>
+		<rgb r="153" g="221" b="146"/>
+		<rgb r="147" g="216" b="185"/>
+		<rgb r="148" g="196" b="211"/>
+		<rgb r="148" g="154" b="206"/>
+		<rgb r="179" g="148" b="204"/>
+		<rgb r="204" g="150" b="177"/>
+		<rgb r="204" g="164" b="153"/>
+		<rgb r="223" g="229" b="146"/>
+		<rgb r="255" g="165" b= "96"/>
+		<rgb r="107" g="255" b= "99"/>
+		<rgb r="101" g="255" b="204"/>
+		<rgb r="101" g="196" b="255"/>
+		<rgb r="101" g="107" b="255"/>
+		<rgb r="173" g="101" b="255"/>
+		<rgb r="255" g="101" b="244"/>
+		<rgb r="255" g="101" b="132"/>
+		<rgb r="255" g="101" b="101"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end= "6"/></row>
+					<row><range start= "6" end="12"/></row>
+					<row><range start="12" end="18"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "3"/></row>
+					<row><range start= "3" end= "6"/></row>
+					<row><range start= "6" end= "9"/></row>
+					<row><range start= "9" end="12"/></row>
+					<row><range start="12" end="15"/></row>
+					<row><range start="15" end="18"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end= "6"/></column>
+					<column><range start= "6" end="12"/></column>
+					<column><range start="12" end="18"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

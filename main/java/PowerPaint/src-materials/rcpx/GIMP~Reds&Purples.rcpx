@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Reds &amp; Purples"
+         hwidth="281" hheight= "73"
+         swidth="141" sheight="145"
+         vwidth= "73" vheight="281">
+	<colors ordered="unordered">
+		<rgb r="205" g= "92" b= "92" name="Indian Red"       />
+		<rgb r="178" g= "34" b= "34" name="Firebrick"        />
+		<rgb r="165" g= "42" b= "42" name="Brown Red"        />
+		<rgb r="233" g="150" b="122" name="Dark Salmon"      />
+		<rgb r="250" g="128" b="114" name="Salmon"           />
+		<rgb r="255" g="160" b="122" name="Light Salmon"     />
+		<rgb r="255" g="127" b= "80" name="Coral"            />
+		<rgb r="240" g="128" b="128" name="Light Coral"      />
+		<rgb r="255" g= "99" b= "71" name="Tomato"           />
+		<rgb r="255" g= "69" b=  "0" name="Orange Red"       />
+		<rgb r="255" g=  "0" b=  "0" name="Red"              />
+		<rgb r="255" g="105" b="180" name="Hot Pink"         />
+		<rgb r="255" g= "20" b="147" name="Deep Pink"        />
+		<rgb r="255" g="192" b="203" name="Pink"             />
+		<rgb r="255" g="182" b="193" name="Light Pink"       />
+		<rgb r="219" g="112" b="147" name="Pale Violet Red"  />
+		<rgb r="176" g= "48" b= "96" name="Maroon"           />
+		<rgb r="199" g= "21" b="133" name="Medium Violet Red"/>
+		<rgb r="208" g= "32" b="144" name="Violet Red"       />
+		<rgb r="255" g=  "0" b="255" name="Magenta"          />
+		<rgb r="238" g="130" b="238" name="Violet"           />
+		<rgb r="221" g="160" b="221" name="Plum"             />
+		<rgb r="218" g="112" b="214" name="Orchid"           />
+		<rgb r="186" g= "85" b="211" name="Medium Orchid"    />
+		<rgb r="153" g= "50" b="204" name="Dark Orchid"      />
+		<rgb r="148" g=  "0" b="211" name="Dark Violet"      />
+		<rgb r="138" g= "43" b="226" name="Blue Violet"      />
+		<rgb r="160" g= "32" b="240" name="Purple"           />
+		<rgb r="147" g="112" b="219" name="Medium Purple"    />
+		<rgb r="216" g="191" b="216" name="Thistle"          />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="10"/></row>
+					<row><range start="10" end="20"/></row>
+					<row><range start="20" end="30"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "5"/></row>
+					<row><range start= "5" end="10"/></row>
+					<row><range start="10" end="15"/></row>
+					<row><range start="15" end="20"/></row>
+					<row><range start="20" end="25"/></row>
+					<row><range start="25" end="30"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="10"/></column>
+					<column><range start="10" end="20"/></column>
+					<column><range start="20" end="30"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Browns &amp; Yellows"
+         hwidth="287" hheight= "73"
+         swidth="151" sheight="145"
+         vwidth= "73" vheight="287">
+	<colors ordered="unordered">
+		<rgb r="189" g="183" b="107" name="Dark Khaki"            />
+		<rgb r="240" g="230" b="140" name="Khaki"                 />
+		<rgb r="238" g="232" b="170" name="Pale Goldenrod"        />
+		<rgb r="250" g="250" b="210" name="Light Goldenrod Yellow"/>
+		<rgb r="255" g="255" b="224" name="Light Yellow"          />
+		<rgb r="255" g="255" b=  "0" name="Yellow"                />
+		<rgb r="255" g="215" b=  "0" name="Gold"                  />
+		<rgb r="238" g="221" b="130" name="Light Goldenrod"       />
+		<rgb r="218" g="165" b= "32" name="Goldenrod"             />
+		<rgb r="184" g="134" b= "11" name="Dark Goldenrod"        />
+		<rgb r="188" g="143" b="143" name="Rosy Brown"            />
+		<rgb r="139" g= "69" b= "19" name="Saddle Brown"          />
+		<rgb r="160" g= "82" b= "45" name="Sienna"                />
+		<rgb r="205" g="133" b= "63" name="Peru"                  />
+		<rgb r="222" g="184" b="135" name="Burlywood"             />
+		<rgb r="245" g="245" b="220" name="Beige"                 />
+		<rgb r="245" g="222" b="179" name="Wheat"                 />
+		<rgb r="244" g="164" b= "96" name="Sandy Brown"           />
+		<rgb r="210" g="180" b="140" name="Tan"                   />
+		<rgb r="210" g="105" b= "30" name="Chocolate"             />
+		<rgb r="255" g="165" b=  "0" name="Orange"                />
+		<rgb r="255" g="140" b=  "0" name="Dark Orange"           />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="11"/></row>
+					<row><range start="11" end="22"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "5"/></row>
+					<row><range start= "5" end="10"/></row>
+					<row><range start="10" end="16"/></row>
+					<row><range start="16" end="22"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="11"/></column>
+					<column><range start="11" end="22"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

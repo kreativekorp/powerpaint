@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Named Colors"
+         hwidth="385" hheight="113"
+         swidth="193" sheight="225"
+         vwidth="113" vheight="385">
+	<colors ordered="unordered">
+		<rgb r="255" g="250" b="250" name="snow (255 250 250)"                  />
+		<rgb r="248" g="248" b="255" name="ghost white (248 248 255)"           />
+		<rgb r="245" g="245" b="245" name="white smoke (245 245 245)"           />
+		<rgb r="220" g="220" b="220" name="gainsboro (220 220 220)"             />
+		<rgb r="255" g="250" b="240" name="floral white (255 250 240)"          />
+		<rgb r="253" g="245" b="230" name="old lace (253 245 230)"              />
+		<rgb r="250" g="240" b="230" name="linen (250 240 230)"                 />
+		<rgb r="250" g="235" b="215" name="antique white (250 235 215)"         />
+		<rgb r="255" g="239" b="213" name="papaya whip (255 239 213)"           />
+		<rgb r="255" g="235" b="205" name="blanched almond (255 235 205)"       />
+		<rgb r="255" g="228" b="196" name="bisque (255 228 196)"                />
+		<rgb r="255" g="218" b="185" name="peach puff (255 218 185)"            />
+		<rgb r="255" g="222" b="173" name="navajo white (255 222 173)"          />
+		<rgb r="255" g="228" b="181" name="moccasin (255 228 181)"              />
+		<rgb r="255" g="248" b="220" name="cornsilk (255 248 220)"              />
+		<rgb r="255" g="255" b="240" name="ivory (255 255 240)"                 />
+		<rgb r="255" g="250" b="205" name="lemon chiffon (255 250 205)"         />
+		<rgb r="255" g="245" b="238" name="seashell (255 245 238)"              />
+		<rgb r="240" g="255" b="240" name="honeydew (240 255 240)"              />
+		<rgb r="245" g="255" b="250" name="mint cream (245 255 250)"            />
+		<rgb r="240" g="255" b="255" name="azure (240 255 255)"                 />
+		<rgb r="240" g="248" b="255" name="alice blue (240 248 255)"            />
+		<rgb r="230" g="230" b="250" name="lavender (230 230 250)"              />
+		<rgb r="255" g="240" b="245" name="lavender blush (255 240 245)"        />
+		<rgb r="255" g="228" b="225" name="misty rose (255 228 225)"            />
+		<rgb r="255" g="255" b="255" name="white (255 255 255)"                 />
+		<rgb r=  "0" g=  "0" b=  "0" name="black (  0   0   0)"                 />
+		<rgb r= "47" g= "79" b= "79" name="dark slate gray ( 47  79  79)"       />
+		<rgb r="105" g="105" b="105" name="dim gray (105 105 105)"              />
+		<rgb r="112" g="128" b="144" name="slate gray (112 128 144)"            />
+		<rgb r="119" g="136" b="153" name="light slate gray (119 136 153)"      />
+		<rgb r="190" g="190" b="190" name="gray (190 190 190)"                  />
+		<rgb r="211" g="211" b="211" name="light gray (211 211 211)"            />
+		<rgb r= "25" g= "25" b="112" name="midnight blue ( 25  25 112)"         />
+		<rgb r=  "0" g=  "0" b="128" name="navy blue (  0   0 128)"             />
+		<rgb r="100" g="149" b="237" name="cornflower blue (100 149 237)"       />
+		<rgb r= "72" g= "61" b="139" name="dark slate blue ( 72  61 139)"       />
+		<rgb r="106" g= "90" b="205" name="slate blue (106  90 205)"            />
+		<rgb r="123" g="104" b="238" name="medium slate blue (123 104 238)"     />
+		<rgb r="132" g="112" b="255" name="light slate blue (132 112 255)"      />
+		<rgb r=  "0" g=  "0" b="205" name="medium blue (  0   0 205)"           />
+		<rgb r= "65" g="105" b="225" name="royal blue ( 65 105 225)"            />
+		<rgb r=  "0" g=  "0" b="255" name="blue (  0   0 255)"                  />
+		<rgb r= "30" g="144" b="255" name="dodger blue ( 30 144 255)"           />
+		<rgb r=  "0" g="191" b="255" name="deep sky blue (  0 191 255)"         />
+		<rgb r="135" g="206" b="235" name="sky blue (135 206 235)"              />
+		<rgb r="135" g="206" b="250" name="light sky blue (135 206 250)"        />
+		<rgb r= "70" g="130" b="180" name="steel blue ( 70 130 180)"            />
+		<rgb r="176" g="196" b="222" name="light steel blue (176 196 222)"      />
+		<rgb r="173" g="216" b="230" name="light blue (173 216 230)"            />
+		<rgb r="176" g="224" b="230" name="powder blue (176 224 230)"           />
+		<rgb r="175" g="238" b="238" name="pale turquoise (175 238 238)"        />
+		<rgb r=  "0" g="206" b="209" name="dark turquoise (  0 206 209)"        />
+		<rgb r= "72" g="209" b="204" name="medium turquoise ( 72 209 204)"      />
+		<rgb r= "64" g="224" b="208" name="turquoise ( 64 224 208)"             />
+		<rgb r=  "0" g="255" b="255" name="cyan (  0 255 255)"                  />
+		<rgb r="224" g="255" b="255" name="light cyan (224 255 255)"            />
+		<rgb r= "95" g="158" b="160" name="cadet blue ( 95 158 160)"            />
+		<rgb r="102" g="205" b="170" name="medium aquamarine (102 205 170)"     />
+		<rgb r="127" g="255" b="212" name="aquamarine (127 255 212)"            />
+		<rgb r=  "0" g="100" b=  "0" name="dark green (  0 100   0)"            />
+		<rgb r= "85" g="107" b= "47" name="dark olive green ( 85 107  47)"      />
+		<rgb r="143" g="188" b="143" name="dark sea green (143 188 143)"        />
+		<rgb r= "46" g="139" b= "87" name="sea green ( 46 139  87)"             />
+		<rgb r= "60" g="179" b="113" name="medium sea green ( 60 179 113)"      />
+		<rgb r= "32" g="178" b="170" name="light sea green ( 32 178 170)"       />
+		<rgb r="152" g="251" b="152" name="pale green (152 251 152)"            />
+		<rgb r=  "0" g="255" b="127" name="spring green (  0 255 127)"          />
+		<rgb r="124" g="252" b=  "0" name="lawn green (124 252   0)"            />
+		<rgb r=  "0" g="255" b=  "0" name="green (  0 255   0)"                 />
+		<rgb r="127" g="255" b=  "0" name="chartreuse (127 255   0)"            />
+		<rgb r=  "0" g="250" b="154" name="medium spring green (  0 250 154)"   />
+		<rgb r="173" g="255" b= "47" name="green yellow (173 255  47)"          />
+		<rgb r= "50" g="205" b= "50" name="lime green ( 50 205  50)"            />
+		<rgb r="154" g="205" b= "50" name="yellow green (154 205  50)"          />
+		<rgb r= "34" g="139" b= "34" name="forest green ( 34 139  34)"          />
+		<rgb r="107" g="142" b= "35" name="olive drab (107 142  35)"            />
+		<rgb r="189" g="183" b="107" name="dark khaki (189 183 107)"            />
+		<rgb r="240" g="230" b="140" name="khaki (240 230 140)"                 />
+		<rgb r="238" g="232" b="170" name="pale goldenrod (238 232 170)"        />
+		<rgb r="250" g="250" b="210" name="light goldenrod yellow (250 250 210)"/>
+		<rgb r="255" g="255" b="224" name="light yellow (255 255 224)"          />
+		<rgb r="255" g="255" b=  "0" name="yellow (255 255   0)"                />
+		<rgb r="255" g="215" b=  "0" name="gold (255 215   0 )"                 />
+		<rgb r="238" g="221" b="130" name="light goldenrod (238 221 130)"       />
+		<rgb r="218" g="165" b= "32" name="goldenrod (218 165  32)"             />
+		<rgb r="184" g="134" b= "11" name="dark goldenrod (184 134  11)"        />
+		<rgb r="188" g="143" b="143" name="rosy brown (188 143 143)"            />
+		<rgb r="205" g= "92" b= "92" name="indian red (205  92  92)"            />
+		<rgb r="139" g= "69" b= "19" name="saddle brown (139  69  19)"          />
+		<rgb r="160" g= "82" b= "45" name="sienna (160  82  45)"                />
+		<rgb r="205" g="133" b= "63" name="peru (205 133  63)"                  />
+		<rgb r="222" g="184" b="135" name="burlywood (222 184 135)"             />
+		<rgb r="245" g="245" b="220" name="beige (245 245 220)"                 />
+		<rgb r="245" g="222" b="179" name="wheat (245 222 179)"                 />
+		<rgb r="244" g="164" b= "96" name="sandy brown (244 164  96)"           />
+		<rgb r="210" g="180" b="140" name="tan (210 180 140)"                   />
+		<rgb r="210" g="105" b= "30" name="chocolate (210 105  30)"             />
+		<rgb r="178" g= "34" b= "34" name="firebrick (178  34  34)"             />
+		<rgb r="165" g= "42" b= "42" name="brown (165  42  42)"                 />
+		<rgb r="233" g="150" b="122" name="dark salmon (233 150 122)"           />
+		<rgb r="250" g="128" b="114" name="salmon (250 128 114)"                />
+		<rgb r="255" g="160" b="122" name="light salmon (255 160 122)"          />
+		<rgb r="255" g="165" b=  "0" name="orange (255 165   0)"                />
+		<rgb r="255" g="140" b=  "0" name="dark orange (255 140   0)"           />
+		<rgb r="255" g="127" b= "80" name="coral (255 127  80)"                 />
+		<rgb r="240" g="128" b="128" name="light coral (240 128 128)"           />
+		<rgb r="255" g= "99" b= "71" name="tomato (255  99  71)"                />
+		<rgb r="255" g= "69" b=  "0" name="orange red (255  69   0)"            />
+		<rgb r="255" g=  "0" b=  "0" name="red (255   0   0)"                   />
+		<rgb r="255" g="105" b="180" name="hot pink (255 105 180)"              />
+		<rgb r="255" g= "20" b="147" name="deep pink (255  20 147)"             />
+		<rgb r="255" g="192" b="203" name="pink (255 192 203)"                  />
+		<rgb r="255" g="182" b="193" name="light pink (255 182 193)"            />
+		<rgb r="219" g="112" b="147" name="pale violet red (219 112 147)"       />
+		<rgb r="176" g= "48" b= "96" name="maroon (176  48  96)"                />
+		<rgb r="199" g= "21" b="133" name="medium violet red (199  21 133)"     />
+		<rgb r="208" g= "32" b="144" name="violet red (208  32 144)"            />
+		<rgb r="255" g=  "0" b="255" name="magenta (255   0 255)"               />
+		<rgb r="238" g="130" b="238" name="violet (238 130 238)"                />
+		<rgb r="221" g="160" b="221" name="plum (221 160 221)"                  />
+		<rgb r="218" g="112" b="214" name="orchid (218 112 214)"                />
+		<rgb r="186" g= "85" b="211" name="medium orchid (186  85 211)"         />
+		<rgb r="153" g= "50" b="204" name="dark orchid (153  50 204)"           />
+		<rgb r="148" g=  "0" b="211" name="dark violet (148   0 211)"           />
+		<rgb r="138" g= "43" b="226" name="blue violet (138  43 226)"           />
+		<rgb r="160" g= "32" b="240" name="purple (160  32 240)"                />
+		<rgb r="147" g="112" b="219" name="medium purple (147 112 219)"         />
+		<rgb r="216" g="191" b="216" name="thistle (216 191 216)"               />
+		<rgb r="255" g="250" b="250" name="snow 1 (255 250 250)"                />
+		<rgb r="238" g="233" b="233" name="snow 2 (238 233 233)"                />
+		<rgb r="205" g="201" b="201" name="snow 3 (205 201 201)"                />
+		<rgb r="139" g="137" b="137" name="snow 4 (139 137 137)"                />
+		<rgb r="255" g="245" b="238" name="seashell 1 (255 245 238)"            />
+		<rgb r="238" g="229" b="222" name="seashell 2 (238 229 222)"            />
+		<rgb r="205" g="197" b="191" name="seashell 3 (205 197 191)"            />
+		<rgb r="139" g="134" b="130" name="seashell 4 (139 134 130)"            />
+		<rgb r="255" g="239" b="219" name="antique white 1 (255 239 219)"       />
+		<rgb r="238" g="223" b="204" name="antique white 2 (238 223 204)"       />
+		<rgb r="205" g="192" b="176" name="antique white 3 (205 192 176)"       />
+		<rgb r="139" g="131" b="120" name="antique white 4 (139 131 120)"       />
+		<rgb r="255" g="228" b="196" name="bisque 1 (255 228 196)"              />
+		<rgb r="238" g="213" b="183" name="bisque 2 (238 213 183)"              />
+		<rgb r="205" g="183" b="158" name="bisque 3 (205 183 158)"              />
+		<rgb r="139" g="125" b="107" name="bisque 4 (139 125 107)"              />
+		<rgb r="255" g="218" b="185" name="peach puff 1 (255 218 185)"          />
+		<rgb r="238" g="203" b="173" name="peach puff 2 (238 203 173)"          />
+		<rgb r="205" g="175" b="149" name="peach puff 3 (205 175 149)"          />
+		<rgb r="139" g="119" b="101" name="peach puff 4 (139 119 101)"          />
+		<rgb r="255" g="222" b="173" name="navajo white 1 (255 222 173)"        />
+		<rgb r="238" g="207" b="161" name="navajo white 2 (238 207 161)"        />
+		<rgb r="205" g="179" b="139" name="navajo white 3 (205 179 139)"        />
+		<rgb r="139" g="121" b= "94" name="navajo white 4 (139 121  94)"        />
+		<rgb r="255" g="250" b="205" name="lemon chiffon 1 (255 250 205)"       />
+		<rgb r="238" g="233" b="191" name="lemon chiffon 2 (238 233 191)"       />
+		<rgb r="205" g="201" b="165" name="lemon chiffon 3 (205 201 165)"       />
+		<rgb r="139" g="137" b="112" name="lemon chiffon 4 (139 137 112)"       />
+		<rgb r="255" g="248" b="220" name="cornsilk 1 (255 248 220)"            />
+		<rgb r="238" g="232" b="205" name="cornsilk 2 (238 232 205)"            />
+		<rgb r="205" g="200" b="177" name="cornsilk 3 (205 200 177)"            />
+		<rgb r="139" g="136" b="120" name="cornsilk 4 (139 136 120)"            />
+		<rgb r="255" g="255" b="240" name="ivory 1 (255 255 240)"               />
+		<rgb r="238" g="238" b="224" name="ivory 2 (238 238 224)"               />
+		<rgb r="205" g="205" b="193" name="ivory 3 (205 205 193)"               />
+		<rgb r="139" g="139" b="131" name="ivory 4 (139 139 131)"               />
+		<rgb r="240" g="255" b="240" name="honeydew 1 (240 255 240)"            />
+		<rgb r="224" g="238" b="224" name="honeydew 2 (224 238 224)"            />
+		<rgb r="193" g="205" b="193" name="honeydew 3 (193 205 193)"            />
+		<rgb r="131" g="139" b="131" name="honeydew 4 (131 139 131)"            />
+		<rgb r="255" g="240" b="245" name="lavender blush 1 (255 240 245)"      />
+		<rgb r="238" g="224" b="229" name="lavender blush 2 (238 224 229)"      />
+		<rgb r="205" g="193" b="197" name="lavender blush 3 (205 193 197)"      />
+		<rgb r="139" g="131" b="134" name="lavender blush 4 (139 131 134)"      />
+		<rgb r="255" g="228" b="225" name="misty rose 1 (255 228 225)"          />
+		<rgb r="238" g="213" b="210" name="misty rose 2 (238 213 210)"          />
+		<rgb r="205" g="183" b="181" name="misty rose 3 (205 183 181)"          />
+		<rgb r="139" g="125" b="123" name="misty rose 4 (139 125 123)"          />
+		<rgb r="240" g="255" b="255" name="azure 1 (240 255 255)"               />
+		<rgb r="224" g="238" b="238" name="azure 2 (224 238 238)"               />
+		<rgb r="193" g="205" b="205" name="azure 3 (193 205 205)"               />
+		<rgb r="131" g="139" b="139" name="azure 4 (131 139 139)"               />
+		<rgb r="131" g="111" b="255" name="slate blue 1 (131 111 255)"          />
+		<rgb r="122" g="103" b="238" name="slate blue 2 (122 103 238)"          />
+		<rgb r="105" g= "89" b="205" name="slate blue 3 (105  89 205)"          />
+		<rgb r= "71" g= "60" b="139" name="slate blue 4 ( 71  60 139)"          />
+		<rgb r= "72" g="118" b="255" name="royal blue 1 ( 72 118 255)"          />
+		<rgb r= "67" g="110" b="238" name="royal blue 2 ( 67 110 238)"          />
+		<rgb r= "58" g= "95" b="205" name="royal blue 3 ( 58  95 205)"          />
+		<rgb r= "39" g= "64" b="139" name="royal blue 4 ( 39  64 139)"          />
+		<rgb r=  "0" g=  "0" b="255" name="blue 1 (  0   0 255)"                />
+		<rgb r=  "0" g=  "0" b="238" name="blue 2 (  0   0 238)"                />
+		<rgb r=  "0" g=  "0" b="205" name="blue 3 (  0   0 205)"                />
+		<rgb r=  "0" g=  "0" b="139" name="blue 4 (  0   0 139)"                />
+		<rgb r= "30" g="144" b="255" name="dodger blue 1 ( 30 144 255)"         />
+		<rgb r= "28" g="134" b="238" name="dodger blue 2 ( 28 134 238)"         />
+		<rgb r= "24" g="116" b="205" name="dodger blue 3 ( 24 116 205)"         />
+		<rgb r= "16" g= "78" b="139" name="dodger blue 4 ( 16  78 139)"         />
+		<rgb r= "99" g="184" b="255" name="steel blue 1 ( 99 184 255)"          />
+		<rgb r= "92" g="172" b="238" name="steel blue 2 ( 92 172 238)"          />
+		<rgb r= "79" g="148" b="205" name="steel blue 3 ( 79 148 205)"          />
+		<rgb r= "54" g="100" b="139" name="steel blue 4 ( 54 100 139)"          />
+		<rgb r=  "0" g="191" b="255" name="deep sky blue 1 (  0 191 255)"       />
+		<rgb r=  "0" g="178" b="238" name="deep sky blue 2 (  0 178 238)"       />
+		<rgb r=  "0" g="154" b="205" name="deep sky blue 3 (  0 154 205)"       />
+		<rgb r=  "0" g="104" b="139" name="deep sky blue 4 (  0 104 139)"       />
+		<rgb r="135" g="206" b="255" name="sky blue 1 (135 206 255)"            />
+		<rgb r="126" g="192" b="238" name="sky blue 2 (126 192 238)"            />
+		<rgb r="108" g="166" b="205" name="sky blue 3 (108 166 205)"            />
+		<rgb r= "74" g="112" b="139" name="sky blue 4 ( 74 112 139)"            />
+		<rgb r="176" g="226" b="255" name="light sky blue 1 (176 226 255)"      />
+		<rgb r="164" g="211" b="238" name="light sky blue 2 (164 211 238)"      />
+		<rgb r="141" g="182" b="205" name="light sky blue 3 (141 182 205)"      />
+		<rgb r= "96" g="123" b="139" name="light sky blue 4 ( 96 123 139)"      />
+		<rgb r="198" g="226" b="255" name="slate gray 1 (198 226 255)"          />
+		<rgb r="185" g="211" b="238" name="slate gray 2 (185 211 238)"          />
+		<rgb r="159" g="182" b="205" name="slate gray 3 (159 182 205)"          />
+		<rgb r="108" g="123" b="139" name="slate gray 4 (108 123 139)"          />
+		<rgb r="202" g="225" b="255" name="light steel blue 1 (202 225 255)"    />
+		<rgb r="188" g="210" b="238" name="light steel blue 2 (188 210 238)"    />
+		<rgb r="162" g="181" b="205" name="light steel blue 3 (162 181 205)"    />
+		<rgb r="110" g="123" b="139" name="light steel blue 4 (110 123 139)"    />
+		<rgb r="191" g="239" b="255" name="light blue 1 (191 239 255)"          />
+		<rgb r="178" g="223" b="238" name="light blue 2 (178 223 238)"          />
+		<rgb r="154" g="192" b="205" name="light blue 3 (154 192 205)"          />
+		<rgb r="104" g="131" b="139" name="light blue 4 (104 131 139)"          />
+		<rgb r="224" g="255" b="255" name="light cyan 1 (224 255 255)"          />
+		<rgb r="209" g="238" b="238" name="light cyan 2 (209 238 238)"          />
+		<rgb r="180" g="205" b="205" name="light cyan 3 (180 205 205)"          />
+		<rgb r="122" g="139" b="139" name="light cyan 4 (122 139 139)"          />
+		<rgb r="187" g="255" b="255" name="pale turquoise 1 (187 255 255)"      />
+		<rgb r="174" g="238" b="238" name="pale turquoise 2 (174 238 238)"      />
+		<rgb r="150" g="205" b="205" name="pale turquoise 3 (150 205 205)"      />
+		<rgb r="102" g="139" b="139" name="pale turquoise 4 (102 139 139)"      />
+		<rgb r="152" g="245" b="255" name="cadet blue 1 (152 245 255)"          />
+		<rgb r="142" g="229" b="238" name="cadet blue 2 (142 229 238)"          />
+		<rgb r="122" g="197" b="205" name="cadet blue 3 (122 197 205)"          />
+		<rgb r= "83" g="134" b="139" name="cadet blue 4 ( 83 134 139)"          />
+		<rgb r=  "0" g="245" b="255" name="turquoise 1 (  0 245 255)"           />
+		<rgb r=  "0" g="229" b="238" name="turquoise 2 (  0 229 238)"           />
+		<rgb r=  "0" g="197" b="205" name="turquoise 3 (  0 197 205)"           />
+		<rgb r=  "0" g="134" b="139" name="turquoise 4 (  0 134 139)"           />
+		<rgb r=  "0" g="255" b="255" name="cyan 1 (  0 255 255)"                />
+		<rgb r=  "0" g="238" b="238" name="cyan 2 (  0 238 238)"                />
+		<rgb r=  "0" g="205" b="205" name="cyan 3 (  0 205 205)"                />
+		<rgb r=  "0" g="139" b="139" name="cyan 4 (  0 139 139)"                />
+		<rgb r="151" g="255" b="255" name="dark slate gray 1 (151 255 255)"     />
+		<rgb r="141" g="238" b="238" name="dark slate gray 2 (141 238 238)"     />
+		<rgb r="121" g="205" b="205" name="dark slate gray 3 (121 205 205)"     />
+		<rgb r= "82" g="139" b="139" name="dark slate gray 4 ( 82 139 139)"     />
+		<rgb r="127" g="255" b="212" name="aquamarine 1 (127 255 212)"          />
+		<rgb r="118" g="238" b="198" name="aquamarine 2 (118 238 198)"          />
+		<rgb r="102" g="205" b="170" name="aquamarine 3 (102 205 170)"          />
+		<rgb r= "69" g="139" b="116" name="aquamarine 4 ( 69 139 116)"          />
+		<rgb r="193" g="255" b="193" name="dark sea green 1 (193 255 193)"      />
+		<rgb r="180" g="238" b="180" name="dark sea green 2 (180 238 180)"      />
+		<rgb r="155" g="205" b="155" name="dark sea green 3 (155 205 155)"      />
+		<rgb r="105" g="139" b="105" name="dark sea green 4 (105 139 105)"      />
+		<rgb r= "84" g="255" b="159" name="sea green 1 ( 84 255 159)"           />
+		<rgb r= "78" g="238" b="148" name="sea green 2 ( 78 238 148)"           />
+		<rgb r= "67" g="205" b="128" name="sea green 3 ( 67 205 128)"           />
+		<rgb r= "46" g="139" b= "87" name="sea green 4 ( 46 139  87)"           />
+		<rgb r="154" g="255" b="154" name="pale green 1 (154 255 154)"          />
+		<rgb r="144" g="238" b="144" name="pale green 2 (144 238 144)"          />
+		<rgb r="124" g="205" b="124" name="pale green 3 (124 205 124)"          />
+		<rgb r= "84" g="139" b= "84" name="pale green 4 ( 84 139  84)"          />
+		<rgb r=  "0" g="255" b="127" name="spring green 1 (  0 255 127)"        />
+		<rgb r=  "0" g="238" b="118" name="spring green 2 (  0 238 118)"        />
+		<rgb r=  "0" g="205" b="102" name="spring green 3 (  0 205 102)"        />
+		<rgb r=  "0" g="139" b= "69" name="spring green 4 (  0 139  69)"        />
+		<rgb r=  "0" g="255" b=  "0" name="green 1 (  0 255   0)"               />
+		<rgb r=  "0" g="238" b=  "0" name="green 2 (  0 238   0)"               />
+		<rgb r=  "0" g="205" b=  "0" name="green 3 (  0 205   0)"               />
+		<rgb r=  "0" g="139" b=  "0" name="green 4 (  0 139   0)"               />
+		<rgb r="127" g="255" b=  "0" name="chartreuse 1 (127 255   0)"          />
+		<rgb r="118" g="238" b=  "0" name="chartreuse 2 (118 238   0)"          />
+		<rgb r="102" g="205" b=  "0" name="chartreuse 3 (102 205   0)"          />
+		<rgb r= "69" g="139" b=  "0" name="chartreuse 4 ( 69 139   0)"          />
+		<rgb r="192" g="255" b= "62" name="olive drab 1 (192 255  62)"          />
+		<rgb r="179" g="238" b= "58" name="olive drab 2 (179 238  58)"          />
+		<rgb r="154" g="205" b= "50" name="olive drab 3 (154 205  50)"          />
+		<rgb r="105" g="139" b= "34" name="olive drab 4 (105 139  34)"          />
+		<rgb r="202" g="255" b="112" name="dark olive green 1 (202 255 112)"    />
+		<rgb r="188" g="238" b="104" name="dark olive green 2 (188 238 104)"    />
+		<rgb r="162" g="205" b= "90" name="dark olive green 3 (162 205  90)"    />
+		<rgb r="110" g="139" b= "61" name="dark olive green 4 (110 139  61)"    />
+		<rgb r="255" g="246" b="143" name="khaki 1 (255 246 143)"               />
+		<rgb r="238" g="230" b="133" name="khaki 2 (238 230 133)"               />
+		<rgb r="205" g="198" b="115" name="khaki 3 (205 198 115)"               />
+		<rgb r="139" g="134" b= "78" name="khaki 4 (139 134  78)"               />
+		<rgb r="255" g="236" b="139" name="light goldenrod 1 (255 236 139)"     />
+		<rgb r="238" g="220" b="130" name="light goldenrod 2 (238 220 130)"     />
+		<rgb r="205" g="190" b="112" name="light goldenrod 3 (205 190 112)"     />
+		<rgb r="139" g="129" b= "76" name="light goldenrod 4 (139 129  76)"     />
+		<rgb r="255" g="255" b="224" name="light yellow 1 (255 255 224)"        />
+		<rgb r="238" g="238" b="209" name="light yellow 2 (238 238 209)"        />
+		<rgb r="205" g="205" b="180" name="light yellow 3 (205 205 180)"        />
+		<rgb r="139" g="139" b="122" name="light yellow 4 (139 139 122)"        />
+		<rgb r="255" g="255" b=  "0" name="yellow 1 (255 255   0)"              />
+		<rgb r="238" g="238" b=  "0" name="yellow 2 (238 238   0)"              />
+		<rgb r="205" g="205" b=  "0" name="yellow 3 (205 205   0)"              />
+		<rgb r="139" g="139" b=  "0" name="yellow 4 (139 139   0)"              />
+		<rgb r="255" g="215" b=  "0" name="gold 1 (255 215   0)"                />
+		<rgb r="238" g="201" b=  "0" name="gold 2 (238 201   0)"                />
+		<rgb r="205" g="173" b=  "0" name="gold 3 (205 173   0)"                />
+		<rgb r="139" g="117" b=  "0" name="gold 4 (139 117   0)"                />
+		<rgb r="255" g="193" b= "37" name="goldenrod 1 (255 193  37)"           />
+		<rgb r="238" g="180" b= "34" name="goldenrod 2 (238 180  34)"           />
+		<rgb r="205" g="155" b= "29" name="goldenrod 3 (205 155  29)"           />
+		<rgb r="139" g="105" b= "20" name="goldenrod 4 (139 105  20)"           />
+		<rgb r="255" g="185" b= "15" name="dark goldenrod 1 (255 185  15)"      />
+		<rgb r="238" g="173" b= "14" name="dark goldenrod 2 (238 173  14)"      />
+		<rgb r="205" g="149" b= "12" name="dark goldenrod 3 (205 149  12)"      />
+		<rgb r="139" g="101" b=  "8" name="dark goldenrod 4 (139 101   8)"      />
+		<rgb r="255" g="193" b="193" name="rosy brown 1 (255 193 193)"          />
+		<rgb r="238" g="180" b="180" name="rosy brown 2 (238 180 180)"          />
+		<rgb r="205" g="155" b="155" name="rosy brown 3 (205 155 155)"          />
+		<rgb r="139" g="105" b="105" name="rosy brown 4 (139 105 105)"          />
+		<rgb r="255" g="106" b="106" name="indian red 1 (255 106 106)"          />
+		<rgb r="238" g= "99" b= "99" name="indian red 2 (238  99  99)"          />
+		<rgb r="205" g= "85" b= "85" name="indian red 3 (205  85  85)"          />
+		<rgb r="139" g= "58" b= "58" name="indian red 4 (139  58  58)"          />
+		<rgb r="255" g="130" b= "71" name="sienna 1 (255 130  71)"              />
+		<rgb r="238" g="121" b= "66" name="sienna 2 (238 121  66)"              />
+		<rgb r="205" g="104" b= "57" name="sienna 3 (205 104  57)"              />
+		<rgb r="139" g= "71" b= "38" name="sienna 4 (139  71  38)"              />
+		<rgb r="255" g="211" b="155" name="burlywood 1 (255 211 155)"           />
+		<rgb r="238" g="197" b="145" name="burlywood 2 (238 197 145)"           />
+		<rgb r="205" g="170" b="125" name="burlywood 3 (205 170 125)"           />
+		<rgb r="139" g="115" b= "85" name="burlywood 4 (139 115  85)"           />
+		<rgb r="255" g="231" b="186" name="wheat 1 (255 231 186)"               />
+		<rgb r="238" g="216" b="174" name="wheat 2 (238 216 174)"               />
+		<rgb r="205" g="186" b="150" name="wheat 3 (205 186 150)"               />
+		<rgb r="139" g="126" b="102" name="wheat 4 (139 126 102)"               />
+		<rgb r="255" g="165" b= "79" name="tan 1 (255 165  79)"                 />
+		<rgb r="238" g="154" b= "73" name="tan 2 (238 154  73)"                 />
+		<rgb r="205" g="133" b= "63" name="tan 3 (205 133  63)"                 />
+		<rgb r="139" g= "90" b= "43" name="tan 4 (139  90  43)"                 />
+		<rgb r="255" g="127" b= "36" name="chocolate 1 (255 127  36)"           />
+		<rgb r="238" g="118" b= "33" name="chocolate 2 (238 118  33)"           />
+		<rgb r="205" g="102" b= "29" name="chocolate 3 (205 102  29)"           />
+		<rgb r="139" g= "69" b= "19" name="chocolate 4 (139  69  19)"           />
+		<rgb r="255" g= "48" b= "48" name="firebrick 1 (255  48  48)"           />
+		<rgb r="238" g= "44" b= "44" name="firebrick 2 (238  44  44)"           />
+		<rgb r="205" g= "38" b= "38" name="firebrick 3 (205  38  38)"           />
+		<rgb r="139" g= "26" b= "26" name="firebrick 4 (139  26  26)"           />
+		<rgb r="255" g= "64" b= "64" name="brown 1 (255  64  64)"               />
+		<rgb r="238" g= "59" b= "59" name="brown 2 (238  59  59)"               />
+		<rgb r="205" g= "51" b= "51" name="brown 3 (205  51  51)"               />
+		<rgb r="139" g= "35" b= "35" name="brown 4 (139  35  35)"               />
+		<rgb r="255" g="140" b="105" name="salmon 1 (255 140 105)"              />
+		<rgb r="238" g="130" b= "98" name="salmon 2 (238 130  98)"              />
+		<rgb r="205" g="112" b= "84" name="salmon 3 (205 112  84)"              />
+		<rgb r="139" g= "76" b= "57" name="salmon 4 (139  76  57)"              />
+		<rgb r="255" g="160" b="122" name="light salmon 1 (255 160 122)"        />
+		<rgb r="238" g="149" b="114" name="light salmon 2 (238 149 114)"        />
+		<rgb r="205" g="129" b= "98" name="light salmon 3 (205 129  98)"        />
+		<rgb r="139" g= "87" b= "66" name="light salmon 4 (139  87  66)"        />
+		<rgb r="255" g="165" b=  "0" name="orange 1 (255 165   0)"              />
+		<rgb r="238" g="154" b=  "0" name="orange 2 (238 154   0)"              />
+		<rgb r="205" g="133" b=  "0" name="orange 3 (205 133   0)"              />
+		<rgb r="139" g= "90" b=  "0" name="orange 4 (139  90   0)"              />
+		<rgb r="255" g="127" b=  "0" name="dark orange 1 (255 127   0)"         />
+		<rgb r="238" g="118" b=  "0" name="dark orange 2 (238 118   0)"         />
+		<rgb r="205" g="102" b=  "0" name="dark orange 3 (205 102   0)"         />
+		<rgb r="139" g= "69" b=  "0" name="dark orange 4 (139  69   0)"         />
+		<rgb r="255" g="114" b= "86" name="coral 1 (255 114  86)"               />
+		<rgb r="238" g="106" b= "80" name="coral 2 (238 106  80)"               />
+		<rgb r="205" g= "91" b= "69" name="coral 3 (205  91  69)"               />
+		<rgb r="139" g= "62" b= "47" name="coral 4 (139  62  47)"               />
+		<rgb r="255" g= "99" b= "71" name="tomato 1 (255  99  71)"              />
+		<rgb r="238" g= "92" b= "66" name="tomato 2 (238  92  66)"              />
+		<rgb r="205" g= "79" b= "57" name="tomato 3 (205  79  57)"              />
+		<rgb r="139" g= "54" b= "38" name="tomato 4 (139  54  38)"              />
+		<rgb r="255" g= "69" b=  "0" name="orange red 1 (255  69   0)"          />
+		<rgb r="238" g= "64" b=  "0" name="orange red 2 (238  64   0)"          />
+		<rgb r="205" g= "55" b=  "0" name="orange red 3 (205  55   0)"          />
+		<rgb r="139" g= "37" b=  "0" name="orange red 4 (139  37   0)"          />
+		<rgb r="255" g=  "0" b=  "0" name="red 1 (255   0   0)"                 />
+		<rgb r="238" g=  "0" b=  "0" name="red 2 (238   0   0)"                 />
+		<rgb r="205" g=  "0" b=  "0" name="red 3 (205   0   0)"                 />
+		<rgb r="139" g=  "0" b=  "0" name="red 4 (139   0   0)"                 />
+		<rgb r="255" g= "20" b="147" name="deep pink 1 (255  20 147)"           />
+		<rgb r="238" g= "18" b="137" name="deep pink 2 (238  18 137)"           />
+		<rgb r="205" g= "16" b="118" name="deep pink 3 (205  16 118)"           />
+		<rgb r="139" g= "10" b= "80" name="deep pink 4 (139  10  80)"           />
+		<rgb r="255" g="110" b="180" name="hot pink 1 (255 110 180)"            />
+		<rgb r="238" g="106" b="167" name="hot pink 2 (238 106 167)"            />
+		<rgb r="205" g= "96" b="144" name="hot pink 3 (205  96 144)"            />
+		<rgb r="139" g= "58" b= "98" name="hot pink 4 (139  58  98)"            />
+		<rgb r="255" g="181" b="197" name="pink 1 (255 181 197)"                />
+		<rgb r="238" g="169" b="184" name="pink 2 (238 169 184)"                />
+		<rgb r="205" g="145" b="158" name="pink 3 (205 145 158)"                />
+		<rgb r="139" g= "99" b="108" name="pink 4 (139  99 108)"                />
+		<rgb r="255" g="174" b="185" name="light pink 1 (255 174 185)"          />
+		<rgb r="238" g="162" b="173" name="light pink 2 (238 162 173)"          />
+		<rgb r="205" g="140" b="149" name="light pink 3 (205 140 149)"          />
+		<rgb r="139" g= "95" b="101" name="light pink 4 (139  95 101)"          />
+		<rgb r="255" g="130" b="171" name="pale violet red 1 (255 130 171)"     />
+		<rgb r="238" g="121" b="159" name="pale violet red 2 (238 121 159)"     />
+		<rgb r="205" g="104" b="137" name="pale violet red 3 (205 104 137)"     />
+		<rgb r="139" g= "71" b= "93" name="pale violet red 4 (139  71  93)"     />
+		<rgb r="255" g= "52" b="179" name="maroon 1 (255  52 179)"              />
+		<rgb r="238" g= "48" b="167" name="maroon 2 (238  48 167)"              />
+		<rgb r="205" g= "41" b="144" name="maroon 3 (205  41 144)"              />
+		<rgb r="139" g= "28" b= "98" name="maroon 4 (139  28  98)"              />
+		<rgb r="255" g= "62" b="150" name="violet red 1 (255  62 150)"          />
+		<rgb r="238" g= "58" b="140" name="violet red 2 (238  58 140)"          />
+		<rgb r="205" g= "50" b="120" name="violet red 3 (205  50 120)"          />
+		<rgb r="139" g= "34" b= "82" name="violet red 4 (139  34  82)"          />
+		<rgb r="255" g=  "0" b="255" name="magenta 1 (255   0 255)"             />
+		<rgb r="238" g=  "0" b="238" name="magenta 2 (238   0 238)"             />
+		<rgb r="205" g=  "0" b="205" name="magenta 3 (205   0 205)"             />
+		<rgb r="139" g=  "0" b="139" name="magenta 4 (139   0 139)"             />
+		<rgb r="255" g="131" b="250" name="orchid 1 (255 131 250)"              />
+		<rgb r="238" g="122" b="233" name="orchid 2 (238 122 233)"              />
+		<rgb r="205" g="105" b="201" name="orchid 3 (205 105 201)"              />
+		<rgb r="139" g= "71" b="137" name="orchid 4 (139  71 137)"              />
+		<rgb r="255" g="187" b="255" name="plum 1 (255 187 255)"                />
+		<rgb r="238" g="174" b="238" name="plum 2 (238 174 238)"                />
+		<rgb r="205" g="150" b="205" name="plum 3 (205 150 205)"                />
+		<rgb r="139" g="102" b="139" name="plum 4 (139 102 139)"                />
+		<rgb r="224" g="102" b="255" name="medium orchid 1 (224 102 255)"       />
+		<rgb r="209" g= "95" b="238" name="medium orchid 2 (209  95 238)"       />
+		<rgb r="180" g= "82" b="205" name="medium orchid 3 (180  82 205)"       />
+		<rgb r="122" g= "55" b="139" name="medium orchid 4 (122  55 139)"       />
+		<rgb r="191" g= "62" b="255" name="dark orchid 1 (191  62 255)"         />
+		<rgb r="178" g= "58" b="238" name="dark orchid 2 (178  58 238)"         />
+		<rgb r="154" g= "50" b="205" name="dark orchid 3 (154  50 205)"         />
+		<rgb r="104" g= "34" b="139" name="dark orchid 4 (104  34 139)"         />
+		<rgb r="155" g= "48" b="255" name="purple 1 (155  48 255)"              />
+		<rgb r="145" g= "44" b="238" name="purple 2 (145  44 238)"              />
+		<rgb r="125" g= "38" b="205" name="purple 3 (125  38 205)"              />
+		<rgb r= "85" g= "26" b="139" name="purple 4 ( 85  26 139)"              />
+		<rgb r="171" g="130" b="255" name="medium purple 1 (171 130 255)"       />
+		<rgb r="159" g="121" b="238" name="medium purple 2 (159 121 238)"       />
+		<rgb r="137" g="104" b="205" name="medium purple 3 (137 104 205)"       />
+		<rgb r= "93" g= "71" b="139" name="medium purple 4 ( 93  71 139)"       />
+		<rgb r="255" g="225" b="255" name="thistle 1 (255 225 255)"             />
+		<rgb r="238" g="210" b="238" name="thistle 2 (238 210 238)"             />
+		<rgb r="205" g="181" b="205" name="thistle 3 (205 181 205)"             />
+		<rgb r="139" g="123" b="139" name="thistle 4 (139 123 139)"             />
+		<rgb r="169" g="169" b="169" name="dark grey (169 169 169)"             />
+		<rgb r="169" g="169" b="169" name="dark gray (169 169 169)"             />
+		<rgb r=  "0" g=  "0" b="139" name="dark blue (0     0 139)"             />
+		<rgb r=  "0" g="139" b="139" name="dark cyan (0   139 139)"             />
+		<rgb r="139" g=  "0" b="139" name="dark magenta (139   0 139)"          />
+		<rgb r="139" g=  "0" b=  "0" name="dark red (139   0   0)"              />
+		<rgb r="144" g="238" b="144" name="light green (144 238 144)"           />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start=  "0" end= "32"/></row>
+					<row><range start= "32" end= "64"/></row>
+					<row><range start= "64" end= "96"/></row>
+					<row><range start= "96" end="128"/></row>
+					<row><range start="128" end="160"/></row>
+					<row><range start="160" end="192"/></row>
+					<row><range start="192" end="224"/></row>
+					<row><range start="224" end="256"/></row>
+					<row><range start="256" end="288"/></row>
+					<row><range start="288" end="320"/></row>
+					<row><range start="320" end="352"/></row>
+					<row><range start="352" end="384"/></row>
+					<row><range start="384" end="416"/></row>
+					<row><range start="416" end="448"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start=  "0" end= "16"/></row>
+					<row><range start= "16" end= "32"/></row>
+					<row><range start= "32" end= "48"/></row>
+					<row><range start= "48" end= "64"/></row>
+					<row><range start= "64" end= "80"/></row>
+					<row><range start= "80" end= "96"/></row>
+					<row><range start= "96" end="112"/></row>
+					<row><range start="112" end="128"/></row>
+					<row><range start="128" end="144"/></row>
+					<row><range start="144" end="160"/></row>
+					<row><range start="160" end="176"/></row>
+					<row><range start="176" end="192"/></row>
+					<row><range start="192" end="208"/></row>
+					<row><range start="208" end="224"/></row>
+					<row><range start="224" end="240"/></row>
+					<row><range start="240" end="256"/></row>
+					<row><range start="256" end="272"/></row>
+					<row><range start="272" end="288"/></row>
+					<row><range start="288" end="304"/></row>
+					<row><range start="304" end="320"/></row>
+					<row><range start="320" end="336"/></row>
+					<row><range start="336" end="352"/></row>
+					<row><range start="352" end="368"/></row>
+					<row><range start="368" end="384"/></row>
+					<row><range start="384" end="400"/></row>
+					<row><range start="400" end="416"/></row>
+					<row><range start="416" end="432"/></row>
+					<row><range start="432" end="448"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<row><range start=  "0" end= "14"/></row>
+					<row><range start= "14" end= "28"/></row>
+					<row><range start= "28" end= "42"/></row>
+					<row><range start= "42" end= "56"/></row>
+					<row><range start= "56" end= "70"/></row>
+					<row><range start= "70" end= "84"/></row>
+					<row><range start= "84" end= "98"/></row>
+					<row><range start= "98" end="112"/></row>
+					<row><range start="112" end="126"/></row>
+					<row><range start="126" end="140"/></row>
+					<row><range start="140" end="154"/></row>
+					<row><range start="154" end="168"/></row>
+					<row><range start="168" end="182"/></row>
+					<row><range start="182" end="196"/></row>
+					<row><range start="196" end="210"/></row>
+					<row><range start="210" end="224"/></row>
+					<row><range start="224" end="238"/></row>
+					<row><range start="238" end="252"/></row>
+					<row><range start="252" end="266"/></row>
+					<row><range start="266" end="280"/></row>
+					<row><range start="280" end="294"/></row>
+					<row><range start="294" end="308"/></row>
+					<row><range start="308" end="322"/></row>
+					<row><range start="322" end="336"/></row>
+					<row><range start="336" end="350"/></row>
+					<row><range start="350" end="364"/></row>
+					<row><range start="364" end="378"/></row>
+					<row><range start="378" end="392"/></row>
+					<row><range start="392" end="406"/></row>
+					<row><range start="406" end="420"/></row>
+					<row><range start="420" end="434"/></row>
+					<row><range start="434" end="448"/></row>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

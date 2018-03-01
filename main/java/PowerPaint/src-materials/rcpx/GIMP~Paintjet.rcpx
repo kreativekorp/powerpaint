@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Paintjet">
+	<colors ordered="ordered">
+		<rgb r= "24" g= "20" b= "12"/>
+		<rgb r="244" g="240" b="232"/>
+		<rgb r="196" g= "68" b= "72"/>
+		<rgb r= "48" g="132" b= "92"/>
+		<rgb r="240" g="232" b= "72"/>
+		<rgb r= "52" g= "48" b="116"/>
+		<rgb r="188" g= "48" b="108"/>
+		<rgb r= "40" g="116" b="196"/>
+		<rgb r= "24" g= "20" b= "12"/>
+		<rgb r="244" g="240" b="232"/>
+		<rgb r="196" g= "68" b= "72"/>
+		<rgb r= "48" g="132" b= "92"/>
+		<rgb r="240" g="232" b= "72"/>
+		<rgb r= "52" g= "48" b="116"/>
+		<rgb r="188" g= "48" b="108"/>
+		<rgb r= "40" g="116" b="196"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end="4"/></row>
+					<row><range start="4" end="8"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start="0" end="2"/></row>
+					<row><range start="2" end="4"/></row>
+					<row><range start="4" end="6"/></row>
+					<row><range start="6" end="8"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end="4"/></column>
+					<column><range start="4" end="8"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

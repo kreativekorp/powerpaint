@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Tango"
+         hwidth="289" hheight= "73"
+         swidth="145" sheight="146"
+         vwidth= "73" vheight="289">
+	<colors ordered="unordered">
+		<rgb r="252" g="233" b= "79" name="Butter 1"     />
+		<rgb r="237" g="212" b=  "0" name="Butter 2"     />
+		<rgb r="196" g="160" b=  "0" name="Butter 3"     />
+		<rgb r="138" g="226" b= "52" name="Chameleon 1"  />
+		<rgb r="115" g="210" b= "22" name="Chameleon 2"  />
+		<rgb r= "78" g="154" b=  "6" name="Chameleon 3"  />
+		<rgb r="252" g="175" b= "62" name="Orange 1"     />
+		<rgb r="245" g="121" b=  "0" name="Orange 2"     />
+		<rgb r="206" g= "92" b=  "0" name="Orange 3"     />
+		<rgb r="114" g="159" b="207" name="Sky Blue 1"   />
+		<rgb r= "52" g="101" b="164" name="Sky Blue 2"   />
+		<rgb r= "32" g= "74" b="135" name="Sky Blue 3"   />
+		<rgb r="173" g="127" b="168" name="Plum 1"       />
+		<rgb r="117" g= "80" b="123" name="Plum 2"       />
+		<rgb r= "92" g= "53" b="102" name="Plum 3"       />
+		<rgb r="233" g="185" b="110" name="Chocolate 1"  />
+		<rgb r="193" g="125" b= "17" name="Chocolate 2"  />
+		<rgb r="143" g= "89" b=  "2" name="Chocolate 3"  />
+		<rgb r="239" g= "41" b= "41" name="Scarlet Red 1"/>
+		<rgb r="204" g=  "0" b=  "0" name="Scarlet Red 2"/>
+		<rgb r="164" g=  "0" b=  "0" name="Scarlet Red 3"/>
+		<rgb r="238" g="238" b="236" name="Aluminium 1"  />
+		<rgb r="211" g="215" b="207" name="Aluminium 2"  />
+		<rgb r="186" g="189" b="182" name="Aluminium 3"  />
+		<rgb r="136" g="138" b="133" name="Aluminium 4"  />
+		<rgb r= "85" g= "87" b= "83" name="Aluminium 5"  />
+		<rgb r= "46" g= "52" b= "54" name="Aluminium 6"  />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end= "9"/></row>
+					<row><range start= "9" end="18"/></row>
+					<row><range start="18" end="27"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "6"/></row>
+					<row><range start= "6" end="12"/></row>
+					<row><range start="12" end="18"/></row>
+					<row><range start="18" end="21"/></row>
+					<row><range start="21" end="27"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end= "9"/></column>
+					<column><range start= "9" end="18"/></column>
+					<column><range start="18" end="27"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Lights"
+         hwidth="301" hheight= "73"
+         swidth="146" sheight="146"
+         vwidth= "73" vheight="301">
+	<colors ordered="unordered">
+		<rgb r="255" g="250" b="250" name="Snow"           />
+		<rgb r="248" g="248" b="255" name="Ghost White"    />
+		<rgb r="245" g="245" b="245" name="White Smoke"    />
+		<rgb r="220" g="220" b="220" name="Gainsboro"      />
+		<rgb r="255" g="250" b="240" name="Floral White"   />
+		<rgb r="253" g="245" b="230" name="Old Lace"       />
+		<rgb r="250" g="240" b="230" name="Linen"          />
+		<rgb r="250" g="235" b="215" name="Antique White"  />
+		<rgb r="255" g="239" b="213" name="Papaya Whip"    />
+		<rgb r="255" g="235" b="205" name="Blanched Almond"/>
+		<rgb r="255" g="228" b="196" name="Bisque"         />
+		<rgb r="255" g="218" b="185" name="Peach Puff"     />
+		<rgb r="255" g="222" b="173" name="Navajo White"   />
+		<rgb r="255" g="228" b="181" name="Moccasin"       />
+		<rgb r="255" g="248" b="220" name="Cornsilk"       />
+		<rgb r="255" g="255" b="240" name="Ivory"          />
+		<rgb r="255" g="250" b="205" name="Lemon Chiffon"  />
+		<rgb r="255" g="245" b="238" name="Seashell"       />
+		<rgb r="240" g="255" b="240" name="Honeydew"       />
+		<rgb r="245" g="255" b="250" name="Mint Cream"     />
+		<rgb r="240" g="255" b="255" name="Azure"          />
+		<rgb r="240" g="248" b="255" name="Alice Blue"     />
+		<rgb r="230" g="230" b="250" name="Lavender"       />
+		<rgb r="255" g="228" b="225" name="Misty Rose"     />
+		<rgb r="255" g="255" b="255" name="White"          />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="15"/></row>
+					<row><range start="15" end="25"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "5"/></row>
+					<row><range start= "5" end="10"/></row>
+					<row><range start="10" end="15"/></row>
+					<row><range start="15" end="20"/></row>
+					<row><range start="20" end="25"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range  start="0" end="15"/></column>
+					<column><range start="15" end="25"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

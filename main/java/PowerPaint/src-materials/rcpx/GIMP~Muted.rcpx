@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="GIMP Muted"
+         hwidth="287" hheight= "73"
+         swidth="145" sheight="144"
+         vwidth= "73" vheight="287">
+	<colors ordered="unordered">
+		<rgb r="139" g="137" b="137" name="Snow"            />
+		<rgb r="139" g="134" b="130" name="Seashell"        />
+		<rgb r="139" g="131" b="120" name="Antique White"   />
+		<rgb r="139" g="125" b="107" name="Bisque"          />
+		<rgb r="139" g="119" b="101" name="Peach Puff"      />
+		<rgb r="139" g="121" b= "94" name="Navajo White"    />
+		<rgb r="139" g="137" b="112" name="Lemon Chiffon"   />
+		<rgb r="139" g="136" b="120" name="Cornsilk"        />
+		<rgb r="139" g="139" b="131" name="Ivory"           />
+		<rgb r="131" g="139" b="131" name="Honeydew"        />
+		<rgb r="139" g="131" b="134" name="Lavender Blush"  />
+		<rgb r="139" g="125" b="123" name="Misty Rose"      />
+		<rgb r="131" g="139" b="139" name="Azure"           />
+		<rgb r= "71" g= "60" b="139" name="Slate Blue"      />
+		<rgb r= "39" g= "64" b="139" name="Royal Blue"      />
+		<rgb r=  "0" g=  "0" b="139" name="Blue"            />
+		<rgb r= "16" g= "78" b="139" name="Dodger Blue"     />
+		<rgb r= "54" g="100" b="139" name="Steel Blue"      />
+		<rgb r=  "0" g="104" b="139" name="Deep Sky Blue"   />
+		<rgb r= "74" g="112" b="139" name="Sky Blue"        />
+		<rgb r= "96" g="123" b="139" name="Light Sky Blue"  />
+		<rgb r="108" g="123" b="139" name="Slate Gray"      />
+		<rgb r="110" g="123" b="139" name="Light Steel Blue"/>
+		<rgb r="104" g="131" b="139" name="Light Blue"      />
+		<rgb r="122" g="139" b="139" name="Light Cyan"      />
+		<rgb r="102" g="139" b="139" name="Pale Turquoise"  />
+		<rgb r= "83" g="134" b="139" name="Cadet Blue"      />
+		<rgb r=  "0" g="134" b="139" name="Turquoise"       />
+		<rgb r=  "0" g="139" b="139" name="Cyan"            />
+		<rgb r= "82" g="139" b="139" name="Dark Slate Gray" />
+		<rgb r= "69" g="139" b="116" name="Aquamarine"      />
+		<rgb r="105" g="139" b="105" name="Dark Sea Green"  />
+		<rgb r= "46" g="139" b= "87" name="Sea Green"       />
+		<rgb r= "84" g="139" b= "84" name="Pale Green"      />
+		<rgb r=  "0" g="139" b= "69" name="Spring Green"    />
+		<rgb r=  "0" g="139" b=  "0" name="Green"           />
+		<rgb r= "69" g="139" b=  "0" name="Chartreuse"      />
+		<rgb r="105" g="139" b= "34" name="Olive Drab"      />
+		<rgb r="110" g="139" b= "61" name="Dark Olive Green"/>
+		<rgb r="139" g="134" b= "78" name="Khaki"           />
+		<rgb r="139" g="129" b= "76" name="Light Goldenrod" />
+		<rgb r="139" g="139" b="122" name="Light Yellow"    />
+		<rgb r="139" g="139" b=  "0" name="Yellow"          />
+		<rgb r="139" g="117" b=  "0" name="Gold"            />
+		<rgb r="139" g="105" b= "20" name="Goldenrod"       />
+		<rgb r="139" g="101" b=  "8" name="Dark Goldenrod"  />
+		<rgb r="139" g="105" b="105" name="Rosy Brown"      />
+		<rgb r="139" g= "58" b= "58" name="Indian Red"      />
+		<rgb r="139" g= "71" b= "38" name="Sienna"          />
+		<rgb r="139" g="115" b= "85" name="Burlywood"       />
+		<rgb r="139" g="126" b="102" name="Wheat"           />
+		<rgb r="139" g= "90" b= "43" name="Tan"             />
+		<rgb r="139" g= "69" b= "19" name="Chocolate"       />
+		<rgb r="139" g= "26" b= "26" name="Firebrick"       />
+		<rgb r="139" g= "35" b= "35" name="Brown"           />
+		<rgb r="139" g= "76" b= "57" name="Salmon"          />
+		<rgb r="139" g= "87" b= "66" name="Light Salmon"    />
+		<rgb r="139" g= "90" b=  "0" name="Orange"          />
+		<rgb r="139" g= "69" b=  "0" name="Dark Orange"     />
+		<rgb r="139" g= "62" b= "47" name="Coral"           />
+		<rgb r="139" g= "54" b= "38" name="Tomato"          />
+		<rgb r="139" g= "37" b=  "0" name="Orange Red"      />
+		<rgb r="139" g=  "0" b=  "0" name="Red"             />
+		<rgb r="139" g= "10" b= "80" name="Deep Pink"       />
+		<rgb r="139" g= "58" b= "98" name="Hot Pink"        />
+		<rgb r="139" g= "99" b="108" name="Pink"            />
+		<rgb r="139" g= "95" b="101" name="Light Pink"      />
+		<rgb r="139" g= "71" b= "93" name="Pale Violet Red" />
+		<rgb r="139" g= "28" b= "98" name="Maroon"          />
+		<rgb r="139" g= "34" b= "82" name="Violet Red"      />
+		<rgb r="139" g=  "0" b="139" name="Magenta"         />
+		<rgb r="139" g= "71" b="137" name="Orchid"          />
+		<rgb r="139" g="102" b="139" name="Plum"            />
+		<rgb r="122" g= "55" b="139" name="Medium Orchid"   />
+		<rgb r="104" g= "34" b="139" name="Dark Orchid"     />
+		<rgb r= "85" g= "26" b="139" name="Purple"          />
+		<rgb r= "93" g= "71" b="139" name="Medium Purple"   />
+		<rgb r="139" g="123" b="139" name="Thistle"         />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="13"/></row>
+					<row><range start="13" end="26"/></row>
+					<row><range start="26" end="39"/></row>
+					<row><range start="39" end="52"/></row>
+					<row><range start="52" end="65"/></row>
+					<row><range start="65" end="78"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "6"/></row>
+					<row><range start= "6" end="12"/></row>
+					<row><range start="12" end="18"/></row>
+					<row><range start="18" end="24"/></row>
+					<row><range start="24" end="30"/></row>
+					<row><range start="30" end="36"/></row>
+					<row><range start="36" end="42"/></row>
+					<row><range start="42" end="48"/></row>
+					<row><range start="48" end="54"/></row>
+					<row><range start="54" end="60"/></row>
+					<row><range start="60" end="66"/></row>
+					<row><range start="66" end="72"/></row>
+					<row><range start="72" end="78"/></row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<row><range start= "0" end= "6"/></row>
+					<row><range start= "6" end="12"/></row>
+					<row><range start="12" end="18"/></row>
+					<row><range start="18" end="24"/></row>
+					<row><range start="24" end="30"/></row>
+					<row><range start="30" end="36"/></row>
+					<row><range start="36" end="42"/></row>
+					<row><range start="42" end="48"/></row>
+					<row><range start="48" end="54"/></row>
+					<row><range start="54" end="60"/></row>
+					<row><range start="60" end="66"/></row>
+					<row><range start="66" end="72"/></row>
+					<row><range start="72" end="78"/></row>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
