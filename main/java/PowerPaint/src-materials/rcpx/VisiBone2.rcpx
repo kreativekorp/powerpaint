@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="VisiBone #2"
+         orientation="square"
+         hwidth="289" hheight= "81"
+         swidth="145" sheight="145"
+         vwidth= "81" vheight="289">
+	<colors ordered="unordered">
+		<rgb r=  "0" g=  "0" b=  "0" name="Black"                 />
+		<rgb r=  "0" g=  "0" b= "51" name="Obscure Weak Blue"     />
+		<rgb r=  "0" g=  "0" b="102" name="Obscure Dull Blue"     />
+		<rgb r=  "0" g=  "0" b="153" name="Dark Faded Blue"       />
+		<rgb r=  "0" g=  "0" b="204" name="Dark Hard Blue"        />
+		<rgb r=  "0" g=  "0" b="255" name="Blue"                  />
+		<rgb r=  "0" g= "51" b=  "0" name="Obscure Weak Green"    />
+		<rgb r=  "0" g= "51" b= "51" name="Obscure Weak Cyan"     />
+		<rgb r=  "0" g= "51" b="102" name="Obscure Dull Azure"    />
+		<rgb r=  "0" g= "51" b="153" name="Dark Azure-Blue"       />
+		<rgb r=  "0" g= "51" b="204" name="Dark Blue-Azure"       />
+		<rgb r=  "0" g= "51" b="255" name="Blue-Blue-Azure"       />
+		<rgb r=  "0" g="102" b=  "0" name="Obscure Dull Green"    />
+		<rgb r=  "0" g="102" b= "51" name="Obscure Dull Teal"     />
+		<rgb r=  "0" g="102" b="102" name="Obscure Dull Cyan"     />
+		<rgb r=  "0" g="102" b="153" name="Dark Azure-Cyan"       />
+		<rgb r=  "0" g="102" b="204" name="Dark Hard Azure"       />
+		<rgb r=  "0" g="102" b="255" name="Azure-Azure-Blue"      />
+		<rgb r=  "0" g="153" b=  "0" name="Dark Faded Green"      />
+		<rgb r=  "0" g="153" b= "51" name="Dark Teal-Green"       />
+		<rgb r=  "0" g="153" b="102" name="Dark Teal-Cyan"        />
+		<rgb r=  "0" g="153" b="153" name="Dark Faded Cyan"       />
+		<rgb r=  "0" g="153" b="204" name="Dark Cyan-Azure"       />
+		<rgb r=  "0" g="153" b="255" name="Azure-Azure-Cyan"      />
+		<rgb r=  "0" g="204" b=  "0" name="Dark Hard Green"       />
+		<rgb r=  "0" g="204" b= "51" name="Dark Green-Teal"       />
+		<rgb r=  "0" g="204" b="102" name="Dark Hard Teal"        />
+		<rgb r=  "0" g="204" b="153" name="Dark Cyan-Teal"        />
+		<rgb r=  "0" g="204" b="204" name="Dark Hard Cyan"        />
+		<rgb r=  "0" g="204" b="255" name="Cyan-Cyan-Azure"       />
+		<rgb r=  "0" g="255" b=  "0" name="Green"                 />
+		<rgb r=  "0" g="255" b= "51" name="Green-Green-Teal"      />
+		<rgb r=  "0" g="255" b="102" name="Teal-Teal-Green"       />
+		<rgb r=  "0" g="255" b="153" name="Teal-Teal-Cyan"        />
+		<rgb r=  "0" g="255" b="204" name="Cyan-Cyan-Teal"        />
+		<rgb r=  "0" g="255" b="255" name="Cyan"                  />
+		<rgb r= "51" g=  "0" b=  "0" name="Obscure Weak Red"      />
+		<rgb r= "51" g=  "0" b= "51" name="Obscure Weak Magenta"  />
+		<rgb r= "51" g=  "0" b="102" name="Obscure Dull Violet"   />
+		<rgb r= "51" g=  "0" b="153" name="Dark Violet-Blue"      />
+		<rgb r= "51" g=  "0" b="204" name="Dark Blue-Violet"      />
+		<rgb r= "51" g=  "0" b="255" name="Blue-Blue-Violet"      />
+		<rgb r= "51" g= "51" b=  "0" name="Obscure Weak Yellow"   />
+		<rgb r= "51" g= "51" b= "51" name="Obscure Gray"          />
+		<rgb r= "51" g= "51" b="102" name="Dark Weak Blue"        />
+		<rgb r= "51" g= "51" b="153" name="Dark Dull Blue"        />
+		<rgb r= "51" g= "51" b="204" name="Medium Faded Blue"     />
+		<rgb r= "51" g= "51" b="255" name="Light Hard Blue"       />
+		<rgb r= "51" g="102" b=  "0" name="Obscure Dull Spring"   />
+		<rgb r= "51" g="102" b= "51" name="Dark Weak Green"       />
+		<rgb r= "51" g="102" b="102" name="Dark Weak Cyan"        />
+		<rgb r= "51" g="102" b="153" name="Dark Dull Azure"       />
+		<rgb r= "51" g="102" b="204" name="Medium Azure-Blue"     />
+		<rgb r= "51" g="102" b="255" name="Light Blue-Azure"      />
+		<rgb r= "51" g="153" b=  "0" name="Dark Spring-Green"     />
+		<rgb r= "51" g="153" b= "51" name="Dark Dull Green"       />
+		<rgb r= "51" g="153" b="102" name="Dark Dull Teal"        />
+		<rgb r= "51" g="153" b="153" name="Dark Dull Cyan"        />
+		<rgb r= "51" g="153" b="204" name="Medium Azure-Cyan"     />
+		<rgb r= "51" g="153" b="255" name="Light Hard Azure"      />
+		<rgb r= "51" g="204" b=  "0" name="Dark Green-Spring"     />
+		<rgb r= "51" g="204" b= "51" name="Medium Faded Green"    />
+		<rgb r= "51" g="204" b="102" name="Medium Teal-Green"     />
+		<rgb r= "51" g="204" b="153" name="Medium Teal-Cyan"      />
+		<rgb r= "51" g="204" b="204" name="Medium Faded Cyan"     />
+		<rgb r= "51" g="204" b="255" name="Light Cyan-Azure"      />
+		<rgb r= "51" g="255" b=  "0" name="Green-Green-Spring"    />
+		<rgb r= "51" g="255" b= "51" name="Light Hard Green"      />
+		<rgb r= "51" g="255" b="102" name="Light Green-Teal"      />
+		<rgb r= "51" g="255" b="153" name="Light Hard Teal"       />
+		<rgb r= "51" g="255" b="204" name="Light Cyan-Teal"       />
+		<rgb r= "51" g="255" b="255" name="Light Hard Cyan"       />
+		<rgb r="102" g=  "0" b=  "0" name="Obscure Dark Red"      />
+		<rgb r="102" g=  "0" b= "51" name="Obscure Dark Pink"     />
+		<rgb r="102" g=  "0" b="102" name="Obscure Dark Magenta"  />
+		<rgb r="102" g=  "0" b="153" name="Dark Violet-Magenta"   />
+		<rgb r="102" g=  "0" b="204" name="Dark Hard Violet"      />
+		<rgb r="102" g=  "0" b="255" name="Violet-Violet-Blue"    />
+		<rgb r="102" g= "51" b=  "0" name="Obscure Dark Orange"   />
+		<rgb r="102" g= "51" b= "51" name="Dark Weak Red"         />
+		<rgb r="102" g= "51" b="102" name="Dark Weak Magenta"     />
+		<rgb r="102" g= "51" b="153" name="Dark Dull Violet"      />
+		<rgb r="102" g= "51" b="204" name="Medium Violet-Blue"    />
+		<rgb r="102" g= "51" b="255" name="Light Blue-Violet"     />
+		<rgb r="102" g="102" b=  "0" name="Obscure Dark Yellow"   />
+		<rgb r="102" g="102" b= "51" name="Dark Weak Yellow"      />
+		<rgb r="102" g="102" b="102" name="Dark Gray"             />
+		<rgb r="102" g="102" b="153" name="Medium Weak Blue"      />
+		<rgb r="102" g="102" b="204" name="Light Dull Blue"       />
+		<rgb r="102" g="102" b="255" name="Light Faded Blue"      />
+		<rgb r="102" g="153" b=  "0" name="Dark Spring-Yellow"    />
+		<rgb r="102" g="153" b= "51" name="Dark Dull Spring"      />
+		<rgb r="102" g="153" b="102" name="Medium Weak Green"     />
+		<rgb r="102" g="153" b="153" name="Medium Weak Cyan"      />
+		<rgb r="102" g="153" b="204" name="Light Dull Azure"      />
+		<rgb r="102" g="153" b="255" name="Light Azure-Blue"      />
+		<rgb r="102" g="204" b=  "0" name="Dark Hard Spring"      />
+		<rgb r="102" g="204" b= "51" name="Medium Spring-Green"   />
+		<rgb r="102" g="204" b="102" name="Light Dull Green"      />
+		<rgb r="102" g="204" b="153" name="Light Dull Teal"       />
+		<rgb r="102" g="204" b="204" name="Light Dull Cyan"       />
+		<rgb r="102" g="204" b="255" name="Light Azure-Cyan"      />
+		<rgb r="102" g="255" b=  "0" name="Spring-Spring-Green"   />
+		<rgb r="102" g="255" b= "51" name="Light Green-Spring"    />
+		<rgb r="102" g="255" b="102" name="Light Faded Green"     />
+		<rgb r="102" g="255" b="153" name="Light Teal-Green"      />
+		<rgb r="102" g="255" b="204" name="Light Teal-Cyan"       />
+		<rgb r="102" g="255" b="255" name="Light Faded Cyan"      />
+		<rgb r="153" g=  "0" b=  "0" name="Dark Faded Red"        />
+		<rgb r="153" g=  "0" b= "51" name="Dark Pink-Red"         />
+		<rgb r="153" g=  "0" b="102" name="Dark Pink-Magenta"     />
+		<rgb r="153" g=  "0" b="153" name="Dark Faded Magenta"    />
+		<rgb r="153" g=  "0" b="204" name="Dark Magenta-Violet"   />
+		<rgb r="153" g=  "0" b="255" name="Violet-Violet-Magenta" />
+		<rgb r="153" g= "51" b=  "0" name="Dark Orange-Red"       />
+		<rgb r="153" g= "51" b= "51" name="Dark Dull Red"         />
+		<rgb r="153" g= "51" b="102" name="Dark Dull Purple"      />
+		<rgb r="153" g= "51" b="153" name="Dark Dull Magenta"     />
+		<rgb r="153" g= "51" b="204" name="Medium Violet-Magenta" />
+		<rgb r="153" g= "51" b="255" name="Light Hard Violet"     />
+		<rgb r="153" g="102" b=  "0" name="Dark Orange-Yellow"    />
+		<rgb r="153" g="102" b= "51" name="Dark Dull Orange"      />
+		<rgb r="153" g="102" b="102" name="Medium Weak Red"       />
+		<rgb r="153" g="102" b="153" name="Medium Weak Magenta"   />
+		<rgb r="153" g="102" b="204" name="Light Dull Violet"     />
+		<rgb r="153" g="102" b="255" name="Light Violet-Blue"     />
+		<rgb r="153" g="153" b=  "0" name="Dark Faded Yellow"     />
+		<rgb r="153" g="153" b= "51" name="Dark Dull Yellow"      />
+		<rgb r="153" g="153" b="102" name="Medium Weak Yellow"    />
+		<rgb r="153" g="153" b="153" name="Light Gray"            />
+		<rgb r="153" g="153" b="204" name="Light Weak Blue"       />
+		<rgb r="153" g="153" b="255" name="Pale Dull Blue"        />
+		<rgb r="153" g="204" b=  "0" name="Dark Yellow Spring"    />
+		<rgb r="153" g="204" b= "51" name="Medium Spring Yellow"  />
+		<rgb r="153" g="204" b="102" name="Light Dull Spring"     />
+		<rgb r="153" g="204" b="153" name="Light Weak Green"      />
+		<rgb r="153" g="204" b="204" name="Light Weak Cyan"       />
+		<rgb r="153" g="204" b="255" name="Pale Dull Azure"       />
+		<rgb r="153" g="255" b=  "0" name="Spring-Spring-Yellow"  />
+		<rgb r="153" g="255" b= "51" name="Light Hard Spring"     />
+		<rgb r="153" g="255" b="102" name="Light Spring-Green"    />
+		<rgb r="153" g="255" b="153" name="Pale Dull Green"       />
+		<rgb r="153" g="255" b="204" name="Pale Dull Teal"        />
+		<rgb r="153" g="255" b="255" name="Pale Dull Cyan"        />
+		<rgb r="204" g=  "0" b=  "0" name="Dark Hard Red"         />
+		<rgb r="204" g=  "0" b= "51" name="Dark Red-Pink"         />
+		<rgb r="204" g=  "0" b="102" name="Dark Hard Pink"        />
+		<rgb r="204" g=  "0" b="153" name="Dark Magenta-Pink"     />
+		<rgb r="204" g=  "0" b="204" name="Dark Hard Magenta"     />
+		<rgb r="204" g=  "0" b="255" name="Magenta-Magenta-Violet"/>
+		<rgb r="204" g= "51" b=  "0" name="Dark Red-Orange"       />
+		<rgb r="204" g= "51" b= "51" name="Medium Faded Red"      />
+		<rgb r="204" g= "51" b="102" name="Medium Pink-Red"       />
+		<rgb r="204" g= "51" b="153" name="Medium Pink-Magenta"   />
+		<rgb r="204" g= "51" b="204" name="Medium Faded Magenta"  />
+		<rgb r="204" g= "51" b="255" name="Light Magenta-Violet"  />
+		<rgb r="204" g="102" b=  "0" name="Dark Hard Orange"      />
+		<rgb r="204" g="102" b= "51" name="Medium Orange Red"     />
+		<rgb r="204" g="102" b="102" name="Light Dull Red"        />
+		<rgb r="204" g="102" b="153" name="Light Dull Pink"       />
+		<rgb r="204" g="102" b="204" name="Light Dull Magenta"    />
+		<rgb r="204" g="102" b="255" name="Light Violet-Magenta"  />
+		<rgb r="204" g="153" b=  "0" name="Dark Yellow-Orange"    />
+		<rgb r="204" g="153" b= "51" name="Medium Orange-Yellow"  />
+		<rgb r="204" g="153" b="102" name="Light Dull Orange"     />
+		<rgb r="204" g="153" b="153" name="Light Weak Red"        />
+		<rgb r="204" g="153" b="204" name="Light Weak Magenta"    />
+		<rgb r="204" g="153" b="255" name="Pale Dull Violet"      />
+		<rgb r="204" g="204" b=  "0" name="Dark Hard Yellow"      />
+		<rgb r="204" g="204" b= "51" name="Medium Faded Yellow"   />
+		<rgb r="204" g="204" b="102" name="Light Dull Yellow"     />
+		<rgb r="204" g="204" b="153" name="Light Weak Yellow"     />
+		<rgb r="204" g="204" b="204" name="Pale Gray"             />
+		<rgb r="204" g="204" b="255" name="Pale Weak Blue"        />
+		<rgb r="204" g="255" b=  "0" name="Yellow-Yellow-Spring"  />
+		<rgb r="204" g="255" b= "51" name="Light Yellow-Spring"   />
+		<rgb r="204" g="255" b="102" name="Light Spring-Yellow"   />
+		<rgb r="204" g="255" b="153" name="Pale Dull Spring"      />
+		<rgb r="204" g="255" b="204" name="Pale Weak Green"       />
+		<rgb r="204" g="255" b="255" name="Pale Weak Cyan"        />
+		<rgb r="255" g=  "0" b=  "0" name="Red"                   />
+		<rgb r="255" g=  "0" b= "51" name="Red-Red-Pink"          />
+		<rgb r="255" g=  "0" b="102" name="Pale Pink-Red"         />
+		<rgb r="255" g=  "0" b="153" name="Pink-Pink-Magenta"     />
+		<rgb r="255" g=  "0" b="204" name="Magenta-Magenta-Pink"  />
+		<rgb r="255" g=  "0" b="255" name="Magenta"               />
+		<rgb r="255" g= "51" b=  "0" name="Red-Red-Orange"        />
+		<rgb r="255" g= "51" b= "51" name="Light Hard Red"        />
+		<rgb r="255" g= "51" b="102" name="Light Red-Pink"        />
+		<rgb r="255" g= "51" b="153" name="Light Hard Pink"       />
+		<rgb r="255" g= "51" b="204" name="Light Magenta-Pink"    />
+		<rgb r="255" g= "51" b="255" name="Light Hard Magenta"    />
+		<rgb r="255" g="102" b=  "0" name="Orange-Orange-Red"     />
+		<rgb r="255" g="102" b= "51" name="Light Red-Orange"      />
+		<rgb r="255" g="102" b="102" name="Light Faded Red"       />
+		<rgb r="255" g="102" b="153" name="Light Pink-Red"        />
+		<rgb r="255" g="102" b="204" name="Light Pink-Magenta"    />
+		<rgb r="255" g="102" b="255" name="Light Faded Magenta"   />
+		<rgb r="255" g="153" b=  "0" name="Orange-Orange-Yellow"  />
+		<rgb r="255" g="153" b= "51" name="Light Hard Orange"     />
+		<rgb r="255" g="153" b="102" name="Light Orange-Red"      />
+		<rgb r="255" g="153" b="153" name="Pale Dull Red"         />
+		<rgb r="255" g="153" b="204" name="Pale Dull Pink"        />
+		<rgb r="255" g="153" b="255" name="Pale Dull Magenta"     />
+		<rgb r="255" g="204" b=  "0" name="Yellow-Yellow-Orange"  />
+		<rgb r="255" g="204" b= "51" name="Light Yellow-Orange"   />
+		<rgb r="255" g="204" b="102" name="Light Orange-Yellow"   />
+		<rgb r="255" g="204" b="153" name="Pale Dull Orange"      />
+		<rgb r="255" g="204" b="204" name="Pale Weak Red"         />
+		<rgb r="255" g="204" b="255" name="Pale Weak Magenta"     />
+		<rgb r="255" g="255" b=  "0" name="Yellow"                />
+		<rgb r="255" g="255" b= "51" name="Light Hard Yellow"     />
+		<rgb r="255" g="255" b="102" name="Light Faded Yellow"    />
+		<rgb r="255" g="255" b="153" name="Pale Dull Yellow"      />
+		<rgb r="255" g="255" b="204" name="Pale Weak Yellow"      />
+		<rgb r="255" g="255" b="255" name="White"                 />
+	</colors>
+	<layout>
+		<column>
+			<row><index i="215"/><index i="172"/><index i="129"/><index i= "86"/><index i= "43"/><index i=  "0"/><index i="204"/><index i="198"/><index i="192"/><index i="186"/><index i=  "0"/><index i= "43"/><index i= "86"/><index i="129"/><index i="172"/><index i="215"/></row>
+			<row><index i="132"/><empty        /><empty        /><empty        /><empty        /><index i="162"/><index i="205"/><index i="206"/><index i="200"/><index i="193"/><index i="150"/><empty        /><empty        /><empty        /><empty        /><index i="145"/></row>
+			<row><index i="174"/><index i="175"/><index i= "42"/><index i= "84"/><index i="126"/><index i="168"/><index i="210"/><index i="163"/><index i="157"/><index i= "36"/><index i= "72"/><index i="108"/><index i="144"/><index i="180"/><index i="188"/><index i="181"/></row>
+			<row><index i="138"/><index i="176"/><index i="133"/><index i= "85"/><index i="127"/><index i="169"/><index i="211"/><index i="120"/><index i="114"/><index i= "79"/><index i="115"/><index i="151"/><index i="187"/><index i="152"/><index i="195"/><index i="182"/></row>
+			<row><index i="102"/><index i="140"/><index i= "97"/><index i= "90"/><index i="128"/><index i="170"/><index i="212"/><index i="121"/><index i= "78"/><index i="122"/><index i="158"/><index i="194"/><index i="109"/><index i="153"/><index i="196"/><index i="183"/></row>
+			<row><index i= "66"/><index i="103"/><index i= "54"/><index i= "96"/><index i="139"/><index i="171"/><index i="213"/><index i="164"/><index i="156"/><index i="165"/><index i="201"/><index i="189"/><index i="146"/><index i="110"/><index i="190"/><index i="184"/></row>
+			<row><index i= "24"/><index i= "60"/><index i= "48"/><index i= "91"/><index i="134"/><index i="177"/><index i="214"/><index i="207"/><index i="199"/><index i="208"/><index i="202"/><index i="159"/><index i="116"/><index i= "73"/><index i="147"/><index i= "37"/></row>
+			<row><index i= "61"/><index i= "98"/><index i= "30"/><index i= "67"/><index i="104"/><index i="141"/><index i="178"/><index i="215" border="vt"/><index i="0" border="vt"/><empty        /><index i="166"/><index i="123"/><index i="117"/><index i="111"/><index i= "80"/><index i= "74"/></row>
+			<row><index i= "12"/><index i= "49"/><index i= "18"/><index i= "55"/><index i= "92"/><index i="135"/><empty        /><index i="215" border="vb"/><index i="0" border="vb"/><index i="209"/><index i="203"/><index i="197"/><index i="191"/><index i="185"/><index i="160"/><index i="154"/></row>
+			<row><index i=  "6"/><index i= "25"/><index i= "13"/><index i= "56"/><index i= "99"/><index i="142"/><index i="179"/><index i= "59"/><index i="137"/><index i="173"/><index i="167"/><index i="124"/><index i= "81"/><index i= "38"/><index i="112"/><index i="148"/></row>
+			<row><index i= "31"/><index i= "68"/><index i= "19"/><index i= "26"/><index i= "69"/><index i="143"/><index i="136"/><index i= "16"/><index i= "94"/><index i="131"/><index i="130"/><index i="119"/><index i= "76"/><index i= "75"/><index i="155"/><index i="149"/></row>
+			<row><index i= "32"/><index i="105"/><index i= "62"/><index i= "20"/><index i="107"/><index i="100"/><index i= "93"/><index i=  "8"/><index i= "51"/><index i= "89"/><index i= "88"/><index i= "87"/><index i= "39"/><index i="118"/><index i="161"/><index i="113"/></row>
+			<row><index i= "33"/><index i="106"/><index i= "63"/><index i= "71"/><index i= "64"/><index i= "57"/><index i= "50"/><index i= "15"/><index i=  "9"/><index i= "47"/><index i= "46"/><index i= "45"/><index i= "44"/><index i= "82"/><index i="125"/><index i= "77"/></row>
+			<row><index i= "34"/><index i= "70"/><index i= "35"/><index i= "28"/><index i= "21"/><index i= "14"/><index i=  "7"/><index i= "58"/><index i= "52"/><index i=  "5"/><index i=  "4"/><index i=  "3"/><index i=  "2"/><index i=  "1"/><index i= "83"/><index i= "41"/></row>
+			<row><index i= "27"/><empty        /><empty        /><empty        /><empty        /><index i= "22"/><index i= "65"/><index i="101"/><index i= "95"/><index i= "53"/><index i= "10"/><empty        /><empty        /><empty        /><empty        /><index i= "40"/></row>
+			<row><index i="215"/><index i="172"/><index i="129"/><index i= "86"/><index i= "43"/><index i=  "0"/><index i= "29"/><index i= "23"/><index i= "17"/><index i= "11"/><index i=  "0"/><index i= "43"/><index i= "86"/><index i="129"/><index i="172"/><index i="215"/></row>
+		</column>
+	</layout>
+</palette>
