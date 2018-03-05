@@ -322,157 +322,84 @@
 	<layout>
 		<oriented>
 			<horizontal>
-				<column>
-					<row>
-						<range start=  "0" end=  "6"/>
-						<range start= "36" end= "42"/>
-						<range start= "72" end= "78"/>
-						<range start="108" end="114"/>
-						<range start="144" end="150"/>
-						<range start="180" end="186"/>
-					</row>
-					<row>
-						<range start=  "6" end= "12"/>
-						<range start= "42" end= "48"/>
-						<range start= "78" end= "84"/>
-						<range start="114" end="120"/>
-						<range start="150" end="156"/>
-						<range start="186" end="192"/>
-					</row>
-					<row>
-						<range start= "12" end= "18"/>
-						<range start= "48" end= "54"/>
-						<range start= "84" end= "90"/>
-						<range start="120" end="126"/>
-						<range start="156" end="162"/>
-						<range start="192" end="198"/>
-					</row>
-					<row>
-						<range start= "18" end= "24"/>
-						<range start= "54" end= "60"/>
-						<range start= "90" end= "96"/>
-						<range start="126" end="132"/>
-						<range start="162" end="168"/>
-						<range start="198" end="204"/>
-					</row>
-					<row>
-						<range start= "24" end= "30"/>
-						<range start= "60" end= "66"/>
-						<range start= "96" end="102"/>
-						<range start="132" end="138"/>
-						<range start="168" end="174"/>
-						<range start="204" end="210"/>
-					</row>
-					<row>
-						<range start= "30" end= "36"/>
-						<range start= "66" end= "72"/>
-						<range start="102" end="108"/>
-						<range start="138" end="144"/>
-						<range start="174" end="180"/>
-						<range start="210" end="216"/>
-					</row>
-					<row>
-						<range start="216" end="232" border-last="vt"/>
-						<range start="312" end="316" border-first="vt" border-last="vt"/>
-						<range start="280" end="296" border-first="vt" border-last="vt"/>
-					</row>
-					<row>
-						<range start="232" end="248" border-last="v" />
-						<index i="312" border="l" />
-						<index i="312" border="tr"/>
-						<index i="315" border="tl"/>
-						<index i="315" border="r" />
-						<range start="264" end="280" border-first="vb" border-last="vb"/>
-					</row>
-					<row>
-						<range start="248" end="264" border-last="vb"/>
-						<index i="312" border="bl"/>
-						<index i="312" border="br"/>
-						<index i="315" border="bl"/>
-						<index i="315" border="br"/>
-						<range start="296" end="312"/>
-					</row>
-				</column>
+				<overlay>
+					<column>
+						<row>
+							<range start=  "0" end=  "6"/>
+							<range start= "36" end= "42"/>
+							<range start= "72" end= "78"/>
+							<range start="108" end="114"/>
+							<range start="144" end="150"/>
+							<range start="180" end="186"/>
+						</row>
+						<row>
+							<range start=  "6" end= "12"/>
+							<range start= "42" end= "48"/>
+							<range start= "78" end= "84"/>
+							<range start="114" end="120"/>
+							<range start="150" end="156"/>
+							<range start="186" end="192"/>
+						</row>
+						<row>
+							<range start= "12" end= "18"/>
+							<range start= "48" end= "54"/>
+							<range start= "84" end= "90"/>
+							<range start="120" end="126"/>
+							<range start="156" end="162"/>
+							<range start="192" end="198"/>
+						</row>
+						<row>
+							<range start= "18" end= "24"/>
+							<range start= "54" end= "60"/>
+							<range start= "90" end= "96"/>
+							<range start="126" end="132"/>
+							<range start="162" end="168"/>
+							<range start="198" end="204"/>
+						</row>
+						<row>
+							<range start= "24" end= "30"/>
+							<range start= "60" end= "66"/>
+							<range start= "96" end="102"/>
+							<range start="132" end="138"/>
+							<range start="168" end="174"/>
+							<range start="204" end="210"/>
+						</row>
+						<row>
+							<range start= "30" end= "36"/>
+							<range start= "66" end= "72"/>
+							<range start="102" end="108"/>
+							<range start="138" end="144"/>
+							<range start="174" end="180"/>
+							<range start="210" end="216"/>
+						</row>
+						<row>
+							<range start="216" end="232" border-last="vt"/>
+							<empty repeat="1"/>
+							<index i="313"/>
+							<index i="314"/>
+							<empty repeat="1"/>
+							<range start="280" end="296" border-first="vt" border-last="vt"/>
+						</row>
+						<row>
+							<range start="232" end="248" border-last="v" />
+							<empty repeat="4"/>
+							<range start="264" end="280" border-first="vb" border-last="vb"/>
+						</row>
+						<row>
+							<range start="248" end="264" border-last="vb"/>
+							<empty repeat="4"/>
+							<range start="296" end="312"/>
+						</row>
+					</column>
+					<polygonal cols="36" rows="9">
+						<poly p="16 6 17 6 17 7 18 7 18 9 16 9" i="312"/>
+						<poly p="18 7 19 7 19 6 20 6 20 9 18 9" i="315"/>
+					</polygonal>
+				</overlay>
 			</horizontal>
 			<square>
-				<row>
-					<column>
-						<row><range start=  "0" end=  "6"/></row>
-						<row><range start=  "6" end= "12"/></row>
-						<row><range start= "12" end= "18"/></row>
-						<row><range start= "18" end= "24"/></row>
-						<row><range start= "24" end= "30"/></row>
-						<row><range start= "30" end= "36"/></row>
-						<row><range start= "36" end= "42"/></row>
-						<row><range start= "42" end= "48"/></row>
-						<row><range start= "48" end= "54"/></row>
-						<row><range start= "54" end= "60"/></row>
-						<row><range start= "60" end= "66"/></row>
-						<row><range start= "66" end= "72"/></row>
-						<row><range start= "72" end= "78"/></row>
-						<row><range start= "78" end= "84"/></row>
-						<row><range start= "84" end= "90"/></row>
-						<row><range start= "90" end= "96"/></row>
-						<row><range start= "96" end="102"/></row>
-						<row><range start="102" end="108"/></row>
-					</column>
-					<column>
-						<row><range start="108" end="114"/></row>
-						<row><range start="114" end="120"/></row>
-						<row><range start="120" end="126"/></row>
-						<row><range start="126" end="132"/></row>
-						<row><range start="132" end="138"/></row>
-						<row><range start="138" end="144"/></row>
-						<row><range start="144" end="150"/></row>
-						<row><range start="150" end="156"/></row>
-						<row><range start="156" end="162"/></row>
-						<row><range start="162" end="168"/></row>
-						<row><range start="168" end="174"/></row>
-						<row><range start="174" end="180"/></row>
-						<row><range start="180" end="186"/></row>
-						<row><range start="186" end="192"/></row>
-						<row><range start="192" end="198"/></row>
-						<row><range start="198" end="204"/></row>
-						<row><range start="204" end="210"/></row>
-						<row><range start="210" end="216"/></row>
-					</column>
+				<overlay>
 					<row>
-						<column>
-							<range start="216" end="232" border-last="hl"/>
-							<index i="312" border="tl"/>
-							<index i="312" border="bl"/>
-						</column>
-						<column>
-							<range start="232" end="248" border-last="h" />
-							<index i="312" border="tr"/>
-							<index i="312" border="b" />
-						</column>
-						<column>
-							<range start="248" end="264" border-last="h" />
-							<index i="313"/>
-							<index i="312" border="hr"/>
-						</column>
-						<column>
-							<range start="280" end="296" border-first="hl" border-last="h" />
-							<index i="314"/>
-							<index i="315" border="hl"/>
-						</column>
-						<column>
-							<range start="264" end="280" border-first="hr" border-last="hr"/>
-							<index i="315" border="tl"/>
-							<index i="315" border="b" />
-						</column>
-						<column>
-							<range start="296" end="312"/>
-							<index i="315" border="tr"/>
-							<index i="315" border="br"/>
-						</column>
-					</row>
-				</row>
-			</square>
-			<vertical>
-				<row>
-					<weighted weight="2">
 						<column>
 							<row><range start=  "0" end=  "6"/></row>
 							<row><range start=  "6" end= "12"/></row>
@@ -492,6 +419,8 @@
 							<row><range start= "90" end= "96"/></row>
 							<row><range start= "96" end="102"/></row>
 							<row><range start="102" end="108"/></row>
+						</column>
+						<column>
 							<row><range start="108" end="114"/></row>
 							<row><range start="114" end="120"/></row>
 							<row><range start="120" end="126"/></row>
@@ -511,33 +440,112 @@
 							<row><range start="204" end="210"/></row>
 							<row><range start="210" end="216"/></row>
 						</column>
-					</weighted>
-					<weighted weight="1">
 						<row>
 							<column>
 								<range start="216" end="232" border-last="hl"/>
-								<range start="312" end="316" border-first="hl" border-last="hl"/>
-								<range start="280" end="296" border-first="hl" border-last="hl"/>
+								<empty repeat="2"/>
 							</column>
 							<column>
 								<range start="232" end="248" border-last="h" />
-								<index i="312" border="t" />
-								<index i="312" border="bl"/>
-								<index i="315" border="tl"/>
-								<index i="315" border="b" />
-								<range start="264" end="280" border-first="hr" border-last="hr"/>
+								<empty repeat="2"/>
 							</column>
 							<column>
-								<range start="248" end="264" border-last="hr"/>
-								<index i="312" border="tr"/>
-								<index i="312" border="br"/>
-								<index i="315" border="tr"/>
-								<index i="315" border="br"/>
+								<range start="248" end="264" border-last="h" />
+								<index i="313"/>
+								<empty repeat="1"/>
+							</column>
+							<column>
+								<range start="280" end="296" border-first="hl" border-last="h" />
+								<index i="314"/>
+								<empty repeat="1"/>
+							</column>
+							<column>
+								<range start="264" end="280" border-first="hr" border-last="hr"/>
+								<empty repeat="2"/>
+							</column>
+							<column>
 								<range start="296" end="312"/>
+								<empty repeat="2"/>
 							</column>
 						</row>
-					</weighted>
-				</row>
+					</row>
+					<polygonal cols="18" rows="18">
+						<poly p="12 16 14 16 14 17 15 17 15 18 12 18" i="312"/>
+						<poly p="15 17 16 17 16 16 18 16 18 18 15 18" i="315"/>
+					</polygonal>
+				</overlay>
+			</square>
+			<vertical>
+				<overlay>
+					<row>
+						<weighted weight="2">
+							<column>
+								<row><range start=  "0" end=  "6"/></row>
+								<row><range start=  "6" end= "12"/></row>
+								<row><range start= "12" end= "18"/></row>
+								<row><range start= "18" end= "24"/></row>
+								<row><range start= "24" end= "30"/></row>
+								<row><range start= "30" end= "36"/></row>
+								<row><range start= "36" end= "42"/></row>
+								<row><range start= "42" end= "48"/></row>
+								<row><range start= "48" end= "54"/></row>
+								<row><range start= "54" end= "60"/></row>
+								<row><range start= "60" end= "66"/></row>
+								<row><range start= "66" end= "72"/></row>
+								<row><range start= "72" end= "78"/></row>
+								<row><range start= "78" end= "84"/></row>
+								<row><range start= "84" end= "90"/></row>
+								<row><range start= "90" end= "96"/></row>
+								<row><range start= "96" end="102"/></row>
+								<row><range start="102" end="108"/></row>
+								<row><range start="108" end="114"/></row>
+								<row><range start="114" end="120"/></row>
+								<row><range start="120" end="126"/></row>
+								<row><range start="126" end="132"/></row>
+								<row><range start="132" end="138"/></row>
+								<row><range start="138" end="144"/></row>
+								<row><range start="144" end="150"/></row>
+								<row><range start="150" end="156"/></row>
+								<row><range start="156" end="162"/></row>
+								<row><range start="162" end="168"/></row>
+								<row><range start="168" end="174"/></row>
+								<row><range start="174" end="180"/></row>
+								<row><range start="180" end="186"/></row>
+								<row><range start="186" end="192"/></row>
+								<row><range start="192" end="198"/></row>
+								<row><range start="198" end="204"/></row>
+								<row><range start="204" end="210"/></row>
+								<row><range start="210" end="216"/></row>
+							</column>
+						</weighted>
+						<weighted weight="1">
+							<row>
+								<column>
+									<range start="216" end="232" border-last="hl"/>
+									<empty repeat="1"/>
+									<index i="313"/>
+									<index i="314"/>
+									<empty repeat="1"/>
+									<range start="280" end="296" border-first="hl" border-last="hl"/>
+								</column>
+								<column>
+									<range start="232" end="248" border-last="h" />
+									<empty repeat="4"/>
+									<range start="264" end="280" border-first="hr" border-last="hr"/>
+								</column>
+								<column>
+									<range start="248" end="264" border-last="hr"/>
+									<empty repeat="4"/>
+									<range start="296" end="312"/>
+								</column>
+							</row>
+						</weighted>
+					</row>
+					<polygonal cols="9" rows="36">
+						<poly p="6 16 9 16 9 18 7 18 7 17 6 17" i="312"/>
+						<poly p="7 18 9 18 9 20 6 20 6 19 7 19" i="315"/>
+					</polygonal>
+				</overlay>
 			</vertical>
 		</oriented>
 	</layout>

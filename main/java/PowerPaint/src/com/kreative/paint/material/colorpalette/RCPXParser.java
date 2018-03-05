@@ -161,6 +161,22 @@ public class RCPXParser {
 				diagonal.add(parseSwatch(child));
 			}
 			return diagonal;
+		} else if (type.equalsIgnoreCase("polygonal")) {
+			NamedNodeMap attr = node.getAttributes();
+			RCPXLayout.Polygonal polygonal = new RCPXLayout.Polygonal(
+				parseInt(attr, "cols", 1),
+				parseInt(attr, "rows", 1)
+			);
+			for (Node child : getChildren(node)) {
+				polygonal.add(parseShape(child));
+			}
+			return polygonal;
+		} else if (type.equalsIgnoreCase("overlay")) {
+			RCPXLayout.Overlay overlay = new RCPXLayout.Overlay();
+			for (Node child : getChildren(node)) {
+				overlay.add(parseLayoutOrSwatch(child));
+			}
+			return overlay;
 		} else {
 			throw new IOException("Unknown element: " + type);
 		}
@@ -228,6 +244,79 @@ public class RCPXParser {
 				parseFloat(attr, "s", 0.0f),
 				parseFloat(attr, "v", 0.0f),
 				parseBorder(attr, "border", RCPXBorder.ALL)
+			);
+		} else {
+			throw new IOException("Unknown element: " + type);
+		}
+	}
+	
+	private static RCPXShape parseShape(Node node) throws IOException {
+		String type = node.getNodeName();
+		NamedNodeMap attr = node.getAttributes();
+		if (type.equalsIgnoreCase("rect") || type.equalsIgnoreCase("rectangle")) {
+			return new RCPXShape.Rect(
+				parseFloat(attr, "x", 0),
+				parseFloat(attr, "y", 0),
+				parseFloat(attr, "w", 1),
+				parseFloat(attr, "h", 1),
+				parseInt(attr, "i", 0)
+			);
+		} else if (type.equalsIgnoreCase("diam") || type.equalsIgnoreCase("diamond")) {
+			return new RCPXShape.Diam(
+				parseFloat(attr, "cx", 0),
+				parseFloat(attr, "cy", 0),
+				parseFloat(attr, "w", 2),
+				parseFloat(attr, "h", 2),
+				parseInt(attr, "i", 0)
+			);
+		} else if (type.equalsIgnoreCase("tri") || type.equalsIgnoreCase("triangle")) {
+			RCPXShape.Tri.Direction dir;
+			String s = parseString(attr, "dir");
+			if (s == null) dir = RCPXShape.Tri.Direction.UP;
+			else if (s.equalsIgnoreCase("d")) dir = RCPXShape.Tri.Direction.DOWN;
+			else if (s.equalsIgnoreCase("l")) dir = RCPXShape.Tri.Direction.LEFT;
+			else if (s.equalsIgnoreCase("r")) dir = RCPXShape.Tri.Direction.RIGHT;
+			else if (s.equalsIgnoreCase("down")) dir = RCPXShape.Tri.Direction.DOWN;
+			else if (s.equalsIgnoreCase("left")) dir = RCPXShape.Tri.Direction.LEFT;
+			else if (s.equalsIgnoreCase("right")) dir = RCPXShape.Tri.Direction.RIGHT;
+			else dir = RCPXShape.Tri.Direction.UP;
+			return new RCPXShape.Tri(
+				parseFloat(attr, "bcx", 0),
+				parseFloat(attr, "bcy", 0),
+				parseFloat(attr, "w", 2),
+				parseFloat(attr, "h", 2),
+				dir,
+				parseInt(attr, "i", 0)
+			);
+		} else if (type.equalsIgnoreCase("hex") || type.equalsIgnoreCase("hexagon")) {
+			RCPXShape.Hex.Direction dir;
+			String s = parseString(attr, "dir");
+			if (s == null) dir = RCPXShape.Hex.Direction.HORIZONTAL;
+			else if (s.equalsIgnoreCase("v")) dir = RCPXShape.Hex.Direction.VERTICAL;
+			else if (s.equalsIgnoreCase("vert")) dir = RCPXShape.Hex.Direction.VERTICAL;
+			else if (s.equalsIgnoreCase("vertical")) dir = RCPXShape.Hex.Direction.VERTICAL;
+			else dir = RCPXShape.Hex.Direction.HORIZONTAL;
+			return new RCPXShape.Hex(
+				parseFloat(attr, "cx", 0),
+				parseFloat(attr, "cy", 0),
+				parseFloat(attr, "w", 2),
+				parseFloat(attr, "h", 2),
+				dir,
+				parseInt(attr, "i", 0)
+			);
+		} else if (type.equalsIgnoreCase("poly") || type.equalsIgnoreCase("polygon")) {
+			String p = parseString(attr, "p");
+			return new RCPXShape.Poly(
+				((p != null) ? p : ""),
+				parseInt(attr, "i", 0)
+			);
+		} else if (type.equalsIgnoreCase("ellipse")) {
+			return new RCPXShape.Ellipse(
+				parseFloat(attr, "cx", 0),
+				parseFloat(attr, "cy", 0),
+				parseFloat(attr, "w", 2),
+				parseFloat(attr, "h", 2),
+				parseInt(attr, "i", 0)
 			);
 		} else {
 			throw new IOException("Unknown element: " + type);

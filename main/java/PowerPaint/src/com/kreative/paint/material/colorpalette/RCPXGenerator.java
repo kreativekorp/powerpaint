@@ -75,6 +75,16 @@ public class RCPXGenerator {
 				"diagonal", content, "cols", l.cols, "rows", l.rows,
 				(l.square ? "aspect" : null), (l.square ? "square" : null)
 			);
+		} else if (layout instanceof RCPXLayout.Polygonal) {
+			RCPXLayout.Polygonal l = (RCPXLayout.Polygonal)layout;
+			List<String> content = new ArrayList<String>();
+			for (RCPXShape s : l) content.add(generateShape(s));
+			return b("polygonal", content, "cols", l.cols, "rows", l.rows);
+		} else if (layout instanceof RCPXLayout.Overlay) {
+			RCPXLayout.Overlay l = (RCPXLayout.Overlay)layout;
+			List<String> content = new ArrayList<String>();
+			for (RCPXLayoutOrSwatch c : l) content.addAll(generateLayoutOrSwatch(c));
+			return b("overlay", content);
 		} else {
 			throw new IllegalArgumentException("Unknown RCPXLayout class: " + layout.getClass());
 		}
@@ -143,6 +153,39 @@ public class RCPXGenerator {
 			return t("hsv-sweep", true, args.toArray());
 		} else {
 			throw new IllegalArgumentException("Unknown RCPXSwatch class: " + swatch.getClass());
+		}
+	}
+	
+	private static String generateShape(RCPXShape shape) {
+		if (shape instanceof RCPXShape.Rect) {
+			RCPXShape.Rect s = (RCPXShape.Rect)shape;
+			return t("rect", true, "x", s.x, "y", s.y, "w", s.w, "h", s.h, "i", s.i);
+		} else if (shape instanceof RCPXShape.Diam) {
+			RCPXShape.Diam s = (RCPXShape.Diam)shape;
+			return t("diam", true, "cx", s.cx, "cy", s.cy, "w", s.w, "h", s.h, "i", s.i);
+		} else if (shape instanceof RCPXShape.Tri) {
+			RCPXShape.Tri s = (RCPXShape.Tri)shape;
+			return t("tri", true, "bcx", s.bcx, "bcy", s.bcy, "w", s.w, "h", s.h,
+				"dir", s.dir.name().toLowerCase(), "i", s.i);
+		} else if (shape instanceof RCPXShape.Hex) {
+			RCPXShape.Hex s = (RCPXShape.Hex)shape;
+			return t("hex", true, "cx", s.cx, "cy", s.cy, "w", s.w, "h", s.h,
+				"dir", s.dir.name().toLowerCase(), "i", s.i);
+		} else if (shape instanceof RCPXShape.Poly) {
+			RCPXShape.Poly s = (RCPXShape.Poly)shape;
+			StringBuffer p = new StringBuffer();
+			for (int i = 0; i < s.nPoints; i++) {
+				if (i > 0) p.append(" ");
+				p.append(s.xPoints[i]);
+				p.append(" ");
+				p.append(s.yPoints[i]);
+			}
+			return t("poly", true, "p", p.toString(), "i", s.i);
+		} else if (shape instanceof RCPXShape.Ellipse) {
+			RCPXShape.Ellipse s = (RCPXShape.Ellipse)shape;
+			return t("ellipse", true, "cx", s.cx, "cy", s.cy, "w", s.w, "h", s.h, "i", s.i);
+		} else {
+			throw new IllegalArgumentException("Unknown RCPXShape class: " + shape.getClass());
 		}
 	}
 	

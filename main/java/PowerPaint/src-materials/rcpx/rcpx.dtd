@@ -1,5 +1,5 @@
 <!--
-	Date: 2018/02/27 12:22:30 PST
+	Date: 2018/03/05 01:36:00 PDT
 	Author: Rebecca Bettencourt <support@kreativekorp.com>
 -->
 
@@ -174,9 +174,66 @@
 	border CDATA "a"
 >
 
+<!-- - - - - - - - - - - - - SHAPES - - - - - - - - - - - - -->
+
+<!ENTITY % shape "(rect|diam|tri|hex|poly|ellipse)">
+
+<!ELEMENT rect EMPTY>
+<!ATTLIST rect
+	x CDATA #REQUIRED
+	y CDATA #REQUIRED
+	w CDATA "1"
+	h CDATA "1"
+	i CDATA #REQUIRED
+>
+
+<!ELEMENT diam EMPTY>
+<!ATTLIST diam
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	w CDATA "2"
+	h CDATA "2"
+	i CDATA #REQUIRED
+>
+
+<!ELEMENT tri EMPTY>
+<!ATTLIST tri
+	bcx CDATA #REQUIRED
+	bcy CDATA #REQUIRED
+	w CDATA "2"
+	h CDATA "2"
+	dir (u|d|l|r|up|down|left|right) "up"
+	i CDATA #REQUIRED
+>
+
+<!ELEMENT hex EMPTY>
+<!ATTLIST hex
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	w CDATA "2"
+	h CDATA "2"
+	dir (h|v|horiz|vert|horizontal|vertical) "horizontal"
+	i CDATA #REQUIRED
+>
+
+<!ELEMENT poly EMPTY>
+<!ATTLIST poly
+	p CDATA #REQUIRED
+	i CDATA #REQUIRED
+>
+
+<!ELEMENT ellipse EMPTY>
+<!ATTLIST ellipse
+	cx CDATA #REQUIRED
+	cy CDATA #REQUIRED
+	w CDATA "2"
+	h CDATA "2"
+	i CDATA #REQUIRED
+>
+
 <!-- - - - - - - - - - - - - LAYOUTS - - - - - - - - - - - - -->
 
-<!ENTITY % layout "(oriented|row|column|diagonal)">
+<!ENTITY % layout "(oriented|row|column|diagonal|polygonal|overlay)">
 
 <!ELEMENT oriented (horizontal,square,vertical)>
 <!ELEMENT horizontal (%layout;|%swatch;)>
@@ -196,6 +253,14 @@
 	rows CDATA #REQUIRED
 	aspect (auto|square) "auto"
 >
+
+<!ELEMENT polygonal (%shape;)*>
+<!ATTLIST polygonal
+	cols CDATA #REQUIRED
+	rows CDATA #REQUIRED
+>
+
+<!ELEMENT overlay (%layout;|%swatch;)*>
 
 <!-- - - - - - - - - - - - - PALETTE - - - - - - - - - - - - -->
 

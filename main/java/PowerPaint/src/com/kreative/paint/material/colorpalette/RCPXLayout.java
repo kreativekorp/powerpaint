@@ -1,9 +1,13 @@
 package com.kreative.paint.material.colorpalette;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -14,6 +18,9 @@ import java.util.ListIterator;
 public abstract class RCPXLayout extends RCPXLayoutOrSwatch {
 	private static final Rectangle BOGUS_RECTANGLE = new Rectangle(0, 0, 2, 2);
 	private static final Point BOGUS_POINT = new Point(1, 1);
+	private static final AffineTransform TRANSLATE_0_5 = AffineTransform.getTranslateInstance(0.5, 0.5);
+	private static final BasicStroke BASIC_STROKE_1 = new BasicStroke(1);
+	private static final BasicStroke BASIC_STROKE_3 = new BasicStroke(3);
 	
 	@Override public final boolean isLayout() { return true; }
 	@Override public final RCPXLayout asLayout() { return this; }
@@ -569,6 +576,313 @@ public abstract class RCPXLayout extends RCPXLayoutOrSwatch {
 			if (c1 != null || c2 != null) {
 				g.setColor(Color.black);
 				g.drawLine(lx1, ly1, lx2, ly2);
+			}
+		}
+	}
+	
+	public static class Polygonal extends RCPXLayout implements List<RCPXShape> {
+		public final int cols;
+		public final int rows;
+		private final List<RCPXShape> children;
+		private transient Rectangle rectCache;
+		private transient Shape[] shapeCache;
+		private transient int[] indexCache;
+		public Polygonal(int cols, int rows) {
+			this.cols = cols;
+			this.rows = rows;
+			this.children = new ArrayList<RCPXShape>();
+			this.rectCache = null;
+			this.shapeCache = null;
+			this.indexCache = null;
+		}
+		private void createCache(Rectangle r) {
+			if (rectCache == null || !rectCache.equals(r) || shapeCache == null || indexCache == null) {
+				rectCache = r;
+				shapeCache = new Shape[children.size()];
+				indexCache = new int[children.size()];
+				for (int i = 0, n = children.size(); i < n; i++) {
+					shapeCache[i] = children.get(i).awtShape(r, cols, rows);
+					indexCache[i] = children.get(i).getIndex();
+				}
+			}
+		}
+		private void clearCache() {
+			rectCache = null;
+			shapeCache = null;
+			indexCache = null;
+		}
+		@Override
+		public boolean add(RCPXShape e) {
+			clearCache();
+			return children.add(e);
+		}
+		@Override
+		public void add(int i, RCPXShape e) {
+			clearCache();
+			children.add(i, e);
+		}
+		@Override
+		public boolean addAll(Collection<? extends RCPXShape> c) {
+			clearCache();
+			return children.addAll(c);
+		}
+		@Override
+		public boolean addAll(int i, Collection<? extends RCPXShape> c) {
+			clearCache();
+			return children.addAll(i, c);
+		}
+		@Override
+		public void clear() {
+			clearCache();
+			children.clear();
+		}
+		@Override
+		public boolean contains(Object e) {
+			return children.contains(e);
+		}
+		@Override
+		public boolean containsAll(Collection<?> c) {
+			return children.containsAll(c);
+		}
+		@Override
+		public RCPXShape get(int i) {
+			return children.get(i);
+		}
+		@Override
+		public int indexOf(Object e) {
+			return children.indexOf(e);
+		}
+		@Override
+		public boolean isEmpty() {
+			return children.isEmpty();
+		}
+		@Override
+		public Iterator<RCPXShape> iterator() {
+			return Collections.unmodifiableList(children).iterator();
+		}
+		@Override
+		public int lastIndexOf(Object e) {
+			return children.lastIndexOf(e);
+		}
+		@Override
+		public ListIterator<RCPXShape> listIterator() {
+			return Collections.unmodifiableList(children).listIterator();
+		}
+		@Override
+		public ListIterator<RCPXShape> listIterator(int i) {
+			return Collections.unmodifiableList(children).listIterator(i);
+		}
+		@Override
+		public boolean remove(Object e) {
+			clearCache();
+			return children.remove(e);
+		}
+		@Override
+		public RCPXShape remove(int i) {
+			clearCache();
+			return children.remove(i);
+		}
+		@Override
+		public boolean removeAll(Collection<?> c) {
+			clearCache();
+			return children.removeAll(c);
+		}
+		@Override
+		public boolean retainAll(Collection<?> c) {
+			clearCache();
+			return children.retainAll(c);
+		}
+		@Override
+		public RCPXShape set(int i, RCPXShape e) {
+			clearCache();
+			return children.set(i, e);
+		}
+		@Override
+		public int size() {
+			return children.size();
+		}
+		@Override
+		public List<RCPXShape> subList(int fromIndex, int toIndex) {
+			return Collections.unmodifiableList(children).subList(fromIndex, toIndex);
+		}
+		@Override
+		public Object[] toArray() {
+			return children.toArray();
+		}
+		@Override
+		public <T> T[] toArray(T[] a) {
+			return children.toArray(a);
+		}
+		@Override
+		public int repeatCount() {
+			return 1;
+		}
+		@Override
+		public Color awtColor(List<RCPXColor> colors, int ignored, Rectangle r, Point p) {
+			createCache(r);
+			for (int i = shapeCache.length - 1; i >= 0; i--) {
+				if (shapeCache[i].contains(p)) {
+					return colors.get(indexCache[i]).awtColor();
+				}
+			}
+			return null;
+		}
+		@Override
+		public String name(List<RCPXColor> colors, int ignored, Rectangle r, Point p) {
+			createCache(r);
+			for (int i = shapeCache.length - 1; i >= 0; i--) {
+				if (shapeCache[i].contains(p)) {
+					return colors.get(indexCache[i]).name();
+				}
+			}
+			return null;
+		}
+		@Override
+		public void paint(List<RCPXColor> colors, int ignored, Graphics g, Rectangle r, Color currCol) {
+			createCache(r);
+			if (g instanceof Graphics2D) {
+				Graphics2D g2 = (Graphics2D)g;
+				for (int i = 0; i < shapeCache.length; i++) {
+					Color c = colors.get(indexCache[i]).awtColor();
+					if (c.getAlpha() < 255) {
+						g2.setPaint(CheckerboardPaint.LIGHT);
+						g2.fill(shapeCache[i]);
+					}
+					g2.setPaint(c);
+					g2.fill(shapeCache[i]);
+					Shape s = TRANSLATE_0_5.createTransformedShape(shapeCache[i]);
+					if (c.equals(currCol)) {
+						Shape clip = g2.getClip();
+						g2.clip(shapeCache[i]);
+						g2.setPaint(RCPXBorder.contrastingColor(c));
+						g2.fill(BASIC_STROKE_3.createStrokedShape(s));
+						g2.setClip(clip);
+					}
+					g2.setPaint(Color.BLACK);
+					g2.fill(BASIC_STROKE_1.createStrokedShape(s));
+				}
+			}
+		}
+	}
+	
+	public static class Overlay extends RCPXLayout implements List<RCPXLayoutOrSwatch> {
+		private final List<RCPXLayoutOrSwatch> children = new ArrayList<RCPXLayoutOrSwatch>();
+		@Override
+		public boolean add(RCPXLayoutOrSwatch e) {
+			return children.add(e);
+		}
+		@Override
+		public void add(int i, RCPXLayoutOrSwatch e) {
+			children.add(i, e);
+		}
+		@Override
+		public boolean addAll(Collection<? extends RCPXLayoutOrSwatch> c) {
+			return children.addAll(c);
+		}
+		@Override
+		public boolean addAll(int i, Collection<? extends RCPXLayoutOrSwatch> c) {
+			return children.addAll(i, c);
+		}
+		@Override
+		public void clear() {
+			children.clear();
+		}
+		@Override
+		public boolean contains(Object e) {
+			return children.contains(e);
+		}
+		@Override
+		public boolean containsAll(Collection<?> c) {
+			return children.containsAll(c);
+		}
+		@Override
+		public RCPXLayoutOrSwatch get(int i) {
+			return children.get(i);
+		}
+		@Override
+		public int indexOf(Object e) {
+			return children.indexOf(e);
+		}
+		@Override
+		public boolean isEmpty() {
+			return children.isEmpty();
+		}
+		@Override
+		public Iterator<RCPXLayoutOrSwatch> iterator() {
+			return children.iterator();
+		}
+		@Override
+		public int lastIndexOf(Object e) {
+			return children.lastIndexOf(e);
+		}
+		@Override
+		public ListIterator<RCPXLayoutOrSwatch> listIterator() {
+			return children.listIterator();
+		}
+		@Override
+		public ListIterator<RCPXLayoutOrSwatch> listIterator(int i) {
+			return children.listIterator(i);
+		}
+		@Override
+		public boolean remove(Object e) {
+			return children.remove(e);
+		}
+		@Override
+		public RCPXLayoutOrSwatch remove(int i) {
+			return children.remove(i);
+		}
+		@Override
+		public boolean removeAll(Collection<?> c) {
+			return children.removeAll(c);
+		}
+		@Override
+		public boolean retainAll(Collection<?> c) {
+			return children.retainAll(c);
+		}
+		@Override
+		public RCPXLayoutOrSwatch set(int i, RCPXLayoutOrSwatch e) {
+			return children.set(i, e);
+		}
+		@Override
+		public int size() {
+			return children.size();
+		}
+		@Override
+		public List<RCPXLayoutOrSwatch> subList(int fromIndex, int toIndex) {
+			return children.subList(fromIndex, toIndex);
+		}
+		@Override
+		public Object[] toArray() {
+			return children.toArray();
+		}
+		@Override
+		public <T> T[] toArray(T[] a) {
+			return children.toArray(a);
+		}
+		@Override
+		public int repeatCount() {
+			return 1;
+		}
+		@Override
+		public Color awtColor(List<RCPXColor> colors, int ignored, Rectangle r, Point p) {
+			for (int i = children.size() - 1; i >= 0; i--) {
+				Color c = children.get(i).awtColor(colors, 0, r, p);
+				if (c != null) return c;
+			}
+			return null;
+		}
+		@Override
+		public String name(List<RCPXColor> colors, int ignored, Rectangle r, Point p) {
+			for (int i = children.size() - 1; i >= 0; i--) {
+				String n = children.get(i).name(colors, 0, r, p);
+				if (n != null) return n;
+			}
+			return null;
+		}
+		@Override
+		public void paint(List<RCPXColor> colors, int ignored, Graphics g, Rectangle r, Color currCol) {
+			for (RCPXLayoutOrSwatch child : children) {
+				child.paint(colors, 0, g, r, currCol);
 			}
 		}
 	}
