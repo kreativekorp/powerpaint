@@ -6,8 +6,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -742,21 +744,21 @@ public abstract class RCPXLayout extends RCPXLayoutOrSwatch {
 			createCache(r);
 			if (g instanceof Graphics2D) {
 				Graphics2D g2 = (Graphics2D)g;
+				g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 				for (int i = 0; i < shapeCache.length; i++) {
+					Shape s = TRANSLATE_0_5.createTransformedShape(shapeCache[i]);
 					Color c = colors.get(indexCache[i]).awtColor();
 					if (c.getAlpha() < 255) {
 						g2.setPaint(CheckerboardPaint.LIGHT);
-						g2.fill(shapeCache[i]);
+						g2.fill(s);
 					}
 					g2.setPaint(c);
-					g2.fill(shapeCache[i]);
-					Shape s = TRANSLATE_0_5.createTransformedShape(shapeCache[i]);
+					g2.fill(s);
 					if (c.equals(currCol)) {
-						Shape clip = g2.getClip();
-						g2.clip(shapeCache[i]);
 						g2.setPaint(RCPXBorder.contrastingColor(c));
-						g2.fill(BASIC_STROKE_3.createStrokedShape(s));
-						g2.setClip(clip);
+						Area a = new Area(BASIC_STROKE_3.createStrokedShape(s));
+						a.intersect(new Area(s));
+						g2.fill(a);
 					}
 					g2.setPaint(Color.BLACK);
 					g2.fill(BASIC_STROKE_1.createStrokedShape(s));
