@@ -2,9 +2,9 @@
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
 <palette name="W3Schools"
          orientation="square"
-         hwidth="365" hheight= "97"
-         swidth="183" sheight="193"
-         vwidth= "92" vheight="385">
+         hwidth="365" hheight= "99"
+         swidth="183" sheight="197"
+         vwidth= "92" vheight="393">
 	<colors ordered="unordered">
 		<rgb r=  "0" g= "51" b="102"/>
 		<rgb r= "51" g="102" b="153"/>
@@ -141,7 +141,7 @@
 		<rgb r=  "0" g=  "0" b=  "0"/>
 	</colors>
 	<layout>
-		<polygonal cols="26" rows="48">
+		<polygonal cols="26" rows="49">
 			<hex cx= "7" cy= "2" dir="v" w="2" h="4" i=  "0"/>
 			<hex cx= "9" cy= "2" dir="v" w="2" h="4" i=  "1"/>
 			<hex cx="11" cy= "2" dir="v" w="2" h="4" i=  "2"/>
@@ -269,12 +269,12 @@
 			<hex cx="15" cy="38" dir="v" w="2" h="4" i="124"/>
 			<hex cx="17" cy="38" dir="v" w="2" h="4" i="125"/>
 			<hex cx="19" cy="38" dir="v" w="2" h="4" i="126"/>
-			<rect x= "0" y="42" w="4" h="6" i="127"/>
-			<rect x= "5" y="42" w="4" h="6" i="128"/>
-			<rect x= "9" y="42" w="4" h="6" i="129"/>
-			<rect x="13" y="42" w="4" h="6" i="130"/>
-			<rect x="17" y="42" w="4" h="6" i="131"/>
-			<rect x="22" y="42" w="4" h="6" i="132"/>
+			<rect x= "0" y="42" w="4" h="7" i="127"/>
+			<rect x= "5" y="42" w="4" h="7" i="128"/>
+			<rect x= "9" y="42" w="4" h="7" i="129"/>
+			<rect x="13" y="42" w="4" h="7" i="130"/>
+			<rect x="17" y="42" w="4" h="7" i="131"/>
+			<rect x="22" y="42" w="4" h="7" i="132"/>
 		</polygonal>
 	</layout>
 </palette>
