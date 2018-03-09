@@ -2,9 +2,9 @@
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
 <palette name="VisiBone Hexagonal #1"
          orientation="square"
-         hwidth="369" hheight= "93"
-         swidth="185" sheight="185"
-         vwidth= "93" vheight="369">
+         hwidth="401" hheight= "93"
+         swidth="201" sheight="185"
+         vwidth="101" vheight="369">
 	<colors ordered="unordered">
 		<rgb r=  "0" g=  "0" b=  "0" name="Black"                 />
 		<rgb r=  "0" g=  "0" b= "51" name="Obscure Weak Blue"     />
@@ -224,1281 +224,249 @@
 		<rgb r="255" g="255" b="255" name="White"                 />
 	</colors>
 	<layout>
-		<column>
-			<row>
-				<empty repeat="19"/>
-				<index i="204" border="tl"/>
-				<index i="204" border="tr"/>
-				<index i="198" border="tl"/>
-				<index i="198" border="tr"/>
-				<index i="192" border="tl"/>
-				<index i="192" border="tr"/>
-				<index i="186" border="tl"/>
-				<index i="186" border="tr"/>
-				<empty repeat="19"/>
-			</row>
-			<row>
-				<empty repeat="19"/>
-				<index i="204" border="bl"/>
-				<index i="204" border="br"/>
-				<index i="198" border="bl"/>
-				<index i="198" border="br"/>
-				<index i="192" border="bl"/>
-				<index i="192" border="br"/>
-				<index i="186" border="bl"/>
-				<index i="186" border="br"/>
-				<empty repeat="19"/>
-			</row>
-			<row>
-				<empty repeat="19"/>
-				<index i="162" border="tl"/>
-				<index i="162" border="tr"/>
-				<index i="120" border="tl"/>
-				<index i="120" border="tr"/>
-				<index i="114" border="tl"/>
-				<index i="114" border="tr"/>
-				<index i="150" border="tl"/>
-				<index i="150" border="tr"/>
-				<empty repeat="19"/>
-			</row>
-			<row>
-				<empty repeat="10"/>
-				<index i="210" border="tl"/>
-				<index i="210" border="t" />
-				<index i="210" border="t" />
-				<index i="210" border="tr"/>
-				<empty repeat= "5"/>
-				<index i="162" border="bl"/>
-				<index i="162" border="br"/>
-				<index i="120" border="bl"/>
-				<index i="120" border="br"/>
-				<index i="114" border="bl"/>
-				<index i="114" border="br"/>
-				<index i="150" border="bl"/>
-				<index i="150" border="br"/>
-				<empty repeat= "5"/>
-				<index i="180" border="tl"/>
-				<index i="180" border="t" />
-				<index i="180" border="t" />
-				<index i="180" border="tr"/>
-				<empty repeat="10"/>
-			</row>
-			<row>
-				<empty repeat="10"/>
-				<index i="210" border="l" />
-				<index i="210" border="z" />
-				<index i="210" border="z" />
-				<index i="210" border="r" />
-				<empty repeat= "5"/>
-				<index i="205" border="tl"/>
-				<index i="205" border="tr"/>
-				<index i="163" border="tl"/>
-				<index i="163" border="tr"/>
-				<index i="157" border="tl"/>
-				<index i="157" border="tr"/>
-				<index i="193" border="tl"/>
-				<index i="193" border="tr"/>
-				<empty repeat= "5"/>
-				<index i="180" border="l" />
-				<index i="180" border="z" />
-				<index i="180" border="z" />
-				<index i="180" border="r" />
-				<empty repeat="10"/>
-			</row>
-			<row>
-				<empty repeat="10"/>
-				<index i="210" border="bl"/>
-				<index i="210" border="b" />
-				<index i="210" border="b" />
-				<index i="210" border="br"/>
-				<empty repeat= "5"/>
-				<index i="205" border="bl"/>
-				<index i="205" border="br"/>
-				<index i="163" border="bl"/>
-				<index i="163" border="br"/>
-				<index i="157" border="bl"/>
-				<index i="157" border="br"/>
-				<index i="193" border="bl"/>
-				<index i="193" border="br"/>
-				<empty repeat= "5"/>
-				<index i="180" border="bl"/>
-				<index i="180" border="b" />
-				<index i="180" border="b" />
-				<index i="180" border="br"/>
-				<empty repeat="10"/>
-			</row>
-			<row>
-				<empty repeat="21"/>
-				<index i="206" border="tl"/>
-				<index i="206" border="tr"/>
-				<index i="200" border="tl"/>
-				<index i="200" border="tr"/>
-				<empty repeat="21"/>
-			</row>
-			<row>
-				<empty repeat="21"/>
-				<index i="206" border="bl"/>
-				<index i="206" border="br"/>
-				<index i="200" border="bl"/>
-				<index i="200" border="br"/>
-				<empty repeat="21"/>
-			</row>
-			<row>
-				<empty repeat="18"/>
-				<index i="210" border="tl"/>
-				<index i="210" border="tr"/>
-				<empty repeat= "6"/>
-				<index i= "36" border="tl"/>
-				<index i= "36" border="tr"/>
-				<empty repeat="18"/>
-			</row>
-			<row>
-				<empty repeat= "2"/>
-				<index i="174" border="tl"/>
-				<index i="174" border="tr"/>
-				<index i="132" border="tl"/>
-				<index i="132" border="tr"/>
-				<index i="175" border="tl"/>
-				<index i="175" border="tr"/>
-				<empty repeat= "8"/>
-				<index i="168" border="tl"/>
-				<index i="168" border="tr"/>
-				<index i="210" border="bl"/>
-				<index i="210" border="br"/>
-				<empty repeat= "1"/>
-				<index i= "78" border="tl"/>
-				<index i= "78" border="tr"/>
-				<empty repeat= "3"/>
-				<index i= "36" border="bl"/>
-				<index i= "36" border="br"/>
-				<index i= "72" border="tl"/>
-				<index i= "72" border="tr"/>
-				<empty repeat= "8"/>
-				<index i="188" border="tl"/>
-				<index i="188" border="tr"/>
-				<index i="145" border="tl"/>
-				<index i="145" border="tr"/>
-				<index i="181" border="tl"/>
-				<index i="181" border="tr"/>
-				<empty repeat= "2"/>
-			</row>
-			<row>
-				<empty repeat= "2"/>
-				<index i="174" border="bl"/>
-				<index i="174" border="br"/>
-				<index i="132" border="bl"/>
-				<index i="132" border="br"/>
-				<index i="175" border="bl"/>
-				<index i="175" border="br"/>
-				<empty repeat= "6"/>
-				<index i="126" border="tl"/>
-				<index i="126" border="tr"/>
-				<index i="168" border="bl"/>
-				<index i="168" border="br"/>
-				<index i="211" border="tl"/>
-				<index i="211" border="tr"/>
-				<empty repeat= "1"/>
-				<index i= "78" border="bl"/>
-				<index i= "78" border="br"/>
-				<empty repeat= "3"/>
-				<index i= "79" border="tl"/>
-				<index i= "79" border="tr"/>
-				<index i= "72" border="bl"/>
-				<index i= "72" border="br"/>
-				<index i="108" border="tl"/>
-				<index i="108" border="tr"/>
-				<empty repeat= "6"/>
-				<index i="188" border="bl"/>
-				<index i="188" border="br"/>
-				<index i="145" border="bl"/>
-				<index i="145" border="br"/>
-				<index i="181" border="bl"/>
-				<index i="181" border="br"/>
-				<empty repeat= "2"/>
-			</row>
-			<row>
-				<empty repeat= "1"/>
-				<index i="138" border="tl"/>
-				<index i="138" border="tr"/>
-				<index i= "90" border="tl"/>
-				<index i= "90" border="tr"/>
-				<index i="133" border="tl"/>
-				<index i="133" border="tr"/>
-				<index i="176" border="tl"/>
-				<index i="176" border="tr"/>
-				<empty repeat= "3"/>
-				<index i= "84" border="tl"/>
-				<index i= "84" border="tr"/>
-				<index i="126" border="bl"/>
-				<index i="126" border="br"/>
-				<index i="169" border="tl"/>
-				<index i="169" border="tr"/>
-				<index i="211" border="bl"/>
-				<index i="211" border="br"/>
-				<empty repeat= "1"/>
-				<index i="121" border="tl"/>
-				<index i="121" border="tr"/>
-				<index i="156" border="tl"/>
-				<index i="156" border="tr"/>
-				<empty repeat= "1"/>
-				<index i= "79" border="bl"/>
-				<index i= "79" border="br"/>
-				<index i="115" border="tl"/>
-				<index i="115" border="tr"/>
-				<index i="108" border="bl"/>
-				<index i="108" border="br"/>
-				<index i="144" border="tl"/>
-				<index i="144" border="tr"/>
-				<empty repeat= "3"/>
-				<index i="195" border="tl"/>
-				<index i="195" border="tr"/>
-				<index i="152" border="tl"/>
-				<index i="152" border="tr"/>
-				<index i="109" border="tl"/>
-				<index i="109" border="tr"/>
-				<index i="182" border="tl"/>
-				<index i="182" border="tr"/>
-				<empty repeat= "1"/>
-			</row>
-			<row>
-				<empty repeat= "1"/>
-				<index i="138" border="bl"/>
-				<index i="138" border="br"/>
-				<index i= "90" border="bl"/>
-				<index i= "90" border="br"/>
-				<index i="133" border="bl"/>
-				<index i="133" border="br"/>
-				<index i="176" border="bl"/>
-				<index i="176" border="br"/>
-				<empty repeat= "1"/>
-				<index i= "42" border="tl"/>
-				<index i= "42" border="tr"/>
-				<index i= "84" border="bl"/>
-				<index i= "84" border="br"/>
-				<index i="127" border="tl"/>
-				<index i="127" border="tr"/>
-				<index i="169" border="bl"/>
-				<index i="169" border="br"/>
-				<index i="212" border="tl"/>
-				<index i="212" border="tr"/>
-				<empty repeat= "1"/>
-				<index i="121" border="bl"/>
-				<index i="121" border="br"/>
-				<index i="156" border="bl"/>
-				<index i="156" border="br"/>
-				<empty repeat= "1"/>
-				<index i="122" border="tl"/>
-				<index i="122" border="tr"/>
-				<index i="115" border="bl"/>
-				<index i="115" border="br"/>
-				<index i="151" border="tl"/>
-				<index i="151" border="tr"/>
-				<index i="144" border="bl"/>
-				<index i="144" border="br"/>
-				<index i="180" border="tl"/>
-				<index i="180" border="tr"/>
-				<empty repeat= "1"/>
-				<index i="195" border="bl"/>
-				<index i="195" border="br"/>
-				<index i="152" border="bl"/>
-				<index i="152" border="br"/>
-				<index i="109" border="bl"/>
-				<index i="109" border="br"/>
-				<index i="182" border="bl"/>
-				<index i="182" border="br"/>
-				<empty repeat= "1"/>
-			</row>
-			<row>
-				<index i="102" border="tl"/>
-				<index i="102" border="tr"/>
-				<index i= "54" border="tl"/>
-				<index i= "54" border="tr"/>
-				<index i= "97" border="tl"/>
-				<index i= "97" border="tr"/>
-				<index i="140" border="tl"/>
-				<index i="140" border="tr"/>
-				<empty repeat= "2"/>
-				<index i= "42" border="bl"/>
-				<index i= "42" border="br"/>
-				<index i= "85" border="tl"/>
-				<index i= "85" border="tr"/>
-				<index i="127" border="bl"/>
-				<index i="127" border="br"/>
-				<index i="170" border="tl"/>
-				<index i="170" border="tr"/>
-				<index i="212" border="bl"/>
-				<index i="212" border="br"/>
-				<empty repeat= "1"/>
-				<index i="164" border="tl"/>
-				<index i="164" border="tr"/>
-				<index i="199" border="tl"/>
-				<index i="199" border="tr"/>
-				<empty repeat= "1"/>
-				<index i="122" border="bl"/>
-				<index i="122" border="br"/>
-				<index i="158" border="tl"/>
-				<index i="158" border="tr"/>
-				<index i="151" border="bl"/>
-				<index i="151" border="br"/>
-				<index i="187" border="tl"/>
-				<index i="187" border="tr"/>
-				<index i="180" border="bl"/>
-				<index i="180" border="br"/>
-				<empty repeat= "2"/>
-				<index i="196" border="tl"/>
-				<index i="196" border="tr"/>
-				<index i="153" border="tl"/>
-				<index i="153" border="tr"/>
-				<index i="110" border="tl"/>
-				<index i="110" border="tr"/>
-				<index i="183" border="tl"/>
-				<index i="183" border="tr"/>
-			</row>
-			<row>
-				<index i="102" border="bl"/>
-				<index i="102" border="br"/>
-				<index i= "54" border="bl"/>
-				<index i= "54" border="br"/>
-				<index i= "97" border="bl"/>
-				<index i= "97" border="br"/>
-				<index i="140" border="bl"/>
-				<index i="140" border="br"/>
-				<empty repeat= "4"/>
-				<index i= "85" border="bl"/>
-				<index i= "85" border="br"/>
-				<index i="128" border="tl"/>
-				<index i="128" border="tr"/>
-				<index i="170" border="bl"/>
-				<index i="170" border="br"/>
-				<index i="213" border="tl"/>
-				<index i="213" border="tr"/>
-				<empty repeat= "1"/>
-				<index i="164" border="bl"/>
-				<index i="164" border="br"/>
-				<index i="199" border="bl"/>
-				<index i="199" border="br"/>
-				<empty repeat= "1"/>
-				<index i="165" border="tl"/>
-				<index i="165" border="tr"/>
-				<index i="158" border="bl"/>
-				<index i="158" border="br"/>
-				<index i="194" border="tl"/>
-				<index i="194" border="tr"/>
-				<index i="187" border="bl"/>
-				<index i="187" border="br"/>
-				<empty repeat= "4"/>
-				<index i="196" border="bl"/>
-				<index i="196" border="br"/>
-				<index i="153" border="bl"/>
-				<index i="153" border="br"/>
-				<index i="110" border="bl"/>
-				<index i="110" border="br"/>
-				<index i="183" border="bl"/>
-				<index i="183" border="br"/>
-			</row>
-			<row>
-				<index i= "66" border="tl"/>
-				<index i= "66" border="tr"/>
-				<index i= "60" border="tl"/>
-				<index i= "60" border="tr"/>
-				<index i="103" border="tl"/>
-				<index i="103" border="tr"/>
-				<empty repeat= "8"/>
-				<index i="128" border="bl"/>
-				<index i="128" border="br"/>
-				<index i="171" border="tl"/>
-				<index i="171" border="tr"/>
-				<index i="213" border="bl"/>
-				<index i="213" border="br"/>
-				<empty repeat= "1"/>
-				<index i="207" border="tl"/>
-				<index i="207" border="tr"/>
-				<empty repeat= "3"/>
-				<index i="165" border="bl"/>
-				<index i="165" border="br"/>
-				<index i="201" border="tl"/>
-				<index i="201" border="tr"/>
-				<index i="194" border="bl"/>
-				<index i="194" border="br"/>
-				<empty repeat= "2"/>
-				<index i= "73" border="tl"/>
-				<index i= "73" border="tr"/>
-				<empty repeat= "4"/>
-				<index i="190" border="tl"/>
-				<index i="190" border="tr"/>
-				<index i="147" border="tl"/>
-				<index i="147" border="tr"/>
-				<index i="184" border="tl"/>
-				<index i="184" border="tr"/>
-			</row>
-			<row>
-				<index i= "66" border="bl"/>
-				<index i= "66" border="br"/>
-				<index i= "60" border="bl"/>
-				<index i= "60" border="br"/>
-				<index i="103" border="bl"/>
-				<index i="103" border="br"/>
-				<empty repeat= "2"/>
-				<index i= "48" border="tl"/>
-				<index i= "48" border="tr"/>
-				<empty repeat= "2"/>
-				<index i= "96" border="tl"/>
-				<index i= "96" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="171" border="bl"/>
-				<index i="171" border="br"/>
-				<index i="214" border="tl"/>
-				<index i="214" border="tr"/>
-				<empty repeat= "1"/>
-				<index i="207" border="bl"/>
-				<index i="207" border="br"/>
-				<empty repeat= "3"/>
-				<index i="208" border="tl"/>
-				<index i="208" border="tr"/>
-				<index i="201" border="bl"/>
-				<index i="201" border="br"/>
-				<empty repeat= "2"/>
-				<index i="116" border="tl"/>
-				<index i="116" border="tr"/>
-				<index i= "73" border="bl"/>
-				<index i= "73" border="br"/>
-				<empty repeat= "4"/>
-				<index i="190" border="bl"/>
-				<index i="190" border="br"/>
-				<index i="147" border="bl"/>
-				<index i="147" border="br"/>
-				<index i="184" border="bl"/>
-				<index i="184" border="br"/>
-			</row>
-			<row>
-				<empty repeat= "8"/>
-				<index i= "48" border="bl"/>
-				<index i= "48" border="br"/>
-				<index i= "91" border="tl"/>
-				<index i= "91" border="tr"/>
-				<index i= "96" border="bl"/>
-				<index i= "96" border="br"/>
-				<index i="139" border="tl"/>
-				<index i="139" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="214" border="bl"/>
-				<index i="214" border="br"/>
-				<empty repeat= "6"/>
-				<index i="208" border="bl"/>
-				<index i="208" border="br"/>
-				<empty repeat= "2"/>
-				<index i="159" border="tl"/>
-				<index i="159" border="tr"/>
-				<index i="116" border="bl"/>
-				<index i="116" border="br"/>
-				<index i="146" border="tl"/>
-				<index i="146" border="tr"/>
-				<empty repeat="10"/>
-			</row>
-			<row>
-				<empty repeat= "6"/>
-				<index i= "30" border="tl"/>
-				<index i= "30" border="tr"/>
-				<empty repeat= "2"/>
-				<index i= "91" border="bl"/>
-				<index i= "91" border="br"/>
-				<index i="134" border="tl"/>
-				<index i="134" border="tr"/>
-				<index i="139" border="bl"/>
-				<index i="139" border="br"/>
-				<empty repeat="12"/>
-				<index i="202" border="tl"/>
-				<index i="202" border="tr"/>
-				<index i="159" border="bl"/>
-				<index i="159" border="br"/>
-				<index i="189" border="tl"/>
-				<index i="189" border="tr"/>
-				<index i="146" border="bl"/>
-				<index i="146" border="br"/>
-				<empty repeat= "2"/>
-				<index i= "37" border="tl"/>
-				<index i= "37" border="tr"/>
-				<empty repeat= "6"/>
-			</row>
-			<row>
-				<empty repeat= "6"/>
-				<index i= "30" border="bl"/>
-				<index i= "30" border="br"/>
-				<index i= "67" border="tl"/>
-				<index i= "67" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="134" border="bl"/>
-				<index i="134" border="br"/>
-				<index i="177" border="tl"/>
-				<index i="177" border="tr"/>
-				<empty repeat= "4"/>
-				<index i="172" border="hl"/>
-				<index i="172" border="t" />
-				<index i="172" border="t" />
-				<index i="172" border="t" />
-				<index i="172" border="t" />
-				<index i="172" border="hr"/>
-				<empty repeat= "2"/>
-				<index i="202" border="bl"/>
-				<index i="202" border="br"/>
-				<empty repeat= "2"/>
-				<index i="189" border="bl"/>
-				<index i="189" border="br"/>
-				<empty repeat= "2"/>
-				<index i= "80" border="tl"/>
-				<index i= "80" border="tr"/>
-				<index i= "37" border="bl"/>
-				<index i= "37" border="br"/>
-				<empty repeat= "6"/>
-			</row>
-			<row>
-				<empty repeat= "6"/>
-				<index i= "24" border="tl"/>
-				<index i= "24" border="tr"/>
-				<index i= "67" border="bl"/>
-				<index i= "67" border="br"/>
-				<index i="104" border="tl"/>
-				<index i="104" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="177" border="bl"/>
-				<index i="177" border="br"/>
-				<empty repeat= "3"/>
-				<index i="129" border="tl"/>
-				<index i="129" border="tr"/>
-				<index i="172" border="bl"/>
-				<index i="172" border="z" />
-				<index i="172" border="z" />
-				<index i="172" border="br"/>
-				<index i="215" border="tl"/>
-				<index i="215" border="tr"/>
-				<empty repeat= "7"/>
-				<index i="123" border="tl"/>
-				<index i="123" border="tr"/>
-				<index i= "80" border="bl"/>
-				<index i= "80" border="br"/>
-				<index i= "74" border="tl"/>
-				<index i= "74" border="tr"/>
-				<empty repeat= "6"/>
-			</row>
-			<row>
-				<index i= "30" border="tl"/>
-				<index i= "30" border="t" />
-				<index i= "30" border="tr"/>
-				<empty repeat= "3"/>
-				<index i= "24" border="bl"/>
-				<index i= "24" border="br"/>
-				<index i= "61" border="tl"/>
-				<index i= "61" border="tr"/>
-				<index i="104" border="bl"/>
-				<index i="104" border="br"/>
-				<index i="141" border="tl"/>
-				<index i="141" border="tr"/>
-				<empty repeat= "4"/>
-				<index i="129" border="tl"/>
-				<index i="129" border="z" />
-				<index i="129" border="z" />
-				<index i="129" border="tr"/>
-				<index i="172" border="bl"/>
-				<index i="172" border="br"/>
-				<index i="215" border="tl"/>
-				<index i="215" border="z" />
-				<index i="215" border="z" />
-				<index i="215" border="tr"/>
-				<empty repeat= "4"/>
-				<index i="166" border="tl"/>
-				<index i="166" border="tr"/>
-				<index i="123" border="bl"/>
-				<index i="123" border="br"/>
-				<index i="117" border="tl"/>
-				<index i="117" border="tr"/>
-				<index i= "74" border="bl"/>
-				<index i= "74" border="br"/>
-				<empty repeat= "3"/>
-				<index i="185" border="tl"/>
-				<index i="185" border="t" />
-				<index i="185" border="tr"/>
-			</row>
-			<row>
-				<index i= "30" border="l" />
-				<index i= "30" border="z" />
-				<index i= "30" border="r" />
-				<empty repeat= "3"/>
-				<index i= "18" border="tl"/>
-				<index i= "18" border="tr"/>
-				<index i= "61" border="bl"/>
-				<index i= "61" border="br"/>
-				<index i= "98" border="tl"/>
-				<index i= "98" border="tr"/>
-				<index i="141" border="bl"/>
-				<index i="141" border="br"/>
-				<index i="178" border="tl"/>
-				<index i="178" border="tr"/>
-				<empty repeat= "1"/>
-				<index i="129" border="hl"/>
-				<index i="129" border="b" />
-				<index i="129" border="b" />
-				<index i="129" border="b" />
-				<index i="129" border="b" />
-				<index i="129" border="hr"/>
-				<index i="215" border="hl"/>
-				<index i="215" border="b" />
-				<index i="215" border="b" />
-				<index i="215" border="b" />
-				<index i="215" border="b" />
-				<index i="215" border="hr"/>
-				<empty repeat= "1"/>
-				<index i="209" border="tl"/>
-				<index i="209" border="tr"/>
-				<index i="166" border="bl"/>
-				<index i="166" border="br"/>
-				<index i="160" border="tl"/>
-				<index i="160" border="tr"/>
-				<index i="117" border="bl"/>
-				<index i="117" border="br"/>
-				<index i="111" border="tl"/>
-				<index i="111" border="tr"/>
-				<empty repeat= "3"/>
-				<index i="185" border="l" />
-				<index i="185" border="z" />
-				<index i="185" border="r" />
-			</row>
-			<row>
-				<index i= "30" border="l" />
-				<index i= "30" border="z" />
-				<index i= "30" border="r" />
-				<empty repeat= "3"/>
-				<index i= "18" border="bl"/>
-				<index i= "18" border="br"/>
-				<index i= "55" border="tl"/>
-				<index i= "55" border="tr"/>
-				<index i= "98" border="bl"/>
-				<index i= "98" border="br"/>
-				<index i="135" border="tl"/>
-				<index i="135" border="tr"/>
-				<index i="178" border="bl"/>
-				<index i="178" border="br"/>
-				<empty repeat= "1"/>
-				<index i= "86" border="hl"/>
-				<index i= "86" border="t" />
-				<index i= "86" border="t" />
-				<index i= "86" border="t" />
-				<index i= "86" border="t" />
-				<index i= "86" border="hr"/>
-				<index i=  "0" border="hl"/>
-				<index i=  "0" border="t" />
-				<index i=  "0" border="t" />
-				<index i=  "0" border="t" />
-				<index i=  "0" border="t" />
-				<index i=  "0" border="hr"/>
-				<empty repeat= "1"/>
-				<index i="209" border="bl"/>
-				<index i="209" border="br"/>
-				<index i="203" border="tl"/>
-				<index i="203" border="tr"/>
-				<index i="160" border="bl"/>
-				<index i="160" border="br"/>
-				<index i="154" border="tl"/>
-				<index i="154" border="tr"/>
-				<index i="111" border="bl"/>
-				<index i="111" border="br"/>
-				<empty repeat= "3"/>
-				<index i="185" border="l" />
-				<index i="185" border="z" />
-				<index i="185" border="r" />
-			</row>
-			<row>
-				<index i= "30" border="bl"/>
-				<index i= "30" border="b" />
-				<index i= "30" border="br"/>
-				<empty repeat= "3"/>
-				<index i= "12" border="tl"/>
-				<index i= "12" border="tr"/>
-				<index i= "55" border="bl"/>
-				<index i= "55" border="br"/>
-				<index i= "92" border="tl"/>
-				<index i= "92" border="tr"/>
-				<index i="135" border="bl"/>
-				<index i="135" border="br"/>
-				<empty repeat= "4"/>
-				<index i= "86" border="bl"/>
-				<index i= "86" border="z" />
-				<index i= "86" border="z" />
-				<index i= "86" border="br"/>
-				<index i= "43" border="tl"/>
-				<index i= "43" border="tr"/>
-				<index i=  "0" border="bl"/>
-				<index i=  "0" border="z" />
-				<index i=  "0" border="z" />
-				<index i=  "0" border="br"/>
-				<empty repeat= "4"/>
-				<index i="203" border="bl"/>
-				<index i="203" border="br"/>
-				<index i="197" border="tl"/>
-				<index i="197" border="tr"/>
-				<index i="154" border="bl"/>
-				<index i="154" border="br"/>
-				<index i="148" border="tl"/>
-				<index i="148" border="tr"/>
-				<empty repeat= "3"/>
-				<index i="185" border="bl"/>
-				<index i="185" border="b" />
-				<index i="185" border="br"/>
-			</row>
-			<row>
-				<empty repeat= "6"/>
-				<index i= "12" border="bl"/>
-				<index i= "12" border="br"/>
-				<index i= "49" border="tl"/>
-				<index i= "49" border="tr"/>
-				<index i= "92" border="bl"/>
-				<index i= "92" border="br"/>
-				<empty repeat= "7"/>
-				<index i= "86" border="bl"/>
-				<index i= "86" border="br"/>
-				<index i= "43" border="tl"/>
-				<index i= "43" border="z" />
-				<index i= "43" border="z" />
-				<index i= "43" border="tr"/>
-				<index i=  "0" border="bl"/>
-				<index i=  "0" border="br"/>
-				<empty repeat= "3"/>
-				<index i="167" border="tl"/>
-				<index i="167" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="197" border="bl"/>
-				<index i="197" border="br"/>
-				<index i="191" border="tl"/>
-				<index i="191" border="tr"/>
-				<index i="148" border="bl"/>
-				<index i="148" border="br"/>
-				<empty repeat= "6"/>
-			</row>
-			<row>
-				<empty repeat= "6"/>
-				<index i=  "6" border="tl"/>
-				<index i=  "6" border="tr"/>
-				<index i= "49" border="bl"/>
-				<index i= "49" border="br"/>
-				<empty repeat= "2"/>
-				<index i= "69" border="tl"/>
-				<index i= "69" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="142" border="tl"/>
-				<index i="142" border="tr"/>
-				<empty repeat= "2"/>
-				<index i= "43" border="hl"/>
-				<index i= "43" border="b" />
-				<index i= "43" border="b" />
-				<index i= "43" border="b" />
-				<index i= "43" border="b" />
-				<index i= "43" border="hr"/>
-				<empty repeat= "4"/>
-				<index i="167" border="bl"/>
-				<index i="167" border="br"/>
-				<index i="124" border="tl"/>
-				<index i="124" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="191" border="bl"/>
-				<index i="191" border="br"/>
-				<index i="185" border="tl"/>
-				<index i="185" border="tr"/>
-				<empty repeat= "6"/>
-			</row>
-			<row>
-				<empty repeat= "6"/>
-				<index i=  "6" border="bl"/>
-				<index i=  "6" border="br"/>
-				<empty repeat= "2"/>
-				<index i= "26" border="tl"/>
-				<index i= "26" border="tr"/>
-				<index i= "69" border="bl"/>
-				<index i= "69" border="br"/>
-				<index i= "99" border="tl"/>
-				<index i= "99" border="tr"/>
-				<index i="142" border="bl"/>
-				<index i="142" border="br"/>
-				<empty repeat="12"/>
-				<index i="119" border="tl"/>
-				<index i="119" border="tr"/>
-				<index i="124" border="bl"/>
-				<index i="124" border="br"/>
-				<index i= "81" border="tl"/>
-				<index i= "81" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="185" border="bl"/>
-				<index i="185" border="br"/>
-				<empty repeat= "6"/>
-			</row>
-			<row>
-				<empty repeat="10"/>
-				<index i= "26" border="bl"/>
-				<index i= "26" border="br"/>
-				<index i= "56" border="tl"/>
-				<index i= "56" border="tr"/>
-				<index i= "99" border="bl"/>
-				<index i= "99" border="br"/>
-				<empty repeat= "2"/>
-				<index i="179" border="tl"/>
-				<index i="179" border="tr"/>
-				<empty repeat= "6"/>
-				<index i="173" border="tl"/>
-				<index i="173" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="119" border="bl"/>
-				<index i="119" border="br"/>
-				<index i= "76" border="tl"/>
-				<index i= "76" border="tr"/>
-				<index i= "81" border="bl"/>
-				<index i= "81" border="br"/>
-				<index i= "38" border="tl"/>
-				<index i= "38" border="tr"/>
-				<empty repeat= "8"/>
-			</row>
-			<row>
-				<index i= "31" border="tl"/>
-				<index i= "31" border="tr"/>
-				<index i= "25" border="tl"/>
-				<index i= "25" border="tr"/>
-				<index i= "68" border="tl"/>
-				<index i= "68" border="tr"/>
-				<empty repeat= "4"/>
-				<index i= "13" border="tl"/>
-				<index i= "13" border="tr"/>
-				<index i= "56" border="bl"/>
-				<index i= "56" border="br"/>
-				<empty repeat= "2"/>
-				<index i="143" border="tl"/>
-				<index i="143" border="tr"/>
-				<index i="179" border="bl"/>
-				<index i="179" border="br"/>
-				<empty repeat= "3"/>
-				<index i="137" border="tl"/>
-				<index i="137" border="tr"/>
-				<empty repeat= "1"/>
-				<index i="173" border="bl"/>
-				<index i="173" border="br"/>
-				<index i="130" border="tl"/>
-				<index i="130" border="tr"/>
-				<empty repeat= "2"/>
-				<index i= "76" border="bl"/>
-				<index i= "76" border="br"/>
-				<empty repeat= "2"/>
-				<index i= "38" border="bl"/>
-				<index i= "38" border="br"/>
-				<empty repeat= "2"/>
-				<index i="155" border="tl"/>
-				<index i="155" border="tr"/>
-				<index i="112" border="tl"/>
-				<index i="112" border="tr"/>
-				<index i="149" border="tl"/>
-				<index i="149" border="tr"/>
-			</row>
-			<row>
-				<index i= "31" border="bl"/>
-				<index i= "31" border="br"/>
-				<index i= "25" border="bl"/>
-				<index i= "25" border="br"/>
-				<index i= "68" border="bl"/>
-				<index i= "68" border="br"/>
-				<empty repeat= "4"/>
-				<index i= "13" border="bl"/>
-				<index i= "13" border="br"/>
-				<empty repeat= "2"/>
-				<index i="107" border="tl"/>
-				<index i="107" border="tr"/>
-				<index i="143" border="bl"/>
-				<index i="143" border="br"/>
-				<index i="136" border="tl"/>
-				<index i="136" border="tr"/>
-				<empty repeat= "3"/>
-				<index i="137" border="bl"/>
-				<index i="137" border="br"/>
-				<empty repeat= "1"/>
-				<index i="131" border="tl"/>
-				<index i="131" border="tr"/>
-				<index i="130" border="bl"/>
-				<index i="130" border="br"/>
-				<index i= "87" border="tl"/>
-				<index i= "87" border="tr"/>
-				<empty repeat= "8"/>
-				<index i="155" border="bl"/>
-				<index i="155" border="br"/>
-				<index i="112" border="bl"/>
-				<index i="112" border="br"/>
-				<index i="149" border="bl"/>
-				<index i="149" border="br"/>
-			</row>
-			<row>
-				<index i= "32" border="tl"/>
-				<index i= "32" border="tr"/>
-				<index i= "19" border="tl"/>
-				<index i= "19" border="tr"/>
-				<index i= "62" border="tl"/>
-				<index i= "62" border="tr"/>
-				<index i="105" border="tl"/>
-				<index i="105" border="tr"/>
-				<empty repeat= "4"/>
-				<index i= "71" border="tl"/>
-				<index i= "71" border="tr"/>
-				<index i="107" border="bl"/>
-				<index i="107" border="br"/>
-				<index i="100" border="tl"/>
-				<index i="100" border="tr"/>
-				<index i="136" border="bl"/>
-				<index i="136" border="br"/>
-				<empty repeat= "1"/>
-				<index i= "59" border="tl"/>
-				<index i= "59" border="tr"/>
-				<index i= "94" border="tl"/>
-				<index i= "94" border="tr"/>
-				<empty repeat= "1"/>
-				<index i="131" border="bl"/>
-				<index i="131" border="br"/>
-				<index i= "88" border="tl"/>
-				<index i= "88" border="tr"/>
-				<index i= "87" border="bl"/>
-				<index i= "87" border="br"/>
-				<index i= "44" border="tl"/>
-				<index i= "44" border="tr"/>
-				<empty repeat= "4"/>
-				<index i="161" border="tl"/>
-				<index i="161" border="tr"/>
-				<index i="118" border="tl"/>
-				<index i="118" border="tr"/>
-				<index i= "75" border="tl"/>
-				<index i= "75" border="tr"/>
-				<index i="113" border="tl"/>
-				<index i="113" border="tr"/>
-			</row>
-			<row>
-				<index i= "32" border="bl"/>
-				<index i= "32" border="br"/>
-				<index i= "19" border="bl"/>
-				<index i= "19" border="br"/>
-				<index i= "62" border="bl"/>
-				<index i= "62" border="br"/>
-				<index i="105" border="bl"/>
-				<index i="105" border="br"/>
-				<empty repeat= "2"/>
-				<index i= "35" border="tl"/>
-				<index i= "35" border="tr"/>
-				<index i= "71" border="bl"/>
-				<index i= "71" border="br"/>
-				<index i= "64" border="tl"/>
-				<index i= "64" border="tr"/>
-				<index i="100" border="bl"/>
-				<index i="100" border="br"/>
-				<index i= "93" border="tl"/>
-				<index i= "93" border="tr"/>
-				<empty repeat= "1"/>
-				<index i= "59" border="bl"/>
-				<index i= "59" border="br"/>
-				<index i= "94" border="bl"/>
-				<index i= "94" border="br"/>
-				<empty repeat= "1"/>
-				<index i= "89" border="tl"/>
-				<index i= "89" border="tr"/>
-				<index i= "88" border="bl"/>
-				<index i= "88" border="br"/>
-				<index i= "45" border="tl"/>
-				<index i= "45" border="tr"/>
-				<index i= "44" border="bl"/>
-				<index i= "44" border="br"/>
-				<index i=  "1" border="tl"/>
-				<index i=  "1" border="tr"/>
-				<empty repeat= "2"/>
-				<index i="161" border="bl"/>
-				<index i="161" border="br"/>
-				<index i="118" border="bl"/>
-				<index i="118" border="br"/>
-				<index i= "75" border="bl"/>
-				<index i= "75" border="br"/>
-				<index i="113" border="bl"/>
-				<index i="113" border="br"/>
-			</row>
-			<row>
-				<empty repeat= "1"/>
-				<index i= "33" border="tl"/>
-				<index i= "33" border="tr"/>
-				<index i= "20" border="tl"/>
-				<index i= "20" border="tr"/>
-				<index i= "63" border="tl"/>
-				<index i= "63" border="tr"/>
-				<index i="106" border="tl"/>
-				<index i="106" border="tr"/>
-				<empty repeat= "1"/>
-				<index i= "35" border="bl"/>
-				<index i= "35" border="br"/>
-				<index i= "28" border="tl"/>
-				<index i= "28" border="tr"/>
-				<index i= "64" border="bl"/>
-				<index i= "64" border="br"/>
-				<index i= "57" border="tl"/>
-				<index i= "57" border="tr"/>
-				<index i= "93" border="bl"/>
-				<index i= "93" border="br"/>
-				<empty repeat= "1"/>
-				<index i= "16" border="tl"/>
-				<index i= "16" border="tr"/>
-				<index i= "51" border="tl"/>
-				<index i= "51" border="tr"/>
-				<empty repeat= "1"/>
-				<index i= "89" border="bl"/>
-				<index i= "89" border="br"/>
-				<index i= "46" border="tl"/>
-				<index i= "46" border="tr"/>
-				<index i= "45" border="bl"/>
-				<index i= "45" border="br"/>
-				<index i=  "2" border="tl"/>
-				<index i=  "2" border="tr"/>
-				<index i=  "1" border="bl"/>
-				<index i=  "1" border="br"/>
-				<empty repeat= "1"/>
-				<index i="125" border="tl"/>
-				<index i="125" border="tr"/>
-				<index i= "82" border="tl"/>
-				<index i= "82" border="tr"/>
-				<index i= "39" border="tl"/>
-				<index i= "39" border="tr"/>
-				<index i= "77" border="tl"/>
-				<index i= "77" border="tr"/>
-				<empty repeat= "1"/>
-			</row>
-			<row>
-				<empty repeat= "1"/>
-				<index i= "33" border="bl"/>
-				<index i= "33" border="br"/>
-				<index i= "20" border="bl"/>
-				<index i= "20" border="br"/>
-				<index i= "63" border="bl"/>
-				<index i= "63" border="br"/>
-				<index i="106" border="bl"/>
-				<index i="106" border="br"/>
-				<empty repeat= "3"/>
-				<index i= "28" border="bl"/>
-				<index i= "28" border="br"/>
-				<index i= "21" border="tl"/>
-				<index i= "21" border="tr"/>
-				<index i= "57" border="bl"/>
-				<index i= "57" border="br"/>
-				<index i= "50" border="tl"/>
-				<index i= "50" border="tr"/>
-				<empty repeat= "1"/>
-				<index i= "16" border="bl"/>
-				<index i= "16" border="br"/>
-				<index i= "51" border="bl"/>
-				<index i= "51" border="br"/>
-				<empty repeat= "1"/>
-				<index i= "47" border="tl"/>
-				<index i= "47" border="tr"/>
-				<index i= "46" border="bl"/>
-				<index i= "46" border="br"/>
-				<index i=  "3" border="tl"/>
-				<index i=  "3" border="tr"/>
-				<index i=  "2" border="bl"/>
-				<index i=  "2" border="br"/>
-				<empty repeat= "3"/>
-				<index i="125" border="bl"/>
-				<index i="125" border="br"/>
-				<index i= "82" border="bl"/>
-				<index i= "82" border="br"/>
-				<index i= "39" border="bl"/>
-				<index i= "39" border="br"/>
-				<index i= "77" border="bl"/>
-				<index i= "77" border="br"/>
-				<empty repeat= "1"/>
-			</row>
-			<row>
-				<empty repeat= "2"/>
-				<index i= "34" border="tl"/>
-				<index i= "34" border="tr"/>
-				<index i= "27" border="tl"/>
-				<index i= "27" border="tr"/>
-				<index i= "70" border="tl"/>
-				<index i= "70" border="tr"/>
-				<empty repeat= "6"/>
-				<index i= "21" border="bl"/>
-				<index i= "21" border="br"/>
-				<index i= "14" border="tl"/>
-				<index i= "14" border="tr"/>
-				<index i= "50" border="bl"/>
-				<index i= "50" border="br"/>
-				<empty repeat= "3"/>
-				<index i=  "8" border="tl"/>
-				<index i=  "8" border="tr"/>
-				<empty repeat= "1"/>
-				<index i= "47" border="bl"/>
-				<index i= "47" border="br"/>
-				<index i=  "4" border="tl"/>
-				<index i=  "4" border="tr"/>
-				<index i=  "3" border="bl"/>
-				<index i=  "3" border="br"/>
-				<empty repeat= "6"/>
-				<index i= "83" border="tl"/>
-				<index i= "83" border="tr"/>
-				<index i= "40" border="tl"/>
-				<index i= "40" border="tr"/>
-				<index i= "41" border="tl"/>
-				<index i= "41" border="tr"/>
-				<empty repeat= "2"/>
-			</row>
-			<row>
-				<empty repeat= "2"/>
-				<index i= "34" border="bl"/>
-				<index i= "34" border="br"/>
-				<index i= "27" border="bl"/>
-				<index i= "27" border="br"/>
-				<index i= "70" border="bl"/>
-				<index i= "70" border="br"/>
-				<empty repeat= "8"/>
-				<index i= "14" border="bl"/>
-				<index i= "14" border="br"/>
-				<index i=  "7" border="tl"/>
-				<index i=  "7" border="tr"/>
-				<empty repeat= "3"/>
-				<index i=  "8" border="bl"/>
-				<index i=  "8" border="br"/>
-				<empty repeat= "1"/>
-				<index i=  "5" border="tl"/>
-				<index i=  "5" border="tr"/>
-				<index i=  "4" border="bl"/>
-				<index i=  "4" border="br"/>
-				<empty repeat= "8"/>
-				<index i= "83" border="bl"/>
-				<index i= "83" border="br"/>
-				<index i= "40" border="bl"/>
-				<index i= "40" border="br"/>
-				<index i= "41" border="bl"/>
-				<index i= "41" border="br"/>
-				<empty repeat= "2"/>
-			</row>
-			<row>
-				<empty repeat="18"/>
-				<index i=  "7" border="bl"/>
-				<index i=  "7" border="br"/>
-				<empty repeat= "6"/>
-				<index i=  "5" border="bl"/>
-				<index i=  "5" border="br"/>
-				<empty repeat="18"/>
-			</row>
-			<row>
-				<empty repeat="21"/>
-				<index i="101" border="tl"/>
-				<index i="101" border="tr"/>
-				<index i= "95" border="tl"/>
-				<index i= "95" border="tr"/>
-				<empty repeat="21"/>
-			</row>
-			<row>
-				<empty repeat="21"/>
-				<index i="101" border="bl"/>
-				<index i="101" border="br"/>
-				<index i= "95" border="bl"/>
-				<index i= "95" border="br"/>
-				<empty repeat="21"/>
-			</row>
-			<row>
-				<empty repeat="10"/>
-				<index i= "35" border="tl"/>
-				<index i= "35" border="t" />
-				<index i= "35" border="t" />
-				<index i= "35" border="tr"/>
-				<empty repeat= "5"/>
-				<index i= "65" border="tl"/>
-				<index i= "65" border="tr"/>
-				<index i= "58" border="tl"/>
-				<index i= "58" border="tr"/>
-				<index i= "52" border="tl"/>
-				<index i= "52" border="tr"/>
-				<index i= "53" border="tl"/>
-				<index i= "53" border="tr"/>
-				<empty repeat= "5"/>
-				<index i=  "5" border="tl"/>
-				<index i=  "5" border="t" />
-				<index i=  "5" border="t" />
-				<index i=  "5" border="tr"/>
-				<empty repeat="10"/>
-			</row>
-			<row>
-				<empty repeat="10"/>
-				<index i= "35" border="l" />
-				<index i= "35" border="z" />
-				<index i= "35" border="z" />
-				<index i= "35" border="r" />
-				<empty repeat= "5"/>
-				<index i= "65" border="bl"/>
-				<index i= "65" border="br"/>
-				<index i= "58" border="bl"/>
-				<index i= "58" border="br"/>
-				<index i= "52" border="bl"/>
-				<index i= "52" border="br"/>
-				<index i= "53" border="bl"/>
-				<index i= "53" border="br"/>
-				<empty repeat= "5"/>
-				<index i=  "5" border="l" />
-				<index i=  "5" border="z" />
-				<index i=  "5" border="z" />
-				<index i=  "5" border="r" />
-				<empty repeat="10"/>
-			</row>
-			<row>
-				<empty repeat="10"/>
-				<index i= "35" border="bl"/>
-				<index i= "35" border="b" />
-				<index i= "35" border="b" />
-				<index i= "35" border="br"/>
-				<empty repeat= "5"/>
-				<index i= "22" border="tl"/>
-				<index i= "22" border="tr"/>
-				<index i= "15" border="tl"/>
-				<index i= "15" border="tr"/>
-				<index i=  "9" border="tl"/>
-				<index i=  "9" border="tr"/>
-				<index i= "10" border="tl"/>
-				<index i= "10" border="tr"/>
-				<empty repeat= "5"/>
-				<index i=  "5" border="bl"/>
-				<index i=  "5" border="b" />
-				<index i=  "5" border="b" />
-				<index i=  "5" border="br"/>
-				<empty repeat="10"/>
-			</row>
-			<row>
-				<empty repeat="19"/>
-				<index i= "22" border="bl"/>
-				<index i= "22" border="br"/>
-				<index i= "15" border="bl"/>
-				<index i= "15" border="br"/>
-				<index i=  "9" border="bl"/>
-				<index i=  "9" border="br"/>
-				<index i= "10" border="bl"/>
-				<index i= "10" border="br"/>
-				<empty repeat="19"/>
-			</row>
-			<row>
-				<empty repeat="19"/>
-				<index i= "29" border="tl"/>
-				<index i= "29" border="tr"/>
-				<index i= "23" border="tl"/>
-				<index i= "23" border="tr"/>
-				<index i= "17" border="tl"/>
-				<index i= "17" border="tr"/>
-				<index i= "11" border="tl"/>
-				<index i= "11" border="tr"/>
-				<empty repeat="19"/>
-			</row>
-			<row>
-				<empty repeat="19"/>
-				<index i= "29" border="bl"/>
-				<index i= "29" border="br"/>
-				<index i= "23" border="bl"/>
-				<index i= "23" border="br"/>
-				<index i= "17" border="bl"/>
-				<index i= "17" border="br"/>
-				<index i= "11" border="bl"/>
-				<index i= "11" border="br"/>
-				<empty repeat="19"/>
-			</row>
-		</column>
+		<polygonal cols="150" rows="184">
+			<!-- OrangeCap -->
+			<rect x="63" y=  "0" w="6" h="8" i="204"/>
+			<rect x="69" y=  "0" w="6" h="8" i="198"/>
+			<rect x="75" y=  "0" w="6" h="8" i="192"/>
+			<rect x="81" y=  "0" w="6" h="8" i="186"/>
+			<rect x="63" y=  "8" w="6" h="8" i="162"/>
+			<rect x="69" y=  "8" w="6" h="8" i="120"/>
+			<rect x="75" y=  "8" w="6" h="8" i="114"/>
+			<rect x="81" y=  "8" w="6" h="8" i="150"/>
+			<rect x="63" y= "16" w="6" h="8" i="205"/>
+			<rect x="69" y= "16" w="6" h="8" i="163"/>
+			<rect x="75" y= "16" w="6" h="8" i="157"/>
+			<rect x="81" y= "16" w="6" h="8" i="193"/>
+			<rect x="69" y= "24" w="6" h="8" i="206"/>
+			<rect x="75" y= "24" w="6" h="8" i="200"/>
+			<!-- Orange -->
+			<rect x="69" y= "36" w="6" h="8" i= "78"/>
+			<rect x="69" y= "44" w="6" h="8" i="121"/>
+			<rect x="69" y= "52" w="6" h="8" i="164"/>
+			<rect x="69" y= "60" w="6" h="8" i="207"/>
+			<rect x="75" y= "44" w="6" h="8" i="156"/>
+			<rect x="75" y= "52" w="6" h="8" i="199"/>
+			<!-- Azure -->
+			<rect x="75" y="116" w="6" h="8" i="137"/>
+			<rect x="75" y="124" w="6" h="8" i= "94"/>
+			<rect x="75" y="132" w="6" h="8" i= "51"/>
+			<rect x="75" y="140" w="6" h="8" i=  "8"/>
+			<rect x="69" y="124" w="6" h="8" i= "59"/>
+			<rect x="69" y="132" w="6" h="8" i= "16"/>
+			<!-- AzureCap -->
+			<rect x="69" y="152" w="6" h="8" i="101"/>
+			<rect x="75" y="152" w="6" h="8" i= "95"/>
+			<rect x="63" y="160" w="6" h="8" i= "65"/>
+			<rect x="69" y="160" w="6" h="8" i= "58"/>
+			<rect x="75" y="160" w="6" h="8" i= "52"/>
+			<rect x="81" y="160" w="6" h="8" i= "53"/>
+			<rect x="63" y="168" w="6" h="8" i= "22"/>
+			<rect x="69" y="168" w="6" h="8" i= "15"/>
+			<rect x="75" y="168" w="6" h="8" i=  "9"/>
+			<rect x="81" y="168" w="6" h="8" i= "10"/>
+			<rect x="63" y="176" w="6" h="8" i= "29"/>
+			<rect x="69" y="176" w="6" h="8" i= "23"/>
+			<rect x="75" y="176" w="6" h="8" i= "17"/>
+			<rect x="81" y="176" w="6" h="8" i= "11"/>
+			<!-- SpringCap -->
+			<poly p=" 12  34  18  38  15  44   9  40" i="174"/>
+			<poly p=" 18  38  24  42  21  48  15  44" i="132"/>
+			<poly p=" 24  42  30  46  27  52  21  48" i="175"/>
+			<poly p="  9  40  15  44  12  50   6  46" i="138"/>
+			<poly p=" 15  44  21  48  18  54  12  50" i= "90"/>
+			<poly p=" 21  48  27  52  24  58  18  54" i="133"/>
+			<poly p=" 27  52  33  56  30  62  24  58" i="176"/>
+			<poly p="  6  46  12  50   9  56   3  52" i="102"/>
+			<poly p=" 12  50  18  54  15  60   9  56" i= "54"/>
+			<poly p=" 18  54  24  58  21  64  15  60" i= "97"/>
+			<poly p=" 24  58  30  62  27  68  21  64" i="140"/>
+			<poly p="  3  52   9  56   6  62   0  58" i= "66"/>
+			<poly p="  9  56  15  60  12  66   6  62" i= "60"/>
+			<poly p=" 15  60  21  64  18  70  12  66" i="103"/>
+			<!-- Spring -->
+			<poly p=" 33  64  39  68  36  74  30  70" i= "48"/>
+			<poly p=" 39  68  45  72  42  78  36  74" i= "91"/>
+			<poly p=" 45  72  51  76  48  82  42  78" i="134"/>
+			<poly p=" 51  76  57  80  54  86  48  82" i="177"/>
+			<poly p=" 42  62  48  66  45  72  39  68" i= "96"/>
+			<poly p=" 48  66  54  70  51  76  45  72" i="139"/>
+			<!-- Violet -->
+			<poly p=" 93 104  96  98 102 102  99 108" i="167"/>
+			<poly p=" 99 108 102 102 108 106 105 112" i="124"/>
+			<poly p="105 112 108 106 114 110 111 116" i= "81"/>
+			<poly p="111 116 114 110 120 114 117 120" i= "38"/>
+			<poly p=" 96 114  99 108 105 112 102 118" i="119"/>
+			<poly p="102 118 105 112 111 116 108 122" i= "76"/>
+			<!-- VioletCap -->
+			<poly p="129 120 132 114 138 118 135 124" i="155"/>
+			<poly p="135 124 138 118 144 122 141 128" i="112"/>
+			<poly p="141 128 144 122 150 126 147 132" i="149"/>
+			<poly p="120 122 123 116 129 120 126 126" i="161"/>
+			<poly p="126 126 129 120 135 124 132 130" i="118"/>
+			<poly p="132 130 135 124 141 128 138 134" i= "75"/>
+			<poly p="138 134 141 128 147 132 144 138" i="113"/>
+			<poly p="117 128 120 122 126 126 123 132" i="125"/>
+			<poly p="123 132 126 126 132 130 129 136" i= "82"/>
+			<poly p="129 136 132 130 138 134 135 140" i= "39"/>
+			<poly p="135 140 138 134 144 138 141 144" i= "77"/>
+			<poly p="120 138 123 132 129 136 126 142" i= "83"/>
+			<poly p="126 142 129 136 135 140 132 146" i= "40"/>
+			<poly p="132 146 135 140 141 144 138 150" i= "41"/>
+			<!-- TealCap -->
+			<poly p="  3 132   0 126   6 122   9 128" i= "31"/>
+			<poly p="  9 128   6 122  12 118  15 124" i= "25"/>
+			<poly p=" 15 124  12 118  18 114  21 120" i= "68"/>
+			<poly p="  6 138   3 132   9 128  12 134" i= "32"/>
+			<poly p=" 12 134   9 128  15 124  18 130" i= "19"/>
+			<poly p=" 18 130  15 124  21 120  24 126" i= "62"/>
+			<poly p=" 24 126  21 120  27 116  30 122" i="105"/>
+			<poly p="  9 144   6 138  12 134  15 140" i= "33"/>
+			<poly p=" 15 140  12 134  18 130  21 136" i= "20"/>
+			<poly p=" 21 136  18 130  24 126  27 132" i= "63"/>
+			<poly p=" 27 132  24 126  30 122  33 128" i="106"/>
+			<poly p=" 12 150   9 144  15 140  18 146" i= "34"/>
+			<poly p=" 18 146  15 140  21 136  24 142" i= "27"/>
+			<poly p=" 24 142  21 136  27 132  30 138" i= "70"/>
+			<!-- Teal -->
+			<poly p=" 36 126  33 120  39 116  42 122" i= "13"/>
+			<poly p=" 42 122  39 116  45 112  48 118" i= "56"/>
+			<poly p=" 48 118  45 112  51 108  54 114" i= "99"/>
+			<poly p=" 54 114  51 108  57 104  60 110" i="142"/>
+			<poly p=" 39 116  36 110  42 106  45 112" i= "26"/>
+			<poly p=" 45 112  42 106  48 102  51 108" i= "69"/>
+			<!-- Pink -->
+			<poly p=" 90  74  96  70  99  76  93  80" i="202"/>
+			<poly p=" 96  70 102  66 105  72  99  76" i="159"/>
+			<poly p="102  66 108  62 111  68 105  72" i="116"/>
+			<poly p="108  62 114  58 117  64 111  68" i= "73"/>
+			<poly p=" 99  76 105  72 108  78 102  82" i="189"/>
+			<poly p="105  72 111  68 114  74 108  78" i="146"/>
+			<!-- PinkCap -->
+			<poly p="120  46 126  42 129  48 123  52" i="188"/>
+			<poly p="126  42 132  38 135  44 129  48" i="145"/>
+			<poly p="132  38 138  34 141  40 135  44" i="181"/>
+			<poly p="117  56 123  52 126  58 120  62" i="195"/>
+			<poly p="123  52 129  48 132  54 126  58" i="152"/>
+			<poly p="129  48 135  44 138  50 132  54" i="109"/>
+			<poly p="135  44 141  40 144  46 138  50" i="182"/>
+			<poly p="120  62 126  58 129  64 123  68" i="196"/>
+			<poly p="126  58 132  54 135  60 129  64" i="153"/>
+			<poly p="132  54 138  50 141  56 135  60" i="110"/>
+			<poly p="138  50 144  46 147  52 141  56" i="183"/>
+			<poly p="129  64 135  60 138  66 132  70" i="190"/>
+			<poly p="135  60 141  56 144  62 138  66" i="147"/>
+			<poly p="141  56 147  52 150  58 144  62" i="184"/>
+			<!-- Red -->
+			<hex cx= "87" cy= "36" w="8" h="8" i= "36"/>
+			<hex cx= "87" cy= "44" w="8" h="8" i= "79"/>
+			<hex cx= "87" cy= "52" w="8" h="8" i="122"/>
+			<hex cx= "87" cy= "60" w="8" h="8" i="165"/>
+			<hex cx= "87" cy= "68" w="8" h="8" i="208"/>
+			<hex cx= "93" cy= "40" w="8" h="8" i= "72"/>
+			<hex cx= "93" cy= "48" w="8" h="8" i="115"/>
+			<hex cx= "93" cy= "56" w="8" h="8" i="158"/>
+			<hex cx= "93" cy= "64" w="8" h="8" i="201"/>
+			<hex cx= "99" cy= "44" w="8" h="8" i="108"/>
+			<hex cx= "99" cy= "52" w="8" h="8" i="151"/>
+			<hex cx= "99" cy= "60" w="8" h="8" i="194"/>
+			<hex cx="105" cy= "48" w="8" h="8" i="144"/>
+			<hex cx="105" cy= "56" w="8" h="8" i="187"/>
+			<hex cx="111" cy= "52" w="8" h="8" i="180"/>
+			<!-- Green -->
+			<hex cx= "27" cy= "76" w="8" h="8" i= "30"/>
+			<hex cx= "27" cy= "84" w="8" h="8" i= "24"/>
+			<hex cx= "27" cy= "92" w="8" h="8" i= "18"/>
+			<hex cx= "27" cy="100" w="8" h="8" i= "12"/>
+			<hex cx= "27" cy="108" w="8" h="8" i=  "6"/>
+			<hex cx= "33" cy= "80" w="8" h="8" i= "67"/>
+			<hex cx= "33" cy= "88" w="8" h="8" i= "61"/>
+			<hex cx= "33" cy= "96" w="8" h="8" i= "55"/>
+			<hex cx= "33" cy="104" w="8" h="8" i= "49"/>
+			<hex cx= "39" cy= "84" w="8" h="8" i="104"/>
+			<hex cx= "39" cy= "92" w="8" h="8" i= "98"/>
+			<hex cx= "39" cy="100" w="8" h="8" i= "92"/>
+			<hex cx= "45" cy= "88" w="8" h="8" i="141"/>
+			<hex cx= "45" cy= "96" w="8" h="8" i="135"/>
+			<hex cx= "51" cy= "92" w="8" h="8" i="178"/>
+			<!-- Blue -->
+			<hex cx= "87" cy="116" w="8" h="8" i="173"/>
+			<hex cx= "87" cy="124" w="8" h="8" i="131"/>
+			<hex cx= "87" cy="132" w="8" h="8" i= "89"/>
+			<hex cx= "87" cy="140" w="8" h="8" i= "47"/>
+			<hex cx= "87" cy="148" w="8" h="8" i=  "5"/>
+			<hex cx= "93" cy="120" w="8" h="8" i="130"/>
+			<hex cx= "93" cy="128" w="8" h="8" i= "88"/>
+			<hex cx= "93" cy="136" w="8" h="8" i= "46"/>
+			<hex cx= "93" cy="144" w="8" h="8" i=  "4"/>
+			<hex cx= "99" cy="124" w="8" h="8" i= "87"/>
+			<hex cx= "99" cy="132" w="8" h="8" i= "45"/>
+			<hex cx= "99" cy="140" w="8" h="8" i=  "3"/>
+			<hex cx="105" cy="128" w="8" h="8" i= "44"/>
+			<hex cx="105" cy="136" w="8" h="8" i=  "2"/>
+			<hex cx="111" cy="132" w="8" h="8" i=  "1"/>
+			<!-- Yellow -->
+			<hex cx= "39" cy= "52" w="8" h="8" i= "42"/>
+			<hex cx= "45" cy= "48" w="8" h="8" i= "84"/>
+			<hex cx= "45" cy= "56" w="8" h="8" i= "85"/>
+			<hex cx= "51" cy= "44" w="8" h="8" i="126"/>
+			<hex cx= "51" cy= "52" w="8" h="8" i="127"/>
+			<hex cx= "51" cy= "60" w="8" h="8" i="128"/>
+			<hex cx= "57" cy= "40" w="8" h="8" i="168"/>
+			<hex cx= "57" cy= "48" w="8" h="8" i="169"/>
+			<hex cx= "57" cy= "56" w="8" h="8" i="170"/>
+			<hex cx= "57" cy= "64" w="8" h="8" i="171"/>
+			<hex cx= "63" cy= "36" w="8" h="8" i="210"/>
+			<hex cx= "63" cy= "44" w="8" h="8" i="211"/>
+			<hex cx= "63" cy= "52" w="8" h="8" i="212"/>
+			<hex cx= "63" cy= "60" w="8" h="8" i="213"/>
+			<hex cx= "63" cy= "68" w="8" h="8" i="214"/>
+			<!-- Cyan -->
+			<hex cx= "39" cy="132" w="8" h="8" i= "35"/>
+			<hex cx= "45" cy="128" w="8" h="8" i= "71"/>
+			<hex cx= "45" cy="136" w="8" h="8" i= "28"/>
+			<hex cx= "51" cy="124" w="8" h="8" i="107"/>
+			<hex cx= "51" cy="132" w="8" h="8" i= "64"/>
+			<hex cx= "51" cy="140" w="8" h="8" i= "21"/>
+			<hex cx= "57" cy="120" w="8" h="8" i="143"/>
+			<hex cx= "57" cy="128" w="8" h="8" i="100"/>
+			<hex cx= "57" cy="136" w="8" h="8" i= "57"/>
+			<hex cx= "57" cy="144" w="8" h="8" i= "14"/>
+			<hex cx= "63" cy="116" w="8" h="8" i="179"/>
+			<hex cx= "63" cy="124" w="8" h="8" i="136"/>
+			<hex cx= "63" cy="132" w="8" h="8" i= "93"/>
+			<hex cx= "63" cy="140" w="8" h="8" i= "50"/>
+			<hex cx= "63" cy="148" w="8" h="8" i=  "7"/>
+			<!-- Magenta -->
+			<hex cx= "99" cy= "92" w="8" h="8" i="209"/>
+			<hex cx="105" cy= "88" w="8" h="8" i="166"/>
+			<hex cx="105" cy= "96" w="8" h="8" i="203"/>
+			<hex cx="111" cy= "84" w="8" h="8" i="123"/>
+			<hex cx="111" cy= "92" w="8" h="8" i="160"/>
+			<hex cx="111" cy="100" w="8" h="8" i="197"/>
+			<hex cx="117" cy= "80" w="8" h="8" i= "80"/>
+			<hex cx="117" cy= "88" w="8" h="8" i="117"/>
+			<hex cx="117" cy= "96" w="8" h="8" i="154"/>
+			<hex cx="117" cy="104" w="8" h="8" i="191"/>
+			<hex cx="123" cy= "76" w="8" h="8" i= "37"/>
+			<hex cx="123" cy= "84" w="8" h="8" i= "74"/>
+			<hex cx="123" cy= "92" w="8" h="8" i="111"/>
+			<hex cx="123" cy="100" w="8" h="8" i="148"/>
+			<hex cx="123" cy="108" w="8" h="8" i="185"/>
+			<!-- Gray -->
+			<tri bcx="83" bcy= "92" dir="d" w="16" h="16" i=  "0"/>
+			<tri bcx="75" bcy="108" dir="u" w="16" h="16" i= "43"/>
+			<tri bcx="67" bcy= "92" dir="d" w="16" h="16" i= "86"/>
+			<tri bcx="67" bcy= "92" dir="u" w="16" h="16" i="129"/>
+			<tri bcx="75" bcy= "76" dir="d" w="16" h="16" i="172"/>
+			<tri bcx="83" bcy= "92" dir="u" w="16" h="16" i="215"/>
+			<!-- Process -->
+			<tri bcx=  "0"   bcy= "92" dir="r" w="16" h="16" i= "30"/>
+			<tri bcx="150"   bcy= "92" dir="l" w="16" h="16" i="185"/>
+			<tri bcx="104.5" bcy= "25" dir="r" w="16" h="16" i="180"/>
+			<tri bcx= "45.5" bcy= "25" dir="l" w="16" h="16" i="210"/>
+			<tri bcx= "45.5" bcy="159" dir="l" w="16" h="16" i= "35"/>
+			<tri bcx="104.5" bcy="159" dir="r" w="16" h="16" i=  "5"/>
+		</polygonal>
 	</layout>
 </palette>
