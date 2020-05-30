@@ -99,6 +99,7 @@ public abstract class ColorModel {
 	}
 	
 	public static final ColorModel HSV_360_100 = new HSV(360, 100);
+	public static final ColorModel HSV_30_15 = new HSV(30, 15);
 	public static class HSV extends ColorModel {
 		private final float hmax;
 		private final float vmax;
@@ -148,6 +149,7 @@ public abstract class ColorModel {
 	}
 	
 	public static final ColorModel HSL_360_100 = new HSL(360, 100);
+	public static final ColorModel HSL_30_15 = new HSL(30, 15);
 	public static class HSL extends ColorModel {
 		private final float hmax;
 		private final float vmax;
@@ -206,6 +208,7 @@ public abstract class ColorModel {
 	}
 	
 	public static final ColorModel HWB_360_100 = new HWB(360, 100);
+	public static final ColorModel HWB_30_15 = new HWB(30, 15);
 	public static class HWB extends ColorModel {
 		private final float hmax;
 		private final float vmax;

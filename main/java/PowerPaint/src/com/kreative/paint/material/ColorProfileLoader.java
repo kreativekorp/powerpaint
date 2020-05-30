@@ -38,8 +38,11 @@ public class ColorProfileLoader {
 		models.add(ColorModel.RGB_16.getName(), ColorModel.RGB_16);
 		models.add(ColorModel.RGB_100.getName(), ColorModel.RGB_100);
 		models.add(ColorModel.HSV_360_100.getName(), ColorModel.HSV_360_100);
+		models.add(ColorModel.HSV_30_15.getName(), ColorModel.HSV_30_15);
 		models.add(ColorModel.HSL_360_100.getName(), ColorModel.HSL_360_100);
+		models.add(ColorModel.HSL_30_15.getName(), ColorModel.HSL_30_15);
 		models.add(ColorModel.HWB_360_100.getName(), ColorModel.HWB_360_100);
+		models.add(ColorModel.HWB_30_15.getName(), ColorModel.HWB_30_15);
 		models.add(ColorModel.NAIVE_CMYK_100.getName(), ColorModel.NAIVE_CMYK_100);
 		
 		for (MaterialResource r : loader.listResources()) {
