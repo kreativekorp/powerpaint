@@ -98,25 +98,27 @@ public abstract class ColorModel {
 		}
 	}
 	
-	public static final ColorModel HSV_360_100 = new HSV(360, 100);
-	public static final ColorModel HSV_30_15 = new HSV(30, 15);
+	public static final ColorModel HSV_360_100 = new HSV(360, 100, 100, 100);
+	public static final ColorModel HSV_360_255 = new HSV(360, 255, 255, 255);
+	public static final ColorModel HSV_30_15 = new HSV(30, 15, 15, 15);
 	public static class HSV extends ColorModel {
 		private final float hmax;
+		private final float smax;
 		private final float vmax;
+		private final float amax;
 		private final String name;
 		private final ColorChannel[] channels;
-		public HSV(int hmax, int vmax) {
+		public HSV(int hmax, int smax, int vmax, int amax) {
 			this.hmax = hmax;
+			this.smax = smax;
 			this.vmax = vmax;
-			if (hmax == 360 && vmax == 100) this.name = "HSV";
-			else if (hmax == 360) this.name = "HSV (V:0-" + vmax + ")";
-			else if (vmax == 100) this.name = "HSV (H:0-" + hmax + ")";
-			else this.name = "HSV (H:0-" + hmax + "/V:0-" + vmax + ")";
+			this.amax = amax;
+			this.name = "HSV (" + hmax + "/" + smax + "/" + vmax + ")";
 			this.channels = new ColorChannel[] {
 				new ColorChannel("H", "Hue"       , 0, hmax, 1),
-				new ColorChannel("S", "Saturation", 0, vmax, 1),
+				new ColorChannel("S", "Saturation", 0, smax, 1),
 				new ColorChannel("V", "Value"     , 0, vmax, 1),
-				new ColorChannel("A", "Alpha"     , 0, vmax, 1)
+				new ColorChannel("A", "Alpha"     , 0, amax, 1)
 			};
 		}
 		@Override public String getName() { return name; }
@@ -124,9 +126,9 @@ public abstract class ColorModel {
 		@Override
 		public Color makeColor(float[] channels) {
 			float h = channels[0] / hmax;
-			float s = channels[1] / vmax;
+			float s = channels[1] / smax;
 			float v = channels[2] / vmax;
-			float a = channels[3] / vmax;
+			float a = channels[3] / amax;
 			int rgba = Color.HSBtoRGB(h, s, v) & 0xFFFFFF;
 			rgba |= ((int)Math.round(a * 255f) << 24);
 			return new Color(rgba, true);
@@ -141,32 +143,34 @@ public abstract class ColorModel {
 				channels
 			);
 			channels[0] *= hmax;
-			channels[1] *= vmax;
+			channels[1] *= smax;
 			channels[2] *= vmax;
-			channels[3] *= vmax;
+			channels[3] *= amax;
 			return channels;
 		}
 	}
 	
-	public static final ColorModel HSL_360_100 = new HSL(360, 100);
-	public static final ColorModel HSL_30_15 = new HSL(30, 15);
+	public static final ColorModel HSL_360_100 = new HSL(360, 100, 100, 100);
+	public static final ColorModel HSL_360_255 = new HSL(360, 255, 510, 255);
+	public static final ColorModel HSL_30_15 = new HSL(30, 15, 30, 15);
 	public static class HSL extends ColorModel {
 		private final float hmax;
-		private final float vmax;
+		private final float smax;
+		private final float lmax;
+		private final float amax;
 		private final String name;
 		private final ColorChannel[] channels;
-		public HSL(int hmax, int vmax) {
+		public HSL(int hmax, int smax, int lmax, int amax) {
 			this.hmax = hmax;
-			this.vmax = vmax;
-			if (hmax == 360 && vmax == 100) this.name = "HSL";
-			else if (hmax == 360) this.name = "HSL (V:0-" + vmax + ")";
-			else if (vmax == 100) this.name = "HSL (H:0-" + hmax + ")";
-			else this.name = "HSL (H:0-" + hmax + "/V:0-" + vmax + ")";
+			this.smax = smax;
+			this.lmax = lmax;
+			this.amax = amax;
+			this.name = "HSL (" + hmax + "/" + smax + "/" + lmax + ")";
 			this.channels = new ColorChannel[] {
 				new ColorChannel("H", "Hue"       , 0, hmax, 1),
-				new ColorChannel("S", "Saturation", 0, vmax, 1),
-				new ColorChannel("L", "Lightness" , 0, vmax, 1),
-				new ColorChannel("A", "Alpha"     , 0, vmax, 1)
+				new ColorChannel("S", "Saturation", 0, smax, 1),
+				new ColorChannel("L", "Lightness" , 0, lmax, 1),
+				new ColorChannel("A", "Alpha"     , 0, amax, 1)
 			};
 		}
 		@Override public String getName() { return name; }
@@ -174,9 +178,9 @@ public abstract class ColorModel {
 		@Override
 		public Color makeColor(float[] channels) {
 			float h = channels[0] / hmax;
-			float s = channels[1] / vmax;
-			float l = channels[2] / vmax;
-			float a = channels[3] / vmax;
+			float s = channels[1] / smax;
+			float l = channels[2] / lmax;
+			float a = channels[3] / amax;
 			s *= (l <= 0.5f) ? l : (1 - l);
 			float v = l + s;
 			s = 2 * s / v;
@@ -200,32 +204,34 @@ public abstract class ColorModel {
 			else            s  = 0;
 			l /= 2;
 			channels[0] *= hmax;
-			channels[1] = s * vmax;
-			channels[2] = l * vmax;
-			channels[3] *= vmax;
+			channels[1] = s * smax;
+			channels[2] = l * lmax;
+			channels[3] *= amax;
 			return channels;
 		}
 	}
 	
-	public static final ColorModel HWB_360_100 = new HWB(360, 100);
-	public static final ColorModel HWB_30_15 = new HWB(30, 15);
+	public static final ColorModel HWB_360_100 = new HWB(360, 100, 100, 100);
+	public static final ColorModel HWB_360_255 = new HWB(360, 255, 255, 255);
+	public static final ColorModel HWB_30_15 = new HWB(30, 15, 15, 15);
 	public static class HWB extends ColorModel {
 		private final float hmax;
-		private final float vmax;
+		private final float wmax;
+		private final float bmax;
+		private final float amax;
 		private final String name;
 		private final ColorChannel[] channels;
-		public HWB(int hmax, int vmax) {
+		public HWB(int hmax, int wmax, int bmax, int amax) {
 			this.hmax = hmax;
-			this.vmax = vmax;
-			if (hmax == 360 && vmax == 100) this.name = "HWB";
-			else if (hmax == 360) this.name = "HWB (V:0-" + vmax + ")";
-			else if (vmax == 100) this.name = "HWB (H:0-" + hmax + ")";
-			else this.name = "HWB (H:0-" + hmax + "/V:0-" + vmax + ")";
+			this.wmax = wmax;
+			this.bmax = bmax;
+			this.amax = amax;
+			this.name = "HWB (" + hmax + "/" + wmax + "/" + bmax + ")";
 			this.channels = new ColorChannel[] {
 				new ColorChannel("H", "Hue"  , 0, hmax, 1),
-				new ColorChannel("W", "White", 0, vmax, 1),
-				new ColorChannel("B", "Black", 0, vmax, 1),
-				new ColorChannel("A", "Alpha", 0, vmax, 1)
+				new ColorChannel("W", "White", 0, wmax, 1),
+				new ColorChannel("B", "Black", 0, bmax, 1),
+				new ColorChannel("A", "Alpha", 0, amax, 1)
 			};
 		}
 		@Override public String getName() { return name; }
@@ -233,9 +239,9 @@ public abstract class ColorModel {
 		@Override
 		public Color makeColor(float[] channels) {
 			float h = channels[0] / hmax;
-			float w = channels[1] / vmax;
-			float k = channels[2] / vmax;
-			float a = channels[3] / vmax;
+			float w = channels[1] / wmax;
+			float k = channels[2] / bmax;
+			float a = channels[3] / amax;
 			if ((w + k) >= 1) {
 				float x = w / (w + k);
 				return new Color(x, x, x, a);
@@ -260,9 +266,9 @@ public abstract class ColorModel {
 				channels
 			);
 			channels[0] *= hmax;
-			channels[1] = w * vmax;
-			channels[2] = k * vmax;
-			channels[3] *= vmax;
+			channels[1] = w * wmax;
+			channels[2] = k * bmax;
+			channels[3] *= amax;
 			return channels;
 		}
 	}
