@@ -46,6 +46,7 @@ public class ColorProfileLoader {
 		models.add(ColorModel.HWB_360_100.getName(), ColorModel.HWB_360_100);
 		models.add(ColorModel.HWB_360_255.getName(), ColorModel.HWB_360_255);
 		models.add(ColorModel.HWB_30_15.getName(), ColorModel.HWB_30_15);
+		models.add(ColorModel.NEW_HORIZONS.getName(), ColorModel.NEW_HORIZONS);
 		models.add(ColorModel.NAIVE_CMYK_100.getName(), ColorModel.NAIVE_CMYK_100);
 		
 		for (MaterialResource r : loader.listResources()) {

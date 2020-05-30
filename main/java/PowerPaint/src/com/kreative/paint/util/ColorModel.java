@@ -273,6 +273,48 @@ public abstract class ColorModel {
 		}
 	}
 	
+	public static final ColorModel NEW_HORIZONS = new NewHorizons();
+	public static class NewHorizons extends ColorModel {
+		private final String name;
+		private final ColorChannel[] channels;
+		public NewHorizons() {
+			this.name = "New Horizons";
+			this.channels = new ColorChannel[] {
+				new ColorChannel("H", "Hue"       , 0, 30, 1),
+				new ColorChannel("V", "Vividness" , 0, 14, 1),
+				new ColorChannel("B", "Brightness", 0, 14, 1),
+				new ColorChannel("A", "Alpha"     , 0, 14, 1),
+			};
+		}
+		public String getName() { return name; }
+		public ColorChannel[] getChannels() { return channels; }
+		public Color makeColor(float[] channels) {
+			float h = channels[0] / 30;
+			float s = channels[1] / 15;
+			float v = (channels[2] * 3 + 4) / 51;
+			float a = channels[3] / 14;
+			int rgba = Color.HSBtoRGB(h, s, v) & 0xFFFFFF;
+			rgba |= ((int)Math.round(a * 255f) << 24);
+			return new Color(rgba, true);
+		}
+		public float[] unmakeColor(Color color, float[] channels) {
+			channels = color.getRGBComponents(channels);
+			channels = Color.RGBtoHSB(
+				color.getRed(),
+				color.getGreen(),
+				color.getBlue(),
+				channels
+			);
+			channels[0] *= 30;
+			channels[1] *= 15;
+			channels[2] *= 51;
+			channels[2] -= 4;
+			channels[2] /= 3;
+			channels[3] *= 14;
+			return channels;
+		}
+	}
+	
 	public static final ColorModel NAIVE_CMYK_100 = new NaiveCMYK(100);
 	public static class NaiveCMYK extends ColorModel {
 		private final float max;
