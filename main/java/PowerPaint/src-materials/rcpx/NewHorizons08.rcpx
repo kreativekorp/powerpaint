@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="New Horizons #8">
+	<colors ordered="ordered">
+		<hsv h="60.0"  s="73.333336" v="90.196075"/>
+		<hsv h="48.0"  s="26.666666" v="90.196075"/>
+		<hsv h="48.0"  s="93.333336" v="90.196075"/>
+		<hsv h="36.0"  s="66.666664" v="90.196075"/>
+		<hsv h="36.0"  s="93.333336" v="90.196075"/>
+		<hsv h="228.0" s="60.0"      v="90.196075"/>
+		<hsv h="240.0" s="73.333336" v="90.196075"/>
+		<hsv h="240.0" s="80.0"      v="54.901962"/>
+		<hsv h="204.0" s="80.0"      v="49.019608"/>
+		<hsv h="312.0" s="33.333332" v="90.196075"/>
+		<hsv h="336.0" s="53.333332" v="90.196075"/>
+		<hsv h="0.0"   s="66.666664" v="90.196075"/>
+		<hsv h="0.0"   s="0.0"       v="90.196075"/>
+		<hsv h="240.0" s="26.666666" v="66.666664"/>
+		<hsv h="240.0" s="73.333336" v="31.37255" />
+		<rgba r="0" g="0" b="0" a="0"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
