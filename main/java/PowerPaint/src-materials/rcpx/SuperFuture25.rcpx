@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="SuperFuture 25"
+         orientation="square"
+         hwidth="301" hheight= "73"
+         swidth="146" sheight="146"
+         vwidth= "73" vheight="301">
+	<colors ordered="ordered">
+		<rgb r= "16" g=  "8" b= "32"/>
+		<rgb r= "24" g= "30" b= "51"/>
+		<rgb r= "96" g="111" b="171"/>
+		<rgb r="183" g="217" b="238"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r= "44" g= "25" b= "35"/>
+		<rgb r="150" g= "80" b= "57"/>
+		<rgb r="219" g="147" b= "87"/>
+		<rgb r="248" g="218" b="172"/>
+		<rgb r="192" g="192" b="192"/>
+		<rgb r= "28" g= "51" b= "45"/>
+		<rgb r= "54" g="105" b= "67"/>
+		<rgb r="112" g="195" b= "59"/>
+		<rgb r="255" g="255" b=  "0"/>
+		<rgb r= "77" g= "77" b= "77"/>
+		<rgb r= "97" g= "27" b= "50"/>
+		<rgb r="210" g= "53" b= "47"/>
+		<rgb r="255" g="128" b=  "0"/>
+		<rgb r="228" g="187" b= "64"/>
+		<rgb r="255" g=  "0" b= "64"/>
+		<rgb r=  "0" g="255" b="225"/>
+		<rgb r=  "0" g="128" b="255"/>
+		<rgb r= "69" g= "16" b="126"/>
+		<rgb r="156" g=  "9" b="204"/>
+		<rgb r="255" g=  "0" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="10"/></row>
+					<row><range start="10" end="25"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "5"/></row>
+					<row><range start= "5" end="10"/></row>
+					<row><range start="10" end="15"/></row>
+					<row><range start="15" end="20"/></row>
+					<row><range start="20" end="25"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="10"/></column>
+					<column><range start="10" end="25"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

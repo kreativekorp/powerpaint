@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="ENDESGA SOFT 16">
+	<colors ordered="ordered">
+		<rgb r="254" g="254" b="215"/>
+		<rgb r="219" g="188" b="150"/>
+		<rgb r="221" g="172" b= "70"/>
+		<rgb r="194" g= "89" b= "64"/>
+		<rgb r="104" g= "61" b="100"/>
+		<rgb r="156" g="102" b= "89"/>
+		<rgb r="136" g= "67" b= "79"/>
+		<rgb r= "77" g= "40" b= "49"/>
+		<rgb r="169" g="171" b="163"/>
+		<rgb r="102" g="104" b="105"/>
+		<rgb r= "81" g="177" b="202"/>
+		<rgb r= "23" g="115" b="184"/>
+		<rgb r= "99" g="159" b= "91"/>
+		<rgb r= "55" g="110" b= "73"/>
+		<rgb r= "50" g= "52" b= "65"/>
+		<rgb r= "22" g= "19" b= "35"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

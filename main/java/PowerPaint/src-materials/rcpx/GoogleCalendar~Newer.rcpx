@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Google Calendar (Newer)"
+         orientation="square"
+         hwidth="385" hheight= "65"
+         swidth="193" sheight="129"
+         vwidth= "65" vheight="385">
+	<colors ordered="unordered">
+		<rgb r="173" g= "20" b= "87" name="Radicchio"     />
+		<rgb r="244" g= "81" b= "30" name="Tangerine"     />
+		<rgb r="228" g="196" b= "65" name="Citron"        />
+		<rgb r= "11" g="128" b= "67" name="Basil"         />
+		<rgb r= "63" g= "81" b="181" name="Blueberry"     />
+		<rgb r="142" g= "36" b="170" name="Grape"         />
+		<rgb r="216" g= "27" b= "96" name="Cherry Blossom"/>
+		<rgb r="239" g="108" b=  "0" name="Pumpkin"       />
+		<rgb r="192" g="202" b= "51" name="Avocado"       />
+		<rgb r=  "0" g="150" b="136" name="Eucalyptus"    />
+		<rgb r="121" g="134" b="203" name="Lavender"      />
+		<rgb r="121" g= "85" b= "72" name="Cocoa"         />
+		<rgb r="213" g=  "0" b=  "0" name="Tomato"        />
+		<rgb r="240" g="147" b=  "0" name="Mango"         />
+		<rgb r="124" g="179" b= "66" name="Pistachio"     />
+		<rgb r=  "3" g="155" b="229" name="Peacock"       />
+		<rgb r="179" g="157" b="219" name="Wisteria"      />
+		<rgb r= "97" g= "97" b= "97" name="Graphite"      />
+		<rgb r="230" g="124" b="115" name="Flamingo"      />
+		<rgb r="246" g="191" b= "38" name="Banana"        />
+		<rgb r= "51" g="182" b="121" name="Sage"          />
+		<rgb r= "66" g="133" b="244" name="Cobalt"        />
+		<rgb r="158" g="105" b="175" name="Amethyst"      />
+		<rgb r="167" g="155" b="142" name="Birch"         />
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start= "0" end="12"/></row>
+					<row><range start="12" end="24"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "6"/></row>
+					<row><range start= "6" end="12"/></row>
+					<row><range start="12" end="18"/></row>
+					<row><range start="18" end="24"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start= "0" end="12"/></column>
+					<column><range start="12" end="24"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>

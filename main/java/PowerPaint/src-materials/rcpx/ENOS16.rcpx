@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="ENOS 16">
+	<colors ordered="ordered">
+		<rgb r="250" g="250" b="250"/>
+		<rgb r="212" g="212" b="212"/>
+		<rgb r="157" g="157" b="157"/>
+		<rgb r= "75" g= "75" b= "75"/>
+		<rgb r="249" g="211" b="129"/>
+		<rgb r="234" g="175" b= "77"/>
+		<rgb r="249" g="147" b="138"/>
+		<rgb r="231" g= "89" b= "82"/>
+		<rgb r="154" g="209" b="249"/>
+		<rgb r= "88" g="174" b="238"/>
+		<rgb r="141" g="237" b="167"/>
+		<rgb r= "68" g="197" b= "91"/>
+		<rgb r="195" g="167" b="225"/>
+		<rgb r="149" g="105" b="200"/>
+		<rgb r="186" g="181" b="170"/>
+		<rgb r="148" g="142" b="130"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
