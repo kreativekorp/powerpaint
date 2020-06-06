@@ -1,0 +1,1194 @@
+[Cubic [2-9]x[2-9]x[2-9].*]
+A generic palette consisting of @ levels each of red, green, and blue,
+arranged as slices of a cube with each axis of the cube corresponding
+to a channel of the RGB color model.
+
+[Conic [2-9]x[2-9]x[2-9].*]
+A generic palette consisting of @ levels each of red, green, and blue,
+arranged as slices of a cone with its perimeter, radius, and axis
+corresponding to the hue, saturation, and value channels, respectively,
+of the HSV color model.
+
+[(Cubic|Conic) 2x2x2.*]
+s/@/2
+
+[(Cubic|Conic) 3x3x3.*]
+s/@/3
+
+[(Cubic|Conic) 4x4x4.*]
+s/@/4
+
+[(Cubic|Conic) 5x5x5.*]
+s/@/5
+
+[(Cubic|Conic) 6x6x6.*]
+s/@/6
+A palette of 6 levels each of red, green, and blue is also known
+as a web-safe palette, from the early days of the world wide web
+when these were the only colors guaranteed to be displayed
+consistently across different browsers and operating systems.
+
+[(Cubic|Conic) 7x7x7.*]
+s/@/7
+
+[(Cubic|Conic) 8x8x8.*]
+s/@/8
+
+[(Cubic|Conic) 9x9x9.*]
+s/@/9
+
+[A64]
+Author: Arne Niklas Jansson
+Source: <a href="https://androidarts.com/palette/16pal.htm" target="_blank">https://androidarts.com/palette/16pal.htm</a>
+A &ldquo;parallel universe version&rdquo; of the Commodore 64
+color palette designed by Arne Niklas Jansson.
+
+[AAP-[0-9]+]
+Author: Adigun A. Polack
+Source: <a href="https://lospec.com/palette-list/aap-@" target="_blank">https://lospec.com/palette-list/aap-@</a>
+A @-color palette designed by Adigun A. Polack.
+
+[AAP-16]
+s/@/16
+
+[AAP-64]
+s/@/64
+
+[ANSI 4-Bit.*]
+The 16 colors specified in ECMA-48, ANSI X3.64, and ISO 6429, the
+standards defining the meanings of terminal escape sequences.
+
+[ANSI 8-Bit.*]
+The 8-bit extension on top of the 16 colors specified in ECMA-48,
+ANSI X3.64, and ISO 6429, the standards defining the meanings
+of terminal escape sequences. The additional colors include a
+grayscale and a cube of 6 levels each of red, green, and blue,
+also known as a web-safe palette.
+
+[ANSI [0-9]+-Bit \(CMD\.EXE\)]
+Platform: Microsoft Windows
+Product: Command Prompt
+Vendor: Microsoft
+d/escape sequences\./escape sequences, as implemented by the Windows Command Prompt application.
+
+[ANSI [0-9]+-Bit \(PuTTY\)]
+Product: PuTTY
+Vendor: Simon Tatham
+d/escape sequences\./escape sequences, as implemented by the PuTTY terminal emulator.
+
+[ANSI [0-9]+-Bit \(Terminal\.app\)]
+Platform: Mac OS X
+Product: Terminal
+Vendor: Apple Computer
+d/escape sequences\./escape sequences, as implemented by the Mac OS X Terminal application.
+
+[ANSI [0-9]+-Bit \(Ubuntu\)]
+Platform: Ubuntu Linux
+Vendor: Canonical Ltd
+d/escape sequences\./escape sequences, as implemented by the terminal emulator included in the Ubuntu Linux distribution.
+
+[ANSI [0-9]+-Bit \(VGA\)]
+Platform: IBM PC
+Vendor: IBM
+d/escape sequences\./escape sequences, as mapped to the VGA standard.
+
+[ANSI [0-9]+-Bit \(mIRC\)]
+Platform: Microsoft Windows
+Product: mIRC
+Vendor: mIRC Co Ltd
+d/escape sequences\./escape sequences, as implemented by the mIRC messaging application.
+
+[ANSI [0-9]+-Bit \(xterm\)]
+Platform: X Window System
+Product: xterm
+Vendor: Mark Vandevoorde, Thomas Dickey
+d/escape sequences\./escape sequences, as implemented by the xterm terminal emulator.
+
+[Acorn [0-9]+-Bit]
+Platform: RISC OS
+Vendor: Acorn Computers
+The default @-bit color palette of the RISC OS operating system.
+
+[Acorn 2-Bit]
+s/@/2
+
+[Acorn 4-Bit]
+s/@/4
+
+[Acorn 8-Bit]
+s/@/8
+
+[Acorn Reorganized]
+The default 8-bit color palette of the RISC OS operating system,
+reorganized in the square and vertical orientations to maintain
+the groupings of colors that emerge in the horizontal orientation.
+
+[AddColor]
+Platform: Mac OS Classic
+Product: HyperCard
+Vendor: Apple Computer
+The permutation of the Macintosh 8-bit color palette used in the
+color picker for Color Tools, an add-on for Apple's HyperCard
+application which added support for color to the otherwise
+completely black and white multimedia authoring system.
+
+[Andrew Kensler [0-9]+]
+Author: Andrew Kensler
+Source: <a href="http://eastfarthing.com/blog/2016-05-06-palette/" target="_blank">http://eastfarthing.com/blog/2016-05-06-palette/</a>
+d+A @-color palette designed by Andrew Kensler using a program to generate palettes as described in
+d+<a href="http://eastfarthing.com/blog/2016-05-06-palette/" target="_blank">this blog entry</a>.
+d+The program is designed to optimize for &ldquo;the ratio of the CIE DE 2000 difference between
+d+the two closest colors to the root mean squared error between a sampling of the RGB color cube
+d+and the closest matching colors in the palette.&rdquo;
+
+[Andrew Kensler 16]
+s/@/16
+
+[Andrew Kensler 32]
+s/@/32
+
+[Andrew Kensler 54]
+Source: <a href="http://eastfarthing.com/blog/2016-09-19-palette/" target="_blank">http://eastfarthing.com/blog/2016-09-19-palette/</a>
+s/@/54
+
+[Apple II.*]
+Platform: Apple II
+Vendor: Apple Computer
+The built-in color palette of the Apple II, an 8-bit microcomputer
+released by Apple Computer in 1977. All 16 colors were available in
+the low-resolution 40x48 pixel graphics mode, with only 6 colors
+(colors 0 [black], 3 [purple], 6 [blue], 9 [orange], 12 [green] and 15 [white])
+available in the high-resolution 280x192 graphics mode (with certain caveats).
+
+[Apple II \(ApplePC\)]
+This particular version of the Apple II color palette was used in
+an emulator called ApplePC, which ran under MS-DOS.
+
+[Apple II \(Bettencourt\)]
+d+This particular version of the Apple II color palette was calculated by
+d+Rebecca Bettencourt using a YIQ to RGB transformation matrix in
+d+<a href="https://docs.google.com/spreadsheets/d/1rKR6A_bVniSCtIP_rrv8QLWJdj4h6jEU1jJj0AebWwg/edit?usp=sharing" target="_blank">this Google Spreadsheet</a>.
+
+[Apple II \(Munafo\)]
+This particular version of the Apple II color palette was calculated by
+Robert Munafo in a post made to the comp.sys.apple2 newsgroup in October 2000.
+
+[Apple II \(Ticmanis .+\)]
+This particular version of the Apple II color palette was calculated by
+Linards Ticmanis in a post made to the comp.sys.apple2 newsgroup in September 2005.
+
+[Apple II \(Wikipedia\)]
+This particular version of the Apple II color palette is the one given
+in Wikipedia's list of 8-bit computer hardware color palettes.
+
+[Apple Icon Colors]
+Platform: Mac OS Classic
+Product: ResEdit
+Vendor: Apple Computer
+The set of colors used by Apple when designing icons for System 7,
+the first version of the classic Macintosh operating system to make
+full use of color. This palette was included with ResEdit, the resource
+editor provided by Apple to developers, and was recommended for use
+by those developers when designing their own icons.
+
+[AppleWorks]
+Platform: Mac OS Classic
+Product: AppleWorks
+Vendor: Apple Computer
+The permutation of the Macintosh 8-bit color palette used as the default
+color palette in AppleWorks 6, Apple's office suite under Mac OS Classic
+and formerly known as ClarisWorks.
+
+[AppleWorks .+]
+Platform: Mac OS Classic
+Product: AppleWorks
+Vendor: Apple Computer
+One of the preset color palettes included with AppleWorks 6, Apple's
+office suite under Mac OS Classic and formerly known as ClarisWorks.
+
+[AppleWorks [^1][^6].+]
+The first 16 colors are a permutation of the Macintosh 4-bit color palette.
+
+[Arne [0-9]+]
+Author: Arne Niklas Jansson
+Source: <a href="https://androidarts.com/palette/16pal.htm" target="_blank">https://androidarts.com/palette/16pal.htm</a>
+A generic @-color palette designed by Arne Niklas Jansson.
+
+[Arne 16]
+s/@/16
+
+[Arne 32]
+s/@/32
+
+[AutoCAD]
+Product: AutoCAD
+Vendor: Autodesk
+The 8-bit color palette used by AutoCAD, the professional
+computer-aided design and drafting application by Autodesk.
+
+[Base16 .+]
+One of the color palettes made for Base16, &ldquo;an architecture
+for building themes based on carefully chosen syntax highlighting
+using a base of sixteen colors&rdquo; developed by Chris Kempson.
+
+[Black & White .+]
+The most common two-color palette, consisting only of black and white.
+
+[Black Body MC 150]
+Source: <a href="http://www.vendian.org/mncharity/dir3/blackbody/" target="_blank">http://www.vendian.org/mncharity/dir3/blackbody/</a>
+A 150-step gradient of the color of a black body at increasing
+temperatures as calculated by Mitchell Charity. The range of the
+palette is 0K to 29800K at 200K increments.
+
+[Black Body MC Continuous]
+Source: <a href="http://www.vendian.org/mncharity/dir3/blackbody/" target="_blank">http://www.vendian.org/mncharity/dir3/blackbody/</a>
+A continuous gradient of the color of a black body at increasing
+temperatures as calculated by Mitchell Charity. The first band
+corresponds to temperatures from 0K to 800K, the second 800K to 2000K,
+the third 2000K to 6600K, and the final 6600K to 29800K.
+
+[Black Body PS 256]
+Product: Adobe Photoshop
+Vendor: Adobe Systems
+An 8-bit color palette consisting of a 256-step gradient of
+black to red to yellow to white included with Adobe Photoshop.
+Despite this palette's name, these are not the colors of an actual black body.
+
+[Black Body PS Continuous]
+Product: Adobe Photoshop
+Vendor: Adobe Systems
+A continuous gradient of black to red to yellow to white, based on the
+8-bit color palette called Black Body included with Adobe Photoshop.
+Despite this palette's name, these are not the colors of an actual black body.
+
+[CGArne]
+Author: Arne Niklas Jansson
+Source: <a href="https://androidarts.com/palette/16pal.htm" target="_blank">https://androidarts.com/palette/16pal.htm</a>
+A 16-color palette designed by Arne Niklas Jansson based on a screenshot of Windows 3.1.
+
+[CGArne \(CGA Order\)]
+Author: Arne Niklas Jansson
+Source: <a href="https://androidarts.com/palette/16pal.htm" target="_blank">https://androidarts.com/palette/16pal.htm</a>
+A 16-color palette designed by Arne Niklas Jansson based on a screenshot of Windows 3.1,
+put into an order corresponding to the CGA standard.
+
+[CGA \(Genuine\)]
+Platform: IBM PC
+Vendor: IBM
+The built-in color palette of the genuine IBM Color Graphics Adapter.
+The low-intensity half of the palette uses RGB levels of 0 and 2/3, while
+the high-intensity half of the palette uses RGB levels of 1/3 and 1.
+The genuine CGA reduced the green channel of color 6 to 1/3, resulting in a
+more useful brown color, whereas some cheap imitations left it at 2/3,
+resulting in a less useful dark yellow color.
+
+[CGA \(Imitation\)]
+Platform: IBM PC
+Vendor: IBM
+The built-in color palette of some cheap imitations of the IBM Color Graphics Adapter.
+The low-intensity half of the palette uses RGB levels of 0 and 2/3, while
+the high-intensity half of the palette uses RGB levels of 1/3 and 1.
+The genuine CGA reduced the green channel of color 6 to 1/3, resulting in a
+more useful brown color, whereas some cheap imitations left it at 2/3,
+resulting in a less useful dark yellow color.
+
+[CGA \(Windows\)]
+Platform: Microsoft Windows
+Vendor: Microsoft
+The default 16-color palette of the Microsoft Windows operating system.
+
+[CPC Boy]
+Author: Arne Niklas Jansson
+Source: <a href="https://androidarts.com/palette/16pal.htm" target="_blank">https://androidarts.com/palette/16pal.htm</a>
+A tweaked version of the Amstrad CPC color palette designed by Arne Niklas Jansson.
+
+[CSS]
+Source: <a href="https://www.w3.org/TR/css-color-4/" target="_blank">https://www.w3.org/TR/css-color-4/</a>
+d+The list of 148 named colors supported by CSS (Cascading Style Sheets), as specified in
+d+<a href="https://www.w3.org/TR/css-color-4/" target="_blank">CSS Color Module Level 4</a>.
+d+16 of these colors (aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive,
+d+purple, red, silver, teal, white, and yellow) originate from the HTML 3.0 specification,
+d+while most of the rest originate from the X11 color list.
+
+[CTIA .+]
+Platform: Atari 8-Bit
+Vendor: Atari
+The built-in color palette of the @R version of the Atari Color Television
+Interface Adaptor (CTIA), used in the Atari 8-bit family of computers and
+the Atari 5200 video game console. The colors produced by the CTIA varied
+over time as the chip warmed up; this is the version at @T degrees celsius.
+
+[CTIA .+NTSC.+]
+s/@R/NTSC
+
+[CTIA .+PAL.+]
+s/@R/PAL
+
+[CTIA .+24\.7.+]
+s/@T/24.7
+
+[CTIA .+25\.7.+]
+s/@T/25.7
+
+[CTIA .+26\.7.+]
+s/@T/26.7
+
+[CTIA .+27\.7.+]
+s/@T/27.7
+
+[Chip16]
+Source: <a href="https://github.com/chip16/chip16/wiki/Machine-Specification">https://github.com/chip16/chip16/wiki/Machine-Specification</a>
+Platform: Chip16
+Vendor: Tim Kelsall
+The default color palette of the Chip16, a virtual machine created by
+Tim Kelsall in April 2013.
+
+[Color It! .+]
+Platform: Mac OS Classic
+Product: Color It!
+Vendor: MicroFrontier, Digimage Arts
+One of the preset color palettes included with Color It!, an image
+editing program developed by MicroFrontier (now Digimage Arts).
+
+[Color It! Flesh Tones]
+The lack of dark flesh tones makes this palette noticeably outdated.
+
+[Commander X16 [0-9]+-Bit]
+Platform: Commander X16
+The default @-bit palette of the Commander X16, a modern 8-bit microcomputer
+based on the Commodore VIC-20 and Commodore 64 and being developed by
+David Murray (aka The 8-Bit Guy) and a team of retrocomputing enthusiasts.
+
+[Commander X16 4-Bit]
+s/@/4
+
+[Commander X16 8-Bit]
+s/@/8
+
+[Commodore 16]
+Platform: Commodore 16
+Vendor: Commodore International
+The built-in color palette of the Commodore 16, an 8-bit microcomputer
+released by Commodore International in 1984. In the high-resolution
+320x200 pixel mode, each block of 8x8 pixels could use two colors from
+the full palette, while in the 160x200 pixel multicolor mode, each
+block of 4x8 pixels could use four colors from the full palette
+(two of which were shared across the entire screen).
+
+[Commodore 64 .+]
+Platform: Commodore 64
+Vendor: Commodore International
+The built-in color palette of the Commodore 64, an 8-bit microcomputer
+released by Commodore International in 1982. In the high-resolution
+320x200 pixel mode, each block of 8x8 pixels could use two colors from
+the full palette, while in the 160x200 pixel multicolor mode, each
+block of 4x8 pixels could use four colors from the full palette
+(one of which was shared across the entire screen).
+
+[Commodore 64 \(GraphicConverter\)]
+This particular version of the Commodore 64 color palette is included
+in GraphicConverter, an image editing program by Lemke Software GmbH.
+
+[Commodore 64 \(Wikipedia\)]
+This particular version of the Commodore 64 color palette is the one given
+in Wikipedia's list of 8-bit computer hardware color palettes.
+
+[Commodore VIC-20 .+]
+Platform: Commodore VIC-20
+Vendor: Commodore International
+The built-in color palette of the Commodore VIC-20, an 8-bit microcomputer
+released by Commodore International in 1980. In the high-resolution mode,
+each block of 8x8 pixels could use two colors from the full palette
+(one of which was shared across the entire screen), while in the multicolor
+mode, each block of 4x8 pixels could use four colors from the full palette
+(three of which were shared across the entire screen).
+
+[Commodore VIC-20 \(Wikipedia\)]
+This particular version of the Commodore VIC-20 color palette is the one given
+in Wikipedia's list of 8-bit computer hardware color palettes.
+
+[Copper Tech]
+Author: Arne Niklas Jansson
+Source: <a href="https://androidarts.com/palette/16pal.htm" target="_blank">https://androidarts.com/palette/16pal.htm</a>
+A 16-color palette designed by Arne Niklas Jansson with a focus on tech.
+
+[Cube Sides]
+The sides of a cube wherein each axis corresponds to a channel of the RGB color model.
+
+[D'Studio]
+Platform: Mac OS Classic
+Product: Designer's Studio
+Vendor: Akamai Design
+A rather unique arrangement of the Macintosh 8-bit color palette used to pick
+colors in Designer's Studio or D'Studio, an editor for Kaleidoscope schemes.
+Kaleidoscope was an extension for the classic Macintosh operating system that
+enabled custom theming of the Macintosh user interface.
+
+[DawnBringer [0-9]+]
+Author: Richard Fhager
+Source: <a href="http://pixeljoint.com/p/23821.htm" target="_blank">http://pixeljoint.com/p/23821.htm</a>
+A @-color palette designed by Richard Fhager aka DawnBringer.
+
+[DawnBringer 8]
+s/A @/An 8
+
+[DawnBringer 16]
+s/@/16
+
+[DawnBringer 32]
+s/@/32
+
+[EGA]
+Platform: IBM PC
+Vendor: IBM
+The built-in color palette of the IBM Enhanced Graphics Adapter.
+
+[(ARQ|EN|ENDESGA|ENDESGA SOFT|ENOS|HEPT|SuperFuture) [0-9]+]
+Author: ENDESGA
+Source: <a href="https://lospec.com/palette-list/tag/endesga" target="_blank">https://lospec.com/palette-list/tag/endesga</a>
+A @-color palette designed by ENDESGA, developer of the indie video game NYKRA.
+
+[(ARQ|EN|ENDESGA|ENDESGA SOFT|ENOS|HEPT|SuperFuture) 4]
+s/@/4
+
+[(ARQ|EN|ENDESGA|ENDESGA SOFT|ENOS|HEPT|SuperFuture) 8]
+s/A @/An 8
+
+[(ARQ|EN|ENDESGA|ENDESGA SOFT|ENOS|HEPT|SuperFuture) 16]
+s/@/16
+
+[(ARQ|EN|ENDESGA|ENDESGA SOFT|ENOS|HEPT|SuperFuture) 25]
+s/@/25
+
+[(ARQ|EN|ENDESGA|ENDESGA SOFT|ENOS|HEPT|SuperFuture) 32]
+s/@/32
+
+[(ARQ|EN|ENDESGA|ENDESGA SOFT|ENOS|HEPT|SuperFuture) 36]
+s/@/36
+
+[(ARQ|EN|ENDESGA|ENDESGA SOFT|ENOS|HEPT|SuperFuture) 64]
+s/@/64
+
+[Eroge Copper]
+Author: Arne Niklas Jansson
+Source: <a href="https://androidarts.com/palette/16pal.htm" target="_blank">https://androidarts.com/palette/16pal.htm</a>
+A 16-color palette designed by Arne Niklas Jansson with a focus on Eroge games.
+
+[False Color Spectrum]
+An 8-bit color palette consisting of a 256-step gradient of
+magenta to blue to cyan to green to yellow to red.
+
+[Famicube]
+Author: Arne Niklas Jansson
+Source: <a href="http://androidarts.com/palette/Famicube.htm" target="_blank">http://androidarts.com/palette/Famicube.htm</a>
+d+A 64-color palette designed by Arne Niklas Jansson for his
+d+<a href="http://androidarts.com/palette/Famicube.htm" target="_blank">Nintendo Famicube</a>
+d+project.
+
+[Felice]
+Author: Felice Enellen
+A 16-color palette designed by Felice Enellen for the PICO-8,
+a virtual machine created by Lexaloffle Games, a Japanese
+video game company founded by Joseph White.
+
+[GIMP .+]
+Product: GIMP (GNU Image Manipulation Program)
+Vendor: The GIMP Development Team
+One of the preset color palettes included with GIMP, the
+GNU Image Manipulation Program.
+
+[GTIA .+]
+Platform: Atari 8-Bit
+Vendor: Atari
+The built-in color palette of the @ version of the Atari Graphic Television
+Interface Adaptor (GTIA), used in the Atari 8-bit family of computers and
+the Atari 5200 video game console. The GTIA included three extra modes
+originally planned for but not included in the CTIA due to delays in
+development.
+
+[GTIA \(NTSC\)]
+s/@/NTSC
+
+[GTIA \(PAL\)]
+s/@/PAL
+
+[Gmail]
+Product: Gmail
+Vendor: Google
+The color palette presented by Gmail
+for choosing a preset color for a label.
+
+[Gmail Extended]
+Product: Gmail
+Vendor: Google
+The color palette presented by Gmail
+for choosing a custom color for a label.
+
+[Google Calendar \(Older\)]
+Product: Google Calendar
+Vendor: Google
+The color palette presented by older versions of Google Calendar
+for choosing the color of events on a specific calendar.
+
+[Google Calendar \(Newer\)]
+Product: Google Calendar
+Vendor: Google
+The color palette presented by newer versions of Google Calendar
+for choosing the color of events on a specific calendar.
+
+[Google Docs]
+Product: Google Docs
+Vendor: Google
+The palette presented throughout Google Docs for choosing colors.
+
+[Grayscale 2-Bit .+]
+A generic 2-bit palette consisting of 4 levels of gray.
+
+[Grayscale 4-Bit .+]
+A generic 4-bit palette consisting of 16 levels of gray.
+
+[Grayscale 6-Bit .+]
+A generic 6-bit palette consisting of 64 levels of gray.
+
+[Grayscale 8-Bit .+]
+A generic 8-bit palette consisting of 256 levels of gray.
+
+[Grayscales]
+A color picker for anywhere from 2 to 17 levels of gray.
+
+[HTML]
+Source: <a href="https://www.w3.org/TR/html40/types.html" target="_blank">https://www.w3.org/TR/html40/types.html</a>
+d+The list of 16 named colors supported by HTML (HyperText Markup Language), as specified in the
+d+<a href="https://www.w3.org/TR/html40/types.html" target="_blank">HTML 4.01 Specification</a>.
+
+[Hi Mom]
+The set of highlighting colors that Rebecca Bettencourt would put on
+the toolbar in Microsoft Word for her mother to use while proofreading.
+
+[Iconographer]
+Platform: Mac OS Classic, Mac OS X
+Product: Iconographer
+Vendor: Mscape Software
+The color picker used in Iconographer, an icon editor
+for Mac OS Classic and Mac OS X.
+
+[ImageWriter II]
+Platform: Mac OS Classic
+Product: ImageWriter II
+Vendor: Apple Computer
+The set of eight colors supported by the ImageWriter II
+dot matrix printer through the use of a color ribbon.
+
+[JMP \(Japanese Machine Palette\)]
+Author: Arne Niklas Jansson
+Source: <a href="https://androidarts.com/palette/16pal.htm" target="_blank">https://androidarts.com/palette/16pal.htm</a>
+A &ldquo;parallel universe version&rdquo; of the MSX
+color palette designed by Arne Niklas Jansson.
+
+[Java Default Indexed]
+The default color palette generated by the Java runtime library
+when creating a new image with an 8-bit indexed color model.
+
+[Java Swing]
+The arrangement of color swatches used by the color picker component
+included in the Java Swing user interface library.
+
+[KDE]
+Source: <a href="https://techbase.kde.org/Development/Guidelines/CIG/Colors" target="_blank">https://techbase.kde.org/Development/Guidelines/CIG/Colors</a>
+The set of colors chosen by the Oxygen Project for use throughout
+the KDE desktop environment.
+
+[Kid Pix 16 Colors]
+Platform: Mac OS Classic
+Product: Kid Pix
+Vendor: Craig Hickman
+The set of colors available in 16-color mode in Kid Pix,
+an image editor aimed at children created by Craig Hickman.
+
+[Kid Pix 36 Colors]
+Platform: Mac OS Classic
+Product: Kid Pix
+Vendor: Craig Hickman
+The set of colors available in 256-color mode in Kid Pix,
+an image editor aimed at children created by Craig Hickman.
+
+[Kid Pix Display 16]
+Platform: Mac OS Classic
+Product: Kid Pix
+Vendor: Craig Hickman
+A color palette included in the Kid Pix executable
+resembling the default Macintosh 4-bit color palette.
+
+[Kid Pix ImageWriter II]
+Platform: Mac OS Classic
+Product: Kid Pix
+Vendor: Craig Hickman
+A color palette included in the Kid Pix executable
+somewhat resembling the ImageWriter II color palette.
+
+[Kid Pix Studio]
+Platform: Mac OS Classic
+Product: Kid Pix Studio
+Vendor: Broderbund Software
+The set of colors available in Kid Pix Studio, a suite of
+image editing and animation applications aimed at children.
+
+[MS Paint]
+Platform: Microsoft Windows
+Product: Microsoft Paint
+Vendor: Microsoft
+The default set of colors available in the version of Microsoft Paint
+included in Windows XP and earlier.
+
+[MS Paint Extended]
+Platform: Microsoft Windows
+Product: Microsoft Paint
+Vendor: Microsoft
+The set of colors included as presets in the color picker dialog
+used to select custom colors in Microsoft Paint.
+
+[MS Paint Vista]
+Platform: Microsoft Windows
+Product: Microsoft Paint
+Vendor: Microsoft
+The default set of colors available in the version of Microsoft Paint
+included in Windows Vista.
+
+[MS Paint Windows 7]
+Platform: Microsoft Windows
+Product: Microsoft Paint
+Vendor: Microsoft
+The default set of colors available in the version of Microsoft Paint
+included in Windows 7.
+
+[MSX]
+Platform: MSX
+The built-in color palette of the Texas Instruments TMS9918 video display
+controller used in the first iteration of the MSX home computer architecture.
+
+[MSX2]
+Platform: MSX2
+The built-in color palette of the Yamaha V9938 video display controller
+used in the second iteration of the MSX home computer architecture.
+
+[Mac OS [0-9]+-Bit.*]
+Platform: Mac OS Classic
+Vendor: Apple Computer
+The default @-bit color palette of the classic Macintosh operating system.
+
+[Mac OS [0-9]+-Bit \(CGA Order\)]
+d/\./, put into an order corresponding to the CGA standard.
+
+[Mac OS 2-Bit.*]
+s/@/2
+
+[Mac OS 4-Bit.*]
+s/@/4
+
+[Mac OS 8-Bit.*]
+s/@/8
+
+[Mac OS Classic Crayons]
+Platform: Mac OS Classic
+Vendor: Apple Computer
+The list of colors included in the crayon color picker from Mac OS 8.0 to 9.2.2.
+
+[Mac OS X Basic]
+Platform: Mac OS X
+Vendor: Apple Computer
+The list of colors included in the basic color palette from Mac OS X.
+
+[Mac OS X Crayons]
+Platform: Mac OS X
+Vendor: Apple Computer
+The list of colors included in the crayon color picker from Mac OS X.
+
+[Magical Monster Kinds]
+The colors corresponding to the major categories of trainable monsters
+from a certain international media franchise.
+
+[Mario Paint]
+Platform: Super NES
+Product: Mario Paint
+Vendor: Nintendo
+The basic color palette available in Mario Paint, a video game
+released in 1992 by Nintendo for use with the Super NES.
+
+[Material Design.*]
+Source: <a href="https://material.io/design/color/the-color-system.html" target="_blank">https://material.io/design/color/the-color-system.html</a>
+The color palette created by Google in 2014 as part of the
+Material Design user interface guidelines for web applications.
+
+[Mika City \(MCCE\)]
+The palette of color presets in Mika City Character Editor,
+a program developed by Rebecca Bettencourt for managing
+information about the characters in her fictional universe.
+
+[Monochrome P[0-9]+]
+A generic two-color palette consisting only of black and the color of
+the standard @P phosphor used in monochrome CRT displays.
+
+[Monochrome P[0-9]+ [0-9]+-Bit]
+A generic @B-bit palette consisting of @L levels of the color of
+the standard @P phosphor used in monochrome CRT displays.
+
+[Monochrome P1\b.*]
+s/@P/P1
+
+[Monochrome P2\b.*]
+s/@P/P2
+
+[Monochrome P3\b.*]
+s/@P/P3
+
+[Monochrome P[0-9]+ 2-Bit]
+s/@B/2
+s/@L/4
+
+[Monochrome P[0-9]+ 4-Bit]
+s/@B/4
+s/@L/16
+
+[Monochrome P[0-9]+ 6-Bit]
+s/@B/6
+s/@L/64
+
+[Monochrome P[0-9]+ 8-Bit]
+s/@B/8
+s/@L/256
+
+[NES \(Nesdev .+\)]
+Platform: NES
+Vendor: Nintendo
+Source: <a href="https://wiki.nesdev.com/w/index.php/PPU_palettes" target="_blank">https://wiki.nesdev.com/w/index.php/PPU_palettes</a>
+The built-in color palette of the @P PPU used in @S as given on the Nesdev wiki.
+
+[NES \(Nesdev 2C02\)]
+s/@P/2C02
+s/@S/the Famicom, the NES, and the Sharp Nintendo TV,
+
+[NES \(Nesdev 2C03\)]
+s/@P/2C03
+s/@S/<i>Vs. Duck Hunt<\/i>, <i>Vs. Tennis<\/i>, all PlayChoice games, the Famicom Titler, and the Famicom TV,
+
+[NES \(Nesdev 2C04\)]
+s/@P/2C04 series of
+s/ used in @S//
+s/\./, rearranged to correspond to the palettes of the 2C02 and 2C03.
+
+[NES \(Nesdev RP2C04-0001\)]
+s/@P/RP2C04-0001
+s/@S/<i>Baseball<\/i>, <i>Freedom Force<\/i>, <i>Gradius<\/i>, <i>Hogan&rsquo;s Alley<\/i>, <i>Mach Rider<\/i>, <i>Pinball<\/i>, and <i>Platoon<\/i>,
+
+[NES \(Nesdev RP2C04-0002\)]
+s/@P/RP2C04-0002
+s/@S/<i>Castlevania<\/i>, <i>Mach Rider Endurance Course<\/i>, <i>Raid on Bungling Bay<\/i>, <i>Slalom<\/i>, <i>Soccer<\/i>, <i>Stroke &amp; Match Golf<\/i>, and <i>Wrecking Crew<\/i>,
+
+[NES \(Nesdev RP2C04-0003\)]
+s/@P/RP2C04-0003
+s/@S/<i>Balloon Fight<\/i>, <i>Dr. Mario<\/i>, the US version of <i>Excitebike<\/i>, <i>Goonies<\/i>, and <i>Soccer<\/i>,
+
+[NES \(Nesdev RP2C04-0004\)]
+s/@P/RP2C04-0004
+s/@S/<i>Clu Clu Land<\/i>, the Japanese version of <i>Excitebike<\/i>, <i>Ice Climber<\/i>, and <i>Super Mario Bros<\/i>,
+
+[NES \(Tersigni\)]
+Platform: NES
+Vendor: Nintendo
+The built-in color palette of the PPU used in the Famicom and the NES according to Dean Tersigni.
+
+[NES \(Wikipedia\)]
+Platform: NES
+Vendor: Nintendo
+The built-in color palette of the PPU used in the Famicom and the NES according to Wikipedia.
+
+[NTSC .+]
+The NTSC (National Television Standards Committee) standard color
+test pattern for analog standard-definition television monitors.
+
+[NTSC \(KreativeKorp\)]
+d/\.$//
+d+as presented by <a href="http://www.kreativekorp.com/miscpages/ntsc.html" target="_blank">this web page</a>.
+
+[NTSC \(Munafo\)]
+d/\.$//
+d+as calculated by Robert Munafo in a post made to the comp.sys.apple2 newsgroup in October 2000.
+
+[NTSC \(RGB\)]
+d/\.$/, adjusted to the extremes of the sRGB color space.
+
+[NTSC \(Wikipedia\)]
+d/\.$//
+d+as listed on Wikipedia.
+
+[Netscape]
+The colors guaranteed to be displayed consistently across different browsers
+and operating systems during the early days of the world wide web. This was
+part of the color palette of the Netscape Navigator web browser and became
+known as the web-safe color palette.
+
+[New Horizons #[0-9]+]
+Platform: Nintendo Switch
+Product: Animal Crossing: New Horizons
+Vendor: Nintendo
+d+One of the preset color palettes included with the pattern designer
+d+in Animal Crossing: New Horizons, a life simulation game released by
+d+Nintendo in 2020 for the Nintendo Switch.
+
+[New Leaf]
+Platform: Nintendo 3DS
+Product: Animal Crossing: New Leaf
+Vendor: Nintendo
+d+The color picker used in the pattern designer in Animal Crossing: New Leaf,
+d+a life simulation game released by Nintendo in 2012 for the Nintendo 3DS.
+
+[Office]
+Product: Microsoft Office
+Vendor: Microsoft
+The default color palette used throughout older versions of Microsoft Office.
+
+[Office 2008]
+Product: Microsoft Office
+Vendor: Microsoft
+The default color palette used in Microsoft Office 2008.
+
+[Office 2008 .+]
+Product: Microsoft Office
+Vendor: Microsoft
+One of the preset color palettes included with Microsoft Office 2008.
+
+[Office Extended]
+Product: Microsoft Office
+Vendor: Microsoft
+The hexagonal color picker present in some versions of Microsoft Office.
+
+[Office Highlighter]
+Product: Microsoft Office
+Vendor: Microsoft
+The set of colors available for highlighting text in older versions of Microsoft Office.
+
+[Open Color]
+Author: Jeong Heeyeun
+Source: <a href="https://yeun.github.io/open-color/" target="_blank">https://yeun.github.io/open-color/</a>
+A color palette created by Jeong Heeyeun and released under the MIT license.
+
+[PICO-8]
+Platform: PICO-8
+Vendor: Lexaloffle Games
+The default 16-color palette of the PICO-8, a virtual machine created by
+Lexaloffle Games, a Japanese video game company founded by Joseph White.
+
+[Palm [0-9]+-Bit]
+Platform: Palm OS
+Vendor: Palm Computing
+The default @-bit color palette of the Palm OS operating system.
+
+[Palm 4-Bit]
+s/@/4
+
+[Palm 8-Bit]
+s/@/8
+
+[Palm Reorganized]
+The default 8-bit color palette of the Palm OS operating system,
+rearranged into logical groups.
+
+[Pebble]
+Platform: Pebble OS
+Vendor: Pebble Technology Corporation
+The color palette used in color-capable models of the Pebble smartwatch.
+Also one of the color palettes available for choosing a color in the
+Clay framework for configurating Pebble apps.
+
+[Pebble Sunny]
+Platform: Pebble OS
+Vendor: Pebble Technology Corporation
+One of the color palettes available for choosing a color in the
+Clay framework for configuring apps for the Pebble smartwatch.
+
+[Photoshop]
+Product: Adobe Photoshop
+Vendor: Adobe Systems
+The default set of color swatches available in Adobe Photoshop.
+
+[PodPaint]
+The color palette from PodPaint, an image editor for iPodLinux,
+a port of &#xB5;cLinux to early generations of the iPod.
+
+[Psygnosia]
+Author: Arne Niklas Jansson
+Source: <a href="https://androidarts.com/palette/16pal.htm" target="_blank">https://androidarts.com/palette/16pal.htm</a>
+A 16-color palette designed by Arne Niklas Jansson inspired by the game Ork.
+
+[QuickDraw]
+Platform: Mac OS Classic
+Vendor: Apple Computer
+The original set of eight colors supported by QuickDraw,
+the graphics toolkit of the classic Macintosh operating system,
+before the use of full RGB color became possible.
+
+[R3G3B2]
+A generic 8-bit palette consisting of 8 levels of red,
+8 levels of green, and 4 levels of blue.
+
+[Rayalaka]
+A color palette based on the Rayalaka color system, in which
+the primaries and secondaries of both traditional and modern
+color theory (red, orange, yellow, green, cyan, blue, violet,
+and magenta) are given equal weight.
+
+[Resplendence]
+Product: Resplendence
+Vendor: Kreative Software
+The default color picker used in Resplendence, an editor for
+Mac OS Classic, Palm OS, and Windows resource files.
+It was inspired by the Iconographer palette and incorporates all the
+default color palettes of the classic Macintosh operating system.
+
+[R .+]
+Product: R
+Vendor: The R Foundation for Statistical Computing
+One of the preset color palettes included with R, a free
+software environment for statistical computing and graphics
+supported by the R Foundation for Statistical Computing.
+
+[SAM Coup.]
+Platform: SAM Coup&#xE9;
+Vendor: Miles Gordon Technology
+The built-in color palette of the SAM Coup&#xE9;, an 8-bit microcomputer
+released by Miles Gordon Technology (MGT) in 1989. Depending on video
+mode, up to 16 colors from the full 128-color palette could be displayed
+at any one time.
+
+[SFSU TOS Spring 2011]
+A color palette created by Rebecca Bettencourt for her Advanced Operating
+Systems class at San Francisco State University during Spring 2011.
+
+[Sabine 4-Bit]
+The set of colors supported by version 1 of the Sabine Icon format,
+a text-based format for icons created for an experimental desktop
+environment called Sabine OS.
+
+[Sabine ASCII]
+The set of colors supported by version 2 of the Sabine Icon format,
+a text-based format for icons, arranged in ASCII order.
+
+[Sabine Reorganized]
+The set of colors supported by version 2 of the Sabine Icon format,
+a text-based format for icons, arranged in a more logical order.
+
+[Sepia 2-Bit .+]
+A generic 2-bit palette consisting of 4 levels of sepia tones.
+
+[Sepia 4-Bit .+]
+A generic 4-bit palette consisting of 16 levels of sepia tones.
+
+[Sepia 6-Bit .+]
+A generic 6-bit palette consisting of 64 levels of sepia tones.
+
+[Sepia 8-Bit .+]
+A generic 8-bit palette consisting of 256 levels of sepia tones.
+
+[ShareDraw [0-9]+ Colors]
+Platform: Mac OS Classic
+Product: ShareDraw
+Vendor: Pierce Software
+The @-color palette used by ShareDraw, a shareware drawing application
+by Michael Everest and Pierce Software for Mac OS Classic.
+
+[ShareDraw 16 Colors]
+s/@/16
+
+[ShareDraw 256 Colors]
+s/@/256
+
+[Solarized]
+Author: Ethan Schoonover
+Source: <a href="https://ethanschoonover.com/solarized/" target="_blank">https://ethanschoonover.com/solarized/</a>
+A 16-color palette designed by Ethan Schoonover
+for use with terminal and GUI applications.
+
+[Spectrum]
+A generic color picker with the hue and lightness channels of the HSL
+color model along the longer and shorter axes of the picker, respectively.
+This is also the default image palette included with Mac OS X.
+
+[SuperPaint]
+Platform: Mac OS Classic
+Product: Aldus SuperPaint
+Vendor: Aldus Corporation
+The permutation of the Macintosh 8-bit color palette used as the default
+color palette in SuperPaint, a painting and drawing application originally
+created by Silicon Beach Software and later acquired by Aldus Corporation.
+
+[SuperPaint .+]
+Platform: Mac OS Classic
+Product: Aldus SuperPaint
+Vendor: Aldus Corporation
+One of the preset color palettes included with SuperPaint,
+a painting and drawing application originally created by
+Silicon Beach Software and later acquired by Aldus Corporation.
+
+[Tango]
+Source: <a href="https://web.archive.org/web/20160202102503/http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines" target="_blank">https://web.archive.org/web/20160202102503/http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines</a>
+The set of colors chosen by the Tango Desktop Project,
+an open-source initiative to create a set of design
+guidelines for applications on desktop environments.
+
+[Thomson]
+Platform: Thomson TO7, Thomson MO5
+Vendor: Thomson SA
+The built-in color palette of the Thomson TO7 and Thomson MO5,
+8-bit microcomputers released in France by Thomson SA in 1982 and 1984,
+respectively.
+
+[Tinkercad]
+Product: Tinkercad
+Vendor: Autodesk
+The color picker used in Tinkercad, a free
+3D modeling program that runs in a web browser.
+
+[Trubetskoy]
+Source: <a href="https://sashamaps.net/docs/tools/20-colors/" target="_blank">https://sashamaps.net/docs/tools/20-colors/</a>
+A list of 20 colors, plus black and white, chosen by Sasha Trubetskoy
+as part of his Roman Roads project, a series of maps representing
+Ancient Rome&rsquo;s road network in the style of modern transit maps.
+
+[VGA \(Genuine\)]
+Platform: IBM PC
+Vendor: IBM
+The default color palette of the IBM Video Graphics Adapter.
+
+[VGA \(Imitation\)]
+Platform: IBM PC
+Vendor: IBM
+The color palette of the IBM Video Graphics Adapter, but mapping
+color 6 to the dark yellow color of cheap imitation CGA cards instead
+of the brown color of genuine CGA cards. In addition, the value levels
+of colors 32 and above decrease linearly, as opposed to the value levels
+in the genuine default color palette.
+
+[VGA \(Web-Safe\)]
+Platform: IBM PC
+Vendor: IBM
+The color palette of the IBM Video Graphics Adapter, but mapping
+colors 32 and above to a palette of 6 levels each of red, green,
+and blue, also known as the web-safe palette. The web-safe palette
+originates from the early days of the world wide web
+when those were the only colors guaranteed to be displayed
+consistently across different browsers and operating systems.
+
+[VGA \(Windows\)]
+Platform: IBM PC
+Vendor: IBM
+The color palette of the IBM Video Graphics Adapter, but with
+the first 16 colors in the order used by Microsoft Windows.
+
+[Vexillo]
+The 16 colors of generic flags available in Kreative Vexillo,
+a project to generate images of national, regional, and other
+flags in various sizes and aspect ratios. Inspired by the default
+Macintosh 4-bit color palette and the tinctures of heraldry.
+
+[VisiBone .+]
+Source: <a href="http://www.visibone.com/" target="_blank">http://www.visibone.com/</a>
+The 216-color web-safe color palette arranged in a manner
+similar to that of the color charts published by VisiBone,
+an online resource for web development created by Bob Stein.
+
+[W3Schools]
+Source: <a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">https://www.w3schools.com/colors/colors_picker.asp</a>
+The color picker available on the infamous web development reference site
+W3Schools (not to be confused with W3C or the World Wide Web Consortium).
+
+[Wad]
+Source: <a href="http://alumni.media.mit.edu/~wad/color/palette.html" target="_blank">http://alumni.media.mit.edu/~wad/color/palette.html</a>
+A 16-color palette designed by John A. Watlington aka Wad.
+
+[Web Really-Safe Colors]
+Source: <a href="https://web.archive.org/web/20060318043531/http://webmonkey.com/webmonkey/00/37/index2a_page5.html" target="_blank">https://web.archive.org/web/20060318043531/http://webmonkey.com/webmonkey/00/37/index2a_page5.html</a>
+The set of 22 web-safe colors determined to be &ldquo;really-safe&rdquo;
+by David Lehn and Hadley Stern of the Webmonkey web site in September 2000.
+These 22 colors were the only ones to render consistently in their tests
+comparing web-safe colors both in images and on HTML pages across different
+browsers and platforms at different color depths.
+
+[Windows 4-Bit]
+Platform: Microsoft Windows
+Vendor: Microsoft
+The default 16-color palette of the Microsoft Windows operating system.
+
+[Windows 8-Bit.*]
+Platform: Microsoft Windows
+Vendor: Microsoft
+The default 256-color palette of the Microsoft Windows operating system.
+
+[Windows 8-Bit \(GraphicConverter, Newer\)]
+d/\./ according to newer versions of GraphicConverter, an image editing program by Lemke Software GmbH.
+
+[Windows 8-Bit \(GraphicConverter, Older\)]
+d/\./ according to older versions of GraphicConverter, an image editing program by Lemke Software GmbH.
+
+[Windows 8-Bit \(Photoshop\)]
+d/\./ according to Adobe Photoshop.
+
+[Windows XP Icon Colors]
+Source: <a href="https://docs.microsoft.com/en-us/previous-versions/ms997636(v=msdn.10)?redirectedfrom=MSDN" target="_blank">https://docs.microsoft.com/en-us/previous-versions/ms997636(v=msdn.10)?redirectedfrom=MSDN</a>
+Platform: Microsoft Windows
+Product: Windows XP
+Vendor: Microsoft
+The set of colors used by Microsoft when designing icons for Windows XP.
+
+[X11 Complete]
+Platform: X Window System
+The complete list of colors found in the <b>rgb.txt</b> file
+traditionally shipped with every installation of X11, the X Window System.
+Recent builds of X11 compile this list directly into the window server.
+
+[X11 Normalized]
+Platform: X Window System
+The list of colors found in the <b>rgb.txt</b> file
+traditionally shipped with every installation of X11, but
+with some colors deduplicated by normalizing color names
+(for example, <i>Gray</i> remains but <i>Grey</i> is removed).
+
+[X11 Simple]
+Platform: X Window System
+The list of colors found in the <b>rgb.txt</b> file
+traditionally shipped with every installation of X11, but
+with derivative colors removed (for example, <i>Snow</i>
+remains but <i>Snow 1</i>, <i>Snow 2</i>, <i>Snow 3</i>,
+and <i>Snow 4</i> are removed).
+
+[XKCD .+]
+Source: <a href="https://blog.xkcd.com/2010/05/03/color-survey-results/" target="_blank">https://blog.xkcd.com/2010/05/03/color-survey-results/</a>
+
+[XKCD 16]
+The top 16 results of the color survey conducted by Randall Munroe,
+author of the webcomic <i>xkcd</i>, in 2010. Around 140,000 people
+named over 5,000,000 random RGB colors over a period of two months.
+
+[XKCD 64]
+The top 64 results of the color survey conducted by Randall Munroe,
+author of the webcomic <i>xkcd</i>, in 2010. Around 140,000 people
+named over 5,000,000 random RGB colors over a period of two months.
+
+[XKCD 256]
+The top 256 results of the color survey conducted by Randall Munroe,
+author of the webcomic <i>xkcd</i>, in 2010. Around 140,000 people
+named over 5,000,000 random RGB colors over a period of two months.
+
+[XKCD 1000]
+All 949 results of the color survey conducted by Randall Munroe,
+author of the webcomic <i>xkcd</i>, in 2010. Around 140,000 people
+named over 5,000,000 random RGB colors over a period of two months.
+The color palette is filled out with 11 shades of gray;
+despite being called XKCD 1000, this palette only has 960 colors.
+
+[ZX Spectrum]
+Platform: ZX Spectrum
+Vendor: Sinclair Research
+The built-in color palette of the ZX Spectrum, an 8-bit microcomputer
+released by Sinclair Research in 1982. Each block of 8x8 pixels could
+use only two colors out of either the dark half or bright half of the
+palette.
