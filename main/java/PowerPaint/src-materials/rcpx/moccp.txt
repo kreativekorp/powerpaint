@@ -343,6 +343,13 @@ Vendor: Tim Kelsall
 The default color palette of the Chip16, a virtual machine created by
 Tim Kelsall in April 2013.
 
+[ClarisWorks]
+Platform: Mac OS Classic
+Product: ClarisWorks
+Vendor: Claris Corporation
+The color palette of the drawing mode of ClarisWorks, the predecessor
+to AppleWorks 6, Apple's office suite under Mac OS Classic.
+
 [Color It! .+]
 Platform: Mac OS Classic
 Product: Color It!
@@ -364,6 +371,15 @@ s/@/4
 
 [Commander X16 8-Bit]
 s/@/8
+
+[Commander X16 8-Bit \(Web-Safe\)]
+Platform: Commander X16
+The 8-bit color palette of the Commander X16, but mapping
+colors 32 and above to a palette of 6 levels each of red, green,
+and blue, also known as the web-safe palette. The web-safe palette
+originates from the early days of the world wide web
+when those were the only colors guaranteed to be displayed
+consistently across different browsers and operating systems.
 
 [Commodore 16]
 Platform: Commodore 16
@@ -898,7 +914,7 @@ Platform: Pebble OS
 Vendor: Pebble Technology Corporation
 The color palette used in color-capable models of the Pebble smartwatch.
 Also one of the color palettes available for choosing a color in the
-Clay framework for configurating Pebble apps.
+Clay framework for configuring Pebble apps.
 
 [Pebble Sunny]
 Platform: Pebble OS
