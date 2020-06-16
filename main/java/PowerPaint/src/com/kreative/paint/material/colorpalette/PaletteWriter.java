@@ -392,21 +392,40 @@ public abstract class PaletteWriter {
 	}
 	
 	public static class CLRWriter extends PaletteWriter {
+		private final boolean includeUnnamed;
+		public CLRWriter() {
+			this.includeUnnamed = true;
+		}
+		public CLRWriter(boolean includeUnnamed) {
+			this.includeUnnamed = includeUnnamed;
+		}
 		public boolean isCompatible(RCPXPalette pal) {
-			return (pal.colors.size() > 0);
+			int nc = includeUnnamed ? pal.colors.size() : namedCount(pal);
+			return nc > 0;
 		}
 		public void write(RCPXPalette pal, OutputStream out) throws IOException {
-			int n = pal.colors.size();
+			int nc = includeUnnamed ? pal.colors.size() : namedCount(pal);
 			MEArchiver arc = new MEArchiver(out);
 			arc.writeValueOfType("i", 1);
-			arc.writeValuesOfTypes("@i", null, n);
-			for (int i = 0; i < n; i++) {
+			arc.writeValuesOfTypes("@i", null, nc);
+			for (int i = 0, n = pal.colors.size(); i < n; i++) {
 				RCPXColor rc = pal.colors.get(i);
 				MEColor me = MEColor.fromRCPXColor(rc);
 				String cn = rc.name();
-				if (cn == null || cn.length() == 0) cn = "#" + i;
+				if (cn == null) {
+					if (includeUnnamed) cn = "#" + i;
+					else continue;
+				}
 				arc.writeValuesOfTypes("@@", me, cn);
 			}
+		}
+		private int namedCount(RCPXPalette pal) {
+			int count = 0;
+			for (RCPXColor rc : pal.colors) {
+				String cn = rc.name();
+				if (cn != null) count++;
+			}
+			return count;
 		}
 	}
 	
