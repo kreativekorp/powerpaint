@@ -1051,6 +1051,12 @@ The set of colors chosen by the Tango Desktop Project,
 an open-source initiative to create a set of design
 guidelines for applications on desktop environments.
 
+[Teletext]
+Platform: Teletext
+The default color palette used in Enhanced Teletext, a system
+for broadcasting data over television, as specified in
+European Telecommunication Standard (ETS) 300 706.
+
 [Thomson]
 Platform: Thomson TO7, Thomson MO5
 Vendor: Thomson SA
