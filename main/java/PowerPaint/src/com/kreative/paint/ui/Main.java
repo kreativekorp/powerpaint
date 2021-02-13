@@ -1,5 +1,5 @@
 /*
- * Copyright &copy; 2009-2011 Rebecca G. Bettencourt / Kreative Software
+ * Copyright &copy; 2009-2021 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -31,6 +31,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.net.*;
 import javax.swing.*;
 import com.kreative.paint.io.MonitoredInputStream;
@@ -44,13 +45,18 @@ import com.kreative.paint.util.SwingUtils;
 
 public class Main {
 	public static void main(String[] args) {
+		try { System.setProperty("com.apple.mrj.application.apple.menu.about.name", "PowerPaint"); } catch (Exception e) {}
+		try { System.setProperty("apple.awt.graphics.UseQuartz", "false"); } catch (Exception e) {}
+		try { System.setProperty("apple.laf.useScreenMenuBar", "true"); } catch (Exception e) {}
+		try { UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); } catch (Exception e) {}
+		
 		try {
-			System.setProperty("apple.awt.graphics.UseQuartz", "false");
-			System.setProperty("apple.laf.useScreenMenuBar", "true");
+			Toolkit tk = Toolkit.getDefaultToolkit();
+			Field aacn = tk.getClass().getDeclaredField("awtAppClassName");
+			aacn.setAccessible(true);
+			aacn.set(tk, "powerpaint");
 		} catch (Exception e) {}
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {}
+		
 		MaterialLocator mloc = new MaterialLocator("Kreative", "PowerPaint");
 		File root = mloc.getFirstAvailableRoot();
 		if (root == null || !root.exists()) {
