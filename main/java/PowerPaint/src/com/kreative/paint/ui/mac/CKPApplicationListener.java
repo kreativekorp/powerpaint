@@ -1,5 +1,5 @@
 /*
- * Copyright &copy; 2010-2011 Rebecca G. Bettencourt / Kreative Software
+ * Copyright &copy; 2010-2021 Rebecca G. Bettencourt / Kreative Software
  * <p>
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -27,71 +27,93 @@
 
 package com.kreative.paint.ui.mac;
 
+import java.awt.desktop.AboutEvent;
+import java.awt.desktop.AboutHandler;
+import java.awt.desktop.OpenFilesEvent;
+import java.awt.desktop.OpenFilesHandler;
+import java.awt.desktop.PrintFilesEvent;
+import java.awt.desktop.PrintFilesHandler;
+import java.awt.desktop.QuitEvent;
+import java.awt.desktop.QuitHandler;
+import java.awt.desktop.QuitResponse;
 import java.io.File;
-import com.apple.eawt.Application;
-import com.apple.eawt.ApplicationEvent;
-import com.apple.eawt.ApplicationListener;
+import java.lang.reflect.Method;
 import com.kreative.paint.ui.CKPApplication;
 
-@SuppressWarnings("deprecation")
-public class CKPApplicationListener implements ApplicationListener {
-	private CKPApplication app;
+public class CKPApplicationListener {
+	private static final String[][] classAndMethodNames = {
+		{ "java.awt.Desktop", "getDesktop" },
+		{ "com.kreative.ual.eawt.NewApplicationAdapter", "getInstance" },
+		{ "com.kreative.ual.eawt.OldApplicationAdapter", "getInstance" },
+	};
 	
-	public CKPApplicationListener(CKPApplication app) {
+	private final CKPApplication app;
+	
+	public CKPApplicationListener(final CKPApplication app) {
 		this.app = app;
-		Application a = Application.getApplication();
-		a.addAboutMenuItem();
-		a.setEnabledAboutMenu(true);
-		//a.addPreferencesMenuItem();
-		//a.setEnabledPreferencesMenu(true);
-		a.addApplicationListener(this);
+		for (String[] classAndMethodName : classAndMethodNames) {
+			try {
+				Class<?> cls = Class.forName(classAndMethodName[0]);
+				Method getInstance = cls.getMethod(classAndMethodName[1]);
+				Object instance = getInstance.invoke(null);
+				cls.getMethod("setAboutHandler", AboutHandler.class).invoke(instance, about);
+				cls.getMethod("setOpenFileHandler", OpenFilesHandler.class).invoke(instance, open);
+				cls.getMethod("setPrintFileHandler", PrintFilesHandler.class).invoke(instance, print);
+				cls.getMethod("setQuitHandler", QuitHandler.class).invoke(instance, quit);
+				System.out.println("Registered app event handlers through " + classAndMethodName[0]);
+				return;
+			} catch (Exception e) {
+				System.out.println("Failed to register app event handlers through " + classAndMethodName[0] + ": " + e);
+			}
+		}
 	}
 	
-	public void handleAbout(ApplicationEvent e) {
-		new Thread() {
-			public void run() {
-				app.doAbout();
-			}
-		}.start();
-		e.setHandled(true);
-	}
-
-	public void handleOpenApplication(ApplicationEvent e) {
-		// nothing
-	}
-
-	public void handleOpenFile(final ApplicationEvent e) {
-		new Thread() {
-			public void run() {
-				app.doOpen(new File(e.getFilename()));
-			}
-		}.start();
-		e.setHandled(true);
-	}
-
-	public void handlePreferences(ApplicationEvent e) {
-		// nothing yet
-	}
-
-	public void handlePrintFile(final ApplicationEvent e) {
-		new Thread() {
-			public void run() {
-				app.doPrint(new File(e.getFilename()));
-			}
-		}.start();
-		e.setHandled(true);
-	}
-
-	public void handleQuit(ApplicationEvent e) {
-		new Thread() {
-			public void run() {
-				app.doQuit();
-			}
-		}.start();
-		e.setHandled(false);
-	}
-
-	public void handleReOpenApplication(ApplicationEvent e) {
-		// nothing
-	}
+	private final AboutHandler about = new AboutHandler() {
+		@Override
+		public void handleAbout(final AboutEvent e) {
+			new Thread() {
+				public void run() {
+					app.doAbout();
+				}
+			}.start();
+		}
+	};
+	
+	private final OpenFilesHandler open = new OpenFilesHandler() {
+		@Override
+		public void openFiles(final OpenFilesEvent e) {
+			new Thread() {
+				public void run() {
+					for (Object o : e.getFiles()) {
+						app.doOpen((File)o);
+					}
+				}
+			}.start();
+		}
+	};
+	
+	private final PrintFilesHandler print = new PrintFilesHandler() {
+		@Override
+		public void printFiles(final PrintFilesEvent e) {
+			new Thread() {
+				public void run() {
+					for (Object o : e.getFiles()) {
+						app.doPrint((File)o);
+					}
+				}
+			}.start();
+		}
+	};
+	
+	private final QuitHandler quit = new QuitHandler() {
+		@Override
+		public void handleQuitRequestWith(final QuitEvent e, final QuitResponse r) {
+			new Thread() {
+				public void run() {
+					app.doQuit();
+					r.cancelQuit();
+				}
+			}.start();
+		}
+	};
 }

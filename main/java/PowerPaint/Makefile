@@ -30,12 +30,12 @@ eclipseclean:
 
 bin: src
 	mkdir -p bin
-	javac -classpath dep/orange-extensions.jar -sourcepath src $(SRCFILES) -d bin
+	javac -classpath dep/ual.jar -sourcepath src $(SRCFILES) -d bin
 	$(foreach res,$(RESFILES),cp src/$(res) bin/$(res);)
 
 doc: src
 	mkdir -p doc
-	javadoc -classpath dep/orange-extensions.jar -sourcepath src $(PACKAGES) -d doc
+	javadoc -classpath dep/ual.jar -sourcepath src $(PACKAGES) -d doc
 
 materials.pmz: src-materials bin
 	mkdir -p "Paint Materials/Alphabets"
@@ -73,6 +73,7 @@ PowerPaint.jar: bin materials.pmz
 	export COPYFILE_DISABLE=true
 	find bin -name .DS_Store -delete
 	jar cmf dep/MANIFEST.MF PowerPaint.jar -C bin com/kreative/paint
+	chmod +x PowerPaint.jar
 
 PowerPaint.app: dep PowerPaint.jar
 	mkdir -p PowerPaint.app/Contents/MacOS
@@ -81,6 +82,7 @@ PowerPaint.app: dep PowerPaint.jar
 	cp -f dep/Info.plist PowerPaint.app/Contents
 	cp -f dep/universalJavaApplicationStub PowerPaint.app/Contents/MacOS/PowerPaint
 	cp -f dep/*.icns PowerPaint.app/Contents/Resources
+	cp -f dep/*.jar PowerPaint.app/Contents/Resources/Java
 	cp -f PowerPaint.jar PowerPaint.app/Contents/Resources/Java
 
 PowerPaint.exe: dep PowerPaint.jar
