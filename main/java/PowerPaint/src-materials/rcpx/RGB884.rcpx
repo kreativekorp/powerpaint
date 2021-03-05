@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
-<palette name="R3G3B2">
+<palette name="RGB 8-8-4">
 	<colors ordered="ordered">
 		<rgb16 r=    "0" g=    "0" b=    "0"/>
 		<rgb16 r=    "0" g=    "0" b="21845"/>

@@ -63,13 +63,13 @@ public class MOCCPCurator {
 		htmlout.println("h2 { margin: 16px 0; }");
 		htmlout.println("h3 { margin: 16px 0; }");
 		htmlout.println("ul { list-style: none; }");
-		htmlout.println(".appheader { position: fixed; top: 0; left: 0; right: 0; height: 50px; background: #990099; color: #ffffff; font-size: 1px; box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.5); }");
+		htmlout.println(".appheader { position: fixed; top: 0; left: 0; right: 0; height: 50px; background: #990099; color: #ffffff; font-size: 1px; box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.5); z-index: 1; }");
 		htmlout.println(".applogo { display: inline-block; font-weight: bold; font-size: 18px; margin: 0 8px; vertical-align: middle; }");
 		htmlout.println(".applogo span { display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border: 1px solid black; margin: 8px 2px; }");
 		htmlout.println("#m { background: #e00; } #o { background: #fd0; } #c1 { background: #0d0; } #c2 { background: #0df; } #p { background: #00e; }");
 		htmlout.println(".apptitle { display: inline-block; font-weight: normal; font-size: 12px; vertical-align: middle; }");
 		htmlout.println(".apptitle span { display: block; }");
-		htmlout.println(".search-container { position: fixed; top: 9px; left: 361px; right: 9px; height: 32px; line-height: 32px; }");
+		htmlout.println(".search-container { position: fixed; top: 9px; left: 361px; right: 9px; height: 32px; line-height: 32px; z-index: 2; }");
 		htmlout.println(".search-input { background: rgba(0,0,0,0.2); border: 1px solid black; box-sizing: border-box; color: #ffffff; font-family: sans-serif; font-size: 16px; font-weight: 300; line-height: 30px; height: 32px; width: 100%; padding: 0 6px; }");
 		htmlout.println(".palette { margin: 24px; padding: 24px; box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2); }");
 		htmlout.println(".moreinfo { margin-top: 16px; }");

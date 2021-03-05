@@ -943,9 +943,24 @@ The original set of eight colors supported by QuickDraw,
 the graphics toolkit of the classic Macintosh operating system,
 before the use of full RGB color became possible.
 
-[R3G3B2]
-A generic 8-bit palette consisting of 8 levels of red,
-8 levels of green, and 4 levels of blue.
+[RGB [0-9]+-[0-9]+-[0-9]+]
+A generic 8-bit palette consisting of @R levels of red,
+@G levels of green, and @B levels of blue.
+
+[RGB 6-7-6]
+s/@R/6
+s/@G/7
+s/@B/6
+
+[RGB 6-8-5]
+s/@R/6
+s/@G/8
+s/@B/5
+
+[RGB 8-8-4]
+s/@R/8
+s/@G/8
+s/@B/4
 
 [Rayalaka]
 A color palette based on the Rayalaka color system, in which
