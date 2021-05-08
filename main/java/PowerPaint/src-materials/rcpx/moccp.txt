@@ -851,7 +851,7 @@ d+One of the preset color palettes included with the pattern designer
 d+in Animal Crossing: New Horizons, a life simulation game released by
 d+Nintendo in 2020 for the Nintendo Switch.
 
-[New Leaf]
+[New Leaf\b.*]
 Platform: Nintendo 3DS
 Product: Animal Crossing: New Leaf
 Vendor: Nintendo

@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="New Leaf (Thulinma 2020)"
+         orientation="square"
+         hwidth="316" hheight= "64"
+         swidth="136" sheight="154"
+         vwidth= "64" vheight="316">
+	<colors ordered="ordered">
+		<rgb r="255" g="238" b="255"/>
+		<rgb r="255" g="153" b="170"/>
+		<rgb r="238" g= "85" b="153"/>
+		<rgb r="255" g="102" b="170"/>
+		<rgb r="255" g=  "0" b="102"/>
+		<rgb r="187" g= "68" b="119"/>
+		<rgb r="204" g=  "0" b= "85"/>
+		<rgb r="153" g=  "0" b= "51"/>
+		<rgb r= "85" g= "34" b= "51"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="187" b="204"/>
+		<rgb r="255" g="119" b="119"/>
+		<rgb r="221" g= "50" b= "16"/>
+		<rgb r="255" g= "85" b= "68"/>
+		<rgb r="255" g=  "0" b=  "0"/>
+		<rgb r="204" g="102" b="102"/>
+		<rgb r="187" g= "68" b= "68"/>
+		<rgb r="187" g=  "0" b=  "0"/>
+		<rgb r="136" g= "34" b= "34"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="238" g="238" b="238"/>
+		<rgb r="221" g="205" b="187"/>
+		<rgb r="255" g="205" b="102"/>
+		<rgb r="221" g="102" b= "34"/>
+		<rgb r="255" g="170" b= "34"/>
+		<rgb r="255" g="102" b=  "0"/>
+		<rgb r="187" g="136" b= "85"/>
+		<rgb r="221" g= "68" b=  "0"/>
+		<rgb r="187" g= "68" b=  "0"/>
+		<rgb r="102" g= "50" b= "16"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="221" g="221" b="221"/>
+		<rgb r="255" g="238" b="221"/>
+		<rgb r="255" g="221" b="204"/>
+		<rgb r="255" g="205" b="170"/>
+		<rgb r="255" g="187" b="136"/>
+		<rgb r="255" g="170" b="136"/>
+		<rgb r="221" g="136" b="102"/>
+		<rgb r="187" g="102" b= "68"/>
+		<rgb r="153" g= "85" b= "51"/>
+		<rgb r="136" g= "68" b= "34"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="204" g="205" b="204"/>
+		<rgb r="255" g="205" b="255"/>
+		<rgb r="238" g="136" b="255"/>
+		<rgb r="204" g="102" b="221"/>
+		<rgb r="187" g="136" b="204"/>
+		<rgb r="204" g=  "0" b="255"/>
+		<rgb r="153" g="102" b="153"/>
+		<rgb r="136" g=  "0" b="170"/>
+		<rgb r= "85" g=  "0" b="119"/>
+		<rgb r= "51" g=  "0" b= "68"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="187" g="187" b="187"/>
+		<rgb r="255" g="187" b="255"/>
+		<rgb r="255" g="153" b="255"/>
+		<rgb r="221" g= "34" b="187"/>
+		<rgb r="255" g= "85" b="238"/>
+		<rgb r="255" g=  "0" b="204"/>
+		<rgb r="136" g= "85" b="119"/>
+		<rgb r="187" g=  "0" b="153"/>
+		<rgb r="136" g=  "0" b="102"/>
+		<rgb r= "85" g=  "0" b= "68"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="170" g="170" b="170"/>
+		<rgb r="221" g="187" b="153"/>
+		<rgb r="204" g="170" b="119"/>
+		<rgb r="119" g= "68" b= "51"/>
+		<rgb r="170" g="119" b= "68"/>
+		<rgb r="153" g= "50" b=  "0"/>
+		<rgb r="119" g= "50" b= "34"/>
+		<rgb r= "85" g= "34" b=  "0"/>
+		<rgb r= "51" g= "16" b=  "0"/>
+		<rgb r= "34" g= "16" b=  "0"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="153" g="153" b="153"/>
+		<rgb r="255" g="255" b="204"/>
+		<rgb r="255" g="255" b="119"/>
+		<rgb r="221" g="221" b= "34"/>
+		<rgb r="255" g="255" b=  "0"/>
+		<rgb r="255" g="221" b=  "0"/>
+		<rgb r="204" g="170" b=  "0"/>
+		<rgb r="153" g="153" b=  "0"/>
+		<rgb r="136" g="119" b=  "0"/>
+		<rgb r= "85" g= "85" b=  "0"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="136" g="136" b="136"/>
+		<rgb r="221" g="187" b="255"/>
+		<rgb r="187" g="153" b="238"/>
+		<rgb r="102" g= "50" b="204"/>
+		<rgb r="153" g= "85" b="255"/>
+		<rgb r="102" g=  "0" b="255"/>
+		<rgb r= "85" g= "68" b="136"/>
+		<rgb r= "68" g=  "0" b="153"/>
+		<rgb r= "34" g=  "0" b="102"/>
+		<rgb r= "34" g= "16" b= "51"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="119" g="119" b="119"/>
+		<rgb r="187" g="187" b="255"/>
+		<rgb r="136" g="153" b="255"/>
+		<rgb r= "51" g= "50" b="170"/>
+		<rgb r= "51" g= "85" b="238"/>
+		<rgb r=  "0" g=  "0" b="255"/>
+		<rgb r= "51" g= "50" b="136"/>
+		<rgb r=  "0" g=  "0" b="170"/>
+		<rgb r= "16" g= "16" b="102"/>
+		<rgb r=  "0" g=  "0" b= "34"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="102" g="102" b="102"/>
+		<rgb r="153" g="238" b="187"/>
+		<rgb r="102" g="205" b="119"/>
+		<rgb r= "34" g="102" b= "16"/>
+		<rgb r= "68" g="170" b= "51"/>
+		<rgb r=  "0" g="136" b= "51"/>
+		<rgb r= "85" g="119" b= "85"/>
+		<rgb r= "34" g= "85" b=  "0"/>
+		<rgb r= "16" g= "50" b= "34"/>
+		<rgb r=  "0" g= "34" b= "16"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r= "85" g= "85" b= "85"/>
+		<rgb r="221" g="255" b="187"/>
+		<rgb r="204" g="255" b="136"/>
+		<rgb r="136" g="170" b= "85"/>
+		<rgb r="170" g="221" b="136"/>
+		<rgb r="136" g="255" b=  "0"/>
+		<rgb r="170" g="187" b="153"/>
+		<rgb r="102" g="187" b=  "0"/>
+		<rgb r= "85" g="153" b=  "0"/>
+		<rgb r= "51" g="102" b=  "0"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r= "68" g= "68" b= "68"/>
+		<rgb r="187" g="221" b="255"/>
+		<rgb r="119" g="205" b="255"/>
+		<rgb r= "51" g= "85" b="153"/>
+		<rgb r="102" g="153" b="255"/>
+		<rgb r= "16" g="119" b="255"/>
+		<rgb r= "68" g="119" b="170"/>
+		<rgb r= "34" g= "68" b="119"/>
+		<rgb r=  "0" g= "34" b="119"/>
+		<rgb r=  "0" g= "16" b= "68"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r= "51" g= "50" b= "51"/>
+		<rgb r="170" g="255" b="255"/>
+		<rgb r= "85" g="255" b="255"/>
+		<rgb r=  "0" g="136" b="187"/>
+		<rgb r= "85" g="187" b="204"/>
+		<rgb r=  "0" g="205" b="255"/>
+		<rgb r= "68" g="153" b="170"/>
+		<rgb r=  "0" g="102" b="136"/>
+		<rgb r=  "0" g= "68" b= "85"/>
+		<rgb r=  "0" g= "34" b= "51"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r= "34" g= "34" b= "34"/>
+		<rgb r="204" g="255" b="238"/>
+		<rgb r="170" g="238" b="221"/>
+		<rgb r= "51" g="205" b="170"/>
+		<rgb r= "85" g="238" b="187"/>
+		<rgb r=  "0" g="255" b="204"/>
+		<rgb r="119" g="170" b="170"/>
+		<rgb r=  "0" g="170" b="153"/>
+		<rgb r=  "0" g="136" b="119"/>
+		<rgb r=  "0" g= "68" b= "51"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r="170" g="255" b="170"/>
+		<rgb r="119" g="255" b="119"/>
+		<rgb r="102" g="221" b= "68"/>
+		<rgb r=  "0" g="255" b=  "0"/>
+		<rgb r= "34" g="221" b= "34"/>
+		<rgb r= "85" g="187" b= "85"/>
+		<rgb r=  "0" g="187" b=  "0"/>
+		<rgb r=  "0" g="136" b=  "0"/>
+		<rgb r= "34" g= "68" b= "34"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+		<rgb r="255" g="255" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<row>
+					<weighted weight="15">
+						<column>
+							<weighted weight="3">
+								<row>
+									<weighted weight="3">
+										<column>
+											<row><range start="0" end="3"/></row>
+											<row><range start="3" end="6"/></row>
+											<row><range start="6" end="9"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="16" end="19"/></row>
+											<row><range start="19" end="22"/></row>
+											<row><range start="22" end="25"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="32" end="35"/></row>
+											<row><range start="35" end="38"/></row>
+											<row><range start="38" end="41"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="48" end="51"/></row>
+											<row><range start="51" end="54"/></row>
+											<row><range start="54" end="57"/></row>
+										</column>
+									</weighted>
+								</row>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<row>
+									<weighted weight="3">
+										<column>
+											<row><range start="64" end="67"/></row>
+											<row><range start="67" end="70"/></row>
+											<row><range start="70" end="73"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="80" end="83"/></row>
+											<row><range start="83" end="86"/></row>
+											<row><range start="86" end="89"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start= "96" end= "99"/></row>
+											<row><range start= "99" end="102"/></row>
+											<row><range start="102" end="105"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="112" end="115"/></row>
+											<row><range start="115" end="118"/></row>
+											<row><range start="118" end="121"/></row>
+										</column>
+									</weighted>
+								</row>
+							</weighted>
+						</column>
+					</weighted>
+					<empty/>
+					<weighted weight="15">
+						<column>
+							<weighted weight="3">
+								<row>
+									<weighted weight="3">
+										<column>
+											<row><range start="128" end="131"/></row>
+											<row><range start="131" end="134"/></row>
+											<row><range start="134" end="137"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="144" end="147"/></row>
+											<row><range start="147" end="150"/></row>
+											<row><range start="150" end="153"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="160" end="163"/></row>
+											<row><range start="163" end="166"/></row>
+											<row><range start="166" end="169"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="176" end="179"/></row>
+											<row><range start="179" end="182"/></row>
+											<row><range start="182" end="185"/></row>
+										</column>
+									</weighted>
+								</row>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<row>
+									<weighted weight="3">
+										<column>
+											<row><range start="192" end="195"/></row>
+											<row><range start="195" end="198"/></row>
+											<row><range start="198" end="201"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="208" end="211"/></row>
+											<row><range start="211" end="214"/></row>
+											<row><range start="214" end="217"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="224" end="227"/></row>
+											<row><range start="227" end="230"/></row>
+											<row><range start="230" end="233"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="240" end="243"/></row>
+											<row><range start="243" end="246"/></row>
+											<row><range start="246" end="249"/></row>
+										</column>
+									</weighted>
+								</row>
+							</weighted>
+						</column>
+					</weighted>
+					<empty/>
+					<column>
+						<empty/>
+						<index i= "15"/>
+						<index i= "31"/>
+						<index i= "47"/>
+						<index i= "63"/>
+						<index i= "79"/>
+						<empty/>
+					</column>
+					<column>
+						<empty/>
+						<index i= "95"/>
+						<index i="111"/>
+						<index i="127"/>
+						<index i="143"/>
+						<index i="159"/>
+						<empty/>
+					</column>
+					<column>
+						<empty/>
+						<index i="175"/>
+						<index i="191"/>
+						<index i="207"/>
+						<index i="223"/>
+						<index i="239"/>
+						<empty/>
+					</column>
+				</row>
+			</horizontal>
+			<square>
+				<column>
+					<weighted weight="3">
+						<row>
+							<weighted weight="3">
+								<column>
+									<row><range start="0" end="3"/></row>
+									<row><range start="3" end="6"/></row>
+									<row><range start="6" end="9"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="16" end="19"/></row>
+									<row><range start="19" end="22"/></row>
+									<row><range start="22" end="25"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="32" end="35"/></row>
+									<row><range start="35" end="38"/></row>
+									<row><range start="38" end="41"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="48" end="51"/></row>
+									<row><range start="51" end="54"/></row>
+									<row><range start="54" end="57"/></row>
+								</column>
+							</weighted>
+						</row>
+					</weighted>
+					<empty/>
+					<weighted weight="3">
+						<row>
+							<weighted weight="3">
+								<column>
+									<row><range start="64" end="67"/></row>
+									<row><range start="67" end="70"/></row>
+									<row><range start="70" end="73"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="80" end="83"/></row>
+									<row><range start="83" end="86"/></row>
+									<row><range start="86" end="89"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start= "96" end= "99"/></row>
+									<row><range start= "99" end="102"/></row>
+									<row><range start="102" end="105"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="112" end="115"/></row>
+									<row><range start="115" end="118"/></row>
+									<row><range start="118" end="121"/></row>
+								</column>
+							</weighted>
+						</row>
+					</weighted>
+					<empty/>
+					<weighted weight="3">
+						<row>
+							<weighted weight="3">
+								<column>
+									<row><range start="128" end="131"/></row>
+									<row><range start="131" end="134"/></row>
+									<row><range start="134" end="137"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="144" end="147"/></row>
+									<row><range start="147" end="150"/></row>
+									<row><range start="150" end="153"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="160" end="163"/></row>
+									<row><range start="163" end="166"/></row>
+									<row><range start="166" end="169"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="176" end="179"/></row>
+									<row><range start="179" end="182"/></row>
+									<row><range start="182" end="185"/></row>
+								</column>
+							</weighted>
+						</row>
+					</weighted>
+					<empty/>
+					<weighted weight="3">
+						<row>
+							<weighted weight="3">
+								<column>
+									<row><range start="192" end="195"/></row>
+									<row><range start="195" end="198"/></row>
+									<row><range start="198" end="201"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="208" end="211"/></row>
+									<row><range start="211" end="214"/></row>
+									<row><range start="214" end="217"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="224" end="227"/></row>
+									<row><range start="227" end="230"/></row>
+									<row><range start="230" end="233"/></row>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<row><range start="240" end="243"/></row>
+									<row><range start="243" end="246"/></row>
+									<row><range start="246" end="249"/></row>
+								</column>
+							</weighted>
+						</row>
+					</weighted>
+					<empty/>
+					<row>
+						<index i= "15"/><index i= "31"/><index i= "47"/>
+						<index i= "63"/><index i= "79"/><index i= "95"/>
+						<index i="111"/><index i="127"/><index i="143"/>
+						<index i="159"/><index i="175"/><index i="191"/>
+						<index i="207"/><index i="223"/><index i="239"/>
+					</row>
+				</column>
+			</square>
+			<vertical>
+				<column>
+					<weighted weight="15">
+						<row>
+							<weighted weight="3">
+								<column>
+									<weighted weight="3">
+										<column>
+											<row><range start="0" end="3"/></row>
+											<row><range start="3" end="6"/></row>
+											<row><range start="6" end="9"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="16" end="19"/></row>
+											<row><range start="19" end="22"/></row>
+											<row><range start="22" end="25"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="32" end="35"/></row>
+											<row><range start="35" end="38"/></row>
+											<row><range start="38" end="41"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="48" end="51"/></row>
+											<row><range start="51" end="54"/></row>
+											<row><range start="54" end="57"/></row>
+										</column>
+									</weighted>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<weighted weight="3">
+										<column>
+											<row><range start="64" end="67"/></row>
+											<row><range start="67" end="70"/></row>
+											<row><range start="70" end="73"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="80" end="83"/></row>
+											<row><range start="83" end="86"/></row>
+											<row><range start="86" end="89"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start= "96" end= "99"/></row>
+											<row><range start= "99" end="102"/></row>
+											<row><range start="102" end="105"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="112" end="115"/></row>
+											<row><range start="115" end="118"/></row>
+											<row><range start="118" end="121"/></row>
+										</column>
+									</weighted>
+								</column>
+							</weighted>
+						</row>
+					</weighted>
+					<empty/>
+					<weighted weight="15">
+						<row>
+							<weighted weight="3">
+								<column>
+									<weighted weight="3">
+										<column>
+											<row><range start="128" end="131"/></row>
+											<row><range start="131" end="134"/></row>
+											<row><range start="134" end="137"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="144" end="147"/></row>
+											<row><range start="147" end="150"/></row>
+											<row><range start="150" end="153"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="160" end="163"/></row>
+											<row><range start="163" end="166"/></row>
+											<row><range start="166" end="169"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="176" end="179"/></row>
+											<row><range start="179" end="182"/></row>
+											<row><range start="182" end="185"/></row>
+										</column>
+									</weighted>
+								</column>
+							</weighted>
+							<empty/>
+							<weighted weight="3">
+								<column>
+									<weighted weight="3">
+										<column>
+											<row><range start="192" end="195"/></row>
+											<row><range start="195" end="198"/></row>
+											<row><range start="198" end="201"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="208" end="211"/></row>
+											<row><range start="211" end="214"/></row>
+											<row><range start="214" end="217"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="224" end="227"/></row>
+											<row><range start="227" end="230"/></row>
+											<row><range start="230" end="233"/></row>
+										</column>
+									</weighted>
+									<empty/>
+									<weighted weight="3">
+										<column>
+											<row><range start="240" end="243"/></row>
+											<row><range start="243" end="246"/></row>
+											<row><range start="246" end="249"/></row>
+										</column>
+									</weighted>
+								</column>
+							</weighted>
+						</row>
+					</weighted>
+					<empty/>
+					<row>
+						<empty/>
+						<index i= "15"/>
+						<index i= "31"/>
+						<index i= "47"/>
+						<index i= "63"/>
+						<index i= "79"/>
+						<empty/>
+					</row>
+					<row>
+						<empty/>
+						<index i= "95"/>
+						<index i="111"/>
+						<index i="127"/>
+						<index i="143"/>
+						<index i="159"/>
+						<empty/>
+					</row>
+					<row>
+						<empty/>
+						<index i="175"/>
+						<index i="191"/>
+						<index i="207"/>
+						<index i="223"/>
+						<index i="239"/>
+						<empty/>
+					</row>
+				</column>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
