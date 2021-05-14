@@ -1150,6 +1150,14 @@ These 22 colors were the only ones to render consistently in their tests
 comparing web-safe colors both in images and on HTML pages across different
 browsers and platforms at different color depths.
 
+[Wild World [0-9]+/[0-9]+]
+Platform: Nintendo DS
+Product: Animal Crossing: Wild World
+Vendor: Nintendo
+d+One of the preset color palettes included with the pattern designer
+d+in Animal Crossing: Wild World, a life simulation game released by
+d+Nintendo in 2005 for the Nintendo DS.
+
 [Windows 4-Bit]
 Platform: Microsoft Windows
 Vendor: Microsoft

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "http://www.kreativekorp.com/dtd/rcpx.dtd">
+<palette name="Wild World 8/16">
+	<colors ordered="ordered">
+		<rgba r="0" g="0" b="0" a="0"/>
+		<rgb r=  "0" g= "52" b=  "0"/>
+		<rgb r= "69" g="101" b= "69"/>
+		<rgb r="134" g="158" b="134"/>
+		<rgb r="199" g="215" b="199"/>
+		<rgb r="125" g= "20" b=  "0"/>
+		<rgb r="166" g= "77" b= "44"/>
+		<rgb r="215" g="142" b= "93"/>
+		<rgb r="255" g="199" b="142"/>
+		<rgb r="215" g="182" b=  "0"/>
+		<rgb r="231" g="207" b= "60"/>
+		<rgb r="247" g="223" b="125"/>
+		<rgb r="255" g="247" b="190"/>
+		<rgb r="109" g="109" b="109"/>
+		<rgb r=  "0" g=  "0" b=  "0"/>
+		<rgb r="255" g="255" b="255"/>
+	</colors>
+	<layout>
+		<oriented>
+			<horizontal>
+				<column>
+					<row><range start="0" end= "8"/></row>
+					<row><range start="8" end="16"/></row>
+				</column>
+			</horizontal>
+			<square>
+				<column>
+					<row><range start= "0" end= "4"/></row>
+					<row><range start= "4" end= "8"/></row>
+					<row><range start= "8" end="12"/></row>
+					<row><range start="12" end="16"/></row>
+				</column>
+			</square>
+			<vertical>
+				<row>
+					<column><range start="0" end= "8"/></column>
+					<column><range start="8" end="16"/></column>
+				</row>
+			</vertical>
+		</oriented>
+	</layout>
+</palette>
