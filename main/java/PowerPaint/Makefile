@@ -1,6 +1,6 @@
 SRCFILES := $(shell find src -name \*.java)
-RESFILES := $(shell (find src -name \*.png ; find src -name \*.dtd ; find src -name \*.icc) | sed s/^src\\///)
-PACKAGES := $(shell find src -name \*.java | sed -E s/^src\\/\|\\/[^\\/]+$$//g | sort | uniq | tr / .)
+RESFILES := $(shell find src -type f \! -name .\* \! -name \*.java | sed s/^src\\///)
+PACKAGES := $(shell find src -name \*.java | sed -E s/^src\\/\|\\/[^\\/]+$$//g | grep -v \\.java$$ | sort | uniq | tr / .)
 
 all: clean bin doc materials.pmz PowerPaint.jar PowerPaint.app PowerPaint.exe PowerPaint-src.tgz
 
@@ -30,12 +30,15 @@ eclipseclean:
 
 bin: src
 	mkdir -p bin
-	javac -classpath dep/ual.jar -sourcepath src $(SRCFILES) -d bin
+ifeq ($(origin JAVACFLAGS), undefined)
+	$(eval JAVACFLAGS = $(shell dep/minJavaVerOpts))
+endif
+	javac $(JAVACFLAGS) -classpath dep/ual.jar -sourcepath src $(SRCFILES) -d bin
 	$(foreach res,$(RESFILES),cp src/$(res) bin/$(res);)
 
 doc: src
 	mkdir -p doc
-	javadoc -classpath dep/ual.jar -sourcepath src $(PACKAGES) -d doc
+	javadoc $(JAVADOCFLAGS) -classpath dep/ual.jar -sourcepath src $(PACKAGES) -d doc
 
 materials.pmz: src-materials bin
 	mkdir -p "Paint Materials/Alphabets"
@@ -75,15 +78,37 @@ PowerPaint.jar: bin materials.pmz
 	jar cmf dep/MANIFEST.MF PowerPaint.jar -C bin com/kreative/paint
 	chmod +x PowerPaint.jar
 
-PowerPaint.app: dep PowerPaint.jar
-	mkdir -p PowerPaint.app/Contents/MacOS
-	mkdir -p PowerPaint.app/Contents/Resources/Java
-	cp -f dep/PkgInfo PowerPaint.app/Contents
-	cp -f dep/Info.plist PowerPaint.app/Contents
-	cp -f dep/universalJavaApplicationStub PowerPaint.app/Contents/MacOS/PowerPaint
-	cp -f dep/*.icns PowerPaint.app/Contents/Resources
-	cp -f dep/*.jar PowerPaint.app/Contents/Resources/Java
-	cp -f PowerPaint.jar PowerPaint.app/Contents/Resources/Java
+PowerPaint.app: PowerPaint-Pre10.15.app PowerPaint-MacOS10.15.app PowerPaint-MacOS11.0.app
+
+PowerPaint-Pre10.15.app: dep PowerPaint.jar
+	mkdir -p PowerPaint-Pre10.15.app/Contents/MacOS
+	mkdir -p PowerPaint-Pre10.15.app/Contents/Resources/Java
+	cp -f dep/PkgInfo PowerPaint-Pre10.15.app/Contents
+	cp -f dep/Info.plist PowerPaint-Pre10.15.app/Contents
+	cp -f dep/universalJavaApplicationStub-Pre10.15 PowerPaint-Pre10.15.app/Contents/MacOS/PowerPaint
+	cp -f dep/*.icns PowerPaint-Pre10.15.app/Contents/Resources
+	cp -f dep/*.jar PowerPaint-Pre10.15.app/Contents/Resources/Java
+	cp -f PowerPaint.jar PowerPaint-Pre10.15.app/Contents/Resources/Java
+
+PowerPaint-MacOS10.15.app: dep PowerPaint.jar
+	mkdir -p PowerPaint-MacOS10.15.app/Contents/MacOS
+	mkdir -p PowerPaint-MacOS10.15.app/Contents/Resources/Java
+	cp -f dep/PkgInfo PowerPaint-MacOS10.15.app/Contents
+	cp -f dep/Info.plist PowerPaint-MacOS10.15.app/Contents
+	cp -f dep/universalJavaApplicationStub-MacOS10.15 PowerPaint-MacOS10.15.app/Contents/MacOS/PowerPaint
+	cp -f dep/*.icns PowerPaint-MacOS10.15.app/Contents/Resources
+	cp -f dep/*.jar PowerPaint-MacOS10.15.app/Contents/Resources/Java
+	cp -f PowerPaint.jar PowerPaint-MacOS10.15.app/Contents/Resources/Java
+
+PowerPaint-MacOS11.0.app: dep PowerPaint.jar
+	mkdir -p PowerPaint-MacOS11.0.app/Contents/MacOS
+	mkdir -p PowerPaint-MacOS11.0.app/Contents/Resources/Java
+	cp -f dep/PkgInfo PowerPaint-MacOS11.0.app/Contents
+	cp -f dep/Info.plist PowerPaint-MacOS11.0.app/Contents
+	cp -f dep/universalJavaApplicationStub-MacOS11.0 PowerPaint-MacOS11.0.app/Contents/MacOS/PowerPaint
+	cp -f dep/*.icns PowerPaint-MacOS11.0.app/Contents/Resources
+	cp -f dep/*.jar PowerPaint-MacOS11.0.app/Contents/Resources/Java
+	cp -f PowerPaint.jar PowerPaint-MacOS11.0.app/Contents/Resources/Java
 
 PowerPaint.exe: dep PowerPaint.jar
 ifeq ($(LAUNCH4J_HOME),)
@@ -115,4 +140,4 @@ install: PowerPaint.jar
 	sudo cp -f dep/powerpaint.desktop /usr/share/applications/powerpaint.desktop
 	sudo chmod -f 644 /usr/share/applications/powerpaint.desktop
 
-.PHONY: all eclipseall clean eclipseclean run install
+.PHONY: all eclipseall clean eclipseclean PowerPaint.app run install
