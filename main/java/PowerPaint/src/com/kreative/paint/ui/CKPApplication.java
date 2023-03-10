@@ -63,6 +63,7 @@ import com.kreative.paint.util.ImageUtils;
 import com.kreative.paint.util.OSUtils;
 
 public class CKPApplication {
+	private static String lastOpenDirectory = null;
 	private MaterialManager mm;
 	private ToolContext tc;
 	private PaintContext pc;
@@ -236,14 +237,19 @@ public class CKPApplication {
 	
 	public void doOpen(File f) {
 		if (f == null) {
+			Frame frame = new Frame();
 			FileDialog fd = new FileDialog(
-					new Frame(),
+					frame,
 					UIUtilities.messages.getString("opendlg.title"),
 					FileDialog.LOAD
 			);
+			if (lastOpenDirectory != null) fd.setDirectory(lastOpenDirectory);
 			fd.setVisible(true);
-			if (fd.getDirectory() == null || fd.getFile() == null) return;
-			f = new File(fd.getDirectory(), fd.getFile());
+			String ds = fd.getDirectory(), fs = fd.getFile();
+			fd.dispose();
+			frame.dispose();
+			if (ds == null || fs == null) return;
+			f = new File((lastOpenDirectory = ds), fs);
 		}
 		Format fmt = fmtm.getFormatForFile(f, false);
 		if (fmt == null) {
@@ -286,14 +292,19 @@ public class CKPApplication {
 	
 	public void doPrint(File f) {
 		if (f == null) {
+			Frame frame = new Frame();
 			FileDialog fd = new FileDialog(
-					new Frame(),
+					frame,
 					UIUtilities.messages.getString("opendlg.title"),
 					FileDialog.LOAD
 			);
+			if (lastOpenDirectory != null) fd.setDirectory(lastOpenDirectory);
 			fd.setVisible(true);
-			if (fd.getDirectory() == null || fd.getFile() == null) return;
-			f = new File(fd.getDirectory(), fd.getFile());
+			String ds = fd.getDirectory(), fs = fd.getFile();
+			fd.dispose();
+			frame.dispose();
+			if (ds == null || fs == null) return;
+			f = new File((lastOpenDirectory = ds), fs);
 		}
 		Format fmt = fmtm.getFormatForFile(f, false);
 		if (fmt == null) {

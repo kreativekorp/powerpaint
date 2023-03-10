@@ -50,7 +50,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
-
 import com.kreative.paint.Canvas;
 import com.kreative.paint.CanvasController;
 import com.kreative.paint.CanvasView;
@@ -72,6 +71,7 @@ import com.kreative.paint.ui.progress.IOProgressDialog;
 import com.kreative.paint.util.ImageUtils;
 
 public class CKPDocument {
+	private static String lastSaveDirectory = null;
 	private CKPApplication application;
 	private File documentFile;
 	private Format documentFormat;
@@ -253,14 +253,19 @@ public class CKPDocument {
 	
 	public void doSaveAs(File f, Format fmt) {
 		if (f == null) {
+			Frame frame = new Frame();
 			FileDialog fd = new FileDialog(
-					new Frame(),
+					frame,
 					UIUtilities.messages.getString("savedlg.title"),
 					FileDialog.SAVE
 			);
+			if (lastSaveDirectory != null) fd.setDirectory(lastSaveDirectory);
 			fd.setVisible(true);
-			if (fd.getDirectory() == null || fd.getFile() == null) return;
-			f = new File(fd.getDirectory(), fd.getFile());
+			String ds = fd.getDirectory(), fs = fd.getFile();
+			fd.dispose();
+			frame.dispose();
+			if (ds == null || fs == null) return;
+			f = new File((lastSaveDirectory = ds), fs);
 		}
 		if (fmt == null) {
 			fmt = application.getFormatManager().getFormatForFileName(f.getName(), true);
