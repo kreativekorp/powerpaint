@@ -1,3 +1,10 @@
-bin/*
-doc/*
-Paint\ Materials/*
+/bin/
+/dev/
+/doc/
+/moccp/
+/Paint\ Materials/
+*.class
+*.pmz
+*.jar
+*.app
+*.tgz

@@ -59,19 +59,20 @@ public class MOCCPCurator {
 		htmlout.println("<style>");
 		htmlout.println("* { margin: 0; padding: 0; }");
 		htmlout.println("body { font-family: sans-serif; background: #eeeeee; }");
-		htmlout.println("article { max-width: 800px; margin: 50px auto 0; padding: 1px; background: #ffffff; }");
 		htmlout.println("h2 { margin: 16px 0; }");
 		htmlout.println("h3 { margin: 16px 0; }");
 		htmlout.println("ul { list-style: none; }");
-		htmlout.println(".appheader { position: fixed; top: 0; left: 0; right: 0; height: 50px; background: #990099; color: #ffffff; font-size: 1px; box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.5); z-index: 1; }");
+		htmlout.println(".appheader { position: fixed; z-index: 10000; top: 0; left: 0; right: 0; height: 50px; background: #990099; color: #ffffff; font-size: 1px; box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.5); }");
 		htmlout.println(".applogo { display: inline-block; font-weight: bold; font-size: 18px; margin: 0 8px; vertical-align: middle; }");
 		htmlout.println(".applogo span { display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border: 1px solid black; margin: 8px 2px; }");
 		htmlout.println("#m { background: #e00; } #o { background: #fd0; } #c1 { background: #0d0; } #c2 { background: #0df; } #p { background: #00e; }");
 		htmlout.println(".apptitle { display: inline-block; font-weight: normal; font-size: 12px; vertical-align: middle; }");
 		htmlout.println(".apptitle span { display: block; }");
-		htmlout.println(".search-container { position: fixed; top: 9px; left: 361px; right: 9px; height: 32px; line-height: 32px; z-index: 2; }");
+		htmlout.println(".search-container { position: fixed; z-index: 20000; top: 9px; left: 361px; right: 9px; height: 32px; line-height: 32px; }");
 		htmlout.println(".search-input { background: rgba(0,0,0,0.2); border: 1px solid black; box-sizing: border-box; color: #ffffff; font-family: sans-serif; font-size: 16px; font-weight: 300; line-height: 30px; height: 32px; width: 100%; padding: 0 6px; }");
-		htmlout.println(".palette { margin: 24px; padding: 24px; box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2); }");
+		htmlout.println(".content-container { position: fixed; top: 50px; left: 0; right: 0; bottom: 0; overflow: auto; }");
+		htmlout.println(".content { max-width: 800px; margin: 0 auto; padding: 1px; background: #ffffff; }");
+		htmlout.println(".palette { margin: 24px; padding: 24px; overflow: hidden; box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2); }");
 		htmlout.println(".moreinfo { margin-top: 16px; }");
 		htmlout.println(".swatch { display: inline-block; position: relative; top: 1px; width: 12px; height: 12px; border: solid 1px rgba(0, 0, 0, 0.6); }");
 		htmlout.println(".indices .swatch { margin: 2px; }");
@@ -80,7 +81,6 @@ public class MOCCPCurator {
 		htmlout.println("</style>");
 		htmlout.println("</head>");
 		htmlout.println("<body>");
-		htmlout.println("<article>");
 		htmlout.println("<h1 class=\"appheader\">");
 		htmlout.println("<span class=\"applogo\"><span id=\"m\">M</span><span id=\"o\">o</span><span id=\"c1\">C</span><span id=\"c2\">C</span><span id=\"p\">P</span></span>");
 		htmlout.println("<span class=\"apptitle\"><span>Museum of</span> <span>Computer &amp; Video Game</span> <span>Color Palettes</span></span>");
@@ -88,6 +88,8 @@ public class MOCCPCurator {
 		htmlout.println("<div class=\"search-container\">");
 		htmlout.println("<input type=\"text\" class=\"search-input\" placeholder=\"e.g. &quot;apple ii&quot;, &quot;commodore&quot;, &quot;web-safe&quot;, &quot;monochrome&quot;\">");
 		htmlout.println("</div>");
+		htmlout.println("<div class=\"content-container\">");
+		htmlout.println("<div class=\"content\">");
 		
 		MaterialLocator locator = new MaterialLocator("Kreative", "PowerPaint");
 		MaterialLoader loader = locator.getMaterialLoader();
@@ -239,7 +241,8 @@ public class MOCCPCurator {
 			}
 		}
 		
-		htmlout.println("</article>");
+		htmlout.println("</div>");
+		htmlout.println("</div>");
 		htmlout.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>");
 		htmlout.println("<script>");
 		htmlout.println("$(document).ready(function() {");
